@@ -126,7 +126,7 @@ function CapStatusCell({ proj }: {
       <PopoverTrigger asChild>
         <button
           className={cn(
-            "text-xs font-bold px-2.5 py-1 rounded cursor-default transition-colors",
+            "text-[10px] font-bold px-1.5 py-0.5 rounded cursor-default transition-colors",
             statusColor
           )}
           onMouseEnter={() => setIsHovering(true)}
@@ -199,7 +199,7 @@ function OptionSalaryCell({
         >
           <span
             className={cn(
-              "text-[9px] px-1 rounded font-semibold",
+              "text-[8px] px-0.5 rounded font-semibold",
               isDeclined
                 ? "bg-muted text-muted-foreground line-through"
                 : optionBgClass,
@@ -210,7 +210,7 @@ function OptionSalaryCell({
           </span>
           <span
             className={cn(
-              "text-sm font-mono tabular-nums",
+              "text-[12px] font-mono tabular-nums",
               isDeclined
                 ? "text-muted-foreground/50 line-through"
                 : isSaved
@@ -313,22 +313,22 @@ export function RosterTable() {
   })
 
   return (
-    <Card className="bg-card border-border">
-      <CardHeader className="pb-3">
+    <Card className="bg-card border-border text-[13px]">
+      <CardHeader className="pb-2 px-3 pt-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <CardTitle className="text-base font-medium">Roster & Contracts</CardTitle>
-            <Badge variant="secondary" className="text-xs">
+          <div className="flex items-center gap-3">
+            <CardTitle className="text-sm font-medium">Roster & Contracts</CardTitle>
+            <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
               {roster.length} players
             </Badge>
           </div>
-          <div className="flex items-center gap-4 text-xs">
-            <div className="flex items-center gap-1.5">
-              <div className="h-2.5 w-2.5 rounded-sm bg-primary" />
+          <div className="flex items-center gap-3 text-[10px]">
+            <div className="flex items-center gap-1">
+              <div className="h-2 w-2 rounded-sm bg-primary" />
               <span className="text-muted-foreground">Current</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <div className="h-2.5 w-2.5 rounded-sm bg-chart-2" />
+            <div className="flex items-center gap-1">
+              <div className="h-2 w-2 rounded-sm bg-chart-2" />
               <span className="text-muted-foreground">Saved</span>
             </div>
           </div>
@@ -339,18 +339,18 @@ export function RosterTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border bg-muted/30">
-                <th className="sticky left-0 bg-muted/30 px-4 py-2 text-left text-xs font-medium text-muted-foreground w-[200px]">
+                <th className="sticky left-0 bg-muted/30 px-3 py-1.5 text-left text-[11px] font-medium text-muted-foreground w-[160px]">
                   Player
                 </th>
                 {SEASONS.map((season) => (
                   <th
                     key={season}
-                    className="px-3 py-2 text-right text-xs font-medium text-muted-foreground w-[120px]"
+                    className="px-2 py-1.5 text-right text-[11px] font-medium text-muted-foreground w-[95px]"
                   >
                     {season}
                   </th>
                 ))}
-                <th className="px-2 py-2 text-center text-xs font-medium text-muted-foreground w-10">
+                <th className="px-1 py-1.5 text-center text-[11px] font-medium text-muted-foreground w-8">
                   
                 </th>
               </tr>
@@ -367,11 +367,11 @@ export function RosterTable() {
                       player.source === 'saved' && "bg-chart-2/5"
                     )}
                   >
-                    <td className="sticky left-0 bg-card px-4 py-2.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-medium text-sm">{player.name}</span>
+                    <td className="sticky left-0 bg-card px-3 py-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-medium text-[12px]">{player.name}</span>
                         {player.source === 'saved' && (
-                          <Badge variant="outline" className="text-[10px] px-1.5 py-0 text-chart-2 border-chart-2">
+                          <Badge variant="outline" className="text-[9px] px-1 py-0 text-chart-2 border-chart-2">
                             {'type' in player && player.type === 'extension' ? 'EXT' : 
                              'type' in player && player.type === 'trade' ? 'TRADE' : 'FA'}
                           </Badge>
@@ -386,8 +386,8 @@ export function RosterTable() {
 
                       if (!rawSalary) {
                         return (
-                          <td key={season} className="px-3 py-2.5 text-right">
-                            <span className="text-xs text-muted-foreground/30">—</span>
+                          <td key={season} className="px-2 py-1.5 text-right">
+                            <span className="text-[10px] text-muted-foreground/30">—</span>
                           </td>
                         )
                       }
@@ -395,7 +395,7 @@ export function RosterTable() {
                       // If there's an option, use the combined component
                       if (hasOption) {
                         return (
-                          <td key={season} className="px-3 py-2.5 text-right">
+                          <td key={season} className="px-2 py-1.5 text-right">
                             <OptionSalaryCell
                               playerId={player.id}
                               optionType={optionType}
@@ -417,10 +417,10 @@ export function RosterTable() {
 
                       // Regular salary without option - use gradient color
                       return (
-                        <td key={season} className="px-3 py-2.5 text-right">
+                        <td key={season} className="px-2 py-1.5 text-right">
                           <span
                             className={cn(
-                              "text-sm font-mono tabular-nums",
+                              "text-[12px] font-mono tabular-nums",
                               player.source === 'saved'
                                 ? "text-chart-2"
                                 : getSalaryColor(rawSalary)
@@ -431,11 +431,11 @@ export function RosterTable() {
                         </td>
                       )
                     })}
-                    <td className="px-2 py-2.5 text-center">
+                    <td className="px-1 py-1.5 text-center">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="sm" className="h-7 w-7 p-0">
-                            <MoreHorizontal className="h-4 w-4" />
+                          <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
+                            <MoreHorizontal className="h-3 w-3" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
@@ -458,37 +458,37 @@ export function RosterTable() {
               
               {/* Total Row */}
               <tr className="border-t-2 border-border bg-muted/40">
-                <td className="sticky left-0 bg-muted/40 px-4 py-3">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
+                <td className="sticky left-0 bg-muted/40 px-3 py-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
                 </td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
                   const totalColor = getTotalSalaryColor(proj.status)
                   return (
-                    <td key={season} className="px-3 py-3 text-right">
-                      <span className={cn("text-sm font-mono font-bold tabular-nums", totalColor)}>
+                    <td key={season} className="px-2 py-2 text-right">
+                      <span className={cn("text-[12px] font-mono font-bold tabular-nums", totalColor)}>
                         {formatCurrency(proj.total)}
                       </span>
                     </td>
                   )
                 })}
-                <td className="px-2 py-3"></td>
+                <td className="px-1 py-2"></td>
               </tr>
 
               {/* Cap Status Row */}
               <tr className="bg-muted/40">
-                <td className="sticky left-0 bg-muted/40 px-4 py-3">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
+                <td className="sticky left-0 bg-muted/40 px-3 py-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
                 </td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
                   return (
-                    <td key={season} className="px-3 py-3 text-right">
+                    <td key={season} className="px-2 py-2 text-right">
                       <CapStatusCell proj={proj} />
                     </td>
                   )
                 })}
-                <td className="px-2 py-3"></td>
+                <td className="px-1 py-2"></td>
               </tr>
             </tbody>
           </table>
