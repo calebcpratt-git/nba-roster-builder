@@ -18,8 +18,38 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { MoreHorizontal, FileText, Check, X, Info, AlertTriangle } from 'lucide-react'
+import { MoreHorizontal, FileText, Check, X, Info } from 'lucide-react'
 import { cn } from '@/lib/utils'
+
+type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
+
+function getCapStatus(total: number, thresholds: { type: string; value: number }[]): CapStatus {
+  const secondApron = thresholds.find((t) => t.type === 'second-apron')?.value || 0
+  const firstApron = thresholds.find((t) => t.type === 'first-apron')?.value || 0
+  const luxuryTax = thresholds.find((t) => t.type === 'luxury-tax')?.value || 0
+  const softCap = thresholds.find((t) => t.type === 'soft-cap')?.value || 0
+
+  if (total >= secondApron) return '2nd Apron'
+  if (total >= firstApron) return '1st Apron'
+  if (total >= luxuryTax) return 'Luxury Tax'
+  if (total >= softCap) return 'Over Cap'
+  return 'Below Cap'
+}
+
+function getCapStatusColor(status: CapStatus): string {
+  switch (status) {
+    case '2nd Apron':
+      return 'text-red-500 bg-red-500/10'
+    case '1st Apron':
+      return 'text-orange-500 bg-orange-500/10'
+    case 'Luxury Tax':
+      return 'text-amber-500 bg-amber-500/10'
+    case 'Over Cap':
+      return 'text-yellow-500 bg-yellow-500/10'
+    case 'Below Cap':
+      return 'text-emerald-500 bg-emerald-500/10'
+  }
+}
 
 export function RosterTable() {
   const {
@@ -50,11 +80,10 @@ export function RosterTable() {
     })),
   ]
 
-  // Calculate projections for the cap bars
   const projections = SEASONS.map((season) => {
     const { current, saved, total } = getTotalSalary(season)
     const thresholds = CAP_THRESHOLDS[season]
-    const violations = thresholds.filter((t) => total > t.value)
+    const status = getCapStatus(total, thresholds)
     
     return {
       season,
@@ -62,18 +91,9 @@ export function RosterTable() {
       saved,
       total,
       thresholds,
-      violations,
-      softCap: thresholds.find((t) => t.type === 'soft-cap')?.value || 0,
-      luxuryTax: thresholds.find((t) => t.type === 'luxury-tax')?.value || 0,
-      firstApron: thresholds.find((t) => t.type === 'first-apron')?.value || 0,
-      secondApron: thresholds.find((t) => t.type === 'second-apron')?.value || 0,
+      status,
     }
   })
-
-  const maxSalary = Math.max(
-    ...projections.map((p) => p.total),
-    ...projections.map((p) => p.secondApron)
-  ) * 1.1
 
   return (
     <Card className="bg-card border-border">
@@ -93,23 +113,6 @@ export function RosterTable() {
             <div className="flex items-center gap-1.5">
               <div className="h-2.5 w-2.5 rounded-sm bg-chart-2" />
               <span className="text-muted-foreground">Saved</span>
-            </div>
-            <div className="h-4 w-px bg-border" />
-            <div className="flex items-center gap-1.5">
-              <div className="h-0.5 w-3 bg-muted-foreground/60 rounded-full" />
-              <span className="text-muted-foreground">Cap</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="h-0.5 w-3 bg-warning rounded-full" />
-              <span className="text-muted-foreground">Tax</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="h-0.5 w-3 bg-orange-500 rounded-full" />
-              <span className="text-muted-foreground">1st</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="h-0.5 w-3 bg-destructive rounded-full" />
-              <span className="text-muted-foreground">2nd</span>
             </div>
           </div>
         </div>
@@ -311,139 +314,43 @@ export function RosterTable() {
                 <td className="px-2 py-2.5"></td>
               </tr>
 
-              {/* Cap Projection Bar Row */}
+              {/* Cap Status Row */}
               <tr className="bg-muted/10">
-                <td className="sticky left-0 bg-muted/10 px-4 py-4">
+                <td className="sticky left-0 bg-muted/10 px-4 py-3">
                   <span className="text-xs text-muted-foreground font-medium">Cap Status</span>
                 </td>
-                <td className="px-2 py-4"></td>
+                <td className="px-2 py-3"></td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
-                  const currentHeight = (proj.current / maxSalary) * 100
-                  const savedHeight = (proj.saved / maxSalary) * 100
-                  const softCapLine = (proj.softCap / maxSalary) * 100
-                  const taxLine = (proj.luxuryTax / maxSalary) * 100
-                  const apron1Line = (proj.firstApron / maxSalary) * 100
-                  const apron2Line = (proj.secondApron / maxSalary) * 100
-
-                  const hasViolation = proj.violations.length > 0
-                  const worstViolation = proj.violations[proj.violations.length - 1]
+                  const statusColor = getCapStatusColor(proj.status)
 
                   return (
-                    <td key={season} className="px-3 py-4">
+                    <td key={season} className="px-3 py-3 text-right">
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
-                            <div className="relative h-[100px] mx-auto max-w-[80px] group cursor-pointer">
-                              {/* Threshold markers */}
-                              <div
-                                className="absolute left-0 right-0 z-10 pointer-events-none"
-                                style={{ bottom: `${softCapLine}%` }}
-                              >
-                                <div className="h-[2px] bg-muted-foreground/60 rounded-full" />
-                              </div>
-                              <div
-                                className="absolute left-0 right-0 z-10 pointer-events-none"
-                                style={{ bottom: `${taxLine}%` }}
-                              >
-                                <div className="h-[2px] bg-warning rounded-full" />
-                              </div>
-                              <div
-                                className="absolute left-0 right-0 z-10 pointer-events-none"
-                                style={{ bottom: `${apron1Line}%` }}
-                              >
-                                <div className="h-[2px] bg-orange-500 rounded-full" />
-                              </div>
-                              <div
-                                className="absolute left-0 right-0 z-10 pointer-events-none"
-                                style={{ bottom: `${apron2Line}%` }}
-                              >
-                                <div className="h-[2px] bg-destructive rounded-full" />
-                              </div>
-
-                              {/* Stacked bars */}
-                              <div className="absolute bottom-0 left-1 right-1 flex flex-col">
-                                {proj.saved > 0 && (
-                                  <div
-                                    className="w-full bg-chart-2 rounded-t transition-all group-hover:brightness-110"
-                                    style={{ height: `${savedHeight}px` }}
-                                  />
-                                )}
-                                <div
-                                  className={cn(
-                                    "w-full bg-primary transition-all group-hover:brightness-110",
-                                    proj.saved === 0 && "rounded-t"
-                                  )}
-                                  style={{ height: `${currentHeight}px` }}
-                                />
-                              </div>
-
-                              {/* Violation badge */}
-                              {hasViolation && (
-                                <div className="absolute -top-5 left-1/2 -translate-x-1/2">
-                                  <Badge
-                                    variant="outline"
-                                    className={cn(
-                                      "text-[9px] px-1 py-0 whitespace-nowrap border",
-                                      worstViolation?.type === 'second-apron'
-                                        ? "border-destructive text-destructive bg-destructive/10"
-                                        : worstViolation?.type === 'first-apron'
-                                        ? "border-orange-500 text-orange-500 bg-orange-500/10"
-                                        : "border-warning text-warning bg-warning/10"
-                                    )}
-                                  >
-                                    <AlertTriangle className="h-2 w-2 mr-0.5" />
-                                    {worstViolation?.type === 'second-apron'
-                                      ? '2nd'
-                                      : worstViolation?.type === 'first-apron'
-                                      ? '1st'
-                                      : worstViolation?.type === 'luxury-tax'
-                                      ? 'Tax'
-                                      : 'Cap'}
-                                  </Badge>
-                                </div>
+                            <span
+                              className={cn(
+                                "text-xs font-semibold px-2 py-1 rounded-md cursor-default",
+                                statusColor
                               )}
-                            </div>
+                            >
+                              {proj.status}
+                            </span>
                           </TooltipTrigger>
                           <TooltipContent side="bottom" className="max-w-[220px]">
                             <p className="text-sm font-semibold mb-2">{proj.season}</p>
                             <div className="space-y-1.5 text-xs">
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">Total Salary:</span>
-                                <span className="font-mono font-medium">{formatCurrencyFull(proj.total)}</span>
+                                <span className="font-mono">{formatCurrencyFull(proj.total)}</span>
                               </div>
-                              <div className="flex justify-between">
-                                <span className="text-muted-foreground">Current Roster:</span>
-                                <span className="font-mono">{formatCurrencyFull(proj.current)}</span>
-                              </div>
-                              {proj.saved > 0 && (
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">Saved Contracts:</span>
-                                  <span className="font-mono text-chart-2">{formatCurrencyFull(proj.saved)}</span>
+                              {proj.thresholds.map((t) => (
+                                <div key={t.type} className="flex justify-between">
+                                  <span className="text-muted-foreground">{t.label}:</span>
+                                  <span className="font-mono">{formatCurrencyFull(t.value)}</span>
                                 </div>
-                              )}
-                              <div className="border-t border-border mt-2 pt-2 space-y-1">
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">Cap Space:</span>
-                                  <span className={cn(
-                                    "font-mono font-medium",
-                                    proj.total > proj.softCap ? "text-destructive" : "text-emerald-500"
-                                  )}>
-                                    {proj.total > proj.softCap ? '-' : '+'}{formatCurrencyFull(Math.abs(proj.softCap - proj.total))}
-                                  </span>
-                                </div>
-                              </div>
-                              {proj.violations.length > 0 && (
-                                <div className="border-t border-border mt-2 pt-2">
-                                  <p className="text-muted-foreground mb-1">Exceeded:</p>
-                                  {proj.violations.map((v) => (
-                                    <div key={v.type} className="flex justify-between text-destructive">
-                                      <span>{v.label}:</span>
-                                      <span className="font-mono">+{formatCurrencyFull(proj.total - v.value)}</span>
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
+                              ))}
                             </div>
                           </TooltipContent>
                         </Tooltip>
@@ -451,7 +358,7 @@ export function RosterTable() {
                     </td>
                   )
                 })}
-                <td className="px-2 py-4"></td>
+                <td className="px-2 py-3"></td>
               </tr>
             </tbody>
           </table>
