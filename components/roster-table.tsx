@@ -426,8 +426,10 @@ export function RosterTable() {
                         </div>
                       </td>
                       {SEASONS.map((season, index) => {
-                        // For display, always use the original salary value
-                        const displaySalary = player.salary[season] || 0
+                        // For display, use getDisplaySalary for current roster (includes extensions), direct salary for saved contracts
+                        const displaySalary = player.source === 'current' 
+                          ? getDisplaySalary(player as Player, season)
+                          : (player.salary[season] || 0)
                         // For cap calculations, use the effective salary (which returns 0 for declined options)
                         const effectiveSalary = player.source === 'current' 
                           ? getEffectiveSalary(player as Player, season)
@@ -439,11 +441,10 @@ export function RosterTable() {
                         
                         // Find the first year with no contract (considering effective salary which treats declined options as 0)
                         const firstEmptySeasonIndex = SEASONS.findIndex(s => {
-                          const salary = player.salary[s] || 0
-                          const effective = player.source === 'current' 
+                          const effectiveSal = player.source === 'current' 
                             ? getEffectiveSalary(player as Player, s)
-                            : salary
-                          return effective === 0
+                            : (player.salary[s] || 0)
+                          return effectiveSal === 0
                         })
                         
                         // Only show extend button on the first empty season
