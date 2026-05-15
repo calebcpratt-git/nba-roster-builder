@@ -1,30 +1,27 @@
 'use client'
 
-import { useRef, useState, useEffect, ReactNode } from 'react'
+import { useRef, useState, useLayoutEffect, ReactNode } from 'react'
 
 interface ScaledWrapperProps {
   scale: number
   children: ReactNode
-  className?: string
 }
 
-export function ScaledWrapper({ scale, children, className }: ScaledWrapperProps) {
+export function ScaledWrapper({ scale, children }: ScaledWrapperProps) {
   const innerRef = useRef<HTMLDivElement>(null)
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (innerRef.current) {
       const updateDimensions = () => {
         const rect = innerRef.current?.getBoundingClientRect()
         if (rect) {
-          // The getBoundingClientRect already returns the scaled dimensions
           setDimensions({ width: rect.width, height: rect.height })
         }
       }
       
       updateDimensions()
       
-      // Use ResizeObserver to handle dynamic content changes
       const resizeObserver = new ResizeObserver(updateDimensions)
       resizeObserver.observe(innerRef.current)
       
@@ -34,11 +31,11 @@ export function ScaledWrapper({ scale, children, className }: ScaledWrapperProps
 
   return (
     <div 
-      className={className}
       style={{ 
-        width: dimensions.width || 'auto', 
-        height: dimensions.height || 'auto',
+        width: dimensions?.width ?? 'auto', 
+        height: dimensions?.height ?? 'auto',
         flexShrink: 0,
+        overflow: 'hidden',
       }}
     >
       <div 
