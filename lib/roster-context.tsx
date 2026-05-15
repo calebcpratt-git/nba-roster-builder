@@ -58,6 +58,20 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       } else {
         // Add to declined set (option is declined)
         next.add(key)
+        
+        // If declining a team option, automatically decline all subsequent team options for this player
+        const currentSeasonIndex = SEASONS.indexOf(season)
+        const player = roster.find(p => p.id === playerId)
+        
+        if (player) {
+          // Check all future seasons for team options
+          for (let i = currentSeasonIndex + 1; i < SEASONS.length; i++) {
+            const futureSeasonKey = `declined-${playerId}-${SEASONS[i]}`
+            if (player.options[SEASONS[i]] === 'Team') {
+              next.add(futureSeasonKey)
+            }
+          }
+        }
       }
       return next
     })

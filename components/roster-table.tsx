@@ -19,7 +19,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
-import { MoreHorizontal, FileText, Check, X, Info } from 'lucide-react'
+import { MoreHorizontal, FileText, Check, X, Info, Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
