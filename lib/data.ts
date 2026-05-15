@@ -1,120 +1,19 @@
 import { Player, Season, CapThreshold } from './types'
-import playerDataCSV from '@/data/player-salaries.csv?raw'
+import { getTeamRoster as getTeamRosterFromData, ALL_TEAMS, TEAM_NAMES } from './player-data'
 
-// Parse currency string to number
-function parseCurrency(value: string): number {
-  if (!value || value.trim() === '') return 0
-  return Math.round(parseFloat(value.replace(/[$,]/g, '')) || 0)
-}
+// Re-export from player-data
+export { ALL_TEAMS, TEAM_NAMES }
 
-// Parse option value
-function parseOption(value: string): 'Player' | 'Team' | undefined {
-  const trimmed = value?.trim()
-  if (trimmed === 'Player') return 'Player'
-  if (trimmed === 'Team') return 'Team'
-  return undefined
-}
-
-// Parse the CSV data into Player objects
-export function parsePlayerData(): Player[] {
-  const lines = playerDataCSV.trim().split('\n')
-  const players: Player[] = []
-  const seenPlayers = new Set<string>()
-
-  // Skip header row
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i]
-    if (!line.trim()) continue
-
-    // Parse CSV properly handling quoted values
-    const values: string[] = []
-    let current = ''
-    let inQuotes = false
-    
-    for (const char of line) {
-      if (char === '"') {
-        inQuotes = !inQuotes
-      } else if (char === ',' && !inQuotes) {
-        values.push(current)
-        current = ''
-      } else {
-        current += char
-      }
-    }
-    values.push(current)
-
-    const name = values[0]?.trim()
-    const team = values[1]?.trim()
-    
-    if (!name || !team) continue
-    
-    // Create unique key for deduplication (some players appear multiple times)
-    const playerKey = `${name}-${team}`
-    if (seenPlayers.has(playerKey)) continue
-    seenPlayers.add(playerKey)
-
-    const salary: Partial<Record<Season, number>> = {}
-    const options: Partial<Record<Season, 'Player' | 'Team'>> = {}
-
-    // Column mapping:
-    // 2: 25-26 salary, 3: 25-26 option
-    // 4: 26-27 salary, 5: 26-27 option
-    // 6: 27-28 salary, 7: 27-28 option
-    // 8: 28-29 salary, 9: 28-29 option
-    // 10: 29-30 salary, 11: 29-30 option
-
-    const seasonColumns: [Season, number, number][] = [
-      ['2025-26', 2, 3],
-      ['2026-27', 4, 5],
-      ['2027-28', 6, 7],
-      ['2028-29', 8, 9],
-      ['2029-30', 10, 11],
-    ]
-
-    for (const [season, salaryCol, optionCol] of seasonColumns) {
-      const salaryValue = parseCurrency(values[salaryCol] || '')
-      if (salaryValue > 0) {
-        salary[season] = salaryValue
-      }
-      
-      const optionValue = parseOption(values[optionCol] || '')
-      if (optionValue) {
-        options[season] = optionValue
-      }
-    }
-
-    // Only add players with at least one season of salary data
-    if (Object.keys(salary).length > 0) {
-      players.push({
-        id: `player-${i}`,
-        name,
-        team,
-        salary,
-        options,
-      })
-    }
-  }
-
-  return players
-}
-
-// Get all players
-let allPlayersCache: Player[] | null = null
-export function getAllPlayers(): Player[] {
-  if (!allPlayersCache) {
-    allPlayersCache = parsePlayerData()
-  }
-  return allPlayersCache
-}
-
-// Get players for a specific team
+// Get players for a specific team (converts PlayerContract to Player format)
 export function getTeamRoster(teamAbbreviation: string): Player[] {
-  return getAllPlayers().filter(p => p.team === teamAbbreviation)
-}
-
-// Get all free agents (players without a contract for a specific season)
-export function getFreeAgents(season: Season): Player[] {
-  return getAllPlayers().filter(p => !p.salary[season])
+  const contracts = getTeamRosterFromData(teamAbbreviation)
+  return contracts.map((c, idx) => ({
+    id: c.id || `player-${idx}`,
+    name: c.name,
+    team: c.team,
+    salary: c.salary,
+    options: c.options,
+  }))
 }
 
 // Cap thresholds (placeholder values - user will provide real ones)
