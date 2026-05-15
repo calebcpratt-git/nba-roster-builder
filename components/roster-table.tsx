@@ -390,20 +390,22 @@ export function RosterTable() {
                         </div>
                       </td>
                       {SEASONS.map((season, index) => {
-                        // For current roster players, use getDisplaySalary to include extensions
-                        // For saved contracts (extensions), use the direct salary value
-                        const rawSalary = player.source === 'current' 
-                          ? getDisplaySalary(player as Player, season)
-                          : (player.salary[season] || 0)
+                        // For display, always use the original salary value
+                        const displaySalary = player.salary[season] || 0
+                        // For cap calculations, use the effective salary (which returns 0 for declined options)
+                        const effectiveSalary = player.source === 'current' 
+                          ? getEffectiveSalary(player as Player, season)
+                          : displaySalary
+                        
                         const optionType = player.options[season]
                         const hasOption = !!optionType
                         const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true
                         
                         // Check if this is the first empty season: no salary in current season, and all future seasons are empty
                         const hasSalaryInPreviousSeason = index > 0 && (player.salary[SEASONS[index - 1]] || 0) > 0
-                        const isFirstEmptySeason = isRosterPlayer && !rawSalary && hasSalaryInPreviousSeason && SEASONS.slice(index).every((s) => !player.salary[s])
+                        const isFirstEmptySeason = isRosterPlayer && !displaySalary && hasSalaryInPreviousSeason && SEASONS.slice(index).every((s) => !player.salary[s])
 
-                        if (!rawSalary) {
+                        if (!displaySalary) {
                           return (
                             <td key={season} className="px-2 py-1.5 text-right">
                               {isFirstEmptySeason ? (
@@ -427,7 +429,7 @@ export function RosterTable() {
                                 optionType={optionType}
                                 isExercised={optionExercised}
                                 season={season}
-                                salary={rawSalary}
+                                salary={displaySalary}
                                 isSaved={player.source === 'saved'}
                                 onToggle={(exercise) => {
                                   if (optionType === 'Team') {
@@ -459,10 +461,10 @@ export function RosterTable() {
                                   "text-[12px] font-mono tabular-nums",
                                   player.source === 'saved'
                                     ? "text-chart-2"
-                                    : getSalaryColor(rawSalary)
+                                    : getSalaryColor(displaySalary)
                                 )}
                               >
-                                {formatCurrency(rawSalary)}
+                                {formatCurrency(displaySalary)}
                               </span>
                             </div>
                           </td>
