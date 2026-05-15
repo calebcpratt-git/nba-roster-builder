@@ -66,59 +66,31 @@ function getTotalSalaryColor(status: CapStatus): string {
   }
 }
 
-function CapThresholdChart({ season, total, thresholds }: { 
+function CapThresholdPopup({ season, total, thresholds }: { 
   season: string
   total: number 
   thresholds: { name: string; value: number; type: string }[] 
 }) {
-  const maxValue = Math.max(...thresholds.map(t => t.value), total) * 1.05
-  
   const thresholdColors: Record<string, string> = {
-    'soft-cap': 'bg-emerald-500',
-    'luxury-tax': 'bg-amber-500',
-    'first-apron': 'bg-orange-500',
-    'second-apron': 'bg-red-500',
+    'soft-cap': 'text-emerald-500',
+    'luxury-tax': 'text-amber-500',
+    'first-apron': 'text-orange-500',
+    'second-apron': 'text-red-500',
   }
 
+  // Reverse order: Second Apron on top, Salary Cap at bottom
+  const orderedThresholds = [...thresholds].sort((a, b) => b.value - a.value)
+
   return (
-    <div className="w-[280px] p-3">
-      <p className="text-sm font-semibold mb-3">{season} Cap Thresholds</p>
-      <div className="relative h-40 flex items-end gap-1">
-        {/* Total salary bar */}
-        <div className="flex-1 flex flex-col items-center">
-          <div 
-            className="w-full bg-primary/80 rounded-t-sm relative"
-            style={{ height: `${(total / maxValue) * 100}%` }}
-          >
-            <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-mono whitespace-nowrap">
-              {formatCurrency(total)}
+    <div className="w-[200px] p-3">
+      <p className="text-xs font-semibold mb-2 text-muted-foreground">{season} Thresholds</p>
+      <div className="space-y-1.5">
+        {orderedThresholds.map((threshold) => (
+          <div key={threshold.type} className="flex justify-between text-xs">
+            <span className={thresholdColors[threshold.type]}>{threshold.name}</span>
+            <span className={cn("font-mono tabular-nums", thresholdColors[threshold.type])}>
+              {formatCurrency(threshold.value)}
             </span>
-          </div>
-          <span className="text-[9px] text-muted-foreground mt-1">Salary</span>
-        </div>
-        
-        {/* Threshold bars */}
-        {thresholds.map((threshold) => (
-          <div key={threshold.type} className="flex-1 flex flex-col items-center">
-            <div 
-              className={cn("w-full rounded-t-sm", thresholdColors[threshold.type])}
-              style={{ height: `${(threshold.value / maxValue) * 100}%` }}
-            />
-            <span className="text-[9px] text-muted-foreground mt-1 text-center leading-tight">
-              {threshold.type === 'soft-cap' ? 'Cap' : 
-               threshold.type === 'luxury-tax' ? 'Tax' :
-               threshold.type === 'first-apron' ? '1st' : '2nd'}
-            </span>
-          </div>
-        ))}
-      </div>
-      
-      {/* Legend */}
-      <div className="mt-3 pt-2 border-t border-border space-y-1">
-        {thresholds.map((threshold) => (
-          <div key={threshold.type} className="flex justify-between text-[10px]">
-            <span className="text-muted-foreground">{threshold.name}</span>
-            <span className="font-mono">{formatCurrency(threshold.value)}</span>
           </div>
         ))}
       </div>
@@ -467,7 +439,7 @@ export function RosterTable() {
                           </button>
                         </PopoverTrigger>
                         <PopoverContent side="top" align="center" className="p-0">
-                          <CapThresholdChart 
+                          <CapThresholdPopup 
                             season={proj.season}
                             total={proj.total} 
                             thresholds={proj.thresholds} 
