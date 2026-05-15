@@ -259,32 +259,81 @@ function OptionSalaryCell({
           {season} {optionType === 'Team' ? 'Team Option' : 'Player Option'}
         </p>
         <div className="flex gap-1">
-          <Button
-            size="sm"
-            variant={isExercised ? "default" : "outline"}
-            className="flex-1 h-7 text-xs"
-            disabled={isExercised}
-            onClick={() => {
-              onToggle(true)
-              setIsOpen(false)
-            }}
-          >
-            <Check className="h-3 w-3 mr-1" />
-            Exercise
-          </Button>
-          <Button
-            size="sm"
-            variant={!isExercised ? "destructive" : "outline"}
-            className="flex-1 h-7 text-xs"
-            disabled={!isExercised}
-            onClick={() => {
-              onToggle(false)
-              setIsOpen(false)
-            }}
-          >
-            <X className="h-3 w-3 mr-1" />
-            Decline
-          </Button>
+          {/* Determine if Exercise button should be disabled */}
+          {(() => {
+            // For team options, check if there's an earlier declined team option
+            if (optionType === 'Team' && !isExercised) {
+              const seasonIndex = SEASONS.indexOf(season)
+              const hasEarlierDeclinedTeamOption = SEASONS.slice(0, seasonIndex).some(s => {
+                const earlierOptionType = player.options[s]
+                if (earlierOptionType === 'Team') {
+                  const isEarlierExercised = isOptionExercised(player.id, s, 'Team') ?? true
+                  return !isEarlierExercised
+                }
+                return false
+              })
+              
+              return (
+                <>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 h-7 text-xs"
+                    disabled={hasEarlierDeclinedTeamOption}
+                    onClick={() => {
+                      onToggle(true)
+                      setIsOpen(false)
+                    }}
+                    title={hasEarlierDeclinedTeamOption ? "Must exercise earlier team option first" : ""}
+                  >
+                    <Check className="h-3 w-3 mr-1" />
+                    Exercise
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    className="flex-1 h-7 text-xs"
+                    disabled
+                  >
+                    <X className="h-3 w-3 mr-1" />
+                    Decline
+                  </Button>
+                </>
+              )
+            }
+            
+            // Default behavior for exercised options or player options
+            return (
+              <>
+                <Button
+                  size="sm"
+                  variant={isExercised ? "default" : "outline"}
+                  className="flex-1 h-7 text-xs"
+                  disabled={isExercised}
+                  onClick={() => {
+                    onToggle(true)
+                    setIsOpen(false)
+                  }}
+                >
+                  <Check className="h-3 w-3 mr-1" />
+                  Exercise
+                </Button>
+                <Button
+                  size="sm"
+                  variant={!isExercised ? "destructive" : "outline"}
+                  className="flex-1 h-7 text-xs"
+                  disabled={!isExercised}
+                  onClick={() => {
+                    onToggle(false)
+                    setIsOpen(false)
+                  }}
+                >
+                  <X className="h-3 w-3 mr-1" />
+                  Decline
+                </Button>
+              </>
+            )
+          })()}
         </div>
       </PopoverContent>
     </Popover>
