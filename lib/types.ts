@@ -1,12 +1,9 @@
 export interface Player {
   id: string
   name: string
-  position: string
-  jerseyNumber: number
-  salary: Record<string, number> // year -> salary
-  contractType: 'guaranteed' | 'non-guaranteed' | 'partially-guaranteed'
-  teamOption?: string // year the team option applies
-  playerOption?: string // year the player option applies
+  team: string
+  salary: Partial<Record<Season, number>>
+  options: Partial<Record<Season, 'Player' | 'Team'>>
   isUserCreated?: boolean
 }
 
@@ -15,7 +12,7 @@ export interface SavedContract {
   playerId: string
   playerName: string
   type: 'extension' | 'free-agent' | 'trade'
-  salary: Record<string, number>
+  salary: Partial<Record<Season, number>>
   createdAt: Date
   notes?: string
 }
@@ -49,3 +46,13 @@ export interface YearlyCapStatus {
 export type Season = '2025-26' | '2026-27' | '2027-28' | '2028-29' | '2029-30'
 
 export const SEASONS: Season[] = ['2025-26', '2026-27', '2027-28', '2028-29', '2029-30']
+
+export type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
+
+export const TEAM_ABBREVIATIONS = [
+  'ATL', 'BOS', 'BRK', 'CHO', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW',
+  'HOU', 'IND', 'LAC', 'LAL', 'MEM', 'MIA', 'MIL', 'MIN', 'NOP', 'NYK',
+  'OKC', 'ORL', 'PHI', 'PHO', 'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS'
+] as const
+
+export type TeamAbbreviation = typeof TEAM_ABBREVIATIONS[number]

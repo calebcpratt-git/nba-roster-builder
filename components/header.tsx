@@ -2,6 +2,7 @@
 
 import { useRoster } from '@/lib/roster-context'
 import { TEAMS } from '@/lib/data'
+import { TEAM_ABBREVIATIONS } from '@/lib/types'
 import {
   Select,
   SelectContent,
@@ -13,7 +14,7 @@ import { Button } from '@/components/ui/button'
 import { Plus, ArrowLeftRight, FileText } from 'lucide-react'
 
 export function Header() {
-  const { selectedTeam, setSelectedTeam } = useRoster()
+  const { selectedTeamAbbr, selectedTeam, setSelectedTeamAbbr } = useRoster()
 
   return (
     <header className="border-b border-border bg-card">
@@ -32,21 +33,21 @@ export function Header() {
           <div className="h-8 w-px bg-border" />
           
           <Select
-            value={selectedTeam.id}
-            onValueChange={(value) => {
-              const team = TEAMS.find((t) => t.id === value)
-              if (team) setSelectedTeam(team)
-            }}
+            value={selectedTeamAbbr}
+            onValueChange={(value) => setSelectedTeamAbbr(value)}
           >
             <SelectTrigger className="w-[220px] bg-secondary border-border">
               <SelectValue placeholder="Select team" />
             </SelectTrigger>
             <SelectContent>
-              {TEAMS.map((team) => (
-                <SelectItem key={team.id} value={team.id}>
-                  {team.city} {team.name}
-                </SelectItem>
-              ))}
+              {TEAM_ABBREVIATIONS.map((abbr) => {
+                const team = TEAMS[abbr]
+                return (
+                  <SelectItem key={abbr} value={abbr}>
+                    {team?.city} {team?.name}
+                  </SelectItem>
+                )
+              })}
             </SelectContent>
           </Select>
         </div>

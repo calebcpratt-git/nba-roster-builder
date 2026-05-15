@@ -1,7 +1,7 @@
 'use client'
 
 import { useRoster } from '@/lib/roster-context'
-import { SEASONS, Season } from '@/lib/types'
+import { SEASONS, Season, Player } from '@/lib/types'
 import { formatCurrency, formatCurrencyFull, CAP_THRESHOLDS } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -57,12 +57,9 @@ export function RosterTable() {
     savedContracts,
     getEffectiveSalary,
     getTotalSalary,
-    exercisedTeamOptions,
-    declinedPlayerOptions,
-    exerciseTeamOption,
-    declineTeamOption,
-    exercisePlayerOption,
-    declinePlayerOption,
+    toggleTeamOption,
+    togglePlayerOption,
+    isOptionExercised,
   } = useRoster()
 
   const allPlayers = [
@@ -70,10 +67,9 @@ export function RosterTable() {
     ...savedContracts.map((c) => ({
       id: c.id,
       name: c.playerName,
-      position: '-',
-      jerseyNumber: 0,
+      team: '',
       salary: c.salary,
-      contractType: 'guaranteed' as const,
+      options: {} as Partial<Record<Season, 'Player' | 'Team'>>,
       isUserCreated: true,
       source: 'saved' as const,
       type: c.type,
@@ -122,11 +118,8 @@ export function RosterTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border bg-muted/30">
-                <th className="sticky left-0 bg-muted/30 px-4 py-2 text-left text-xs font-medium text-muted-foreground w-[180px]">
+                <th className="sticky left-0 bg-muted/30 px-4 py-2 text-left text-xs font-medium text-muted-foreground w-[200px]">
                   Player
-                </th>
-                <th className="px-2 py-2 text-left text-xs font-medium text-muted-foreground w-[40px]">
-                  Pos
                 </th>
                 {SEASONS.map((season) => (
                   <th
@@ -144,8 +137,6 @@ export function RosterTable() {
             <tbody>
               {allPlayers.map((player) => {
                 const isCurrentRoster = player.source === 'current'
-                const hasTeamOption = isCurrentRoster && 'teamOption' in player && player.teamOption
-                const hasPlayerOption = isCurrentRoster && 'playerOption' in player && player.playerOption
 
                 return (
                   <tr
@@ -166,19 +157,15 @@ export function RosterTable() {
                         )}
                       </div>
                     </td>
-                    <td className="px-2 py-2.5 text-xs text-muted-foreground">
-                      {player.position}
-                    </td>
                     {SEASONS.map((season) => {
                       const salary = isCurrentRoster
-                        ? getEffectiveSalary(player as any, season)
+                        ? getEffectiveSalary(player as Player, season)
                         : player.salary[season] || 0
                       const rawSalary = player.salary[season] || 0
                       
-                      const isTeamOptionYear = hasTeamOption && player.teamOption === season
-                      const isPlayerOptionYear = hasPlayerOption && player.playerOption === season
-                      const isOptionExercised = isTeamOptionYear && exercisedTeamOptions.has(player.id)
-                      const isPlayerOptionDeclined = isPlayerOptionYear && declinedPlayerOptions.has(player.id)
+                      const optionType = player.options[season]
+                      const hasOption = !!optionType
+                      const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : null
 
                       if (!rawSalary && !salary) {
                         return (
@@ -206,34 +193,30 @@ export function RosterTable() {
                                   >
                                     {formatCurrency(salary || rawSalary)}
                                   </span>
-                                  {(isTeamOptionYear || isPlayerOptionYear) && (
+                                  {hasOption && (
                                     <span
                                       className={cn(
                                         "text-[9px] px-1 rounded font-medium",
-                                        isTeamOptionYear
-                                          ? isOptionExercised
+                                        optionType === 'Team'
+                                          ? optionExercised === true
                                             ? "bg-primary/20 text-primary"
-                                            : "bg-warning/20 text-warning"
-                                          : isPlayerOptionDeclined
-                                          ? "bg-muted text-muted-foreground"
-                                          : "bg-chart-2/20 text-chart-2"
+                                            : "bg-amber-500/20 text-amber-500"
+                                          : "bg-sky-500/20 text-sky-500"
                                       )}
                                     >
-                                      {isTeamOptionYear ? 'TO' : 'PO'}
+                                      {optionType === 'Team' ? 'TO' : 'PO'}
                                     </span>
                                   )}
                                 </div>
                               </TooltipTrigger>
                               <TooltipContent side="top" className="max-w-[200px]">
                                 <p className="font-mono text-xs">{formatCurrencyFull(rawSalary)}</p>
-                                {isTeamOptionYear && (
+                                {hasOption && (
                                   <p className="text-xs text-muted-foreground mt-1">
-                                    Team Option {isOptionExercised ? '(Exercised)' : '(Not Exercised)'}
-                                  </p>
-                                )}
-                                {isPlayerOptionYear && (
-                                  <p className="text-xs text-muted-foreground mt-1">
-                                    Player Option {isPlayerOptionDeclined ? '(Declined)' : '(Expected to Exercise)'}
+                                    {optionType === 'Team' ? 'Team Option' : 'Player Option'}
+                                    {optionType === 'Team' && (
+                                      <span> {optionExercised === true ? '(Exercised)' : '(Not Exercised)'}</span>
+                                    )}
                                   </p>
                                 )}
                               </TooltipContent>
@@ -256,36 +239,33 @@ export function RosterTable() {
                               Create Extension
                             </DropdownMenuItem>
                           )}
-                          {hasTeamOption && (
-                            <>
-                              {exercisedTeamOptions.has(player.id) ? (
-                                <DropdownMenuItem onClick={() => declineTeamOption(player.id)}>
+                          {isCurrentRoster && SEASONS.map((season) => {
+                            const optionType = player.options[season]
+                            if (!optionType) return null
+                            
+                            const exercised = isOptionExercised(player.id, season, optionType)
+                            
+                            if (optionType === 'Team') {
+                              return exercised === true ? (
+                                <DropdownMenuItem key={season} onClick={() => toggleTeamOption(player.id, season, false)}>
                                   <X className="h-4 w-4 mr-2" />
-                                  Decline Team Option
+                                  Decline {season} Team Option
                                 </DropdownMenuItem>
                               ) : (
-                                <DropdownMenuItem onClick={() => exerciseTeamOption(player.id)}>
+                                <DropdownMenuItem key={season} onClick={() => toggleTeamOption(player.id, season, true)}>
                                   <Check className="h-4 w-4 mr-2" />
-                                  Exercise Team Option
+                                  Exercise {season} Team Option
                                 </DropdownMenuItem>
-                              )}
-                            </>
-                          )}
-                          {hasPlayerOption && (
-                            <>
-                              {declinedPlayerOptions.has(player.id) ? (
-                                <DropdownMenuItem onClick={() => exercisePlayerOption(player.id)}>
-                                  <Check className="h-4 w-4 mr-2" />
-                                  Player Exercises Option
-                                </DropdownMenuItem>
-                              ) : (
-                                <DropdownMenuItem onClick={() => declinePlayerOption(player.id)}>
-                                  <X className="h-4 w-4 mr-2" />
-                                  Player Declines Option
-                                </DropdownMenuItem>
-                              )}
-                            </>
-                          )}
+                              )
+                            }
+                            
+                            return (
+                              <DropdownMenuItem key={season} onClick={() => togglePlayerOption(player.id, season, exercised !== true)}>
+                                {exercised !== true ? <X className="h-4 w-4 mr-2" /> : <Check className="h-4 w-4 mr-2" />}
+                                {exercised !== true ? `Player Declines ${season} Option` : `Player Exercises ${season} Option`}
+                              </DropdownMenuItem>
+                            )
+                          })}
                           <DropdownMenuItem>
                             <Info className="h-4 w-4 mr-2" />
                             View Details
@@ -302,7 +282,6 @@ export function RosterTable() {
                 <td className="sticky left-0 bg-muted/40 px-4 py-3">
                   <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
                 </td>
-                <td className="px-2 py-3"></td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
                   return (
@@ -319,7 +298,6 @@ export function RosterTable() {
                 <td className="sticky left-0 bg-muted/40 px-4 py-3">
                   <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
                 </td>
-                <td className="px-2 py-3"></td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
                   const statusColor = getCapStatusColor(proj.status)
@@ -347,7 +325,7 @@ export function RosterTable() {
                               </div>
                               {proj.thresholds.map((t) => (
                                 <div key={t.type} className="flex justify-between">
-                                  <span className="text-muted-foreground">{t.label}:</span>
+                                  <span className="text-muted-foreground">{t.name}:</span>
                                   <span className="font-mono">{formatCurrencyFull(t.value)}</span>
                                 </div>
                               ))}

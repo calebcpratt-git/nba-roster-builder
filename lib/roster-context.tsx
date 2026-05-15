@@ -1,40 +1,39 @@
 'use client'
 
-import { useState, createContext, useContext, ReactNode } from 'react'
-import { Player, SavedContract, Team, Season, SEASONS } from './types'
-import { SAMPLE_ROSTER, TEAMS } from './data'
+import { useState, createContext, useContext, ReactNode, useMemo } from 'react'
+import { Player, SavedContract, Season, SEASONS } from './types'
+import { getTeamRoster, TEAMS } from './data'
 
 interface RosterState {
-  selectedTeam: Team
+  selectedTeamAbbr: string
   roster: Player[]
   savedContracts: SavedContract[]
-  selectedSeason: Season
-  exercisedTeamOptions: Set<string>
-  declinedPlayerOptions: Set<string>
+  exercisedTeamOptions: Set<string> // player-id-season keys
+  exercisedPlayerOptions: Set<string> // player-id-season keys (declined = not in set)
 }
 
 interface RosterContextType extends RosterState {
-  setSelectedTeam: (team: Team) => void
-  setSelectedSeason: (season: Season) => void
+  selectedTeam: { name: string; city: string; primaryColor: string; secondaryColor: string }
+  setSelectedTeamAbbr: (abbr: string) => void
   addSavedContract: (contract: SavedContract) => void
   removeSavedContract: (id: string) => void
-  exerciseTeamOption: (playerId: string) => void
-  declineTeamOption: (playerId: string) => void
-  exercisePlayerOption: (playerId: string) => void
-  declinePlayerOption: (playerId: string) => void
+  toggleTeamOption: (playerId: string, season: Season, exercise: boolean) => void
+  togglePlayerOption: (playerId: string, season: Season, exercise: boolean) => void
   getEffectiveSalary: (player: Player, season: Season) => number
+  isOptionExercised: (playerId: string, season: Season, optionType: 'Team' | 'Player') => boolean | null
   getTotalSalary: (season: Season) => { current: number; saved: number; total: number }
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
 
 export function RosterProvider({ children }: { children: ReactNode }) {
-  const [selectedTeam, setSelectedTeam] = useState<Team>(TEAMS[0])
-  const [roster, setRoster] = useState<Player[]>(SAMPLE_ROSTER)
+  const [selectedTeamAbbr, setSelectedTeamAbbr] = useState<string>('BOS')
   const [savedContracts, setSavedContracts] = useState<SavedContract[]>([])
-  const [selectedSeason, setSelectedSeason] = useState<Season>('2024-25')
   const [exercisedTeamOptions, setExercisedTeamOptions] = useState<Set<string>>(new Set())
-  const [declinedPlayerOptions, setDeclinedPlayerOptions] = useState<Set<string>>(new Set())
+  const [exercisedPlayerOptions, setExercisedPlayerOptions] = useState<Set<string>>(new Set())
+
+  const roster = useMemo(() => getTeamRoster(selectedTeamAbbr), [selectedTeamAbbr])
+  const selectedTeam = TEAMS[selectedTeamAbbr] || { name: 'Unknown', city: 'Unknown', primaryColor: '#000', secondaryColor: '#fff' }
 
   const addSavedContract = (contract: SavedContract) => {
     setSavedContracts((prev) => [...prev, contract])
@@ -44,42 +43,64 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     setSavedContracts((prev) => prev.filter((c) => c.id !== id))
   }
 
-  const exerciseTeamOption = (playerId: string) => {
-    setExercisedTeamOptions((prev) => new Set(prev).add(playerId))
-  }
-
-  const declineTeamOption = (playerId: string) => {
+  const toggleTeamOption = (playerId: string, season: Season, exercise: boolean) => {
+    const key = `${playerId}-${season}`
     setExercisedTeamOptions((prev) => {
       const next = new Set(prev)
-      next.delete(playerId)
+      if (exercise) {
+        next.add(key)
+      } else {
+        next.delete(key)
+      }
       return next
     })
   }
 
-  const exercisePlayerOption = (playerId: string) => {
-    setDeclinedPlayerOptions((prev) => {
+  const togglePlayerOption = (playerId: string, season: Season, exercise: boolean) => {
+    const key = `${playerId}-${season}`
+    setExercisedPlayerOptions((prev) => {
       const next = new Set(prev)
-      next.delete(playerId)
+      if (exercise) {
+        next.add(key)
+      } else {
+        next.delete(key)
+      }
       return next
     })
   }
 
-  const declinePlayerOption = (playerId: string) => {
-    setDeclinedPlayerOptions((prev) => new Set(prev).add(playerId))
+  // Returns true if exercised, false if declined, null if no decision yet
+  const isOptionExercised = (playerId: string, season: Season, optionType: 'Team' | 'Player'): boolean | null => {
+    const key = `${playerId}-${season}`
+    if (optionType === 'Team') {
+      if (exercisedTeamOptions.has(key)) return true
+      // Check if explicitly declined (we track exercises, so absence means pending or declined)
+      return null
+    } else {
+      if (exercisedPlayerOptions.has(key)) return true
+      return null
+    }
   }
 
   const getEffectiveSalary = (player: Player, season: Season): number => {
     const salary = player.salary[season]
     if (!salary) return 0
 
-    // Check team option
-    if (player.teamOption === season && !exercisedTeamOptions.has(player.id)) {
-      return 0
-    }
+    const optionType = player.options[season]
+    if (!optionType) return salary
 
-    // Check player option
-    if (player.playerOption === season && declinedPlayerOptions.has(player.id)) {
-      return 0
+    const key = `${player.id}-${season}`
+    
+    // Team option: default is NOT exercised (player becomes free agent)
+    if (optionType === 'Team') {
+      return exercisedTeamOptions.has(key) ? salary : 0
+    }
+    
+    // Player option: default is exercised (player keeps the money)
+    if (optionType === 'Player') {
+      // If explicitly marked as declined, return 0
+      // Otherwise assume exercised (player keeps the salary)
+      return exercisedPlayerOptions.has(`declined-${key}`) ? 0 : salary
     }
 
     return salary
@@ -99,21 +120,19 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   return (
     <RosterContext.Provider
       value={{
+        selectedTeamAbbr,
         selectedTeam,
         roster,
         savedContracts,
-        selectedSeason,
         exercisedTeamOptions,
-        declinedPlayerOptions,
-        setSelectedTeam,
-        setSelectedSeason,
+        exercisedPlayerOptions,
+        setSelectedTeamAbbr,
         addSavedContract,
         removeSavedContract,
-        exerciseTeamOption,
-        declineTeamOption,
-        exercisePlayerOption,
-        declinePlayerOption,
+        toggleTeamOption,
+        togglePlayerOption,
         getEffectiveSalary,
+        isOptionExercised,
         getTotalSalary,
       }}
     >
