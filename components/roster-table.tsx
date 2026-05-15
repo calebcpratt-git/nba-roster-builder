@@ -162,6 +162,8 @@ function OptionSalaryCell({
   season,
   salary,
   isSaved,
+  player,
+  onExtend,
 }: { 
   playerId: string
   optionType: 'Team' | 'Player'
@@ -170,6 +172,8 @@ function OptionSalaryCell({
   season: Season
   salary: number
   isSaved: boolean
+  player: Player
+  onExtend: (player: Player) => void
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
@@ -221,6 +225,18 @@ function OptionSalaryCell({
           >
             {formatCurrency(salary)}
           </span>
+          {isDeclined && !isSaved && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                onExtend(player)
+              }}
+              className="text-emerald-500 hover:text-emerald-600 transition-colors"
+              title="Extend player"
+            >
+              <Plus className="h-4 w-4" />
+            </button>
+          )}
         </button>
       </PopoverTrigger>
       <PopoverContent 
@@ -431,6 +447,8 @@ export function RosterTable() {
                                 season={season}
                                 salary={displaySalary}
                                 isSaved={player.source === 'saved'}
+                                player={player as Player}
+                                onExtend={(p) => setExtensionModal({ player: p, isOpen: true })}
                                 onToggle={(exercise) => {
                                   if (optionType === 'Team') {
                                     toggleTeamOption(player.id, season, exercise)
