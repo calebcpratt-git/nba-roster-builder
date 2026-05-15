@@ -11,13 +11,13 @@ export default function Home() {
         <Header />
         
         <main className="px-4 py-6">
-          <div className="flex items-start gap-4">
-            {/* Main Content - Roster Table */}
-            <div className="shrink-0">
+          <div className="flex items-start gap-4 w-full">
+            {/* Left Column - Roster Table - 50% width */}
+            <div className="flex-1 min-w-0">
               <RosterTable />
             </div>
 
-            {/* Right Column - Extend Players and Saved Contracts */}
+            {/* Right Column - Extend Players and Saved Contracts - 50% width */}
             <div className="flex-1 min-w-0 space-y-4">
               <ExtendPlayersPanel />
               <SavedContractsPanel />
