@@ -43,42 +43,45 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     setSavedContracts((prev) => prev.filter((c) => c.id !== id))
   }
 
+  // exercise = true means keep the salary, false means decline (salary becomes 0)
   const toggleTeamOption = (playerId: string, season: Season, exercise: boolean) => {
-    const key = `${playerId}-${season}`
+    const key = `declined-${playerId}-${season}`
     setExercisedTeamOptions((prev) => {
       const next = new Set(prev)
       if (exercise) {
-        next.add(key)
-      } else {
+        // Remove from declined set (option is exercised)
         next.delete(key)
+      } else {
+        // Add to declined set (option is declined)
+        next.add(key)
       }
       return next
     })
   }
 
   const togglePlayerOption = (playerId: string, season: Season, exercise: boolean) => {
-    const key = `${playerId}-${season}`
+    const key = `declined-${playerId}-${season}`
     setExercisedPlayerOptions((prev) => {
       const next = new Set(prev)
       if (exercise) {
-        next.add(key)
-      } else {
+        // Remove from declined set (player exercises option)
         next.delete(key)
+      } else {
+        // Add to declined set (player declines option)
+        next.add(key)
       }
       return next
     })
   }
 
-  // Returns true if exercised, false if declined, null if no decision yet
-  const isOptionExercised = (playerId: string, season: Season, optionType: 'Team' | 'Player'): boolean | null => {
-    const key = `${playerId}-${season}`
+  // Returns true if exercised (default), false if explicitly declined
+  const isOptionExercised = (playerId: string, season: Season, optionType: 'Team' | 'Player'): boolean => {
+    const key = `declined-${playerId}-${season}`
     if (optionType === 'Team') {
-      if (exercisedTeamOptions.has(key)) return true
-      // Check if explicitly declined (we track exercises, so absence means pending or declined)
-      return null
+      // Default is exercised, so return false only if in declined set
+      return !exercisedTeamOptions.has(key)
     } else {
-      if (exercisedPlayerOptions.has(key)) return true
-      return null
+      return !exercisedPlayerOptions.has(key)
     }
   }
 
@@ -91,15 +94,15 @@ export function RosterProvider({ children }: { children: ReactNode }) {
 
     const key = `${player.id}-${season}`
     
-    // Team option: default is NOT exercised (player becomes free agent)
+    // Both Team and Player options default to EXERCISED
+    // User can explicitly decline by adding to the declined set
     if (optionType === 'Team') {
-      return exercisedTeamOptions.has(key) ? salary : 0
+      // Check if explicitly declined
+      return exercisedTeamOptions.has(`declined-${key}`) ? 0 : salary
     }
     
-    // Player option: default is exercised (player keeps the money)
     if (optionType === 'Player') {
-      // If explicitly marked as declined, return 0
-      // Otherwise assume exercised (player keeps the salary)
+      // Check if explicitly declined
       return exercisedPlayerOptions.has(`declined-${key}`) ? 0 : salary
     }
 

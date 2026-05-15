@@ -7,11 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -49,6 +48,139 @@ function getCapStatusColor(status: CapStatus): string {
     case 'Below Cap':
       return 'text-emerald-500 bg-emerald-500/10'
   }
+}
+
+function getTotalSalaryColor(status: CapStatus): string {
+  switch (status) {
+    case '2nd Apron':
+      return 'text-red-500'
+    case '1st Apron':
+      return 'text-orange-500'
+    case 'Luxury Tax':
+      return 'text-amber-500'
+    case 'Over Cap':
+      return 'text-yellow-500'
+    case 'Below Cap':
+      return 'text-emerald-500'
+  }
+}
+
+function CapThresholdChart({ season, total, thresholds }: { 
+  season: string
+  total: number 
+  thresholds: { name: string; value: number; type: string }[] 
+}) {
+  const maxValue = Math.max(...thresholds.map(t => t.value), total) * 1.05
+  
+  const thresholdColors: Record<string, string> = {
+    'soft-cap': 'bg-emerald-500',
+    'luxury-tax': 'bg-amber-500',
+    'first-apron': 'bg-orange-500',
+    'second-apron': 'bg-red-500',
+  }
+
+  return (
+    <div className="w-[280px] p-3">
+      <p className="text-sm font-semibold mb-3">{season} Cap Thresholds</p>
+      <div className="relative h-40 flex items-end gap-1">
+        {/* Total salary bar */}
+        <div className="flex-1 flex flex-col items-center">
+          <div 
+            className="w-full bg-primary/80 rounded-t-sm relative"
+            style={{ height: `${(total / maxValue) * 100}%` }}
+          >
+            <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-mono whitespace-nowrap">
+              {formatCurrency(total)}
+            </span>
+          </div>
+          <span className="text-[9px] text-muted-foreground mt-1">Salary</span>
+        </div>
+        
+        {/* Threshold bars */}
+        {thresholds.map((threshold) => (
+          <div key={threshold.type} className="flex-1 flex flex-col items-center">
+            <div 
+              className={cn("w-full rounded-t-sm", thresholdColors[threshold.type])}
+              style={{ height: `${(threshold.value / maxValue) * 100}%` }}
+            />
+            <span className="text-[9px] text-muted-foreground mt-1 text-center leading-tight">
+              {threshold.type === 'soft-cap' ? 'Cap' : 
+               threshold.type === 'luxury-tax' ? 'Tax' :
+               threshold.type === 'first-apron' ? '1st' : '2nd'}
+            </span>
+          </div>
+        ))}
+      </div>
+      
+      {/* Legend */}
+      <div className="mt-3 pt-2 border-t border-border space-y-1">
+        {thresholds.map((threshold) => (
+          <div key={threshold.type} className="flex justify-between text-[10px]">
+            <span className="text-muted-foreground">{threshold.name}</span>
+            <span className="font-mono">{formatCurrency(threshold.value)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function OptionPopover({ 
+  optionType, 
+  isExercised, 
+  onToggle,
+  season,
+}: { 
+  optionType: 'Team' | 'Player'
+  isExercised: boolean
+  onToggle: (exercise: boolean) => void
+  season: Season
+}) {
+  const label = optionType === 'Team' ? 'TO' : 'PO'
+  
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <button
+          className={cn(
+            "text-[9px] px-1 rounded font-semibold cursor-pointer transition-colors",
+            isExercised
+              ? optionType === 'Team'
+                ? "bg-amber-500/20 text-amber-500 hover:bg-amber-500/30"
+                : "bg-sky-500/20 text-sky-500 hover:bg-sky-500/30"
+              : "bg-muted text-muted-foreground line-through hover:bg-muted/80"
+          )}
+        >
+          {label}
+        </button>
+      </PopoverTrigger>
+      <PopoverContent className="w-48 p-2" side="top" align="center">
+        <p className="text-xs font-medium mb-2">
+          {season} {optionType === 'Team' ? 'Team Option' : 'Player Option'}
+        </p>
+        <div className="flex gap-1">
+          <Button
+            size="sm"
+            variant={isExercised ? "default" : "outline"}
+            className="flex-1 h-7 text-xs"
+            onClick={() => onToggle(true)}
+          >
+            <Check className="h-3 w-3 mr-1" />
+            Exercise
+          </Button>
+          <Button
+            size="sm"
+            variant={!isExercised ? "destructive" : "outline"}
+            className="flex-1 h-7 text-xs"
+            onClick={() => onToggle(false)}
+          >
+            <X className="h-3 w-3 mr-1" />
+            Decline
+          </Button>
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
 }
 
 export function RosterTable() {
@@ -158,16 +290,17 @@ export function RosterTable() {
                       </div>
                     </td>
                     {SEASONS.map((season) => {
-                      const salary = isCurrentRoster
+                      const effectiveSalary = isCurrentRoster
                         ? getEffectiveSalary(player as Player, season)
                         : player.salary[season] || 0
                       const rawSalary = player.salary[season] || 0
                       
                       const optionType = player.options[season]
                       const hasOption = !!optionType
-                      const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : null
+                      const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true
+                      const isDeclined = hasOption && !optionExercised
 
-                      if (!rawSalary && !salary) {
+                      if (!rawSalary) {
                         return (
                           <td key={season} className="px-3 py-2.5 text-right">
                             <span className="text-xs text-muted-foreground/30">—</span>
@@ -177,51 +310,34 @@ export function RosterTable() {
 
                       return (
                         <td key={season} className="px-3 py-2.5 text-right">
-                          <TooltipProvider>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <div className="inline-flex items-center gap-1">
-                                  <span
-                                    className={cn(
-                                      "text-sm font-mono",
-                                      salary === 0 && rawSalary > 0
-                                        ? "text-muted-foreground/50 line-through"
-                                        : player.source === 'saved'
-                                        ? "text-chart-2"
-                                        : "text-foreground"
-                                    )}
-                                  >
-                                    {formatCurrency(salary || rawSalary)}
-                                  </span>
-                                  {hasOption && (
-                                    <span
-                                      className={cn(
-                                        "text-[9px] px-1 rounded font-medium",
-                                        optionType === 'Team'
-                                          ? optionExercised === true
-                                            ? "bg-primary/20 text-primary"
-                                            : "bg-amber-500/20 text-amber-500"
-                                          : "bg-sky-500/20 text-sky-500"
-                                      )}
-                                    >
-                                      {optionType === 'Team' ? 'TO' : 'PO'}
-                                    </span>
-                                  )}
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent side="top" className="max-w-[200px]">
-                                <p className="font-mono text-xs">{formatCurrencyFull(rawSalary)}</p>
-                                {hasOption && (
-                                  <p className="text-xs text-muted-foreground mt-1">
-                                    {optionType === 'Team' ? 'Team Option' : 'Player Option'}
-                                    {optionType === 'Team' && (
-                                      <span> {optionExercised === true ? '(Exercised)' : '(Not Exercised)'}</span>
-                                    )}
-                                  </p>
-                                )}
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
+                          <div className="inline-flex items-center gap-1.5">
+                            {hasOption && (
+                              <OptionPopover
+                                optionType={optionType}
+                                isExercised={optionExercised}
+                                season={season}
+                                onToggle={(exercise) => {
+                                  if (optionType === 'Team') {
+                                    toggleTeamOption(player.id, season, exercise)
+                                  } else {
+                                    togglePlayerOption(player.id, season, exercise)
+                                  }
+                                }}
+                              />
+                            )}
+                            <span
+                              className={cn(
+                                "text-sm font-mono tabular-nums",
+                                isDeclined
+                                  ? "text-muted-foreground/50 line-through"
+                                  : player.source === 'saved'
+                                  ? "text-chart-2"
+                                  : "text-foreground"
+                              )}
+                            >
+                              {formatCurrency(rawSalary)}
+                            </span>
+                          </div>
                         </td>
                       )
                     })}
@@ -239,33 +355,6 @@ export function RosterTable() {
                               Create Extension
                             </DropdownMenuItem>
                           )}
-                          {isCurrentRoster && SEASONS.map((season) => {
-                            const optionType = player.options[season]
-                            if (!optionType) return null
-                            
-                            const exercised = isOptionExercised(player.id, season, optionType)
-                            
-                            if (optionType === 'Team') {
-                              return exercised === true ? (
-                                <DropdownMenuItem key={season} onClick={() => toggleTeamOption(player.id, season, false)}>
-                                  <X className="h-4 w-4 mr-2" />
-                                  Decline {season} Team Option
-                                </DropdownMenuItem>
-                              ) : (
-                                <DropdownMenuItem key={season} onClick={() => toggleTeamOption(player.id, season, true)}>
-                                  <Check className="h-4 w-4 mr-2" />
-                                  Exercise {season} Team Option
-                                </DropdownMenuItem>
-                              )
-                            }
-                            
-                            return (
-                              <DropdownMenuItem key={season} onClick={() => togglePlayerOption(player.id, season, exercised !== true)}>
-                                {exercised !== true ? <X className="h-4 w-4 mr-2" /> : <Check className="h-4 w-4 mr-2" />}
-                                {exercised !== true ? `Player Declines ${season} Option` : `Player Exercises ${season} Option`}
-                              </DropdownMenuItem>
-                            )
-                          })}
                           <DropdownMenuItem>
                             <Info className="h-4 w-4 mr-2" />
                             View Details
@@ -284,9 +373,12 @@ export function RosterTable() {
                 </td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
+                  const totalColor = getTotalSalaryColor(proj.status)
                   return (
                     <td key={season} className="px-3 py-3 text-right">
-                      <span className="text-sm font-mono font-bold">{formatCurrency(proj.total)}</span>
+                      <span className={cn("text-sm font-mono font-bold tabular-nums", totalColor)}>
+                        {formatCurrency(proj.total)}
+                      </span>
                     </td>
                   )
                 })}
@@ -304,35 +396,25 @@ export function RosterTable() {
 
                   return (
                     <td key={season} className="px-3 py-3 text-right">
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <span
-                              className={cn(
-                                "text-xs font-bold px-2.5 py-1 rounded cursor-default",
-                                statusColor
-                              )}
-                            >
-                              {proj.status}
-                            </span>
-                          </TooltipTrigger>
-                          <TooltipContent side="bottom" className="max-w-[220px]">
-                            <p className="text-sm font-semibold mb-2">{proj.season}</p>
-                            <div className="space-y-1.5 text-xs">
-                              <div className="flex justify-between">
-                                <span className="text-muted-foreground">Total Salary:</span>
-                                <span className="font-mono">{formatCurrencyFull(proj.total)}</span>
-                              </div>
-                              {proj.thresholds.map((t) => (
-                                <div key={t.type} className="flex justify-between">
-                                  <span className="text-muted-foreground">{t.name}:</span>
-                                  <span className="font-mono">{formatCurrencyFull(t.value)}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <button
+                            className={cn(
+                              "text-xs font-bold px-2.5 py-1 rounded cursor-pointer transition-colors hover:ring-2 hover:ring-primary/30",
+                              statusColor
+                            )}
+                          >
+                            {proj.status}
+                          </button>
+                        </PopoverTrigger>
+                        <PopoverContent side="top" align="center" className="p-0">
+                          <CapThresholdChart 
+                            season={proj.season}
+                            total={proj.total} 
+                            thresholds={proj.thresholds} 
+                          />
+                        </PopoverContent>
+                      </Popover>
                     </td>
                   )
                 })}
