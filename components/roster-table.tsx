@@ -298,26 +298,26 @@ export function RosterTable() {
               })}
               
               {/* Total Row */}
-              <tr className="border-b border-border bg-muted/20">
-                <td className="sticky left-0 bg-muted/20 px-4 py-2.5">
-                  <span className="font-semibold text-sm">Total Salary</span>
+              <tr className="border-t-2 border-border bg-muted/40">
+                <td className="sticky left-0 bg-muted/40 px-4 py-3">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
                 </td>
-                <td className="px-2 py-2.5"></td>
+                <td className="px-2 py-3"></td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
                   return (
-                    <td key={season} className="px-3 py-2.5 text-right">
-                      <span className="text-sm font-mono font-semibold">{formatCurrency(proj.total)}</span>
+                    <td key={season} className="px-3 py-3 text-right">
+                      <span className="text-sm font-mono font-bold">{formatCurrency(proj.total)}</span>
                     </td>
                   )
                 })}
-                <td className="px-2 py-2.5"></td>
+                <td className="px-2 py-3"></td>
               </tr>
 
               {/* Cap Status Row */}
-              <tr className="bg-muted/10">
-                <td className="sticky left-0 bg-muted/10 px-4 py-3">
-                  <span className="text-xs text-muted-foreground font-medium">Cap Status</span>
+              <tr className="bg-muted/40">
+                <td className="sticky left-0 bg-muted/40 px-4 py-3">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
                 </td>
                 <td className="px-2 py-3"></td>
                 {SEASONS.map((season) => {
@@ -331,7 +331,7 @@ export function RosterTable() {
                           <TooltipTrigger asChild>
                             <span
                               className={cn(
-                                "text-xs font-semibold px-2 py-1 rounded-md cursor-default",
+                                "text-xs font-bold px-2.5 py-1 rounded cursor-default",
                                 statusColor
                               )}
                             >
