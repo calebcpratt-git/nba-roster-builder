@@ -10,14 +10,16 @@ export default function Home() {
         <Header />
         
         <main className="px-4 py-6">
-          <div className="flex items-start">
-            {/* Main Content - Roster Table with integrated Cap Bars */}
-            <div className="origin-top-left scale-[0.85]" style={{ width: 'fit-content' }}>
-              <RosterTable />
+          <div className="flex items-start gap-4">
+            {/* Main Content - Roster Table with integrated Cap Bars, wrapped to handle scale */}
+            <div className="shrink-0" style={{ width: 'calc(1020px * 0.85)', height: 'fit-content' }}>
+              <div className="origin-top-left scale-[0.85]">
+                <RosterTable />
+              </div>
             </div>
 
-            {/* Right Column - Saved Contracts - positioned with negative margin to account for scale */}
-            <div className="flex-1 min-w-0 -ml-[15%]">
+            {/* Right Column - Saved Contracts */}
+            <div className="flex-1 min-w-0">
               <SavedContractsPanel />
             </div>
           </div>
