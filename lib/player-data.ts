@@ -578,14 +578,8 @@ export const TEAM_NAMES: Record<string, string> = {
   'WAS': 'Washington Wizards',
 }
 
-// Get all unique team codes
-export function getAllTeams(): string[] {
-  const teams = new Set<string>()
-  for (const player of RAW_PLAYER_DATA) {
-    teams.add(player.team)
-  }
-  return Array.from(teams).sort()
-}
+// All team codes
+export const ALL_TEAMS = Object.keys(TEAM_NAMES).filter(code => code !== 'CHO').sort()
 
 // Get roster for a specific team
 export function getTeamRoster(teamCode: string): RawPlayerData[] {
