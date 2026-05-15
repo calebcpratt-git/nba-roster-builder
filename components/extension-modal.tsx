@@ -111,10 +111,11 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
   const handleSave = () => {
     addSavedContract({
       id: `ext-${player.id}-${Date.now()}`,
+      playerId: player.id,
       playerName: player.name,
-      playerTeam: player.team,
       type: 'extension',
       salary: salaries,
+      createdAt: new Date(),
     })
 
     setYears('3')
