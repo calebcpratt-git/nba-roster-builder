@@ -338,6 +338,7 @@ function OptionSalaryCell({
         </button>
       )}
     </div>
+  )
 }
 
 export function RosterTable() {
