@@ -278,6 +278,7 @@ export function RosterTable() {
     roster,
     savedContracts,
     getEffectiveSalary,
+    getDisplaySalary,
     getTotalSalary,
     toggleTeamOption,
     togglePlayerOption,
@@ -387,7 +388,11 @@ export function RosterTable() {
                         </div>
                       </td>
                       {SEASONS.map((season, index) => {
-                        const rawSalary = player.salary[season] || 0
+                        // For current roster players, use getDisplaySalary to include extensions
+                        // For saved contracts (extensions), use the direct salary value
+                        const rawSalary = player.source === 'current' 
+                          ? getDisplaySalary(player as Player, season)
+                          : (player.salary[season] || 0)
                         const optionType = player.options[season]
                         const hasOption = !!optionType
                         const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true

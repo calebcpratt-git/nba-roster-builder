@@ -22,6 +22,7 @@ interface RosterContextType extends RosterState {
   getEffectiveSalary: (player: Player, season: Season) => number
   isOptionExercised: (playerId: string, season: Season, optionType: 'Team' | 'Player') => boolean | null
   getTotalSalary: (season: Season) => { current: number; saved: number; total: number }
+  getDisplaySalary: (player: Player, season: Season) => number
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
@@ -120,6 +121,21 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  // Get the displayed salary for a player, including any extensions
+  const getDisplaySalary = (player: Player, season: Season): number => {
+    // First check if there's an extension for this player in this season
+    const extensionForPlayer = savedContracts.find(
+      (contract) => contract.type === 'extension' && contract.playerId === player.id
+    )
+    
+    if (extensionForPlayer && extensionForPlayer.salary[season]) {
+      return extensionForPlayer.salary[season]
+    }
+    
+    // Otherwise use the effective salary from the original contract
+    return getEffectiveSalary(player, season)
+  }
+
   return (
     <RosterContext.Provider
       value={{
@@ -137,6 +153,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         getEffectiveSalary,
         isOptionExercised,
         getTotalSalary,
+        getDisplaySalary,
       }}
     >
       {children}
