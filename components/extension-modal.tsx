@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -23,9 +24,34 @@ interface ExtensionModalProps {
   onClose: () => void
 }
 
+type DistributionType = 'flat' | 'escalating' | 'declining'
+
+const DISTRIBUTION_OPTIONS: Record<
+  DistributionType,
+  { label: string; description: string }
+> = {
+  flat: {
+    label: 'Flat',
+    description:
+      'The same salary every year. Rare in practice since the CBA allows annual raises, and most players want them.',
+  },
+  escalating: {
+    label: 'Escalating',
+    description:
+      'Salary increases each year. The standard structure. The CBA allows raises of up to 8% per year for players re-signing with their own team (Bird rights) and up to 5% for players signing with a new team. Most max contracts follow this pattern.',
+  },
+  declining: {
+    label: 'Declining',
+    description:
+      'Salary decreases each year. Teams use this strategically to push money into earlier years when a player has more value, or to create more cap flexibility in the final years of a deal. Declining salaries can\'t drop by more than 4.5–5% per year under CBA rules. The Damian Lillard extension with the Bucks was a notable recent example.',
+  },
+}
+
 export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps) {
   const { addSavedContract } = useRoster()
-  const [salaries, setSalaries] = useState<Record<Season, string>>({} as Record<Season, string>)
+  const [years, setYears] = useState('3')
+  const [totalValue, setTotalValue] = useState('')
+  const [distribution, setDistribution] = useState<DistributionType>('escalating')
 
   if (!player) return null
 
@@ -35,37 +61,69 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
 
   // Get remaining seasons starting from first empty
   const startIndex = SEASONS.indexOf(firstEmptySeason)
-  const remainingSeasons = SEASONS.slice(startIndex)
+  const maxYears = SEASONS.length - startIndex
+  const numYears = Math.min(parseInt(years) || 3, maxYears)
+  const contractSeasons = SEASONS.slice(startIndex, startIndex + numYears)
+  const totalValueNum = parseFloat(totalValue) || 0
 
-  const handleSalaryChange = (season: Season, value: string) => {
-    setSalaries((prev) => ({
-      ...prev,
-      [season]: value,
-    }))
+  const calculateSalaries = (): Record<Season, number> => {
+    const result: Record<Season, number> = {} as Record<Season, number>
+    if (totalValueNum <= 0 || contractSeasons.length === 0) return result
+
+    const totalInDollars = totalValueNum * 1000000
+
+    if (distribution === 'flat') {
+      const yearSalary = totalInDollars / contractSeasons.length
+      contractSeasons.forEach((season) => {
+        result[season] = yearSalary
+      })
+    } else if (distribution === 'escalating') {
+      // Escalating: find salary such that sum with 5% raises equals total
+      // S + S*1.05 + S*1.05^2 + ... = Total
+      // S * (1 - 1.05^n) / (1 - 1.05) = Total
+      const n = contractSeasons.length
+      const rate = 1.05
+      const divisor = (1 - Math.pow(rate, n)) / (1 - rate)
+      const firstYearSalary = totalInDollars / divisor
+
+      contractSeasons.forEach((season, index) => {
+        result[season] = firstYearSalary * Math.pow(rate, index)
+      })
+    } else if (distribution === 'declining') {
+      // Declining: find salary such that sum with 5% declines equals total
+      // S + S*0.95 + S*0.95^2 + ... = Total
+      const n = contractSeasons.length
+      const rate = 0.95
+      const divisor = (1 - Math.pow(rate, n)) / (1 - rate)
+      const firstYearSalary = totalInDollars / divisor
+
+      contractSeasons.forEach((season, index) => {
+        result[season] = firstYearSalary * Math.pow(rate, index)
+      })
+    }
+
+    return result
   }
 
-  const handleSave = () => {
-    const salaryRecord: Record<Season, number> = {} as Record<Season, number>
-    remainingSeasons.forEach((season) => {
-      const value = parseFloat(salaries[season] || '0')
-      if (value > 0) {
-        salaryRecord[season] = value * 1000000 // Convert to full amount
-      }
-    })
+  const salaries = calculateSalaries()
+  const totalCalculated = Object.values(salaries).reduce((a, b) => a + b, 0)
 
+  const handleSave = () => {
     addSavedContract({
       id: `ext-${player.id}-${Date.now()}`,
       playerName: player.name,
       playerTeam: player.team,
       type: 'extension',
-      salary: salaryRecord,
+      salary: salaries,
     })
 
-    setSalaries({} as Record<Season, string>)
+    setYears('3')
+    setTotalValue('')
+    setDistribution('escalating')
     onClose()
   }
 
-  const isValid = remainingSeasons.some((s) => salaries[s] && parseFloat(salaries[s]) > 0)
+  const isValid = totalValueNum > 0 && numYears > 0
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -77,29 +135,74 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-3">
-          {remainingSeasons.map((season) => (
-            <div key={season} className="flex items-end gap-3">
-              <div className="flex-1">
-                <Label htmlFor={`salary-${season}`} className="text-xs">
-                  {season} Salary (Millions)
-                </Label>
-                <Input
-                  id={`salary-${season}`}
-                  type="number"
-                  placeholder="0"
-                  value={salaries[season] || ''}
-                  onChange={(e) => handleSalaryChange(season, e.target.value)}
-                  className="h-8 text-sm"
-                />
-              </div>
-              {salaries[season] && (
-                <span className="text-xs text-muted-foreground">
-                  {formatCurrency(parseFloat(salaries[season]) * 1000000)}
-                </span>
-              )}
+        <div className="space-y-4">
+          {/* Years and Total Value */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label htmlFor="years" className="text-xs">
+                Years
+              </Label>
+              <Input
+                id="years"
+                type="number"
+                min="1"
+                max={maxYears}
+                value={years}
+                onChange={(e) => setYears(e.target.value)}
+                className="h-8 text-sm"
+              />
             </div>
-          ))}
+            <div>
+              <Label htmlFor="total-value" className="text-xs">
+                Total Value (Millions)
+              </Label>
+              <Input
+                id="total-value"
+                type="number"
+                placeholder="0"
+                value={totalValue}
+                onChange={(e) => setTotalValue(e.target.value)}
+                className="h-8 text-sm"
+              />
+            </div>
+          </div>
+
+          {/* Distribution Type */}
+          <div>
+            <Label className="text-xs font-medium mb-2 block">Contract Structure</Label>
+            <RadioGroup value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
+              {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
+                ([key, { label, description }]) => (
+                  <div key={key} className="flex items-start gap-3 mb-3 p-2.5 rounded border border-border/50 hover:border-border hover:bg-muted/20 transition-colors cursor-pointer">
+                    <RadioGroupItem value={key} id={`dist-${key}`} className="mt-0.5" />
+                    <label htmlFor={`dist-${key}`} className="flex-1 cursor-pointer">
+                      <div className="font-medium text-sm">{label}</div>
+                      <p className="text-xs text-muted-foreground mt-0.5">{description}</p>
+                    </label>
+                  </div>
+                )
+              )}
+            </RadioGroup>
+          </div>
+
+          {/* Preview */}
+          {isValid && (
+            <div className="bg-muted/30 rounded p-2.5">
+              <p className="text-xs font-medium mb-1.5">Contract Preview</p>
+              <div className="space-y-1">
+                {contractSeasons.map((season) => (
+                  <div key={season} className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">{season}</span>
+                    <span className="font-mono">{formatCurrency(salaries[season])}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-border mt-1.5 pt-1.5 flex justify-between text-xs font-medium">
+                <span>Total</span>
+                <span className="font-mono">{formatCurrency(totalCalculated)}</span>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="flex gap-2 pt-4">
