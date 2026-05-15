@@ -165,6 +165,7 @@ function OptionSalaryCell({
   player,
   isFirstEmpty,
   onExtend,
+  isOptionExercisedFn,
 }: { 
   playerId: string
   optionType: 'Team' | 'Player'
@@ -176,6 +177,7 @@ function OptionSalaryCell({
   player: Player
   isFirstEmpty: boolean
   onExtend: (player: Player) => void
+  isOptionExercisedFn: (playerId: string, season: Season, optionType: 'Team' | 'Player') => boolean
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
@@ -196,148 +198,146 @@ function OptionSalaryCell({
   const salaryColorClass = getSalaryColor(salary)
 
   return (
-    <Popover open={isOpen || isHovering} onOpenChange={setIsOpen}>
-      <PopoverTrigger asChild>
-        <button
-          className="inline-flex items-center gap-1.5 cursor-pointer rounded px-1 -mx-1 transition-colors hover:bg-muted/50"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-          onClick={() => setIsOpen(true)}
-        >
-          <span
-            className={cn(
-              "text-[8px] px-0.5 rounded font-semibold",
-              isDeclined
-                ? "bg-muted text-muted-foreground line-through"
-                : optionBgClass,
-              !isDeclined && optionTextColorClass
-            )}
+    <div className="inline-flex items-center gap-1">
+      <Popover open={isOpen || isHovering} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
+          <button
+            className="inline-flex items-center gap-1.5 cursor-pointer rounded px-1 -mx-1 transition-colors hover:bg-muted/50"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+            onClick={() => setIsOpen(true)}
           >
-            {label}
-          </span>
-          <span
-            className={cn(
-              "text-[12px] font-mono tabular-nums",
-              isDeclined
-                ? "text-muted-foreground/50 line-through"
-                : isSaved
-                ? "text-chart-2"
-                : salaryColorClass
-            )}
-          >
-            {formatCurrency(salary)}
-          </span>
-          {isDeclined && !isSaved && isFirstEmpty && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                onExtend(player)
-              }}
-              className="text-emerald-500 hover:text-emerald-600 transition-colors"
-              title="Extend player"
+            <span
+              className={cn(
+                "text-[8px] px-0.5 rounded font-semibold",
+                isDeclined
+                  ? "bg-muted text-muted-foreground line-through"
+                  : optionBgClass,
+                !isDeclined && optionTextColorClass
+              )}
             >
-              <Plus className="h-4 w-4" />
-            </button>
-          )}
-        </button>
-      </PopoverTrigger>
-      <PopoverContent 
-        className="w-48 p-2" 
-        side="top" 
-        align="center"
-        sideOffset={0}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => {
-          setIsHovering(false)
-        }}
-        onInteractOutside={() => {
-          setIsOpen(false)
-          setIsHovering(false)
-        }}
-      >
-        <p className="text-xs font-medium mb-2">
-          {season} {optionType === 'Team' ? 'Team Option' : 'Player Option'}
-        </p>
-        <div className="flex gap-1">
-          {/* Determine if Exercise button should be disabled */}
-          {(() => {
-            // For team options, check if there's an earlier declined team option
-            if (optionType === 'Team' && !isExercised) {
-              const seasonIndex = SEASONS.indexOf(season)
-              const hasEarlierDeclinedTeamOption = SEASONS.slice(0, seasonIndex).some(s => {
-                const earlierOptionType = player.options[s]
-                if (earlierOptionType === 'Team') {
-                  const isEarlierExercised = isOptionExercised(player.id, s, 'Team') ?? true
-                  return !isEarlierExercised
-                }
-                return false
-              })
+              {label}
+            </span>
+            <span
+              className={cn(
+                "text-[12px] font-mono tabular-nums",
+                isDeclined
+                  ? "text-muted-foreground/50 line-through"
+                  : isSaved
+                  ? "text-chart-2"
+                  : salaryColorClass
+              )}
+            >
+              {formatCurrency(salary)}
+            </span>
+          </button>
+        </PopoverTrigger>
+        <PopoverContent 
+          className="w-48 p-2" 
+          side="top" 
+          align="center"
+          sideOffset={0}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => {
+            setIsHovering(false)
+          }}
+          onInteractOutside={() => {
+            setIsOpen(false)
+            setIsHovering(false)
+          }}
+        >
+          <p className="text-xs font-medium mb-2">
+            {season} {optionType === 'Team' ? 'Team Option' : 'Player Option'}
+          </p>
+          <div className="flex gap-1">
+            {/* Determine if Exercise button should be disabled */}
+            {(() => {
+              // For team options, check if there's an earlier declined team option
+              if (optionType === 'Team' && !isExercised) {
+                const seasonIndex = SEASONS.indexOf(season)
+                const hasEarlierDeclinedTeamOption = SEASONS.slice(0, seasonIndex).some(s => {
+                  const earlierOptionType = player.options[s]
+                  if (earlierOptionType === 'Team') {
+                    const isEarlierExercised = isOptionExercisedFn(player.id, s, 'Team')
+                    return !isEarlierExercised
+                  }
+                  return false
+                })
+                
+                return (
+                  <>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="flex-1 h-7 text-xs"
+                      disabled={hasEarlierDeclinedTeamOption}
+                      onClick={() => {
+                        onToggle(true)
+                        setIsOpen(false)
+                      }}
+                      title={hasEarlierDeclinedTeamOption ? "Must exercise earlier team option first" : ""}
+                    >
+                      <Check className="h-3 w-3 mr-1" />
+                      Exercise
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      className="flex-1 h-7 text-xs"
+                      disabled
+                    >
+                      <X className="h-3 w-3 mr-1" />
+                      Decline
+                    </Button>
+                  </>
+                )
+              }
               
+              // Default behavior for exercised options or player options
               return (
                 <>
                   <Button
                     size="sm"
-                    variant="outline"
+                    variant={isExercised ? "default" : "outline"}
                     className="flex-1 h-7 text-xs"
-                    disabled={hasEarlierDeclinedTeamOption}
+                    disabled={isExercised}
                     onClick={() => {
                       onToggle(true)
                       setIsOpen(false)
                     }}
-                    title={hasEarlierDeclinedTeamOption ? "Must exercise earlier team option first" : ""}
                   >
                     <Check className="h-3 w-3 mr-1" />
                     Exercise
                   </Button>
                   <Button
                     size="sm"
-                    variant="destructive"
+                    variant={!isExercised ? "destructive" : "outline"}
                     className="flex-1 h-7 text-xs"
-                    disabled
+                    disabled={!isExercised}
+                    onClick={() => {
+                      onToggle(false)
+                      setIsOpen(false)
+                    }}
                   >
                     <X className="h-3 w-3 mr-1" />
                     Decline
                   </Button>
                 </>
               )
-            }
-            
-            // Default behavior for exercised options or player options
-            return (
-              <>
-                <Button
-                  size="sm"
-                  variant={isExercised ? "default" : "outline"}
-                  className="flex-1 h-7 text-xs"
-                  disabled={isExercised}
-                  onClick={() => {
-                    onToggle(true)
-                    setIsOpen(false)
-                  }}
-                >
-                  <Check className="h-3 w-3 mr-1" />
-                  Exercise
-                </Button>
-                <Button
-                  size="sm"
-                  variant={!isExercised ? "destructive" : "outline"}
-                  className="flex-1 h-7 text-xs"
-                  disabled={!isExercised}
-                  onClick={() => {
-                    onToggle(false)
-                    setIsOpen(false)
-                  }}
-                >
-                  <X className="h-3 w-3 mr-1" />
-                  Decline
-                </Button>
-              </>
-            )
-          })()}
-        </div>
-      </PopoverContent>
-    </Popover>
-  )
+            })()}
+          </div>
+        </PopoverContent>
+      </Popover>
+      {isDeclined && !isSaved && isFirstEmpty && (
+        <button
+          onClick={() => onExtend(player)}
+          className="text-emerald-500 hover:text-emerald-600 transition-colors"
+          title="Extend player"
+        >
+          <Plus className="h-4 w-4" />
+        </button>
+      )}
+    </div>
 }
 
 export function RosterTable() {
@@ -509,6 +509,7 @@ export function RosterTable() {
                                 player={player as Player}
                                 isFirstEmpty={shouldShowExtendButton}
                                 onExtend={(p) => setExtensionModal({ player: p, isOpen: true })}
+                                isOptionExercisedFn={isOptionExercised}
                                 onToggle={(exercise) => {
                                   if (optionType === 'Team') {
                                     toggleTeamOption(player.id, season, exercise)
