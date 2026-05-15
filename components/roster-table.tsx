@@ -163,6 +163,7 @@ function OptionSalaryCell({
   salary,
   isSaved,
   player,
+  isFirstEmpty,
   onExtend,
 }: { 
   playerId: string
@@ -173,6 +174,7 @@ function OptionSalaryCell({
   salary: number
   isSaved: boolean
   player: Player
+  isFirstEmpty: boolean
   onExtend: (player: Player) => void
 }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -225,7 +227,7 @@ function OptionSalaryCell({
           >
             {formatCurrency(salary)}
           </span>
-          {isDeclined && !isSaved && (
+          {isDeclined && !isSaved && isFirstEmpty && (
             <button
               onClick={(e) => {
                 e.stopPropagation()
@@ -417,14 +419,22 @@ export function RosterTable() {
                         const hasOption = !!optionType
                         const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true
                         
-                        // Check if this is the first empty season: no salary in current season, and all future seasons are empty
-                        const hasSalaryInPreviousSeason = index > 0 && (player.salary[SEASONS[index - 1]] || 0) > 0
-                        const isFirstEmptySeason = isRosterPlayer && !displaySalary && hasSalaryInPreviousSeason && SEASONS.slice(index).every((s) => !player.salary[s])
+                        // Find the first year with no contract (considering effective salary which treats declined options as 0)
+                        const firstEmptySeasonIndex = SEASONS.findIndex(s => {
+                          const salary = player.salary[s] || 0
+                          const effective = player.source === 'current' 
+                            ? getEffectiveSalary(player as Player, s)
+                            : salary
+                          return effective === 0
+                        })
+                        
+                        // Only show extend button on the first empty season
+                        const shouldShowExtendButton = isRosterPlayer && firstEmptySeasonIndex === index && firstEmptySeasonIndex !== -1
 
                         if (!displaySalary) {
                           return (
                             <td key={season} className="px-2 py-1.5 text-right">
-                              {isFirstEmptySeason ? (
+                              {shouldShowExtendButton ? (
                                 <ExtendButton
                                   player={player as Player}
                                   onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true })}
@@ -448,6 +458,7 @@ export function RosterTable() {
                                 salary={displaySalary}
                                 isSaved={player.source === 'saved'}
                                 player={player as Player}
+                                isFirstEmpty={shouldShowExtendButton}
                                 onExtend={(p) => setExtensionModal({ player: p, isOpen: true })}
                                 onToggle={(exercise) => {
                                   if (optionType === 'Team') {
