@@ -213,6 +213,7 @@ function OptionSalaryCell({
             size="sm"
             variant={isExercised ? "default" : "outline"}
             className="flex-1 h-7 text-xs"
+            disabled={isExercised}
             onClick={() => {
               onToggle(true)
               setIsOpen(false)
@@ -225,6 +226,7 @@ function OptionSalaryCell({
             size="sm"
             variant={!isExercised ? "destructive" : "outline"}
             className="flex-1 h-7 text-xs"
+            disabled={!isExercised}
             onClick={() => {
               onToggle(false)
               setIsOpen(false)
