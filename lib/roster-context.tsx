@@ -23,6 +23,8 @@ interface RosterContextType extends RosterState {
   isOptionExercised: (playerId: string, season: Season, optionType: 'Team' | 'Player') => boolean | null
   getTotalSalary: (season: Season) => { current: number; saved: number; total: number }
   getDisplaySalary: (player: Player, season: Season) => number
+  setDeletedContractIds: (ids: Set<string>) => void
+  deletedContractIds: Set<string>
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
@@ -32,6 +34,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   const [savedContracts, setSavedContracts] = useState<SavedContract[]>([])
   const [exercisedTeamOptions, setExercisedTeamOptions] = useState<Set<string>>(new Set())
   const [exercisedPlayerOptions, setExercisedPlayerOptions] = useState<Set<string>>(new Set())
+  const [deletedContractIds, setDeletedContractIds] = useState<Set<string>>(new Set())
 
   const roster = useMemo(() => getTeamRoster(selectedTeamAbbr), [selectedTeamAbbr])
   const selectedTeam = TEAMS[selectedTeamAbbr] || { name: 'Unknown', city: 'Unknown', primaryColor: '#000', secondaryColor: '#fff' }
@@ -121,11 +124,11 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  // Get the displayed salary for a player, including any extensions
+  // Get the displayed salary for a player, including any extensions (but excluding deleted ones)
   const getDisplaySalary = (player: Player, season: Season): number => {
     // First check if there's an extension for this player in this season
     const extensionForPlayer = savedContracts.find(
-      (contract) => contract.type === 'extension' && contract.playerId === player.id
+      (contract) => contract.type === 'extension' && contract.playerId === player.id && !deletedContractIds.has(contract.id)
     )
     
     if (extensionForPlayer && extensionForPlayer.salary[season]) {
@@ -154,6 +157,8 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         isOptionExercised,
         getTotalSalary,
         getDisplaySalary,
+        setDeletedContractIds,
+        deletedContractIds,
       }}
     >
       {children}

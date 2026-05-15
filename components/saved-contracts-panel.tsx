@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { X, FileText, ArrowLeftRight, UserPlus, RotateCcw, Trash2 } from 'lucide-react'
 
 export function SavedContractsPanel() {
-  const { savedContracts, removeSavedContract } = useRoster()
+  const { savedContracts, removeSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
   const [deletingContractId, setDeletingContractId] = useState<string | null>(null)
 
   const totalValue = savedContracts.reduce((sum, contract) => {
@@ -58,10 +58,14 @@ export function SavedContractsPanel() {
             const avgSalary = totalSalary / years
 
             return (
-              <div
-                key={contract.id}
-                className="flex items-center justify-between p-3 rounded-lg bg-chart-2/5 border border-chart-2/20"
-              >
+            <div
+              key={contract.id}
+              className={`flex items-center justify-between p-3 rounded-lg border transition-opacity ${
+                deletedContractIds.has(contract.id)
+                  ? 'bg-muted/20 border-muted/20 opacity-50'
+                  : 'bg-chart-2/5 border-chart-2/20'
+              }`}
+            >
                 <div className="flex items-center gap-3">
                   <div
                     className={`h-8 w-8 rounded-full flex items-center justify-center ${
@@ -93,7 +97,13 @@ export function SavedContractsPanel() {
                       variant="ghost"
                       size="sm"
                       className="h-7 w-7 p-0 text-muted-foreground hover:text-primary"
-                      onClick={() => setDeletingContractId(null)}
+                      onClick={() => {
+                        // Undo: remove from deleted set
+                        const newDeleted = new Set(deletedContractIds)
+                        newDeleted.delete(contract.id)
+                        setDeletedContractIds(newDeleted)
+                        setDeletingContractId(null)
+                      }}
                       title="Undo"
                     >
                       <RotateCcw className="h-4 w-4" />
@@ -116,7 +126,13 @@ export function SavedContractsPanel() {
                     variant="ghost"
                     size="sm"
                     className="h-7 w-7 p-0 text-muted-foreground hover:text-destructive"
-                    onClick={() => setDeletingContractId(contract.id)}
+                    onClick={() => {
+                      // Mark as deleted in the set
+                      const newDeleted = new Set(deletedContractIds)
+                      newDeleted.add(contract.id)
+                      setDeletedContractIds(newDeleted)
+                      setDeletingContractId(contract.id)
+                    }}
                   >
                     <X className="h-4 w-4" />
                   </Button>
