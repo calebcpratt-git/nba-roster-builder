@@ -34,14 +34,8 @@ export const TEAMS: Team[] = [
   { id: 'sas', name: 'Spurs', abbreviation: 'SAS', city: 'San Antonio', conference: 'Western', division: 'Southwest', primaryColor: '#C4CED4', secondaryColor: '#000000' },
 ]
 
-// Cap thresholds for 2024-25 (placeholder values - user will provide real ones)
+// Cap thresholds (placeholder values - user will provide real ones)
 export const CAP_THRESHOLDS: Record<Season, CapThreshold[]> = {
-  '2024-25': [
-    { name: 'Salary Cap', value: 140588000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
-    { name: 'Luxury Tax', value: 170814000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
-    { name: 'First Apron', value: 178132000, type: 'first-apron', description: 'Restricted from certain transactions' },
-    { name: 'Second Apron', value: 188931000, type: 'second-apron', description: 'Severe restrictions apply' },
-  ],
   '2025-26': [
     { name: 'Salary Cap', value: 145000000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
     { name: 'Luxury Tax', value: 176000000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
@@ -82,7 +76,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'SF',
     jerseyNumber: 0,
     salary: {
-      '2024-25': 34848340,
       '2025-26': 37096500,
       '2026-27': 54000000,
       '2027-28': 58000000,
@@ -97,7 +90,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'SG',
     jerseyNumber: 7,
     salary: {
-      '2024-25': 49350000,
       '2025-26': 53350000,
       '2026-27': 57350000,
       '2027-28': 61350000,
@@ -112,7 +104,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'PG',
     jerseyNumber: 9,
     salary: {
-      '2024-25': 20100000,
       '2025-26': 21700000,
       '2026-27': 23300000,
       '2027-28': 24900000,
@@ -125,7 +116,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'C',
     jerseyNumber: 8,
     salary: {
-      '2024-25': 29268293,
       '2025-26': 30600000,
     },
     contractType: 'guaranteed',
@@ -137,7 +127,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'PG',
     jerseyNumber: 4,
     salary: {
-      '2024-25': 36861707,
       '2025-26': 39500000,
       '2026-27': 42500000,
     },
@@ -149,7 +138,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'C',
     jerseyNumber: 42,
     salary: {
-      '2024-25': 9500000,
       '2025-26': 10000000,
     },
     contractType: 'partially-guaranteed',
@@ -161,7 +149,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'PG',
     jerseyNumber: 11,
     salary: {
-      '2024-25': 6700000,
       '2025-26': 7200000,
       '2026-27': 7700000,
       '2027-28': 8200000,
@@ -174,7 +161,6 @@ export const SAMPLE_ROSTER: Player[] = [
     position: 'SF',
     jerseyNumber: 30,
     salary: {
-      '2024-25': 2100000,
       '2025-26': 3200000,
       '2026-27': 3400000,
       '2027-28': 3600000,

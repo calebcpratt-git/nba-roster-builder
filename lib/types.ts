@@ -46,6 +46,6 @@ export interface YearlyCapStatus {
   violations: CapThreshold[]
 }
 
-export type Season = '2024-25' | '2025-26' | '2026-27' | '2027-28' | '2028-29' | '2029-30'
+export type Season = '2025-26' | '2026-27' | '2027-28' | '2028-29' | '2029-30'
 
-export const SEASONS: Season[] = ['2024-25', '2025-26', '2026-27', '2027-28', '2028-29', '2029-30']
+export const SEASONS: Season[] = ['2025-26', '2026-27', '2027-28', '2028-29', '2029-30']
