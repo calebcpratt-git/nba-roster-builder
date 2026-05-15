@@ -195,6 +195,7 @@ function OptionSalaryCell({
         className="w-48 p-2" 
         side="top" 
         align="center"
+        sideOffset={0}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => {
           setIsHovering(false)
