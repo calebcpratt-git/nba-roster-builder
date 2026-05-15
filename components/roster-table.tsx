@@ -292,16 +292,18 @@ export function RosterTable() {
 
   const allPlayers = [
     ...roster.map((p) => ({ ...p, source: 'current' as const })),
-    ...savedContracts.map((c) => ({
-      id: c.id,
-      name: c.playerName,
-      team: '',
-      salary: c.salary,
-      options: {} as Partial<Record<Season, 'Player' | 'Team'>>,
-      isUserCreated: true,
-      source: 'saved' as const,
-      type: c.type,
-    })),
+    ...savedContracts
+      .filter((c) => c.type !== 'extension') // Don't show extensions as separate rows
+      .map((c) => ({
+        id: c.id,
+        name: c.playerName,
+        team: '',
+        salary: c.salary,
+        options: {} as Partial<Record<Season, 'Player' | 'Team'>>,
+        isUserCreated: true,
+        source: 'saved' as const,
+        type: c.type,
+      })),
   ]
 
   const projections = SEASONS.map((season) => {
