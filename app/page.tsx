@@ -12,12 +12,12 @@ export default function Home() {
         <main className="container mx-auto px-4 py-6 max-w-[1600px]">
           <div className="flex gap-6 items-start">
             {/* Main Content - Roster Table with integrated Cap Bars */}
-            <div className="origin-top-left scale-[0.7]">
+            <div className="origin-top-left scale-[0.85] shrink-0">
               <RosterTable />
             </div>
 
             {/* Right Column - Saved Contracts */}
-            <div className="origin-top-left scale-[0.7]">
+            <div className="flex-1 min-w-0">
               <SavedContractsPanel />
             </div>
           </div>
