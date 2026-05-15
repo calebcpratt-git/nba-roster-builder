@@ -98,6 +98,49 @@ function CapThresholdPopup({ season, total, thresholds }: {
   )
 }
 
+function CapStatusCell({ proj }: { 
+  proj: { 
+    season: string
+    total: number
+    status: CapStatus
+    thresholds: { name: string; value: number; type: string }[] 
+  } 
+}) {
+  const [isHovering, setIsHovering] = useState(false)
+  const statusColor = getCapStatusColor(proj.status)
+
+  return (
+    <Popover open={isHovering}>
+      <PopoverTrigger asChild>
+        <button
+          className={cn(
+            "text-xs font-bold px-2.5 py-1 rounded cursor-default transition-colors",
+            statusColor
+          )}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
+          {proj.status}
+        </button>
+      </PopoverTrigger>
+      <PopoverContent 
+        side="top" 
+        align="center" 
+        className="p-0"
+        sideOffset={0}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        <CapThresholdPopup 
+          season={proj.season}
+          total={proj.total} 
+          thresholds={proj.thresholds} 
+        />
+      </PopoverContent>
+    </Popover>
+  )
+}
+
 function OptionSalaryCell({ 
   playerId,
   optionType, 
@@ -423,29 +466,9 @@ export function RosterTable() {
                 </td>
                 {SEASONS.map((season) => {
                   const proj = projections.find((p) => p.season === season)!
-                  const statusColor = getCapStatusColor(proj.status)
-
                   return (
                     <td key={season} className="px-3 py-3 text-right">
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <button
-                            className={cn(
-                              "text-xs font-bold px-2.5 py-1 rounded cursor-pointer transition-colors hover:ring-2 hover:ring-primary/30",
-                              statusColor
-                            )}
-                          >
-                            {proj.status}
-                          </button>
-                        </PopoverTrigger>
-                        <PopoverContent side="top" align="center" className="p-0">
-                          <CapThresholdPopup 
-                            season={proj.season}
-                            total={proj.total} 
-                            thresholds={proj.thresholds} 
-                          />
-                        </PopoverContent>
-                      </Popover>
+                      <CapStatusCell proj={proj} />
                     </td>
                   )
                 })}
