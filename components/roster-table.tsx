@@ -185,7 +185,6 @@ function OptionSalaryCell({
   const label = optionType === 'Team' ? 'TO' : 'PO'
   const isDeclined = !isExercised
   
-  // TO badge is yellow/amber, PO badge is blue
   const optionTextColorClass = optionType === 'Team' 
     ? 'text-amber-400' 
     : 'text-sky-400'
@@ -194,18 +193,36 @@ function OptionSalaryCell({
     ? 'bg-amber-500/20 hover:bg-amber-500/30'
     : 'bg-sky-500/20 hover:bg-sky-500/30'
 
-  // Salary number uses the red > yellow > green gradient
   const salaryColorClass = getSalaryColor(salary)
+
+  // For team options that are declined, check if there's an earlier declined team option
+  const hasEarlierDeclinedTeamOption = optionType === 'Team' && isDeclined ? (() => {
+    const seasonIndex = SEASONS.indexOf(season)
+    return SEASONS.slice(0, seasonIndex).some(s => {
+      const earlierOptionType = player.options[s]
+      if (earlierOptionType === 'Team') {
+        const isEarlierExercised = isOptionExercisedFn(player.id, s, 'Team')
+        return !isEarlierExercised
+      }
+      return false
+    })
+  })() : false
 
   return (
     <div className="inline-flex items-center gap-1">
-      <Popover open={isOpen || isHovering} onOpenChange={setIsOpen}>
+      <Popover open={!hasEarlierDeclinedTeamOption && (isOpen || isHovering)} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <button
-            className="inline-flex items-center gap-1.5 cursor-pointer rounded px-1 -mx-1 transition-colors hover:bg-muted/50"
-            onMouseEnter={() => setIsHovering(true)}
+            className={cn(
+              "inline-flex items-center gap-1.5 rounded px-1 -mx-1 transition-colors",
+              hasEarlierDeclinedTeamOption
+                ? "cursor-not-allowed opacity-50"
+                : "cursor-pointer hover:bg-muted/50"
+            )}
+            onMouseEnter={() => !hasEarlierDeclinedTeamOption && setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
-            onClick={() => setIsOpen(true)}
+            onClick={() => !hasEarlierDeclinedTeamOption && setIsOpen(true)}
+            disabled={hasEarlierDeclinedTeamOption}
           >
             <span
               className={cn(
@@ -250,81 +267,32 @@ function OptionSalaryCell({
             {season} {optionType === 'Team' ? 'Team Option' : 'Player Option'}
           </p>
           <div className="flex gap-1">
-            {/* Determine if Exercise button should be disabled */}
-            {(() => {
-              // For team options, check if there's an earlier declined team option
-              if (optionType === 'Team' && !isExercised) {
-                const seasonIndex = SEASONS.indexOf(season)
-                const hasEarlierDeclinedTeamOption = SEASONS.slice(0, seasonIndex).some(s => {
-                  const earlierOptionType = player.options[s]
-                  if (earlierOptionType === 'Team') {
-                    const isEarlierExercised = isOptionExercisedFn(player.id, s, 'Team')
-                    return !isEarlierExercised
-                  }
-                  return false
-                })
-                
-                return (
-                  <>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 h-7 text-xs"
-                      disabled={hasEarlierDeclinedTeamOption}
-                      onClick={() => {
-                        onToggle(true)
-                        setIsOpen(false)
-                      }}
-                      title={hasEarlierDeclinedTeamOption ? "Must exercise earlier team option first" : ""}
-                    >
-                      <Check className="h-3 w-3 mr-1" />
-                      Exercise
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="destructive"
-                      className="flex-1 h-7 text-xs"
-                      disabled
-                    >
-                      <X className="h-3 w-3 mr-1" />
-                      Decline
-                    </Button>
-                  </>
-                )
-              }
-              
-              // Default behavior for exercised options or player options
-              return (
-                <>
-                  <Button
-                    size="sm"
-                    variant={isExercised ? "default" : "outline"}
-                    className="flex-1 h-7 text-xs"
-                    disabled={isExercised}
-                    onClick={() => {
-                      onToggle(true)
-                      setIsOpen(false)
-                    }}
-                  >
-                    <Check className="h-3 w-3 mr-1" />
-                    Exercise
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={!isExercised ? "destructive" : "outline"}
-                    className="flex-1 h-7 text-xs"
-                    disabled={!isExercised}
-                    onClick={() => {
-                      onToggle(false)
-                      setIsOpen(false)
-                    }}
-                  >
-                    <X className="h-3 w-3 mr-1" />
-                    Decline
-                  </Button>
-                </>
-              )
-            })()}
+            <Button
+              size="sm"
+              variant={isExercised ? "default" : "outline"}
+              className="flex-1 h-7 text-xs"
+              disabled={isExercised}
+              onClick={() => {
+                onToggle(true)
+                setIsOpen(false)
+              }}
+            >
+              <Check className="h-3 w-3 mr-1" />
+              Exercise
+            </Button>
+            <Button
+              size="sm"
+              variant={!isExercised ? "destructive" : "outline"}
+              className="flex-1 h-7 text-xs"
+              disabled={!isExercised}
+              onClick={() => {
+                onToggle(false)
+                setIsOpen(false)
+              }}
+            >
+              <X className="h-3 w-3 mr-1" />
+              Decline
+            </Button>
           </div>
         </PopoverContent>
       </Popover>
