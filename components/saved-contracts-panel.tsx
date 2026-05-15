@@ -1,14 +1,16 @@
 'use client'
 
+import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { formatCurrency, formatCurrencyFull } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { X, FileText, ArrowLeftRight, UserPlus } from 'lucide-react'
+import { X, FileText, ArrowLeftRight, UserPlus, RotateCcw, Trash2 } from 'lucide-react'
 
 export function SavedContractsPanel() {
   const { savedContracts, removeSavedContract } = useRoster()
+  const [deletingContractId, setDeletingContractId] = useState<string | null>(null)
 
   const totalValue = savedContracts.reduce((sum, contract) => {
     return sum + Object.values(contract.salary).reduce((a, b) => a + b, 0)
@@ -85,14 +87,40 @@ export function SavedContractsPanel() {
                     </p>
                   </div>
                 </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-7 w-7 p-0 text-muted-foreground hover:text-destructive"
-                  onClick={() => removeSavedContract(contract.id)}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
+                {deletingContractId === contract.id ? (
+                  <div className="flex items-center gap-1">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-7 w-7 p-0 text-muted-foreground hover:text-primary"
+                      onClick={() => setDeletingContractId(null)}
+                      title="Undo"
+                    >
+                      <RotateCcw className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-7 w-7 p-0 text-muted-foreground hover:text-destructive"
+                      onClick={() => {
+                        removeSavedContract(contract.id)
+                        setDeletingContractId(null)
+                      }}
+                      title="Delete permanently"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-7 w-7 p-0 text-muted-foreground hover:text-destructive"
+                    onClick={() => setDeletingContractId(contract.id)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                )}
               </div>
             )
           })}
