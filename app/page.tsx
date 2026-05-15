@@ -1,7 +1,6 @@
 import { RosterProvider } from '@/lib/roster-context'
 import { Header } from '@/components/header'
 import { RosterTable } from '@/components/roster-table'
-import { ExtendPlayersPanel } from '@/components/extend-players-panel'
 import { SavedContractsPanel } from '@/components/saved-contracts-panel'
 
 export default function Home() {
@@ -17,9 +16,8 @@ export default function Home() {
               <RosterTable />
             </div>
 
-            {/* Right Column - Extend Players and Saved Contracts - 50% width */}
-            <div className="flex-1 min-w-0 space-y-4">
-              <ExtendPlayersPanel />
+            {/* Right Column - Saved Contracts - 50% width */}
+            <div className="flex-1 min-w-0">
               <SavedContractsPanel />
             </div>
           </div>
