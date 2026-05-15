@@ -442,18 +442,29 @@ export function RosterTable() {
                         }
 
                         // Regular salary without option - use gradient color
+                        // Check if this salary is from an extension
+                        const isExtensionSalary = player.source === 'current' && 
+                          savedContracts.some(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
+                        
                         return (
                           <td key={season} className="px-2 py-1.5 text-right">
-                            <span
-                              className={cn(
-                                "text-[12px] font-mono tabular-nums",
-                                player.source === 'saved'
-                                  ? "text-chart-2"
-                                  : getSalaryColor(rawSalary)
+                            <div className="inline-flex items-center gap-1">
+                              {isExtensionSalary && (
+                                <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/20 text-purple-400">
+                                  EXT
+                                </span>
                               )}
-                            >
-                              {formatCurrency(rawSalary)}
-                            </span>
+                              <span
+                                className={cn(
+                                  "text-[12px] font-mono tabular-nums",
+                                  player.source === 'saved'
+                                    ? "text-chart-2"
+                                    : getSalaryColor(rawSalary)
+                                )}
+                              >
+                                {formatCurrency(rawSalary)}
+                              </span>
+                            </div>
                           </td>
                         )
                       })}
