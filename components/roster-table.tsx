@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { SEASONS, Season, Player } from '@/lib/types'
-import { formatCurrency, formatCurrencyFull, CAP_THRESHOLDS } from '@/lib/data'
+import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -125,36 +126,84 @@ function CapThresholdChart({ season, total, thresholds }: {
   )
 }
 
-function OptionPopover({ 
+function OptionSalaryCell({ 
+  playerId,
   optionType, 
   isExercised, 
   onToggle,
   season,
+  salary,
+  isSaved,
 }: { 
+  playerId: string
   optionType: 'Team' | 'Player'
   isExercised: boolean
   onToggle: (exercise: boolean) => void
   season: Season
+  salary: number
+  isSaved: boolean
 }) {
-  const label = optionType === 'Team' ? 'TO' : 'PO'
+  const [isOpen, setIsOpen] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
   
+  const label = optionType === 'Team' ? 'TO' : 'PO'
+  const isDeclined = !isExercised
+  
+  const optionColorClass = optionType === 'Team' 
+    ? 'text-amber-400' 
+    : 'text-sky-400'
+  
+  const optionBgClass = optionType === 'Team'
+    ? 'bg-amber-500/20 hover:bg-amber-500/30'
+    : 'bg-sky-500/20 hover:bg-sky-500/30'
+
   return (
-    <Popover>
+    <Popover open={isOpen || isHovering} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
         <button
-          className={cn(
-            "text-[9px] px-1 rounded font-semibold cursor-pointer transition-colors",
-            isExercised
-              ? optionType === 'Team'
-                ? "bg-amber-500/20 text-amber-500 hover:bg-amber-500/30"
-                : "bg-sky-500/20 text-sky-500 hover:bg-sky-500/30"
-              : "bg-muted text-muted-foreground line-through hover:bg-muted/80"
-          )}
+          className="inline-flex items-center gap-1.5 cursor-pointer rounded px-1 -mx-1 transition-colors hover:bg-muted/50"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          onClick={() => setIsOpen(true)}
         >
-          {label}
+          <span
+            className={cn(
+              "text-[9px] px-1 rounded font-semibold",
+              isDeclined
+                ? "bg-muted text-muted-foreground line-through"
+                : optionBgClass,
+              !isDeclined && optionColorClass
+            )}
+          >
+            {label}
+          </span>
+          <span
+            className={cn(
+              "text-sm font-mono tabular-nums",
+              isDeclined
+                ? "text-muted-foreground/50 line-through"
+                : isSaved
+                ? "text-chart-2"
+                : optionColorClass
+            )}
+          >
+            {formatCurrency(salary)}
+          </span>
         </button>
       </PopoverTrigger>
-      <PopoverContent className="w-48 p-2" side="top" align="center">
+      <PopoverContent 
+        className="w-48 p-2" 
+        side="top" 
+        align="center"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => {
+          setIsHovering(false)
+        }}
+        onInteractOutside={() => {
+          setIsOpen(false)
+          setIsHovering(false)
+        }}
+      >
         <p className="text-xs font-medium mb-2">
           {season} {optionType === 'Team' ? 'Team Option' : 'Player Option'}
         </p>
@@ -163,7 +212,10 @@ function OptionPopover({
             size="sm"
             variant={isExercised ? "default" : "outline"}
             className="flex-1 h-7 text-xs"
-            onClick={() => onToggle(true)}
+            onClick={() => {
+              onToggle(true)
+              setIsOpen(false)
+            }}
           >
             <Check className="h-3 w-3 mr-1" />
             Exercise
@@ -172,7 +224,10 @@ function OptionPopover({
             size="sm"
             variant={!isExercised ? "destructive" : "outline"}
             className="flex-1 h-7 text-xs"
-            onClick={() => onToggle(false)}
+            onClick={() => {
+              onToggle(false)
+              setIsOpen(false)
+            }}
           >
             <X className="h-3 w-3 mr-1" />
             Decline
@@ -290,15 +345,10 @@ export function RosterTable() {
                       </div>
                     </td>
                     {SEASONS.map((season) => {
-                      const effectiveSalary = isCurrentRoster
-                        ? getEffectiveSalary(player as Player, season)
-                        : player.salary[season] || 0
                       const rawSalary = player.salary[season] || 0
-                      
                       const optionType = player.options[season]
                       const hasOption = !!optionType
                       const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true
-                      const isDeclined = hasOption && !optionExercised
 
                       if (!rawSalary) {
                         return (
@@ -308,36 +358,42 @@ export function RosterTable() {
                         )
                       }
 
+                      // If there's an option, use the combined component
+                      if (hasOption) {
+                        return (
+                          <td key={season} className="px-3 py-2.5 text-right">
+                            <OptionSalaryCell
+                              playerId={player.id}
+                              optionType={optionType}
+                              isExercised={optionExercised}
+                              season={season}
+                              salary={rawSalary}
+                              isSaved={player.source === 'saved'}
+                              onToggle={(exercise) => {
+                                if (optionType === 'Team') {
+                                  toggleTeamOption(player.id, season, exercise)
+                                } else {
+                                  togglePlayerOption(player.id, season, exercise)
+                                }
+                              }}
+                            />
+                          </td>
+                        )
+                      }
+
+                      // Regular salary without option
                       return (
                         <td key={season} className="px-3 py-2.5 text-right">
-                          <div className="inline-flex items-center gap-1.5">
-                            {hasOption && (
-                              <OptionPopover
-                                optionType={optionType}
-                                isExercised={optionExercised}
-                                season={season}
-                                onToggle={(exercise) => {
-                                  if (optionType === 'Team') {
-                                    toggleTeamOption(player.id, season, exercise)
-                                  } else {
-                                    togglePlayerOption(player.id, season, exercise)
-                                  }
-                                }}
-                              />
+                          <span
+                            className={cn(
+                              "text-sm font-mono tabular-nums",
+                              player.source === 'saved'
+                                ? "text-chart-2"
+                                : "text-foreground"
                             )}
-                            <span
-                              className={cn(
-                                "text-sm font-mono tabular-nums",
-                                isDeclined
-                                  ? "text-muted-foreground/50 line-through"
-                                  : player.source === 'saved'
-                                  ? "text-chart-2"
-                                  : "text-foreground"
-                              )}
-                            >
-                              {formatCurrency(rawSalary)}
-                            </span>
-                          </div>
+                          >
+                            {formatCurrency(rawSalary)}
+                          </span>
                         </td>
                       )
                     })}
