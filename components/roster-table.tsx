@@ -391,7 +391,10 @@ export function RosterTable() {
                         const optionType = player.options[season]
                         const hasOption = !!optionType
                         const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true
-                        const isFirstEmptySeason = isRosterPlayer && !rawSalary && SEASONS.slice(index).every((s) => !player.salary[s])
+                        
+                        // Check if this is the first empty season: no salary in current season, and all future seasons are empty
+                        const hasSalaryInPreviousSeason = index > 0 && (player.salary[SEASONS[index - 1]] || 0) > 0
+                        const isFirstEmptySeason = isRosterPlayer && !rawSalary && hasSalaryInPreviousSeason && SEASONS.slice(index).every((s) => !player.salary[s])
 
                         if (!rawSalary) {
                           return (

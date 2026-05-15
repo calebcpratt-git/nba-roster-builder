@@ -122,18 +122,13 @@ export function ExtendButton({
   player: Player
   onOpenModal: (player: Player) => void
 }) {
-  // Find first season without salary
-  const firstEmptySeason = SEASONS.find((s) => !player.salary[s])
-
-  if (!firstEmptySeason) return null
-
   return (
     <button
       onClick={() => onOpenModal(player)}
-      className="inline-flex items-center justify-center h-5 w-5 rounded bg-primary/20 hover:bg-primary/30 transition-colors text-primary"
-      title={`Extend ${player.name} from ${firstEmptySeason}`}
+      className="inline-flex items-center justify-center text-emerald-500 hover:text-emerald-600 transition-colors"
+      title={`Extend ${player.name}`}
     >
-      <Plus className="h-3 w-3" />
+      <Plus className="h-4 w-4" />
     </button>
   )
 }
