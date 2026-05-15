@@ -66,6 +66,18 @@ function getTotalSalaryColor(status: CapStatus): string {
   }
 }
 
+// Get salary color on a red > yellow > green gradient based on salary amount
+function getSalaryColor(salary: number): string {
+  // Define salary ranges for the gradient
+  // $50M+ = red, $30M-50M = orange, $15M-30M = amber/yellow, $5M-15M = lime, <$5M = green
+  if (salary >= 50000000) return 'text-red-500'
+  if (salary >= 35000000) return 'text-orange-500'
+  if (salary >= 20000000) return 'text-amber-500'
+  if (salary >= 10000000) return 'text-yellow-500'
+  if (salary >= 5000000) return 'text-lime-500'
+  return 'text-emerald-500'
+}
+
 function CapThresholdPopup({ season, total, thresholds }: { 
   season: string
   total: number 
@@ -164,13 +176,17 @@ function OptionSalaryCell({
   const label = optionType === 'Team' ? 'TO' : 'PO'
   const isDeclined = !isExercised
   
-  const optionColorClass = optionType === 'Team' 
+  // TO badge is yellow/amber, PO badge is blue
+  const optionTextColorClass = optionType === 'Team' 
     ? 'text-amber-400' 
     : 'text-sky-400'
   
   const optionBgClass = optionType === 'Team'
     ? 'bg-amber-500/20 hover:bg-amber-500/30'
     : 'bg-sky-500/20 hover:bg-sky-500/30'
+
+  // Salary number uses the red > yellow > green gradient
+  const salaryColorClass = getSalaryColor(salary)
 
   return (
     <Popover open={isOpen || isHovering} onOpenChange={setIsOpen}>
@@ -187,7 +203,7 @@ function OptionSalaryCell({
               isDeclined
                 ? "bg-muted text-muted-foreground line-through"
                 : optionBgClass,
-              !isDeclined && optionColorClass
+              !isDeclined && optionTextColorClass
             )}
           >
             {label}
@@ -199,7 +215,7 @@ function OptionSalaryCell({
                 ? "text-muted-foreground/50 line-through"
                 : isSaved
                 ? "text-chart-2"
-                : optionColorClass
+                : salaryColorClass
             )}
           >
             {formatCurrency(salary)}
@@ -399,7 +415,7 @@ export function RosterTable() {
                         )
                       }
 
-                      // Regular salary without option
+                      // Regular salary without option - use gradient color
                       return (
                         <td key={season} className="px-3 py-2.5 text-right">
                           <span
@@ -407,7 +423,7 @@ export function RosterTable() {
                               "text-sm font-mono tabular-nums",
                               player.source === 'saved'
                                 ? "text-chart-2"
-                                : "text-foreground"
+                                : getSalaryColor(rawSalary)
                             )}
                           >
                             {formatCurrency(rawSalary)}
