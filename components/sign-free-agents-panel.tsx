@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { SEASONS } from '@/lib/types'
 import type { Season } from '@/lib/types'
-import { getTeamRoster, TEAM_NAMES, formatCurrency } from '@/lib/data'
+import { getTeamRoster, ALL_TEAMS, formatCurrency } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Select,
@@ -26,7 +26,7 @@ export function SignFreeAgentsPanel() {
     const playerOptions: any[] = []
 
     // Get all players from all teams
-    TEAM_NAMES.forEach((teamAbbr) => {
+    ALL_TEAMS.forEach((teamAbbr) => {
       const teamRoster = getTeamRoster(teamAbbr)
 
       teamRoster.forEach((player) => {
