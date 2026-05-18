@@ -129,9 +129,9 @@ export function SignFreeAgentsPanel() {
             {/* Scrollable List */}
             <div className="space-y-2 max-h-[312px] overflow-y-auto pr-2">
               {filteredFreeAgents.length > 0 ? (
-                filteredFreeAgents.map((player) => (
+                filteredFreeAgents.map((player, index) => (
                   <div
-                    key={player.id}
+                    key={`${player.team}-${player.id}-${index}`}
                     onClick={() => handlePlayerClick(player)}
                     className="p-2 rounded-lg bg-muted/50 border border-muted/20 text-sm cursor-pointer transition-colors hover:bg-muted hover:border-muted-foreground/30"
                   >
