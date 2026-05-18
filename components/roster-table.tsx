@@ -430,7 +430,12 @@ export function RosterTable() {
                     >
                       <td className="sticky left-0 bg-card px-3 py-1.5">
                         <div className="flex items-center gap-1.5">
-                          <span className="font-medium text-[12px]">{player.name}</span>
+                          <span className={cn(
+                            "font-medium text-[12px]",
+                            'type' in player && player.type === 'free-agent' && "text-sky-400"
+                          )}>
+                            {player.name}
+                          </span>
                           {player.source === 'saved' && (
                             <Badge 
                               variant="outline" 
