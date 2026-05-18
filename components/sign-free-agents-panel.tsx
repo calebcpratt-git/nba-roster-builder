@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { SEASONS } from '@/lib/data'
+import { SEASONS } from '@/lib/types'
 import type { Season } from '@/lib/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
