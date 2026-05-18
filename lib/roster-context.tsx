@@ -129,7 +129,9 @@ export function RosterProvider({ children }: { children: ReactNode }) {
 
   const getTotalSalary = (season: Season) => {
     const currentSalary = roster.reduce((sum, player) => sum + getEffectiveSalary(player, season), 0)
-    const savedSalary = savedContracts.reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
+    const savedSalary = savedContracts
+      .filter((contract) => !deletedContractIds.has(contract.id))
+      .reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
     
     return {
       current: currentSalary,

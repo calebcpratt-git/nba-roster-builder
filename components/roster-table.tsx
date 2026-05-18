@@ -330,18 +330,31 @@ export function RosterTable() {
   const allPlayers = [
     ...roster.map((p) => ({ ...p, source: 'current' as const })),
     ...savedContracts
-      .filter((c) => c.type !== 'extension') // Don't show extensions as separate rows
-      .map((c) => ({
-        id: c.id,
-        name: c.playerName,
-        team: '',
-        salary: c.salary,
-        options: {} as Partial<Record<Season, 'Player' | 'Team'>>,
-        isUserCreated: true,
-        source: 'saved' as const,
-        type: c.type,
-      })),
-  ]
+      .filter((c) => c.type === 'free-agent' && !deletedContractIds.has(c.id)) // Only show non-deleted free agent signings as separate rows
+      .map((c) => {
+        // Get first year salary for sorting purposes
+        const firstYearSalary = SEASONS.reduce((first, season) => {
+          if (first === 0 && c.salary[season] > 0) return c.salary[season]
+          return first
+        }, 0)
+        return {
+          id: c.id,
+          name: c.playerName,
+          team: '',
+          salary: c.salary,
+          options: {} as Partial<Record<Season, 'Player' | 'Team'>>,
+          isUserCreated: true,
+          source: 'saved' as const,
+          type: c.type,
+          sortSalary: firstYearSalary, // Used for sorting
+        }
+      }),
+  ].sort((a, b) => {
+    // Sort by 25-26 salary for current players, or sortSalary for free agent signings
+    const aSalary = 'sortSalary' in a ? a.sortSalary : (a.salary['2025-26'] || 0)
+    const bSalary = 'sortSalary' in b ? b.sortSalary : (b.salary['2025-26'] || 0)
+    return bSalary - aSalary
+  })
 
   const projections = SEASONS.map((season) => {
     const { current, saved, total } = getTotalSalary(season)
