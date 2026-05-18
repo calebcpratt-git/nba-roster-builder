@@ -13,10 +13,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { Input } from '@/components/ui/input'
 import { SignFreeAgentModal } from './sign-free-agent-modal'
 
 export function SignFreeAgentsPanel() {
   const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[1])
+  const [searchQuery, setSearchQuery] = useState('')
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { savedContracts } = useRoster()
@@ -80,6 +82,11 @@ export function SignFreeAgentsPanel() {
 
   const { freeAgents, teamOptions, playerOptions } = getAllFreeAgentsAndOptions(selectedYear)
 
+  // Filter free agents by search query
+  const filteredFreeAgents = freeAgents.filter((player) =>
+    player.name.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
   return (
     <>
       <Card>
@@ -87,18 +94,26 @@ export function SignFreeAgentsPanel() {
           <CardTitle className="text-lg">Sign Free Agents</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Select value={selectedYear} onValueChange={(value) => setSelectedYear(value as Season)}>
-            <SelectTrigger>
-              <SelectValue placeholder="Select year" />
-            </SelectTrigger>
-            <SelectContent>
-              {SEASONS.slice(1).map((season) => (
-                <SelectItem key={season} value={season}>
-                  {season}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="flex gap-2">
+            <Select value={selectedYear} onValueChange={(value) => setSelectedYear(value as Season)}>
+              <SelectTrigger className="w-[140px]">
+                <SelectValue placeholder="Select year" />
+              </SelectTrigger>
+              <SelectContent>
+                {SEASONS.slice(1).map((season) => (
+                  <SelectItem key={season} value={season}>
+                    {season}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Input
+              placeholder="Search players..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1"
+            />
+          </div>
 
           {/* Free Agents List */}
           <div className="space-y-2">
@@ -109,9 +124,9 @@ export function SignFreeAgentsPanel() {
             </div>
             
             {/* Scrollable List */}
-            <div className="space-y-2 max-h-[240px] overflow-y-auto pr-2">
-              {freeAgents.length > 0 ? (
-                freeAgents.map((player) => (
+            <div className="space-y-2 max-h-[312px] overflow-y-auto pr-2">
+              {filteredFreeAgents.length > 0 ? (
+                filteredFreeAgents.map((player) => (
                   <div
                     key={player.id}
                     onClick={() => handlePlayerClick(player)}
