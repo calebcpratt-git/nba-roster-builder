@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { Plus, ArrowLeftRight, FileText } from 'lucide-react'
+import { ArrowLeftRight } from 'lucide-react'
 
 export function Header() {
   const { selectedTeamAbbr, selectedTeam, setSelectedTeamAbbr } = useRoster()
@@ -53,14 +53,6 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="gap-2">
-            <Plus className="h-4 w-4" />
-            Sign Free Agent
-          </Button>
-          <Button variant="outline" size="sm" className="gap-2">
-            <FileText className="h-4 w-4" />
-            Extend Player
-          </Button>
           <Button variant="outline" size="sm" className="gap-2">
             <ArrowLeftRight className="h-4 w-4" />
             Build Trade
