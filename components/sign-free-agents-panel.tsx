@@ -127,7 +127,7 @@ export function SignFreeAgentsPanel() {
             </div>
             
             {/* Scrollable List */}
-            <div className="space-y-2 max-h-[312px] overflow-y-auto pr-2">
+            <div className="space-y-2 h-[312px] max-h-[312px] overflow-y-auto pr-2">
               {filteredFreeAgents.length > 0 ? (
                 filteredFreeAgents.map((player, index) => (
                   <div
