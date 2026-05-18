@@ -426,27 +426,36 @@ export function RosterTable() {
                         </div>
                       </td>
                       {SEASONS.map((season, index) => {
-                        // For display, use getDisplaySalary for current roster (includes extensions), direct salary for saved contracts
-                        const displaySalary = player.source === 'current' 
-                          ? getDisplaySalary(player as Player, season)
-                          : (player.salary[season] || 0)
-                        // For cap calculations, use the effective salary (which returns 0 for declined options)
-                        const effectiveSalary = player.source === 'current' 
-                          ? getEffectiveSalary(player as Player, season)
-                          : displaySalary
-                        
+                        // Raw salary — used to decide whether a cell has a contract at all
+                        const rawSalary = player.salary[season] || 0
+                        // Display salary — for current roster players, merges in any saved extension salaries
+                        // This intentionally uses the raw value for option years so we can still show
+                        // the crossed-out number; getEffectiveSalary is only used for cap totals.
+                        const extensionSalary = player.source === 'current'
+                          ? (() => {
+                              const ext = savedContracts.find(
+                                c => c.type === 'extension' && c.playerId === player.id && !deletedContractIds.has(c.id)
+                              )
+                              return ext?.salary[season] || 0
+                            })()
+                          : 0
+                        const displaySalary = rawSalary || extensionSalary
+
                         const optionType = player.options[season]
                         const hasOption = !!optionType
                         const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true
-                        
-                        // Find the first year with no contract (considering effective salary which treats declined options as 0)
+
+                        // Find the first season with no effective contract (declined options count as empty for extension purposes)
                         const firstEmptySeasonIndex = SEASONS.findIndex(s => {
-                          const effectiveSal = player.source === 'current' 
+                          const effectiveSal = player.source === 'current'
                             ? getEffectiveSalary(player as Player, s)
                             : (player.salary[s] || 0)
-                          return effectiveSal === 0
+                          const hasExt = savedContracts.some(
+                            c => c.type === 'extension' && c.playerId === player.id && !deletedContractIds.has(c.id) && c.salary[s]
+                          )
+                          return effectiveSal === 0 && !hasExt
                         })
-                        
+
                         // Only show extend button on the first empty season
                         const shouldShowExtendButton = isRosterPlayer && firstEmptySeasonIndex === index && firstEmptySeasonIndex !== -1
 
@@ -465,7 +474,7 @@ export function RosterTable() {
                           )
                         }
 
-                        // If there's an option, use the combined component
+                        // If there's an option, use the combined component (always show; OptionSalaryCell handles strikethrough)
                         if (hasOption) {
                           return (
                             <td key={season} className="px-2 py-1.5 text-right">
@@ -474,7 +483,7 @@ export function RosterTable() {
                                 optionType={optionType}
                                 isExercised={optionExercised}
                                 season={season}
-                                salary={displaySalary}
+                                salary={rawSalary}
                                 isSaved={player.source === 'saved'}
                                 player={player as Player}
                                 isFirstEmpty={shouldShowExtendButton}
