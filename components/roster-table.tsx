@@ -430,7 +430,9 @@ export function RosterTable() {
                     >
                       <td className={cn(
                         "sticky left-0 px-3 py-1.5",
-                        player.source === 'saved' && 'type' in player && player.type === 'free-agent' && "bg-sky-500/10"
+                        player.source === 'saved' && 'type' in player && player.type === 'free-agent' 
+                          ? "bg-sky-500/10" 
+                          : "bg-card"
                       )}>
                         <div className="flex items-center gap-1.5">
                           <span className="font-medium text-[12px]">
