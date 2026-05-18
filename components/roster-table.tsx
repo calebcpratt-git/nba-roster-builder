@@ -425,14 +425,22 @@ export function RosterTable() {
                       key={player.id}
                       className={cn(
                         "border-b border-border/50 hover:bg-muted/20 transition-colors",
-                        player.source === 'saved' && "bg-chart-2/5"
+                        player.source === 'saved' && 'type' in player && player.type === 'free-agent' && "bg-sky-500/10"
                       )}
                     >
                       <td className="sticky left-0 bg-card px-3 py-1.5">
                         <div className="flex items-center gap-1.5">
                           <span className="font-medium text-[12px]">{player.name}</span>
                           {player.source === 'saved' && (
-                            <Badge variant="outline" className="text-[9px] px-1 py-0 text-chart-2 border-chart-2">
+                            <Badge 
+                              variant="outline" 
+                              className={cn(
+                                "text-[9px] px-1 py-0",
+                                'type' in player && player.type === 'free-agent' 
+                                  ? "text-sky-400 border-sky-400" 
+                                  : "text-chart-2 border-chart-2"
+                              )}
+                            >
                               {'type' in player && player.type === 'extension' ? 'EXT' : 
                                'type' in player && player.type === 'trade' ? 'TRADE' : 'FA'}
                             </Badge>
@@ -531,9 +539,7 @@ export function RosterTable() {
                               <span
                                 className={cn(
                                   "text-[12px] font-mono tabular-nums",
-                                  player.source === 'saved'
-                                    ? "text-chart-2"
-                                    : getSalaryColor(displaySalary)
+                                  getSalaryColor(displaySalary)
                                 )}
                               >
                                 {formatCurrency(displaySalary)}
