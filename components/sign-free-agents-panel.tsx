@@ -82,10 +82,13 @@ export function SignFreeAgentsPanel() {
 
   const { freeAgents, teamOptions, playerOptions } = getAllFreeAgentsAndOptions(selectedYear)
 
-  // Filter free agents by search query
-  const filteredFreeAgents = freeAgents.filter((player) =>
-    player.name.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  // Filter free agents by search query - match if any word in the name starts with the query
+  const filteredFreeAgents = freeAgents.filter((player) => {
+    if (!searchQuery.trim()) return true
+    const query = searchQuery.toLowerCase().trim()
+    const nameWords = player.name.toLowerCase().split(' ')
+    return nameWords.some((word) => word.startsWith(query))
+  })
 
   return (
     <>
