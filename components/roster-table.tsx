@@ -319,6 +319,7 @@ export function RosterTable() {
     toggleTeamOption,
     togglePlayerOption,
     isOptionExercised,
+    deletedContractIds,
   } = useRoster()
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean }>({
