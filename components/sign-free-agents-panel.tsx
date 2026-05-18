@@ -16,7 +16,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 
 export function SignFreeAgentsPanel() {
-  const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[0])
+  const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[1])
   const { savedContracts } = useRoster()
 
   // Get all players from all teams and find free agents for the selected year
@@ -79,7 +79,7 @@ export function SignFreeAgentsPanel() {
             <SelectValue placeholder="Select year" />
           </SelectTrigger>
           <SelectContent>
-            {SEASONS.map((season) => (
+            {SEASONS.slice(1).map((season) => (
               <SelectItem key={season} value={season}>
                 {season}
               </SelectItem>
