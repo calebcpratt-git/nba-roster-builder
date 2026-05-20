@@ -38,12 +38,12 @@ const DISTRIBUTION_OPTIONS: Record<
   escalating: {
     label: 'Escalating',
     description:
-      'Salary increases each year. The standard structure. The CBA allows raises of up to 8% per year for players re-signing with their own team (Bird rights) and up to 5% for players signing with a new team. Most max contracts follow this pattern.',
+      'Salary increases each year. The standard structure.',
   },
   declining: {
     label: 'Declining',
     description:
-      'Salary decreases each year. Teams use this strategically to push money into earlier years when a player has more value, or to create more cap flexibility in the final years of a deal. Declining salaries can\'t drop by more than 4.5–5% per year under CBA rules. The Damian Lillard extension with the Bucks was a notable recent example.',
+      'Salary decreases each year. Teams use this strategically to push money into earlier years when a player has more value, or to create more cap flexibility in the final year of a deal.',
   },
 }
 
