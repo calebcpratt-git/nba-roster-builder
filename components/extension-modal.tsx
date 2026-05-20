@@ -175,27 +175,25 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
           </div>
 
           {/* Distribution Type */}
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <Label className="text-xs font-medium">Contract Structure</Label>
-              <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
-                <SelectTrigger className="w-[140px] h-8 text-sm">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
-                    ([key, { label, description }]) => (
-                      <SelectItem key={key} value={key}>
-                        <div className="flex flex-col">
-                          <div className="font-medium">{label}</div>
-                          <p className="text-xs text-muted-foreground">{description}</p>
-                        </div>
-                      </SelectItem>
-                    )
-                  )}
-                </SelectContent>
-              </Select>
-            </div>
+          <div className="flex items-center gap-2">
+            <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
+            <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
+              <SelectTrigger className="flex-1 h-8 text-sm">
+                <SelectValue placeholder="Select structure" />
+              </SelectTrigger>
+              <SelectContent className="w-full">
+                {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
+                  ([key, { label, description }]) => (
+                    <SelectItem key={key} value={key} className="cursor-pointer py-2">
+                      <div className="flex flex-col gap-1">
+                        <div className="font-medium text-sm">{label}</div>
+                        <p className="text-xs text-muted-foreground">{description}</p>
+                      </div>
+                    </SelectItem>
+                  )
+                )}
+              </SelectContent>
+            </Select>
           </div>
 
           {/* Preview */}
