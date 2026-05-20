@@ -190,10 +190,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
               </Select>
             </div>
           </div>
-                )
-              )}
-            </RadioGroup>
-          </div>
 
           {/* Preview */}
           {isValid && (
