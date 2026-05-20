@@ -21,7 +21,7 @@ export function SignFreeAgentsPanel() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const { savedContracts } = useRoster()
+  const { savedContracts, selectedTeamAbbr } = useRoster()
 
   // Get all players from all teams and find free agents for the selected year
   const getAllFreeAgentsAndOptions = (year: Season) => {
@@ -82,6 +82,14 @@ export function SignFreeAgentsPanel() {
 
   const { freeAgents, teamOptions, playerOptions } = getAllFreeAgentsAndOptions(selectedYear)
 
+  // Check if a player has already been signed as a free agent on this team
+  const isPlayerAlreadySigned = (playerId: string) => {
+    return savedContracts.some(
+      (contract) =>
+        contract.playerId === playerId && contract.type === 'free-agent'
+    )
+  }
+
   // Filter free agents by search query - match if any word in the name starts with the query
   const filteredFreeAgents = freeAgents.filter((player) => {
     if (!searchQuery.trim()) return true
@@ -129,20 +137,27 @@ export function SignFreeAgentsPanel() {
             {/* Scrollable List */}
             <div className="space-y-2 h-[312px] max-h-[312px] overflow-y-auto pr-2">
               {filteredFreeAgents.length > 0 ? (
-                filteredFreeAgents.map((player, index) => (
-                  <div
-                    key={`${player.team}-${player.id}-${index}`}
-                    onClick={() => handlePlayerClick(player)}
-                    className="p-2 rounded-lg bg-muted/50 border border-muted/20 text-sm cursor-pointer transition-colors hover:bg-muted hover:border-muted-foreground/30"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="font-medium">{player.name}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {formatCurrency(player.salary['2025-26'] || 0)}
+                filteredFreeAgents.map((player, index) => {
+                  const isAlreadySigned = isPlayerAlreadySigned(player.id)
+                  return (
+                    <div
+                      key={`${player.team}-${player.id}-${index}`}
+                      onClick={() => !isAlreadySigned && handlePlayerClick(player)}
+                      className={`p-2 rounded-lg border text-sm transition-colors ${
+                        isAlreadySigned
+                          ? 'bg-muted/20 border-muted/10 text-muted-foreground cursor-not-allowed opacity-50'
+                          : 'bg-muted/50 border-muted/20 cursor-pointer hover:bg-muted hover:border-muted-foreground/30'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="font-medium">{player.name}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {formatCurrency(player.salary['2025-26'] || 0)}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))
+                  )
+                })
               ) : (
                 <div className="p-4 text-center text-sm text-muted-foreground">
                   No free agents available
