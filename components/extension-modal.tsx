@@ -178,7 +178,7 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
           <div className="flex items-center gap-2">
             <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
             <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
-              <SelectTrigger className="flex-1 text-sm justify-start items-start py-2">
+              <SelectTrigger className="flex-1 text-sm justify-start items-start py-2 min-h-16">
                 {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
                   <div className="flex flex-col gap-0.5 text-left w-full">
                     <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>
