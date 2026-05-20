@@ -569,12 +569,22 @@ export function RosterTable() {
                                 {formatCurrency(displaySalary)}
                               </span>
                             </div>
-                          </td>
-                        )
-                      })}
-                    </tr>
+                      </td>
+                    )
+                  })}
+                </tr>
                   )
                 })}
+                
+                {/* Empty rows to fill space */}
+                {Array.from({ length: Math.max(0, 20 - allPlayers.length) }).map((_, idx) => (
+                  <tr key={`empty-${idx}`} className="border-b border-border/50">
+                    <td className="sticky left-0 bg-card px-3 py-1.5"></td>
+                    {displayedSeasons.map((season) => (
+                      <td key={season} className="px-2 py-1.5"></td>
+                    ))}
+                  </tr>
+                ))}
                 
               </tbody>
 
@@ -600,7 +610,7 @@ export function RosterTable() {
 
                 {/* Cap Status Row */}
                 <tr className="">
-                  <td className="sticky left-0 bg-muted/40 px-3 py-2">
+                  <td className="sticky left-0 bg-muted px-3 py-2">
                     <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
                   </td>
                   {displayedSeasons.map((season) => {
@@ -611,7 +621,6 @@ export function RosterTable() {
                       </td>
                     )
                   })}
-                  <td className="px-1 py-2"></td>
                 </tr>
               </tfoot>
             </table>
