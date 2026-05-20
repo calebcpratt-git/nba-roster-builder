@@ -14,7 +14,13 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -170,20 +176,26 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
 
           {/* Distribution Type */}
           <div>
-            <Label className="text-xs font-medium mb-2 block">Contract Structure</Label>
-            <RadioGroup value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
-              {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
-                ([key, { label, description }]) => (
-                  <div key={key} className="flex items-start gap-3 mb-3 p-2.5 rounded border border-border/50 hover:border-border hover:bg-muted/20 transition-colors cursor-pointer">
-                    <RadioGroupItem value={key} id={`dist-${key}`} className="mt-0.5" />
-                    <label htmlFor={`dist-${key}`} className="flex-1 cursor-pointer">
-                      <div className="font-medium text-sm">{label}</div>
-                      <p className="text-xs text-muted-foreground mt-0.5">{description}</p>
-                    </label>
-                  </div>
-                )
-              )}
-            </RadioGroup>
+            <div className="flex items-center justify-between mb-2">
+              <Label className="text-xs font-medium">Contract Structure</Label>
+              <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
+                <SelectTrigger className="w-[140px] h-8 text-sm">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
+                    ([key, { label, description }]) => (
+                      <SelectItem key={key} value={key}>
+                        <div className="flex flex-col">
+                          <div className="font-medium">{label}</div>
+                          <p className="text-xs text-muted-foreground">{description}</p>
+                        </div>
+                      </SelectItem>
+                    )
+                  )}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           {/* Preview */}
