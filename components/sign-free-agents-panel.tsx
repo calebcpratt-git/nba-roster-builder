@@ -83,10 +83,12 @@ export function SignFreeAgentsPanel() {
   const { freeAgents, teamOptions, playerOptions } = getAllFreeAgentsAndOptions(selectedYear)
 
   // Check if a player has already been signed as a free agent on this team
-  const isPlayerAlreadySigned = (playerId: string) => {
+  const isPlayerAlreadySigned = (player: Player) => {
     return savedContracts.some(
       (contract) =>
-        contract.playerId === playerId && contract.type === 'free-agent'
+        contract.playerId === player.id && 
+        contract.playerName === player.name &&
+        contract.type === 'free-agent'
     )
   }
 
@@ -138,7 +140,7 @@ export function SignFreeAgentsPanel() {
             <div className="space-y-2 h-[312px] max-h-[312px] overflow-y-auto pr-2">
               {filteredFreeAgents.length > 0 ? (
                 filteredFreeAgents.map((player, index) => {
-                  const isAlreadySigned = isPlayerAlreadySigned(player.id)
+                  const isAlreadySigned = isPlayerAlreadySigned(player)
                   return (
                     <div
                       key={`${player.team}-${player.id}-${index}`}
