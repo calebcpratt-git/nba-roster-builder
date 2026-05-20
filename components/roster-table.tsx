@@ -421,9 +421,9 @@ export function RosterTable() {
           </div>
         </CardHeader>
         <CardContent className="p-0 flex flex-col h-[calc(100vh-200px)]">
-          <div className="overflow-x-auto flex-1 overflow-y-auto">
-            <table className="w-full">
-              <thead>
+          <div className="overflow-x-auto flex-1 overflow-y-auto flex flex-col">
+            <table className="w-full flex flex-col h-full">
+              <thead className="flex-shrink-0">
                 <tr className="border-b border-border bg-muted/30">
                   <th className="sticky left-0 bg-muted/30 px-3 py-1.5 text-left text-[11px] font-medium text-muted-foreground w-[160px]">
                     Player
@@ -441,7 +441,7 @@ export function RosterTable() {
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="flex-1 overflow-hidden flex flex-col">
                 {allPlayers.map((player) => {
                   const isCurrentRoster = player.source === 'current'
                   const isRosterPlayer = 'isUserCreated' in player ? !player.isUserCreated : true
@@ -606,9 +606,20 @@ export function RosterTable() {
                   )
                 })}
                 
+                {/* Empty rows to fill space */}
+                {Array.from({ length: Math.max(0, 20 - allPlayers.length) }).map((_, idx) => (
+                  <tr key={`empty-${idx}`} className="border-b border-border/50">
+                    <td className="sticky left-0 bg-card px-3 py-1.5"></td>
+                    {displayedSeasons.map((season) => (
+                      <td key={season} className="px-2 py-1.5"></td>
+                    ))}
+                    <td className="px-1 py-1.5"></td>
+                  </tr>
+                ))}
+                
               </tbody>
 
-              <tfoot className="sticky bottom-0 bg-muted">
+              <tfoot className="flex-shrink-0 bg-muted">
                 {/* Total Row */}
                 <tr className="border-t-2 border-border">
                   <td className="sticky left-0 bg-muted px-3 py-2">
