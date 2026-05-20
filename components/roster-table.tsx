@@ -12,14 +12,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
-import { MoreHorizontal, FileText, Check, X, Info, Plus } from 'lucide-react'
+import { Check, X, Info, Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
@@ -436,9 +430,6 @@ export function RosterTable() {
                       {season}
                     </th>
                   ))}
-                  <th className="px-1 py-1.5 text-center text-[11px] font-medium text-muted-foreground w-8">
-                    
-                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -581,27 +572,6 @@ export function RosterTable() {
                           </td>
                         )
                       })}
-                      <td className="px-1 py-1.5 text-center">
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
-                              <MoreHorizontal className="h-3 w-3" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            {isCurrentRoster && (
-                              <DropdownMenuItem>
-                                <FileText className="h-4 w-4 mr-2" />
-                                Create Extension
-                              </DropdownMenuItem>
-                            )}
-                            <DropdownMenuItem>
-                              <Info className="h-4 w-4 mr-2" />
-                              View Details
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </td>
                     </tr>
                   )
                 })}
