@@ -420,8 +420,8 @@ export function RosterTable() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
+        <CardContent className="p-0 flex flex-col h-[calc(100vh-300px)]">
+          <div className="overflow-x-auto flex-1 overflow-y-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border bg-muted/30">
@@ -607,7 +607,7 @@ export function RosterTable() {
                 })}
                 
                 {/* Total Row */}
-                <tr className="border-t-2 border-border bg-muted/40">
+                <tr className="border-t-2 border-border">
                   <td className="sticky left-0 bg-muted/40 px-3 py-2">
                     <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
                   </td>
@@ -626,7 +626,7 @@ export function RosterTable() {
                 </tr>
 
                 {/* Cap Status Row */}
-                <tr className="bg-muted/40">
+                <tr className="">
                   <td className="sticky left-0 bg-muted/40 px-3 py-2">
                     <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
                   </td>
@@ -640,7 +640,7 @@ export function RosterTable() {
                   })}
                   <td className="px-1 py-2"></td>
                 </tr>
-              </tbody>
+              </tfoot>
             </table>
           </div>
         </CardContent>
