@@ -43,9 +43,9 @@ export interface YearlyCapStatus {
   violations: CapThreshold[]
 }
 
-export type Season = '2025-26' | '2026-27' | '2027-28' | '2028-29' | '2029-30'
+export type Season = '2025-26' | '2026-27' | '2027-28' | '2028-29' | '2029-30' | '2030-31' | '2031-32' | '2032-33' | '2033-34' | '2034-35'
 
-export const SEASONS: Season[] = ['2025-26', '2026-27', '2027-28', '2028-29', '2029-30']
+export const SEASONS: Season[] = ['2025-26', '2026-27', '2027-28', '2028-29', '2029-30', '2030-31', '2031-32', '2032-33', '2033-34', '2034-35']
 
 export type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
 

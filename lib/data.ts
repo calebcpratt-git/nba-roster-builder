@@ -48,6 +48,36 @@ export const CAP_THRESHOLDS: Record<Season, CapThreshold[]> = {
     { name: 'First Apron', value: 208500000, type: 'first-apron', description: 'Restricted from certain transactions' },
     { name: 'Second Apron', value: 221000000, type: 'second-apron', description: 'Severe restrictions apply' },
   ],
+  '2030-31': [
+    { name: 'Salary Cap', value: 170000000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
+    { name: 'Luxury Tax', value: 206000000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
+    { name: 'First Apron', value: 215000000, type: 'first-apron', description: 'Restricted from certain transactions' },
+    { name: 'Second Apron', value: 228000000, type: 'second-apron', description: 'Severe restrictions apply' },
+  ],
+  '2031-32': [
+    { name: 'Salary Cap', value: 175000000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
+    { name: 'Luxury Tax', value: 212000000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
+    { name: 'First Apron', value: 221500000, type: 'first-apron', description: 'Restricted from certain transactions' },
+    { name: 'Second Apron', value: 235000000, type: 'second-apron', description: 'Severe restrictions apply' },
+  ],
+  '2032-33': [
+    { name: 'Salary Cap', value: 180000000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
+    { name: 'Luxury Tax', value: 218000000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
+    { name: 'First Apron', value: 228000000, type: 'first-apron', description: 'Restricted from certain transactions' },
+    { name: 'Second Apron', value: 242000000, type: 'second-apron', description: 'Severe restrictions apply' },
+  ],
+  '2033-34': [
+    { name: 'Salary Cap', value: 185000000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
+    { name: 'Luxury Tax', value: 224000000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
+    { name: 'First Apron', value: 234500000, type: 'first-apron', description: 'Restricted from certain transactions' },
+    { name: 'Second Apron', value: 249000000, type: 'second-apron', description: 'Severe restrictions apply' },
+  ],
+  '2034-35': [
+    { name: 'Salary Cap', value: 190000000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
+    { name: 'Luxury Tax', value: 230000000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
+    { name: 'First Apron', value: 241000000, type: 'first-apron', description: 'Restricted from certain transactions' },
+    { name: 'Second Apron', value: 256000000, type: 'second-apron', description: 'Severe restrictions apply' },
+  ],
 }
 
 // Team info for display
