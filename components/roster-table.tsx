@@ -608,10 +608,10 @@ export function RosterTable() {
                 
               </tbody>
 
-              <tfoot className="sticky bottom-0 bg-muted/40">
+              <tfoot className="sticky bottom-0 bg-muted">
                 {/* Total Row */}
                 <tr className="border-t-2 border-border">
-                  <td className="sticky left-0 bg-muted/40 px-3 py-2">
+                  <td className="sticky left-0 bg-muted px-3 py-2">
                     <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
                   </td>
                   {displayedSeasons.map((season) => {
