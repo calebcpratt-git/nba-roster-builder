@@ -420,7 +420,7 @@ export function RosterTable() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0 flex flex-col h-[calc(100vh-300px)]">
+        <CardContent className="p-0 flex flex-col h-[calc(100vh-200px)]">
           <div className="overflow-x-auto flex-1 overflow-y-auto">
             <table className="w-full">
               <thead>
