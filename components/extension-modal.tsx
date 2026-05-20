@@ -181,13 +181,13 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
               <SelectTrigger className="flex-1 h-8 text-sm">
                 <SelectValue placeholder="Select structure" />
               </SelectTrigger>
-              <SelectContent className="w-full">
+              <SelectContent className="max-w-[calc(100vw-40px)]">
                 {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
                   ([key, { label, description }]) => (
                     <SelectItem key={key} value={key} className="cursor-pointer py-2">
-                      <div className="flex flex-col gap-1">
+                      <div className="flex flex-col gap-1 max-w-xs">
                         <div className="font-medium text-sm">{label}</div>
-                        <p className="text-xs text-muted-foreground">{description}</p>
+                        <p className="text-xs text-muted-foreground line-clamp-2">{description}</p>
                       </div>
                     </SelectItem>
                   )
