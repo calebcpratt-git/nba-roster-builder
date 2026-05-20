@@ -34,22 +34,25 @@ type DistributionType = 'flat' | 'escalating' | 'declining'
 
 const DISTRIBUTION_OPTIONS: Record<
   DistributionType,
-  { label: string; description: string }
+  { label: string; description: string; shortDescription: string }
 > = {
   flat: {
     label: 'Flat',
     description:
       'The same salary every year. Rare in practice since the CBA allows annual raises, and most players want them.',
+    shortDescription: 'The same salary every year. Rare in practice.',
   },
   escalating: {
     label: 'Escalating',
     description:
       'Salary increases each year. The standard structure.',
+    shortDescription: 'Salary increases each year. The standard structure.',
   },
   declining: {
     label: 'Declining',
     description:
       'Salary decreases each year. Teams use this strategically to push money into earlier years when a player has more value, or to create more cap flexibility in the final year of a deal.',
+    shortDescription: 'Salary decreases each year. Strategically defer money.',
   },
 }
 
@@ -182,7 +185,7 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
                 {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
                   <div className="flex flex-col gap-0.5 text-left w-full">
                     <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>
-                    <p className="text-xs text-muted-foreground whitespace-normal">{DISTRIBUTION_OPTIONS[distribution].description}</p>
+                    <p className="text-xs text-muted-foreground whitespace-normal">{DISTRIBUTION_OPTIONS[distribution].shortDescription}</p>
                   </div>
                 ) : (
                   <SelectValue placeholder="Select structure" />
