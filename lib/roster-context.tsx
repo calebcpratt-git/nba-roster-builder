@@ -31,20 +31,29 @@ const RosterContext = createContext<RosterContextType | null>(null)
 
 export function RosterProvider({ children }: { children: ReactNode }) {
   const [selectedTeamAbbr, setSelectedTeamAbbr] = useState<string>('BOS')
-  const [savedContracts, setSavedContracts] = useState<SavedContract[]>([])
+  const [savedContractsByTeam, setSavedContractsByTeam] = useState<Record<string, SavedContract[]>>({})
   const [exercisedTeamOptions, setExercisedTeamOptions] = useState<Set<string>>(new Set())
   const [exercisedPlayerOptions, setExercisedPlayerOptions] = useState<Set<string>>(new Set())
   const [deletedContractIds, setDeletedContractIds] = useState<Set<string>>(new Set())
 
   const roster = useMemo(() => getTeamRoster(selectedTeamAbbr), [selectedTeamAbbr])
   const selectedTeam = TEAMS[selectedTeamAbbr] || { name: 'Unknown', city: 'Unknown', primaryColor: '#000', secondaryColor: '#fff' }
+  
+  // Get saved contracts for the current team
+  const savedContracts = savedContractsByTeam[selectedTeamAbbr] || []
 
   const addSavedContract = (contract: SavedContract) => {
-    setSavedContracts((prev) => [...prev, contract])
+    setSavedContractsByTeam((prev) => ({
+      ...prev,
+      [selectedTeamAbbr]: [...(prev[selectedTeamAbbr] || []), contract],
+    }))
   }
 
   const removeSavedContract = (id: string) => {
-    setSavedContracts((prev) => prev.filter((c) => c.id !== id))
+    setSavedContractsByTeam((prev) => ({
+      ...prev,
+      [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).filter((c) => c.id !== id),
+    }))
   }
 
   // exercise = true means keep the salary, false means decline (salary becomes 0)
