@@ -12,10 +12,6 @@ export function SavedContractsPanel() {
   const { savedContracts, removeSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
   const [deletingContractId, setDeletingContractId] = useState<string | null>(null)
 
-  const totalValue = savedContracts.reduce((sum, contract) => {
-    return sum + Object.values(contract.salary).reduce((a, b) => a + b, 0)
-  }, 0)
-
   if (savedContracts.length === 0) {
     return (
       <Card className="bg-card border-border">
@@ -140,13 +136,6 @@ export function SavedContractsPanel() {
               </div>
             )
           })}
-        </div>
-
-        <div className="mt-4 pt-3 border-t border-border">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">Total Added Value</span>
-            <span className="font-mono font-medium text-chart-2">{formatCurrency(totalValue)}</span>
-          </div>
         </div>
       </CardContent>
     </Card>
