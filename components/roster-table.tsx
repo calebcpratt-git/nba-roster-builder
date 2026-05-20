@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { SEASONS, Season, Player } from '@/lib/types'
 import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
@@ -327,6 +327,32 @@ export function RosterTable() {
     isOpen: false,
   })
 
+  // Calculate dynamic seasons based on roster and saved contracts
+  const displayedSeasons = useMemo(() => {
+    let maxSeasonIndex = 0 // Default to just 2025-26
+    
+    // Check roster players for latest contract year
+    roster.forEach((player) => {
+      SEASONS.forEach((season, index) => {
+        if (player.salary[season] && player.salary[season]! > 0) {
+          maxSeasonIndex = Math.max(maxSeasonIndex, index)
+        }
+      })
+    })
+    
+    // Check saved contracts for latest contract year
+    savedContracts.forEach((contract) => {
+      if (deletedContractIds.has(contract.id)) return
+      SEASONS.forEach((season, index) => {
+        if (contract.salary[season] && contract.salary[season]! > 0) {
+          maxSeasonIndex = Math.max(maxSeasonIndex, index)
+        }
+      })
+    })
+    
+    return SEASONS.slice(0, maxSeasonIndex + 1)
+  }, [roster, savedContracts, deletedContractIds])
+
   const allPlayers = [
     ...roster.map((p) => ({ ...p, source: 'current' as const })),
     ...savedContracts
@@ -356,7 +382,7 @@ export function RosterTable() {
     return bSalary - aSalary
   })
 
-  const projections = SEASONS.map((season) => {
+  const projections = displayedSeasons.map((season) => {
     const { current, saved, total } = getTotalSalary(season)
     const thresholds = CAP_THRESHOLDS[season]
     const status = getCapStatus(total, thresholds)
@@ -402,7 +428,7 @@ export function RosterTable() {
                   <th className="sticky left-0 bg-muted/30 px-3 py-1.5 text-left text-[11px] font-medium text-muted-foreground w-[160px]">
                     Player
                   </th>
-                  {SEASONS.map((season) => (
+                  {displayedSeasons.map((season) => (
                     <th
                       key={season}
                       className="px-2 py-1.5 text-right text-[11px] font-medium text-muted-foreground w-[95px]"
@@ -454,7 +480,7 @@ export function RosterTable() {
                           )}
                         </div>
                       </td>
-                      {SEASONS.map((season, index) => {
+                      {displayedSeasons.map((season, index) => {
                         // Raw salary — used to decide whether a cell has a contract at all
                         const rawSalary = player.salary[season] || 0
                         // Display salary — for current roster players, merges in any saved extension salaries
@@ -585,7 +611,7 @@ export function RosterTable() {
                   <td className="sticky left-0 bg-muted/40 px-3 py-2">
                     <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
                   </td>
-                  {SEASONS.map((season) => {
+                  {displayedSeasons.map((season) => {
                     const proj = projections.find((p) => p.season === season)!
                     const totalColor = getTotalSalaryColor(proj.status)
                     return (
@@ -604,7 +630,7 @@ export function RosterTable() {
                   <td className="sticky left-0 bg-muted/40 px-3 py-2">
                     <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
                   </td>
-                  {SEASONS.map((season) => {
+                  {displayedSeasons.map((season) => {
                     const proj = projections.find((p) => p.season === season)!
                     return (
                       <td key={season} className="px-2 py-2 text-right">
