@@ -171,16 +171,16 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
           <div className="flex items-center gap-2">
             <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
             <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
-              <SelectTrigger className="flex-1 h-8 text-sm">
+              <SelectTrigger className="flex-1 h-8 text-sm justify-start">
                 <SelectValue placeholder="Select structure" />
               </SelectTrigger>
               <SelectContent className="max-w-[calc(100vw-40px)]">
                 {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
                   ([key, { label, description }]) => (
-                    <SelectItem key={key} value={key} className="cursor-pointer py-2">
-                      <div className="flex flex-col gap-1 max-w-xs">
+                    <SelectItem key={key} value={key} className="cursor-pointer py-3">
+                      <div className="flex flex-col gap-1 max-w-sm">
                         <div className="font-medium text-sm">{label}</div>
-                        <p className="text-xs text-muted-foreground line-clamp-2">{description}</p>
+                        <p className="text-xs text-muted-foreground whitespace-normal">{description}</p>
                       </div>
                     </SelectItem>
                   )
