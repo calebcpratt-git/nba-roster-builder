@@ -15,12 +15,14 @@ import {
 } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { SignFreeAgentModal } from './sign-free-agent-modal'
+import { ChevronDown } from 'lucide-react'
 
 export function SignFreeAgentsPanel() {
   const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[1])
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(true)
   const { savedContracts, selectedTeamAbbr } = useRoster()
 
   // Get all players from all teams and find free agents for the selected year
@@ -103,10 +105,16 @@ export function SignFreeAgentsPanel() {
   return (
     <>
       <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Sign Free Agents</CardTitle>
+        <CardHeader className="cursor-pointer" onClick={() => setIsCollapsed(!isCollapsed)}>
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-lg">Sign Free Agents</CardTitle>
+            <ChevronDown 
+              className={`h-5 w-5 transition-transform ${isCollapsed ? 'rotate-180' : ''}`}
+            />
+          </div>
         </CardHeader>
-        <CardContent className="space-y-4">
+        {!isCollapsed && (
+          <CardContent className="space-y-4">
           <div className="flex gap-2">
             <Select value={selectedYear} onValueChange={(value) => setSelectedYear(value as Season)}>
               <SelectTrigger className="w-[140px]">
@@ -168,6 +176,7 @@ export function SignFreeAgentsPanel() {
             </div>
           </div>
         </CardContent>
+        )}
       </Card>
 
       <SignFreeAgentModal
