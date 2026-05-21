@@ -16,6 +16,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { SignFreeAgentModal } from './sign-free-agent-modal'
+import { Search, X } from 'lucide-react'
 
 export function SignFreeAgentsPanel() {
   const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[1])
@@ -109,11 +110,20 @@ export function SignFreeAgentsPanel() {
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg">Sign Free Agents</CardTitle>
             <Button 
-              variant="outline" 
-              size="sm"
               onClick={() => setIsCollapsed(!isCollapsed)}
+              className="gap-2"
             >
-              {isCollapsed ? 'Activate Tool' : 'Collapse'}
+              {isCollapsed ? (
+                <>
+                  <Search className="h-4 w-4" />
+                  Browse Free Agents
+                </>
+              ) : (
+                <>
+                  <X className="h-4 w-4" />
+                  Close
+                </>
+              )}
             </Button>
           </div>
         </CardHeader>
