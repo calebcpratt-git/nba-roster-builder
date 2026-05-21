@@ -104,25 +104,29 @@ export function SignFreeAgentsPanel() {
 
   return (
     <>
-      <Card>
-        <CardHeader
-          className="pb-3 cursor-pointer select-none"
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        >
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-lg">Sign Free Agents</CardTitle>
-            <ChevronRight
-              className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
-                isCollapsed ? 'rotate-0' : 'rotate-90'
-              }`}
-            />
-          </div>
-        </CardHeader>
-        <div
-          className={`grid transition-all duration-300 ease-in-out ${
-            isCollapsed ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]'
-          }`}
-        >
+      <div
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        className="cursor-pointer transition-colors hover:bg-muted/30 rounded-lg"
+      >
+        <Card className="border-0 bg-transparent">
+          <CardHeader
+            className="pb-3 select-none"
+          >
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg">Sign Free Agents</CardTitle>
+              <ChevronRight
+                className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+                  isCollapsed ? 'rotate-0' : 'rotate-90'
+                }`}
+              />
+            </div>
+          </CardHeader>
+          <div
+            className={`grid transition-all duration-300 ease-in-out ${
+              isCollapsed ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]'
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
           <div className="overflow-hidden">
             <CardContent className="space-y-4">
           <div className="flex gap-2">
@@ -188,7 +192,8 @@ export function SignFreeAgentsPanel() {
         </CardContent>
           </div>
         </div>
-      </Card>
+        </Card>
+      </div>
 
       <SignFreeAgentModal
         player={selectedPlayer}
