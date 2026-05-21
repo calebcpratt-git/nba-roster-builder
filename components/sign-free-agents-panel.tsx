@@ -106,9 +106,9 @@ export function SignFreeAgentsPanel() {
     <>
       <div
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="cursor-pointer transition-colors hover:bg-muted/30 rounded-lg"
+        className="cursor-pointer transition-colors hover:bg-muted/10 rounded-lg"
       >
-        <Card className="border-0 bg-transparent">
+        <Card>
           <CardHeader
             className="pb-3 select-none"
           >
