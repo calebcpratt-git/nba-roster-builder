@@ -13,10 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { SignFreeAgentModal } from './sign-free-agent-modal'
-import { Search, X } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 
 export function SignFreeAgentsPanel() {
   const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[1])
@@ -106,29 +105,26 @@ export function SignFreeAgentsPanel() {
   return (
     <>
       <Card>
-        <CardHeader className="pb-3">
+        <CardHeader
+          className="pb-3 cursor-pointer select-none"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+        >
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg">Sign Free Agents</CardTitle>
-            <Button 
-              onClick={() => setIsCollapsed(!isCollapsed)}
-              className="gap-2"
-            >
-              {isCollapsed ? (
-                <>
-                  <Search className="h-4 w-4" />
-                  Browse Free Agents
-                </>
-              ) : (
-                <>
-                  <X className="h-4 w-4" />
-                  Close
-                </>
-              )}
-            </Button>
+            <ChevronRight
+              className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+                isCollapsed ? 'rotate-0' : 'rotate-90'
+              }`}
+            />
           </div>
         </CardHeader>
-        {!isCollapsed && (
-          <CardContent className="space-y-4">
+        <div
+          className={`grid transition-all duration-300 ease-in-out ${
+            isCollapsed ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]'
+          }`}
+        >
+          <div className="overflow-hidden">
+            <CardContent className="space-y-4">
           <div className="flex gap-2">
             <Select value={selectedYear} onValueChange={(value) => setSelectedYear(value as Season)}>
               <SelectTrigger className="w-[140px]">
@@ -190,7 +186,8 @@ export function SignFreeAgentsPanel() {
             </div>
           </div>
         </CardContent>
-        )}
+          </div>
+        </div>
       </Card>
 
       <SignFreeAgentModal
