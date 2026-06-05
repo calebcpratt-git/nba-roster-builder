@@ -171,15 +171,16 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
 
         <div className="space-y-4">
           {/* Minimum Contract Toggle */}
-          <div className="flex items-center justify-between">
-            <Label htmlFor="minimum-contract-fa" className="text-xs font-medium">
-              Minimum Contract
-            </Label>
+          <div className="flex items-center gap-2">
             <Switch
               id="minimum-contract-fa"
               checked={isMinimum}
               onCheckedChange={handleMinimumToggle}
+              className="data-[state=unchecked]:bg-gray-400"
             />
+            <Label htmlFor="minimum-contract-fa" className="text-xs font-medium cursor-pointer">
+              Minimum Contract
+            </Label>
           </div>
 
           {/* Years and Total Value */}

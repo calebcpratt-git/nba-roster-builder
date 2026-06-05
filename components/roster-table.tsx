@@ -550,24 +550,15 @@ export function RosterTable() {
 
                         // Regular salary without option - use gradient color
                         // Check if this salary is from an extension
-                        const extensionContract = player.source === 'current' 
-                          ? savedContracts.find(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
-                          : null
-                        const isExtensionSalary = !!extensionContract
-                        const isMinimumContract = extensionContract?.isMinimum || 
-                          (player.source === 'saved' && 'isMinimum' in player && player.isMinimum)
+                        const isExtensionSalary = player.source === 'current' && 
+                          savedContracts.some(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
                         
                         return (
                           <td key={season} className="px-2 py-1.5 text-right">
                             <div className="inline-flex items-center gap-1">
-                              {(isExtensionSalary || (player.source === 'saved' && isMinimumContract)) && (
-                                <span className={cn(
-                                  "text-[8px] px-0.5 rounded font-semibold",
-                                  isMinimumContract 
-                                    ? "bg-orange-500/20 text-orange-400" 
-                                    : "bg-purple-500/20 text-purple-400"
-                                )}>
-                                  {isMinimumContract ? 'MIN' : 'EXT'}
+                              {isExtensionSalary && (
+                                <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/20 text-purple-400">
+                                  EXT
                                 </span>
                               )}
                               <span
