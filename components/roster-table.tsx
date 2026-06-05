@@ -508,15 +508,17 @@ export function RosterTable() {
 
                         if (!displaySalary) {
                           return (
-                            <td key={season} className="px-2 py-1.5 text-center">
-                              {shouldShowExtendButton ? (
-                                <ExtendButton
-                                  player={player as Player}
-                                  onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true })}
-                                />
-                              ) : (
-                                <span className="text-[10px] text-muted-foreground/30">—</span>
-                              )}
+                            <td key={season} className="px-2 py-1.5">
+                              <div className="flex justify-center">
+                                {shouldShowExtendButton ? (
+                                  <ExtendButton
+                                    player={player as Player}
+                                    onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true })}
+                                  />
+                                ) : (
+                                  <span className="text-[10px] text-muted-foreground/30">—</span>
+                                )}
+                              </div>
                             </td>
                           )
                         }
