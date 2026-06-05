@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { Switch } from '@/components/ui/switch'
 import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -61,6 +62,8 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
+  const [isMinimum, setIsMinimum] = useState(false)
+  const [yearsError, setYearsError] = useState('')
 
   if (!player) return null
 
@@ -71,9 +74,33 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
   // Get remaining seasons starting from first empty
   const startIndex = SEASONS.indexOf(firstEmptySeason)
   const maxYears = SEASONS.length - startIndex
-  const numYears = Math.min(parseInt(years) || 3, maxYears)
+  const numYears = Math.min(parseInt(years) || 3, isMinimum ? 2 : maxYears)
   const contractSeasons = SEASONS.slice(startIndex, startIndex + numYears)
-  const totalValueNum = parseFloat(totalValue) || 0
+  
+  // For minimum contracts, total value is fixed
+  const minimumTotalValue = numYears === 1 ? 1.2 : 2.5
+  const totalValueNum = isMinimum ? minimumTotalValue : (parseFloat(totalValue) || 0)
+
+  const handleMinimumToggle = (checked: boolean) => {
+    setIsMinimum(checked)
+    setYearsError('')
+    if (checked) {
+      setYears('1')
+    } else {
+      setYears('3')
+    }
+  }
+
+  const handleYearsChange = (value: string) => {
+    setYearsError('')
+    const numValue = parseInt(value)
+    if (isMinimum && numValue > 2) {
+      setYearsError('Minimum contracts can only be for 1 or 2 years')
+      setYears('2')
+      return
+    }
+    setYears(value)
+  }
 
   const calculateSalaries = (): Record<Season, number> => {
     const result: Record<Season, number> = {} as Record<Season, number>
@@ -125,11 +152,14 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
       type: 'extension',
       salary: salaries,
       createdAt: new Date(),
+      isMinimum: isMinimum,
     })
 
     setYears('3')
     setTotalValue('')
     setDistribution('escalating')
+    setIsMinimum(false)
+    setYearsError('')
     onClose()
   }
 
@@ -146,6 +176,18 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
         </DialogHeader>
 
         <div className="space-y-4">
+          {/* Minimum Contract Toggle */}
+          <div className="flex items-center justify-between">
+            <Label htmlFor="minimum-contract" className="text-xs font-medium">
+              Minimum Contract
+            </Label>
+            <Switch
+              id="minimum-contract"
+              checked={isMinimum}
+              onCheckedChange={handleMinimumToggle}
+            />
+          </div>
+
           {/* Years and Total Value */}
           <div className="grid grid-cols-2 gap-3">
             <div>
@@ -156,11 +198,14 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
                 id="years"
                 type="number"
                 min="1"
-                max={maxYears}
+                max={isMinimum ? 2 : maxYears}
                 value={years}
-                onChange={(e) => setYears(e.target.value)}
-                className="h-8 text-sm"
+                onChange={(e) => handleYearsChange(e.target.value)}
+                className={cn("h-8 text-sm", yearsError && "border-red-500")}
               />
+              {yearsError && (
+                <p className="text-xs text-red-500 mt-1">{yearsError}</p>
+              )}
             </div>
             <div>
               <Label htmlFor="total-value" className="text-xs">
@@ -170,9 +215,10 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
                 id="total-value"
                 type="number"
                 placeholder="0"
-                value={totalValue}
+                value={isMinimum ? minimumTotalValue.toString() : totalValue}
                 onChange={(e) => setTotalValue(e.target.value)}
-                className="h-8 text-sm"
+                disabled={isMinimum}
+                className={cn("h-8 text-sm", isMinimum && "bg-muted cursor-not-allowed")}
               />
             </div>
           </div>

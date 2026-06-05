@@ -15,6 +15,7 @@ export interface SavedContract {
   salary: Partial<Record<Season, number>>
   createdAt: Date
   notes?: string
+  isMinimum?: boolean
 }
 
 export interface CapThreshold {
