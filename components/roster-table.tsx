@@ -426,7 +426,7 @@ export function RosterTable() {
                   {displayedSeasons.map((season) => (
                     <th
                       key={season}
-                      className="px-2 py-1.5 text-right text-[11px] font-medium text-muted-foreground w-[95px]"
+                      className="px-2 py-1.5 text-right text-[11px] font-medium text-muted-foreground w-[95px] align-middle"
                     >
                       {season}
                     </th>
@@ -508,7 +508,7 @@ export function RosterTable() {
 
                         if (!displaySalary) {
                           return (
-                            <td key={season} className="px-2 py-1.5 text-right">
+                            <td key={season} className="px-2 py-1.5 text-right align-middle">
                               {shouldShowExtendButton ? (
                                 <ExtendButton
                                   player={player as Player}
