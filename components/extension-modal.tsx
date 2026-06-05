@@ -178,15 +178,15 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
         <div className="space-y-4">
           {/* Minimum Contract Toggle */}
           <div className="flex items-center gap-2">
+            <Label htmlFor="minimum-contract" className="text-xs font-medium cursor-pointer">
+              Minimum Contract
+            </Label>
             <Switch
               id="minimum-contract"
               checked={isMinimum}
               onCheckedChange={handleMinimumToggle}
               className="data-[state=unchecked]:bg-gray-400"
             />
-            <Label htmlFor="minimum-contract" className="text-xs font-medium cursor-pointer">
-              Minimum Contract
-            </Label>
           </div>
 
           {/* Years and Total Value */}
