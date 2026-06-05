@@ -508,7 +508,7 @@ export function RosterTable() {
 
                         if (!displaySalary) {
                           return (
-                            <td key={season} className="px-2 py-1.5 text-right align-middle">
+                            <td key={season} className="px-2 py-1.5 flex items-center justify-center">
                               {shouldShowExtendButton ? (
                                 <ExtendButton
                                   player={player as Player}
