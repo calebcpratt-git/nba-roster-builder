@@ -86,8 +86,10 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
     setYearsError('')
     if (checked) {
       setYears('1')
+      setDistribution('flat')
     } else {
       setYears('3')
+      setDistribution('escalating')
     }
   }
 
@@ -227,8 +229,8 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
           {/* Distribution Type */}
           <div className="flex items-center gap-2">
             <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
-            <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)}>
-              <SelectTrigger className="flex-1 text-sm justify-start items-start py-2" style={{ height: 'auto' }}>
+            <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)} disabled={isMinimum}>
+              <SelectTrigger className={cn("flex-1 text-sm justify-start items-start py-2", isMinimum && "bg-muted cursor-not-allowed opacity-50")} style={{ height: 'auto' }}>
                 {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
                   <div className="flex flex-col gap-0.5 text-left w-full">
                     <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>
