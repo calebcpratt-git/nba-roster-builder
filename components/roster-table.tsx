@@ -220,17 +220,6 @@ function OptionSalaryCell({
           >
             <span
               className={cn(
-                "text-[8px] px-0.5 rounded font-semibold",
-                isDeclined
-                  ? "bg-muted text-muted-foreground line-through"
-                  : optionBgClass,
-                !isDeclined && optionTextColorClass
-              )}
-            >
-              {label}
-            </span>
-            <span
-              className={cn(
                 "text-[12px] font-mono tabular-nums",
                 isDeclined
                   ? "text-muted-foreground/50 line-through"
@@ -240,6 +229,17 @@ function OptionSalaryCell({
               )}
             >
               {formatCurrency(salary)}
+            </span>
+            <span
+              className={cn(
+                "text-[8px] px-0.5 rounded font-semibold",
+                isDeclined
+                  ? "bg-muted text-muted-foreground line-through"
+                  : optionBgClass,
+                !isDeclined && optionTextColorClass
+              )}
+            >
+              {label}
             </span>
           </button>
         </PopoverTrigger>
@@ -426,7 +426,7 @@ export function RosterTable() {
                   {displayedSeasons.map((season) => (
                     <th
                       key={season}
-                      className="px-2 py-1.5 text-right text-[11px] font-medium text-muted-foreground w-[95px]"
+                      className="px-2 py-1.5 text-center text-[11px] font-medium text-muted-foreground w-[95px]"
                     >
                       {season}
                     </th>
@@ -508,14 +508,18 @@ export function RosterTable() {
 
                         if (!displaySalary) {
                           return (
-                            <td key={season} className="px-2 py-1.5 text-center">
+                            <td key={season} className="px-2 py-1.5">
                               {shouldShowExtendButton ? (
-                                <ExtendButton
-                                  player={player as Player}
-                                  onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true })}
-                                />
+                                <div className="flex justify-center">
+                                  <ExtendButton
+                                    player={player as Player}
+                                    onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true })}
+                                  />
+                                </div>
                               ) : (
-                                <span className="text-[10px] text-muted-foreground/30">—</span>
+                                <div className="flex justify-center">
+                                  <span className="text-[10px] text-muted-foreground/30">—</span>
+                                </div>
                               )}
                             </td>
                           )
@@ -524,7 +528,7 @@ export function RosterTable() {
                         // If there's an option, use the combined component (always show; OptionSalaryCell handles strikethrough)
                         if (hasOption) {
                           return (
-                            <td key={season} className="px-2 py-1.5 text-right">
+                            <td key={season} className="px-2 py-1.5 text-left">
                               <OptionSalaryCell
                                 playerId={player.id}
                                 optionType={optionType}
@@ -554,13 +558,8 @@ export function RosterTable() {
                           savedContracts.some(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
                         
                         return (
-                          <td key={season} className="px-2 py-1.5 text-right">
+                          <td key={season} className="px-2 py-1.5 text-left">
                             <div className="inline-flex items-center gap-1">
-                              {isExtensionSalary && (
-                                <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/20 text-purple-400">
-                                  EXT
-                                </span>
-                              )}
                               <span
                                 className={cn(
                                   "text-[12px] font-mono tabular-nums",
@@ -569,6 +568,11 @@ export function RosterTable() {
                               >
                                 {formatCurrency(displaySalary)}
                               </span>
+                              {isExtensionSalary && (
+                                <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/20 text-purple-400">
+                                  EXT
+                                </span>
+                              )}
                             </div>
                       </td>
                     )
@@ -599,7 +603,7 @@ export function RosterTable() {
                     const proj = projections.find((p) => p.season === season)!
                     const totalColor = getTotalSalaryColor(proj.status)
                     return (
-                      <td key={season} className="px-2 py-2 text-right">
+                      <td key={season} className="px-2 py-2 text-left">
                         <span className={cn("text-[12px] font-mono font-bold tabular-nums", totalColor)}>
                           {formatCurrency(proj.total)}
                         </span>
@@ -617,7 +621,7 @@ export function RosterTable() {
                   {displayedSeasons.map((season) => {
                     const proj = projections.find((p) => p.season === season)!
                     return (
-                      <td key={season} className="px-2 py-2 text-right">
+                      <td key={season} className="px-2 py-2 text-left">
                         <CapStatusCell proj={proj} />
                       </td>
                     )
