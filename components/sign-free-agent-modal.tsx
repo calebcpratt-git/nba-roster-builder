@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { Player, Season, SEASONS } from '@/lib/types'
-import { formatCurrency } from '@/lib/data'
+import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
 import {
   Dialog,
   DialogContent,
@@ -58,32 +58,59 @@ const DISTRIBUTION_OPTIONS: Record<
 }
 
 export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: SignFreeAgentModalProps) {
-  const { addSavedContract, selectedTeamAbbr } = useRoster()
+  const { addSavedContract, selectedTeamAbbr, getTotalSalary } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
   const [isMinimum, setIsMinimum] = useState(false)
+  const [isMLE, setIsMLE] = useState(false)
   const [yearsError, setYearsError] = useState('')
 
   if (!player) return null
+
+  // Check if team is over the salary cap but under the first apron for this season
+  const { total: currentTeamTotal } = getTotalSalary(startingSeason)
+  const seasonThresholds = CAP_THRESHOLDS[startingSeason]
+  const softCap = seasonThresholds?.find((t) => t.type === 'soft-cap')?.value ?? 0
+  const firstApron = seasonThresholds?.find((t) => t.type === 'first-apron')?.value ?? 0
+  const isOverCapBelowFirstApron = currentTeamTotal > softCap && currentTeamTotal < firstApron
 
   // Get remaining seasons starting from the selected year
   const startIndex = SEASONS.indexOf(startingSeason)
   const maxYears = SEASONS.length - startIndex
   const numYears = Math.min(parseInt(years) || 3, isMinimum ? 2 : maxYears)
   const contractSeasons = SEASONS.slice(startIndex, startIndex + numYears)
-  
+
   // For minimum contracts, total value is fixed
+  // For MLE, each year scales from the 2026-27 base of $15.1M proportional to the soft cap
   const minimumTotalValue = numYears === 1 ? 1.2 : 2.5
-  const totalValueNum = isMinimum ? minimumTotalValue : (parseFloat(totalValue) || 0)
+  const mleSoftCapBase = CAP_THRESHOLDS['2026-27']?.find((t) => t.type === 'soft-cap')?.value ?? 150000000
+  const mleTotalValue = contractSeasons.reduce((sum, season) => {
+    const seasonSoftCap = CAP_THRESHOLDS[season]?.find((t) => t.type === 'soft-cap')?.value ?? mleSoftCapBase
+    return sum + (15.1 * seasonSoftCap) / mleSoftCapBase
+  }, 0)
+  const totalValueNum = isMinimum ? minimumTotalValue : isMLE ? mleTotalValue : (parseFloat(totalValue) || 0)
+
+  // When over cap but under first apron, fields are locked until a mode is chosen
+  const capRestricted = isOverCapBelowFirstApron && !isMinimum && !isMLE
 
   const handleMinimumToggle = (checked: boolean) => {
     setIsMinimum(checked)
     setYearsError('')
     if (checked) {
+      setIsMLE(false)
       setYears('1')
       setDistribution('flat')
     } else {
+      setYears('3')
+      setDistribution('escalating')
+    }
+  }
+
+  const handleMLEToggle = (checked: boolean) => {
+    setIsMLE(checked)
+    if (checked) {
+      setIsMinimum(false)
       setYears('3')
       setDistribution('escalating')
     }
@@ -102,8 +129,17 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
 
   const calculateSalaries = (): Record<Season, number> => {
     const result: Record<Season, number> = {} as Record<Season, number>
-    if (totalValueNum <= 0 || contractSeasons.length === 0) return result
+    if (contractSeasons.length === 0) return result
 
+    if (isMLE) {
+      contractSeasons.forEach((season) => {
+        const seasonSoftCap = CAP_THRESHOLDS[season]?.find((t) => t.type === 'soft-cap')?.value ?? mleSoftCapBase
+        result[season] = (15100000 * seasonSoftCap) / mleSoftCapBase
+      })
+      return result
+    }
+
+    if (totalValueNum <= 0) return result
     const totalInDollars = totalValueNum * 1000000
 
     if (distribution === 'flat') {
@@ -155,11 +191,14 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     setTotalValue('')
     setDistribution('escalating')
     setIsMinimum(false)
+    setIsMLE(false)
     setYearsError('')
     onClose()
   }
 
-  const isValid = totalValueNum > 0 && numYears > 0
+  const isValid = isOverCapBelowFirstApron
+    ? (isMinimum || isMLE) && numYears > 0
+    : totalValueNum > 0 && numYears > 0
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -172,17 +211,39 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
         </DialogHeader>
 
         <div className="space-y-4">
-          {/* Minimum Contract Toggle */}
-          <div className="flex items-center gap-2">
-            <Label htmlFor="minimum-contract-fa" className="text-xs font-medium cursor-pointer">
-              Minimum Contract
-            </Label>
-            <Switch
-              id="minimum-contract-fa"
-              checked={isMinimum}
-              onCheckedChange={handleMinimumToggle}
-              className="data-[state=unchecked]:bg-gray-400"
-            />
+          {/* Cap restriction notice + toggles */}
+          <div className="space-y-2">
+            {isOverCapBelowFirstApron && (
+              <p className="text-xs text-amber-500">
+                Team is over the salary cap. Only Minimum or Mid-Level Exception contracts are available.
+              </p>
+            )}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Label htmlFor="minimum-contract-fa" className="text-xs font-medium cursor-pointer">
+                  Minimum Contract
+                </Label>
+                <Switch
+                  id="minimum-contract-fa"
+                  checked={isMinimum}
+                  onCheckedChange={handleMinimumToggle}
+                  className="data-[state=unchecked]:bg-gray-400"
+                />
+              </div>
+              {isOverCapBelowFirstApron && (
+                <div className="flex items-center gap-2">
+                  <Label htmlFor="mle-contract-fa" className="text-xs font-medium cursor-pointer">
+                    Mid-Level Exception
+                  </Label>
+                  <Switch
+                    id="mle-contract-fa"
+                    checked={isMLE}
+                    onCheckedChange={handleMLEToggle}
+                    className="data-[state=unchecked]:bg-gray-400"
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Years and Total Value */}
@@ -198,7 +259,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
                 max={isMinimum ? 2 : maxYears}
                 value={years}
                 onChange={(e) => handleYearsChange(e.target.value)}
-                className={cn("h-8 text-sm", yearsError && "border-red-500")}
+                disabled={capRestricted}
+                className={cn("h-8 text-sm", yearsError && "border-red-500", capRestricted && "bg-muted cursor-not-allowed")}
               />
               {yearsError && (
                 <p className="text-xs text-red-500 mt-1">{yearsError}</p>
@@ -212,10 +274,10 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
                 id="total-value"
                 type="number"
                 placeholder="0"
-                value={isMinimum ? minimumTotalValue.toString() : totalValue}
+                value={isMinimum ? minimumTotalValue.toString() : isMLE ? mleTotalValue.toFixed(1) : totalValue}
                 onChange={(e) => setTotalValue(e.target.value)}
-                disabled={isMinimum}
-                className={cn("h-8 text-sm", isMinimum && "bg-muted cursor-not-allowed")}
+                disabled={isMinimum || isMLE || capRestricted}
+                className={cn("h-8 text-sm", (isMinimum || isMLE || capRestricted) && "bg-muted cursor-not-allowed")}
               />
             </div>
           </div>
@@ -223,8 +285,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
           {/* Distribution Type */}
           <div className="flex items-center gap-2">
             <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
-            <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)} disabled={isMinimum}>
-              <SelectTrigger className={cn("flex-1 text-sm justify-start items-start py-2", isMinimum && "bg-muted cursor-not-allowed opacity-50")} style={{ height: 'auto' }}>
+            <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)} disabled={isMinimum || isMLE || capRestricted}>
+              <SelectTrigger className={cn("flex-1 text-sm justify-start items-start py-2", (isMinimum || isMLE || capRestricted) && "bg-muted cursor-not-allowed opacity-50")} style={{ height: 'auto' }}>
                 {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
                   <div className="flex flex-col gap-0.5 text-left w-full">
                     <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>

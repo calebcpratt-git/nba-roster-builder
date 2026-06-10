@@ -76,7 +76,7 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
   const maxYears = SEASONS.length - startIndex
   const numYears = Math.min(parseInt(years) || 3, isMinimum ? 2 : maxYears)
   const contractSeasons = SEASONS.slice(startIndex, startIndex + numYears)
-  
+
   // For minimum contracts, total value is fixed
   const minimumTotalValue = numYears === 1 ? 1.2 : 2.5
   const totalValueNum = isMinimum ? minimumTotalValue : (parseFloat(totalValue) || 0)
@@ -107,7 +107,6 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
   const calculateSalaries = (): Record<Season, number> => {
     const result: Record<Season, number> = {} as Record<Season, number>
     if (totalValueNum <= 0 || contractSeasons.length === 0) return result
-
     const totalInDollars = totalValueNum * 1000000
 
     if (distribution === 'flat') {

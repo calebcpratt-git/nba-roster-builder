@@ -25,50 +25,41 @@ export function SignFreeAgentsPanel() {
   const [isCollapsed, setIsCollapsed] = useState(true)
   const { savedContracts, selectedTeamAbbr } = useRoster()
 
-  // Get all players from all teams and find free agents for the selected year
+  // Get all players whose first contract-free year in the DB matches the selected year
   const getAllFreeAgentsAndOptions = (year: Season) => {
     const freeAgents: any[] = []
-    const teamOptions: any[] = []
-    const playerOptions: any[] = []
 
-    // Get all players from all teams
     ALL_TEAMS.forEach((teamAbbr) => {
       const teamRoster = getTeamRoster(teamAbbr)
 
       teamRoster.forEach((player) => {
-        const hasContractThisYear = player.salary[year] && player.salary[year] > 0
+        // Find the first season where the player has no salary in the database
+        const firstFreeSeason = SEASONS.find((s) => !(player.salary[s] && player.salary[s]! > 0))
+
+        // Only show the player in the year that is their first year without a contract
+        if (!firstFreeSeason || firstFreeSeason !== year) return
+
+        // Skip if an extension already covers this year
         const hasExtensionThisYear = savedContracts.some(
           (c) =>
             c.type === 'extension' &&
             c.playerId === player.id &&
             c.salary[year] &&
-            c.salary[year] > 0
+            c.salary[year]! > 0
         )
-        const hasEffectiveContract = hasContractThisYear || hasExtensionThisYear
+        if (hasExtensionThisYear) return
 
-        if (!hasEffectiveContract) {
-          // Check if they have an option this year
-          const optionType = player.options[year]
-          if (optionType === 'Team') {
-            teamOptions.push(player)
-          } else if (optionType === 'Player') {
-            playerOptions.push(player)
-          } else {
-            // No option, they're a free agent
-            freeAgents.push(player)
-          }
-        }
+        freeAgents.push(player)
       })
     })
 
-    // Sort all groups by 25-26 salary descending
     const sortBySalary = (players: any[]) =>
       players.sort((a, b) => (b.salary['2025-26'] || 0) - (a.salary['2025-26'] || 0))
 
     return {
       freeAgents: sortBySalary(freeAgents),
-      teamOptions: sortBySalary(teamOptions),
-      playerOptions: sortBySalary(playerOptions),
+      teamOptions: [],
+      playerOptions: [],
     }
   }
 
@@ -135,7 +126,7 @@ export function SignFreeAgentsPanel() {
                 <SelectValue placeholder="Select year" />
               </SelectTrigger>
               <SelectContent>
-                {SEASONS.slice(1).map((season) => (
+                {SEASONS.slice(1, 6).map((season) => (
                   <SelectItem key={season} value={season}>
                     {season}
                   </SelectItem>
