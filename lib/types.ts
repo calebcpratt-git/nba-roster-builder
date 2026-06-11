@@ -16,6 +16,7 @@ export interface SavedContract {
   createdAt: Date
   notes?: string
   isMinimum?: boolean
+  isMLE?: boolean
 }
 
 export interface CapThreshold {
