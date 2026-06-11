@@ -58,7 +58,7 @@ const DISTRIBUTION_OPTIONS: Record<
 }
 
 export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: SignFreeAgentModalProps) {
-  const { addSavedContract, selectedTeamAbbr, getTotalSalary } = useRoster()
+  const { addSavedContract, selectedTeamAbbr, getTotalSalary, savedContracts, deletedContractIds } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -74,6 +74,15 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   const softCap = seasonThresholds?.find((t) => t.type === 'soft-cap')?.value ?? 0
   const firstApron = seasonThresholds?.find((t) => t.type === 'first-apron')?.value ?? 0
   const isOverCapBelowFirstApron = currentTeamTotal > softCap && currentTeamTotal < firstApron
+
+  // MLE can only be used once per starting season
+  const mleAlreadyUsedForSeason = savedContracts.some(
+    (c) =>
+      c.isMLE &&
+      !deletedContractIds.has(c.id) &&
+      SEASONS.find((s) => (c.salary[s] ?? 0) > 0) === startingSeason
+  )
+  const mleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason
 
   // Get remaining seasons starting from the selected year
   const startIndex = SEASONS.indexOf(startingSeason)
@@ -92,7 +101,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   const totalValueNum = isMinimum ? minimumTotalValue : isMLE ? mleTotalValue : (parseFloat(totalValue) || 0)
 
   // When over cap but under first apron, fields are locked until a mode is chosen
-  const capRestricted = isOverCapBelowFirstApron && !isMinimum && !isMLE
+  const capRestricted = isOverCapBelowFirstApron && !isMinimum && !(isMLE && mleAvailable)
 
   const handleMinimumToggle = (checked: boolean) => {
     setIsMinimum(checked)
@@ -185,6 +194,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
       salary: salaries,
       createdAt: new Date(),
       isMinimum: isMinimum,
+      isMLE: isMLE,
     })
 
     setYears('3')
@@ -197,7 +207,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   }
 
   const isValid = isOverCapBelowFirstApron
-    ? (isMinimum || isMLE) && numYears > 0
+    ? (isMinimum || (isMLE && mleAvailable)) && numYears > 0
     : totalValueNum > 0 && numYears > 0
 
   return (
@@ -213,9 +223,14 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
         <div className="space-y-4">
           {/* Cap restriction notice + toggles */}
           <div className="space-y-2">
-            {isOverCapBelowFirstApron && (
+            {isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && (
               <p className="text-xs text-amber-500">
                 Team is over the salary cap. Only Minimum or Mid-Level Exception contracts are available.
+              </p>
+            )}
+            {isOverCapBelowFirstApron && mleAlreadyUsedForSeason && (
+              <p className="text-xs text-amber-500">
+                Team is over the salary cap and has already used the MLE for {startingSeason}. Only a minimum contract is available.
               </p>
             )}
             <div className="flex items-center gap-4">
@@ -230,7 +245,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
                   className="data-[state=unchecked]:bg-gray-400"
                 />
               </div>
-              {isOverCapBelowFirstApron && (
+              {mleAvailable && (
                 <div className="flex items-center gap-2">
                   <Label htmlFor="mle-contract-fa" className="text-xs font-medium cursor-pointer">
                     Mid-Level Exception

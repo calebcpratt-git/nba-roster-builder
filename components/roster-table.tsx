@@ -553,10 +553,12 @@ export function RosterTable() {
                         }
 
                         // Regular salary without option - use gradient color
-                        // Check if this salary is from an extension
-                        const isExtensionSalary = player.source === 'current' && 
+                        // Check if this salary is from an extension or MLE contract
+                        const isExtensionSalary = player.source === 'current' &&
                           savedContracts.some(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
-                        
+                        const isMLESalary = player.source === 'saved' && displaySalary > 0 &&
+                          savedContracts.some(c => c.id === player.id && c.isMLE)
+
                         return (
                           <td key={season} className="px-2 py-1.5 text-left">
                             <div className="inline-flex items-center gap-1">
@@ -571,6 +573,11 @@ export function RosterTable() {
                               {isExtensionSalary && (
                                 <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/20 text-purple-400">
                                   EXT
+                                </span>
+                              )}
+                              {isMLESalary && (
+                                <span className="text-[8px] px-0.5 rounded font-semibold bg-emerald-500/20 text-emerald-400">
+                                  MLE
                                 </span>
                               )}
                             </div>
