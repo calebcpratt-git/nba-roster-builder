@@ -598,16 +598,6 @@ export function RosterTable() {
                   )
                 })}
                 
-                {/* Empty rows to fill space */}
-                {Array.from({ length: Math.max(0, 20 - allPlayers.length) }).map((_, idx) => (
-                  <tr key={`empty-${idx}`} className="border-b border-border/50">
-                    <td className="sticky left-0 bg-card px-3 py-1.5"></td>
-                    {displayedSeasons.map((season) => (
-                      <td key={season} className="px-2 py-1.5"></td>
-                    ))}
-                  </tr>
-                ))}
-
                 {/* Draft Picks section */}
                 {draftPickPlayers.length > 0 && (
                   <tr className="border-t border-border bg-muted/40">

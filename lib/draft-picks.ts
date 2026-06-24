@@ -527,7 +527,7 @@ export function getDraftPickPlayers(teamAbbr: string): Player[] {
     }
     return {
       id: `draft-${pick.year}-${pick.round.replace(/ /g, '-')}-${teamAbbr}-${idx}`,
-      name: `${pick.year} ${pick.round === 'First Round' ? 'First' : 'Second'} Round Pick`,
+      name: `${pick.year} - ${pick.round === 'First Round' ? '1st' : '2nd'}`,
       team: teamAbbr,
       salary,
       options: {},
