@@ -314,6 +314,7 @@ export function RosterTable() {
     togglePlayerOption,
     isOptionExercised,
     deletedContractIds,
+    draftPickPlayers,
   } = useRoster()
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean }>({
@@ -343,9 +344,18 @@ export function RosterTable() {
         }
       })
     })
-    
+
+    // Check draft picks for latest salary year
+    draftPickPlayers.forEach((pick) => {
+      SEASONS.forEach((season, index) => {
+        if (pick.salary[season] && pick.salary[season]! > 0) {
+          maxSeasonIndex = Math.max(maxSeasonIndex, index)
+        }
+      })
+    })
+
     return SEASONS.slice(0, maxSeasonIndex + 1)
-  }, [roster, savedContracts, deletedContractIds])
+  }, [roster, savedContracts, deletedContractIds, draftPickPlayers])
 
   const allPlayers = [
     ...roster.map((p) => ({ ...p, source: 'current' as const })),
@@ -595,6 +605,41 @@ export function RosterTable() {
                     {displayedSeasons.map((season) => (
                       <td key={season} className="px-2 py-1.5"></td>
                     ))}
+                  </tr>
+                ))}
+
+                {/* Draft Picks section */}
+                {draftPickPlayers.length > 0 && (
+                  <tr className="border-t border-border bg-muted/40">
+                    <td
+                      colSpan={displayedSeasons.length + 1}
+                      className="sticky left-0 bg-muted/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground"
+                    >
+                      Draft Picks
+                    </td>
+                  </tr>
+                )}
+                {draftPickPlayers.map((pick) => (
+                  <tr key={pick.id} className="border-b border-border/30 hover:bg-muted/10 transition-colors">
+                    <td className="sticky left-0 bg-card px-3 py-1.5">
+                      <span className="text-[12px] font-medium text-muted-foreground">{pick.name}</span>
+                    </td>
+                    {displayedSeasons.map((season) => {
+                      const salary = pick.salary[season] || 0
+                      return (
+                        <td key={season} className="px-2 py-1.5 text-left">
+                          {salary > 0 ? (
+                            <span className="text-[12px] font-mono tabular-nums text-muted-foreground">
+                              {formatCurrency(salary)}
+                            </span>
+                          ) : (
+                            <div className="flex justify-center">
+                              <span className="text-[10px] text-muted-foreground/30">—</span>
+                            </div>
+                          )}
+                        </td>
+                      )
+                    })}
                   </tr>
                 ))}
                 

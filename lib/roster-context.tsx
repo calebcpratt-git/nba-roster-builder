@@ -3,6 +3,7 @@
 import { useState, createContext, useContext, ReactNode, useMemo } from 'react'
 import { Player, SavedContract, Season, SEASONS } from './types'
 import { getTeamRoster, TEAMS } from './data'
+import { getDraftPickPlayers } from './draft-picks'
 
 interface RosterState {
   selectedTeamAbbr: string
@@ -25,6 +26,7 @@ interface RosterContextType extends RosterState {
   getDisplaySalary: (player: Player, season: Season) => number
   setDeletedContractIds: (ids: Set<string>) => void
   deletedContractIds: Set<string>
+  draftPickPlayers: Player[]
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
@@ -37,6 +39,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   const [deletedContractIds, setDeletedContractIds] = useState<Set<string>>(new Set())
 
   const roster = useMemo(() => getTeamRoster(selectedTeamAbbr), [selectedTeamAbbr])
+  const draftPickPlayers = useMemo(() => getDraftPickPlayers(selectedTeamAbbr), [selectedTeamAbbr])
   const selectedTeam = TEAMS[selectedTeamAbbr] || { name: 'Unknown', city: 'Unknown', primaryColor: '#000', secondaryColor: '#fff' }
   
   // Get saved contracts for the current team
@@ -141,11 +144,12 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     const savedSalary = savedContracts
       .filter((contract) => !deletedContractIds.has(contract.id))
       .reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
-    
+    const draftSalary = draftPickPlayers.reduce((sum, pick) => sum + (pick.salary[season] || 0), 0)
+
     return {
       current: currentSalary,
       saved: savedSalary,
-      total: currentSalary + savedSalary,
+      total: currentSalary + savedSalary + draftSalary,
     }
   }
 
@@ -184,6 +188,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         getDisplaySalary,
         setDeletedContractIds,
         deletedContractIds,
+        draftPickPlayers,
       }}
     >
       {children}
