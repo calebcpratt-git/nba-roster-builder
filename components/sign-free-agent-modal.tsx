@@ -73,16 +73,19 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   const seasonThresholds = CAP_THRESHOLDS[startingSeason]
   const softCap = seasonThresholds?.find((t) => t.type === 'soft-cap')?.value ?? 0
   const firstApron = seasonThresholds?.find((t) => t.type === 'first-apron')?.value ?? 0
+  const secondApron = seasonThresholds?.find((t) => t.type === 'second-apron')?.value ?? 0
+  const isOverSecondApron = currentTeamTotal > secondApron
+  const isOverFirstApronBelowSecondApron = currentTeamTotal > firstApron && !isOverSecondApron
   const isOverCapBelowFirstApron = currentTeamTotal > softCap && currentTeamTotal < firstApron
 
-  // MLE can only be used once per starting season
+  // MLE can only be used once per starting season; not available over second apron
   const mleAlreadyUsedForSeason = savedContracts.some(
     (c) =>
       c.isMLE &&
       !deletedContractIds.has(c.id) &&
       SEASONS.find((s) => (c.salary[s] ?? 0) > 0) === startingSeason
   )
-  const mleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason
+  const mleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && !isOverSecondApron
 
   // Get remaining seasons starting from the selected year
   const startIndex = SEASONS.indexOf(startingSeason)
@@ -100,8 +103,11 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   }, 0)
   const totalValueNum = isMinimum ? minimumTotalValue : isMLE ? mleTotalValue : (parseFloat(totalValue) || 0)
 
-  // When over cap but under first apron, fields are locked until a mode is chosen
-  const capRestricted = isOverCapBelowFirstApron && !isMinimum && !(isMLE && mleAvailable)
+  // Fields are locked when over any cap threshold and no valid exception is selected
+  const capRestricted =
+    (isOverSecondApron && !isMinimum) ||
+    (isOverFirstApronBelowSecondApron && !isMinimum) ||
+    (isOverCapBelowFirstApron && !isMinimum && !(isMLE && mleAvailable))
 
   const handleMinimumToggle = (checked: boolean) => {
     setIsMinimum(checked)
@@ -206,9 +212,11 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     onClose()
   }
 
-  const isValid = isOverCapBelowFirstApron
-    ? (isMinimum || (isMLE && mleAvailable)) && numYears > 0
-    : totalValueNum > 0 && numYears > 0
+  const isValid = isOverSecondApron || isOverFirstApronBelowSecondApron
+    ? isMinimum && numYears > 0
+    : isOverCapBelowFirstApron
+      ? (isMinimum || (isMLE && mleAvailable)) && numYears > 0
+      : totalValueNum > 0 && numYears > 0
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -223,12 +231,22 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
         <div className="space-y-4">
           {/* Cap restriction notice + toggles */}
           <div className="space-y-2">
-            {isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && (
+            {isOverSecondApron && (
+              <p className="text-xs text-red-500">
+                Team is over the second apron. Only minimum contracts are available.
+              </p>
+            )}
+            {isOverFirstApronBelowSecondApron && (
+              <p className="text-xs text-red-500">
+                Team is over the first apron. Only minimum contracts are available.
+              </p>
+            )}
+            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && (
               <p className="text-xs text-amber-500">
                 Team is over the salary cap. Only Minimum or Mid-Level Exception contracts are available.
               </p>
             )}
-            {isOverCapBelowFirstApron && mleAlreadyUsedForSeason && (
+            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && isOverCapBelowFirstApron && mleAlreadyUsedForSeason && (
               <p className="text-xs text-amber-500">
                 Team is over the salary cap and has already used the MLE for {startingSeason}. Only a minimum contract is available.
               </p>
