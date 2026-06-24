@@ -1,4 +1,5 @@
 import { Player, Season, SEASONS } from './types'
+import { ROOKIE_SALARIES_2026, SECOND_ROUND_SALARY_BY_SEASON, getScaledRookieSalary } from './rookie-salaries'
 
 export type DraftRound = 'First Round' | 'Second Round'
 
@@ -520,17 +521,46 @@ export function getDraftPickPlayers(teamAbbr: string): Player[] {
     const startSeasonStr = `${pick.year}-${String(pick.year + 1).slice(2)}` as Season
     const startIdx = SEASONS.indexOf(startSeasonStr)
     const salary: Partial<Record<Season, number>> = {}
-    if (startIdx !== -1) {
+    const options: Partial<Record<Season, 'Player' | 'Team'>> = {}
+
+    const rookieScale = pick.year === 2026 && pick.round === 'First Round' && pick.pickNumber !== null
+      ? ROOKIE_SALARIES_2026[pick.pickNumber]
+      : null
+
+    if (rookieScale && startIdx !== -1) {
+      const [y1, y2, y3, y4] = [
+        SEASONS[startIdx],
+        SEASONS[startIdx + 1],
+        SEASONS[startIdx + 2],
+        SEASONS[startIdx + 3],
+      ]
+      if (y1) salary[y1] = rookieScale.year1
+      if (y2) salary[y2] = rookieScale.year2
+      if (y3) { salary[y3] = rookieScale.year3; options[y3] = 'Team' }
+      if (y4) { salary[y4] = rookieScale.year4; options[y4] = 'Team' }
+    } else if (pick.round === 'First Round' && startIdx !== -1) {
+      // Future first-round picks default to pick #16 scaled for that draft year
+      const defaultScale = getScaledRookieSalary(16, pick.year)
+      if (defaultScale) {
+        const [y1, y2, y3, y4] = [SEASONS[startIdx], SEASONS[startIdx + 1], SEASONS[startIdx + 2], SEASONS[startIdx + 3]]
+        if (y1) salary[y1] = defaultScale.year1
+        if (y2) salary[y2] = defaultScale.year2
+        if (y3) { salary[y3] = defaultScale.year3; options[y3] = 'Team' }
+        if (y4) { salary[y4] = defaultScale.year4; options[y4] = 'Team' }
+      }
+    } else if (pick.round === 'Second Round' && startIdx !== -1) {
       for (let i = startIdx; i < Math.min(startIdx + 4, SEASONS.length); i++) {
-        salary[SEASONS[i]] = 5_000_000
+        const s = SEASONS[i]
+        salary[s] = SECOND_ROUND_SALARY_BY_SEASON[s] ?? 1_300_000
       }
     }
+
     return {
       id: `draft-${pick.year}-${pick.round.replace(/ /g, '-')}-${teamAbbr}-${idx}`,
-      name: `${pick.year} - ${pick.round === 'First Round' ? '1st' : '2nd'}`,
+      name: `${pick.year} - ${pick.round === 'First Round' ? '1st' : '2nd'}${pick.pickNumber !== null ? ` (#${pick.pickNumber})` : ''}`,
       team: teamAbbr,
       salary,
-      options: {},
+      options,
     } as Player
   })
 }

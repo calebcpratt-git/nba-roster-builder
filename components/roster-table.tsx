@@ -12,6 +12,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
 import { Check, X, Info, Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -315,6 +322,8 @@ export function RosterTable() {
     isOptionExercised,
     deletedContractIds,
     draftPickPlayers,
+    pickNumberOverrides,
+    setPickNumberOverride,
   } = useRoster()
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean }>({
@@ -430,7 +439,7 @@ export function RosterTable() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border bg-muted/30">
-                  <th className="sticky left-0 bg-muted/30 px-3 py-1.5 text-left text-[11px] font-medium text-muted-foreground w-[160px]">
+                  <th className="sticky left-0 bg-muted/30 px-3 py-1.5 text-left text-[11px] font-medium text-muted-foreground w-[220px]">
                     Player
                   </th>
                   {displayedSeasons.map((season) => (
@@ -463,7 +472,7 @@ export function RosterTable() {
                           : "bg-card"
                       )}>
                         <div className="flex items-center gap-1.5">
-                          <span className="font-medium text-[12px]">
+                          <span className="font-medium text-[12px] whitespace-nowrap">
                             {player.name}
                           </span>
                           {player.source === 'saved' && (
@@ -610,23 +619,87 @@ export function RosterTable() {
                   </tr>
                 )}
                 {draftPickPlayers.map((pick) => (
-                  <tr key={pick.id} className="border-b border-border/30 hover:bg-muted/10 transition-colors">
+                  <tr key={pick.id} className="border-b border-border/30 hover:bg-muted/20 transition-colors">
                     <td className="sticky left-0 bg-card px-3 py-1.5">
-                      <span className="text-[12px] font-medium text-muted-foreground">{pick.name}</span>
+                      {(() => {
+                        const yearMatch = pick.name.match(/^(\d{4}) - 1st/)
+                        const pickYear = yearMatch ? parseInt(yearMatch[1]) : 0
+                        const isAdjustable = pickYear >= 2027
+                        const currentOverride = pickNumberOverrides[pick.id] ?? null
+                        return (
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[12px] font-medium text-muted-foreground whitespace-nowrap">{pick.name}</span>
+                            {isAdjustable && (
+                              <Select
+                                value={String(currentOverride ?? 16)}
+                                onValueChange={(val) => setPickNumberOverride(pick.id, parseInt(val))}
+                              >
+                                <SelectTrigger
+                                  size="sm"
+                                  className="h-[18px] text-[10px] px-1.5 py-0 min-w-0 w-auto gap-0.5 border-border/50 text-muted-foreground"
+                                >
+                                  <SelectValue />
+                                </SelectTrigger>
+                                <SelectContent className="text-[11px] min-w-[64px]">
+                                  {Array.from({ length: 30 }, (_, i) => i + 1).map((n) => (
+                                    <SelectItem key={n} value={String(n)} className="text-[11px] py-1 pl-2 pr-6">
+                                      #{n}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            )}
+                          </div>
+                        )
+                      })()}
                     </td>
                     {displayedSeasons.map((season) => {
                       const salary = pick.salary[season] || 0
-                      return (
-                        <td key={season} className="px-2 py-1.5 text-left">
-                          {salary > 0 ? (
-                            <span className="text-[12px] font-mono tabular-nums text-muted-foreground">
-                              {formatCurrency(salary)}
-                            </span>
-                          ) : (
+                      const optionType = pick.options[season]
+                      const hasOption = !!optionType
+                      const optionExercised = hasOption ? isOptionExercised(pick.id, season, optionType) : true
+
+                      if (!salary) {
+                        return (
+                          <td key={season} className="px-2 py-1.5">
                             <div className="flex justify-center">
                               <span className="text-[10px] text-muted-foreground/30">—</span>
                             </div>
-                          )}
+                          </td>
+                        )
+                      }
+
+                      if (hasOption) {
+                        return (
+                          <td key={season} className="px-2 py-1.5 text-left">
+                            <OptionSalaryCell
+                              playerId={pick.id}
+                              optionType={optionType}
+                              isExercised={optionExercised}
+                              season={season}
+                              salary={salary}
+                              isSaved={false}
+                              player={pick as Player}
+                              isFirstEmpty={false}
+                              onExtend={() => {}}
+                              isOptionExercisedFn={isOptionExercised}
+                              onToggle={(exercise) => {
+                                if (optionType === 'Team') {
+                                  toggleTeamOption(pick.id, season, exercise)
+                                } else {
+                                  togglePlayerOption(pick.id, season, exercise)
+                                }
+                              }}
+                            />
+                          </td>
+                        )
+                      }
+
+                      return (
+                        <td key={season} className="px-2 py-1.5 text-left">
+                          <span className={cn("text-[12px] font-mono tabular-nums", getSalaryColor(salary))}>
+                            {formatCurrency(salary)}
+                          </span>
                         </td>
                       )
                     })}
