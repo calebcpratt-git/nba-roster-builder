@@ -3,6 +3,8 @@
 import { useState, createContext, useContext, ReactNode, useMemo } from 'react'
 import { Player, SavedContract, Season, SEASONS } from './types'
 import { getTeamRoster, TEAMS } from './data'
+import { getDraftPickPlayers } from './draft-picks'
+import { getScaledRookieSalary } from './rookie-salaries'
 
 interface RosterState {
   selectedTeamAbbr: string
@@ -25,6 +27,9 @@ interface RosterContextType extends RosterState {
   getDisplaySalary: (player: Player, season: Season) => number
   setDeletedContractIds: (ids: Set<string>) => void
   deletedContractIds: Set<string>
+  draftPickPlayers: Player[]
+  pickNumberOverrides: Record<string, number>
+  setPickNumberOverride: (pickId: string, pickNumber: number | null) => void
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
@@ -35,8 +40,56 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   const [exercisedTeamOptions, setExercisedTeamOptions] = useState<Set<string>>(new Set())
   const [exercisedPlayerOptions, setExercisedPlayerOptions] = useState<Set<string>>(new Set())
   const [deletedContractIds, setDeletedContractIds] = useState<Set<string>>(new Set())
+  const [pickNumberOverrides, setPickNumberOverrides] = useState<Record<string, number>>({})
+
+  const setPickNumberOverride = (pickId: string, pickNumber: number | null) => {
+    setPickNumberOverrides((prev) => {
+      const next = { ...prev }
+      if (pickNumber === null) {
+        delete next[pickId]
+      } else {
+        next[pickId] = pickNumber
+      }
+      return next
+    })
+  }
 
   const roster = useMemo(() => getTeamRoster(selectedTeamAbbr), [selectedTeamAbbr])
+
+  const draftPickPlayers = useMemo(() => {
+    const raw = getDraftPickPlayers(selectedTeamAbbr)
+    return raw.map((pick) => {
+      const yearMatch = pick.id.match(/^draft-(\d+)-/)
+      const draftYear = yearMatch ? parseInt(yearMatch[1]) : 0
+      const isFutureFirstRound = pick.id.includes('First-Round') && draftYear >= 2027
+
+      // For future first-round picks always compute through this path so the default
+      // (#16) and any explicit selection use identical code — no two-path divergence.
+      const pickNumber = isFutureFirstRound
+        ? (pickNumberOverrides[pick.id] ?? 16)
+        : pickNumberOverrides[pick.id]
+
+      if (pickNumber === undefined) return pick
+
+      const scaled = getScaledRookieSalary(pickNumber, draftYear)
+      if (!scaled) return pick
+
+      const startSeason = `${draftYear}-${String(draftYear + 1).slice(2)}` as Season
+      const startIdx = SEASONS.indexOf(startSeason)
+      if (startIdx === -1) return pick
+
+      const salary: Partial<Record<Season, number>> = {}
+      const options: Partial<Record<Season, 'Player' | 'Team'>> = {}
+      const [y1, y2, y3, y4] = [SEASONS[startIdx], SEASONS[startIdx + 1], SEASONS[startIdx + 2], SEASONS[startIdx + 3]]
+      if (y1) salary[y1] = scaled.year1
+      if (y2) salary[y2] = scaled.year2
+      if (y3) { salary[y3] = scaled.year3; options[y3] = 'Team' }
+      if (y4) { salary[y4] = scaled.year4; options[y4] = 'Team' }
+
+      const name = isFutureFirstRound ? `${draftYear} - 1st` : `${draftYear} - 1st (#${pickNumber})`
+      return { ...pick, name, salary, options }
+    })
+  }, [selectedTeamAbbr, pickNumberOverrides])
   const selectedTeam = TEAMS[selectedTeamAbbr] || { name: 'Unknown', city: 'Unknown', primaryColor: '#000', secondaryColor: '#fff' }
   
   // Get saved contracts for the current team
@@ -141,11 +194,12 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     const savedSalary = savedContracts
       .filter((contract) => !deletedContractIds.has(contract.id))
       .reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
-    
+    const draftSalary = draftPickPlayers.reduce((sum, pick) => sum + (pick.salary[season] || 0), 0)
+
     return {
       current: currentSalary,
       saved: savedSalary,
-      total: currentSalary + savedSalary,
+      total: currentSalary + savedSalary + draftSalary,
     }
   }
 
@@ -184,6 +238,9 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         getDisplaySalary,
         setDeletedContractIds,
         deletedContractIds,
+        draftPickPlayers,
+        pickNumberOverrides,
+        setPickNumberOverride,
       }}
     >
       {children}

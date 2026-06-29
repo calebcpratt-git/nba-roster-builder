@@ -5,6 +5,14 @@ import { useRoster } from '@/lib/roster-context'
 import { Player, Season, SEASONS } from '@/lib/types'
 import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
 import {
+  getPlayerRookieYear,
+  getPlayerYOE,
+  getMaxContractPct,
+  getMaxContractSalaries,
+  getMaxAllowedTotal,
+  DistributionType,
+} from '@/lib/contract-utils'
+import {
   Dialog,
   DialogContent,
   DialogHeader,
@@ -31,8 +39,6 @@ interface SignFreeAgentModalProps {
   onClose: () => void
 }
 
-type DistributionType = 'flat' | 'escalating' | 'declining'
-
 const DISTRIBUTION_OPTIONS: Record<
   DistributionType,
   { label: string; description: string; shortDescription: string }
@@ -45,8 +51,7 @@ const DISTRIBUTION_OPTIONS: Record<
   },
   escalating: {
     label: 'Escalating',
-    description:
-      'Salary increases each year. The standard structure.',
+    description: 'Salary increases each year. The standard structure.',
     shortDescription: 'Salary increases each year. The standard structure.',
   },
   declining: {
@@ -64,49 +69,98 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
   const [isMinimum, setIsMinimum] = useState(false)
   const [isMLE, setIsMLE] = useState(false)
+  const [isMaxContract, setIsMaxContract] = useState(false)
   const [yearsError, setYearsError] = useState('')
 
   if (!player) return null
 
-  // Check if team is over the salary cap but under the first apron for this season
+  // Cap threshold checks
   const { total: currentTeamTotal } = getTotalSalary(startingSeason)
   const seasonThresholds = CAP_THRESHOLDS[startingSeason]
   const softCap = seasonThresholds?.find((t) => t.type === 'soft-cap')?.value ?? 0
   const firstApron = seasonThresholds?.find((t) => t.type === 'first-apron')?.value ?? 0
+  const secondApron = seasonThresholds?.find((t) => t.type === 'second-apron')?.value ?? 0
+  const isOverSecondApron = currentTeamTotal > secondApron
+  const isOverFirstApronBelowSecondApron = currentTeamTotal > firstApron && !isOverSecondApron
   const isOverCapBelowFirstApron = currentTeamTotal > softCap && currentTeamTotal < firstApron
 
-  // MLE can only be used once per starting season
   const mleAlreadyUsedForSeason = savedContracts.some(
     (c) =>
       c.isMLE &&
       !deletedContractIds.has(c.id) &&
       SEASONS.find((s) => (c.salary[s] ?? 0) > 0) === startingSeason
   )
-  const mleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason
+  const mleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && !isOverSecondApron
 
-  // Get remaining seasons starting from the selected year
+  // Seasons / year calculations
   const startIndex = SEASONS.indexOf(startingSeason)
   const maxYears = SEASONS.length - startIndex
-  const numYears = Math.min(parseInt(years) || 3, isMinimum ? 2 : maxYears)
+  const maxYearsAllowed = isMinimum ? 2 : isMaxContract ? Math.min(5, maxYears) : maxYears
+  const numYears = Math.min(parseInt(years) || 3, maxYearsAllowed)
   const contractSeasons = SEASONS.slice(startIndex, startIndex + numYears)
 
-  // For minimum contracts, total value is fixed
-  // For MLE, each year scales from the 2026-27 base of $15.1M proportional to the soft cap
+  // Max contract data
+  const rookieYear = getPlayerRookieYear(player.name)
+  const yoe = rookieYear !== undefined ? getPlayerYOE(rookieYear, startingSeason) : undefined
+  const maxPct = yoe !== undefined ? getMaxContractPct(yoe) : undefined
+  const maxContractSalaries =
+    rookieYear !== undefined && contractSeasons.length > 0
+      ? getMaxContractSalaries(rookieYear, startingSeason, contractSeasons, distribution)
+      : null
+  const maxAllowedTotalDollars =
+    rookieYear !== undefined && contractSeasons.length > 0
+      ? getMaxAllowedTotal(rookieYear, startingSeason, contractSeasons, distribution)
+      : Infinity
+  const maxAllowedTotalM = maxAllowedTotalDollars / 1_000_000
+
+  // Minimum / MLE totals
   const minimumTotalValue = numYears === 1 ? 1.2 : 2.5
   const mleSoftCapBase = CAP_THRESHOLDS['2026-27']?.find((t) => t.type === 'soft-cap')?.value ?? 150000000
   const mleTotalValue = contractSeasons.reduce((sum, season) => {
     const seasonSoftCap = CAP_THRESHOLDS[season]?.find((t) => t.type === 'soft-cap')?.value ?? mleSoftCapBase
     return sum + (15.1 * seasonSoftCap) / mleSoftCapBase
   }, 0)
-  const totalValueNum = isMinimum ? minimumTotalValue : isMLE ? mleTotalValue : (parseFloat(totalValue) || 0)
 
-  // When over cap but under first apron, fields are locked until a mode is chosen
-  const capRestricted = isOverCapBelowFirstApron && !isMinimum && !(isMLE && mleAvailable)
+  const totalValueNum = isMinimum
+    ? minimumTotalValue
+    : isMLE
+    ? mleTotalValue
+    : parseFloat(totalValue) || 0
+
+  const capRestricted =
+    (isOverSecondApron && !isMinimum) ||
+    (isOverFirstApronBelowSecondApron && !isMinimum) ||
+    (isOverCapBelowFirstApron && !isMinimum && !(isMLE && mleAvailable))
+
+  // Clamp a total-value string to the current max allowed
+  const clampTotalValue = (
+    val: string,
+    dist: DistributionType,
+    seasons: Season[]
+  ): string => {
+    const num = parseFloat(val)
+    if (isNaN(num) || rookieYear === undefined) return val
+    const maxM =
+      getMaxAllowedTotal(rookieYear, startingSeason, seasons, dist) / 1_000_000
+    return num > maxM ? maxM.toFixed(2) : val
+  }
+
+  const handleMaxContractToggle = (checked: boolean) => {
+    setIsMaxContract(checked)
+    setYearsError('')
+    if (checked) {
+      setIsMinimum(false)
+      setIsMLE(false)
+      setTotalValue('')
+      if (parseInt(years) > 5) setYears('5')
+    }
+  }
 
   const handleMinimumToggle = (checked: boolean) => {
     setIsMinimum(checked)
     setYearsError('')
     if (checked) {
+      setIsMaxContract(false)
       setIsMLE(false)
       setYears('1')
       setDistribution('flat')
@@ -120,6 +174,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     setIsMLE(checked)
     if (checked) {
       setIsMinimum(false)
+      setIsMaxContract(false)
       setYears('3')
       setDistribution('escalating')
     }
@@ -133,11 +188,40 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
       setYears('2')
       return
     }
+    if (isMaxContract && numValue > 5) {
+      setYearsError('Maximum contracts can only be for up to 5 years')
+      setYears('5')
+      return
+    }
     setYears(value)
+    // Clamp total value against the new seasons
+    if (!isMaxContract && !isMinimum && !isMLE && totalValue) {
+      const newNumYears = Math.min(numValue || 3, isMaxContract ? Math.min(5, maxYears) : maxYears)
+      const newSeasons = SEASONS.slice(startIndex, startIndex + newNumYears)
+      setTotalValue(clampTotalValue(totalValue, distribution, newSeasons))
+    }
   }
 
-  const calculateSalaries = (): Record<Season, number> => {
-    const result: Record<Season, number> = {} as Record<Season, number>
+  const handleDistributionChange = (v: DistributionType) => {
+    setDistribution(v)
+    if (!isMaxContract && !isMinimum && !isMLE && totalValue) {
+      setTotalValue(clampTotalValue(totalValue, v, contractSeasons))
+    }
+  }
+
+  const handleTotalValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value
+    if (!isMaxContract && !isMinimum && !isMLE) {
+      setTotalValue(clampTotalValue(val, distribution, contractSeasons))
+    } else {
+      setTotalValue(val)
+    }
+  }
+
+  const calculateSalaries = (): Partial<Record<Season, number>> => {
+    if (isMaxContract && maxContractSalaries) return maxContractSalaries
+
+    const result: Partial<Record<Season, number>> = {}
     if (contractSeasons.length === 0) return result
 
     if (isMLE) {
@@ -153,15 +237,12 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
 
     if (distribution === 'flat') {
       const yearSalary = totalInDollars / contractSeasons.length
-      contractSeasons.forEach((season) => {
-        result[season] = yearSalary
-      })
+      contractSeasons.forEach((season) => { result[season] = yearSalary })
     } else if (distribution === 'escalating') {
       const n = contractSeasons.length
       const rate = 1.05
       const divisor = (1 - Math.pow(rate, n)) / (1 - rate)
       const firstYearSalary = totalInDollars / divisor
-
       contractSeasons.forEach((season, index) => {
         result[season] = firstYearSalary * Math.pow(rate, index)
       })
@@ -170,7 +251,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
       const rate = 0.95
       const divisor = (1 - Math.pow(rate, n)) / (1 - rate)
       const firstYearSalary = totalInDollars / divisor
-
       contractSeasons.forEach((season, index) => {
         result[season] = firstYearSalary * Math.pow(rate, index)
       })
@@ -180,12 +260,22 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   }
 
   const salaries = calculateSalaries()
-  const totalCalculated = Object.values(salaries).reduce((a, b) => a + b, 0)
+  const totalCalculated = Object.values(salaries).reduce((a, b) => a + (b ?? 0), 0)
+
+  const maxContractTotalM = maxContractSalaries
+    ? Object.values(maxContractSalaries).reduce((a, b) => a + (b ?? 0), 0) / 1_000_000
+    : 0
+
+  const totalValueDisplayed = isMinimum
+    ? minimumTotalValue.toString()
+    : isMLE
+    ? mleTotalValue.toFixed(1)
+    : isMaxContract
+    ? maxContractTotalM.toFixed(1)
+    : totalValue
 
   const handleSave = () => {
-    // Check if player is on the currently selected team
     const isOnSelectedTeam = player.team === selectedTeamAbbr
-
     addSavedContract({
       id: `fa-${player.id}-${Date.now()}`,
       playerId: player.id,
@@ -202,13 +292,20 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     setDistribution('escalating')
     setIsMinimum(false)
     setIsMLE(false)
+    setIsMaxContract(false)
     setYearsError('')
     onClose()
   }
 
-  const isValid = isOverCapBelowFirstApron
+  const isValid = isOverSecondApron || isOverFirstApronBelowSecondApron
+    ? isMinimum && numYears > 0
+    : isOverCapBelowFirstApron
     ? (isMinimum || (isMLE && mleAvailable)) && numYears > 0
+    : isMaxContract
+    ? numYears > 0 && maxContractSalaries !== null
     : totalValueNum > 0 && numYears > 0
+
+  const isTotalValueDisabled = isMinimum || isMLE || isMaxContract || capRestricted
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -221,19 +318,46 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
         </DialogHeader>
 
         <div className="space-y-4">
-          {/* Cap restriction notice + toggles */}
+          {/* Cap restriction notices */}
           <div className="space-y-2">
-            {isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && (
+            {isOverSecondApron && (
+              <p className="text-xs text-red-500">
+                Team is over the second apron. Only minimum contracts are available.
+              </p>
+            )}
+            {isOverFirstApronBelowSecondApron && (
+              <p className="text-xs text-red-500">
+                Team is over the first apron. Only minimum contracts are available.
+              </p>
+            )}
+            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && (
               <p className="text-xs text-amber-500">
                 Team is over the salary cap. Only Minimum or Mid-Level Exception contracts are available.
               </p>
             )}
-            {isOverCapBelowFirstApron && mleAlreadyUsedForSeason && (
+            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && isOverCapBelowFirstApron && mleAlreadyUsedForSeason && (
               <p className="text-xs text-amber-500">
                 Team is over the salary cap and has already used the MLE for {startingSeason}. Only a minimum contract is available.
               </p>
             )}
-            <div className="flex items-center gap-4">
+
+            {/* Contract type toggles */}
+            <div className="flex items-center gap-4 flex-wrap">
+              {/* Maximum Contract — shown when cap allows non-minimum contracts */}
+              {!isOverSecondApron && !isOverFirstApronBelowSecondApron && !(isOverCapBelowFirstApron) && rookieYear !== undefined && (
+                <div className="flex items-center gap-2">
+                  <Label htmlFor="max-contract-fa" className="text-xs font-medium cursor-pointer">
+                    Maximum Contract
+                  </Label>
+                  <Switch
+                    id="max-contract-fa"
+                    checked={isMaxContract}
+                    onCheckedChange={handleMaxContractToggle}
+                    className="data-[state=unchecked]:bg-gray-400"
+                  />
+                </div>
+              )}
+
               <div className="flex items-center gap-2">
                 <Label htmlFor="minimum-contract-fa" className="text-xs font-medium cursor-pointer">
                   Minimum Contract
@@ -245,6 +369,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
                   className="data-[state=unchecked]:bg-gray-400"
                 />
               </div>
+
               {mleAvailable && (
                 <div className="flex items-center gap-2">
                   <Label htmlFor="mle-contract-fa" className="text-xs font-medium cursor-pointer">
@@ -259,6 +384,17 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
                 </div>
               )}
             </div>
+
+            {/* Max contract info line */}
+            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && !isOverCapBelowFirstApron && yoe !== undefined && maxPct !== undefined && (
+              <p className="text-xs text-muted-foreground">
+                {player.name} has {yoe} YOE — max contract is{' '}
+                <span className="font-medium">{(maxPct * 100).toFixed(0)}%</span> of the cap
+                {isMaxContract && maxAllowedTotalM < Infinity && (
+                  <span className="text-foreground"> · Max total: <span className="font-medium">${maxAllowedTotalM.toFixed(1)}M</span></span>
+                )}
+              </p>
+            )}
           </div>
 
           {/* Years and Total Value */}
@@ -271,28 +407,29 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
                 id="years"
                 type="number"
                 min="1"
-                max={isMinimum ? 2 : maxYears}
+                max={maxYearsAllowed}
                 value={years}
                 onChange={(e) => handleYearsChange(e.target.value)}
                 disabled={capRestricted}
-                className={cn("h-8 text-sm", yearsError && "border-red-500", capRestricted && "bg-muted cursor-not-allowed")}
+                className={cn('h-8 text-sm', yearsError && 'border-red-500', capRestricted && 'bg-muted cursor-not-allowed')}
               />
-              {yearsError && (
-                <p className="text-xs text-red-500 mt-1">{yearsError}</p>
-              )}
+              {yearsError && <p className="text-xs text-red-500 mt-1">{yearsError}</p>}
             </div>
             <div>
               <Label htmlFor="total-value" className="text-xs">
                 Total Value (Millions)
+                {!isMaxContract && !isMinimum && !isMLE && maxAllowedTotalM < Infinity && (
+                  <span className="text-muted-foreground font-normal"> · max ${maxAllowedTotalM.toFixed(1)}M</span>
+                )}
               </Label>
               <Input
                 id="total-value"
                 type="number"
                 placeholder="0"
-                value={isMinimum ? minimumTotalValue.toString() : isMLE ? mleTotalValue.toFixed(1) : totalValue}
-                onChange={(e) => setTotalValue(e.target.value)}
-                disabled={isMinimum || isMLE || capRestricted}
-                className={cn("h-8 text-sm", (isMinimum || isMLE || capRestricted) && "bg-muted cursor-not-allowed")}
+                value={totalValueDisplayed}
+                onChange={handleTotalValueChange}
+                disabled={isTotalValueDisabled}
+                className={cn('h-8 text-sm', isTotalValueDisabled && 'bg-muted cursor-not-allowed')}
               />
             </div>
           </div>
@@ -300,12 +437,24 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
           {/* Distribution Type */}
           <div className="flex items-center gap-2">
             <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
-            <Select value={distribution} onValueChange={(v) => setDistribution(v as DistributionType)} disabled={isMinimum || isMLE || capRestricted}>
-              <SelectTrigger className={cn("flex-1 text-sm justify-start items-start py-2", (isMinimum || isMLE || capRestricted) && "bg-muted cursor-not-allowed opacity-50")} style={{ height: 'auto' }}>
+            <Select
+              value={distribution}
+              onValueChange={(v) => handleDistributionChange(v as DistributionType)}
+              disabled={isMinimum || isMLE || capRestricted}
+            >
+              <SelectTrigger
+                className={cn(
+                  'flex-1 text-sm justify-start items-start py-2',
+                  (isMinimum || isMLE || capRestricted) && 'bg-muted cursor-not-allowed opacity-50'
+                )}
+                style={{ height: 'auto' }}
+              >
                 {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
                   <div className="flex flex-col gap-0.5 text-left w-full">
                     <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>
-                    <p className="text-xs text-muted-foreground whitespace-normal">{DISTRIBUTION_OPTIONS[distribution].shortDescription}</p>
+                    <p className="text-xs text-muted-foreground whitespace-normal">
+                      {DISTRIBUTION_OPTIONS[distribution].shortDescription}
+                    </p>
                   </div>
                 ) : (
                   <SelectValue placeholder="Select structure" />
@@ -334,7 +483,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
                 {contractSeasons.map((season) => (
                   <div key={season} className="flex justify-between text-xs">
                     <span className="text-muted-foreground">{season}</span>
-                    <span className="font-mono">{formatCurrency(salaries[season])}</span>
+                    <span className="font-mono">{formatCurrency(salaries[season] ?? 0)}</span>
                   </div>
                 ))}
               </div>
