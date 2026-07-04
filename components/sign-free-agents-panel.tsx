@@ -104,7 +104,7 @@ export function SignFreeAgentsPanel() {
             className="pb-3 select-none"
           >
             <div className="flex items-center justify-between">
-              <CardTitle className="text-lg">Sign Free Agents</CardTitle>
+              <CardTitle className="text-lg">Free Agents</CardTitle>
               <ChevronRight
                 className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
                   isCollapsed ? 'rotate-0' : 'rotate-90'

@@ -20,7 +20,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
-import { Check, X, Info, Plus } from 'lucide-react'
+import { Check, X, Info, Plus, RotateCcw } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
@@ -324,6 +324,12 @@ export function RosterTable() {
     draftPickPlayers,
     pickNumberOverrides,
     setPickNumberOverride,
+    releasedRosterIds,
+    releaseRosterPlayer,
+    restoreRosterPlayer,
+    savedTrades,
+    tradedRosterPlayerIds,
+    tradedPickIds,
   } = useRoster()
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean }>({
@@ -363,17 +369,35 @@ export function RosterTable() {
       })
     })
 
+    // Check incoming trade picks
+    savedTrades.forEach((trade) => {
+      trade.incomingPicks.forEach((pick) => {
+        SEASONS.forEach((season, index) => {
+          if (pick.salary[season] && pick.salary[season]! > 0) {
+            maxSeasonIndex = Math.max(maxSeasonIndex, index)
+          }
+        })
+      })
+    })
+
     return SEASONS.slice(0, maxSeasonIndex + 1)
-  }, [roster, savedContracts, deletedContractIds, draftPickPlayers])
+  }, [roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades])
 
   const allPlayers = [
-    ...roster.map((p) => ({ ...p, source: 'current' as const })),
+    ...roster.map((p) => {
+      // Use extension salary for 26-27 if one exists (covers new signings and declined-option re-signs),
+      // otherwise fall back to effective salary (returns 0 for declined options).
+      const extension = savedContracts.find(
+        c => c.type === 'extension' && c.playerId === p.id && !deletedContractIds.has(c.id)
+      )
+      const sortSalary = extension?.salary['2026-27'] || getEffectiveSalary(p, '2026-27')
+      return { ...p, source: 'current' as const, sortSalary, isTraded: tradedRosterPlayerIds.has(p.id) }
+    }),
     ...savedContracts
-      .filter((c) => c.type === 'free-agent' && !deletedContractIds.has(c.id)) // Only show non-deleted free agent signings as separate rows
+      .filter((c) => (c.type === 'free-agent') && !deletedContractIds.has(c.id))
       .map((c) => {
-        // Get first year salary for sorting purposes
-        const firstYearSalary = SEASONS.reduce((first, season) => {
-          if (first === 0 && c.salary[season] > 0) return c.salary[season]
+        const firstYearSalary = SEASONS.reduce<number>((first, season) => {
+          if (first === 0 && c.salary[season]) return c.salary[season]!
           return first
         }, 0)
         return {
@@ -385,16 +409,34 @@ export function RosterTable() {
           isUserCreated: true,
           source: 'saved' as const,
           type: c.type,
-          sortSalary: firstYearSalary, // Used for sorting
+          sortSalary: firstYearSalary,
           isMinimum: c.isMinimum || false,
+          isTraded: tradedRosterPlayerIds.has(c.id),
         }
       }),
-  ].sort((a, b) => {
-    // Sort by 25-26 salary for current players, or sortSalary for free agent signings
-    const aSalary = 'sortSalary' in a ? a.sortSalary : (a.salary['2025-26'] || 0)
-    const bSalary = 'sortSalary' in b ? b.sortSalary : (b.salary['2025-26'] || 0)
-    return bSalary - aSalary
-  })
+    // Incoming trade players
+    ...savedTrades.flatMap((trade) =>
+      trade.incomingPlayers.map((p) => {
+        const firstYearSalary = SEASONS.reduce<number>((first, season) => {
+          if (first === 0 && p.salary[season]) return p.salary[season]!
+          return first
+        }, 0)
+        return {
+          id: `${trade.id}-player-${p.playerId}`,
+          name: p.playerName,
+          team: trade.tradeTeamAbbr,
+          salary: p.salary,
+          options: p.options,
+          isUserCreated: true,
+          source: 'trade-incoming' as const,
+          type: 'trade' as const,
+          sortSalary: firstYearSalary,
+          isMinimum: false,
+          isTraded: false,
+        }
+      })
+    ),
+  ].sort((a, b) => b.sortSalary - a.sortSalary)
 
   const projections = displayedSeasons.map((season) => {
     const { current, saved, total } = getTotalSalary(season)
@@ -456,38 +498,72 @@ export function RosterTable() {
                 {allPlayers.map((player) => {
                   const isCurrentRoster = player.source === 'current'
                   const isRosterPlayer = 'isUserCreated' in player ? !player.isUserCreated : true
+                  const isReleasable = player.source === 'current'
+                  const isReleased = isReleasable && releasedRosterIds.has(player.id)
+                  const isTraded = 'isTraded' in player && player.isTraded
+                  const isTradeIncoming = player.source === 'trade-incoming'
 
                   return (
                     <tr
                       key={player.id}
                       className={cn(
-                        "border-b border-border/50 hover:bg-muted/20 transition-colors",
-                        player.source === 'saved' && 'type' in player && player.type === 'free-agent' && "bg-sky-500/10"
+                        "group border-b border-border/50 hover:bg-muted/20 transition-colors",
+                        player.source === 'saved' && 'type' in player && player.type === 'free-agent' && "bg-sky-500/10",
+                        isTradeIncoming && "bg-chart-4/5",
+                        (isReleased || isTraded) && "opacity-40"
                       )}
                     >
                       <td className={cn(
                         "sticky left-0 px-3 py-1.5",
-                        player.source === 'saved' && 'type' in player && player.type === 'free-agent' 
-                          ? "bg-sky-500/10" 
+                        player.source === 'saved' && 'type' in player && player.type === 'free-agent'
+                          ? "bg-sky-500/10"
+                          : isTradeIncoming
+                          ? "bg-chart-4/5"
                           : "bg-card"
                       )}>
                         <div className="flex items-center gap-1.5">
-                          <span className="font-medium text-[12px] whitespace-nowrap">
+                          <span className={cn(
+                            "font-medium text-[12px] whitespace-nowrap",
+                            (isReleased || isTraded) && "line-through text-muted-foreground"
+                          )}>
                             {player.name}
                           </span>
-                          {player.source === 'saved' && (
-                            <Badge 
-                              variant="outline" 
+                          {(player.source === 'saved' || isTradeIncoming) && (
+                            <Badge
+                              variant="outline"
                               className={cn(
                                 "text-[9px] px-1 py-0",
-                                'type' in player && player.type === 'free-agent' 
-                                  ? "text-sky-400 border-sky-400" 
+                                isTradeIncoming
+                                  ? "text-chart-4 border-chart-4"
+                                  : 'type' in player && player.type === 'free-agent'
+                                  ? "text-sky-400 border-sky-400"
                                   : "text-chart-2 border-chart-2"
                               )}
                             >
-                              {'type' in player && player.type === 'extension' ? 'EXT' : 
+                              {isTradeIncoming ? 'TRADE' :
+                               'type' in player && player.type === 'extension' ? 'EXT' :
                                'type' in player && player.type === 'trade' ? 'TRADE' : 'FA'}
                             </Badge>
+                          )}
+                          {isTraded && (
+                            <span className="text-[9px] font-semibold text-chart-4/70 tracking-wide">TRADED</span>
+                          )}
+                          {isReleasable && !isReleased && !isTraded && (
+                            <button
+                              onClick={() => releaseRosterPlayer(player.id)}
+                              className="opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 text-[9px] font-semibold text-muted-foreground/50 hover:text-red-500 tracking-wide"
+                            >
+                              RELEASE
+                            </button>
+                          )}
+                          {isReleased && (
+                            <button
+                              onClick={() => restoreRosterPlayer(player.id)}
+                              className="ml-0.5 text-muted-foreground hover:text-emerald-500 transition-colors"
+                              title="Restore Player"
+                            >
+                              <RotateCcw className="h-3 w-3" />
+                            </button>
                           )}
                         </div>
                       </td>
@@ -497,7 +573,7 @@ export function RosterTable() {
                         // Display salary — for current roster players, merges in any saved extension salaries
                         // This intentionally uses the raw value for option years so we can still show
                         // the crossed-out number; getEffectiveSalary is only used for cap totals.
-                        const extensionSalary = player.source === 'current'
+                        const extensionSalary = (player.source === 'current' || player.source === 'trade-incoming')
                           ? (() => {
                               const ext = savedContracts.find(
                                 c => c.type === 'extension' && c.playerId === player.id && !deletedContractIds.has(c.id)
@@ -509,7 +585,7 @@ export function RosterTable() {
 
                         const optionType = player.options[season]
                         const hasOption = !!optionType
-                        const optionExercised = hasOption ? isOptionExercised(player.id, season, optionType) : true
+                        const optionExercised = hasOption ? (isOptionExercised(player.id, season, optionType) ?? true) : true
 
                         // Find the first season with no effective contract (declined options count as empty for extension purposes)
                         const firstEmptySeasonIndex = SEASONS.findIndex(s => {
@@ -522,8 +598,8 @@ export function RosterTable() {
                           return effectiveSal === 0 && !hasExt
                         })
 
-                        // Only show extend button on the first empty season
-                        const shouldShowExtendButton = isRosterPlayer && firstEmptySeasonIndex === index && firstEmptySeasonIndex !== -1
+                        // Only show extend button on the first empty season (not for released players)
+                        const shouldShowExtendButton = (isRosterPlayer || isTradeIncoming) && !isReleased && firstEmptySeasonIndex === index && firstEmptySeasonIndex !== -1
 
                         if (!displaySalary) {
                           return (
@@ -558,7 +634,7 @@ export function RosterTable() {
                                 player={player as Player}
                                 isFirstEmpty={shouldShowExtendButton}
                                 onExtend={(p) => setExtensionModal({ player: p, isOpen: true })}
-                                isOptionExercisedFn={isOptionExercised}
+                                isOptionExercisedFn={(id, s, t) => isOptionExercised(id, s, t) ?? true}
                                 onToggle={(exercise) => {
                                   if (optionType === 'Team') {
                                     toggleTeamOption(player.id, season, exercise)
@@ -573,7 +649,7 @@ export function RosterTable() {
 
                         // Regular salary without option - use gradient color
                         // Check if this salary is from an extension or MLE contract
-                        const isExtensionSalary = player.source === 'current' &&
+                        const isExtensionSalary = (player.source === 'current' || player.source === 'trade-incoming') &&
                           savedContracts.some(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
                         const isMLESalary = player.source === 'saved' && displaySalary > 0 &&
                           savedContracts.some(c => c.id === player.id && c.isMLE)
@@ -619,16 +695,28 @@ export function RosterTable() {
                   </tr>
                 )}
                 {draftPickPlayers.map((pick) => (
-                  <tr key={pick.id} className="border-b border-border/30 hover:bg-muted/20 transition-colors">
-                    <td className="sticky left-0 bg-card px-3 py-1.5">
+                  <tr
+                    key={pick.id}
+                    className={cn(
+                      "border-b border-border/30 hover:bg-muted/20 transition-colors",
+                      tradedPickIds.has(pick.id) && "opacity-40"
+                    )}
+                  >
+                    <td className={cn("sticky left-0 px-3 py-1.5", tradedPickIds.has(pick.id) ? "bg-card" : "bg-card")}>
                       {(() => {
                         const yearMatch = pick.name.match(/^(\d{4}) - 1st/)
                         const pickYear = yearMatch ? parseInt(yearMatch[1]) : 0
-                        const isAdjustable = pickYear >= 2027
+                        const isAdjustable = pickYear >= 2027 && !tradedPickIds.has(pick.id)
                         const currentOverride = pickNumberOverrides[pick.id] ?? null
+                        const isPickTraded = tradedPickIds.has(pick.id)
                         return (
                           <div className="flex items-center gap-1.5">
-                            <span className="text-[12px] font-medium text-muted-foreground whitespace-nowrap">{pick.name}</span>
+                            <span className={cn("text-[12px] font-medium text-muted-foreground whitespace-nowrap", isPickTraded && "line-through")}>
+                              {pick.name}
+                            </span>
+                            {isPickTraded && (
+                              <span className="text-[9px] font-semibold text-chart-4/70 tracking-wide">TRADED</span>
+                            )}
                             {isAdjustable && (
                               <Select
                                 value={String(currentOverride ?? 16)}
@@ -657,7 +745,7 @@ export function RosterTable() {
                       const salary = pick.salary[season] || 0
                       const optionType = pick.options[season]
                       const hasOption = !!optionType
-                      const optionExercised = hasOption ? isOptionExercised(pick.id, season, optionType) : true
+                      const optionExercised = hasOption ? (isOptionExercised(pick.id, season, optionType) ?? true) : true
 
                       if (!salary) {
                         return (
@@ -682,7 +770,7 @@ export function RosterTable() {
                               player={pick as Player}
                               isFirstEmpty={false}
                               onExtend={() => {}}
-                              isOptionExercisedFn={isOptionExercised}
+                              isOptionExercisedFn={(id, s, t) => isOptionExercised(id, s, t) ?? true}
                               onToggle={(exercise) => {
                                 if (optionType === 'Team') {
                                   toggleTeamOption(pick.id, season, exercise)
@@ -706,6 +794,71 @@ export function RosterTable() {
                   </tr>
                 ))}
                 
+                {/* Incoming trade picks */}
+                {savedTrades.flatMap((trade) => trade.incomingPicks).length > 0 &&
+                  savedTrades.flatMap((trade) =>
+                    trade.incomingPicks.map((pick) => (
+                      <tr key={pick.id} className="border-b border-border/30 hover:bg-muted/20 transition-colors bg-chart-4/5">
+                        <td className="sticky left-0 bg-chart-4/5 px-3 py-1.5">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[12px] font-medium text-muted-foreground whitespace-nowrap">{pick.name}</span>
+                            <Badge variant="outline" className="text-[9px] px-1 py-0 text-chart-4 border-chart-4">TRADE</Badge>
+                          </div>
+                        </td>
+                        {displayedSeasons.map((season) => {
+                          const salary = pick.salary[season] || 0
+                          const optionType = pick.options[season]
+                          const hasOption = !!optionType
+                          const optionExercised = hasOption ? (isOptionExercised(pick.id, season, optionType) ?? true) : true
+
+                          if (!salary) {
+                            return (
+                              <td key={season} className="px-2 py-1.5">
+                                <div className="flex justify-center">
+                                  <span className="text-[10px] text-muted-foreground/30">—</span>
+                                </div>
+                              </td>
+                            )
+                          }
+
+                          if (hasOption) {
+                            return (
+                              <td key={season} className="px-2 py-1.5 text-left">
+                                <OptionSalaryCell
+                                  playerId={pick.id}
+                                  optionType={optionType}
+                                  isExercised={optionExercised}
+                                  season={season}
+                                  salary={salary}
+                                  isSaved={false}
+                                  player={{ id: pick.id, name: pick.name, team: '', salary: pick.salary, options: pick.options }}
+                                  isFirstEmpty={false}
+                                  onExtend={() => {}}
+                                  isOptionExercisedFn={(id, s, t) => isOptionExercised(id, s, t) ?? true}
+                                  onToggle={(exercise) => {
+                                    if (optionType === 'Team') {
+                                      toggleTeamOption(pick.id, season, exercise)
+                                    } else {
+                                      togglePlayerOption(pick.id, season, exercise)
+                                    }
+                                  }}
+                                />
+                              </td>
+                            )
+                          }
+
+                          return (
+                            <td key={season} className="px-2 py-1.5 text-left">
+                              <span className={cn("text-[12px] font-mono tabular-nums", getSalaryColor(salary))}>
+                                {formatCurrency(salary)}
+                              </span>
+                            </td>
+                          )
+                        })}
+                      </tr>
+                    ))
+                  )
+                }
               </tbody>
 
               <tfoot className="sticky bottom-0 bg-muted">

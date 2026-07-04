@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, createContext, useContext, ReactNode, useMemo } from 'react'
-import { Player, SavedContract, Season, SEASONS } from './types'
+import { useState, createContext, useContext, ReactNode, useMemo, useCallback } from 'react'
+import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
 import { getTeamRoster, TEAMS } from './data'
 import { getDraftPickPlayers } from './draft-picks'
 import { getScaledRookieSalary } from './rookie-salaries'
@@ -19,6 +19,7 @@ interface RosterContextType extends RosterState {
   setSelectedTeamAbbr: (abbr: string) => void
   addSavedContract: (contract: SavedContract) => void
   removeSavedContract: (id: string) => void
+  updateSavedContract: (contract: SavedContract) => void
   toggleTeamOption: (playerId: string, season: Season, exercise: boolean) => void
   togglePlayerOption: (playerId: string, season: Season, exercise: boolean) => void
   getEffectiveSalary: (player: Player, season: Season) => number
@@ -30,6 +31,15 @@ interface RosterContextType extends RosterState {
   draftPickPlayers: Player[]
   pickNumberOverrides: Record<string, number>
   setPickNumberOverride: (pickId: string, pickNumber: number | null) => void
+  releasedRosterIds: Set<string>
+  releaseRosterPlayer: (playerId: string) => void
+  restoreRosterPlayer: (playerId: string) => void
+  savedTrades: SavedTrade[]
+  addSavedTrade: (trade: SavedTrade) => void
+  removeSavedTrade: (id: string) => void
+  updateSavedTrade: (trade: SavedTrade) => void
+  tradedRosterPlayerIds: Set<string>
+  tradedPickIds: Set<string>
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
@@ -40,7 +50,9 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   const [exercisedTeamOptions, setExercisedTeamOptions] = useState<Set<string>>(new Set())
   const [exercisedPlayerOptions, setExercisedPlayerOptions] = useState<Set<string>>(new Set())
   const [deletedContractIds, setDeletedContractIds] = useState<Set<string>>(new Set())
+  const [releasedRosterIds, setReleasedRosterIds] = useState<Set<string>>(new Set())
   const [pickNumberOverrides, setPickNumberOverrides] = useState<Record<string, number>>({})
+  const [savedTradesByTeam, setSavedTradesByTeam] = useState<Record<string, SavedTrade[]>>({})
 
   const setPickNumberOverride = (pickId: string, pickNumber: number | null) => {
     setPickNumberOverrides((prev) => {
@@ -95,6 +107,42 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   // Get saved contracts for the current team
   const savedContracts = savedContractsByTeam[selectedTeamAbbr] || []
 
+  // Get saved trades for the current team
+  const savedTrades = savedTradesByTeam[selectedTeamAbbr] || []
+
+  const tradedRosterPlayerIds = useMemo(() => {
+    const ids = new Set<string>()
+    savedTrades.forEach((t) => t.outgoingRosterPlayerIds.forEach((id) => ids.add(id)))
+    return ids
+  }, [savedTrades])
+
+  const tradedPickIds = useMemo(() => {
+    const ids = new Set<string>()
+    savedTrades.forEach((t) => t.outgoingPickIds.forEach((id) => ids.add(id)))
+    return ids
+  }, [savedTrades])
+
+  const addSavedTrade = useCallback((trade: SavedTrade) => {
+    setSavedTradesByTeam((prev) => ({
+      ...prev,
+      [selectedTeamAbbr]: [...(prev[selectedTeamAbbr] || []), trade],
+    }))
+  }, [selectedTeamAbbr])
+
+  const removeSavedTrade = useCallback((id: string) => {
+    setSavedTradesByTeam((prev) => ({
+      ...prev,
+      [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).filter((t) => t.id !== id),
+    }))
+  }, [selectedTeamAbbr])
+
+  const updateSavedTrade = useCallback((trade: SavedTrade) => {
+    setSavedTradesByTeam((prev) => ({
+      ...prev,
+      [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).map((t) => t.id === trade.id ? trade : t),
+    }))
+  }, [selectedTeamAbbr])
+
   const addSavedContract = (contract: SavedContract) => {
     setSavedContractsByTeam((prev) => ({
       ...prev,
@@ -102,10 +150,29 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     }))
   }
 
+  const releaseRosterPlayer = (playerId: string) => {
+    setReleasedRosterIds((prev) => new Set(prev).add(playerId))
+  }
+
+  const restoreRosterPlayer = (playerId: string) => {
+    setReleasedRosterIds((prev) => {
+      const next = new Set(prev)
+      next.delete(playerId)
+      return next
+    })
+  }
+
   const removeSavedContract = (id: string) => {
     setSavedContractsByTeam((prev) => ({
       ...prev,
       [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).filter((c) => c.id !== id),
+    }))
+  }
+
+  const updateSavedContract = (contract: SavedContract) => {
+    setSavedContractsByTeam((prev) => ({
+      ...prev,
+      [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).map((c) => c.id === contract.id ? contract : c),
     }))
   }
 
@@ -190,16 +257,26 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   }
 
   const getTotalSalary = (season: Season) => {
-    const currentSalary = roster.reduce((sum, player) => sum + getEffectiveSalary(player, season), 0)
+    const currentSalary = roster
+      .filter((player) => !releasedRosterIds.has(player.id) && !tradedRosterPlayerIds.has(player.id))
+      .reduce((sum, player) => sum + getEffectiveSalary(player, season), 0)
     const savedSalary = savedContracts
       .filter((contract) => !deletedContractIds.has(contract.id))
       .reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
-    const draftSalary = draftPickPlayers.reduce((sum, pick) => sum + (pick.salary[season] || 0), 0)
+    const draftSalary = draftPickPlayers
+      .filter((pick) => !tradedPickIds.has(pick.id))
+      .reduce((sum, pick) => sum + (pick.salary[season] || 0), 0)
+    const tradeIncomingPlayerSalary = savedTrades.reduce((sum, trade) => {
+      return sum + trade.incomingPlayers.reduce((s, p) => s + (p.salary[season] || 0), 0)
+    }, 0)
+    const tradeIncomingPickSalary = savedTrades.reduce((sum, trade) => {
+      return sum + trade.incomingPicks.reduce((s, p) => s + (p.salary[season] || 0), 0)
+    }, 0)
 
     return {
       current: currentSalary,
       saved: savedSalary,
-      total: currentSalary + savedSalary + draftSalary,
+      total: currentSalary + savedSalary + draftSalary + tradeIncomingPlayerSalary + tradeIncomingPickSalary,
     }
   }
 
@@ -230,6 +307,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         setSelectedTeamAbbr,
         addSavedContract,
         removeSavedContract,
+        updateSavedContract,
         toggleTeamOption,
         togglePlayerOption,
         getEffectiveSalary,
@@ -241,6 +319,15 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         draftPickPlayers,
         pickNumberOverrides,
         setPickNumberOverride,
+        releasedRosterIds,
+        releaseRosterPlayer,
+        restoreRosterPlayer,
+        savedTrades,
+        addSavedTrade,
+        removeSavedTrade,
+        updateSavedTrade,
+        tradedRosterPlayerIds,
+        tradedPickIds,
       }}
     >
       {children}
