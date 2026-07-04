@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRoster } from '@/lib/roster-context'
 import { TEAMS } from '@/lib/data'
 import { TEAM_ABBREVIATIONS } from '@/lib/types'
@@ -20,15 +21,7 @@ export function Header() {
     <header className="border-b border-border bg-card">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-              <span className="text-lg font-bold text-primary">CAP</span>
-            </div>
-            <div>
-              <h1 className="text-lg font-semibold text-foreground">NBA Roster Builder</h1>
-              <p className="text-xs text-muted-foreground">Pro Forma Cap Sheet</p>
-            </div>
-          </div>
+          <Image src="/logo.png" alt="NBA Roster Builder" width={48} height={48} />
           
           <div className="h-8 w-px bg-border" />
           
