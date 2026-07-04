@@ -2,15 +2,18 @@
 
 import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
+import { SavedContract } from '@/lib/types'
 import { formatCurrency, formatCurrencyFull } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { X, FileText, ArrowLeftRight, UserPlus, RotateCcw, Trash2 } from 'lucide-react'
+import { EditContractModal } from './edit-contract-modal'
 
 export function SavedContractsPanel() {
-  const { savedContracts, removeSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
+  const { savedContracts, removeSavedContract, updateSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
   const [deletingContractId, setDeletingContractId] = useState<string | null>(null)
+  const [editingContract, setEditingContract] = useState<SavedContract | null>(null)
 
   if (savedContracts.length === 0) {
     return (
@@ -37,6 +40,7 @@ export function SavedContractsPanel() {
   }
 
   return (
+    <>
     <Card className="bg-card border-border">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
@@ -56,11 +60,12 @@ export function SavedContractsPanel() {
             return (
             <div
               key={contract.id}
-              className={`flex items-center justify-between p-3 rounded-lg border transition-opacity ${
+              className={`flex items-center justify-between p-3 rounded-lg border transition-opacity cursor-pointer ${
                 deletedContractIds.has(contract.id)
                   ? 'bg-muted/20 border-muted/20 opacity-50'
-                  : 'bg-chart-2/5 border-chart-2/20'
+                  : 'bg-chart-2/5 border-chart-2/20 hover:bg-chart-2/10'
               }`}
+              onClick={() => setEditingContract(contract)}
             >
                 <div className="flex items-center gap-3">
                   <div
@@ -88,7 +93,7 @@ export function SavedContractsPanel() {
                   </div>
                 </div>
                 {deletingContractId === contract.id ? (
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
                     <Button
                       variant="ghost"
                       size="sm"
@@ -122,8 +127,8 @@ export function SavedContractsPanel() {
                     variant="ghost"
                     size="sm"
                     className="h-7 w-7 p-0 text-muted-foreground hover:text-destructive"
-                    onClick={() => {
-                      // Mark as deleted in the set
+                    onClick={(e) => {
+                      e.stopPropagation()
                       const newDeleted = new Set(deletedContractIds)
                       newDeleted.add(contract.id)
                       setDeletedContractIds(newDeleted)
@@ -139,5 +144,16 @@ export function SavedContractsPanel() {
         </div>
       </CardContent>
     </Card>
+
+    <EditContractModal
+      contract={editingContract}
+      isOpen={editingContract !== null}
+      onClose={() => setEditingContract(null)}
+      onSave={(updated) => {
+        updateSavedContract(updated)
+        setEditingContract(null)
+      }}
+    />
+  </>
   )
 }

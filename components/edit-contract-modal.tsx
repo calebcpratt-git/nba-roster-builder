@@ -1,0 +1,235 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { SavedContract, Season, SEASONS } from '@/lib/types'
+import { formatCurrency } from '@/lib/data'
+import { DistributionType } from '@/lib/contract-utils'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+
+interface EditContractModalProps {
+  contract: SavedContract | null
+  isOpen: boolean
+  onClose: () => void
+  onSave: (contract: SavedContract) => void
+}
+
+const DISTRIBUTION_OPTIONS: Record<
+  DistributionType,
+  { label: string; description: string; shortDescription: string }
+> = {
+  flat: {
+    label: 'Flat',
+    description:
+      'The same salary every year. Rare in practice since the CBA allows annual raises, and most players want them.',
+    shortDescription: 'The same salary every year. Rare in practice.',
+  },
+  escalating: {
+    label: 'Escalating',
+    description: 'Salary increases each year. The standard structure.',
+    shortDescription: 'Salary increases each year. The standard structure.',
+  },
+  declining: {
+    label: 'Declining',
+    description:
+      'Salary decreases each year. Teams use this strategically to push money into earlier years when a player has more value, or to create more cap flexibility in the final year of a deal.',
+    shortDescription: 'Salary decreases each year. Strategically defer money.',
+  },
+}
+
+function detectDistribution(salary: Partial<Record<Season, number>>): DistributionType {
+  const seasons = SEASONS.filter((s) => (salary[s] ?? 0) > 0)
+  if (seasons.length <= 1) return 'escalating'
+  const values = seasons.map((s) => salary[s]!)
+  const ratios = values.slice(1).map((v, i) => v / values[i])
+  const avg = ratios.reduce((a, b) => a + b, 0) / ratios.length
+  if (Math.abs(avg - 1.0) < 0.01) return 'flat'
+  return avg > 1.0 ? 'escalating' : 'declining'
+}
+
+export function EditContractModal({ contract, isOpen, onClose, onSave }: EditContractModalProps) {
+  const [years, setYears] = useState('3')
+  const [totalValue, setTotalValue] = useState('')
+  const [distribution, setDistribution] = useState<DistributionType>('escalating')
+
+  useEffect(() => {
+    if (isOpen && contract) {
+      const activeSeasons = SEASONS.filter((s) => (contract.salary[s] ?? 0) > 0)
+      const total = activeSeasons.reduce((sum, s) => sum + (contract.salary[s] ?? 0), 0)
+      setYears(String(activeSeasons.length || 3))
+      setTotalValue((total / 1_000_000).toFixed(1))
+      setDistribution(detectDistribution(contract.salary))
+    }
+  }, [isOpen, contract?.id])
+
+  if (!contract) return null
+
+  const firstSeason = SEASONS.find((s) => (contract.salary[s] ?? 0) > 0)
+  if (!firstSeason) return null
+
+  const startIndex = SEASONS.indexOf(firstSeason)
+  const maxYears = SEASONS.length - startIndex
+  const numYears = Math.min(parseInt(years) || 3, maxYears)
+  const contractSeasons = SEASONS.slice(startIndex, startIndex + numYears)
+
+  const totalValueNum = parseFloat(totalValue) || 0
+
+  const calculateSalaries = (): Partial<Record<Season, number>> => {
+    const result: Partial<Record<Season, number>> = {}
+    if (totalValueNum <= 0 || contractSeasons.length === 0) return result
+    const totalDollars = totalValueNum * 1_000_000
+
+    if (distribution === 'flat') {
+      const yr = totalDollars / contractSeasons.length
+      contractSeasons.forEach((s) => { result[s] = yr })
+    } else {
+      const rate = distribution === 'escalating' ? 1.05 : 0.95
+      const n = contractSeasons.length
+      const divisor = (1 - Math.pow(rate, n)) / (1 - rate)
+      const first = totalDollars / divisor
+      contractSeasons.forEach((s, i) => { result[s] = first * Math.pow(rate, i) })
+    }
+
+    return result
+  }
+
+  const salaries = calculateSalaries()
+  const totalCalculated = Object.values(salaries).reduce((a, b) => a + (b ?? 0), 0)
+  const isValid = totalValueNum > 0 && numYears > 0
+
+  const typeLabel =
+    contract.type === 'extension'
+      ? 'Extension'
+      : contract.type === 'free-agent'
+      ? 'Free Agent Signing'
+      : 'Trade'
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle>Edit {contract.playerName}</DialogTitle>
+          <DialogDescription>
+            {typeLabel} · starting in {firstSeason}
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="space-y-4">
+          {/* Years and Total Value */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label htmlFor="edit-years" className="text-xs">
+                Years
+              </Label>
+              <Input
+                id="edit-years"
+                type="number"
+                min="1"
+                max={maxYears}
+                value={years}
+                onChange={(e) => setYears(e.target.value)}
+                className="h-8 text-sm"
+              />
+            </div>
+            <div>
+              <Label htmlFor="edit-total-value" className="text-xs">
+                Total Value (Millions)
+              </Label>
+              <Input
+                id="edit-total-value"
+                type="number"
+                placeholder="0"
+                value={totalValue}
+                onChange={(e) => setTotalValue(e.target.value)}
+                className="h-8 text-sm"
+              />
+            </div>
+          </div>
+
+          {/* Distribution */}
+          <div className="flex items-center gap-2">
+            <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
+            <Select
+              value={distribution}
+              onValueChange={(v) => setDistribution(v as DistributionType)}
+            >
+              <SelectTrigger
+                className="flex-1 text-sm justify-start items-start py-2"
+                style={{ height: 'auto' }}
+              >
+                {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
+                  <div className="flex flex-col gap-0.5 text-left w-full">
+                    <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>
+                    <p className="text-xs text-muted-foreground whitespace-normal">
+                      {DISTRIBUTION_OPTIONS[distribution].shortDescription}
+                    </p>
+                  </div>
+                ) : (
+                  <SelectValue placeholder="Select structure" />
+                )}
+              </SelectTrigger>
+              <SelectContent className="max-w-[calc(100vw-40px)]">
+                {(
+                  Object.entries(DISTRIBUTION_OPTIONS) as [
+                    DistributionType,
+                    (typeof DISTRIBUTION_OPTIONS)[DistributionType],
+                  ][]
+                ).map(([key, { label, description }]) => (
+                  <SelectItem key={key} value={key} className="cursor-pointer py-3">
+                    <div className="flex flex-col gap-1 max-w-sm">
+                      <div className="font-medium text-sm">{label}</div>
+                      <p className="text-xs text-muted-foreground whitespace-normal">{description}</p>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Preview */}
+          {isValid && (
+            <div className="bg-muted/30 rounded p-2.5">
+              <p className="text-xs font-medium mb-1.5">Contract Preview</p>
+              <div className="space-y-1">
+                {contractSeasons.map((season) => (
+                  <div key={season} className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">{season}</span>
+                    <span className="font-mono">{formatCurrency(salaries[season] ?? 0)}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-border mt-1.5 pt-1.5 flex justify-between text-xs font-medium">
+                <span>Total</span>
+                <span className="font-mono">{formatCurrency(totalCalculated)}</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="flex gap-2 pt-4">
+          <Button variant="outline" onClick={onClose} className="flex-1 h-8 text-sm">
+            Cancel
+          </Button>
+          <Button onClick={() => { onSave({ ...contract, salary: salaries }); onClose() }} disabled={!isValid} className="flex-1 h-8 text-sm">
+            Save Changes
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  )
+}

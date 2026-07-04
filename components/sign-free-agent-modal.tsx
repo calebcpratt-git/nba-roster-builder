@@ -114,7 +114,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   const maxAllowedTotalM = maxAllowedTotalDollars / 1_000_000
 
   // Minimum / MLE totals
-  const minimumTotalValue = numYears === 1 ? 1.2 : 2.5
+  const minimumTotalValue = numYears === 1 ? 1.32 : 2.75
   const mleSoftCapBase = CAP_THRESHOLDS['2026-27']?.find((t) => t.type === 'soft-cap')?.value ?? 150000000
   const mleTotalValue = contractSeasons.reduce((sum, season) => {
     const seasonSoftCap = CAP_THRESHOLDS[season]?.find((t) => t.type === 'soft-cap')?.value ?? mleSoftCapBase

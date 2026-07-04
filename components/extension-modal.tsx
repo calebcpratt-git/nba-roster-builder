@@ -96,7 +96,7 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
       : Infinity
   const maxAllowedTotalM = maxAllowedTotalDollars / 1_000_000
 
-  const minimumTotalValue = numYears === 1 ? 1.2 : 2.5
+  const minimumTotalValue = numYears === 1 ? 1.32 : 2.75
   const totalValueNum = isMinimum ? minimumTotalValue : parseFloat(totalValue) || 0
 
   const clampTotalValue = (

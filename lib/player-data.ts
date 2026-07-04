@@ -547,7 +547,7 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [
 export const TEAM_NAMES: Record<string, string> = {
   'ATL': 'Atlanta Hawks',
   'BOS': 'Boston Celtics',
-  'BKN': 'Brooklyn Nets',
+  'BRK': 'Brooklyn Nets',
   'CHA': 'Charlotte Hornets',
   'CHI': 'Chicago Bulls',
   'CHO': 'Charlotte Hornets',
@@ -579,7 +579,7 @@ export const TEAM_NAMES: Record<string, string> = {
 }
 
 // All team codes
-export const ALL_TEAMS = Object.keys(TEAM_NAMES).filter(code => code !== 'CHO').sort()
+export const ALL_TEAMS = Object.keys(TEAM_NAMES).filter(code => code !== 'CHA').sort()
 
 // Get roster for a specific team
 export function getTeamRoster(teamCode: string): RawPlayerData[] {
