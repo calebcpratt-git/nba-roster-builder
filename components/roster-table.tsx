@@ -177,7 +177,7 @@ function OptionSalaryCell({
   isSaved: boolean
   player: Player
   isFirstEmpty: boolean
-  onExtend: (player: Player) => void
+  onExtend: (player: Player, season: Season) => void
   isOptionExercisedFn: (playerId: string, season: Season, optionType: 'Team' | 'Player') => boolean
 }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -299,7 +299,7 @@ function OptionSalaryCell({
       </Popover>
       {isDeclined && !isSaved && isFirstEmpty && (
         <button
-          onClick={() => onExtend(player)}
+          onClick={() => onExtend(player, season)}
           className="text-emerald-500 hover:text-emerald-600 transition-colors"
           title="Extend player"
         >
@@ -332,7 +332,7 @@ export function RosterTable() {
     tradedPickIds,
   } = useRoster()
 
-  const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean }>({
+  const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean; startSeason?: Season }>({
     player: null,
     isOpen: false,
   })
@@ -608,7 +608,7 @@ export function RosterTable() {
                                 <div className="flex justify-center">
                                   <ExtendButton
                                     player={player as Player}
-                                    onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true })}
+                                    onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true, startSeason: season })}
                                   />
                                 </div>
                               ) : (
@@ -633,7 +633,7 @@ export function RosterTable() {
                                 isSaved={player.source === 'saved'}
                                 player={player as Player}
                                 isFirstEmpty={shouldShowExtendButton}
-                                onExtend={(p) => setExtensionModal({ player: p, isOpen: true })}
+                                onExtend={(p, s) => setExtensionModal({ player: p, isOpen: true, startSeason: s })}
                                 isOptionExercisedFn={(id, s, t) => isOptionExercised(id, s, t) ?? true}
                                 onToggle={(exercise) => {
                                   if (optionType === 'Team') {
@@ -904,6 +904,7 @@ export function RosterTable() {
       <ExtensionModal
         player={extensionModal.player}
         isOpen={extensionModal.isOpen}
+        startSeason={extensionModal.startSeason}
         onClose={() => setExtensionModal({ player: null, isOpen: false })}
       />
     </>
