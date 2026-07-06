@@ -7,13 +7,14 @@ import { formatCurrency, formatCurrencyFull } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { X, FileText, ArrowLeftRight, UserPlus, RotateCcw, Trash2 } from 'lucide-react'
+import { X, FileText, ArrowLeftRight, UserPlus, RotateCcw, Trash2, ChevronRight } from 'lucide-react'
 import { EditContractModal } from './edit-contract-modal'
 
 export function SavedContractsPanel() {
   const { savedContracts, removeSavedContract, updateSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
   const [deletingContractId, setDeletingContractId] = useState<string | null>(null)
   const [editingContract, setEditingContract] = useState<SavedContract | null>(null)
+  const [isCollapsed, setIsCollapsed] = useState(true)
 
   if (savedContracts.length === 0) {
     return (
@@ -24,32 +25,39 @@ export function SavedContractsPanel() {
             <Badge variant="secondary" className="text-xs">0 contracts</Badge>
           </div>
         </CardHeader>
-        <CardContent>
-          <div className="flex flex-col items-center justify-center py-8 text-center">
-            <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center mb-3">
-              <FileText className="h-6 w-6 text-muted-foreground" />
-            </div>
-            <p className="text-sm text-muted-foreground mb-1">No saved contracts yet</p>
-            <p className="text-xs text-muted-foreground/70 max-w-[200px]">
-              Create extensions, sign free agents, or build trades to add contracts here
-            </p>
-          </div>
-        </CardContent>
       </Card>
     )
   }
 
   return (
     <>
-    <Card className="bg-card border-border">
-      <CardHeader className="pb-3">
+    <div
+      onClick={() => setIsCollapsed(!isCollapsed)}
+      className="cursor-pointer rounded-lg"
+    >
+    <Card className="bg-card border-border hover:bg-accent transition-colors">
+      <CardHeader className="pb-3 select-none">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base font-medium">Saved Contracts</CardTitle>
-          <Badge variant="secondary" className="text-xs">
-            {savedContracts.length} contract{savedContracts.length !== 1 ? 's' : ''}
-          </Badge>
+          <div className="flex items-center gap-2">
+            <Badge variant="secondary" className="text-xs">
+              {savedContracts.length} contract{savedContracts.length !== 1 ? 's' : ''}
+            </Badge>
+            <ChevronRight
+              className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+                isCollapsed ? 'rotate-0' : 'rotate-90'
+              }`}
+            />
+          </div>
         </div>
       </CardHeader>
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isCollapsed ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]'
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+      <div className="overflow-hidden">
       <CardContent>
         <div className="space-y-2">
           {savedContracts.map((contract) => {
@@ -143,7 +151,10 @@ export function SavedContractsPanel() {
           })}
         </div>
       </CardContent>
+      </div>
+      </div>
     </Card>
+    </div>
 
     <EditContractModal
       contract={editingContract}

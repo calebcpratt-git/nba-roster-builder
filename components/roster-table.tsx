@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { SEASONS, Season, Player } from '@/lib/types'
-import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
+import { SEASONS, Season, Player, CapStatus } from '@/lib/types'
+import { formatCurrency, CAP_THRESHOLDS, getCapStatus, getCapStatusColor, getTotalSalaryColor } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -22,51 +22,6 @@ import {
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
 import { Check, X, Info, Plus, RotateCcw } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
-
-function getCapStatus(total: number, thresholds: { type: string; value: number }[]): CapStatus {
-  const secondApron = thresholds.find((t) => t.type === 'second-apron')?.value || 0
-  const firstApron = thresholds.find((t) => t.type === 'first-apron')?.value || 0
-  const luxuryTax = thresholds.find((t) => t.type === 'luxury-tax')?.value || 0
-  const softCap = thresholds.find((t) => t.type === 'soft-cap')?.value || 0
-
-  if (total >= secondApron) return '2nd Apron'
-  if (total >= firstApron) return '1st Apron'
-  if (total >= luxuryTax) return 'Luxury Tax'
-  if (total >= softCap) return 'Over Cap'
-  return 'Below Cap'
-}
-
-function getCapStatusColor(status: CapStatus): string {
-  switch (status) {
-    case '2nd Apron':
-      return 'text-red-500 bg-red-500/10'
-    case '1st Apron':
-      return 'text-orange-500 bg-orange-500/10'
-    case 'Luxury Tax':
-      return 'text-amber-500 bg-amber-500/10'
-    case 'Over Cap':
-      return 'text-yellow-500 bg-yellow-500/10'
-    case 'Below Cap':
-      return 'text-emerald-500 bg-emerald-500/10'
-  }
-}
-
-function getTotalSalaryColor(status: CapStatus): string {
-  switch (status) {
-    case '2nd Apron':
-      return 'text-red-500'
-    case '1st Apron':
-      return 'text-orange-500'
-    case 'Luxury Tax':
-      return 'text-amber-500'
-    case 'Over Cap':
-      return 'text-yellow-500'
-    case 'Below Cap':
-      return 'text-emerald-500'
-  }
-}
 
 // Get salary color on a red > yellow > green gradient based on salary amount
 function getSalaryColor(salary: number): string {

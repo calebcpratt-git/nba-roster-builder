@@ -1,4 +1,4 @@
-import { Player, Season, CapThreshold } from './types'
+import { Player, Season, CapThreshold, CapStatus } from './types'
 import { getTeamRoster as getTeamRosterFromData, ALL_TEAMS, TEAM_NAMES } from './player-data'
 
 // Re-export from player-data
@@ -121,6 +121,49 @@ export const TEAMS: Record<string, { name: string; city: string; primaryColor: s
   TOR: { name: 'Raptors', city: 'Toronto', primaryColor: '#CE1141', secondaryColor: '#000000' },
   UTA: { name: 'Jazz', city: 'Utah', primaryColor: '#002B5C', secondaryColor: '#00471B' },
   WAS: { name: 'Wizards', city: 'Washington', primaryColor: '#002B5C', secondaryColor: '#E31837' },
+}
+
+export function getCapStatus(total: number, thresholds: { type: string; value: number }[]): CapStatus {
+  const secondApron = thresholds.find((t) => t.type === 'second-apron')?.value || 0
+  const firstApron = thresholds.find((t) => t.type === 'first-apron')?.value || 0
+  const luxuryTax = thresholds.find((t) => t.type === 'luxury-tax')?.value || 0
+  const softCap = thresholds.find((t) => t.type === 'soft-cap')?.value || 0
+
+  if (total >= secondApron) return '2nd Apron'
+  if (total >= firstApron) return '1st Apron'
+  if (total >= luxuryTax) return 'Luxury Tax'
+  if (total >= softCap) return 'Over Cap'
+  return 'Below Cap'
+}
+
+export function getCapStatusColor(status: CapStatus): string {
+  switch (status) {
+    case '2nd Apron':
+      return 'text-red-500 bg-red-500/10'
+    case '1st Apron':
+      return 'text-orange-500 bg-orange-500/10'
+    case 'Luxury Tax':
+      return 'text-amber-500 bg-amber-500/10'
+    case 'Over Cap':
+      return 'text-yellow-500 bg-yellow-500/10'
+    case 'Below Cap':
+      return 'text-emerald-500 bg-emerald-500/10'
+  }
+}
+
+export function getTotalSalaryColor(status: CapStatus): string {
+  switch (status) {
+    case '2nd Apron':
+      return 'text-red-500'
+    case '1st Apron':
+      return 'text-orange-500'
+    case 'Luxury Tax':
+      return 'text-amber-500'
+    case 'Over Cap':
+      return 'text-yellow-500'
+    case 'Below Cap':
+      return 'text-emerald-500'
+  }
 }
 
 export function formatCurrency(value: number): string {

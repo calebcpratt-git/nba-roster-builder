@@ -3,9 +3,21 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { Season, SEASONS, SavedTrade } from '@/lib/types'
-import { getTeamRoster, ALL_TEAMS, TEAM_NAMES, formatCurrency } from '@/lib/data'
+import { getTeamRoster, ALL_TEAMS, TEAM_NAMES, formatCurrency, CAP_THRESHOLDS, getCapStatus, getCapStatusColor } from '@/lib/data'
 import { getDraftPickPlayers } from '@/lib/draft-picks'
 import { getScaledRookieSalary, SECOND_ROUND_SALARY_BY_SEASON } from '@/lib/rookie-salaries'
+import {
+  TradeAsset,
+  TradeSideInput,
+  ValidateTradeInput,
+  validateTrade,
+  getPostTradeTotal,
+  getOwnedFirstRoundYears,
+  parsePickIdMeta,
+  TRADE_EVAL_SEASON,
+  CURRENT_DRAFT_YEAR,
+  FIDELITY_NOTE,
+} from '@/lib/trade-validation'
 import {
   Dialog,
   DialogContent,
@@ -26,8 +38,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
-import { Plus, X } from 'lucide-react'
+import { Plus, X, Check } from 'lucide-react'
 
 interface TradeModalProps {
   isOpen: boolean
@@ -240,6 +253,9 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
     tradedPickIds,
     savedContracts,
     deletedContractIds,
+    getEffectiveSalary,
+    getTotalSalary,
+    getTeamCapTotal,
   } = useRoster()
 
   const [tradeTeamAbbr, setTradeTeamAbbr] = useState<string>('')
@@ -309,6 +325,139 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
   const selectedOutgoingPickObjects = draftPickPlayers.filter((p) => selectedOutgoingPickIds.has(p.id))
   const selectedIncomingPlayerObjects = tradeTeamRoster.filter((p) => selectedIncomingPlayerIds.has(p.id))
   const selectedIncomingPickObjects = tradeTeamPicks.filter((p) => selectedIncomingPickIds.has(p.id))
+
+  // Assemble validation input from the current trays and run the pure
+  // trade-rules validator. Both sides are evaluated independently; the
+  // partner's numbers are estimates, so its findings surface as warnings
+  // (see PARTNER_FINDINGS_ARE_WARNINGS in lib/trade-validation.ts).
+  const tradeAnalysis = useMemo(() => {
+    if (!tradeTeamAbbr) return null
+
+    const yourOutgoing: TradeAsset[] = [
+      ...selectedOutgoingRosterObjects.map((p) => ({
+        kind: 'player' as const,
+        id: p.id,
+        name: p.name,
+        salaryBySeason: Object.fromEntries(
+          SEASONS.map((s) => [s, getEffectiveSalary(p, s)] as const).filter(([, v]) => v > 0)
+        ) as Partial<Record<Season, number>>,
+      })),
+      ...selectedOutgoingFAObjects.map((c) => ({
+        kind: 'player' as const,
+        id: c.id,
+        name: c.playerName,
+        salaryBySeason: c.salary,
+        isMinimum: c.isMinimum,
+      })),
+      ...selectedOutgoingPickObjects.map((p) => {
+        const { pickYear, pickRound } = parsePickIdMeta(p.id)
+        return { kind: 'pick' as const, id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
+      }),
+    ]
+
+    const yourIncoming: TradeAsset[] = [
+      ...selectedIncomingPlayerObjects.map((p) => ({
+        kind: 'player' as const,
+        id: p.id,
+        name: p.name,
+        salaryBySeason: p.salary,
+      })),
+      ...selectedIncomingPickObjects.map((p) => {
+        const { pickYear, pickRound } = parsePickIdMeta(p.id)
+        return { kind: 'pick' as const, id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
+      }),
+      ...incomingCustomPicks.map((p) => ({
+        kind: 'pick' as const,
+        id: p.id,
+        name: p.name,
+        salaryBySeason: p.salary,
+        pickYear: p.year,
+        pickRound: (p.round === 'First Round' ? 1 : 2) as 1 | 2,
+      })),
+    ]
+
+    // Eval season = earliest season at/after TRADE_EVAL_SEASON any traded
+    // player asset carries salary in (2025-26 salary data is never used to
+    // pick the season — that league year is already in the books; the app
+    // isn't date-aware, so real trade-date matching is out of scope).
+    const allPlayerAssets = [...yourOutgoing, ...yourIncoming].filter((a) => a.kind === 'player')
+    const seasonsFromEval = SEASONS.slice(SEASONS.indexOf(TRADE_EVAL_SEASON))
+    const season: Season =
+      seasonsFromEval.find((s) => allPlayerAssets.some((a) => (a.salaryBySeason[s] ?? 0) > 0)) ?? TRADE_EVAL_SEASON
+    const thresholds = CAP_THRESHOLDS[season]
+
+    const yourPreTradeTotal = getTotalSalary(season).total
+    // Partner total includes whatever contracts/trades have already been
+    // built for them in this app (getTeamCapTotal reads their own saved
+    // contracts + saved trades), not just their starting roster. Trades built
+    // from another team's perspective, and real-world moves outside this app,
+    // still aren't visible here — see the "(est.)" tooltip.
+    const theirPreTradeTotal = getTeamCapTotal(tradeTeamAbbr, season)
+
+    const yourSide: TradeSideInput = {
+      side: 'yours',
+      teamAbbr: selectedTeamAbbr,
+      teamName: TEAM_NAMES[selectedTeamAbbr] || selectedTeamAbbr,
+      preTradeTotal: yourPreTradeTotal,
+      approximate: false,
+      outgoing: yourOutgoing,
+      incoming: yourIncoming,
+    }
+    const theirSide: TradeSideInput = {
+      side: 'theirs',
+      teamAbbr: tradeTeamAbbr,
+      teamName: TEAM_NAMES[tradeTeamAbbr] || tradeTeamAbbr,
+      preTradeTotal: theirPreTradeTotal,
+      approximate: true,
+      outgoing: yourIncoming,
+      incoming: yourOutgoing,
+    }
+
+    const validationInput: ValidateTradeInput = {
+      season,
+      thresholds,
+      currentDraftYear: CURRENT_DRAFT_YEAR,
+      sides: [yourSide, theirSide],
+      ownedFirstRoundYearsByTeam: {
+        [selectedTeamAbbr]: getOwnedFirstRoundYears(selectedTeamAbbr),
+        [tradeTeamAbbr]: getOwnedFirstRoundYears(tradeTeamAbbr),
+      },
+    }
+
+    const validation = validateTrade(validationInput)
+
+    const buildPreviewRow = (side: TradeSideInput) => {
+      const postTotal = getPostTradeTotal(side, season, thresholds)
+      return {
+        teamAbbr: side.teamAbbr,
+        teamName: side.teamName,
+        approximate: side.approximate,
+        preTotal: side.preTradeTotal,
+        postTotal,
+        delta: postTotal - side.preTradeTotal,
+        preStatus: getCapStatus(side.preTradeTotal, thresholds),
+        postStatus: getCapStatus(postTotal, thresholds),
+      }
+    }
+
+    return {
+      validation,
+      yourPreview: buildPreviewRow(yourSide),
+      theirPreview: buildPreviewRow(theirSide),
+    }
+  }, [
+    tradeTeamAbbr,
+    selectedTeamAbbr,
+    selectedOutgoingRosterObjects,
+    selectedOutgoingFAObjects,
+    selectedOutgoingPickObjects,
+    selectedIncomingPlayerObjects,
+    selectedIncomingPickObjects,
+    incomingCustomPicks,
+    getEffectiveSalary,
+    getTotalSalary,
+    getTeamCapTotal,
+  ])
 
   function addOutgoingRoster(id: string) {
     setSelectedOutgoingRosterIds((prev) => new Set(prev).add(id))
@@ -594,12 +743,105 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
           </div>
         </div>
 
+        {/* Validation */}
+        {tradeAnalysis && (
+          <div className="border-t border-border px-5 py-3 space-y-2.5 max-h-64 overflow-y-auto">
+            {/* After this trade — cap status preview */}
+            <div className="space-y-1">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">After this trade</p>
+              {[tradeAnalysis.yourPreview, tradeAnalysis.theirPreview].map((row) => (
+                <div key={row.teamAbbr} className="flex items-center justify-between gap-2 text-xs">
+                  <span className="font-medium truncate flex items-center gap-1">
+                    {row.teamName}
+                    {row.approximate && (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span className="text-muted-foreground font-normal cursor-default underline decoration-dotted underline-offset-2">
+                            (est.)
+                          </span>
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          Based on {row.teamName}&apos;s current roster plus any contracts and trades already built for them in this app — trades built from another team&apos;s perspective, and real-world moves outside this app, aren&apos;t visible here.
+                        </TooltipContent>
+                      </Tooltip>
+                    )}
+                  </span>
+                  <div className="flex items-center gap-1.5 font-mono tabular-nums shrink-0">
+                    <span className="text-muted-foreground">{formatCurrency(row.preTotal)}</span>
+                    <span className="text-muted-foreground">→</span>
+                    <span className={row.preStatus !== row.postStatus ? 'font-bold' : ''}>{formatCurrency(row.postTotal)}</span>
+                    <span className={cn('text-[10px]', row.delta > 0 ? 'text-red-400' : row.delta < 0 ? 'text-emerald-400' : 'text-muted-foreground')}>
+                      ({row.delta >= 0 ? '+' : '-'}
+                      {formatCurrency(Math.abs(row.delta))})
+                    </span>
+                    <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded', getCapStatusColor(row.preStatus))}>{row.preStatus}</span>
+                    {row.preStatus !== row.postStatus && (
+                      <>
+                        <span className="text-muted-foreground">→</span>
+                        <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded ring-1 ring-current', getCapStatusColor(row.postStatus))}>
+                          {row.postStatus}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Trade Invalid */}
+            {tradeAnalysis.validation.errors.length > 0 && (
+              <div className="rounded-md border border-destructive/50 bg-destructive/10 p-2.5 space-y-1">
+                <p className="text-xs font-semibold text-destructive">Trade Invalid</p>
+                {tradeAnalysis.validation.errors.map((e, i) => (
+                  <p key={i} className="text-xs text-destructive-foreground/90">{e.message}</p>
+                ))}
+              </div>
+            )}
+
+            {/* Heads up (warnings) */}
+            {tradeAnalysis.validation.warnings.length > 0 && (
+              <div className="rounded-md border border-amber-500/40 bg-amber-500/10 p-2.5 space-y-2">
+                <p className="text-xs font-semibold text-amber-500">Heads up</p>
+                {tradeAnalysis.validation.warnings.map((w, i) => (
+                  <div key={i} className="space-y-0.5">
+                    <p className="text-xs text-foreground/90">{w.message}</p>
+                    {w.whyUncertain && (
+                      <p className="text-[11px] text-muted-foreground pl-2">
+                        <span className="font-medium">Why this is uncertain:</span> {w.whyUncertain}
+                      </p>
+                    )}
+                    {w.neededInfo && (
+                      <p className="text-[11px] text-muted-foreground pl-2">
+                        <span className="font-medium">To verify:</span> {w.neededInfo}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {tradeAnalysis.validation.errors.length === 0 && tradeAnalysis.validation.warnings.length === 0 && (
+              <div className="flex items-center gap-1.5 text-xs text-emerald-500">
+                <Check className="h-3.5 w-3.5" />
+                No rule violations detected
+              </div>
+            )}
+
+            <p className="text-[10px] text-muted-foreground/70 leading-relaxed">{FIDELITY_NOTE}</p>
+          </div>
+        )}
+
         {/* Footer */}
         <div className="flex gap-2 px-5 py-3 border-t border-border">
           <Button variant="outline" onClick={handleClose} className="flex-1 h-8 text-sm">
             Cancel
           </Button>
-          <Button onClick={handleSave} disabled={!canSave} className="flex-1 h-8 text-sm">
+          <Button
+            onClick={handleSave}
+            disabled={!canSave || (tradeAnalysis ? !tradeAnalysis.validation.isValid : false)}
+            className="flex-1 h-8 text-sm"
+            title={tradeAnalysis && !tradeAnalysis.validation.isValid ? 'Resolve the issues in Trade Invalid to save.' : undefined}
+          >
             {editingTrade ? 'Save Changes' : 'Save Trade'}
           </Button>
         </div>

@@ -565,4 +565,41 @@ export function getDraftPickPlayers(teamAbbr: string): Player[] {
   })
 }
 
+// Applies user-entered/overridden pick numbers (from roster-context's
+// pickNumberOverrides map) to a team's raw draft-pick players, rescaling each
+// affected pick's rookie-scale salary. Pulled out as a standalone function so
+// it can be used both for the currently selected team and for computing an
+// arbitrary other team's cap total (e.g. a trade partner's).
+export function applyPickNumberOverrides(picks: Player[], pickNumberOverrides: Record<string, number>): Player[] {
+  return picks.map((pick) => {
+    const yearMatch = pick.id.match(/^draft-(\d+)-/)
+    const draftYear = yearMatch ? parseInt(yearMatch[1]) : 0
+    const isFutureFirstRound = pick.id.includes('First-Round') && draftYear >= 2027
+
+    const pickNumber = isFutureFirstRound
+      ? (pickNumberOverrides[pick.id] ?? 16)
+      : pickNumberOverrides[pick.id]
+
+    if (pickNumber === undefined) return pick
+
+    const scaled = getScaledRookieSalary(pickNumber, draftYear)
+    if (!scaled) return pick
+
+    const startSeason = `${draftYear}-${String(draftYear + 1).slice(2)}` as Season
+    const startIdx = SEASONS.indexOf(startSeason)
+    if (startIdx === -1) return pick
+
+    const salary: Partial<Record<Season, number>> = {}
+    const options: Partial<Record<Season, 'Player' | 'Team'>> = {}
+    const [y1, y2, y3, y4] = [SEASONS[startIdx], SEASONS[startIdx + 1], SEASONS[startIdx + 2], SEASONS[startIdx + 3]]
+    if (y1) salary[y1] = scaled.year1
+    if (y2) salary[y2] = scaled.year2
+    if (y3) { salary[y3] = scaled.year3; options[y3] = 'Team' }
+    if (y4) { salary[y4] = scaled.year4; options[y4] = 'Team' }
+
+    const name = isFutureFirstRound ? `${draftYear} - 1st` : `${draftYear} - 1st (#${pickNumber})`
+    return { ...pick, name, salary, options }
+  })
+}
+
 export { TEAM_NAME_TO_ABBR }
