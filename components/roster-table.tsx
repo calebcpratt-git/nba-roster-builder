@@ -294,7 +294,7 @@ export function RosterTable() {
 
   // Calculate dynamic seasons based on roster and saved contracts
   const displayedSeasons = useMemo(() => {
-    let maxSeasonIndex = 0 // Default to just 2025-26
+    let maxSeasonIndex = 0 // Default to just 2026-27
     
     // Check roster players for latest contract year
     roster.forEach((player) => {

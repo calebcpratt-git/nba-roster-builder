@@ -18,12 +18,6 @@ export function getTeamRoster(teamAbbreviation: string): Player[] {
 
 // Cap thresholds (placeholder values - user will provide real ones)
 export const CAP_THRESHOLDS: Record<Season, CapThreshold[]> = {
-  '2025-26': [
-    { name: 'Salary Cap', value: 145000000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
-    { name: 'Luxury Tax', value: 176000000, type: 'luxury-tax', description: 'Tax payments begin above this threshold' },
-    { name: 'First Apron', value: 183500000, type: 'first-apron', description: 'Restricted from certain transactions' },
-    { name: 'Second Apron', value: 194500000, type: 'second-apron', description: 'Severe restrictions apply' },
-  ],
   '2026-27': [
     { name: 'Salary Cap', value: 164961000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
     { name: 'Salary Floor', value: 148465000, type: 'salary-floor', description: 'Minimum team payroll required' },

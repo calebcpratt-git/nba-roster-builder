@@ -2,7 +2,6 @@ const BASE_CAP = 150_000_000
 
 // Soft cap by season — used for both second-round scaling and future rookie scale scaling
 const CAP_BY_SEASON: Record<string, number> = {
-  '2025-26': 145_000_000,
   '2026-27': 164_961_000,
   '2027-28': 174_034_000,
   '2028-29': 183_606_000,

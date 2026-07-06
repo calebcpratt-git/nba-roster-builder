@@ -49,11 +49,9 @@ for (let i = 1; i < lines.length; i++) {
   const player = fields[0];
   const team = fields[1];
   
-  // Columns: 0=Player, 1=Tm, 2=25-26, 3=25-26 Option, 4=26-27, 5=26-27 Option, 
+  // Columns: 0=Player, 1=Tm, 2=25-26, 3=25-26 Option, 4=26-27, 5=26-27 Option,
   //          6=27-28, 7=27-28 Option, 8=28-29, 9=28-29 Option, 10=29-30, 11=29-30 Option
-  
-  const salary2526 = parseSalary(fields[2]);
-  const option2526 = fields[3] || null;
+  // 25-26 is a past season and is intentionally not carried into the output.
   const salary2627 = parseSalary(fields[4]);
   const option2627 = fields[5] || null;
   const salary2728 = parseSalary(fields[6]);
@@ -69,14 +67,12 @@ for (let i = 1; i < lines.length; i++) {
     name: player,
     team,
     salary: {
-      '2025-26': salary2526,
       '2026-27': salary2627,
       '2027-28': salary2728,
       '2028-29': salary2829,
       '2029-30': salary2930,
     },
     options: {
-      '2025-26': option2526 === 'Team' ? 'Team' : option2526 === 'Player' ? 'Player' : null,
       '2026-27': option2627 === 'Team' ? 'Team' : option2627 === 'Player' ? 'Player' : null,
       '2027-28': option2728 === 'Team' ? 'Team' : option2728 === 'Player' ? 'Player' : null,
       '2028-29': option2829 === 'Team' ? 'Team' : option2829 === 'Player' ? 'Player' : null,

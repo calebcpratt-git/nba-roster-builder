@@ -377,9 +377,8 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
     ]
 
     // Eval season = earliest season at/after TRADE_EVAL_SEASON any traded
-    // player asset carries salary in (2025-26 salary data is never used to
-    // pick the season — that league year is already in the books; the app
-    // isn't date-aware, so real trade-date matching is out of scope).
+    // player asset carries salary in (the app isn't date-aware, so real
+    // trade-date matching is out of scope).
     const allPlayerAssets = [...yourOutgoing, ...yourIncoming].filter((a) => a.kind === 'player')
     const seasonsFromEval = SEASONS.slice(SEASONS.indexOf(TRADE_EVAL_SEASON))
     const season: Season =

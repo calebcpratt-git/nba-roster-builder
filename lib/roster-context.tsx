@@ -158,8 +158,8 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     const yourOutgoing = resolveOutgoingAssets(trade)
     const yourIncoming = resolveIncomingAssets(trade)
 
-    // 2025-26 salary data is never used to pick the eval season — see the
-    // matching comment in trade-modal.tsx.
+    // Eval season = earliest season at/after TRADE_EVAL_SEASON any traded
+    // player asset carries salary in — see the matching comment in trade-modal.tsx.
     const allPlayerAssets = [...yourOutgoing, ...yourIncoming].filter((a) => a.kind === 'player')
     const seasonsFromEval = SEASONS.slice(SEASONS.indexOf(TRADE_EVAL_SEASON))
     const season: Season =
