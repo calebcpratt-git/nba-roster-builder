@@ -49,9 +49,8 @@ export interface TradeValidationResult {
   isValid: boolean
 }
 
-// Season trades are evaluated against — the upcoming league year, since
-// 2025-26 has already been played out. Also the default used before a trade
-// has any assets in it.
+// Season trades are evaluated against — the current league year. Also the
+// default used before a trade has any assets in it.
 export const TRADE_EVAL_SEASON: Season = '2026-27'
 
 // The 2026 draft has already happened (real pick numbers are in the data);

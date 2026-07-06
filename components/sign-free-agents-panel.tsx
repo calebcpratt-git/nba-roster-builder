@@ -18,7 +18,7 @@ import { SignFreeAgentModal } from './sign-free-agent-modal'
 import { ChevronRight } from 'lucide-react'
 
 export function SignFreeAgentsPanel() {
-  const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[1])
+  const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[0])
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -54,7 +54,7 @@ export function SignFreeAgentsPanel() {
     })
 
     const sortBySalary = (players: any[]) =>
-      players.sort((a, b) => (b.salary['2025-26'] || 0) - (a.salary['2025-26'] || 0))
+      players.sort((a, b) => (b.salary['2026-27'] || 0) - (a.salary['2026-27'] || 0))
 
     return {
       freeAgents: sortBySalary(freeAgents),
@@ -126,7 +126,7 @@ export function SignFreeAgentsPanel() {
                 <SelectValue placeholder="Select year" />
               </SelectTrigger>
               <SelectContent>
-                {SEASONS.slice(1, 6).map((season) => (
+                {SEASONS.slice(0, 5).map((season) => (
                   <SelectItem key={season} value={season}>
                     {season}
                   </SelectItem>
@@ -167,7 +167,7 @@ export function SignFreeAgentsPanel() {
                       <div className="flex items-center justify-between">
                         <div className="font-medium">{player.name}</div>
                         <div className="text-xs text-muted-foreground">
-                          {formatCurrency(player.salary['2025-26'] || 0)}
+                          {formatCurrency(player.salary['2026-27'] || 0)}
                         </div>
                       </div>
                     </div>
