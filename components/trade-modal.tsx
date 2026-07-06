@@ -4,7 +4,8 @@ import { useState, useMemo, useEffect } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { Season, SEASONS, SavedTrade } from '@/lib/types'
 import { getTeamRoster, ALL_TEAMS, TEAM_NAMES, formatCurrency, CAP_THRESHOLDS, getCapStatus, getCapStatusColor } from '@/lib/data'
-import { getDraftPickPlayers } from '@/lib/draft-picks'
+import { getDraftPickPlayers, DraftPick } from '@/lib/draft-picks'
+import { DraftPickHoverContent } from '@/components/draft-pick-hover'
 import { getScaledRookieSalary, SECOND_ROUND_SALARY_BY_SEASON } from '@/lib/rookie-salaries'
 import {
   TradeAsset,
@@ -137,17 +138,19 @@ function HoverName({
   name,
   salary,
   options,
+  draftPick,
   className,
 }: {
   name: string
   salary?: Partial<Record<Season, number>>
   options?: Partial<Record<Season, 'Player' | 'Team'>>
+  draftPick?: DraftPick
   className?: string
 }) {
   const [hovering, setHovering] = useState(false)
   const hasContract = salary && Object.values(salary).some((v) => v && v > 0)
 
-  if (!hasContract) {
+  if (!draftPick && !hasContract) {
     return <span className={cn('font-medium truncate flex-1', className)}>{name}</span>
   }
 
@@ -165,12 +168,12 @@ function HoverName({
       <PopoverContent
         side="right"
         align="start"
-        className="p-0 w-auto"
+        className={draftPick ? 'w-64 p-3 text-xs' : 'p-0 w-auto'}
         sideOffset={8}
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
-        <ContractDetail name={name} salary={salary!} options={options} />
+        {draftPick ? <DraftPickHoverContent dp={draftPick} /> : <ContractDetail name={name} salary={salary!} options={options} />}
       </PopoverContent>
     </Popover>
   )
@@ -182,12 +185,14 @@ function AvailableRow({
   sub,
   salary,
   options,
+  draftPick,
   onClick,
 }: {
   label: string
   sub?: string
   salary?: Partial<Record<Season, number>>
   options?: Partial<Record<Season, 'Player' | 'Team'>>
+  draftPick?: DraftPick
   onClick: () => void
 }) {
   return (
@@ -195,7 +200,7 @@ function AvailableRow({
       onClick={onClick}
       className="w-full flex items-center justify-between px-2 py-1.5 rounded text-left text-xs hover:bg-muted/60 transition-colors group cursor-pointer"
     >
-      <HoverName name={label} salary={salary} options={options} className="text-foreground" />
+      <HoverName name={label} salary={salary} options={options} draftPick={draftPick} className="text-foreground" />
       <div className="flex items-center gap-1.5 shrink-0 ml-1.5">
         {sub && <span className="text-muted-foreground font-mono tabular-nums">{sub}</span>}
         <Plus className="h-3 w-3 text-muted-foreground/50 group-hover:text-primary transition-colors" />
@@ -210,17 +215,19 @@ function TradeChip({
   sub,
   salary,
   options,
+  draftPick,
   onRemove,
 }: {
   label: string
   sub?: string
   salary?: Partial<Record<Season, number>>
   options?: Partial<Record<Season, 'Player' | 'Team'>>
+  draftPick?: DraftPick
   onRemove: () => void
 }) {
   return (
     <div className="flex items-center justify-between px-2 py-1 rounded bg-muted/50 border border-border/60 text-xs">
-      <HoverName name={label} salary={salary} options={options} className="text-foreground" />
+      <HoverName name={label} salary={salary} options={options} draftPick={draftPick} className="text-foreground" />
       <div className="flex items-center gap-1.5 shrink-0 ml-1.5">
         {sub && <span className="text-muted-foreground font-mono tabular-nums text-[10px]">{sub}</span>}
         <button
@@ -613,7 +620,7 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
                     <div className="pt-1">
                       <p className="text-[10px] text-muted-foreground/60 px-2 pb-0.5 uppercase tracking-wide">Picks</p>
                       {availableOutgoingPicks.map((p) => (
-                        <AvailableRow key={p.id} label={p.name} salary={p.salary} options={p.options} onClick={() => addOutgoingPick(p.id)} />
+                        <AvailableRow key={p.id} label={p.name} draftPick={p.draftPick} onClick={() => addOutgoingPick(p.id)} />
                       ))}
                     </div>
                   )}
@@ -637,7 +644,7 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
                     <TradeChip key={c.id} label={c.playerName} sub={formatCurrency(getFirstYearSalary(c))} salary={c.salary} onRemove={() => removeOutgoingRoster(c.id)} />
                   ))}
                   {selectedOutgoingPickObjects.map((p) => (
-                    <TradeChip key={p.id} label={p.name} salary={p.salary} options={p.options} onRemove={() => removeOutgoingPick(p.id)} />
+                    <TradeChip key={p.id} label={p.name} draftPick={p.draftPick} onRemove={() => removeOutgoingPick(p.id)} />
                   ))}
                 </>
               )}
@@ -668,7 +675,7 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
                     <div className="pt-1">
                       <p className="text-[10px] text-muted-foreground/60 px-2 pb-0.5 uppercase tracking-wide">Picks</p>
                       {availableIncomingPicks.map((p) => (
-                        <AvailableRow key={p.id} label={p.name} salary={p.salary} options={p.options} onClick={() => addIncomingPick(p.id)} />
+                        <AvailableRow key={p.id} label={p.name} draftPick={p.draftPick} onClick={() => addIncomingPick(p.id)} />
                       ))}
                     </div>
                   )}
@@ -731,10 +738,26 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
                     <TradeChip key={p.id} label={p.name} sub={formatCurrency(getFirstYearSalary(p))} salary={p.salary} options={p.options} onRemove={() => removeIncomingPlayer(p.id)} />
                   ))}
                   {selectedIncomingPickObjects.map((p) => (
-                    <TradeChip key={p.id} label={p.name} salary={p.salary} options={p.options} onRemove={() => removeIncomingPick(p.id)} />
+                    <TradeChip key={p.id} label={p.name} draftPick={p.draftPick} onRemove={() => removeIncomingPick(p.id)} />
                   ))}
                   {incomingCustomPicks.map((p) => (
-                    <TradeChip key={p.id} label={p.name} salary={p.salary} options={p.options} onRemove={() => removeCustomPick(p.id)} />
+                    <TradeChip
+                      key={p.id}
+                      label={p.name}
+                      draftPick={{
+                        teamOwner: TEAM_NAMES[p.fromTeam] ?? p.fromTeam,
+                        year: p.year,
+                        round: p.round,
+                        teamFrom: null,
+                        swapOwner: null,
+                        swapOption: null,
+                        protections: null,
+                        pickNumber: p.pickNumber,
+                        pickPool: null,
+                        rank: null,
+                      }}
+                      onRemove={() => removeCustomPick(p.id)}
+                    />
                   ))}
                 </>
               )}

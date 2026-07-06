@@ -3,7 +3,7 @@
 import { useState, createContext, useContext, ReactNode, useMemo, useCallback } from 'react'
 import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
 import { getTeamRoster, TEAMS, CAP_THRESHOLDS } from './data'
-import { getDraftPickPlayers, applyPickNumberOverrides } from './draft-picks'
+import { getDraftPickPlayers, applyPickNumberOverrides, DraftPickPlayer } from './draft-picks'
 import {
   TradeAsset,
   TradeSideInput,
@@ -37,7 +37,7 @@ interface RosterContextType extends RosterState {
   getDisplaySalary: (player: Player, season: Season) => number
   setDeletedContractIds: (ids: Set<string>) => void
   deletedContractIds: Set<string>
-  draftPickPlayers: Player[]
+  draftPickPlayers: DraftPickPlayer[]
   pickNumberOverrides: Record<string, number>
   setPickNumberOverride: (pickId: string, pickNumber: number | null) => void
   releasedRosterIds: Set<string>
