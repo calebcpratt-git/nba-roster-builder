@@ -36,6 +36,7 @@ import { cn } from '@/lib/utils'
 interface ExtensionModalProps {
   player: Player | null
   isOpen: boolean
+  startSeason?: Season
   onClose: () => void
 }
 
@@ -62,7 +63,7 @@ const DISTRIBUTION_OPTIONS: Record<
   },
 }
 
-export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps) {
+export function ExtensionModal({ player, isOpen, startSeason, onClose }: ExtensionModalProps) {
   const { addSavedContract } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
@@ -73,7 +74,9 @@ export function ExtensionModal({ player, isOpen, onClose }: ExtensionModalProps)
 
   if (!player) return null
 
-  const firstEmptySeason = SEASONS.find((s) => !player.salary[s]) as Season | undefined
+  // startSeason is passed in when extending from a declined option (the year the
+  // option was declined for); otherwise fall back to the first season with no contract.
+  const firstEmptySeason = (startSeason ?? SEASONS.find((s) => !player.salary[s])) as Season | undefined
   if (!firstEmptySeason) return null
 
   const startIndex = SEASONS.indexOf(firstEmptySeason)

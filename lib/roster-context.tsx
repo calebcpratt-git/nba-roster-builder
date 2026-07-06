@@ -2,9 +2,17 @@
 
 import { useState, createContext, useContext, ReactNode, useMemo, useCallback } from 'react'
 import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
-import { getTeamRoster, TEAMS } from './data'
-import { getDraftPickPlayers } from './draft-picks'
-import { getScaledRookieSalary } from './rookie-salaries'
+import { getTeamRoster, TEAMS, CAP_THRESHOLDS } from './data'
+import { getDraftPickPlayers, applyPickNumberOverrides } from './draft-picks'
+import {
+  TradeAsset,
+  TradeSideInput,
+  validateTrade,
+  getOwnedFirstRoundYears,
+  parsePickIdMeta,
+  TRADE_EVAL_SEASON,
+  CURRENT_DRAFT_YEAR,
+} from './trade-validation'
 
 interface RosterState {
   selectedTeamAbbr: string
@@ -25,6 +33,7 @@ interface RosterContextType extends RosterState {
   getEffectiveSalary: (player: Player, season: Season) => number
   isOptionExercised: (playerId: string, season: Season, optionType: 'Team' | 'Player') => boolean | null
   getTotalSalary: (season: Season) => { current: number; saved: number; total: number }
+  getTeamCapTotal: (teamAbbr: string, season: Season) => number
   getDisplaySalary: (player: Player, season: Season) => number
   setDeletedContractIds: (ids: Set<string>) => void
   deletedContractIds: Set<string>
@@ -68,40 +77,10 @@ export function RosterProvider({ children }: { children: ReactNode }) {
 
   const roster = useMemo(() => getTeamRoster(selectedTeamAbbr), [selectedTeamAbbr])
 
-  const draftPickPlayers = useMemo(() => {
-    const raw = getDraftPickPlayers(selectedTeamAbbr)
-    return raw.map((pick) => {
-      const yearMatch = pick.id.match(/^draft-(\d+)-/)
-      const draftYear = yearMatch ? parseInt(yearMatch[1]) : 0
-      const isFutureFirstRound = pick.id.includes('First-Round') && draftYear >= 2027
-
-      // For future first-round picks always compute through this path so the default
-      // (#16) and any explicit selection use identical code — no two-path divergence.
-      const pickNumber = isFutureFirstRound
-        ? (pickNumberOverrides[pick.id] ?? 16)
-        : pickNumberOverrides[pick.id]
-
-      if (pickNumber === undefined) return pick
-
-      const scaled = getScaledRookieSalary(pickNumber, draftYear)
-      if (!scaled) return pick
-
-      const startSeason = `${draftYear}-${String(draftYear + 1).slice(2)}` as Season
-      const startIdx = SEASONS.indexOf(startSeason)
-      if (startIdx === -1) return pick
-
-      const salary: Partial<Record<Season, number>> = {}
-      const options: Partial<Record<Season, 'Player' | 'Team'>> = {}
-      const [y1, y2, y3, y4] = [SEASONS[startIdx], SEASONS[startIdx + 1], SEASONS[startIdx + 2], SEASONS[startIdx + 3]]
-      if (y1) salary[y1] = scaled.year1
-      if (y2) salary[y2] = scaled.year2
-      if (y3) { salary[y3] = scaled.year3; options[y3] = 'Team' }
-      if (y4) { salary[y4] = scaled.year4; options[y4] = 'Team' }
-
-      const name = isFutureFirstRound ? `${draftYear} - 1st` : `${draftYear} - 1st (#${pickNumber})`
-      return { ...pick, name, salary, options }
-    })
-  }, [selectedTeamAbbr, pickNumberOverrides])
+  const draftPickPlayers = useMemo(
+    () => applyPickNumberOverrides(getDraftPickPlayers(selectedTeamAbbr), pickNumberOverrides),
+    [selectedTeamAbbr, pickNumberOverrides]
+  )
   const selectedTeam = TEAMS[selectedTeamAbbr] || { name: 'Unknown', city: 'Unknown', primaryColor: '#000', secondaryColor: '#fff' }
   
   // Get saved contracts for the current team
@@ -122,12 +101,117 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     return ids
   }, [savedTrades])
 
+  // Defense-in-depth: re-run the same validator the trade modal uses before
+  // ever committing a trade to state, so an invalid trade can't be saved even
+  // if the UI's gating were somehow bypassed. The modal is the primary UX —
+  // this only guards the data layer and no-ops (with a console warning) on
+  // a hard violation rather than throwing.
+  function resolveOutgoingAssets(trade: SavedTrade): TradeAsset[] {
+    const assets: TradeAsset[] = []
+    trade.outgoingRosterPlayerIds.forEach((id) => {
+      const player = roster.find((p) => p.id === id)
+      if (player) {
+        const salaryBySeason: Partial<Record<Season, number>> = {}
+        SEASONS.forEach((s) => {
+          const v = getEffectiveSalary(player, s)
+          if (v > 0) salaryBySeason[s] = v
+        })
+        assets.push({ kind: 'player', id: player.id, name: player.name, salaryBySeason })
+        return
+      }
+      const contract = savedContracts.find((c) => c.id === id && !deletedContractIds.has(c.id))
+      if (contract) {
+        assets.push({
+          kind: 'player',
+          id: contract.id,
+          name: contract.playerName,
+          salaryBySeason: contract.salary,
+          isMinimum: contract.isMinimum,
+        })
+      }
+    })
+    trade.outgoingPickIds.forEach((id) => {
+      const pick = draftPickPlayers.find((p) => p.id === id)
+      if (pick) {
+        const { pickYear, pickRound } = parsePickIdMeta(id)
+        assets.push({ kind: 'pick', id: pick.id, name: pick.name, salaryBySeason: pick.salary, pickYear, pickRound })
+      }
+    })
+    return assets
+  }
+
+  function resolveIncomingAssets(trade: SavedTrade): TradeAsset[] {
+    const players: TradeAsset[] = trade.incomingPlayers.map((p) => ({
+      kind: 'player',
+      id: p.playerId,
+      name: p.playerName,
+      salaryBySeason: p.salary,
+    }))
+    const picks: TradeAsset[] = trade.incomingPicks.map((p) => {
+      const { pickYear, pickRound } = parsePickIdMeta(p.id)
+      return { kind: 'pick', id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
+    })
+    return [...players, ...picks]
+  }
+
+  function isTradeValid(trade: SavedTrade): boolean {
+    const yourOutgoing = resolveOutgoingAssets(trade)
+    const yourIncoming = resolveIncomingAssets(trade)
+
+    // 2025-26 salary data is never used to pick the eval season — see the
+    // matching comment in trade-modal.tsx.
+    const allPlayerAssets = [...yourOutgoing, ...yourIncoming].filter((a) => a.kind === 'player')
+    const seasonsFromEval = SEASONS.slice(SEASONS.indexOf(TRADE_EVAL_SEASON))
+    const season: Season =
+      seasonsFromEval.find((s) => allPlayerAssets.some((a) => (a.salaryBySeason[s] ?? 0) > 0)) ?? TRADE_EVAL_SEASON
+    const thresholds = CAP_THRESHOLDS[season]
+
+    const yourPreTradeTotal = getTotalSalary(season).total
+    const theirPreTradeTotal = getTeamCapTotal(trade.tradeTeamAbbr, season)
+
+    const yourSide: TradeSideInput = {
+      side: 'yours',
+      teamAbbr: selectedTeamAbbr,
+      teamName: TEAMS[selectedTeamAbbr]?.name ?? selectedTeamAbbr,
+      preTradeTotal: yourPreTradeTotal,
+      approximate: false,
+      outgoing: yourOutgoing,
+      incoming: yourIncoming,
+    }
+    const theirSide: TradeSideInput = {
+      side: 'theirs',
+      teamAbbr: trade.tradeTeamAbbr,
+      teamName: TEAMS[trade.tradeTeamAbbr]?.name ?? trade.tradeTeamAbbr,
+      preTradeTotal: theirPreTradeTotal,
+      approximate: true,
+      outgoing: yourIncoming,
+      incoming: yourOutgoing,
+    }
+
+    const validation = validateTrade({
+      season,
+      thresholds,
+      currentDraftYear: CURRENT_DRAFT_YEAR,
+      sides: [yourSide, theirSide],
+      ownedFirstRoundYearsByTeam: {
+        [selectedTeamAbbr]: getOwnedFirstRoundYears(selectedTeamAbbr),
+        [trade.tradeTeamAbbr]: getOwnedFirstRoundYears(trade.tradeTeamAbbr),
+      },
+    })
+
+    return validation.isValid
+  }
+
   const addSavedTrade = useCallback((trade: SavedTrade) => {
+    if (!isTradeValid(trade)) {
+      console.warn('Refusing to save invalid trade', trade.id)
+      return
+    }
     setSavedTradesByTeam((prev) => ({
       ...prev,
       [selectedTeamAbbr]: [...(prev[selectedTeamAbbr] || []), trade],
     }))
-  }, [selectedTeamAbbr])
+  }, [selectedTeamAbbr, roster, draftPickPlayers, savedContracts, deletedContractIds])
 
   const removeSavedTrade = useCallback((id: string) => {
     setSavedTradesByTeam((prev) => ({
@@ -137,11 +221,15 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   }, [selectedTeamAbbr])
 
   const updateSavedTrade = useCallback((trade: SavedTrade) => {
+    if (!isTradeValid(trade)) {
+      console.warn('Refusing to save invalid trade', trade.id)
+      return
+    }
     setSavedTradesByTeam((prev) => ({
       ...prev,
       [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).map((t) => t.id === trade.id ? trade : t),
     }))
-  }, [selectedTeamAbbr])
+  }, [selectedTeamAbbr, roster, draftPickPlayers, savedContracts, deletedContractIds])
 
   const addSavedContract = (contract: SavedContract) => {
     setSavedContractsByTeam((prev) => ({
@@ -280,6 +368,45 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  // Same total as getTotalSalary, but for any team abbreviation — not just
+  // the currently selected one. Used by the trade validator so a partner
+  // team's cap position reflects whatever contracts/trades have already been
+  // built for them in this app (via their own saved-contracts/saved-trades
+  // buckets), not just their raw starting roster.
+  const getTeamCapTotal = (teamAbbr: string, season: Season): number => {
+    const isSelected = teamAbbr === selectedTeamAbbr
+    const teamRoster = isSelected ? roster : getTeamRoster(teamAbbr)
+    const teamDraftPicks = isSelected
+      ? draftPickPlayers
+      : applyPickNumberOverrides(getDraftPickPlayers(teamAbbr), pickNumberOverrides)
+    const teamSavedContracts = savedContractsByTeam[teamAbbr] || []
+    const teamSavedTrades = savedTradesByTeam[teamAbbr] || []
+
+    const teamTradedRosterIds = new Set<string>()
+    const teamTradedPickIds = new Set<string>()
+    teamSavedTrades.forEach((t) => {
+      t.outgoingRosterPlayerIds.forEach((id) => teamTradedRosterIds.add(id))
+      t.outgoingPickIds.forEach((id) => teamTradedPickIds.add(id))
+    })
+
+    const currentSalary = teamRoster
+      .filter((player) => !releasedRosterIds.has(player.id) && !teamTradedRosterIds.has(player.id))
+      .reduce((sum, player) => sum + getEffectiveSalary(player, season), 0)
+    const savedSalary = teamSavedContracts
+      .filter((contract) => !deletedContractIds.has(contract.id))
+      .reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
+    const draftSalary = teamDraftPicks
+      .filter((pick) => !teamTradedPickIds.has(pick.id))
+      .reduce((sum, pick) => sum + (pick.salary[season] || 0), 0)
+    const tradeIncomingSalary = teamSavedTrades.reduce((sum, trade) => {
+      const players = trade.incomingPlayers.reduce((s, p) => s + (p.salary[season] || 0), 0)
+      const picks = trade.incomingPicks.reduce((s, p) => s + (p.salary[season] || 0), 0)
+      return sum + players + picks
+    }, 0)
+
+    return currentSalary + savedSalary + draftSalary + tradeIncomingSalary
+  }
+
   // Get the displayed salary for a player, including any extensions (but excluding deleted ones)
   const getDisplaySalary = (player: Player, season: Season): number => {
     // First check if there's an extension for this player in this season
@@ -313,6 +440,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         getEffectiveSalary,
         isOptionExercised,
         getTotalSalary,
+        getTeamCapTotal,
         getDisplaySalary,
         setDeletedContractIds,
         deletedContractIds,
