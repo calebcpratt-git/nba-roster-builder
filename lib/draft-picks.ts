@@ -16,6 +16,8 @@ export interface DraftPick {
   rank: string | null
 }
 
+export type DraftPickPlayer = Player & { draftPick: DraftPick }
+
 // Team name to abbreviation mapping
 const TEAM_NAME_TO_ABBR: Record<string, string> = {
   'Atlanta Hawks': 'ATL',
@@ -507,7 +509,7 @@ export function getTeamAbbr(teamName: string): string {
   return TEAM_NAME_TO_ABBR[teamName] ?? teamName
 }
 
-export function getDraftPickPlayers(teamAbbr: string): Player[] {
+export function getDraftPickPlayers(teamAbbr: string): DraftPickPlayer[] {
   const picks = getPicksByTeamAbbr(teamAbbr)
 
   const sorted = [...picks].sort((a, b) => {
@@ -561,7 +563,8 @@ export function getDraftPickPlayers(teamAbbr: string): Player[] {
       team: teamAbbr,
       salary,
       options,
-    } as Player
+      draftPick: pick,
+    } as DraftPickPlayer
   })
 }
 
@@ -570,7 +573,7 @@ export function getDraftPickPlayers(teamAbbr: string): Player[] {
 // affected pick's rookie-scale salary. Pulled out as a standalone function so
 // it can be used both for the currently selected team and for computing an
 // arbitrary other team's cap total (e.g. a trade partner's).
-export function applyPickNumberOverrides(picks: Player[], pickNumberOverrides: Record<string, number>): Player[] {
+export function applyPickNumberOverrides(picks: DraftPickPlayer[], pickNumberOverrides: Record<string, number>): DraftPickPlayer[] {
   return picks.map((pick) => {
     const yearMatch = pick.id.match(/^draft-(\d+)-/)
     const draftYear = yearMatch ? parseInt(yearMatch[1]) : 0

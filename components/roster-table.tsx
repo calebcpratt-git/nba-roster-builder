@@ -13,6 +13,12 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card'
+import { DraftPickHoverContent } from '@/components/draft-pick-hover'
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -35,7 +41,7 @@ function getSalaryColor(salary: number): string {
   return 'text-emerald-500'
 }
 
-function CapThresholdPopup({ season, total, thresholds }: { 
+function CapThresholdPopup({ season, total, thresholds }: {
   season: string
   total: number 
   thresholds: { name: string; value: number; type: string }[] 
@@ -666,9 +672,21 @@ export function RosterTable() {
                         const isPickTraded = tradedPickIds.has(pick.id)
                         return (
                           <div className="flex items-center gap-1.5">
-                            <span className={cn("text-[12px] font-medium text-muted-foreground whitespace-nowrap", isPickTraded && "line-through")}>
-                              {pick.name}
-                            </span>
+                            <HoverCard openDelay={150}>
+                              <HoverCardTrigger asChild>
+                                <span
+                                  className={cn(
+                                    "text-[12px] font-medium text-muted-foreground whitespace-nowrap cursor-help underline decoration-dotted decoration-muted-foreground/40 underline-offset-2",
+                                    isPickTraded && "line-through"
+                                  )}
+                                >
+                                  {pick.name}
+                                </span>
+                              </HoverCardTrigger>
+                              <HoverCardContent className="w-64 p-3 text-xs">
+                                <DraftPickHoverContent dp={pick.draftPick} />
+                              </HoverCardContent>
+                            </HoverCard>
                             {isPickTraded && (
                               <span className="text-[9px] font-semibold text-chart-4/70 tracking-wide">TRADED</span>
                             )}
