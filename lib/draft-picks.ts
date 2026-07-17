@@ -3,6 +3,19 @@ import { ROOKIE_SALARIES_2026, SECOND_ROUND_SALARY_BY_SEASON, getScaledRookieSal
 
 export type DraftRound = 'First Round' | 'Second Round'
 
+export interface PickProtection {
+  topProtected?: number             // e.g. 4 — top-4 protected
+  rangeProtected?: [number, number] // e.g. [1,14] lottery, or [56,60] on a 2nd
+  throughYear?: number              // often absent in the source strings
+  ifNotConveyed: 'rolls' | 'converts-to-second' | 'becomes-two-seconds' | 'extinguishes'
+}
+
+export interface SwapRight {
+  withTeams: string[]   // real data is a team-name list (e.g. "Portland, New Orleans")
+  favorable?: boolean   // usually unknowable from the string — leave undefined
+  condition?: string    // raw remainder for edge cases
+}
+
 export interface DraftPick {
   teamOwner: string
   year: number
@@ -14,6 +27,10 @@ export interface DraftPick {
   pickNumber: number | null
   pickPool: string | null
   rank: string | null
+  protection?: PickProtection   // parsed form of `protections`
+  swap?: SwapRight              // parsed form of `swapOption`
+  /** second-apron 7-years-out rule: this future first can't be traded at all */
+  frozen?: boolean              // derive from the team's apron history (depends on §3)
 }
 
 export type DraftPickPlayer = Player & { draftPick: DraftPick }
@@ -491,12 +508,43 @@ export const DRAFT_PICKS: DraftPick[] = [
   { teamOwner: 'Washington Wizards', year: 2029, round: 'First Round', teamFrom: null, swapOwner: null, swapOption: null, protections: null, pickNumber: null, pickPool: 'POR, BOS, MIL', rank: '2nd most favorable' },
 ]
 
+// best-effort — returns undefined when the string can't be mapped
+function parseProtection(raw: string | null): PickProtection | undefined {
+  if (!raw) return undefined
+  const s = raw.trim()
+  const ifNotConveyed: PickProtection['ifNotConveyed'] =
+    /two second/i.test(s) ? 'becomes-two-seconds'
+    : /second/i.test(s) ? 'converts-to-second'
+    : /extinguish|forfeit|lost/i.test(s) ? 'extinguishes'
+    : 'rolls'
+  const throughYear = Number((s.match(/(\d{4})/) || [])[1]) || undefined
+  if (/lottery/i.test(s)) return { rangeProtected: [1, 14], throughYear, ifNotConveyed }
+  const top = s.match(/top[- ]?(\d{1,2})/i)
+  if (top) return { topProtected: Number(top[1]), throughYear, ifNotConveyed }
+  const range = s.match(/\b(\d{1,2})-(\d{1,2})\b/)
+  if (range) return { rangeProtected: [Number(range[1]), Number(range[2])], throughYear, ifNotConveyed }
+  return undefined
+}
+
+function parseSwap(raw: string | null): SwapRight | undefined {
+  if (!raw) return undefined
+  const withTeams = raw.split(',').map((t) => t.trim()).filter(Boolean)
+  return withTeams.length ? { withTeams } : undefined
+}
+
+function enrichPick(p: DraftPick): DraftPick {
+  return { ...p, protection: parseProtection(p.protections), swap: parseSwap(p.swapOption) }
+}
+
+// enrich ONCE at module load; every getter filters this instead of DRAFT_PICKS
+const ENRICHED_PICKS: DraftPick[] = DRAFT_PICKS.map(enrichPick)
+
 export function getPicksByTeam(teamName: string): DraftPick[] {
-  return DRAFT_PICKS.filter(p => p.teamOwner === teamName)
+  return ENRICHED_PICKS.filter(p => p.teamOwner === teamName)
 }
 
 export function getPicksByYear(year: number): DraftPick[] {
-  return DRAFT_PICKS.filter(p => p.year === year)
+  return ENRICHED_PICKS.filter(p => p.year === year)
 }
 
 export function getPicksByTeamAbbr(abbr: string): DraftPick[] {
