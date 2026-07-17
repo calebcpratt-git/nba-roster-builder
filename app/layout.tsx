@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'NBA Roster Builder - Pro Forma Cap Sheet',
+  title: 'Association GM',
   description: 'Build and analyze NBA team rosters with salary cap projections through 2029-30',
   generator: 'v0.app',
   icons: {
