@@ -4,6 +4,9 @@ import { useState, createContext, useContext, ReactNode, useMemo, useCallback } 
 import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
 import { getTeamRoster, TEAMS, CAP_THRESHOLDS } from './data'
 import { getDraftPickPlayers, applyPickNumberOverrides, DraftPickPlayer } from './draft-picks'
+import { getPlayerRookieYear, getPlayerYOE } from './contract-utils'
+import { getContractDetail } from './contract-details'
+import { getTeamCapState } from './team-cap-state'
 import {
   TradeAsset,
   TradeSideInput,
@@ -13,6 +16,42 @@ import {
   TRADE_EVAL_SEASON,
   CURRENT_DRAFT_YEAR,
 } from './trade-validation'
+
+// schema doc §1 — a player's years of service, for the per-YOS minimum-salary
+// lookup in league-cap.ts. Approximated against TRADE_EVAL_SEASON since a
+// TradeAsset is built once, before the trade's actual eval season is known;
+// undefined for anyone missing from PLAYER_ROOKIE_YEARS (falls back safely).
+function yearsOfServiceFor(playerName: string): number | undefined {
+  const rookieYear = getPlayerRookieYear(playerName)
+  return rookieYear !== undefined ? getPlayerYOE(rookieYear, TRADE_EVAL_SEASON) : undefined
+}
+
+// schema doc §2a — converts a player's per-season guarantee status into the
+// discounted "counts toward the match" amount. Returns undefined (no discount,
+// full salary counts) whenever the player has no guarantee data at all, which
+// is every player today since no data source populates Player.guarantees yet.
+function guaranteedBySeasonFor(player: Player, getSalary: (p: Player, s: Season) => number): Partial<Record<Season, number>> | undefined {
+  if (!player.guarantees) return undefined
+  const result: Partial<Record<Season, number>> = {}
+  SEASONS.forEach((s) => {
+    const g = player.guarantees?.[s]
+    if (!g || g.status === 'full') return // absent or full — no entry needed, full salary counts
+    result[s] = g.status === 'non-guaranteed' ? 0 : (g.amount ?? 0)
+  })
+  return Object.keys(result).length > 0 ? result : undefined
+}
+
+// schema doc §3a — dead money, cap holds, and the apron addon are facts
+// imported from team-cap-state.ts, not derived from the roster/contracts
+// already summed above. Always 0 today since TEAM_CAP_STATE is empty, so
+// preTradeTotal is unchanged until real team-state data is entered.
+function teamCapStateAddon(teamAbbr: string, season: Season): number {
+  const state = getTeamCapState(teamAbbr, season)
+  if (!state) return 0
+  const deadMoney = state.deadMoney.reduce((sum, d) => sum + d.amount, 0)
+  const capHolds = state.capHolds.reduce((sum, h) => sum + h.amount, 0)
+  return deadMoney + capHolds + (state.apronAddon ?? 0)
+}
 
 interface RosterState {
   selectedTeamAbbr: string
@@ -116,17 +155,31 @@ export function RosterProvider({ children }: { children: ReactNode }) {
           const v = getEffectiveSalary(player, s)
           if (v > 0) salaryBySeason[s] = v
         })
-        assets.push({ kind: 'player', id: player.id, name: player.name, salaryBySeason })
+        const detail = getContractDetail(player.name)
+        assets.push({
+          kind: 'player',
+          id: player.id,
+          name: player.name,
+          salaryBySeason,
+          yearsOfService: yearsOfServiceFor(player.name),
+          guaranteedBySeason: guaranteedBySeasonFor(player, getEffectiveSalary),
+          tradeBonusPct: detail?.tradeBonusPct,
+          noTradeClause: detail?.noTradeClause,
+        })
         return
       }
       const contract = savedContracts.find((c) => c.id === id && !deletedContractIds.has(c.id))
       if (contract) {
+        const detail = getContractDetail(contract.playerName)
         assets.push({
           kind: 'player',
           id: contract.id,
           name: contract.playerName,
           salaryBySeason: contract.salary,
-          isMinimum: contract.isMinimum,
+          isMinimum: contract.isMinimum || detail?.signedUnder === 'minimum' || undefined,
+          yearsOfService: yearsOfServiceFor(contract.playerName),
+          tradeBonusPct: detail?.tradeBonusPct,
+          noTradeClause: detail?.noTradeClause,
         })
       }
     })
@@ -134,19 +187,25 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       const pick = draftPickPlayers.find((p) => p.id === id)
       if (pick) {
         const { pickYear, pickRound } = parsePickIdMeta(id)
-        assets.push({ kind: 'pick', id: pick.id, name: pick.name, salaryBySeason: pick.salary, pickYear, pickRound })
+        assets.push({ kind: 'pick', id: pick.id, name: pick.name, salaryBySeason: pick.salary, pickYear, pickRound, pick: pick.draftPick })
       }
     })
     return assets
   }
 
   function resolveIncomingAssets(trade: SavedTrade): TradeAsset[] {
-    const players: TradeAsset[] = trade.incomingPlayers.map((p) => ({
-      kind: 'player',
-      id: p.playerId,
-      name: p.playerName,
-      salaryBySeason: p.salary,
-    }))
+    const players: TradeAsset[] = trade.incomingPlayers.map((p) => {
+      const detail = getContractDetail(p.playerName)
+      return {
+        kind: 'player',
+        id: p.playerId,
+        name: p.playerName,
+        salaryBySeason: p.salary,
+        yearsOfService: yearsOfServiceFor(p.playerName),
+        tradeBonusPct: detail?.tradeBonusPct,
+        noTradeClause: detail?.noTradeClause,
+      }
+    })
     const picks: TradeAsset[] = trade.incomingPicks.map((p) => {
       const { pickYear, pickRound } = parsePickIdMeta(p.id)
       return { kind: 'pick', id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
@@ -361,10 +420,12 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       return sum + trade.incomingPicks.reduce((s, p) => s + (p.salary[season] || 0), 0)
     }, 0)
 
+    const capStateAddon = teamCapStateAddon(selectedTeamAbbr, season)
+
     return {
       current: currentSalary,
       saved: savedSalary,
-      total: currentSalary + savedSalary + draftSalary + tradeIncomingPlayerSalary + tradeIncomingPickSalary,
+      total: currentSalary + savedSalary + draftSalary + tradeIncomingPlayerSalary + tradeIncomingPickSalary + capStateAddon,
     }
   }
 
@@ -404,7 +465,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       return sum + players + picks
     }, 0)
 
-    return currentSalary + savedSalary + draftSalary + tradeIncomingSalary
+    return currentSalary + savedSalary + draftSalary + tradeIncomingSalary + teamCapStateAddon(teamAbbr, season)
   }
 
   // Get the displayed salary for a player, including any extensions (but excluding deleted ones)

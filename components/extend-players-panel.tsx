@@ -42,7 +42,7 @@ export function ExtendPlayersPanel() {
     // Create extension contract
     const extensionSalaries: Record<string, number> = {}
     for (let i = lastSeason; i < SEASONS.length; i++) {
-      const seasonSalary = parseFloat(newSalaryData[SEASONS[i]] || '0')
+      const seasonSalary = newSalaryData[SEASONS[i]] || 0
       if (seasonSalary > 0) {
         extensionSalaries[SEASONS[i]] = seasonSalary
       }
@@ -52,9 +52,11 @@ export function ExtendPlayersPanel() {
 
     addSavedContract({
       id: `ext-${selectedPlayer.id}-${Date.now()}`,
+      playerId: selectedPlayer.id,
       playerName: selectedPlayer.name,
       type: 'extension',
       salary: extensionSalaries,
+      createdAt: new Date(),
     })
 
     // Reset form
