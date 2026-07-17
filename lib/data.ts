@@ -5,14 +5,22 @@ import { getTeamRoster as getTeamRosterFromData, ALL_TEAMS, TEAM_NAMES } from '.
 export { ALL_TEAMS, TEAM_NAMES }
 
 // Get players for a specific team (converts PlayerContract to Player format)
+function dropNulls<T extends string, V>(record: Partial<Record<T, V | null>>): Partial<Record<T, V>> {
+  const result: Partial<Record<T, V>> = {}
+  for (const [key, value] of Object.entries(record) as [T, V | null][]) {
+    if (value != null) result[key] = value
+  }
+  return result
+}
+
 export function getTeamRoster(teamAbbreviation: string): Player[] {
   const contracts = getTeamRosterFromData(teamAbbreviation)
   return contracts.map((c, idx) => ({
-    id: c.id || `player-${idx}`,
+    id: `player-${idx}`,
     name: c.name,
     team: c.team,
-    salary: c.salary,
-    options: c.options,
+    salary: dropNulls(c.salary),
+    options: dropNulls(c.options),
   }))
 }
 

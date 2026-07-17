@@ -1,11 +1,14 @@
 import { Season } from './types'
 import { CAP_THRESHOLDS } from './data'
 import { PLAYER_ROOKIE_YEARS } from './rookie-years'
+import { nameLookup } from './player-key'
 
 export type DistributionType = 'flat' | 'escalating' | 'declining'
 
+const rookieYearOf = nameLookup(PLAYER_ROOKIE_YEARS)
+
 export function getPlayerRookieYear(playerName: string): number | undefined {
-  return PLAYER_ROOKIE_YEARS[playerName]
+  return rookieYearOf(playerName)
 }
 
 export function getPlayerYOE(rookieYear: number, startSeason: Season): number {

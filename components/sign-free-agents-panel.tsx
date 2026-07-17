@@ -27,7 +27,7 @@ export function SignFreeAgentsPanel() {
 
   // Get all players whose first contract-free year in the DB matches the selected year
   const getAllFreeAgentsAndOptions = (year: Season) => {
-    const freeAgents: any[] = []
+    const freeAgents: Player[] = []
 
     ALL_TEAMS.forEach((teamAbbr) => {
       const teamRoster = getTeamRoster(teamAbbr)
@@ -53,7 +53,7 @@ export function SignFreeAgentsPanel() {
       })
     })
 
-    const sortBySalary = (players: any[]) =>
+    const sortBySalary = (players: Player[]) =>
       players.sort((a, b) => (b.salary['2026-27'] || 0) - (a.salary['2026-27'] || 0))
 
     return {
@@ -146,7 +146,7 @@ export function SignFreeAgentsPanel() {
             {/* Column Header */}
             <div className="px-2 flex items-center justify-between text-xs text-muted-foreground font-medium">
               <div>Player</div>
-              <div>Current Avg Salary</div>
+              {selectedYear !== '2026-27' && <div>Current Avg Salary</div>}
             </div>
             
             {/* Scrollable List */}
@@ -166,9 +166,11 @@ export function SignFreeAgentsPanel() {
                     >
                       <div className="flex items-center justify-between">
                         <div className="font-medium">{player.name}</div>
-                        <div className="text-xs text-muted-foreground">
-                          {formatCurrency(player.salary['2026-27'] || 0)}
-                        </div>
+                        {selectedYear !== '2026-27' && (
+                          <div className="text-xs text-muted-foreground">
+                            {formatCurrency(player.salary['2026-27'] || 0)}
+                          </div>
+                        )}
                       </div>
                     </div>
                   )

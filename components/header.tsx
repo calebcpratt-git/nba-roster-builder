@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
+import { AuthPanel } from '@/components/auth-panel'
 import { ArrowLeftRight } from 'lucide-react'
 
 export function Header() {
@@ -43,6 +44,8 @@ export function Header() {
               })}
             </SelectContent>
           </Select>
+
+          <AuthPanel />
         </div>
 
         <div className="flex items-center gap-2">

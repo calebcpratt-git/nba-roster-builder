@@ -1,3 +1,11 @@
+export type GuaranteeStatus = 'full' | 'partial' | 'non-guaranteed'
+
+export interface SeasonGuarantee {
+  status: GuaranteeStatus
+  amount?: number        // for 'partial' — guaranteed portion in whole dollars
+  guaranteeDate?: string  // ISO 'YYYY-MM-DD' the salary becomes fully guaranteed
+}
+
 export interface Player {
   id: string
   name: string
@@ -5,6 +13,11 @@ export interface Player {
   salary: Partial<Record<Season, number>>
   options: Partial<Record<Season, 'Player' | 'Team'>>
   isUserCreated?: boolean
+  /** Absent season = assume 'full'. Not yet populated by any data source — see schema doc §2a. */
+  guarantees?: Partial<Record<Season, SeasonGuarantee>>
+  /** Not yet populated by any data source — see schema doc §5. */
+  acquisition?: { date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension' }
+  onPlayoffRoster?: boolean
 }
 
 export interface SavedContract {
@@ -71,6 +84,8 @@ export interface SavedTrade {
     salary: Partial<Record<Season, number>>
     options: Partial<Record<Season, 'Player' | 'Team'>>
   }>
+  /** UI toggle — sign-and-trade hard-cap + 3-4yr / 1st-yr-guaranteed rule. Not yet enforced — see schema doc §6. */
+  isSignAndTrade?: boolean
 }
 
 export const TEAM_ABBREVIATIONS = [

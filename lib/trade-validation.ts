@@ -1,6 +1,7 @@
 import { Season, CapThreshold } from './types'
-import { CAP_THRESHOLDS, formatCurrency } from './data'
+import { formatCurrency } from './data'
 import { getPicksByTeamAbbr, DraftPick } from './draft-picks'
+import { LEAGUE_CAP, getMinimumSalaryThreshold } from './league-cap'
 
 export type TradeTeamSide = 'yours' | 'theirs'
 export type TradeSeverity = 'error' | 'warning'
@@ -13,6 +14,16 @@ export interface TradeAsset {
   isMinimum?: boolean
   pickYear?: number
   pickRound?: 1 | 2
+  /** Discounted outgoing salary for non-guaranteed/partial seasons (schema doc §2a). Falls back to full salaryBySeason when absent. */
+  guaranteedBySeason?: Partial<Record<Season, number>>
+  /** % of remaining salary accelerated into the acquiring side's incoming figure (schema doc §2b). */
+  tradeBonusPct?: number
+  /** Drives the per-YOS minimum-salary lookup in league-cap.ts (schema doc §1). */
+  yearsOfService?: number
+  /** Hard-errors the trade if set on an outgoing player (schema doc §2b). */
+  noTradeClause?: boolean
+  /** Parsed protection/swap data for pick assets, carried through for future conveyance checks (schema doc §4). */
+  pick?: DraftPick
 }
 
 export interface TradeSideInput {
@@ -76,19 +87,6 @@ export function parsePickIdMeta(id: string): { pickYear?: number; pickRound?: 1 
 // non-blocking warnings.
 export const PARTNER_FINDINGS_ARE_WARNINGS = false
 
-const BASE_SEASON: Season = TRADE_EVAL_SEASON
-
-// 2026-27 baseline figures for the salary-matching brackets below. These are
-// approximations of the 2023 CBA rules (not a live trade machine), scaled by
-// this app's own soft-cap growth (see scaleFactor) for other seasons so the
-// validator stays internally consistent with what the roster table shows.
-// Verify against a current source before relying on these for a real trade.
-const BASE_MATCH_CUSHION = 250_000 // flat $ cushion, not scaled — removed above the first apron
-const BASE_LOWER_CEILING = 7_250_000
-const BASE_UPPER_FLOOR = 29_000_000
-const BASE_MIDDLE_CUSHION = 8_527_000
-const BASE_MINIMUM_SALARY = 1_320_000
-
 export const FIDELITY_NOTE =
   "Not checked: Bird rights, non-guaranteed salary, trade bonuses/kickers, base-year compensation & poison-pill contracts, sign-and-trades, cash in trades, pick protections/swaps, the moratorium & trade-deadline timing, the two-month re-aggregation rule, and the touch rule (this tool only builds two-team trades). Cap and apron figures are approximations for planning, not a substitute for a live trade machine. The partner team's salary includes their roster, saved contracts, and saved trades in this app — trades built from another team's perspective aren't visible here."
 
@@ -98,12 +96,6 @@ export const FIDELITY_NOTE =
 
 function getThreshold(thresholds: CapThreshold[], type: CapThreshold['type']): number {
   return thresholds.find((t) => t.type === type)?.value ?? 0
-}
-
-function scaleFactor(thresholds: CapThreshold[]): number {
-  const baseSoftCap = getThreshold(CAP_THRESHOLDS[BASE_SEASON] ?? [], 'soft-cap') || 1
-  const softCap = getThreshold(thresholds, 'soft-cap') || baseSoftCap
-  return softCap / baseSoftCap
 }
 
 function joinNames(names: string[]): string {
@@ -117,8 +109,24 @@ function severityFor(side: TradeSideInput): TradeSeverity {
   return side.approximate && PARTNER_FINDINGS_ARE_WARNINGS ? 'warning' : 'error'
 }
 
-function isMinimumSalary(salary: number, thresholds: CapThreshold[]): boolean {
-  return salary > 0 && salary <= BASE_MINIMUM_SALARY * scaleFactor(thresholds)
+function isMinimumSalary(salary: number, season: Season, yearsOfService?: number): boolean {
+  return salary > 0 && salary <= getMinimumSalaryThreshold(season, yearsOfService)
+}
+
+// A trade bonus is paid out on the trade and, for cap purposes, accelerates
+// into the acquiring team's incoming figure for the asset's first season.
+function incomingSalaryOf(asset: TradeAsset, season: Season): number {
+  const base = salaryOf(asset, season)
+  if (!asset.tradeBonusPct) return base
+  return base * (1 + asset.tradeBonusPct / 100)
+}
+
+// Non-guaranteed/partial salary doesn't count toward what the sending team
+// has to match with. Falls back to the full salary when no guarantee detail
+// exists for the asset/season (today's behavior, unconditionally, until
+// schema doc §2a's guarantee data is sourced).
+function outgoingSalaryOf(asset: TradeAsset, season: Season): number {
+  return asset.guaranteedBySeason?.[season] ?? salaryOf(asset, season)
 }
 
 function playerAssets(assets: TradeAsset[]): TradeAsset[] {
@@ -166,11 +174,11 @@ interface SideTotals {
 function computeSideTotals(side: TradeSideInput, season: Season, thresholds: CapThreshold[]): SideTotals {
   const outPlayers = playerAssets(side.outgoing)
   const inPlayers = playerAssets(side.incoming)
-  const outTotal = outPlayers.reduce((sum, a) => sum + salaryOf(a, season), 0)
+  const outTotal = outPlayers.reduce((sum, a) => sum + outgoingSalaryOf(a, season), 0)
   const inTotal = inPlayers.reduce((sum, a) => {
     const salary = salaryOf(a, season)
-    const treatAsMinimum = a.isMinimum ?? isMinimumSalary(salary, thresholds)
-    return sum + (treatAsMinimum ? 0 : salary)
+    const treatAsMinimum = a.isMinimum ?? isMinimumSalary(salary, season, a.yearsOfService)
+    return sum + (treatAsMinimum ? 0 : incomingSalaryOf(a, season))
   }, 0)
   return { outTotal, inTotal }
 }
@@ -212,15 +220,12 @@ function checkSalaryMatching(side: TradeSideInput, input: ValidateTradeInput): T
   const tier = getMatchTier(postTradeTotal, thresholds)
   if (tier === 'below-cap') return []
 
-  const factor = scaleFactor(thresholds)
+  const { lowerCeiling, upperFloor, middleCushion, flatCushion } = LEAGUE_CAP[season].matching
   let maxIncoming: number
 
   if (tier === 'expanded') {
-    const lowerCeiling = BASE_LOWER_CEILING * factor
-    const upperFloor = BASE_UPPER_FLOOR * factor
-    const middleCushion = BASE_MIDDLE_CUSHION * factor
     if (outTotal < lowerCeiling) {
-      maxIncoming = 2 * outTotal + BASE_MATCH_CUSHION
+      maxIncoming = 2 * outTotal + flatCushion
     } else if (outTotal <= upperFloor) {
       maxIncoming = outTotal + middleCushion
     } else {
@@ -472,6 +477,25 @@ function checkRosterSpots(side: TradeSideInput): TradeViolation[] {
 }
 
 // ---------------------------------------------------------------------------
+// Rule 7 — no-trade clause (schema doc §2b). Always empty today since
+// CONTRACT_DETAILS has no real no-trade-clause data yet; wired so a side
+// gets a hard error the moment that data exists, with no further code changes.
+// ---------------------------------------------------------------------------
+
+function checkNoTradeClause(side: TradeSideInput): TradeViolation[] {
+  const blocked = playerAssets(side.outgoing).filter((a) => a.noTradeClause)
+  if (blocked.length === 0) return []
+
+  return blocked.map((a) => ({
+    code: 'NO_TRADE_CLAUSE',
+    severity: 'error',
+    side: side.side,
+    assetNames: [a.name],
+    message: `${a.name} has a no-trade clause and can't be traded without their consent.`,
+  }))
+}
+
+// ---------------------------------------------------------------------------
 // entry point
 // ---------------------------------------------------------------------------
 
@@ -492,6 +516,7 @@ export function validateTrade(input: ValidateTradeInput): TradeValidationResult 
     collect(checkHardCapWarnings(side, input))
     collect(checkSevenYearWindow(side, input))
     collect(checkStepien(side, input))
+    collect(checkNoTradeClause(side))
     collect(checkRosterSpots(side))
   }
 
