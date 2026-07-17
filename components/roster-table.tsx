@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { SEASONS, Season, Player, CapStatus } from '@/lib/types'
+import { SEASONS, Season, Player, CapStatus, SavedContract } from '@/lib/types'
 import { formatCurrency, CAP_THRESHOLDS, getCapStatus, getCapStatusColor, getTotalSalaryColor } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
+import { SignFreeAgentModal } from '@/components/sign-free-agent-modal'
 import { Check, X, Info, Plus, RotateCcw } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -294,6 +295,12 @@ export function RosterTable() {
   } = useRoster()
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean; startSeason?: Season }>({
+    player: null,
+    isOpen: false,
+  })
+
+  const [editContractModal, setEditContractModal] = useState<{ contract: SavedContract | null; player: Player | null; isOpen: boolean }>({
+    contract: null,
     player: null,
     isOpen: false,
   })
@@ -610,22 +617,43 @@ export function RosterTable() {
 
                         // Regular salary without option - use gradient color
                         // Check if this salary is from an extension or MLE contract
-                        const isExtensionSalary = (player.source === 'current' || player.source === 'trade-incoming') &&
-                          savedContracts.some(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
+                        const extensionContract = (player.source === 'current' || player.source === 'trade-incoming')
+                          ? savedContracts.find(
+                              c => c.type === 'extension' && c.playerId === player.id && !deletedContractIds.has(c.id) && c.salary[season]
+                            )
+                          : undefined
+                        const savedFAContract = player.source === 'saved'
+                          ? savedContracts.find(c => c.id === player.id && !deletedContractIds.has(c.id))
+                          : undefined
+                        const editableContract = extensionContract ?? savedFAContract
+                        const isExtensionSalary = !!extensionContract
                         const isMLESalary = player.source === 'saved' && displaySalary > 0 &&
                           savedContracts.some(c => c.id === player.id && c.isMLE)
 
                         return (
                           <td key={season} className="px-2 py-1.5 text-left">
                             <div className="inline-flex items-center gap-1">
-                              <span
-                                className={cn(
-                                  "text-[12px] font-mono tabular-nums",
-                                  getSalaryColor(displaySalary)
-                                )}
-                              >
-                                {formatCurrency(displaySalary)}
-                              </span>
+                              {editableContract ? (
+                                <button
+                                  onClick={() => setEditContractModal({ contract: editableContract, player: player as Player, isOpen: true })}
+                                  className={cn(
+                                    "text-[12px] font-mono tabular-nums rounded px-1 -mx-1 transition-colors hover:bg-muted/60 cursor-pointer",
+                                    getSalaryColor(displaySalary)
+                                  )}
+                                  title={`Edit ${player.name}'s ${editableContract.type === 'extension' ? 'extension' : 'contract'}`}
+                                >
+                                  {formatCurrency(displaySalary)}
+                                </button>
+                              ) : (
+                                <span
+                                  className={cn(
+                                    "text-[12px] font-mono tabular-nums",
+                                    getSalaryColor(displaySalary)
+                                  )}
+                                >
+                                  {formatCurrency(displaySalary)}
+                                </span>
+                              )}
                               {isExtensionSalary && (
                                 <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/20 text-purple-400">
                                   EXT
@@ -880,6 +908,27 @@ export function RosterTable() {
         startSeason={extensionModal.startSeason}
         onClose={() => setExtensionModal({ player: null, isOpen: false })}
       />
+
+      {editContractModal.contract?.type === 'extension' ? (
+        <ExtensionModal
+          player={editContractModal.player}
+          isOpen={editContractModal.isOpen}
+          editingContract={editContractModal.contract}
+          onClose={() => setEditContractModal({ contract: null, player: null, isOpen: false })}
+        />
+      ) : (
+        <SignFreeAgentModal
+          player={editContractModal.player}
+          startingSeason={
+            (editContractModal.contract
+              ? SEASONS.find((s) => (editContractModal.contract!.salary[s] ?? 0) > 0)
+              : undefined) ?? SEASONS[0]
+          }
+          isOpen={editContractModal.isOpen}
+          editingContract={editContractModal.contract}
+          onClose={() => setEditContractModal({ contract: null, player: null, isOpen: false })}
+        />
+      )}
     </>
   )
 }

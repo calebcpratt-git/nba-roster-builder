@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { Player, Season, SEASONS } from '@/lib/types'
+import { Player, SavedContract, Season, SEASONS } from '@/lib/types'
 import { formatCurrency } from '@/lib/data'
 import {
   getPlayerRookieYear,
@@ -37,6 +37,7 @@ interface ExtensionModalProps {
   player: Player | null
   isOpen: boolean
   startSeason?: Season
+  editingContract?: SavedContract | null
   onClose: () => void
 }
 
@@ -63,8 +64,18 @@ const DISTRIBUTION_OPTIONS: Record<
   },
 }
 
-export function ExtensionModal({ player, isOpen, startSeason, onClose }: ExtensionModalProps) {
-  const { addSavedContract } = useRoster()
+function detectDistribution(salary: Partial<Record<Season, number>>): DistributionType {
+  const seasons = SEASONS.filter((s) => (salary[s] ?? 0) > 0)
+  if (seasons.length <= 1) return 'escalating'
+  const values = seasons.map((s) => salary[s]!)
+  const ratios = values.slice(1).map((v, i) => v / values[i])
+  const avg = ratios.reduce((a, b) => a + b, 0) / ratios.length
+  if (Math.abs(avg - 1.0) < 0.01) return 'flat'
+  return avg > 1.0 ? 'escalating' : 'declining'
+}
+
+export function ExtensionModal({ player, isOpen, startSeason, editingContract, onClose }: ExtensionModalProps) {
+  const { addSavedContract, updateSavedContract } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -72,11 +83,38 @@ export function ExtensionModal({ player, isOpen, startSeason, onClose }: Extensi
   const [isMaxContract, setIsMaxContract] = useState(false)
   const [yearsError, setYearsError] = useState('')
 
+  useEffect(() => {
+    if (!isOpen) return
+    if (editingContract) {
+      const activeSeasons = SEASONS.filter((s) => (editingContract.salary[s] ?? 0) > 0)
+      const total = activeSeasons.reduce((sum, s) => sum + (editingContract.salary[s] ?? 0), 0)
+      setYears(String(activeSeasons.length || 1))
+      setTotalValue((total / 1_000_000).toFixed(2))
+      setDistribution(detectDistribution(editingContract.salary))
+      setIsMinimum(editingContract.isMinimum ?? false)
+      setIsMaxContract(editingContract.isMaxContract ?? false)
+      setYearsError('')
+    } else {
+      setYears('3')
+      setTotalValue('')
+      setDistribution('escalating')
+      setIsMinimum(false)
+      setIsMaxContract(false)
+      setYearsError('')
+    }
+  }, [isOpen, editingContract?.id])
+
   if (!player) return null
 
   // startSeason is passed in when extending from a declined option (the year the
   // option was declined for); otherwise fall back to the first season with no contract.
-  const firstEmptySeason = (startSeason ?? SEASONS.find((s) => !player.salary[s])) as Season | undefined
+  // When editing an existing contract, anchor to that contract's own first funded season.
+  const editingFirstSeason = editingContract
+    ? SEASONS.find((s) => (editingContract.salary[s] ?? 0) > 0)
+    : undefined
+  const firstEmptySeason = (editingContract
+    ? editingFirstSeason
+    : (startSeason ?? SEASONS.find((s) => !player.salary[s]))) as Season | undefined
   if (!firstEmptySeason) return null
 
   const startIndex = SEASONS.indexOf(firstEmptySeason)
@@ -217,23 +255,37 @@ export function ExtensionModal({ player, isOpen, startSeason, onClose }: Extensi
     ? maxContractTotalM.toFixed(1)
     : totalValue
 
-  const handleSave = () => {
-    addSavedContract({
-      id: `ext-${player.id}-${Date.now()}`,
-      playerId: player.id,
-      playerName: player.name,
-      type: 'extension',
-      salary: salaries,
-      createdAt: new Date(),
-      isMinimum: isMinimum,
-    })
-
+  const resetForm = () => {
     setYears('3')
     setTotalValue('')
     setDistribution('escalating')
     setIsMinimum(false)
     setIsMaxContract(false)
     setYearsError('')
+  }
+
+  const handleSave = () => {
+    if (editingContract) {
+      updateSavedContract({
+        ...editingContract,
+        salary: salaries,
+        isMinimum: isMinimum,
+        isMaxContract: isMaxContract,
+      })
+    } else {
+      addSavedContract({
+        id: `ext-${player.id}-${Date.now()}`,
+        playerId: player.id,
+        playerName: player.name,
+        type: 'extension',
+        salary: salaries,
+        createdAt: new Date(),
+        isMinimum: isMinimum,
+        isMaxContract: isMaxContract,
+      })
+    }
+
+    resetForm()
     onClose()
   }
 
@@ -247,9 +299,11 @@ export function ExtensionModal({ player, isOpen, startSeason, onClose }: Extensi
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle>Extend {player.name}</DialogTitle>
+          <DialogTitle>{editingContract ? `Edit ${player.name}'s Extension` : `Extend ${player.name}`}</DialogTitle>
           <DialogDescription>
-            Create a new contract extension starting in {firstEmptySeason}
+            {editingContract
+              ? 'Update the terms of this extension'
+              : `Create a new contract extension starting in ${firstEmptySeason}`}
           </DialogDescription>
         </DialogHeader>
 
@@ -393,7 +447,7 @@ export function ExtensionModal({ player, isOpen, startSeason, onClose }: Extensi
             Cancel
           </Button>
           <Button onClick={handleSave} disabled={!isValid} className="flex-1 h-8 text-sm">
-            Save Extension
+            {editingContract ? 'Save Changes' : 'Save Extension'}
           </Button>
         </div>
       </DialogContent>

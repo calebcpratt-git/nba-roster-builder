@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { Player, Season, SEASONS } from '@/lib/types'
+import { Player, SavedContract, Season, SEASONS } from '@/lib/types'
 import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
 import {
   getPlayerRookieYear,
@@ -36,6 +36,7 @@ interface SignFreeAgentModalProps {
   player: Player | null
   startingSeason: Season
   isOpen: boolean
+  editingContract?: SavedContract | null
   onClose: () => void
 }
 
@@ -62,8 +63,18 @@ const DISTRIBUTION_OPTIONS: Record<
   },
 }
 
-export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: SignFreeAgentModalProps) {
-  const { addSavedContract, selectedTeamAbbr, getTotalSalary, savedContracts, deletedContractIds } = useRoster()
+function detectDistribution(salary: Partial<Record<Season, number>>): DistributionType {
+  const seasons = SEASONS.filter((s) => (salary[s] ?? 0) > 0)
+  if (seasons.length <= 1) return 'escalating'
+  const values = seasons.map((s) => salary[s]!)
+  const ratios = values.slice(1).map((v, i) => v / values[i])
+  const avg = ratios.reduce((a, b) => a + b, 0) / ratios.length
+  if (Math.abs(avg - 1.0) < 0.01) return 'flat'
+  return avg > 1.0 ? 'escalating' : 'declining'
+}
+
+export function SignFreeAgentModal({ player, startingSeason, isOpen, editingContract, onClose }: SignFreeAgentModalProps) {
+  const { addSavedContract, updateSavedContract, selectedTeamAbbr, getTotalSalary, savedContracts, deletedContractIds } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -72,11 +83,41 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
   const [isMaxContract, setIsMaxContract] = useState(false)
   const [yearsError, setYearsError] = useState('')
 
+  useEffect(() => {
+    if (!isOpen) return
+    if (editingContract) {
+      const activeSeasons = SEASONS.filter((s) => (editingContract.salary[s] ?? 0) > 0)
+      const total = activeSeasons.reduce((sum, s) => sum + (editingContract.salary[s] ?? 0), 0)
+      setYears(String(activeSeasons.length || 1))
+      setTotalValue((total / 1_000_000).toFixed(2))
+      setDistribution(detectDistribution(editingContract.salary))
+      setIsMinimum(editingContract.isMinimum ?? false)
+      setIsMLE(editingContract.isMLE ?? false)
+      setIsMaxContract(editingContract.isMaxContract ?? false)
+      setYearsError('')
+    } else {
+      setYears('3')
+      setTotalValue('')
+      setDistribution('escalating')
+      setIsMinimum(false)
+      setIsMLE(false)
+      setIsMaxContract(false)
+      setYearsError('')
+    }
+  }, [isOpen, editingContract?.id])
+
   if (!player) return null
 
+  // When editing an existing contract, anchor to that contract's own first funded season
+  // rather than the season the cell that was clicked happens to belong to.
+  const editingFirstSeason = editingContract
+    ? SEASONS.find((s) => (editingContract.salary[s] ?? 0) > 0)
+    : undefined
+  const effectiveStartingSeason = (editingFirstSeason ?? startingSeason) as Season
+
   // Cap threshold checks
-  const { total: currentTeamTotal } = getTotalSalary(startingSeason)
-  const seasonThresholds = CAP_THRESHOLDS[startingSeason]
+  const { total: currentTeamTotal } = getTotalSalary(effectiveStartingSeason)
+  const seasonThresholds = CAP_THRESHOLDS[effectiveStartingSeason]
   const softCap = seasonThresholds?.find((t) => t.type === 'soft-cap')?.value ?? 0
   const firstApron = seasonThresholds?.find((t) => t.type === 'first-apron')?.value ?? 0
   const secondApron = seasonThresholds?.find((t) => t.type === 'second-apron')?.value ?? 0
@@ -88,12 +129,13 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     (c) =>
       c.isMLE &&
       !deletedContractIds.has(c.id) &&
-      SEASONS.find((s) => (c.salary[s] ?? 0) > 0) === startingSeason
+      c.id !== editingContract?.id &&
+      SEASONS.find((s) => (c.salary[s] ?? 0) > 0) === effectiveStartingSeason
   )
   const mleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && !isOverSecondApron
 
   // Seasons / year calculations
-  const startIndex = SEASONS.indexOf(startingSeason)
+  const startIndex = SEASONS.indexOf(effectiveStartingSeason)
   const maxYears = SEASONS.length - startIndex
   const maxYearsAllowed = isMinimum ? 2 : isMaxContract ? Math.min(5, maxYears) : maxYears
   const numYears = Math.min(parseInt(years) || 3, maxYearsAllowed)
@@ -101,15 +143,15 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
 
   // Max contract data
   const rookieYear = getPlayerRookieYear(player.name)
-  const yoe = rookieYear !== undefined ? getPlayerYOE(rookieYear, startingSeason) : undefined
+  const yoe = rookieYear !== undefined ? getPlayerYOE(rookieYear, effectiveStartingSeason) : undefined
   const maxPct = yoe !== undefined ? getMaxContractPct(yoe) : undefined
   const maxContractSalaries =
     rookieYear !== undefined && contractSeasons.length > 0
-      ? getMaxContractSalaries(rookieYear, startingSeason, contractSeasons, distribution)
+      ? getMaxContractSalaries(rookieYear, effectiveStartingSeason, contractSeasons, distribution)
       : null
   const maxAllowedTotalDollars =
     rookieYear !== undefined && contractSeasons.length > 0
-      ? getMaxAllowedTotal(rookieYear, startingSeason, contractSeasons, distribution)
+      ? getMaxAllowedTotal(rookieYear, effectiveStartingSeason, contractSeasons, distribution)
       : Infinity
   const maxAllowedTotalM = maxAllowedTotalDollars / 1_000_000
 
@@ -141,7 +183,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     const num = parseFloat(val)
     if (isNaN(num) || rookieYear === undefined) return val
     const maxM =
-      getMaxAllowedTotal(rookieYear, startingSeason, seasons, dist) / 1_000_000
+      getMaxAllowedTotal(rookieYear, effectiveStartingSeason, seasons, dist) / 1_000_000
     return num > maxM ? maxM.toFixed(2) : val
   }
 
@@ -274,19 +316,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     ? maxContractTotalM.toFixed(1)
     : totalValue
 
-  const handleSave = () => {
-    const isOnSelectedTeam = player.team === selectedTeamAbbr
-    addSavedContract({
-      id: `fa-${player.id}-${Date.now()}`,
-      playerId: player.id,
-      playerName: player.name,
-      type: isOnSelectedTeam ? 'extension' : 'free-agent',
-      salary: salaries,
-      createdAt: new Date(),
-      isMinimum: isMinimum,
-      isMLE: isMLE,
-    })
-
+  const resetForm = () => {
     setYears('3')
     setTotalValue('')
     setDistribution('escalating')
@@ -294,6 +324,33 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     setIsMLE(false)
     setIsMaxContract(false)
     setYearsError('')
+  }
+
+  const handleSave = () => {
+    if (editingContract) {
+      updateSavedContract({
+        ...editingContract,
+        salary: salaries,
+        isMinimum: isMinimum,
+        isMLE: isMLE,
+        isMaxContract: isMaxContract,
+      })
+    } else {
+      const isOnSelectedTeam = player.team === selectedTeamAbbr
+      addSavedContract({
+        id: `fa-${player.id}-${Date.now()}`,
+        playerId: player.id,
+        playerName: player.name,
+        type: isOnSelectedTeam ? 'extension' : 'free-agent',
+        salary: salaries,
+        createdAt: new Date(),
+        isMinimum: isMinimum,
+        isMLE: isMLE,
+        isMaxContract: isMaxContract,
+      })
+    }
+
+    resetForm()
     onClose()
   }
 
@@ -311,9 +368,11 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle>Sign {player.name}</DialogTitle>
+          <DialogTitle>{editingContract ? `Edit ${player.name}'s Contract` : `Sign ${player.name}`}</DialogTitle>
           <DialogDescription>
-            Create a new contract starting in {startingSeason}
+            {editingContract
+              ? 'Update the terms of this contract'
+              : `Create a new contract starting in ${effectiveStartingSeason}`}
           </DialogDescription>
         </DialogHeader>
 
@@ -337,7 +396,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
             )}
             {!isOverSecondApron && !isOverFirstApronBelowSecondApron && isOverCapBelowFirstApron && mleAlreadyUsedForSeason && (
               <p className="text-xs text-amber-500">
-                Team is over the salary cap and has already used the MLE for {startingSeason}. Only a minimum contract is available.
+                Team is over the salary cap and has already used the MLE for {effectiveStartingSeason}. Only a minimum contract is available.
               </p>
             )}
 
@@ -500,7 +559,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, onClose }: 
             Cancel
           </Button>
           <Button onClick={handleSave} disabled={!isValid} className="flex-1 h-8 text-sm">
-            Save Contract
+            {editingContract ? 'Save Changes' : 'Save Contract'}
           </Button>
         </div>
       </DialogContent>

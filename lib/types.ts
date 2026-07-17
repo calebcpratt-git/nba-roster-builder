@@ -17,6 +17,7 @@ export interface SavedContract {
   notes?: string
   isMinimum?: boolean
   isMLE?: boolean
+  isMaxContract?: boolean
 }
 
 export interface CapThreshold {
