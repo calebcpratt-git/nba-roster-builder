@@ -39,46 +39,46 @@ function parseSalary(salaryStr) {
 const lines = csvContent.split('\n').filter(line => line.trim());
 const header = parseCSVLine(lines[0]);
 
-console.log('Header columns:', header.slice(0, 12));
+console.log('Header columns:', header);
+
+// Look up columns by name instead of a hardcoded position. The header has
+// picked up columns over time (e.g. `rookie_year`) that shift every fixed
+// index to its right — resolving by name means an inserted/reordered column
+// can't silently misalign salary/option data again.
+function requireColumn(name) {
+  const idx = header.indexOf(name);
+  if (idx === -1) throw new Error(`Expected column "${name}" not found in CSV header`);
+  return idx;
+}
+
+const NAME_COL = requireColumn('Player');
+const TEAM_COL = requireColumn('Tm');
+// Past seasons (anything before 26-27) are intentionally not carried into the output.
+const SEASON_COLUMNS = ['26-27', '27-28', '28-29', '29-30'].map((season) => ({
+  season,
+  salaryCol: requireColumn(season),
+  optionCol: requireColumn(`${season} Option`),
+}));
 
 const players = [];
 
 for (let i = 1; i < lines.length; i++) {
   const fields = parseCSVLine(lines[i]);
-  
-  const player = fields[0];
-  const team = fields[1];
-  
-  // Columns: 0=Player, 1=Tm, 2=25-26, 3=25-26 Option, 4=26-27, 5=26-27 Option,
-  //          6=27-28, 7=27-28 Option, 8=28-29, 9=28-29 Option, 10=29-30, 11=29-30 Option
-  // 25-26 is a past season and is intentionally not carried into the output.
-  const salary2627 = parseSalary(fields[4]);
-  const option2627 = fields[5] || null;
-  const salary2728 = parseSalary(fields[6]);
-  const option2728 = fields[7] || null;
-  const salary2829 = parseSalary(fields[8]);
-  const option2829 = fields[9] || null;
-  const salary2930 = parseSalary(fields[10]);
-  const option2930 = fields[11] || null;
-  
+
+  const player = fields[NAME_COL];
+  const team = fields[TEAM_COL];
+
   if (!player || !team) continue;
-  
-  players.push({
-    name: player,
-    team,
-    salary: {
-      '2026-27': salary2627,
-      '2027-28': salary2728,
-      '2028-29': salary2829,
-      '2029-30': salary2930,
-    },
-    options: {
-      '2026-27': option2627 === 'Team' ? 'Team' : option2627 === 'Player' ? 'Player' : null,
-      '2027-28': option2728 === 'Team' ? 'Team' : option2728 === 'Player' ? 'Player' : null,
-      '2028-29': option2829 === 'Team' ? 'Team' : option2829 === 'Player' ? 'Player' : null,
-      '2029-30': option2930 === 'Team' ? 'Team' : option2930 === 'Player' ? 'Player' : null,
-    }
-  });
+
+  const salary = {};
+  const options = {};
+  for (const { season, salaryCol, optionCol } of SEASON_COLUMNS) {
+    salary[`20${season}`] = parseSalary(fields[salaryCol]);
+    const option = fields[optionCol] || null;
+    options[`20${season}`] = option === 'Team' ? 'Team' : option === 'Player' ? 'Player' : null;
+  }
+
+  players.push({ name: player, team, salary, options });
 }
 
 // Debug specific players
@@ -123,7 +123,7 @@ output += `]
 export const TEAM_NAMES: Record<string, string> = {
   'ATL': 'Atlanta Hawks',
   'BOS': 'Boston Celtics',
-  'BKN': 'Brooklyn Nets',
+  'BRK': 'Brooklyn Nets',
   'CHA': 'Charlotte Hornets',
   'CHI': 'Chicago Bulls',
   'CHO': 'Charlotte Hornets',
@@ -154,14 +154,8 @@ export const TEAM_NAMES: Record<string, string> = {
   'WAS': 'Washington Wizards',
 }
 
-// Get all unique team codes
-export function getAllTeams(): string[] {
-  const teams = new Set<string>()
-  for (const player of RAW_PLAYER_DATA) {
-    teams.add(player.team)
-  }
-  return Array.from(teams).sort()
-}
+// All team codes
+export const ALL_TEAMS = Object.keys(TEAM_NAMES).filter(code => code !== 'CHA').sort()
 
 // Get roster for a specific team
 export function getTeamRoster(teamCode: string): RawPlayerData[] {
