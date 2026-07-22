@@ -88,6 +88,42 @@ export interface SavedTrade {
   isSignAndTrade?: boolean
 }
 
+// A saved cap sheet always covers a single team's builder state — see
+// roster-context.tsx's per-team assumption (multi-team scenarios are out of
+// scope for now).
+export interface CapSheetSnapshot {
+  savedContracts: SavedContract[]
+  savedTrades: SavedTrade[]
+  exercisedTeamOptionKeys: string[]
+  exercisedPlayerOptionKeys: string[]
+  deletedContractIds: string[]
+  releasedRosterIds: string[]
+  pickNumberOverrides: Record<string, number>
+}
+
+export interface CapSheetSeasonSummary {
+  season: Season
+  total: number
+  status: CapStatus
+}
+
+export interface CapSheetSummary {
+  seasons: CapSheetSeasonSummary[]
+  rosterCount: number
+  moveCount: number
+}
+
+export interface CapSheet {
+  id: string
+  userId: string
+  teamAbbr: string
+  name: string
+  snapshot: CapSheetSnapshot
+  summary: CapSheetSummary
+  createdAt: string
+  updatedAt: string
+}
+
 export const TEAM_ABBREVIATIONS = [
   'ATL', 'BOS', 'BRK', 'CHO', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW',
   'HOU', 'IND', 'LAC', 'LAL', 'MEM', 'MIA', 'MIL', 'MIN', 'NOP', 'NYK',
