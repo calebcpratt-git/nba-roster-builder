@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, createContext, useContext, ReactNode, useMemo, useCallback } from 'react'
-import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
-import { getTeamRoster, TEAMS, CAP_THRESHOLDS } from './data'
+import { Player, SavedContract, SavedTrade, Season, SEASONS, CapSheet, CapSheetSnapshot, CapSheetSummary } from './types'
+import { getTeamRoster, TEAMS, CAP_THRESHOLDS, getCapStatus } from './data'
 import { getDraftPickPlayers, applyPickNumberOverrides, DraftPickPlayer } from './draft-picks'
-import { getPlayerRookieYear, getPlayerYOE } from './contract-utils'
+import { getPlayerRookieYear, getPlayerYOE, getDisplayedSeasons } from './contract-utils'
 import { getContractDetail } from './contract-details'
 import { getTeamCapState } from './team-cap-state'
 import {
@@ -59,6 +59,8 @@ interface RosterState {
   savedContracts: SavedContract[]
   exercisedTeamOptions: Set<string> // player-id-season keys
   exercisedPlayerOptions: Set<string> // player-id-season keys (declined = not in set)
+  hasUnsavedChanges: boolean
+  activeCapSheet: { id: string; name: string } | null
 }
 
 interface RosterContextType extends RosterState {
@@ -88,12 +90,15 @@ interface RosterContextType extends RosterState {
   updateSavedTrade: (trade: SavedTrade) => void
   tradedRosterPlayerIds: Set<string>
   tradedPickIds: Set<string>
+  buildCapSheetPayload: () => { snapshot: CapSheetSnapshot; summary: CapSheetSummary }
+  markCapSheetSaved: (sheet: { id: string; name: string }) => void
+  loadCapSheet: (sheet: CapSheet) => void
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
 
 export function RosterProvider({ children }: { children: ReactNode }) {
-  const [selectedTeamAbbr, setSelectedTeamAbbr] = useState<string>('BOS')
+  const [selectedTeamAbbr, setSelectedTeamAbbrState] = useState<string>('BOS')
   const [savedContractsByTeam, setSavedContractsByTeam] = useState<Record<string, SavedContract[]>>({})
   const [exercisedTeamOptions, setExercisedTeamOptions] = useState<Set<string>>(new Set())
   const [exercisedPlayerOptions, setExercisedPlayerOptions] = useState<Set<string>>(new Set())
@@ -101,6 +106,19 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   const [releasedRosterIds, setReleasedRosterIds] = useState<Set<string>>(new Set())
   const [pickNumberOverrides, setPickNumberOverrides] = useState<Record<string, number>>({})
   const [savedTradesByTeam, setSavedTradesByTeam] = useState<Record<string, SavedTrade[]>>({})
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [activeCapSheet, setActiveCapSheet] = useState<{ id: string; name: string } | null>(null)
+
+  const markChanged = useCallback(() => setHasUnsavedChanges(true), [])
+
+  // A fresh team selection starts with its "Save Cap Sheet" button greyed out
+  // and no longer tied to whatever saved sheet you were last editing — see
+  // the Save Cap Sheet button's disabled/label state in roster-table.tsx.
+  const setSelectedTeamAbbr = useCallback((abbr: string) => {
+    setSelectedTeamAbbrState(abbr)
+    setHasUnsavedChanges(false)
+    setActiveCapSheet(null)
+  }, [])
 
   const setPickNumberOverride = (pickId: string, pickNumber: number | null) => {
     setPickNumberOverrides((prev) => {
@@ -112,6 +130,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       }
       return next
     })
+    markChanged()
   }
 
   const roster = useMemo(() => getTeamRoster(selectedTeamAbbr), [selectedTeamAbbr])
@@ -270,6 +289,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       ...prev,
       [selectedTeamAbbr]: [...(prev[selectedTeamAbbr] || []), trade],
     }))
+    markChanged()
   }, [selectedTeamAbbr, roster, draftPickPlayers, savedContracts, deletedContractIds])
 
   const removeSavedTrade = useCallback((id: string) => {
@@ -277,6 +297,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       ...prev,
       [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).filter((t) => t.id !== id),
     }))
+    markChanged()
   }, [selectedTeamAbbr])
 
   const updateSavedTrade = useCallback((trade: SavedTrade) => {
@@ -288,6 +309,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       ...prev,
       [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).map((t) => t.id === trade.id ? trade : t),
     }))
+    markChanged()
   }, [selectedTeamAbbr, roster, draftPickPlayers, savedContracts, deletedContractIds])
 
   const addSavedContract = (contract: SavedContract) => {
@@ -295,10 +317,12 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       ...prev,
       [selectedTeamAbbr]: [...(prev[selectedTeamAbbr] || []), contract],
     }))
+    markChanged()
   }
 
   const releaseRosterPlayer = (playerId: string) => {
     setReleasedRosterIds((prev) => new Set(prev).add(playerId))
+    markChanged()
   }
 
   const restoreRosterPlayer = (playerId: string) => {
@@ -307,6 +331,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       next.delete(playerId)
       return next
     })
+    markChanged()
   }
 
   const removeSavedContract = (id: string) => {
@@ -314,6 +339,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       ...prev,
       [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).filter((c) => c.id !== id),
     }))
+    markChanged()
   }
 
   const updateSavedContract = (contract: SavedContract) => {
@@ -321,10 +347,12 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       ...prev,
       [selectedTeamAbbr]: (prev[selectedTeamAbbr] || []).map((c) => c.id === contract.id ? contract : c),
     }))
+    markChanged()
   }
 
   // exercise = true means keep the salary, false means decline (salary becomes 0)
   const toggleTeamOption = (playerId: string, season: Season, exercise: boolean) => {
+    markChanged()
     const key = `declined-${playerId}-${season}`
     setExercisedTeamOptions((prev) => {
       const next = new Set(prev)
@@ -354,6 +382,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   }
 
   const togglePlayerOption = (playerId: string, season: Season, exercise: boolean) => {
+    markChanged()
     const key = `declined-${playerId}-${season}`
     setExercisedPlayerOptions((prev) => {
       const next = new Set(prev)
@@ -483,6 +512,56 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     return getEffectiveSalary(player, season)
   }
 
+  const setDeletedContractIdsWithChange = (ids: Set<string>) => {
+    setDeletedContractIds(ids)
+    markChanged()
+  }
+
+  // Everything needed to reconstruct this team's cap table later — see the
+  // one-team-at-a-time assumption in the header comment on CapSheetSnapshot.
+  const buildCapSheetPayload = useCallback((): { snapshot: CapSheetSnapshot; summary: CapSheetSummary } => {
+    const snapshot: CapSheetSnapshot = {
+      savedContracts,
+      savedTrades,
+      exercisedTeamOptionKeys: Array.from(exercisedTeamOptions),
+      exercisedPlayerOptionKeys: Array.from(exercisedPlayerOptions),
+      deletedContractIds: Array.from(deletedContractIds),
+      releasedRosterIds: Array.from(releasedRosterIds),
+      pickNumberOverrides,
+    }
+
+    const seasons = getDisplayedSeasons(roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades)
+    const summary: CapSheetSummary = {
+      seasons: seasons.map((season) => {
+        const total = getTotalSalary(season).total
+        return { season, total, status: getCapStatus(total, CAP_THRESHOLDS[season]) }
+      }),
+      rosterCount: roster.filter((p) => !releasedRosterIds.has(p.id)).length,
+      moveCount: savedContracts.length + savedTrades.length,
+    }
+
+    return { snapshot, summary }
+  }, [savedContracts, savedTrades, exercisedTeamOptions, exercisedPlayerOptions, deletedContractIds, releasedRosterIds, pickNumberOverrides, roster, draftPickPlayers])
+
+  const markCapSheetSaved = useCallback((sheet: { id: string; name: string }) => {
+    setHasUnsavedChanges(false)
+    setActiveCapSheet(sheet)
+  }, [])
+
+  const loadCapSheet = useCallback((sheet: CapSheet) => {
+    const { teamAbbr, snapshot } = sheet
+    setSelectedTeamAbbrState(teamAbbr)
+    setSavedContractsByTeam((prev) => ({ ...prev, [teamAbbr]: snapshot.savedContracts }))
+    setSavedTradesByTeam((prev) => ({ ...prev, [teamAbbr]: snapshot.savedTrades }))
+    setExercisedTeamOptions(new Set(snapshot.exercisedTeamOptionKeys))
+    setExercisedPlayerOptions(new Set(snapshot.exercisedPlayerOptionKeys))
+    setDeletedContractIds(new Set(snapshot.deletedContractIds))
+    setReleasedRosterIds(new Set(snapshot.releasedRosterIds))
+    setPickNumberOverrides({ ...snapshot.pickNumberOverrides })
+    setHasUnsavedChanges(false)
+    setActiveCapSheet({ id: sheet.id, name: sheet.name })
+  }, [])
+
   return (
     <RosterContext.Provider
       value={{
@@ -492,6 +571,8 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         savedContracts,
         exercisedTeamOptions,
         exercisedPlayerOptions,
+        hasUnsavedChanges,
+        activeCapSheet,
         setSelectedTeamAbbr,
         addSavedContract,
         removeSavedContract,
@@ -503,7 +584,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         getTotalSalary,
         getTeamCapTotal,
         getDisplaySalary,
-        setDeletedContractIds,
+        setDeletedContractIds: setDeletedContractIdsWithChange,
         deletedContractIds,
         draftPickPlayers,
         pickNumberOverrides,
@@ -517,6 +598,9 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         updateSavedTrade,
         tradedRosterPlayerIds,
         tradedPickIds,
+        buildCapSheetPayload,
+        markCapSheetSaved,
+        loadCapSheet,
       }}
     >
       {children}

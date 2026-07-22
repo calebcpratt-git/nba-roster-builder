@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useAuth } from '@/lib/auth-context'
 
 export function AuthPanel() {
@@ -9,13 +10,16 @@ export function AuthPanel() {
   const [password, setPassword] = useState('')
   const [mode, setMode] = useState<'signin' | 'signup'>('signin')
   const [error, setError] = useState<string | null>(null)
+  const [message, setMessage] = useState<string | null>(null)
 
   if (loading) return null
 
   if (user) {
     return (
       <div className="flex items-center gap-2 text-sm">
-        <span>{user.email}</span>
+        <Link href="/account" className="underline font-medium">
+          My Account
+        </Link>
         <button onClick={() => signOut()} className="underline">
           Sign out
         </button>
@@ -26,10 +30,18 @@ export function AuthPanel() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
-    const { error } = mode === 'signin'
-      ? await signIn(email, password)
-      : await signUp(email, password)
-    if (error) setError(error)
+    setMessage(null)
+    if (mode === 'signin') {
+      const { error } = await signIn(email, password)
+      if (error) setError(error)
+      return
+    }
+    const { error, needsConfirmation } = await signUp(email, password)
+    if (error) {
+      setError(error)
+    } else if (needsConfirmation) {
+      setMessage('Check your email to confirm your account before signing in.')
+    }
   }
 
   return (
@@ -62,6 +74,7 @@ export function AuthPanel() {
           {mode === 'signin' ? 'need an account?' : 'have an account?'}
         </button>
         {error && <span className="text-red-500">{error}</span>}
+        {message && <span className="text-green-600">{message}</span>}
       </form>
       <button
         type="button"

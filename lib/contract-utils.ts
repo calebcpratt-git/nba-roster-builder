@@ -1,7 +1,8 @@
-import { Season } from './types'
+import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
 import { CAP_THRESHOLDS } from './data'
 import { PLAYER_ROOKIE_YEARS } from './rookie-years'
 import { nameLookup } from './player-key'
+import type { DraftPickPlayer } from './draft-picks'
 
 export type DistributionType = 'flat' | 'escalating' | 'declining'
 
@@ -66,4 +67,54 @@ export function getMaxAllowedTotal(
 ): number {
   const salaries = getMaxContractSalaries(rookieYear, startSeason, contractSeasons, distribution)
   return Object.values(salaries).reduce((a, b) => a + (b ?? 0), 0)
+}
+
+// The seasons worth showing for a team's cap table: everything through the
+// latest season any roster player, saved contract, draft pick, or incoming
+// trade asset carries salary in (always at least 2026-27).
+export function getDisplayedSeasons(
+  roster: Player[],
+  savedContracts: SavedContract[],
+  deletedContractIds: Set<string>,
+  draftPickPlayers: DraftPickPlayer[],
+  savedTrades: SavedTrade[]
+): Season[] {
+  let maxSeasonIndex = 0
+
+  roster.forEach((player) => {
+    SEASONS.forEach((season, index) => {
+      if (player.salary[season] && player.salary[season]! > 0) {
+        maxSeasonIndex = Math.max(maxSeasonIndex, index)
+      }
+    })
+  })
+
+  savedContracts.forEach((contract) => {
+    if (deletedContractIds.has(contract.id)) return
+    SEASONS.forEach((season, index) => {
+      if (contract.salary[season] && contract.salary[season]! > 0) {
+        maxSeasonIndex = Math.max(maxSeasonIndex, index)
+      }
+    })
+  })
+
+  draftPickPlayers.forEach((pick) => {
+    SEASONS.forEach((season, index) => {
+      if (pick.salary[season] && pick.salary[season]! > 0) {
+        maxSeasonIndex = Math.max(maxSeasonIndex, index)
+      }
+    })
+  })
+
+  savedTrades.forEach((trade) => {
+    trade.incomingPicks.forEach((pick) => {
+      SEASONS.forEach((season, index) => {
+        if (pick.salary[season] && pick.salary[season]! > 0) {
+          maxSeasonIndex = Math.max(maxSeasonIndex, index)
+        }
+      })
+    })
+  })
+
+  return SEASONS.slice(0, maxSeasonIndex + 1)
 }

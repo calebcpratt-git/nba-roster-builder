@@ -1,14 +1,19 @@
+import { Suspense } from 'react'
 import { RosterProvider } from '@/lib/roster-context'
 import { Header } from '@/components/header'
 import { RosterTable } from '@/components/roster-table'
 import { SignFreeAgentsPanel } from '@/components/sign-free-agents-panel'
 import { TradesPanel } from '@/components/trades-panel'
 import { SavedContractsPanel } from '@/components/saved-contracts-panel'
+import { CapSheetLoader } from '@/components/cap-sheet-loader'
 
 export default function Home() {
   return (
     <RosterProvider>
       <div className="min-h-screen bg-background">
+        <Suspense fallback={null}>
+          <CapSheetLoader />
+        </Suspense>
         <Header />
 
         <main className="px-4 py-6">

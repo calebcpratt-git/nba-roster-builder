@@ -27,6 +27,8 @@ import {
 } from '@/components/ui/select'
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
 import { SignFreeAgentModal } from '@/components/sign-free-agent-modal'
+import { SaveCapSheetButton } from '@/components/save-cap-sheet-modal'
+import { getDisplayedSeasons } from '@/lib/contract-utils'
 import { Check, X, Info, Plus, RotateCcw } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -306,50 +308,10 @@ export function RosterTable() {
   })
 
   // Calculate dynamic seasons based on roster and saved contracts
-  const displayedSeasons = useMemo(() => {
-    let maxSeasonIndex = 0 // Default to just 2026-27
-    
-    // Check roster players for latest contract year
-    roster.forEach((player) => {
-      SEASONS.forEach((season, index) => {
-        if (player.salary[season] && player.salary[season]! > 0) {
-          maxSeasonIndex = Math.max(maxSeasonIndex, index)
-        }
-      })
-    })
-    
-    // Check saved contracts for latest contract year
-    savedContracts.forEach((contract) => {
-      if (deletedContractIds.has(contract.id)) return
-      SEASONS.forEach((season, index) => {
-        if (contract.salary[season] && contract.salary[season]! > 0) {
-          maxSeasonIndex = Math.max(maxSeasonIndex, index)
-        }
-      })
-    })
-
-    // Check draft picks for latest salary year
-    draftPickPlayers.forEach((pick) => {
-      SEASONS.forEach((season, index) => {
-        if (pick.salary[season] && pick.salary[season]! > 0) {
-          maxSeasonIndex = Math.max(maxSeasonIndex, index)
-        }
-      })
-    })
-
-    // Check incoming trade picks
-    savedTrades.forEach((trade) => {
-      trade.incomingPicks.forEach((pick) => {
-        SEASONS.forEach((season, index) => {
-          if (pick.salary[season] && pick.salary[season]! > 0) {
-            maxSeasonIndex = Math.max(maxSeasonIndex, index)
-          }
-        })
-      })
-    })
-
-    return SEASONS.slice(0, maxSeasonIndex + 1)
-  }, [roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades])
+  const displayedSeasons = useMemo(
+    () => getDisplayedSeasons(roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades),
+    [roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades]
+  )
 
   const allPlayers = [
     ...roster.map((p) => {
@@ -441,6 +403,7 @@ export function RosterTable() {
                 <div className="h-2 w-2 rounded-sm bg-chart-2" />
                 <span className="text-muted-foreground">Saved</span>
               </div>
+              <SaveCapSheetButton />
             </div>
           </div>
         </CardHeader>
