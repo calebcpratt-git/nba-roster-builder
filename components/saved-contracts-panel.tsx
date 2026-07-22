@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { SavedContract } from '@/lib/types'
 import { formatCurrency, formatCurrencyFull } from '@/lib/data'
@@ -15,6 +15,14 @@ export function SavedContractsPanel() {
   const [deletingContractId, setDeletingContractId] = useState<string | null>(null)
   const [editingContract, setEditingContract] = useState<SavedContract | null>(null)
   const [isCollapsed, setIsCollapsed] = useState(true)
+  const prevContractCountRef = useRef(savedContracts.length)
+
+  useEffect(() => {
+    if (prevContractCountRef.current === 0 && savedContracts.length > 0) {
+      setIsCollapsed(false)
+    }
+    prevContractCountRef.current = savedContracts.length
+  }, [savedContracts.length])
 
   if (savedContracts.length === 0) {
     return (

@@ -3,9 +3,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useAuth } from '@/lib/auth-context'
+import { useRoster } from '@/lib/roster-context'
 
 export function AuthPanel() {
   const { user, signIn, signUp, signInWithGoogle, signOut, loading } = useAuth()
+  const { persistDraftForAuthRedirect } = useRoster()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [mode, setMode] = useState<'signin' | 'signup'>('signin')
@@ -78,7 +80,10 @@ export function AuthPanel() {
       </form>
       <button
         type="button"
-        onClick={() => signInWithGoogle()}
+        onClick={() => {
+          persistDraftForAuthRedirect(false)
+          signInWithGoogle()
+        }}
         className="underline"
       >
         Sign in with Google

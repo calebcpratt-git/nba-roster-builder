@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, createContext, useContext, ReactNode, useMemo, useCallback } from 'react'
+import { useState, createContext, useContext, ReactNode, useMemo, useCallback, useEffect } from 'react'
 import { Player, SavedContract, SavedTrade, Season, SEASONS, CapSheet, CapSheetSnapshot, CapSheetSummary } from './types'
 import { getTeamRoster, TEAMS, CAP_THRESHOLDS, getCapStatus } from './data'
 import { getDraftPickPlayers, applyPickNumberOverrides, DraftPickPlayer } from './draft-picks'
@@ -61,6 +61,36 @@ interface RosterState {
   exercisedPlayerOptions: Set<string> // player-id-season keys (declined = not in set)
   hasUnsavedChanges: boolean
   activeCapSheet: { id: string; name: string } | null
+  pendingSaveIntent: boolean
+}
+
+const AUTH_REDIRECT_DRAFT_KEY = 'nba-roster-builder:pending-cap-sheet-draft'
+
+interface AuthRedirectDraft {
+  teamAbbr: string
+  snapshot: CapSheetSnapshot
+  pendingSaveIntent: boolean
+}
+
+// Google sign-in is a full-page redirect through /auth/callback (see that
+// route's NextResponse.redirect), which wipes all in-memory React state.
+// persistDraftForAuthRedirect stashes the working cap sheet here right before
+// the redirect so it — and the intent to reopen the save-name dialog, if any
+// — survives the round trip. Consumed by the lazy useState initializers below
+// and cleared by the mount effect right after.
+function readAuthRedirectDraft(): AuthRedirectDraft | null {
+  if (typeof window === 'undefined') return null
+  try {
+    const raw = window.sessionStorage.getItem(AUTH_REDIRECT_DRAFT_KEY)
+    return raw ? (JSON.parse(raw) as AuthRedirectDraft) : null
+  } catch {
+    return null
+  }
+}
+
+function clearAuthRedirectDraft() {
+  if (typeof window === 'undefined') return
+  window.sessionStorage.removeItem(AUTH_REDIRECT_DRAFT_KEY)
 }
 
 interface RosterContextType extends RosterState {
@@ -93,6 +123,9 @@ interface RosterContextType extends RosterState {
   buildCapSheetPayload: () => { snapshot: CapSheetSnapshot; summary: CapSheetSummary }
   markCapSheetSaved: (sheet: { id: string; name: string }) => void
   loadCapSheet: (sheet: CapSheet) => void
+  startNewCapSheet: () => void
+  persistDraftForAuthRedirect: (pendingSaveIntent: boolean) => void
+  consumePendingSaveIntent: () => void
 }
 
 const RosterContext = createContext<RosterContextType | null>(null)
@@ -108,6 +141,28 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   const [savedTradesByTeam, setSavedTradesByTeam] = useState<Record<string, SavedTrade[]>>({})
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
   const [activeCapSheet, setActiveCapSheet] = useState<{ id: string; name: string } | null>(null)
+  const [pendingSaveIntent, setPendingSaveIntent] = useState(false)
+
+  // sessionStorage is only readable client-side, so this can't happen during
+  // the initial (possibly server-rendered) render without a hydration
+  // mismatch — restore one tick after mount instead, the same way any
+  // client-only persisted state has to be picked up in an SSR app.
+  useEffect(() => {
+    const draft = readAuthRedirectDraft()
+    if (!draft) return
+    const { teamAbbr, snapshot } = draft
+    setSelectedTeamAbbrState(teamAbbr)
+    setSavedContractsByTeam((prev) => ({ ...prev, [teamAbbr]: snapshot.savedContracts }))
+    setSavedTradesByTeam((prev) => ({ ...prev, [teamAbbr]: snapshot.savedTrades }))
+    setExercisedTeamOptions(new Set(snapshot.exercisedTeamOptionKeys))
+    setExercisedPlayerOptions(new Set(snapshot.exercisedPlayerOptionKeys))
+    setDeletedContractIds(new Set(snapshot.deletedContractIds))
+    setReleasedRosterIds(new Set(snapshot.releasedRosterIds))
+    setPickNumberOverrides({ ...snapshot.pickNumberOverrides })
+    setHasUnsavedChanges(true)
+    setPendingSaveIntent(draft.pendingSaveIntent)
+    clearAuthRedirectDraft()
+  }, [])
 
   const markChanged = useCallback(() => setHasUnsavedChanges(true), [])
 
@@ -562,6 +617,39 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     setActiveCapSheet({ id: sheet.id, name: sheet.name })
   }, [])
 
+  // Escape hatch out of an active cap sheet — see the team switcher lock in
+  // header.tsx, which disables team changes while activeCapSheet is set so a
+  // saved table can't be edited into a different team by accident. Clears
+  // the current team's working state back to blank (mirroring what a fresh
+  // team selection would look like) and drops the active-sheet link, which
+  // re-enables the team switcher for whichever team the user builds next.
+  const startNewCapSheet = useCallback(() => {
+    setSavedContractsByTeam((prev) => ({ ...prev, [selectedTeamAbbr]: [] }))
+    setSavedTradesByTeam((prev) => ({ ...prev, [selectedTeamAbbr]: [] }))
+    setExercisedTeamOptions(new Set())
+    setExercisedPlayerOptions(new Set())
+    setDeletedContractIds(new Set())
+    setReleasedRosterIds(new Set())
+    setPickNumberOverrides({})
+    setHasUnsavedChanges(false)
+    setActiveCapSheet(null)
+  }, [selectedTeamAbbr])
+
+  // Call right before a Google sign-in redirect so the current working cap
+  // sheet survives the hard navigation through /auth/callback — see
+  // AuthRedirectDraft above. pendingSaveIntent records whether the user had
+  // clicked "Save Cap Sheet" (and should land back in the naming dialog) or
+  // was just signing in mid-edit (and should just land back where they were).
+  const persistDraftForAuthRedirect = useCallback((pendingSaveIntent: boolean) => {
+    const { snapshot } = buildCapSheetPayload()
+    const draft: AuthRedirectDraft = { teamAbbr: selectedTeamAbbr, snapshot, pendingSaveIntent }
+    if (typeof window !== 'undefined') {
+      window.sessionStorage.setItem(AUTH_REDIRECT_DRAFT_KEY, JSON.stringify(draft))
+    }
+  }, [buildCapSheetPayload, selectedTeamAbbr])
+
+  const consumePendingSaveIntent = useCallback(() => setPendingSaveIntent(false), [])
+
   return (
     <RosterContext.Provider
       value={{
@@ -573,6 +661,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         exercisedPlayerOptions,
         hasUnsavedChanges,
         activeCapSheet,
+        pendingSaveIntent,
         setSelectedTeamAbbr,
         addSavedContract,
         removeSavedContract,
@@ -601,6 +690,9 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         buildCapSheetPayload,
         markCapSheetSaved,
         loadCapSheet,
+        startNewCapSheet,
+        persistDraftForAuthRedirect,
+        consumePendingSaveIntent,
       }}
     >
       {children}
