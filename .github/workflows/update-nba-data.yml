@@ -1,0 +1,87 @@
+name: Update NBA data
+
+on:
+  schedule:
+    - cron: '0 10 * * *'   # 06:00 America/New_York while EDT is in effect
+    - cron: '0 11 * * *'   # 06:00 America/New_York while EST is in effect
+  workflow_dispatch:
+    inputs:
+      accept_large_diff:
+        description: 'Accept a diff above the 30% threshold'
+        type: boolean
+        default: false
+
+jobs:
+  gate:
+    # GitHub cron is UTC only and has no DST handling, so both hours are
+    # scheduled and this job drops the one that is not 6am in New York.
+    runs-on: ubuntu-latest
+    outputs:
+      go: ${{ steps.check.outputs.go }}
+    steps:
+      - id: check
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          elif [ "$(TZ=America/New_York date +%H)" = "06" ]; then
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  update:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r scripts/scrape/requirements.txt
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Scrape
+        run: python scripts/scrape/run.py
+
+      - name: Generate data files
+        run: node scripts/generate-from-scrape.js ${{ github.event.inputs.accept_large_diff == 'true' && '--accept-large-diff' || '' }}
+
+      - name: Build smoke test
+        run: pnpm build
+
+      - name: Upload raw HTML for debugging
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-html
+          path: snapshots/raw/
+          retention-days: 7
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/auto-update
+          delete-branch: true
+          title: 'Data update'
+          commit-message: 'chore(data): scheduled scrape'
+          body: |
+            Automated scrape of Basketball Reference and RealGM.
+            Check the run log for record counts and the diff summary.
+          add-paths: |
+            lib/player-data.ts
+            lib/draft-picks.ts
+            lib/rookie-years.ts
+            snapshots/players.json
+            snapshots/draft-picks.json
+            snapshots/scraped/
