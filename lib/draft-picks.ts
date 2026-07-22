@@ -69,6 +69,7 @@ const TEAM_NAME_TO_ABBR: Record<string, string> = {
   'Washington Wizards': 'WAS',
 }
 
+// GENERATED:START
 export const DRAFT_PICKS: DraftPick[] = [
   { teamOwner: 'Atlanta Hawks', year: 2026, round: 'First Round', teamFrom: 'New Orleans Pelicans', swapOwner: null, swapOption: null, protections: null, pickNumber: 8, pickPool: null, rank: null },
   { teamOwner: 'Atlanta Hawks', year: 2026, round: 'First Round', teamFrom: 'Cleveland Cavaliers', swapOwner: null, swapOption: null, protections: null, pickNumber: 23, pickPool: null, rank: null },
@@ -507,6 +508,7 @@ export const DRAFT_PICKS: DraftPick[] = [
   { teamOwner: 'Washington Wizards', year: 2028, round: 'First Round', teamFrom: null, swapOwner: null, swapOption: null, protections: null, pickNumber: null, pickPool: 'WAS, BRK, PHL 9-30, PHX, MIL, POR', rank: 'Less favorable of (more favorable of WAS/least-or-less-favorable-of-BRK-PHL9-30-PHX) vs (less favorable of MIL/POR)' },
   { teamOwner: 'Washington Wizards', year: 2029, round: 'First Round', teamFrom: null, swapOwner: null, swapOption: null, protections: null, pickNumber: null, pickPool: 'POR, BOS, MIL', rank: '2nd most favorable' },
 ]
+// GENERATED:END
 
 // best-effort — returns undefined when the string can't be mapped
 function parseProtection(raw: string | null): PickProtection | undefined {
