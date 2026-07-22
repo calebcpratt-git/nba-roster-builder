@@ -385,8 +385,8 @@ export function RosterTable() {
 
   return (
     <>
-      <Card className="bg-card border-border text-[13px]">
-        <CardHeader className="pb-2 px-3 pt-3">
+      <Card className="bg-card border-border text-[13px] h-full flex flex-col">
+        <CardHeader className="pb-2 px-3 pt-3 shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <CardTitle className="text-sm font-medium">Roster & Contracts</CardTitle>
@@ -407,8 +407,8 @@ export function RosterTable() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0 flex flex-col h-[calc(100vh-200px)]">
-          <div className="overflow-x-auto flex-1 overflow-y-auto">
+        <CardContent className="p-0 flex flex-col flex-1 min-h-0">
+          <div className="overflow-x-auto flex-1 min-h-0 overflow-y-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border bg-muted/30">
