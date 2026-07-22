@@ -77,12 +77,12 @@ function replaceGeneratedBlock(content, newBlock) {
 /**
  * @param {DraftPickRecord[]} picks
  */
-function generateDraftPicks(picks) {
+function generateDraftPicks(picks, options = {}) {
   const outputPath = path.join(__dirname, '../lib/draft-picks.ts')
 
   const previousRecords = loadPreviousSnapshot('draft-picks')
 
-  const result = validateAndDiff({ kind: 'draft-picks', records: picks, previousRecords })
+  const result = validateAndDiff({ kind: 'draft-picks', records: picks, previousRecords, allowLargeDiff: options.allowLargeDiff })
   if (!result.ok) {
     console.error('Validation failed, refusing to write draft-picks.ts:')
     result.errors.forEach((e) => console.error('  - ' + e))

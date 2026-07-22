@@ -122,12 +122,12 @@ export function getTeamRoster(teamCode: string): RawPlayerData[] {
  *   abbreviations). This function does NOT scrape or parse CSV — it only
  *   emits the TS file and enforces the safety checks in validate-and-diff.js.
  */
-function generatePlayerData(players) {
+function generatePlayerData(players, options = {}) {
   const outputPath = path.join(__dirname, '../lib/player-data.ts')
 
   const previousRecords = loadPreviousSnapshot('players')
 
-  const result = validateAndDiff({ kind: 'players', records: players, previousRecords })
+  const result = validateAndDiff({ kind: 'players', records: players, previousRecords, allowLargeDiff: options.allowLargeDiff })
   if (!result.ok) {
     console.error('Validation failed, refusing to write player-data.ts:')
     result.errors.forEach((e) => console.error('  - ' + e))

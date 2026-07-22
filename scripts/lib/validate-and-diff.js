@@ -2,8 +2,30 @@ const fs = require('fs')
 const path = require('path')
 
 const SALARY_CEILING = 80_000_000
-const MIN_ROSTER_SIZE = 13
 const DIFF_ERROR_RATIO = 0.3
+
+// Roster minimums are a broken-scraper tripwire, not a CBA compliance check —
+// they only need to be tight enough to catch a parser returning garbage.
+//
+// In the offseason (late June through September) rosters are legitimately
+// incomplete: teams sign up to the 14-man minimum during training camp, and in
+// July it's normal for several teams to sit at 12. In-season the floor is 13,
+// not 14, because the CBA lets a team carry 13 for up to two weeks at a time —
+// a 14 threshold would false-fail on a legal roster.
+const MIN_ROSTER_SIZE_OFFSEASON = 12
+const MIN_ROSTER_SIZE_IN_SEASON = 13
+
+function isOffseason(date = new Date()) {
+  const month = date.getMonth() + 1 // 1-12
+  const day = date.getDate()
+  if (month >= 7 && month <= 9) return true    // July–September
+  if (month === 6 && day >= 20) return true    // draft + free agency gut rosters
+  return false
+}
+
+function minRosterSize(date = new Date()) {
+  return isOffseason(date) ? MIN_ROSTER_SIZE_OFFSEASON : MIN_ROSTER_SIZE_IN_SEASON
+}
 
 // TEAM_ABBREVIATIONS is a runtime const, not just a type, but it lives in a
 // .ts file with no ts-node/tsx in this project's toolchain — so it's
@@ -22,7 +44,7 @@ function loadTeamAbbreviations() {
     .map((s) => s.replace(/^['"]|['"]$/g, ''))
 }
 
-function validatePlayers(records, errors) {
+function validatePlayers(records, errors, now = new Date()) {
   const TEAM_ABBREVIATIONS = loadTeamAbbreviations()
   const teamSet = new Set(TEAM_ABBREVIATIONS)
   const countByTeam = new Map()
@@ -49,11 +71,13 @@ function validatePlayers(records, errors) {
     }
   })
 
+  const floor = minRosterSize(now)
+  const phase = isOffseason(now) ? 'offseason' : 'in-season'
   for (const abbr of TEAM_ABBREVIATIONS) {
     if (abbr === 'CHA') continue // intentionally excluded — legacy code, never populated
     const count = countByTeam.get(abbr) ?? 0
-    if (count < MIN_ROSTER_SIZE) {
-      errors.push(`team "${abbr}" has only ${count} player records (expected at least ${MIN_ROSTER_SIZE})`)
+    if (count < floor) {
+      errors.push(`team "${abbr}" has only ${count} player records (expected at least ${floor} — ${phase})`)
     }
   }
 }
@@ -137,15 +161,25 @@ function diffRecords(kind, records, previousRecords) {
  * @param {'players' | 'draft-picks'} input.kind
  * @param {any[]} input.records         - the new records about to be written
  * @param {any[]} input.previousRecords - parsed from the CURRENT generated file, for diffing
+ * @param {boolean} [input.allowLargeDiff] - opt in to a diff above the threshold.
+ *   Defaults to the --accept-large-diff CLI flag or ACCEPT_LARGE_DIFF=1, so an
+ *   unattended scheduled run still blocks unless someone deliberately says so.
+ * @param {Date} [input.now] - injectable clock, for testing the offseason branch
  * @returns {{ ok: boolean, errors: string[], warnings: string[], diffSummary: string }}
  */
-function validateAndDiff({ kind, records, previousRecords }) {
+function largeDiffAcceptedFromEnv() {
+  return process.argv.includes('--accept-large-diff') || process.env.ACCEPT_LARGE_DIFF === '1'
+}
+
+function validateAndDiff({ kind, records, previousRecords, allowLargeDiff, now }) {
   const errors = []
   const warnings = []
   previousRecords = previousRecords ?? []
+  allowLargeDiff = allowLargeDiff ?? largeDiffAcceptedFromEnv()
+  now = now ?? new Date()
 
   if (kind === 'players') {
-    validatePlayers(records, errors)
+    validatePlayers(records, errors, now)
   } else if (kind === 'draft-picks') {
     validateDraftPicks(records, errors)
   } else {
@@ -162,11 +196,20 @@ function validateAndDiff({ kind, records, previousRecords }) {
     const churn = added + removed + changed
     const ratio = churn / previousRecords.length
     if (ratio > DIFF_ERROR_RATIO) {
-      errors.push(
+      const scale =
         `${kind}: diff too large — ${churn} of ${previousRecords.length} previous records changed ` +
-          `(${(ratio * 100).toFixed(1)}%, threshold ${DIFF_ERROR_RATIO * 100}%) — ` +
-          `likely a broken upstream parser, not real-world roster churn`
-      )
+        `(${(ratio * 100).toFixed(1)}%, threshold ${DIFF_ERROR_RATIO * 100}%)`
+      if (allowLargeDiff) {
+        // Explicitly acknowledged by the caller — e.g. a first import, or a
+        // catch-up run after the draft and free agency.
+        warnings.push(`${scale} — proceeding because a large diff was explicitly accepted`)
+      } else {
+        errors.push(
+          `${scale} — this usually means a broken upstream parser, not real-world churn. ` +
+            `If the change is genuine (first import, post-draft or post-free-agency catch-up), ` +
+            `re-run with --accept-large-diff (or ACCEPT_LARGE_DIFF=1).`
+        )
+      }
     }
   }
 
@@ -178,4 +221,4 @@ function validateAndDiff({ kind, records, previousRecords }) {
   }
 }
 
-module.exports = { validateAndDiff }
+module.exports = { validateAndDiff, isOffseason, minRosterSize }
