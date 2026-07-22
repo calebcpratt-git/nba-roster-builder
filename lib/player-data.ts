@@ -1,5 +1,5 @@
-// Auto-generated from CSV data
-import type { Season } from './types'
+// Auto-generated — do not edit by hand. Run scripts/generate-player-data.js.
+import type { Season, SeasonGuarantee } from './types'
 
 export type OptionType = 'Team' | 'Player' | null
 
@@ -8,6 +8,7 @@ export interface RawPlayerData {
   team: string
   salary: Partial<Record<Season, number | null>>
   options: Partial<Record<Season, OptionType>>
+  guarantees?: Partial<Record<Season, SeasonGuarantee>>
 }
 
 export const RAW_PLAYER_DATA: RawPlayerData[] = [
