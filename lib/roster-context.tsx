@@ -592,7 +592,14 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         return { season, total, status: getCapStatus(total, CAP_THRESHOLDS[season]) }
       }),
       rosterCount: roster.filter((p) => !releasedRosterIds.has(p.id)).length,
-      moveCount: savedContracts.length + savedTrades.length,
+      // Signings, trades, declined options, and releases are all moves against
+      // the cap sheet, so they all count toward the total the same way.
+      moveCount:
+        savedContracts.length +
+        savedTrades.length +
+        exercisedTeamOptions.size +
+        exercisedPlayerOptions.size +
+        releasedRosterIds.size,
     }
 
     return { snapshot, summary }
