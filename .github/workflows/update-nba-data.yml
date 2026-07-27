@@ -2,8 +2,11 @@ name: Update NBA data
 
 on:
   schedule:
-    - cron: '0 10 * * *'   # 06:00 America/New_York while EDT is in effect
-    - cron: '0 11 * * *'   # 06:00 America/New_York while EST is in effect
+    - cron: '0 11 * * *'   # ~6am America/New_York (11:00 UTC = 6am EDT / 7am EST).
+                            # A single daily trigger — no DST gate needed. GitHub can
+                            # delay scheduled runs by up to a couple hours on quiet
+                            # repos, but since there's only one trigger per day there's
+                            # nothing to gate against; it just runs whenever it fires.
   workflow_dispatch:
     inputs:
       accept_large_diff:
@@ -12,26 +15,7 @@ on:
         default: false
 
 jobs:
-  gate:
-    # GitHub cron is UTC only and has no DST handling, so both hours are
-    # scheduled and this job drops the one that is not 6am in New York.
-    runs-on: ubuntu-latest
-    outputs:
-      go: ${{ steps.check.outputs.go }}
-    steps:
-      - id: check
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "go=true" >> "$GITHUB_OUTPUT"
-          elif [ "$(TZ=America/New_York date +%H)" = "06" ]; then
-            echo "go=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "go=false" >> "$GITHUB_OUTPUT"
-          fi
-
   update:
-    needs: gate
-    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
