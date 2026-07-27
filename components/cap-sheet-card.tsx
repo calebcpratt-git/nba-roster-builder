@@ -1,7 +1,9 @@
 'use client'
 
-import { CapSheet, CapStatus } from '@/lib/types'
-import { TEAMS, CAP_THRESHOLDS, formatCurrency, getCapStatusColor } from '@/lib/data'
+import { useMemo, useState } from 'react'
+import { CapSheet, CapStatus, Season, SEASONS } from '@/lib/types'
+import { TEAMS, TEAM_NAMES, CAP_THRESHOLDS, formatCurrency, getTeamRoster } from '@/lib/data'
+import { getDraftPickPlayers, applyPickNumberOverrides } from '@/lib/draft-picks'
 import { Badge } from '@/components/ui/badge'
 import {
   AlertDialog,
@@ -14,7 +16,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
-import { Trash2 } from 'lucide-react'
+import { Trash2, ChevronRight, ChevronDown, FileText, ArrowLeftRight, UserPlus, UserMinus, Ban } from 'lucide-react'
 
 // Reuses the app's existing cap-status hues (see getCapStatusColor in lib/data.ts)
 // so a bar's color means the same thing here as it does everywhere else in the app.
@@ -26,17 +28,56 @@ const STATUS_BAR_COLOR: Record<CapStatus, string> = {
   '2nd Apron': 'bg-red-500',
 }
 
+// Anchor for flagging moves that don't take effect this season — a signing
+// or decline dated to a later year in the scenario (e.g. a free agent
+// signed starting 2027-28) needs to read as "future," not as happening now.
+const CURRENT_SEASON: Season = SEASONS[0]
+
+const SEASON_BARS_COUNT = 4
+
 function secondApronFor(season: CapSheet['summary']['seasons'][number]['season']): number {
   return CAP_THRESHOLDS[season]?.find((t) => t.type === 'second-apron')?.value ?? 1
 }
 
+// Same threshold types the status ladder in getCapStatus uses, in ascending
+// order, colored to match the status they mark the start of (see
+// STATUS_BAR_COLOR above).
+const THRESHOLD_LINES: { type: 'soft-cap' | 'luxury-tax' | 'first-apron' | 'second-apron'; color: string; label: string }[] = [
+  { type: 'soft-cap', color: 'border-yellow-500/60', label: 'Cap' },
+  { type: 'luxury-tax', color: 'border-amber-500/60', label: 'Tax' },
+  { type: 'first-apron', color: 'border-orange-500/60', label: '1st Apron' },
+  { type: 'second-apron', color: 'border-red-500/60', label: '2nd Apron' },
+]
+
 function SeasonBars({ seasons }: { seasons: CapSheet['summary']['seasons'] }) {
   if (seasons.length === 0) return null
 
+  const displayedSeasons = seasons.slice(0, SEASON_BARS_COUNT)
+
+  // Every year's four thresholds sit at (near enough) the same fraction of
+  // that year's second apron — the whole ladder scales with cap inflation
+  // together. So the lines only need computing once, off a single reference
+  // season, and they land in the same spot for every bar even though the
+  // underlying dollar figures differ year to year.
+  const referenceSeason = displayedSeasons[0].season
+  const referenceSecondApron = secondApronFor(referenceSeason)
+  const thresholdLines = THRESHOLD_LINES.map(({ type, color, label }) => {
+    const value = CAP_THRESHOLDS[referenceSeason]?.find((t) => t.type === type)?.value
+    if (!value) return null
+    return { type, color, label, pct: Math.min(100, (value / referenceSecondApron) * 100) }
+  }).filter((line) => line !== null)
+
   return (
     <div>
-      <div className="flex items-end gap-1 h-10">
-        {seasons.map(({ season, total, status }) => {
+      <div className="relative flex items-end gap-1 h-32">
+        {thresholdLines.map((line) => (
+          <div
+            key={line.type}
+            className={`absolute left-0 right-0 border-t border-dashed ${line.color}`}
+            style={{ bottom: `${line.pct}%` }}
+          />
+        ))}
+        {displayedSeasons.map(({ season, total, status }) => {
           const pct = Math.max(4, Math.min(100, Math.round((total / secondApronFor(season)) * 100)))
           return (
             <div
@@ -53,11 +94,145 @@ function SeasonBars({ seasons }: { seasons: CapSheet['summary']['seasons'] }) {
         })}
       </div>
       <div className="flex justify-between text-[9px] text-muted-foreground mt-1">
-        <span>{seasons[0].season}</span>
-        {seasons.length > 1 && <span>{seasons[seasons.length - 1].season}</span>}
+        <span>{displayedSeasons[0].season}</span>
+        {displayedSeasons.length > 1 && <span>{displayedSeasons[displayedSeasons.length - 1].season}</span>}
+      </div>
+      <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-1">
+        {thresholdLines.map((line) => (
+          <span key={line.type} className="flex items-center gap-1 text-[8px] text-muted-foreground">
+            <span className={`inline-block w-2 border-t border-dashed ${line.color}`} />
+            {line.label}
+          </span>
+        ))}
       </div>
     </div>
   )
+}
+
+// A declined-option key is always `declined-{entityId}-{season}`, where
+// entityId itself may contain hyphens (roster ids are `player-{idx}`, draft
+// pick ids are `draft-{year}-{round}-{team}-{idx}`). The season is always the
+// last `YYYY-YY`-shaped segment, so anchor on that instead of splitting on '-'.
+function parseDeclinedKey(key: string): { entityId: string; season: Season } | null {
+  const match = key.match(/^declined-(.+)-(\d{4}-\d{2})$/)
+  if (!match) return null
+  return { entityId: match[1], season: match[2] as Season }
+}
+
+function resolveEntityName(teamAbbr: string, pickNumberOverrides: Record<string, number>, entityId: string): string {
+  const rosterMatch = getTeamRoster(teamAbbr).find((p) => p.id === entityId)
+  if (rosterMatch) return rosterMatch.name
+
+  const pickMatch = applyPickNumberOverrides(getDraftPickPlayers(teamAbbr), pickNumberOverrides).find(
+    (p) => p.id === entityId
+  )
+  if (pickMatch) return pickMatch.name
+
+  return 'Unknown player'
+}
+
+type MoveKind = 'extension' | 'free-agent' | 'trade' | 'option' | 'release'
+
+interface MoveItem {
+  key: string
+  kind: MoveKind
+  title: string
+  detail?: string
+  season?: Season
+}
+
+const MOVE_ICON_STYLE: Record<MoveKind, { Icon: typeof FileText; bg: string; fg: string }> = {
+  extension: { Icon: FileText, bg: 'bg-primary/20', fg: 'text-primary' },
+  'free-agent': { Icon: UserPlus, bg: 'bg-chart-2/20', fg: 'text-chart-2' },
+  trade: { Icon: ArrowLeftRight, bg: 'bg-chart-4/20', fg: 'text-chart-4' },
+  option: { Icon: Ban, bg: 'bg-muted', fg: 'text-muted-foreground' },
+  release: { Icon: UserMinus, bg: 'bg-red-500/15', fg: 'text-red-400' },
+}
+
+// Derived live from the snapshot rather than trusting the persisted
+// summary.moveCount — that field is only as fresh as the last save, so a
+// sheet saved before a new move type (e.g. releases) counted would show a
+// number out of sync with what the snapshot (and the dropdown built from it)
+// actually contains.
+function countMoves(snapshot: CapSheet['snapshot']): number {
+  return (
+    snapshot.savedContracts.length +
+    snapshot.savedTrades.length +
+    snapshot.exercisedTeamOptionKeys.length +
+    snapshot.exercisedPlayerOptionKeys.length +
+    snapshot.releasedRosterIds.length
+  )
+}
+
+function buildMoves(sheet: CapSheet): MoveItem[] {
+  const { snapshot } = sheet
+  const moves: MoveItem[] = []
+
+  snapshot.savedContracts.forEach((contract) => {
+    const contractSeasons = (Object.keys(contract.salary) as Season[]).sort(
+      (a, b) => SEASONS.indexOf(a) - SEASONS.indexOf(b)
+    )
+    const years = contractSeasons.length
+    const total = Object.values(contract.salary).reduce((a, b) => a + b, 0)
+    const waived = snapshot.deletedContractIds.includes(contract.id)
+    const typeLabel =
+      contract.type === 'extension' ? 'Extension' : contract.type === 'trade' ? 'Trade contract' : 'Free agent signing'
+
+    moves.push({
+      key: `contract-${contract.id}`,
+      kind: contract.type,
+      title: contract.playerName,
+      detail: `${typeLabel} · ${years}yr / ${formatCurrency(total)}${waived ? ' · waived' : ''}`,
+      season: contractSeasons[0],
+    })
+  })
+
+  snapshot.savedTrades.forEach((trade) => {
+    const teamName = TEAM_NAMES[trade.tradeTeamAbbr] || trade.tradeTeamAbbr
+    const outCount = trade.outgoingRosterPlayerIds.length + trade.outgoingPickIds.length
+    const inNames = trade.incomingPlayers.map((p) => p.playerName)
+    const inPickCount = trade.incomingPicks.length
+
+    const outDesc = outCount > 0 ? `${outCount} asset${outCount !== 1 ? 's' : ''} sent` : null
+    const inParts = [...inNames, inPickCount > 0 ? `${inPickCount} pick${inPickCount !== 1 ? 's' : ''}` : null].filter(
+      Boolean
+    )
+    const inDesc = inParts.length > 0 ? `acquired ${inParts.join(', ')}` : null
+
+    moves.push({
+      key: `trade-${trade.id}`,
+      kind: 'trade',
+      title: `Trade with ${teamName}`,
+      detail: [outDesc, inDesc].filter(Boolean).join(' · ') || 'No assets recorded',
+    })
+  })
+
+  const optionMoves = (keys: string[], optionType: 'Team' | 'Player') =>
+    keys.forEach((key) => {
+      const parsed = parseDeclinedKey(key)
+      if (!parsed) return
+      const name = resolveEntityName(sheet.teamAbbr, snapshot.pickNumberOverrides, parsed.entityId)
+      moves.push({
+        key: `option-${key}`,
+        kind: 'option',
+        title: `${name} — declined ${optionType.toLowerCase()} option`,
+        season: parsed.season,
+      })
+    })
+
+  optionMoves(snapshot.exercisedTeamOptionKeys, 'Team')
+  optionMoves(snapshot.exercisedPlayerOptionKeys, 'Player')
+
+  snapshot.releasedRosterIds.forEach((playerId) => {
+    const name = resolveEntityName(sheet.teamAbbr, snapshot.pickNumberOverrides, playerId)
+    moves.push({
+      key: `release-${playerId}`,
+      kind: 'release',
+      title: `${name} — released`,
+    })
+  })
+
+  return moves
 }
 
 export function CapSheetCard({
@@ -69,13 +244,16 @@ export function CapSheetCard({
   onOpen: (sheet: CapSheet) => void
   onDelete: (id: string) => void
 }) {
+  const [expanded, setExpanded] = useState(false)
   const team = TEAMS[sheet.teamAbbr]
-  const latestSeason = sheet.summary.seasons[sheet.summary.seasons.length - 1]
   const savedDate = new Date(sheet.createdAt).toLocaleDateString(undefined, {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
   })
+
+  const moveCount = countMoves(sheet.snapshot)
+  const moves = useMemo(() => (expanded ? buildMoves(sheet) : null), [expanded, sheet])
 
   return (
     <div
@@ -130,18 +308,54 @@ export function CapSheetCard({
 
         <SeasonBars seasons={sheet.summary.seasons} />
 
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] text-muted-foreground">
-            {sheet.summary.rosterCount} players · {sheet.summary.moveCount} moves
-          </span>
-          {latestSeason && (
-            <span
-              className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${getCapStatusColor(latestSeason.status)}`}
-            >
-              {latestSeason.status}
-            </span>
+        <div
+          className="flex items-center gap-1 -m-1 p-1 rounded hover:bg-accent transition-colors"
+          onClick={(e) => {
+            e.stopPropagation()
+            setExpanded((v) => !v)
+          }}
+        >
+          {expanded ? (
+            <ChevronDown className="h-3 w-3 text-muted-foreground shrink-0" />
+          ) : (
+            <ChevronRight className="h-3 w-3 text-muted-foreground shrink-0" />
           )}
+          <span className="text-[10px] text-muted-foreground">
+            {moveCount} move{moveCount !== 1 ? 's' : ''}
+          </span>
         </div>
+
+        {expanded && (
+          <div
+            className="space-y-1.5 pt-2 border-t border-border"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {moves && moves.length > 0 ? (
+              moves.map((move) => {
+                const { Icon, bg, fg } = MOVE_ICON_STYLE[move.kind]
+                const isFuture = !!move.season && SEASONS.indexOf(move.season) > SEASONS.indexOf(CURRENT_SEASON)
+                return (
+                  <div key={move.key} className="flex items-start gap-2">
+                    <div className={`h-5 w-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${bg}`}>
+                      <Icon className={`h-3 w-3 ${fg}`} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[11px] font-medium truncate">{move.title}</p>
+                      {move.detail && <p className="text-[10px] text-muted-foreground">{move.detail}</p>}
+                    </div>
+                    {isFuture && (
+                      <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-sky-500/15 text-sky-400 shrink-0">
+                        Future · {move.season}
+                      </span>
+                    )}
+                  </div>
+                )
+              })
+            ) : (
+              <p className="text-[10px] text-muted-foreground">No moves saved in this scenario.</p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
