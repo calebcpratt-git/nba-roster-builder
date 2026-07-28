@@ -2314,16 +2314,6 @@
   }
  },
  {
-  "name": "Jett Howard",
-  "team": "ORL",
-  "salary": {
-   "2026-27": 7337939
-  },
-  "options": {
-   "2026-27": "Team"
-  }
- },
- {
   "name": "Dereck Lively II",
   "team": "DAL",
   "salary": {
@@ -2659,6 +2649,15 @@
   "options": {
    "2028-29": "Player"
   }
+ },
+ {
+  "name": "Spencer Jones",
+  "team": "DEN",
+  "salary": {
+   "2026-27": 5853659,
+   "2027-28": 6146341
+  },
+  "options": {}
  },
  {
   "name": "Aday Mara",
@@ -3245,6 +3244,17 @@
    "2027-28": 4070355
   },
   "options": {}
+ },
+ {
+  "name": "LeBron James",
+  "team": "PHI",
+  "salary": {
+   "2026-27": 3876529,
+   "2027-28": 4070355
+  },
+  "options": {
+   "2027-28": "Player"
+  }
  },
  {
   "name": "Svi Mykhailiuk",
@@ -3917,14 +3927,6 @@
   "options": {}
  },
  {
-  "name": "Dalen Terry",
-  "team": "PHI",
-  "salary": {
-   "2026-27": 2584539
-  },
-  "options": {}
- },
- {
   "name": "Jamal Cain",
   "team": "ORL",
   "salary": {
@@ -3986,6 +3988,22 @@
   }
  },
  {
+  "name": "Oscar Tshiebwe",
+  "team": "HOU",
+  "salary": {
+   "2026-27": 2537526
+  },
+  "options": {}
+ },
+ {
+  "name": "Julian Phillips",
+  "team": "HOU",
+  "salary": {
+   "2026-27": 2537526
+  },
+  "options": {}
+ },
+ {
   "name": "Olivier-Maxence Prosper",
   "team": "MEM",
   "salary": {
@@ -4036,6 +4054,23 @@
   "salary": {
    "2026-27": 2449421,
    "2027-28": 2664401
+  },
+  "options": {}
+ },
+ {
+  "name": "Isaiah Crawford",
+  "team": "HOU",
+  "salary": {
+   "2026-27": 2449421,
+   "2027-28": 2664401
+  },
+  "options": {}
+ },
+ {
+  "name": "Harrison Ingram",
+  "team": "UTA",
+  "salary": {
+   "2026-27": 2449421
   },
   "options": {}
  },
@@ -4096,6 +4131,14 @@
   "options": {}
  },
  {
+  "name": "Kobe Bufkin",
+  "team": "NOP",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {}
+ },
+ {
   "name": "Trey Lyles",
   "team": "MIN",
   "salary": {
@@ -4130,6 +4173,14 @@
  {
   "name": "Larry Nance Jr.",
   "team": "IND",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {}
+ },
+ {
+  "name": "Jae'Sean Tate",
+  "team": "HOU",
   "salary": {
    "2026-27": 2449421
   },
@@ -4255,6 +4306,19 @@
   }
  },
  {
+  "name": "Jordan Walsh",
+  "team": "BOS",
+  "salary": {
+   "2026-27": 2406205,
+   "2027-28": 4629630,
+   "2028-29": 5000000,
+   "2029-30": 5370370
+  },
+  "options": {
+   "2026-27": "Team"
+  }
+ },
+ {
   "name": "Trayce Jackson-Davis",
   "team": "TOR",
   "salary": {
@@ -4295,28 +4359,8 @@
   }
  },
  {
-  "name": "Jordan Walsh",
-  "team": "BOS",
-  "salary": {
-   "2026-27": 2406205
-  },
-  "options": {
-   "2026-27": "Team"
-  }
- },
- {
   "name": "Mouhamed Gueye",
   "team": "ATL",
-  "salary": {
-   "2026-27": 2406205
-  },
-  "options": {
-   "2026-27": "Team"
-  }
- },
- {
-  "name": "Julian Phillips",
-  "team": "MIN",
   "salary": {
    "2026-27": 2406205
   },
