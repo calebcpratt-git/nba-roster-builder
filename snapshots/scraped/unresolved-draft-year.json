@@ -1,5 +1,13 @@
 [
  {
+  "name": "Spencer Jones",
+  "team": "DEN"
+ },
+ {
+  "name": "LeBron James",
+  "team": "PHI"
+ },
+ {
   "name": "Ron Harper Jr.",
   "team": "BOS"
  },
@@ -20,16 +28,36 @@
   "team": "MIL"
  },
  {
+  "name": "Oscar Tshiebwe",
+  "team": "HOU"
+ },
+ {
   "name": "Daeqwon Plowden",
   "team": "SAC"
+ },
+ {
+  "name": "Isaiah Crawford",
+  "team": "HOU"
+ },
+ {
+  "name": "Harrison Ingram",
+  "team": "UTA"
  },
  {
   "name": "Branden Carlson",
   "team": "POR"
  },
  {
+  "name": "Kobe Bufkin",
+  "team": "NOP"
+ },
+ {
   "name": "Trey Lyles",
   "team": "MIN"
+ },
+ {
+  "name": "Jae'Sean Tate",
+  "team": "HOU"
  },
  {
   "name": "Tolu Smith",

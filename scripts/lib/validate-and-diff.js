@@ -69,6 +69,13 @@ function validatePlayers(records, errors, now = new Date()) {
         errors.push(`players[${i}] (${record.name ?? 'unknown'}): salary.${season} = ${value} is not null or a positive number under $${SALARY_CEILING}`)
       }
     }
+
+    const VALID_GUARANTEE_STATUS = new Set(['full', 'partial', 'non-guaranteed'])
+    for (const [season, g] of Object.entries(record.guarantees ?? {})) {
+      if (g != null && !VALID_GUARANTEE_STATUS.has(g.status)) {
+        errors.push(`players[${i}] (${record.name ?? 'unknown'}): guarantees.${season}.status "${g.status}" is not 'full'|'partial'|'non-guaranteed'`)
+      }
+    }
   })
 
   const floor = minRosterSize(now)
@@ -103,12 +110,49 @@ function validateDraftPicks(records, errors) {
   })
 }
 
+function validateContractDetails(records, errors) {
+  records.forEach((record, i) => {
+    if (!record.name || typeof record.name !== 'string' || !record.name.trim()) {
+      errors.push(`contract-details[${i}]: missing or empty "name"`)
+    }
+    if (record.tradeBonusPct !== undefined) {
+      if (typeof record.tradeBonusPct !== 'number' || record.tradeBonusPct < 0 || record.tradeBonusPct > 15) {
+        errors.push(`contract-details[${i}] (${record.name ?? 'unknown'}): tradeBonusPct "${record.tradeBonusPct}" is not a number between 0 and 15 (CBA caps trade kickers at 15%)`)
+      }
+    }
+    if (record.noTradeClause !== undefined && typeof record.noTradeClause !== 'boolean') {
+      errors.push(`contract-details[${i}] (${record.name ?? 'unknown'}): noTradeClause must be boolean`)
+    }
+  })
+}
+
+function validateTeamCapState(records, errors) {
+  const TEAM_ABBREVIATIONS = loadTeamAbbreviations()
+  const teamSet = new Set(TEAM_ABBREVIATIONS)
+  records.forEach((record, i) => {
+    if (!record.team || !teamSet.has(record.team)) {
+      errors.push(`team-cap-state[${i}]: team "${record.team}" is not in TEAM_ABBREVIATIONS`)
+    }
+    if (!/^\d{4}-\d{2}$/.test(record.season ?? '')) {
+      errors.push(`team-cap-state[${i}] (${record.team ?? 'unknown'}): season "${record.season}" is not in 'YYYY-YY' format`)
+    }
+    for (const dm of record.deadMoney ?? []) {
+      if (typeof dm.amount !== 'number' || dm.amount <= 0 || dm.amount > SALARY_CEILING) {
+        errors.push(`team-cap-state[${i}] (${record.team}): deadMoney entry for "${dm.player}" has implausible amount ${dm.amount}`)
+      }
+    }
+  })
+}
+
 // Best-effort natural key per kind — this data has no real unique id, so
 // identity is inferred from the fields that stay stable across a normal
 // update (name for players; the pick's origin/slot for draft picks).
 function recordKey(kind, record) {
-  if (kind === 'players') {
+  if (kind === 'players' || kind === 'contract-details') {
     return String(record.name).trim().toLowerCase()
+  }
+  if (kind === 'team-cap-state') {
+    return `${record.team}|${record.season}`
   }
   return [record.teamOwner, record.year, record.round, record.teamFrom, record.pickNumber, record.pickPool]
     .map((v) => String(v))
@@ -182,6 +226,10 @@ function validateAndDiff({ kind, records, previousRecords, allowLargeDiff, now }
     validatePlayers(records, errors, now)
   } else if (kind === 'draft-picks') {
     validateDraftPicks(records, errors)
+  } else if (kind === 'contract-details') {
+    validateContractDetails(records, errors)
+  } else if (kind === 'team-cap-state') {
+    validateTeamCapState(records, errors)
   } else {
     throw new Error(`Unknown kind: ${kind}`)
   }

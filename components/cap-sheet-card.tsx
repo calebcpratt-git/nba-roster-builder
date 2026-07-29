@@ -35,6 +35,15 @@ const CURRENT_SEASON: Season = SEASONS[0]
 
 const SEASON_BARS_COUNT = 4
 
+// Matches the h-32 chart height below (8rem @ 16px/rem). Needed in px, not
+// just as a class, to run label collision avoidance in the same units.
+const CHART_HEIGHT_PX = 128
+// Luxury tax / 1st apron / 2nd apron sit close together as a fraction of the
+// 2nd apron (often within a few px of each other at this chart height), so
+// their labels get pushed apart to stay legible instead of stacking exactly
+// on their lines.
+const MIN_LABEL_GAP_PX = 9
+
 function secondApronFor(season: CapSheet['summary']['seasons'][number]['season']): number {
   return CAP_THRESHOLDS[season]?.find((t) => t.type === 'second-apron')?.value ?? 1
 }
@@ -42,11 +51,11 @@ function secondApronFor(season: CapSheet['summary']['seasons'][number]['season']
 // Same threshold types the status ladder in getCapStatus uses, in ascending
 // order, colored to match the status they mark the start of (see
 // STATUS_BAR_COLOR above).
-const THRESHOLD_LINES: { type: 'soft-cap' | 'luxury-tax' | 'first-apron' | 'second-apron'; color: string; label: string }[] = [
-  { type: 'soft-cap', color: 'border-yellow-500/60', label: 'Cap' },
-  { type: 'luxury-tax', color: 'border-amber-500/60', label: 'Tax' },
-  { type: 'first-apron', color: 'border-orange-500/60', label: '1st Apron' },
-  { type: 'second-apron', color: 'border-red-500/60', label: '2nd Apron' },
+const THRESHOLD_LINES: { type: 'soft-cap' | 'luxury-tax' | 'first-apron' | 'second-apron'; color: string; textColor: string; label: string }[] = [
+  { type: 'soft-cap', color: 'border-yellow-500/60', textColor: 'text-yellow-600 dark:text-yellow-500', label: 'Cap' },
+  { type: 'luxury-tax', color: 'border-amber-500/60', textColor: 'text-amber-600 dark:text-amber-500', label: 'Tax' },
+  { type: 'first-apron', color: 'border-orange-500/60', textColor: 'text-orange-600 dark:text-orange-500', label: '1st Apron' },
+  { type: 'second-apron', color: 'border-red-500/60', textColor: 'text-red-600 dark:text-red-500', label: '2nd Apron' },
 ]
 
 function SeasonBars({ seasons }: { seasons: CapSheet['summary']['seasons'] }) {
@@ -61,49 +70,67 @@ function SeasonBars({ seasons }: { seasons: CapSheet['summary']['seasons'] }) {
   // underlying dollar figures differ year to year.
   const referenceSeason = displayedSeasons[0].season
   const referenceSecondApron = secondApronFor(referenceSeason)
-  const thresholdLines = THRESHOLD_LINES.map(({ type, color, label }) => {
+  const thresholdLines = THRESHOLD_LINES.map(({ type, color, textColor, label }) => {
     const value = CAP_THRESHOLDS[referenceSeason]?.find((t) => t.type === type)?.value
     if (!value) return null
-    return { type, color, label, pct: Math.min(100, (value / referenceSecondApron) * 100) }
+    const pct = Math.min(100, (value / referenceSecondApron) * 100)
+    return { type, color, textColor, label, pct, top: CHART_HEIGHT_PX * (1 - pct / 100) }
   }).filter((line) => line !== null)
+
+  // Push labels apart top-to-bottom so tightly clustered thresholds (e.g.
+  // tax/1st apron/2nd apron near the top of the chart) don't render on top
+  // of each other; the dashed lines themselves stay at their exact pct.
+  const labelPositions = [...thresholdLines]
+    .sort((a, b) => a.top - b.top)
+    .reduce<typeof thresholdLines>((acc, line) => {
+      const prev = acc[acc.length - 1]
+      const top = prev ? Math.max(line.top, prev.top + MIN_LABEL_GAP_PX) : line.top
+      acc.push({ ...line, top })
+      return acc
+    }, [])
 
   return (
     <div>
-      <div className="relative flex items-end gap-1 h-32">
-        {thresholdLines.map((line) => (
-          <div
-            key={line.type}
-            className={`absolute left-0 right-0 border-t border-dashed ${line.color}`}
-            style={{ bottom: `${line.pct}%` }}
-          />
-        ))}
-        {displayedSeasons.map(({ season, total, status }) => {
-          const pct = Math.max(4, Math.min(100, Math.round((total / secondApronFor(season)) * 100)))
-          return (
+      <div className="flex items-end gap-1 h-32">
+        <div className="relative flex-1 flex items-end gap-1 h-full">
+          {thresholdLines.map((line) => (
             <div
-              key={season}
-              className="flex-1 flex items-end h-full"
-              title={`${season}: ${formatCurrency(total)} · ${status}`}
-            >
+              key={line.type}
+              className={`absolute left-0 right-0 border-t border-dashed ${line.color}`}
+              style={{ bottom: `${line.pct}%` }}
+            />
+          ))}
+          {displayedSeasons.map(({ season, total, status }) => {
+            const pct = Math.max(4, Math.min(100, Math.round((total / secondApronFor(season)) * 100)))
+            return (
               <div
-                className={`w-full rounded-t-sm ${STATUS_BAR_COLOR[status]}`}
-                style={{ height: `${pct}%` }}
-              />
-            </div>
-          )
-        })}
+                key={season}
+                className="flex-1 flex items-end h-full"
+                title={`${season}: ${formatCurrency(total)} · ${status}`}
+              >
+                <div
+                  className={`w-full rounded-t-sm ${STATUS_BAR_COLOR[status]}`}
+                  style={{ height: `${pct}%` }}
+                />
+              </div>
+            )
+          })}
+        </div>
+        <div className="relative w-11 h-full shrink-0">
+          {labelPositions.map((line) => (
+            <span
+              key={line.type}
+              className={`absolute right-0 -translate-y-1/2 text-[8px] leading-none whitespace-nowrap ${line.textColor}`}
+              style={{ top: `${line.top}px` }}
+            >
+              {line.label}
+            </span>
+          ))}
+        </div>
       </div>
-      <div className="flex justify-between text-[9px] text-muted-foreground mt-1">
+      <div className="flex justify-between text-[9px] text-muted-foreground mt-1 pr-11">
         <span>{displayedSeasons[0].season}</span>
         {displayedSeasons.length > 1 && <span>{displayedSeasons[displayedSeasons.length - 1].season}</span>}
-      </div>
-      <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-1">
-        {thresholdLines.map((line) => (
-          <span key={line.type} className="flex items-center gap-1 text-[8px] text-muted-foreground">
-            <span className={`inline-block w-2 border-t border-dashed ${line.color}`} />
-            {line.label}
-          </span>
-        ))}
       </div>
     </div>
   )

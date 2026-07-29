@@ -44,7 +44,8 @@ const TEAM_NAMES = {
  *   name: string, team: string,
  *   salary: Record<string, number|null>,
  *   options: Record<string, 'Team'|'Player'|null>,
- *   guarantees?: Record<string, { status: 'full'|'partial'|'non-guaranteed', amount?: number, guaranteeDate?: string }>
+ *   guarantees?: Record<string, { status: 'full'|'partial'|'non-guaranteed', amount?: number, guaranteeDate?: string }>,
+ *   acquisition?: { date: string, method: 'draft'|'trade'|'free-agent'|'waiver'|'sign-and-trade'|'extension' }
  * }} PlayerRecord
  * @param {PlayerRecord[]} players
  * @returns {string}
@@ -61,6 +62,7 @@ export interface RawPlayerData {
   salary: Partial<Record<Season, number | null>>
   options: Partial<Record<Season, OptionType>>
   guarantees?: Partial<Record<Season, SeasonGuarantee>>
+  acquisition?: { date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension' }
 }
 
 export const RAW_PLAYER_DATA: RawPlayerData[] = [\n`
@@ -90,7 +92,12 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [\n`
       guaranteesField = `, guarantees: { ${serialized} }`
     }
 
-    output += `  { name: ${JSON.stringify(player.name)}, team: '${player.team}', salary: { ${salaryEntries} }, options: { ${optionEntries} }${guaranteesField} },\n`
+    let acquisitionField = ''
+    if (player.acquisition?.date && player.acquisition?.method) {
+      acquisitionField = `, acquisition: { date: '${player.acquisition.date}', method: '${player.acquisition.method}' }`
+    }
+
+    output += `  { name: ${JSON.stringify(player.name)}, team: '${player.team}', salary: { ${salaryEntries} }, options: { ${optionEntries} }${guaranteesField}${acquisitionField} },\n`
   }
 
   const teamNamesEntries = Object.entries(TEAM_NAMES)
