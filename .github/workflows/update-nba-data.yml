@@ -58,6 +58,7 @@ jobs:
       - name: Open pull request
         uses: peter-evans/create-pull-request@v7
         with:
+          base: main
           branch: data/auto-update
           delete-branch: true
           title: 'Data update'
