@@ -1,0 +1,48 @@
+name: Keep generated data in sync with main
+
+# Feature branches (qa-repo, etc.) drift behind main because the daily
+# scrape (update-nba-data.yml) commits straight to main and isn't merged
+# back into other branches. Left alone, merging a stale feature branch
+# into main would roll back however many days of scraped data it missed.
+# This job runs on every PR into main other than the auto-update PR itself
+# and forces the generated data files to match main's current copy before
+# the PR can matter, so a day's scrape can never be reverted by an
+# unrelated merge.
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  sync:
+    if: >
+      github.head_ref != 'data/auto-update' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: git fetch origin main
+
+      - run: node scripts/sync-generated-data-with-main.js
+
+      - name: Commit sync if needed
+        run: |
+          if git diff --quiet; then
+            echo "generated data already in sync with main"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add lib/player-data.ts lib/rookie-years.ts lib/draft-picks.ts \
+                    lib/team-cap-state.ts lib/contract-details.ts snapshots
+            git commit -m "chore(data): sync generated data with main"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
