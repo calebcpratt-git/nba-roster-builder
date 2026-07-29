@@ -1,0 +1,534 @@
+{
+ "tradeKickers": [
+  {
+   "player": "Nickeil Alexander-Walker",
+   "team": "Hawks",
+   "kickerPercent": 7.5,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "OG Anunoby",
+   "team": "Knicks",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "LaMelo Ball",
+   "team": "Hornets",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Nicolas Batum",
+   "team": "Clippers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Bradley Beal",
+   "team": "Clippers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Devin Booker",
+   "team": "Suns",
+   "kickerPercent": 10.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Jalen Brunson",
+   "team": "Knicks",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Clint Capela",
+   "team": "Rockets",
+   "kickerPercent": 5.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Anthony Edwards",
+   "team": "Timberwolves",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Dorian Finney-Smith",
+   "team": "Rockets",
+   "kickerPercent": 3.232,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Paul George",
+   "team": "Sixers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Shai Gilgeous-Alexander",
+   "team": "Thunder",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Rudy Gobert",
+   "team": "Timberwolves",
+   "kickerPercent": 7.5,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Aaron Gordon",
+   "team": "Nuggets",
+   "kickerPercent": 3.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Draymond Green",
+   "team": "Warriors",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Tyrese Haliburton",
+   "team": "Pacers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "James Harden",
+   "team": "Clippers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": "Traded",
+   "section": "active"
+  },
+  {
+   "player": "Al Horford",
+   "team": "Warriors",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Kyrie Irving",
+   "team": "Mavericks",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "LeBron James",
+   "team": "Lakers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Ty Jerome",
+   "team": "Grizzlies",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Derrick Jones",
+   "team": "Clippers",
+   "kickerPercent": 5.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Jonathan Kuminga",
+   "team": "Warriors",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": "Traded",
+   "section": "active"
+  },
+  {
+   "player": "Kawhi Leonard",
+   "team": "Clippers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Naji Marshall",
+   "team": "Mavericks",
+   "kickerPercent": 5.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Austin Reaves",
+   "team": "Lakers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Klay Thompson",
+   "team": "Mavericks",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Matisse Thybulle",
+   "team": "Trail Blazers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Myles Turner",
+   "team": "Bucks",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Derrick White",
+   "team": "Celtics",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "active"
+  },
+  {
+   "player": "Trae Young",
+   "team": "Hawks",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": "Traded",
+   "section": "active"
+  },
+  {
+   "player": "Ivica Zubac",
+   "team": "Clippers",
+   "kickerPercent": 5.0,
+   "kickerFixedAmount": null,
+   "note": "Traded",
+   "section": "active"
+  },
+  {
+   "player": "Giannis Antetokounmpo",
+   "team": "Bucks",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Scottie Barnes",
+   "team": "Raptors",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Jaylen Brown",
+   "team": "Celtics",
+   "kickerPercent": 7.0,
+   "kickerFixedAmount": 7,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Stephen Curry",
+   "team": "Warriors",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Darius Garland",
+   "team": "Cavaliers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": "Traded",
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Nikola Jokic",
+   "team": "Nuggets",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Evan Mobley",
+   "team": "Cavaliers",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Ja Morant",
+   "team": "Grizzlies",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Jayson Tatum",
+   "team": "Celtics",
+   "kickerPercent": 15.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "voided_at_max"
+  },
+  {
+   "player": "Mikal Bridges",
+   "team": "Knicks",
+   "kickerPercent": 5.69,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "future_extension"
+  },
+  {
+   "player": "Aaron Nesmith",
+   "team": "Pacers",
+   "kickerPercent": 7.5,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "future_extension"
+  },
+  {
+   "player": "Jakob Poeltl",
+   "team": "Raptors",
+   "kickerPercent": 5.0,
+   "kickerFixedAmount": null,
+   "note": null,
+   "section": "future_extension"
+  }
+ ],
+ "noTradeClauses": {
+  "explicitNoTradeClause": [
+   {
+    "player": "LeBron James",
+    "team": "Lakers",
+    "note": null
+   },
+   {
+    "player": "Damian Lillard",
+    "team": "Trail Blazers",
+    "note": null
+   }
+  ],
+  "implicitVetoOneYearBird": [
+   {
+    "player": "Thanasis Antetokounmpo",
+    "team": "Bucks",
+    "note": null
+   },
+   {
+    "player": "Nicolas Batum",
+    "team": "Clippers",
+    "note": null
+   },
+   {
+    "player": "Collin Gillespie",
+    "team": "Suns",
+    "note": null
+   },
+   {
+    "player": "Quentin Grimes",
+    "team": "Sixers",
+    "note": null
+   },
+   {
+    "player": "James Harden",
+    "team": "Clippers",
+    "note": "Traded"
+   },
+   {
+    "player": "Aaron Holiday",
+    "team": "Rockets",
+    "note": null
+   },
+   {
+    "player": "Joe Ingles",
+    "team": "Timberwolves",
+    "note": null
+   },
+   {
+    "player": "Kyle Lowry",
+    "team": "Sixers",
+    "note": null
+   },
+   {
+    "player": "Gary Payton II",
+    "team": "Warriors",
+    "note": null
+   },
+   {
+    "player": "Landry Shamet",
+    "team": "Knicks",
+    "note": null
+   },
+   {
+    "player": "Jericho Sims",
+    "team": "Bucks",
+    "note": null
+   },
+   {
+    "player": "Jae’Sean Tate",
+    "team": "Rockets",
+    "note": null
+   },
+   {
+    "player": "Cam Thomas",
+    "team": "Nets",
+    "note": null
+   },
+   {
+    "player": "Fred VanVleet",
+    "team": "Rockets",
+    "note": null
+   },
+   {
+    "player": "Moritz Wagner",
+    "team": "Magic",
+    "note": null
+   }
+  ],
+  "waivedImplicitVeto": [
+   {
+    "player": "Bismack Biyombo",
+    "team": "Spurs",
+    "note": null
+   },
+   {
+    "player": "Terence Davis",
+    "team": "Kings",
+    "note": null
+   },
+   {
+    "player": "Dante Exum",
+    "team": "Mavericks",
+    "note": null
+   },
+   {
+    "player": "Anthony Gill",
+    "team": "Wizards",
+    "note": null
+   },
+   {
+    "player": "Eric Gordon",
+    "team": "Sixers",
+    "note": null
+   },
+   {
+    "player": "Jeff Green",
+    "team": "Rockets",
+    "note": null
+   },
+   {
+    "player": "Jaxson Hayes",
+    "team": "Lakers",
+    "note": null
+   },
+   {
+    "player": "Bones Hyland",
+    "team": "Timberwolves",
+    "note": null
+   },
+   {
+    "player": "Jonathan Kuminga",
+    "team": "Warriors",
+    "note": null
+   },
+   {
+    "player": "Doug McDermott",
+    "team": "Kings",
+    "note": null
+   },
+   {
+    "player": "Jordan McLaughlin",
+    "team": "Spurs",
+    "note": null
+   },
+   {
+    "player": "Kevin Porter Jr.",
+    "team": "Bucks",
+    "note": null
+   },
+   {
+    "player": "Taurean Prince",
+    "team": "Bucks",
+    "note": null
+   },
+   {
+    "player": "Day’Ron Sharpe",
+    "team": "Nets",
+    "note": null
+   },
+   {
+    "player": "Garrett Temple",
+    "team": "Raptors",
+    "note": null
+   },
+   {
+    "player": "Gary Trent Jr.",
+    "team": "Bucks",
+    "note": null
+   },
+   {
+    "player": "Ziaire Williams",
+    "team": "Nets",
+    "note": null
+   }
+  ]
+ }
+}

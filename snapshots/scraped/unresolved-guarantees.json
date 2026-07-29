@@ -1,0 +1,56 @@
+[
+ {
+  "player": "Kam Jones",
+  "team": "Bulls",
+  "guaranteeDate": "2026-06-30",
+  "status": "partial",
+  "partialAmount": 1075459,
+  "fullAmount": 2150917,
+  "guaranteeTriggered": false,
+  "raw": "Partial guarantee ($1,075,459) increases to full guarantee ($2,150,917). ( ❌ )"
+ },
+ {
+  "player": "Jonas Valanciunas",
+  "team": "Nuggets",
+  "guaranteeDate": "2026-07-08",
+  "status": "partial",
+  "partialAmount": 2000000,
+  "fullAmount": 10000000,
+  "guaranteeTriggered": false,
+  "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
+ },
+ {
+  "player": "Quenton Jackson",
+  "team": "Pacers",
+  "guaranteeDate": "2026-07-15",
+  "status": "partial",
+  "partialAmount": 250000,
+  "fullAmount": 2584539,
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,584,539). ( ✅ )"
+ },
+ {
+  "player": "Taj Gibson",
+  "team": "Memphis Grizzlies",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Christian Koloko",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Duke Miles",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ }
+]

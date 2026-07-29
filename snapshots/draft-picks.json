@@ -1857,7 +1857,7 @@
     "protections": null,
     "pickNumber": null,
     "pickPool": "Denver Nuggets, Houston Rockets, Miami Heat, Memphis Grizzlies, Oklahoma City Thunder, Charlotte Hornets",
-    "rank": "Most favorable of DEN, HOU and MIA to MEM; second most and least favorable to OKC (via DEN to CHA to OKC or DEN to OKC; via OKC to MEM)"
+    "rank": "Most favorable of DEN, HOU and MIA to MEM; two least favorable to OKC (via DEN to CHA to OKC or DEN to OKC; via OKC to MEM)"
   },
   {
     "teamOwner": "Denver Nuggets",
@@ -2168,8 +2168,8 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": "Golden State Warriors, Phoenix Suns, Philadelphia Sixers, Washington Wizards",
-    "rank": "More favorable of GOS and PHX to PHL then other to WAS (via WAS)"
+    "pickPool": "Golden State Warriors, Phoenix Suns, Philadelphia Sixers, Washington Wizards, Los Angeles Clippers",
+    "rank": "More favorable of GOS and PHX to PHL then other to WAS [PHL may convey to LAC] (via WAS)"
   },
   {
     "teamOwner": "Golden State Warriors",
@@ -2348,8 +2348,8 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": "Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Miami Heat, Utah Jazz, San Antonio Spurs, Philadelphia Sixers",
-    "rank": "(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
+    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Indiana Pacers, Miami Heat, Utah Jazz, San Antonio Spurs",
+    "rank": "[PHL may convey to LAC] (via HOU to DET to OKC to NYK to NOP; via IND and MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
   },
   {
     "teamOwner": "Houston Rockets",
@@ -2492,8 +2492,8 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": "Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Miami Heat, Utah Jazz, San Antonio Spurs, Philadelphia Sixers",
-    "rank": "(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
+    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Indiana Pacers, Miami Heat, Oklahoma City Thunder, Utah Jazz, San Antonio Spurs, Houston Rockets, Detroit Pistons, New York Knicks, New Orleans Pelicans",
+    "rank": "[PHL may convey to LAC] (via IND and MIA to OKC to UTH to SAN to MIA; via HOU to DET to OKC to NYK to NOP; via OKC to PHL);"
   },
   {
     "teamOwner": "Indiana Pacers",
@@ -2662,6 +2662,18 @@
     "pickNumber": null,
     "pickPool": "Los Angeles Clippers, Denver Nuggets 6-30, Oklahoma City Thunder",
     "rank": "two most / more favorable of LAC, DEN 6-30 and OKC to OKC"
+  },
+  {
+    "teamOwner": "Los Angeles Clippers",
+    "year": 2027,
+    "round": "Second Round",
+    "teamFrom": null,
+    "swapOwner": null,
+    "swapOption": null,
+    "protections": null,
+    "pickNumber": null,
+    "pickPool": "Philadelphia Sixers, Golden State Warriors, Phoenix Suns, Washington Wizards, Oklahoma City Thunder, Houston Rockets, Indiana Pacers, Miami Heat, Detroit Pistons",
+    "rank": "Second most favorable of (i) PHL, (ii) more favorable of GOS and PHX (via WAS to PHL) and (iii) most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via IND and MIA to OKC; via OKC to PHL)"
   },
   {
     "teamOwner": "Los Angeles Clippers",
@@ -3346,6 +3358,18 @@
     "pickNumber": null,
     "pickPool": "Miami Heat, Oklahoma City Thunder, Houston Rockets, Indiana Pacers, San Antonio Spurs",
     "rank": "Least favorable of MIA, OKC, HOU, IND and SAN;"
+  },
+  {
+    "teamOwner": "Miami Heat",
+    "year": 2027,
+    "round": "Second Round",
+    "teamFrom": null,
+    "swapOwner": null,
+    "swapOption": null,
+    "protections": null,
+    "pickNumber": null,
+    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Miami Heat, Indiana Pacers, Oklahoma City Thunder, Utah Jazz, San Antonio Spurs, Houston Rockets, Detroit Pistons, New York Knicks, New Orleans Pelicans",
+    "rank": "[PHL may convey to LAC] (via MIA and IND to OKC to UTH to SAN to MIA; via HOU to DET to OKC to NYK to NOP; via OKC to PHL)"
   },
   {
     "teamOwner": "Miami Heat",
@@ -4124,8 +4148,8 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": "Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Miami Heat, Utah Jazz, San Antonio Spurs, Philadelphia Sixers",
-    "rank": "(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
+    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Indiana Pacers, Miami Heat, Utah Jazz, San Antonio Spurs",
+    "rank": "[PHL may convey to LAC] (via HOU to DET to OKC to NYK to NOP; via IND and MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
   },
   {
     "teamOwner": "Oklahoma City Thunder",
@@ -4640,8 +4664,8 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": null,
-    "rank": null
+    "pickPool": "",
+    "rank": "Own*;"
   },
   {
     "teamOwner": "Philadelphia Sixers",
@@ -4653,7 +4677,7 @@
     "protections": null,
     "pickNumber": null,
     "pickPool": "Golden State Warriors, Phoenix Suns, Washington Wizards",
-    "rank": "More favorable of GOS and PHX (via WAS);"
+    "rank": "More favorable of GOS and PHX (via WAS)*;"
   },
   {
     "teamOwner": "Philadelphia Sixers",
@@ -4665,7 +4689,7 @@
     "protections": null,
     "pickNumber": null,
     "pickPool": "Oklahoma City Thunder, Houston Rockets, Indiana Pacers, Miami Heat, Detroit Pistons, Philadelphia Sixers",
-    "rank": "Most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via MIA to OKC; via OKC to PHL)"
+    "rank": "Most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via MIA to OKC; via OKC to PHL)*"
   },
   {
     "teamOwner": "Philadelphia Sixers",
@@ -4846,6 +4870,18 @@
     "pickNumber": null,
     "pickPool": "Utah Jazz, Cleveland Cavaliers, Minnesota Timberwolves",
     "rank": "Least favorable of UTH (cannot be 1-5), CLE and MIN (via UTH)"
+  },
+  {
+    "teamOwner": "Phoenix Suns",
+    "year": 2027,
+    "round": "Second Round",
+    "teamFrom": null,
+    "swapOwner": null,
+    "swapOption": null,
+    "protections": null,
+    "pickNumber": null,
+    "pickPool": "Phoenix Suns, Golden State Warriors, Philadelphia Sixers, Washington Wizards, Los Angeles Clippers",
+    "rank": "More favorable of PHX and GOS to PHL then other to WAS [PHL may convey to LAC] (via WAS);"
   },
   {
     "teamOwner": "Phoenix Suns",
@@ -6236,8 +6272,8 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": "Utah Jazz, Memphis Grizzlies, Philadelphia Sixers",
-    "rank": "Less favorable of (i) UTH and (i) more favorable of MEM and PHL"
+    "pickPool": "Utah Jazz, Memphis Grizzlies, Philadelphia Sixers, Washington Wizards",
+    "rank": "Less favorable of (i) UTH and (i) more favorable of MEM and PHL (via UTH to WAS; via MEM swap for PHL; via MEM swap of MEM or PHL for UTH)"
   },
   {
     "teamOwner": "Washington Wizards",

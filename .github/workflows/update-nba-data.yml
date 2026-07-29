@@ -63,12 +63,16 @@ jobs:
           title: 'Data update'
           commit-message: 'chore(data): scheduled scrape'
           body: |
-            Automated scrape of Basketball Reference and RealGM.
+            Automated scrape of Basketball Reference, RealGM, Hoops Rumors, and nbacaptracker.com.
             Check the run log for record counts and the diff summary.
           add-paths: |
             lib/player-data.ts
             lib/draft-picks.ts
             lib/rookie-years.ts
+            lib/contract-details.ts
+            lib/team-cap-state.ts
             snapshots/players.json
             snapshots/draft-picks.json
+            snapshots/contract-details.json
+            snapshots/team-cap-state.json
             snapshots/scraped/
