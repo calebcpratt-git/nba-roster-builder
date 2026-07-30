@@ -3,13 +3,26 @@ import { Season } from './types'
 export interface DeadMoney { player: string; amount: number }        // waived/stretched cap hits
 export interface CapHold   { label: string; amount: number; kind: 'free-agent' | 'empty-roster' | 'draft-pick' }
 export interface HeldTPE   { id: string; amount: number; expires: string /* ISO date */; fromPlayer?: string }
+/** Already hard-capped this league year, and at which apron — a further
+ *  apron-crossing move is illegal regardless of this season's own math. */
+export interface HardCapStatus { apron: 1 | 2; trigger?: string }
+/** Remaining room under the 5.15%-of-cap cash-in-trade limit this league
+ *  year — send/receive are tracked separately and don't net against each other. */
+export interface CashLedger { availableToSend: number; availableToReceive: number }
 
 export interface TeamCapSeason {
   deadMoney: DeadMoney[]
   capHolds: CapHold[]        // offseason only
   heldTPEs: HeldTPE[]        // traded-player exceptions available to absorb salary
-  /** unlikely-bonus + exception amounts folded in so apron figure ≠ raw payroll */
+  /** Sum of scraped unlikely-incentive dollars across the roster — the
+   *  dominant reason Apron Team Salary ≠ raw cap hit. Smaller cap-hold/
+   *  rookie-minimum true-ups aren't sourced anywhere, so this is a close
+   *  lower bound on the real apron figure, not the exact number. */
   apronAddon?: number
+  /** present only for the current season — hard-cap status isn't a thing future seasons have yet */
+  hardCapped?: HardCapStatus
+  /** present only for the current season — a running balance, not a future projection */
+  cashLedger?: CashLedger
 }
 
 // abbr -> season -> state. Sparse and empty by design — no team facts have

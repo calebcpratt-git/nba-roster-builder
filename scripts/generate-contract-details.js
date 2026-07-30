@@ -15,7 +15,9 @@ function tsLiteral(value) {
 }
 
 /**
- * @typedef {{ name: string, tradeBonusPct?: number, noTradeClause?: boolean }} ContractDetailRecord
+ * @typedef {{ name: string, tradeBonusPct?: number, noTradeClause?: boolean,
+ *   signedUnder?: string,
+ *   incentives?: Record<string, { likely: number, unlikely: number }> }} ContractDetailRecord
  * @param {ContractDetailRecord[]} records
  */
 function buildContractDetailsBlock(records) {
@@ -24,11 +26,22 @@ function buildContractDetailsBlock(records) {
     const fields = []
     if (r.tradeBonusPct !== undefined) fields.push(`tradeBonusPct: ${tsLiteral(r.tradeBonusPct)}`)
     if (r.noTradeClause !== undefined) fields.push(`noTradeClause: ${tsLiteral(r.noTradeClause)}`)
+    if (r.signedUnder !== undefined) fields.push(`signedUnder: ${tsLiteral(r.signedUnder)}`)
+    if (r.incentives !== undefined && Object.keys(r.incentives).length > 0) {
+      const seasons = Object.entries(r.incentives)
+        .map(([season, v]) => `${JSON.stringify(season)}: { likely: ${moneyOrZero(v.likely)}, unlikely: ${moneyOrZero(v.unlikely)} }`)
+        .join(', ')
+      fields.push(`incentives: { ${seasons} }`)
+    }
     if (fields.length === 0) continue
     block += `  ${JSON.stringify(r.name)}: { ${fields.join(', ')} },\n`
   }
   block += `}\n${END_MARKER}`
   return block
+}
+
+function moneyOrZero(v) {
+  return typeof v === 'number' ? v : 0
 }
 
 function replaceGeneratedBlock(content, newBlock) {

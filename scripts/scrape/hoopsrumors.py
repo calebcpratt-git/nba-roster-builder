@@ -1,11 +1,13 @@
-"""Hoops Rumors: guarantee dates/status, trade kickers, no-trade clauses.
+"""Hoops Rumors: guarantee dates/status, trade kickers, no-trade clauses,
+cash-in-trade ledgers.
 
-Four page types from one source, matching the multi-page-type-per-module
+Five page types from one source, matching the multi-page-type-per-module
 convention already used in bbref.py:
   - parse_guarantee_dates()        Early Salary Guarantee Dates article
   - parse_non_guaranteed_by_team() Non-Guaranteed Contracts By Team article
   - parse_trade_kickers()          Players With Trade Kickers article
   - parse_veto_trades()            Players Who Can Veto Trades article
+  - parse_cash_in_trade()          Cash Sent, Received In NBA Trades article
 
 These are hand-written blog posts, not tabular data-stat markup like BBRef.
 Player names sit inside nested <strong><a> tags immediately followed by
@@ -26,6 +28,23 @@ MONEY = re.compile(r'\$([\d,]+)')
 ENTRY = re.compile(r'^(.+?)\s*\((.+?)\)\s*:\s*(.+?)$')
 KICKER_LINE = re.compile(r'^(.+?),\s*(\S.*?)\s*\(([\d.]+)%(?:\s*(?:or)\s*\$([\d,]+)[^)]*)?\)\s*(:\s*(.+))?$')
 NAME_TEAM = re.compile(r'^(.+?)\s*\((.+?)\)(:\s*(.+))?$')
+
+# Hoops Rumors writes out full team names ("Atlanta Hawks") on the cash-ledger
+# page — none of this module's other parsers have needed a name->abbr mapping
+# before (guarantee/kicker/veto records match by PLAYER name only), so this is
+# a new one, verified against all 30 <h3> headers on a live page.
+HR_TEAM_NAME_TO_ABBR = {
+    'Atlanta Hawks': 'ATL', 'Boston Celtics': 'BOS', 'Brooklyn Nets': 'BRK',
+    'Charlotte Hornets': 'CHO', 'Chicago Bulls': 'CHI', 'Cleveland Cavaliers': 'CLE',
+    'Dallas Mavericks': 'DAL', 'Denver Nuggets': 'DEN', 'Detroit Pistons': 'DET',
+    'Golden State Warriors': 'GSW', 'Houston Rockets': 'HOU', 'Indiana Pacers': 'IND',
+    'Los Angeles Clippers': 'LAC', 'Los Angeles Lakers': 'LAL', 'Memphis Grizzlies': 'MEM',
+    'Miami Heat': 'MIA', 'Milwaukee Bucks': 'MIL', 'Minnesota Timberwolves': 'MIN',
+    'New Orleans Pelicans': 'NOP', 'New York Knicks': 'NYK', 'Oklahoma City Thunder': 'OKC',
+    'Orlando Magic': 'ORL', 'Philadelphia 76ers': 'PHI', 'Phoenix Suns': 'PHO',
+    'Portland Trail Blazers': 'POR', 'Sacramento Kings': 'SAC', 'San Antonio Spurs': 'SAS',
+    'Toronto Raptors': 'TOR', 'Utah Jazz': 'UTA', 'Washington Wizards': 'WAS',
+}
 
 
 def _soup(path):
@@ -218,4 +237,40 @@ def parse_veto_trades(path):
                               'note': note.strip() if note else None})
     if not any(out.values()):
         raise RuntimeError('veto-trades parsed to zero rows — page layout changed')
+    return out
+
+
+def parse_cash_in_trade(path):
+    """-> [{team, availableToSend, availableToReceive}]
+    Verified against a live page: each team is an <h3> header followed by a
+    <ul> with exactly two top-level <li>s — "Cash available to send: $X" and
+    "Cash available to receive: $Y" — each wrapping its own nested <ul> of
+    per-transaction detail ("Sent $A to Team.") this function doesn't need.
+    Reads only the top-level <li>'s <strong> dollar figure, not the nested
+    list, so it never has to distinguish "available" running-balance lines
+    from individual transaction lines."""
+    entry = _entry(path)
+    out = []
+    for h3 in entry.find_all('h3'):
+        team = h3.get_text(strip=True)
+        ul = h3.find_next_sibling('ul')
+        if ul is None:
+            continue
+        rec = {'team': team}
+        for li in ul.find_all('li', recursive=False):
+            strong = li.find('strong')
+            if strong is None:
+                continue
+            amt = _money(strong.get_text(strip=True))
+            if not amt:
+                continue
+            label = li.get_text(' ', strip=True).lower()
+            if 'available to send' in label:
+                rec['availableToSend'] = amt[0]
+            elif 'available to receive' in label:
+                rec['availableToReceive'] = amt[0]
+        if 'availableToSend' in rec or 'availableToReceive' in rec:
+            out.append(rec)
+    if not out:
+        raise RuntimeError('cash-in-trade parsed to zero rows — page layout changed')
     return out
