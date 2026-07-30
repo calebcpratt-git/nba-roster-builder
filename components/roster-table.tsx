@@ -29,20 +29,21 @@ import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
 import { SignFreeAgentModal } from '@/components/sign-free-agent-modal'
 import { SaveCapSheetButton } from '@/components/save-cap-sheet-modal'
 import { getDisplayedSeasons } from '@/lib/contract-utils'
-import { Check, X, Info, Plus, RotateCcw } from 'lucide-react'
+import { Check, X, Info, Plus, RotateCcw, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-// Get salary color on a red > yellow > green gradient based on salary amount
+// Get salary pill classes on a red > yellow > green gradient based on salary amount
+// $50M+ = red, $30M-50M = orange, $15M-30M = amber/yellow, $5M-15M = lime, <$5M = green
 function getSalaryColor(salary: number): string {
-  // Define salary ranges for the gradient
-  // $50M+ = red, $30M-50M = orange, $15M-30M = amber/yellow, $5M-15M = lime, <$5M = green
-  if (salary >= 50000000) return 'text-red-500'
-  if (salary >= 35000000) return 'text-orange-500'
-  if (salary >= 20000000) return 'text-amber-500'
-  if (salary >= 10000000) return 'text-yellow-500'
-  if (salary >= 5000000) return 'text-lime-500'
-  return 'text-emerald-500'
+  if (salary >= 50000000) return 'bg-red-500/15 text-red-600'
+  if (salary >= 35000000) return 'bg-orange-500/15 text-orange-600'
+  if (salary >= 20000000) return 'bg-amber-500/15 text-amber-700'
+  if (salary >= 10000000) return 'bg-yellow-500/15 text-yellow-700'
+  if (salary >= 5000000) return 'bg-lime-500/15 text-lime-700'
+  return 'bg-emerald-500/15 text-emerald-700'
 }
+
+const SALARY_PILL_BASE = "font-mono font-semibold text-[11.5px] tabular-nums px-[7px] py-[2px] rounded-[5px]"
 
 function CapThresholdPopup({ season, total, thresholds }: {
   season: string
@@ -76,43 +77,46 @@ function CapThresholdPopup({ season, total, thresholds }: {
   )
 }
 
-function CapStatusCell({ proj }: { 
-  proj: { 
+function TotalPayrollCell({ proj }: {
+  proj: {
     season: string
     total: number
     status: CapStatus
-    thresholds: { name: string; value: number; type: string }[] 
-  } 
+    thresholds: { name: string; value: number; type: string }[]
+  }
 }) {
   const [isHovering, setIsHovering] = useState(false)
-  const statusColor = getCapStatusColor(proj.status)
+  const pillColor = getCapStatusColor(proj.status)
+  const labelColor = getTotalSalaryColor(proj.status)
 
   return (
     <Popover open={isHovering}>
       <PopoverTrigger asChild>
         <button
-          className={cn(
-            "text-[10px] font-bold px-1.5 py-0.5 rounded cursor-default transition-colors",
-            statusColor
-          )}
+          className="flex flex-col items-start gap-1 cursor-default"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          {proj.status}
+          <span className={cn("text-[12.5px] font-mono font-bold tabular-nums px-[7px] py-[2px] rounded-[5px]", pillColor)}>
+            {formatCurrency(proj.total)}
+          </span>
+          <span className={cn("text-[9px] font-bold uppercase tracking-wide pl-px", labelColor)}>
+            {proj.status}
+          </span>
         </button>
       </PopoverTrigger>
-      <PopoverContent 
-        side="top" 
-        align="center" 
+      <PopoverContent
+        side="top"
+        align="center"
         className="p-0"
         sideOffset={0}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <CapThresholdPopup 
+        <CapThresholdPopup
           season={proj.season}
-          total={proj.total} 
-          thresholds={proj.thresholds} 
+          total={proj.total}
+          thresholds={proj.thresholds}
         />
       </PopoverContent>
     </Popover>
@@ -150,10 +154,10 @@ function OptionSalaryCell({
   const label = optionType === 'Team' ? 'TO' : 'PO'
   const isDeclined = !isExercised
   
-  const optionTextColorClass = optionType === 'Team' 
-    ? 'text-amber-400' 
-    : 'text-sky-400'
-  
+  const optionTextColorClass = optionType === 'Team'
+    ? 'text-amber-700'
+    : 'text-sky-700'
+
   const optionBgClass = optionType === 'Team'
     ? 'bg-amber-500/20 hover:bg-amber-500/30'
     : 'bg-sky-500/20 hover:bg-sky-500/30'
@@ -191,12 +195,11 @@ function OptionSalaryCell({
           >
             <span
               className={cn(
-                "text-[12px] font-mono tabular-nums",
                 isDeclined
-                  ? "text-muted-foreground/50 line-through"
+                  ? "text-[12px] font-mono tabular-nums text-muted-foreground/50 line-through"
                   : isSaved
-                  ? "text-chart-2"
-                  : salaryColorClass
+                  ? cn(SALARY_PILL_BASE, "bg-chart-2/15 text-chart-2")
+                  : cn(SALARY_PILL_BASE, salaryColorClass)
               )}
             >
               {formatCurrency(salary)}
@@ -235,27 +238,27 @@ function OptionSalaryCell({
             <Button
               size="sm"
               variant={isExercised ? "default" : "outline"}
-              className="flex-1 h-7 text-xs"
+              className="flex-1 min-w-0 shrink h-7 px-2 text-xs"
               disabled={isExercised}
               onClick={() => {
                 onToggle(true)
                 setIsOpen(false)
               }}
             >
-              <Check className="h-3 w-3 mr-1" />
+              <Check className="h-3 w-3 mr-1 shrink-0" />
               Exercise
             </Button>
             <Button
               size="sm"
               variant={!isExercised ? "destructive" : "outline"}
-              className="flex-1 h-7 text-xs"
+              className="flex-1 min-w-0 shrink h-7 px-2 text-xs"
               disabled={!isExercised}
               onClick={() => {
                 onToggle(false)
                 setIsOpen(false)
               }}
             >
-              <X className="h-3 w-3 mr-1" />
+              <X className="h-3 w-3 mr-1 shrink-0" />
               Decline
             </Button>
           </div>
@@ -285,6 +288,8 @@ export function RosterTable() {
     togglePlayerOption,
     isOptionExercised,
     deletedContractIds,
+    setDeletedContractIds,
+    removeSavedContract,
     draftPickPlayers,
     pickNumberOverrides,
     setPickNumberOverride,
@@ -294,6 +299,7 @@ export function RosterTable() {
     savedTrades,
     tradedRosterPlayerIds,
     tradedPickIds,
+    selectedTeam,
   } = useRoster()
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean; startSeason?: Season }>({
@@ -324,7 +330,7 @@ export function RosterTable() {
       return { ...p, source: 'current' as const, sortSalary, isTraded: tradedRosterPlayerIds.has(p.id) }
     }),
     ...savedContracts
-      .filter((c) => (c.type === 'free-agent') && !deletedContractIds.has(c.id))
+      .filter((c) => c.type === 'free-agent')
       .map((c) => {
         const firstYearSalary = SEASONS.reduce<number>((first, season) => {
           if (first === 0 && c.salary[season]) return c.salary[season]!
@@ -342,6 +348,7 @@ export function RosterTable() {
           sortSalary: firstYearSalary,
           isMinimum: c.isMinimum || false,
           isTraded: tradedRosterPlayerIds.has(c.id),
+          isDeleted: deletedContractIds.has(c.id),
         }
       }),
     // Incoming trade players
@@ -411,18 +418,34 @@ export function RosterTable() {
           <div className="overflow-x-auto flex-1 min-h-0 overflow-y-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-border bg-muted/30">
-                  <th className="sticky left-0 bg-muted/30 px-3 py-1.5 text-left text-[11px] font-medium text-muted-foreground w-[220px]">
+                <tr className="bg-muted/30">
+                  <th className="sticky left-0 bg-muted/30 px-3 pt-1.5 text-left text-[10.5px] font-semibold uppercase tracking-wide text-muted-foreground w-[185px]">
                     Player
                   </th>
                   {displayedSeasons.map((season) => (
                     <th
                       key={season}
-                      className="px-2 py-1.5 text-center text-[11px] font-medium text-muted-foreground w-[95px]"
+                      className="px-2 pt-1.5 text-center text-[10.5px] font-semibold uppercase tracking-wide text-muted-foreground w-[108px]"
                     >
                       {season}
                     </th>
                   ))}
+                </tr>
+                <tr className="border-b border-border bg-muted/30">
+                  <th className="sticky left-0 bg-muted/30 px-3 pb-1.5 text-left text-[9px] font-medium uppercase tracking-wide text-muted-foreground/60 w-[185px]">
+                    Cap
+                  </th>
+                  {displayedSeasons.map((season) => {
+                    const cap = CAP_THRESHOLDS[season]?.find((t) => t.type === 'soft-cap')?.value
+                    return (
+                      <th
+                        key={season}
+                        className="px-2 pb-1.5 text-center text-[9px] font-mono text-muted-foreground/60 w-[108px]"
+                      >
+                        {cap ? formatCurrency(cap) : ''}
+                      </th>
+                    )
+                  })}
                 </tr>
               </thead>
               <tbody>
@@ -433,20 +456,22 @@ export function RosterTable() {
                   const isReleased = isReleasable && releasedRosterIds.has(player.id)
                   const isTraded = 'isTraded' in player && player.isTraded
                   const isTradeIncoming = player.source === 'trade-incoming'
+                  const isFreeAgentRow = player.source === 'saved' && 'type' in player && player.type === 'free-agent'
+                  const isFADeleted = isFreeAgentRow && 'isDeleted' in player && player.isDeleted
 
                   return (
                     <tr
                       key={player.id}
                       className={cn(
                         "group border-b border-border/50 hover:bg-muted/20 transition-colors",
-                        player.source === 'saved' && 'type' in player && player.type === 'free-agent' && "bg-sky-500/10",
+                        isFreeAgentRow && !isFADeleted && "bg-sky-500/10",
                         isTradeIncoming && "bg-chart-4/5",
-                        (isReleased || isTraded) && "opacity-40"
+                        (isReleased || isTraded || isFADeleted) && "opacity-40"
                       )}
                     >
                       <td className={cn(
                         "sticky left-0 px-3 py-1.5",
-                        player.source === 'saved' && 'type' in player && player.type === 'free-agent'
+                        isFreeAgentRow && !isFADeleted
                           ? "bg-sky-500/10"
                           : isTradeIncoming
                           ? "bg-chart-4/5"
@@ -455,7 +480,7 @@ export function RosterTable() {
                         <div className="flex items-center gap-1.5">
                           <span className={cn(
                             "font-medium text-[12px] whitespace-nowrap",
-                            (isReleased || isTraded) && "line-through text-muted-foreground"
+                            (isReleased || isTraded || isFADeleted) && "line-through text-muted-foreground"
                           )}>
                             {player.name}
                           </span>
@@ -467,7 +492,7 @@ export function RosterTable() {
                                 isTradeIncoming
                                   ? "text-chart-4 border-chart-4"
                                   : 'type' in player && player.type === 'free-agent'
-                                  ? "text-sky-400 border-sky-400"
+                                  ? "text-sky-700 border-sky-700"
                                   : "text-chart-2 border-chart-2"
                               )}
                             >
@@ -496,6 +521,41 @@ export function RosterTable() {
                               <RotateCcw className="h-3 w-3" />
                             </button>
                           )}
+                          {isFreeAgentRow && !isFADeleted && (
+                            <button
+                              onClick={() => {
+                                const newDeleted = new Set(deletedContractIds)
+                                newDeleted.add(player.id)
+                                setDeletedContractIds(newDeleted)
+                              }}
+                              className="opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 text-muted-foreground/50 hover:text-red-500"
+                              title="Remove signing"
+                            >
+                              <Trash2 className="h-3 w-3" />
+                            </button>
+                          )}
+                          {isFADeleted && (
+                            <div className="flex items-center gap-1 ml-0.5">
+                              <button
+                                onClick={() => {
+                                  const newDeleted = new Set(deletedContractIds)
+                                  newDeleted.delete(player.id)
+                                  setDeletedContractIds(newDeleted)
+                                }}
+                                className="text-muted-foreground hover:text-emerald-500 transition-colors"
+                                title="Undo"
+                              >
+                                <RotateCcw className="h-3 w-3" />
+                              </button>
+                              <button
+                                onClick={() => removeSavedContract(player.id)}
+                                className="text-muted-foreground hover:text-destructive transition-colors"
+                                title="Delete permanently"
+                              >
+                                <Trash2 className="h-3 w-3" />
+                              </button>
+                            </div>
+                          )}
                         </div>
                       </td>
                       {displayedSeasons.map((season, index) => {
@@ -507,7 +567,7 @@ export function RosterTable() {
                         const extensionSalary = (player.source === 'current' || player.source === 'trade-incoming')
                           ? (() => {
                               const ext = savedContracts.find(
-                                c => c.type === 'extension' && c.playerId === player.id && !deletedContractIds.has(c.id)
+                                c => c.type === 'extension' && c.playerId === player.id
                               )
                               return ext?.salary[season] || 0
                             })()
@@ -524,7 +584,7 @@ export function RosterTable() {
                             ? getEffectiveSalary(player as Player, s)
                             : (player.salary[s] || 0)
                           const hasExt = savedContracts.some(
-                            c => c.type === 'extension' && c.playerId === player.id && !deletedContractIds.has(c.id) && c.salary[s]
+                            c => c.type === 'extension' && c.playerId === player.id && c.salary[s]
                           )
                           return effectiveSal === 0 && !hasExt
                         })
@@ -580,17 +640,21 @@ export function RosterTable() {
 
                         // Regular salary without option - use gradient color
                         // Check if this salary is from an extension or MLE contract
-                        const extensionContract = (player.source === 'current' || player.source === 'trade-incoming')
+                        const extensionContractRaw = (player.source === 'current' || player.source === 'trade-incoming')
                           ? savedContracts.find(
-                              c => c.type === 'extension' && c.playerId === player.id && !deletedContractIds.has(c.id) && c.salary[season]
+                              c => c.type === 'extension' && c.playerId === player.id && c.salary[season]
                             )
                           : undefined
+                        const isExtensionDeleted = !!extensionContractRaw && deletedContractIds.has(extensionContractRaw.id)
+                        const extensionContract = extensionContractRaw && !isExtensionDeleted ? extensionContractRaw : undefined
                         const savedFAContract = player.source === 'saved'
-                          ? savedContracts.find(c => c.id === player.id && !deletedContractIds.has(c.id))
+                          ? savedContracts.find(c => c.id === player.id)
                           : undefined
-                        const editableContract = extensionContract ?? savedFAContract
+                        const isFAContractDeleted = !!savedFAContract && deletedContractIds.has(savedFAContract.id)
+                        const editableContract = extensionContract ?? (isFAContractDeleted ? undefined : savedFAContract)
                         const isExtensionSalary = !!extensionContract
-                        const isMLESalary = player.source === 'saved' && displaySalary > 0 &&
+                        const isCellDeleted = isExtensionDeleted || isFAContractDeleted
+                        const isMLESalary = player.source === 'saved' && !isFAContractDeleted && displaySalary > 0 &&
                           savedContracts.some(c => c.id === player.id && c.isMLE)
 
                         return (
@@ -600,7 +664,8 @@ export function RosterTable() {
                                 <button
                                   onClick={() => setEditContractModal({ contract: editableContract, player: player as Player, isOpen: true })}
                                   className={cn(
-                                    "text-[12px] font-mono tabular-nums rounded px-1 -mx-1 transition-colors hover:bg-muted/60 cursor-pointer",
+                                    SALARY_PILL_BASE,
+                                    "transition-opacity hover:opacity-70 cursor-pointer",
                                     getSalaryColor(displaySalary)
                                   )}
                                   title={`Edit ${player.name}'s ${editableContract.type === 'extension' ? 'extension' : 'contract'}`}
@@ -610,22 +675,45 @@ export function RosterTable() {
                               ) : (
                                 <span
                                   className={cn(
-                                    "text-[12px] font-mono tabular-nums",
-                                    getSalaryColor(displaySalary)
+                                    isCellDeleted
+                                      ? "text-[12px] font-mono tabular-nums text-muted-foreground/50 line-through"
+                                      : cn(SALARY_PILL_BASE, getSalaryColor(displaySalary))
                                   )}
                                 >
                                   {formatCurrency(displaySalary)}
                                 </span>
                               )}
                               {isExtensionSalary && (
-                                <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/20 text-purple-400">
+                                <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/15 text-purple-700">
                                   EXT
                                 </span>
                               )}
                               {isMLESalary && (
-                                <span className="text-[8px] px-0.5 rounded font-semibold bg-emerald-500/20 text-emerald-400">
+                                <span className="text-[8px] px-0.5 rounded font-semibold bg-emerald-500/15 text-emerald-700">
                                   MLE
                                 </span>
+                              )}
+                              {isExtensionDeleted && extensionContractRaw && (
+                                <div className="flex items-center gap-0.5">
+                                  <button
+                                    onClick={() => {
+                                      const newDeleted = new Set(deletedContractIds)
+                                      newDeleted.delete(extensionContractRaw.id)
+                                      setDeletedContractIds(newDeleted)
+                                    }}
+                                    className="text-muted-foreground hover:text-emerald-500 transition-colors"
+                                    title="Undo"
+                                  >
+                                    <RotateCcw className="h-3 w-3" />
+                                  </button>
+                                  <button
+                                    onClick={() => removeSavedContract(extensionContractRaw.id)}
+                                    className="text-muted-foreground hover:text-destructive transition-colors"
+                                    title="Delete permanently"
+                                  >
+                                    <Trash2 className="h-3 w-3" />
+                                  </button>
+                                </div>
                               )}
                             </div>
                       </td>
@@ -749,7 +837,7 @@ export function RosterTable() {
 
                       return (
                         <td key={season} className="px-2 py-1.5 text-left">
-                          <span className={cn("text-[12px] font-mono tabular-nums", getSalaryColor(salary))}>
+                          <span className={cn(SALARY_PILL_BASE, getSalaryColor(salary))}>
                             {formatCurrency(salary)}
                           </span>
                         </td>
@@ -813,7 +901,7 @@ export function RosterTable() {
 
                           return (
                             <td key={season} className="px-2 py-1.5 text-left">
-                              <span className={cn("text-[12px] font-mono tabular-nums", getSalaryColor(salary))}>
+                              <span className={cn(SALARY_PILL_BASE, getSalaryColor(salary))}>
                                 {formatCurrency(salary)}
                               </span>
                             </td>
@@ -826,38 +914,19 @@ export function RosterTable() {
               </tbody>
 
               <tfoot className="sticky bottom-0 bg-muted">
-                {/* Total Row */}
-                <tr className="border-t-2 border-border">
+                <tr className="border-t-2" style={{ borderTopColor: selectedTeam.primaryColor }}>
                   <td className="sticky left-0 bg-muted px-3 py-2">
-                    <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Total Salary</span>
+                    <span className="text-[12.5px] font-bold text-foreground">Total Payroll</span>
                   </td>
                   {displayedSeasons.map((season) => {
                     const proj = projections.find((p) => p.season === season)!
-                    const totalColor = getTotalSalaryColor(proj.status)
                     return (
                       <td key={season} className="px-2 py-2 text-left">
-                        <span className={cn("text-[12px] font-mono font-bold tabular-nums", totalColor)}>
-                          {formatCurrency(proj.total)}
-                        </span>
+                        <TotalPayrollCell proj={proj} />
                       </td>
                     )
                   })}
                   <td className="px-1 py-2"></td>
-                </tr>
-
-                {/* Cap Status Row */}
-                <tr className="">
-                  <td className="sticky left-0 bg-muted px-3 py-2">
-                    <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Cap Status</span>
-                  </td>
-                  {displayedSeasons.map((season) => {
-                    const proj = projections.find((p) => p.season === season)!
-                    return (
-                      <td key={season} className="px-2 py-2 text-left">
-                        <CapStatusCell proj={proj} />
-                      </td>
-                    )
-                  })}
                 </tr>
               </tfoot>
             </table>

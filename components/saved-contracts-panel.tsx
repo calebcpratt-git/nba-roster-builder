@@ -6,12 +6,12 @@ import { SavedContract } from '@/lib/types'
 import { formatCurrency, formatCurrencyFull } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { X, FileText, ArrowLeftRight, UserPlus, RotateCcw, Trash2, ChevronRight } from 'lucide-react'
 import { EditContractModal } from './edit-contract-modal'
+import { cn } from '@/lib/utils'
 
 export function SavedContractsPanel() {
-  const { savedContracts, removeSavedContract, updateSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
+  const { savedContracts, removeSavedContract, updateSavedContract, setDeletedContractIds, deletedContractIds, selectedTeam } = useRoster()
   const [deletingContractId, setDeletingContractId] = useState<string | null>(null)
   const [editingContract, setEditingContract] = useState<SavedContract | null>(null)
   const [isCollapsed, setIsCollapsed] = useState(true)
@@ -26,11 +26,11 @@ export function SavedContractsPanel() {
 
   if (savedContracts.length === 0) {
     return (
-      <Card className="bg-card border-border">
-        <CardHeader className="pb-3">
+      <Card className="border border-border rounded-lg overflow-hidden shadow-none py-0 gap-0">
+        <CardHeader className="py-2.5 px-3.5 gap-0 bg-accent">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-medium">Saved Contracts</CardTitle>
-            <Badge variant="secondary" className="text-xs">0 contracts</Badge>
+            <CardTitle className="text-[12.5px] font-semibold">Saved Contracts</CardTitle>
+            <span className="text-[12.5px] font-medium text-muted-foreground">0</span>
           </div>
         </CardHeader>
       </Card>
@@ -41,20 +41,30 @@ export function SavedContractsPanel() {
     <>
     <div
       onClick={() => setIsCollapsed(!isCollapsed)}
-      className="cursor-pointer rounded-lg"
+      className="cursor-pointer rounded-lg overflow-hidden border border-border"
+      style={!isCollapsed ? { borderColor: selectedTeam.primaryColor } : undefined}
     >
-    <Card className="bg-card border-border hover:bg-accent transition-colors">
-      <CardHeader className="pb-3 select-none">
+    <Card className="border-0 rounded-none shadow-none py-0 gap-0">
+      <CardHeader
+        className={cn(
+          "select-none py-2.5 px-3.5 gap-0 transition-colors [.border-b]:pb-2.5",
+          isCollapsed ? "bg-accent hover:bg-accent/70" : ""
+        )}
+        style={!isCollapsed ? { background: selectedTeam.primaryColor } : undefined}
+      >
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base font-medium">Saved Contracts</CardTitle>
+          <CardTitle className={cn("text-[12.5px] font-semibold", !isCollapsed && "text-white")}>
+            Saved Contracts
+          </CardTitle>
           <div className="flex items-center gap-2">
-            <Badge variant="secondary" className="text-xs">
-              {savedContracts.length} contract{savedContracts.length !== 1 ? 's' : ''}
-            </Badge>
+            <span className={cn("text-[12.5px] font-medium", isCollapsed ? "text-muted-foreground" : "text-white")}>
+              {savedContracts.length}
+            </span>
             <ChevronRight
-              className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
-                isCollapsed ? 'rotate-0' : 'rotate-90'
-              }`}
+              className={cn(
+                "h-4 w-4 transition-transform duration-300",
+                isCollapsed ? "rotate-0 text-muted-foreground" : "rotate-90 text-white/80"
+              )}
             />
           </div>
         </div>
@@ -66,7 +76,7 @@ export function SavedContractsPanel() {
         onClick={(e) => e.stopPropagation()}
       >
       <div className="overflow-hidden">
-      <CardContent>
+      <CardContent className="pt-4">
         <div className="space-y-2">
           {savedContracts.map((contract) => {
             const years = Object.keys(contract.salary).length

@@ -173,7 +173,7 @@ const MOVE_ICON_STYLE: Record<MoveKind, { Icon: typeof FileText; bg: string; fg:
   'free-agent': { Icon: UserPlus, bg: 'bg-chart-2/20', fg: 'text-chart-2' },
   trade: { Icon: ArrowLeftRight, bg: 'bg-chart-4/20', fg: 'text-chart-4' },
   option: { Icon: Ban, bg: 'bg-muted', fg: 'text-muted-foreground' },
-  release: { Icon: UserMinus, bg: 'bg-red-500/15', fg: 'text-red-400' },
+  release: { Icon: UserMinus, bg: 'bg-red-500/15', fg: 'text-red-600' },
 }
 
 // Derived live from the snapshot rather than trusting the persisted
@@ -371,7 +371,7 @@ export function CapSheetCard({
                       {move.detail && <p className="text-[10px] text-muted-foreground">{move.detail}</p>}
                     </div>
                     {isFuture && (
-                      <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-sky-500/15 text-sky-400 shrink-0">
+                      <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-sky-500/15 text-sky-700 shrink-0">
                         Future · {move.season}
                       </span>
                     )}

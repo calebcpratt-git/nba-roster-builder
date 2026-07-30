@@ -120,7 +120,7 @@ function ContractDetail({
                 {opt && (
                   <span className={cn(
                     'text-[8px] px-0.5 rounded font-semibold',
-                    opt === 'Team' ? 'bg-amber-500/20 text-amber-400' : 'bg-sky-500/20 text-sky-400'
+                    opt === 'Team' ? 'bg-amber-500/20 text-amber-700' : 'bg-sky-500/20 text-sky-700'
                   )}>
                     {opt === 'Team' ? 'TO' : 'PO'}
                   </span>
@@ -792,7 +792,7 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
                     <span className="text-muted-foreground">{formatCurrency(row.preTotal)}</span>
                     <span className="text-muted-foreground">→</span>
                     <span className={row.preStatus !== row.postStatus ? 'font-bold' : ''}>{formatCurrency(row.postTotal)}</span>
-                    <span className={cn('text-[10px]', row.delta > 0 ? 'text-red-400' : row.delta < 0 ? 'text-emerald-400' : 'text-muted-foreground')}>
+                    <span className={cn('text-[10px]', row.delta > 0 ? 'text-red-600' : row.delta < 0 ? 'text-emerald-600' : 'text-muted-foreground')}>
                       ({row.delta >= 0 ? '+' : '-'}
                       {formatCurrency(Math.abs(row.delta))})
                     </span>

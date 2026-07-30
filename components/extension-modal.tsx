@@ -30,7 +30,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
-import { Plus } from 'lucide-react'
+import { Plus, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface ExtensionModalProps {
@@ -75,7 +75,7 @@ function detectDistribution(salary: Partial<Record<Season, number>>): Distributi
 }
 
 export function ExtensionModal({ player, isOpen, startSeason, editingContract, onClose }: ExtensionModalProps) {
-  const { addSavedContract, updateSavedContract } = useRoster()
+  const { addSavedContract, updateSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -289,6 +289,15 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
     onClose()
   }
 
+  const handleDelete = () => {
+    if (!editingContract) return
+    const newDeleted = new Set(deletedContractIds)
+    newDeleted.add(editingContract.id)
+    setDeletedContractIds(newDeleted)
+    resetForm()
+    onClose()
+  }
+
   const isValid = isMaxContract
     ? numYears > 0 && maxContractSalaries !== null
     : totalValueNum > 0 && numYears > 0
@@ -443,6 +452,17 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
         </div>
 
         <div className="flex gap-2 pt-4">
+          {editingContract && (
+            <Button
+              variant="outline"
+              onClick={handleDelete}
+              className="h-8 text-sm text-destructive hover:text-destructive border-destructive/30 hover:bg-destructive/10"
+              title="Delete this extension"
+            >
+              <Trash2 className="h-3.5 w-3.5 mr-1.5" />
+              Delete
+            </Button>
+          )}
           <Button variant="outline" onClick={onClose} className="flex-1 h-8 text-sm">
             Cancel
           </Button>
