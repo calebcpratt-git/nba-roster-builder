@@ -89,8 +89,10 @@ export function getDisplayedSeasons(
     })
   })
 
+  // Deleted contracts are soft-deleted (greyed out, undoable) and still
+  // occupy their seasons in the table, so they count toward the displayed
+  // range the same as active contracts.
   savedContracts.forEach((contract) => {
-    if (deletedContractIds.has(contract.id)) return
     SEASONS.forEach((season, index) => {
       if (contract.salary[season] && contract.salary[season]! > 0) {
         maxSeasonIndex = Math.max(maxSeasonIndex, index)

@@ -16,6 +16,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { SignFreeAgentModal } from './sign-free-agent-modal'
 import { ChevronRight } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export function SignFreeAgentsPanel() {
   const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[0])
@@ -23,7 +24,7 @@ export function SignFreeAgentsPanel() {
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(true)
-  const { savedContracts, selectedTeamAbbr } = useRoster()
+  const { savedContracts, selectedTeamAbbr, selectedTeam } = useRoster()
 
   // Get all players whose first contract-free year in the DB matches the selected year
   const getAllFreeAgentsAndOptions = (year: Season) => {
@@ -97,18 +98,29 @@ export function SignFreeAgentsPanel() {
     <>
       <div
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="cursor-pointer rounded-lg"
+        className="cursor-pointer rounded-lg overflow-hidden border border-border"
+        style={!isCollapsed ? { borderColor: selectedTeam.primaryColor } : undefined}
       >
-        <Card className="hover:bg-accent transition-colors">
+        <Card className="border-0 rounded-none shadow-none py-0 gap-0">
           <CardHeader
-            className="pb-3 select-none"
+            className={cn(
+              "select-none py-2.5 px-3.5 gap-0 transition-colors [.border-b]:pb-2.5",
+              isCollapsed ? "bg-accent hover:bg-accent/70" : ""
+            )}
+            style={!isCollapsed ? { background: selectedTeam.primaryColor } : undefined}
           >
             <div className="flex items-center justify-between">
-              <CardTitle className="text-lg">Free Agents</CardTitle>
+              <CardTitle className={cn("text-[12.5px] font-semibold flex items-center gap-1.5", !isCollapsed && "text-white")}>
+                Free Agents
+                <span className={cn("font-medium", isCollapsed ? "text-muted-foreground" : "text-white/75")}>
+                  {freeAgents.length}
+                </span>
+              </CardTitle>
               <ChevronRight
-                className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
-                  isCollapsed ? 'rotate-0' : 'rotate-90'
-                }`}
+                className={cn(
+                  "h-4 w-4 transition-transform duration-300",
+                  isCollapsed ? "rotate-0 text-muted-foreground" : "rotate-90 text-white/80"
+                )}
               />
             </div>
           </CardHeader>
@@ -119,7 +131,7 @@ export function SignFreeAgentsPanel() {
             onClick={(e) => e.stopPropagation()}
           >
           <div className="overflow-hidden">
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 pt-4">
           <div className="flex gap-2">
             <Select value={selectedYear} onValueChange={(value) => setSelectedYear(value as Season)}>
               <SelectTrigger className="w-[140px]">

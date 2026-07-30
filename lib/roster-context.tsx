@@ -41,16 +41,20 @@ function guaranteedBySeasonFor(player: Player, getSalary: (p: Player, s: Season)
   return Object.keys(result).length > 0 ? result : undefined
 }
 
-// schema doc §3a — dead money, cap holds, and the apron addon are facts
-// imported from team-cap-state.ts, not derived from the roster/contracts
-// already summed above. Always 0 today since TEAM_CAP_STATE is empty, so
-// preTradeTotal is unchanged until real team-state data is entered.
+// schema doc §3a — dead money and the apron addon are facts imported from
+// team-cap-state.ts, not derived from the roster/contracts already summed
+// above. Cap holds are deliberately excluded here: they're nbacaptracker's
+// pending-free-agent hold projections out to 5 seasons, assuming a team
+// never renounces/re-signs, and this app has no UI to surface or resolve
+// them — folding them in blind produced $100M+ phantom jumps in the out
+// years (e.g. every minimum-salary FA hold stacking on top of real
+// contracts) with no way for the user to see why. Dead money is real and
+// unavoidable regardless of roster choices, so it stays in the total.
 function teamCapStateAddon(teamAbbr: string, season: Season): number {
   const state = getTeamCapState(teamAbbr, season)
   if (!state) return 0
   const deadMoney = state.deadMoney.reduce((sum, d) => sum + d.amount, 0)
-  const capHolds = state.capHolds.reduce((sum, h) => sum + h.amount, 0)
-  return deadMoney + capHolds + (state.apronAddon ?? 0)
+  return deadMoney + (state.apronAddon ?? 0)
 }
 
 interface RosterState {

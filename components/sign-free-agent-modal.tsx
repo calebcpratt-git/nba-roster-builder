@@ -30,6 +30,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
+import { Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface SignFreeAgentModalProps {
@@ -74,7 +75,7 @@ function detectDistribution(salary: Partial<Record<Season, number>>): Distributi
 }
 
 export function SignFreeAgentModal({ player, startingSeason, isOpen, editingContract, onClose }: SignFreeAgentModalProps) {
-  const { addSavedContract, updateSavedContract, selectedTeamAbbr, getTotalSalary, savedContracts, deletedContractIds } = useRoster()
+  const { addSavedContract, updateSavedContract, setDeletedContractIds, selectedTeamAbbr, getTotalSalary, savedContracts, deletedContractIds } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -354,6 +355,15 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     onClose()
   }
 
+  const handleDelete = () => {
+    if (!editingContract) return
+    const newDeleted = new Set(deletedContractIds)
+    newDeleted.add(editingContract.id)
+    setDeletedContractIds(newDeleted)
+    resetForm()
+    onClose()
+  }
+
   const isValid = isOverSecondApron || isOverFirstApronBelowSecondApron
     ? isMinimum && numYears > 0
     : isOverCapBelowFirstApron
@@ -555,6 +565,17 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
         </div>
 
         <div className="flex gap-2 pt-4">
+          {editingContract && (
+            <Button
+              variant="outline"
+              onClick={handleDelete}
+              className="h-8 text-sm text-destructive hover:text-destructive border-destructive/30 hover:bg-destructive/10"
+              title="Delete this contract"
+            >
+              <Trash2 className="h-3.5 w-3.5 mr-1.5" />
+              Delete
+            </Button>
+          )}
           <Button variant="outline" onClick={onClose} className="flex-1 h-8 text-sm">
             Cancel
           </Button>

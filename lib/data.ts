@@ -126,6 +126,19 @@ export const TEAMS: Record<string, { name: string; city: string; primaryColor: s
   WAS: { name: 'Wizards', city: 'Washington', primaryColor: '#002B5C', secondaryColor: '#E31837' },
 }
 
+// ESPN's CDN uses its own team codes, which diverge from ours for a handful of teams.
+const ESPN_TEAM_CODE_OVERRIDES: Record<string, string> = {
+  BRK: 'bkn',
+  CHO: 'cha',
+  NOP: 'no',
+  UTA: 'utah',
+}
+
+export function getTeamLogoUrl(teamAbbr: string): string {
+  const code = ESPN_TEAM_CODE_OVERRIDES[teamAbbr] || teamAbbr.toLowerCase()
+  return `https://a.espncdn.com/i/teamlogos/nba/500/${code}.png`
+}
+
 export function getCapStatus(total: number, thresholds: { type: string; value: number }[]): CapStatus {
   const secondApron = thresholds.find((t) => t.type === 'second-apron')?.value || 0
   const firstApron = thresholds.find((t) => t.type === 'first-apron')?.value || 0

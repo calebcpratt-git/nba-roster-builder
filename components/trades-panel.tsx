@@ -2,18 +2,46 @@
 
 import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { SavedTrade } from '@/lib/types'
-import { TEAM_NAMES } from '@/lib/data'
+import { SavedTrade, SEASONS } from '@/lib/types'
+import { TEAM_NAMES, formatCurrency } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { ArrowLeftRight, Plus, Trash2 } from 'lucide-react'
+import { ArrowLeftRight, ChevronRight, Plus, Trash2 } from 'lucide-react'
 import { TradeModal } from './trade-modal'
+import { cn } from '@/lib/utils'
+
+// The trade's first affected season, and each side's total salary for just
+// that season — mirrors the design's "Outgoing/Incoming (first season)" card.
+function getTradeFirstSeasonTotals(trade: SavedTrade, roster: { id: string; salary: Partial<Record<typeof SEASONS[number], number>> }[], draftPickPlayers: { id: string; salary: Partial<Record<typeof SEASONS[number], number>> }[]) {
+  const outgoingPlayers = trade.outgoingRosterPlayerIds
+    .map((id) => roster.find((p) => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => !!p)
+  const outgoingPicks = trade.outgoingPickIds
+    .map((id) => draftPickPlayers.find((p) => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => !!p)
+
+  const firstSeasonIndex = SEASONS.findIndex((season) =>
+    outgoingPlayers.some((p) => p.salary[season]) ||
+    outgoingPicks.some((p) => p.salary[season]) ||
+    trade.incomingPlayers.some((p) => p.salary[season]) ||
+    trade.incomingPicks.some((p) => p.salary[season])
+  )
+  const season = SEASONS[firstSeasonIndex === -1 ? 0 : firstSeasonIndex]
+
+  const outgoingTotal =
+    outgoingPlayers.reduce((sum, p) => sum + (p.salary[season] || 0), 0) +
+    outgoingPicks.reduce((sum, p) => sum + (p.salary[season] || 0), 0)
+  const incomingTotal =
+    trade.incomingPlayers.reduce((sum, p) => sum + (p.salary[season] || 0), 0) +
+    trade.incomingPicks.reduce((sum, p) => sum + (p.salary[season] || 0), 0)
+
+  return { season, outgoingTotal, incomingTotal }
+}
 
 export function TradesPanel() {
-  const { savedTrades, removeSavedTrade } = useRoster()
+  const { savedTrades, removeSavedTrade, roster, draftPickPlayers, selectedTeam } = useRoster()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingTrade, setEditingTrade] = useState<SavedTrade | null>(null)
+  const [isCollapsed, setIsCollapsed] = useState(true)
 
   function handleOpenEdit(trade: SavedTrade) {
     setEditingTrade(trade)
@@ -27,93 +55,108 @@ export function TradesPanel() {
 
   return (
     <>
-      <Card className="bg-card border-border">
-        <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <CardTitle className="text-base font-medium">Trades</CardTitle>
-              {savedTrades.length > 0 && (
-                <Badge variant="secondary" className="text-xs">
-                  {savedTrades.length} trade{savedTrades.length !== 1 ? 's' : ''}
-                </Badge>
-              )}
+      <div
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        className="cursor-pointer rounded-lg overflow-hidden border border-border"
+        style={!isCollapsed ? { borderColor: selectedTeam.primaryColor } : undefined}
+      >
+        <Card className="border-0 rounded-none shadow-none py-0 gap-0">
+          <CardHeader
+            className={cn(
+              "select-none py-2.5 px-3.5 gap-0 transition-colors [.border-b]:pb-2.5",
+              isCollapsed ? "bg-accent hover:bg-accent/70" : ""
+            )}
+            style={!isCollapsed ? { background: selectedTeam.primaryColor } : undefined}
+          >
+            <div className="flex items-center justify-between">
+              <CardTitle className={cn("text-[12.5px] font-semibold flex items-center gap-1.5", !isCollapsed && "text-white")}>
+                <ChevronRight
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-300",
+                    isCollapsed ? "rotate-0 text-muted-foreground" : "rotate-90 text-white/80"
+                  )}
+                />
+                Trades
+                <span className={cn("font-medium", isCollapsed ? "text-muted-foreground" : "text-white/75")}>
+                  {savedTrades.length}
+                </span>
+              </CardTitle>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setEditingTrade(null)
+                  setIsModalOpen(true)
+                }}
+                className={cn(
+                  "flex items-center gap-1 text-[11px] font-bold px-2.5 py-1.5 rounded-md transition-colors",
+                  isCollapsed
+                    ? "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                    : "bg-white/90 hover:bg-white"
+                )}
+                style={!isCollapsed ? { color: selectedTeam.primaryColor } : undefined}
+              >
+                <Plus className="h-3 w-3" />
+                Build Trade
+              </button>
             </div>
-            <Button
-              size="sm"
-              variant="outline"
-              className="h-7 text-xs gap-1"
-              onClick={() => { setEditingTrade(null); setIsModalOpen(true) }}
-            >
-              <Plus className="h-3 w-3" />
-              Build Trade
-            </Button>
-          </div>
-        </CardHeader>
+          </CardHeader>
+          <div
+            className={`grid transition-all duration-300 ease-in-out ${
+              isCollapsed ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]'
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="overflow-hidden">
+              <CardContent className="space-y-2.5 pt-3">
+                {savedTrades.length > 0 ? (
+                  savedTrades.map((trade) => {
+                    const teamName = TEAM_NAMES[trade.tradeTeamAbbr] || trade.tradeTeamAbbr
+                    const { season, outgoingTotal, incomingTotal } = getTradeFirstSeasonTotals(trade, roster, draftPickPlayers)
+                    const dateLabel = new Date(trade.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
 
-        {savedTrades.length > 0 && (
-          <CardContent className="pt-0 space-y-2">
-            {savedTrades.map((trade) => {
-              const teamName = TEAM_NAMES[trade.tradeTeamAbbr] || trade.tradeTeamAbbr
-              const outCount = trade.outgoingRosterPlayerIds.length + trade.outgoingPickIds.length
-              const inCount = trade.incomingPlayers.length + trade.incomingPicks.length
-
-              return (
-                <div
-                  key={trade.id}
-                  className="flex items-start justify-between p-3 rounded-lg border bg-chart-4/5 border-chart-4/20 hover:bg-chart-4/10 cursor-pointer transition-colors"
-                  onClick={() => handleOpenEdit(trade)}
-                >
-                  <div className="flex items-start gap-2 min-w-0">
-                    <div className="h-8 w-8 rounded-full flex items-center justify-center bg-chart-4/20 shrink-0 mt-0.5">
-                      <ArrowLeftRight className="h-4 w-4 text-chart-4" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-medium">Trade with {teamName}</p>
-                      <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-0.5">
-                        {trade.outgoingRosterPlayerIds.length > 0 && (
-                          <p className="text-xs text-muted-foreground">
-                            <span className="text-red-400">Out:</span>{' '}
-                            {trade.outgoingRosterPlayerIds.length} player{trade.outgoingRosterPlayerIds.length !== 1 ? 's' : ''}
-                            {trade.outgoingPickIds.length > 0 && `, ${trade.outgoingPickIds.length} pick${trade.outgoingPickIds.length !== 1 ? 's' : ''}`}
-                          </p>
-                        )}
-                        {trade.outgoingRosterPlayerIds.length === 0 && trade.outgoingPickIds.length > 0 && (
-                          <p className="text-xs text-muted-foreground">
-                            <span className="text-red-400">Out:</span>{' '}
-                            {trade.outgoingPickIds.length} pick{trade.outgoingPickIds.length !== 1 ? 's' : ''}
-                          </p>
-                        )}
-                        {trade.incomingPlayers.length > 0 && (
-                          <p className="text-xs text-muted-foreground">
-                            <span className="text-emerald-400">In:</span>{' '}
-                            {trade.incomingPlayers.map((p) => p.playerName).join(', ')}
-                            {trade.incomingPicks.length > 0 && `, ${trade.incomingPicks.length} pick${trade.incomingPicks.length !== 1 ? 's' : ''}`}
-                          </p>
-                        )}
-                        {trade.incomingPlayers.length === 0 && trade.incomingPicks.length > 0 && (
-                          <p className="text-xs text-muted-foreground">
-                            <span className="text-emerald-400">In:</span>{' '}
-                            {trade.incomingPicks.length} pick{trade.incomingPicks.length !== 1 ? 's' : ''}
-                          </p>
-                        )}
+                    return (
+                      <div
+                        key={trade.id}
+                        className="rounded-[7px] border border-border overflow-hidden cursor-pointer hover:bg-accent/40 transition-colors"
+                        onClick={() => handleOpenEdit(trade)}
+                      >
+                        <div className="px-2.5 py-2 bg-accent flex items-center justify-between gap-2">
+                          <span className="text-[12px] font-semibold text-foreground flex items-center gap-1.5 min-w-0">
+                            <ArrowLeftRight className="h-3 w-3 shrink-0 text-muted-foreground" />
+                            <span className="truncate">Trade with {teamName}</span>
+                          </span>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <span className="text-[9px] font-semibold text-muted-foreground">{dateLabel}</span>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); removeSavedTrade(trade.id) }}
+                              className="text-muted-foreground/60 hover:text-destructive transition-colors"
+                              title="Remove trade"
+                            >
+                              <Trash2 className="h-3 w-3" />
+                            </button>
+                          </div>
+                        </div>
+                        <div className="px-2.5 py-2 text-[11.5px] space-y-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-muted-foreground">Outgoing ({season})</span>
+                            <span className="font-mono tabular-nums font-medium">{formatCurrency(outgoingTotal)}</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-muted-foreground">Incoming ({season})</span>
+                            <span className="font-mono tabular-nums font-medium">{formatCurrency(incomingTotal)}</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-7 w-7 p-0 text-muted-foreground hover:text-destructive shrink-0"
-                    onClick={(e) => { e.stopPropagation(); removeSavedTrade(trade.id) }}
-                    title="Remove trade"
-                  >
-                    <Trash2 className="h-3.5 w-3.5" />
-                  </Button>
-                </div>
-              )
-            })}
-          </CardContent>
-        )}
-      </Card>
+                    )
+                  })
+                ) : (
+                  <p className="text-sm text-muted-foreground text-center py-2">No trades yet</p>
+                )}
+              </CardContent>
+            </div>
+          </div>
+        </Card>
+      </div>
 
       <TradeModal isOpen={isModalOpen} onClose={handleModalClose} editingTrade={editingTrade ?? undefined} />
     </>
