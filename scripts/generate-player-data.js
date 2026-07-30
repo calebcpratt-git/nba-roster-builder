@@ -147,6 +147,7 @@ function generatePlayerData(players, options = {}) {
   fs.writeFileSync(outputPath, output)
   saveSnapshot('players', players)
   console.log(`Generated ${players.length} players to ${outputPath}`)
+  return result
 }
 
 module.exports = { generatePlayerData, buildPlayerDataTs }

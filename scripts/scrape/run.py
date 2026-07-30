@@ -151,6 +151,23 @@ def _load_json(name, default):
     return json.load(open(path, encoding='utf-8'))
 
 
+UNRESOLVED_FILES = {
+    'draft-year': 'unresolved-draft-year',
+    'acquisition': 'unresolved-acquisition',
+    'guarantees': 'unresolved-guarantees',
+    'signing': 'unresolved-signing',
+}
+
+
+def count_unresolved():
+    """Snapshot of unresolved-*.json record counts, keyed by short label.
+    Called once before this run touches anything and once after, so main()
+    can tell whether this run introduced NEW unmatched entries (a real
+    regression worth blocking auto-merge on) versus carrying forward the
+    same steady-state undrafted/unmatched players every run has."""
+    return {label: len(_load_json(name, []) or []) for label, name in UNRESOLVED_FILES.items()}
+
+
 def build_players():
     """Parse the Basketball Reference half and write its three scraped files."""
     contracts = bbref.parse_contracts(os.path.join(RAW, 'bbref_contracts.html'))
@@ -532,6 +549,12 @@ def main():
     offline = '--offline' in sys.argv
     os.makedirs(OUT, exist_ok=True)
 
+    # Snapshot unresolved-*.json counts before this run touches anything, so
+    # we can tell afterward whether NEW unmatched entries appeared (a real
+    # regression) versus the same steady-state undrafted/unmatched players
+    # every run carries forward.
+    unresolved_before = count_unresolved()
+
     print('fetch:')
     failed = fetch_all(offline)
 
@@ -600,6 +623,23 @@ def main():
         skipped.append(f'apron-addon ({e})')
         print(f'  SKIP apron-addon — {e}\n       keeping last-good output')
 
+    unresolved_after = count_unresolved()
+    new_unresolved = {
+        label: max(0, unresolved_after[label] - unresolved_before.get(label, 0))
+        for label in UNRESOLVED_FILES
+    }
+    status = {
+        'written': written,
+        'staleSources': skipped,
+        'unresolved': {
+            'before': unresolved_before,
+            'after': unresolved_after,
+            'newUnresolved': sum(new_unresolved.values()),
+            'newByCategory': {k: v for k, v in new_unresolved.items() if v > 0},
+        },
+    }
+    json.dump(status, open(os.path.join(OUT, 'run-status.json'), 'w'), indent=1, ensure_ascii=False)
+
     if not written:
         print('\nERROR: every group failed this run — nothing to update.')
         sys.exit(1)
@@ -609,6 +649,10 @@ def main():
         print('WARN: skipped: ' + '; '.join(skipped) + '.')
         print('WARN: the generator diffs only groups that updated, so the PR '
               '(if any) will not touch the skipped data.')
+
+    if status['unresolved']['newUnresolved']:
+        print(f'\nWARN: {status["unresolved"]["newUnresolved"]} new unresolved entries this run: '
+              f'{status["unresolved"]["newByCategory"]}')
 
 
 if __name__ == '__main__':

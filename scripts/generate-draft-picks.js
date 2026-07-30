@@ -97,6 +97,7 @@ function generateDraftPicks(picks, options = {}) {
   fs.writeFileSync(outputPath, output)
   saveSnapshot('draft-picks', picks)
   console.log(`Generated ${picks.length} draft picks to ${outputPath}`)
+  return result
 }
 
 module.exports = { generateDraftPicks, buildDraftPicksBlock }
