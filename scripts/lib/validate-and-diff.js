@@ -110,6 +110,11 @@ function validateDraftPicks(records, errors) {
   })
 }
 
+const VALID_SIGNED_UNDER = new Set([
+  'minimum', 'rookie-scale', 'bird', 'early-bird', 'non-bird',
+  'non-taxpayer-mle', 'taxpayer-mle', 'room-mle', 'bi-annual', 'cap-room', 'max',
+])
+
 function validateContractDetails(records, errors) {
   records.forEach((record, i) => {
     if (!record.name || typeof record.name !== 'string' || !record.name.trim()) {
@@ -122,6 +127,20 @@ function validateContractDetails(records, errors) {
     }
     if (record.noTradeClause !== undefined && typeof record.noTradeClause !== 'boolean') {
       errors.push(`contract-details[${i}] (${record.name ?? 'unknown'}): noTradeClause must be boolean`)
+    }
+    if (record.signedUnder !== undefined && !VALID_SIGNED_UNDER.has(record.signedUnder)) {
+      errors.push(`contract-details[${i}] (${record.name ?? 'unknown'}): signedUnder "${record.signedUnder}" is not a recognized exception type`)
+    }
+    for (const [season, v] of Object.entries(record.incentives ?? {})) {
+      if (!/^\d{4}-\d{2}$/.test(season)) {
+        errors.push(`contract-details[${i}] (${record.name ?? 'unknown'}): incentives season "${season}" is not in 'YYYY-YY' format`)
+      }
+      for (const key of ['likely', 'unlikely']) {
+        const amt = v[key]
+        if (typeof amt !== 'number' || amt < 0 || amt > SALARY_CEILING) {
+          errors.push(`contract-details[${i}] (${record.name ?? 'unknown'}): incentives.${season}.${key} "${amt}" is not a number between 0 and $${SALARY_CEILING}`)
+        }
+      }
     }
   })
 }
@@ -139,6 +158,28 @@ function validateTeamCapState(records, errors) {
     for (const dm of record.deadMoney ?? []) {
       if (typeof dm.amount !== 'number' || dm.amount <= 0 || dm.amount > SALARY_CEILING) {
         errors.push(`team-cap-state[${i}] (${record.team}): deadMoney entry for "${dm.player}" has implausible amount ${dm.amount}`)
+      }
+    }
+    for (const t of record.heldTPEs ?? []) {
+      if (typeof t.amount !== 'number' || t.amount <= 0 || t.amount > SALARY_CEILING) {
+        errors.push(`team-cap-state[${i}] (${record.team}): heldTPE "${t.id}" has implausible amount ${t.amount}`)
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(t.expires ?? '')) {
+        errors.push(`team-cap-state[${i}] (${record.team}): heldTPE "${t.id}" expires "${t.expires}" is not in 'YYYY-MM-DD' format`)
+      }
+    }
+    if (record.hardCapped !== undefined && ![1, 2].includes(record.hardCapped.apron)) {
+      errors.push(`team-cap-state[${i}] (${record.team}): hardCapped.apron "${record.hardCapped.apron}" must be 1 or 2`)
+    }
+    if (record.apronAddon !== undefined && (typeof record.apronAddon !== 'number' || record.apronAddon < 0 || record.apronAddon > SALARY_CEILING)) {
+      errors.push(`team-cap-state[${i}] (${record.team}): apronAddon "${record.apronAddon}" is not a number between 0 and $${SALARY_CEILING}`)
+    }
+    if (record.cashLedger !== undefined) {
+      for (const key of ['availableToSend', 'availableToReceive']) {
+        const amt = record.cashLedger[key]
+        if (typeof amt !== 'number' || amt < 0 || amt > SALARY_CEILING) {
+          errors.push(`team-cap-state[${i}] (${record.team}): cashLedger.${key} "${amt}" is not a number between 0 and $${SALARY_CEILING}`)
+        }
       }
     }
   })

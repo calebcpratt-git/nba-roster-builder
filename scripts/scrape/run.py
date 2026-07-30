@@ -13,11 +13,18 @@ Resilience:
   exits non-zero if every group is unreachable.
 
 Groups (each independent — a failure in one never blocks the others):
-  players       BBRef contracts + draft classes             -> players.json, rookie-years.json, unresolved-draft-year.json
-  picks         RealGM future drafts                        -> draft-picks.json
-  enrichment    BBRef transactions + HR guarantee data       -> merged onto players.json (acquisition, guarantees)
-  clauses       HR trade kickers + veto-trades               -> contract-details.json
-  cap-state     nbacaptracker.com (30 team pages)            -> team-cap-state.json
+  players             BBRef contracts + draft classes             -> players.json, rookie-years.json, unresolved-draft-year.json
+  picks               RealGM future drafts                        -> draft-picks.json
+  enrichment          BBRef transactions + HR guarantee data       -> merged onto players.json (acquisition, guarantees)
+  clauses             HR trade kickers + veto-trades               -> contract-details.json
+  cap-state           nbacaptracker.com (30 team pages)            -> team-cap-state.json
+  salaryswish-league  SalarySwish trade-exception + hard-cap       -> merged onto team-cap-state.json (heldTPEs, hardCapped)
+                      trackers (2 league-wide pages)
+  signing-incentives  SalarySwish per-player pages (~475, cached   -> merged onto contract-details.json (signedUnder, incentives)
+                      between runs — see build_signing_incentives)
+  cash-ledger         Hoops Rumors cash-sent/received post         -> merged onto team-cap-state.json (cashLedger)
+  apron-addon         derived from signing-incentives' unlikely    -> merged onto team-cap-state.json (apronAddon)
+                      incentive sums — no new fetch of its own
 
 NOTE ON DATED URLS: the Hoops Rumors sources below are annual blog posts with
 season-specific URLs, not stable endpoints. HR_TRADE_KICKERS_URL and
@@ -32,24 +39,29 @@ search "hoopsrumors nba players with trade kickers 2026/27" and
 """
 import json, os, re, sys, time, random, unicodedata, urllib.request, urllib.error
 
-import bbref, realgm, hoopsrumors, captracker
+import bbref, realgm, hoopsrumors, captracker, salaryswish
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 RAW = os.path.join(ROOT, 'snapshots', 'raw')
 CAPTRACKER_RAW = os.path.join(RAW, 'nbacaptracker')
+SALARYSWISH_PLAYERS_RAW = os.path.join(RAW, 'salaryswish_players')
 OUT = os.path.join(ROOT, 'snapshots', 'scraped')
 ROOKIE_YEARS_TS = os.path.join(ROOT, 'lib', 'rookie-years.ts')
+SS_PLAYER_CACHE = os.path.join(OUT, 'salaryswish-players.json')
+SS_FETCH_DELAY = 1.2  # polite delay between per-player fetches — see salaryswish.py's module docstring
 
 UA = 'nba-roster-builder-pipeline/1.0 (personal project; +https://github.com/calebcpratt-git/nba-roster-builder)'
 CURRENT_DRAFT_YEAR = 2026          # bump each June after the draft
 DRAFT_YEARS = [CURRENT_DRAFT_YEAR, CURRENT_DRAFT_YEAR - 1]
 CURRENT_SEASON_YEAR = 2026         # calendar year the current season starts — bump each July
+CURRENT_SEASON_LABEL = f'{CURRENT_SEASON_YEAR}-{str(CURRENT_SEASON_YEAR + 1)[-2:]}'  # e.g. '2026-27'
 
 # UPDATE THESE EACH SEASON — see the module docstring note above.
 HR_GUARANTEE_DATES_URL = 'https://www.hoopsrumors.com/2026/05/early-nba-salary-guarantee-dates-for-2026-27.html'
 HR_NON_GUARANTEED_URL = 'https://www.hoopsrumors.com/2026/07/2026-27-non-guaranteed-contracts-by-team.html'
 HR_TRADE_KICKERS_URL = 'https://www.hoopsrumors.com/2025/08/nba-players-with-trade-kickers-in-2025-26.html'   # STALE — 2026/27 not yet published as of last update
 HR_VETO_TRADES_URL = 'https://www.hoopsrumors.com/2025/07/nba-players-who-can-veto-trades-in-2025-26.html'    # STALE — 2026/27 not yet published as of last update
+HR_CASH_IN_TRADE_URL = 'https://www.hoopsrumors.com/2025/08/cash-sent-received-in-nba-trades-for-2025-26.html'  # STALE — 2026/27 not yet published as of last update
 
 SOURCES = {
     'bbref_contracts': 'https://www.basketball-reference.com/contracts/players.html',
@@ -59,6 +71,9 @@ SOURCES = {
     'hr_non_guaranteed': HR_NON_GUARANTEED_URL,
     'hr_trade_kickers': HR_TRADE_KICKERS_URL,
     'hr_veto_trades': HR_VETO_TRADES_URL,
+    'hr_cash_in_trade': HR_CASH_IN_TRADE_URL,
+    'salaryswish_trade_exceptions': salaryswish.TRADE_EXCEPTION_URL,
+    'salaryswish_hard_cap': salaryswish.HARD_CAP_URL,
     **{f'bbref_draft_{y}': f'https://www.basketball-reference.com/draft/NBA_{y}.html' for y in DRAFT_YEARS},
 }
 
@@ -219,7 +234,7 @@ def build_enrichment():
     # --- guarantees (Hoops Rumors, two pages merged; exact-date page wins on conflict) ---
     exact = hoopsrumors.parse_guarantee_dates(os.path.join(RAW, 'hr_guarantee_dates.html'), CURRENT_SEASON_YEAR)
     team_wide = hoopsrumors.parse_non_guaranteed_by_team(os.path.join(RAW, 'hr_non_guaranteed.html'))
-    season_label = f'{CURRENT_SEASON_YEAR}-{str(CURRENT_SEASON_YEAR + 1)[-2:]}'  # e.g. '2026-27'
+    season_label = CURRENT_SEASON_LABEL
     VALID_GUARANTEE_STATUS = {'full', 'partial', 'non-guaranteed'}
     unresolved_guar = []
     matched_guar = 0
@@ -315,6 +330,190 @@ def build_cap_state(offline=False):
     print(f'  team-cap-state records {len(records)}   total dead-money entries {total_dead}')
 
 
+def build_salaryswish_league():
+    """SalarySwish's two league-wide trackers (TPEs, hard-cap status) merged
+    onto team-cap-state.json's CURRENT-season entries only — both are
+    "right now" facts, not per-season projections, so they don't apply to
+    the future seasons nbacaptracker otherwise projects. Requires
+    team-cap-state.json to already exist (build_cap_state runs first)."""
+    records = _load_json('team-cap-state', None)
+    if records is None:
+        raise RuntimeError('team-cap-state.json does not exist yet — run cap-state first')
+    tpes = salaryswish.parse_trade_exceptions(os.path.join(RAW, 'salaryswish_trade_exceptions.html'))
+    hard_caps = salaryswish.parse_hard_cap(os.path.join(RAW, 'salaryswish_hard_cap.html'))
+    tpes_by_team = {}
+    for t in tpes:
+        tpes_by_team.setdefault(t['team'], []).append(
+            {'id': t['id'], 'amount': t['amount'], 'expires': t['expires'], 'fromPlayer': t['fromPlayer']})
+    # A team can show up in both the tracker's 1st- and 2nd-apron tables at
+    # once (hard-capped at the 1st apron by one move, the 2nd by another,
+    # simultaneously) — verified live: 10/28 rows were exactly this. The 2nd
+    # apron is always the binding (more restrictive) constraint, so it wins.
+    hardcap_by_team = {}
+    for h in hard_caps:
+        existing = hardcap_by_team.get(h['team'])
+        if existing is None or h['apron'] > existing['apron']:
+            hardcap_by_team[h['team']] = {'apron': h['apron'], 'trigger': h['trigger']}
+    matched_tpe = matched_hc = 0
+    for r in records:
+        if r['season'] != CURRENT_SEASON_LABEL:
+            continue
+        if r['team'] in tpes_by_team:
+            r['heldTPEs'] = tpes_by_team[r['team']]
+            matched_tpe += 1
+        if r['team'] in hardcap_by_team:
+            r['hardCapped'] = hardcap_by_team[r['team']]
+            matched_hc += 1
+    json.dump(records, open(os.path.join(OUT, 'team-cap-state.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  held TPEs: {sum(len(v) for v in tpes_by_team.values())} across {matched_tpe} teams   '
+          f'hard-capped teams: {matched_hc}')
+
+
+def build_signing_incentives(offline=False):
+    """Per-player SalarySwish scrape -> signedUnder + incentives, merged onto
+    contract-details.json (written by build_clauses, which must run first).
+    One fetch per player (~475 league-wide) is a lot for a small independent
+    site to eat every day, so this only (re)fetches a player when they're new
+    to the cache (snapshots/scraped/salaryswish-players.json, committed like
+    every other scraped snapshot) or their team has changed since the cached
+    entry was written — a trade or new signing is exactly when the signing
+    method/incentives could have changed anyway. Everyone else is reused from
+    cache untouched."""
+    players = _load_json('players', None)
+    if players is None:
+        raise RuntimeError('players.json does not exist yet — run the players group first')
+    cache = _load_json('salaryswish-players', {})
+    os.makedirs(SALARYSWISH_PLAYERS_RAW, exist_ok=True)
+
+    new_cache = {}
+    unresolved = []
+    fetched = reused = 0
+    for p in players:
+        key = _base(p['name'])
+        team = p['team']
+        cached = cache.get(key)
+        if cached and cached.get('team') == team:
+            new_cache[key] = cached
+            reused += 1
+            continue
+        slug = salaryswish.slugify(p['name'])
+        path = os.path.join(SALARYSWISH_PLAYERS_RAW, f'{slug}.html')
+        if offline:
+            if not os.path.exists(path):
+                unresolved.append({'name': p['name'], 'team': team, 'reason': 'no offline snapshot'})
+                continue
+        else:
+            if not salaryswish.fetch_page(salaryswish.PLAYER_URL.format(slug=slug), path):
+                unresolved.append({'name': p['name'], 'team': team, 'reason': 'fetch failed'})
+                continue
+            fetched += 1
+            time.sleep(SS_FETCH_DELAY)
+        try:
+            parsed = salaryswish.parse_player(path, team)
+        except Exception as e:
+            unresolved.append({'name': p['name'], 'team': team, 'reason': f'parse error: {e}'})
+            continue
+        if parsed is None:
+            unresolved.append({'name': p['name'], 'team': team, 'reason': 'no matching contract block on page'})
+            continue
+        new_cache[key] = {'team': team, **parsed}
+
+    json.dump(new_cache, open(SS_PLAYER_CACHE, 'w'), indent=1, ensure_ascii=False)
+    json.dump(unresolved, open(os.path.join(OUT, 'unresolved-signing.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  signing/incentives: {reused} reused from cache, {fetched} freshly fetched, '
+          f'{len(unresolved)} unresolved')
+
+    details = _load_json('contract-details', [])
+    by_name = {r['name']: r for r in details}
+    for p in players:
+        entry = new_cache.get(_base(p['name']))
+        if entry is None:
+            continue
+        rec = by_name.setdefault(p['name'], {'name': p['name']})
+        if entry.get('signedUnder'):
+            rec['signedUnder'] = entry['signedUnder']
+        if entry.get('incentives'):
+            rec['incentives'] = entry['incentives']
+    json.dump(list(by_name.values()), open(os.path.join(OUT, 'contract-details.json'), 'w'), indent=1, ensure_ascii=False)
+
+
+def build_cash_ledger():
+    """Hoops Rumors' annual "Cash Sent, Received In NBA Trades" post ->
+    team-cap-state.json's CURRENT-season entries only (a running balance for
+    this league year, not something future seasons have a value for).
+    Requires team-cap-state.json to already exist (build_cap_state runs
+    first). Same dated-URL-bumped-each-season caveat as the other three
+    Hoops Rumors sources — see HR_CASH_IN_TRADE_URL above."""
+    records = _load_json('team-cap-state', None)
+    if records is None:
+        raise RuntimeError('team-cap-state.json does not exist yet — run cap-state first')
+    rows = hoopsrumors.parse_cash_in_trade(os.path.join(RAW, 'hr_cash_in_trade.html'))
+    by_team = {}
+    for r in rows:
+        abbr = hoopsrumors.HR_TEAM_NAME_TO_ABBR.get(r['team'])
+        if abbr is None:
+            continue
+        entry = {}
+        if 'availableToSend' in r:
+            entry['availableToSend'] = r['availableToSend']
+        if 'availableToReceive' in r:
+            entry['availableToReceive'] = r['availableToReceive']
+        by_team[abbr] = entry
+    matched = 0
+    for r in records:
+        if r['season'] != CURRENT_SEASON_LABEL:
+            continue
+        if r['team'] in by_team:
+            r['cashLedger'] = by_team[r['team']]
+            matched += 1
+    json.dump(records, open(os.path.join(OUT, 'team-cap-state.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  cash-in-trade ledger: {matched} teams')
+
+
+def build_apron_addon():
+    """Approximates TeamCapSeason.apronAddon as the sum, per team-season, of
+    each roster player's scraped unlikely-incentive dollars (from
+    build_signing_incentives, which must run first — this reads its output
+    off contract-details.json). Unlikely incentives are the field's own
+    definition of the dominant reason Apron Team Salary != a team's raw cap
+    hit — confirmed directly against SalarySwish's own "1st/2nd Apron Room"
+    tooltips, which define apron room as "the apron minus the cap hit minus
+    unlikely incentives", i.e. this literally is their addon. Smaller
+    cap-hold/rookie-minimum true-ups that can also fold into the real Apron
+    Team Salary aren't sourced anywhere, so this is a close lower bound, not
+    the exact figure — do not present it as authoritative to the dollar."""
+    players = _load_json('players', None)
+    if players is None:
+        raise RuntimeError('players.json does not exist yet — run the players group first')
+    details = _load_json('contract-details', None)
+    if details is None:
+        raise RuntimeError('contract-details.json does not exist yet — run clauses/signing-incentives first')
+    records = _load_json('team-cap-state', None)
+    if records is None:
+        raise RuntimeError('team-cap-state.json does not exist yet — run cap-state first')
+
+    team_by_name = {p['name']: p['team'] for p in players}
+    addon_by_key = {}
+    seen_keys = set()
+    for r in details:
+        team = team_by_name.get(r['name'])
+        if team is None:
+            continue
+        for season, amounts in (r.get('incentives') or {}).items():
+            key = (team, season)
+            seen_keys.add(key)
+            addon_by_key[key] = addon_by_key.get(key, 0) + (amounts.get('unlikely') or 0)
+
+    matched = 0
+    for r in records:
+        key = (r['team'], r['season'])
+        if key in seen_keys:
+            r['apronAddon'] = addon_by_key.get(key, 0)
+            matched += 1
+    json.dump(records, open(os.path.join(OUT, 'team-cap-state.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  apron addon (sum of unlikely incentives): {matched} team-season rows')
+
+
 # Each group is independent: a fetch or parse failure in one skips only that
 # group's output, leaving its last-committed snapshots/scraped/*.json in
 # place, and never blocks the others. The run only fails hard if every group
@@ -360,6 +559,46 @@ def main():
     except Exception as e:
         skipped.append(f'cap-state ({e})')
         print(f'  SKIP cap-state — {e}\n       keeping last-good output')
+
+    print('salaryswish-league (held TPEs, hard-cap status — merges onto team-cap-state.json):')
+    if {'salaryswish_trade_exceptions', 'salaryswish_hard_cap'} & failed:
+        skipped.append('salaryswish-league (fetch failed)')
+        print('  SKIP salaryswish-league — fetch failed; keeping last-good output')
+    else:
+        try:
+            build_salaryswish_league()
+            written.append('salaryswish-league')
+        except Exception as e:
+            skipped.append(f'salaryswish-league ({e})')
+            print(f'  SKIP salaryswish-league — {e}\n       keeping last-good output')
+
+    print('salaryswish player detail (signing method, incentives — one fetch per new/changed player):')
+    try:
+        build_signing_incentives(offline=offline)
+        written.append('signing-incentives')
+    except Exception as e:
+        skipped.append(f'signing-incentives ({e})')
+        print(f'  SKIP signing-incentives — {e}\n       keeping last-good output')
+
+    print('cash-in-trade ledger (Hoops Rumors — merges onto team-cap-state.json):')
+    if 'hr_cash_in_trade' in failed:
+        skipped.append('cash-ledger (fetch failed)')
+        print('  SKIP cash-ledger — fetch failed; keeping last-good output')
+    else:
+        try:
+            build_cash_ledger()
+            written.append('cash-ledger')
+        except Exception as e:
+            skipped.append(f'cash-ledger ({e})')
+            print(f'  SKIP cash-ledger — {e}\n       keeping last-good output')
+
+    print('apron addon (derived from signing-incentives\' unlikely-incentive sums):')
+    try:
+        build_apron_addon()
+        written.append('apron-addon')
+    except Exception as e:
+        skipped.append(f'apron-addon ({e})')
+        print(f'  SKIP apron-addon — {e}\n       keeping last-good output')
 
     if not written:
         print('\nERROR: every group failed this run — nothing to update.')

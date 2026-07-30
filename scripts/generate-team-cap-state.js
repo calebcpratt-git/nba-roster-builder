@@ -13,7 +13,11 @@ function moneyOrLiteral(v) {
 /**
  * @typedef {{ team: string, season: string,
  *   deadMoney: {player: string, amount: number}[],
- *   capHolds: {label: string, amount: number, kind: string}[] }} TeamCapStateRecord
+ *   capHolds: {label: string, amount: number, kind: string}[],
+ *   heldTPEs?: {id: string, amount: number, expires: string, fromPlayer?: string}[],
+ *   apronAddon?: number,
+ *   hardCapped?: {apron: 1 | 2, trigger?: string},
+ *   cashLedger?: {availableToSend: number, availableToReceive: number} }} TeamCapStateRecord
  * @param {TeamCapStateRecord[]} records - flat list, one per (team, season)
  */
 function buildTeamCapStateBlock(records) {
@@ -33,7 +37,20 @@ function buildTeamCapStateBlock(records) {
       const capHolds = (r.capHolds ?? [])
         .map((c) => `{ label: ${JSON.stringify(c.label)}, amount: ${moneyOrLiteral(c.amount)}, kind: '${c.kind}' }`)
         .join(', ')
-      block += `    '${r.season}': { deadMoney: [${deadMoney}], capHolds: [${capHolds}], heldTPEs: [] },\n`
+      const heldTPEs = (r.heldTPEs ?? [])
+        .map((t) => {
+          const fromPlayer = t.fromPlayer ? `, fromPlayer: ${JSON.stringify(t.fromPlayer)}` : ''
+          return `{ id: ${JSON.stringify(t.id)}, amount: ${moneyOrLiteral(t.amount)}, expires: ${JSON.stringify(t.expires)}${fromPlayer} }`
+        })
+        .join(', ')
+      const apronAddon = r.apronAddon != null ? `, apronAddon: ${moneyOrLiteral(r.apronAddon)}` : ''
+      const hardCapped = r.hardCapped
+        ? `, hardCapped: { apron: ${r.hardCapped.apron}${r.hardCapped.trigger ? `, trigger: ${JSON.stringify(r.hardCapped.trigger)}` : ''} }`
+        : ''
+      const cashLedger = r.cashLedger
+        ? `, cashLedger: { availableToSend: ${moneyOrLiteral(r.cashLedger.availableToSend)}, availableToReceive: ${moneyOrLiteral(r.cashLedger.availableToReceive)} }`
+        : ''
+      block += `    '${r.season}': { deadMoney: [${deadMoney}], capHolds: [${capHolds}], heldTPEs: [${heldTPEs}]${apronAddon}${hardCapped}${cashLedger} },\n`
     }
     block += `  },\n`
   }

@@ -72,7 +72,7 @@ if (contractDetails) generateContractDetails(contractDetails, { allowLargeDiff }
 const capState = readOptional('team-cap-state.json', 'team cap state (dead money, cap holds)')
 if (capState) generateTeamCapState(capState, { allowLargeDiff })
 
-for (const name of ['unresolved-acquisition.json', 'unresolved-guarantees.json']) {
+for (const name of ['unresolved-acquisition.json', 'unresolved-guarantees.json', 'unresolved-signing.json']) {
   const unresolvedExtra = readOptional(name, name)
   if (unresolvedExtra && unresolvedExtra.length) {
     console.log(`Note: ${unresolvedExtra.length} entries in ${name} could not be matched to a player.`)
