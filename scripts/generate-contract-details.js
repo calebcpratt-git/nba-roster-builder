@@ -83,6 +83,7 @@ function generateContractDetails(records, options = {}) {
   fs.writeFileSync(outputPath, output)
   saveSnapshot('contract-details', records)
   console.log(`Generated ${records.length} contract-detail records to ${outputPath}`)
+  return result
 }
 
 module.exports = { generateContractDetails, buildContractDetailsBlock }

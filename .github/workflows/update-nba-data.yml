@@ -20,6 +20,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
 
@@ -41,6 +42,16 @@ jobs:
       - name: Generate data files
         run: node scripts/generate-from-scrape.js ${{ github.event.inputs.accept_large_diff == 'true' && '--accept-large-diff' || '' }}
 
+      # run-status.json (written by run.py, then merged with validation
+      # results by generate-from-scrape.js) only exists if generation made it
+      # this far without a hard validation failure — see "Notify on failure"
+      # at the end of this job for that case.
+      - name: Determine run status
+        id: status
+        run: |
+          CLEAN=$(node -p "require('./snapshots/scraped/run-status.json').clean")
+          echo "clean=$CLEAN" >> "$GITHUB_OUTPUT"
+
       - name: Build smoke test
         run: pnpm build
         env:
@@ -56,6 +67,7 @@ jobs:
           retention-days: 7
 
       - name: Open pull request
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           base: main
@@ -63,9 +75,12 @@ jobs:
           delete-branch: true
           title: 'Data update'
           commit-message: 'chore(data): scheduled scrape'
-          body: |
-            Automated scrape of Basketball Reference, RealGM, Hoops Rumors, and nbacaptracker.com.
-            Check the run log for record counts and the diff summary.
+          body-path: snapshots/scraped/pr-body.md
+          # NOTE: written as "not-clean && reviewer || ''" rather than the more
+          # obvious "clean && '' || reviewer" — GitHub Actions' &&/|| ternary
+          # idiom collapses to the wrong branch when the truthy result would
+          # itself be an empty string, so the empty case has to come last.
+          reviewers: ${{ steps.status.outputs.clean != 'true' && 'calebcpratt-git' || '' }}
           add-paths: |
             lib/player-data.ts
             lib/draft-picks.ts
@@ -77,3 +92,30 @@ jobs:
             snapshots/contract-details.json
             snapshots/team-cap-state.json
             snapshots/scraped/
+
+      # No required review today, so a clean run (no stale sources, no new
+      # unresolved entries, no validation warnings — see
+      # scripts/generate-from-scrape.js's writeRunStatus) merges itself
+      # immediately instead of waiting for a manual look. The build smoke
+      # test already ran above, so this is only merging what's already been
+      # verified. A not-clean run skips this and leaves the PR open with
+      # calebcpratt-git requested as reviewer above.
+      - name: Auto-merge clean update
+        if: steps.status.outputs.clean == 'true' && steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr merge --squash --delete-branch "${{ steps.cpr.outputs.pull-request-number }}"
+
+      # Scheduled-workflow failures otherwise surface only as a red X buried
+      # in the Actions tab. Covers build breaks, a diff blocked by
+      # validate-and-diff.js, and any other step failure in this job.
+      - name: Notify on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Scheduled data update failed — $(date -u +%Y-%m-%d)" \
+            --assignee calebcpratt-git \
+            --body "The scheduled NBA data update failed. Run log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

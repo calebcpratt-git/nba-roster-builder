@@ -101,6 +101,7 @@ function generateTeamCapState(records, options = {}) {
   fs.writeFileSync(outputPath, output)
   saveSnapshot('team-cap-state', records)
   console.log(`Generated cap state for ${byTeamCount(records)} teams to ${outputPath}`)
+  return result
 }
 
 module.exports = { generateTeamCapState, buildTeamCapStateBlock }
