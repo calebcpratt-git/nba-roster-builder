@@ -5422,6 +5422,15 @@
   "bbrefId": "fontesi01"
  },
  {
+  "name": "Matisse Thybulle",
+  "team": "LAL",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "bbrefId": "thybuma01"
+ },
+ {
   "name": "Ziaire Williams",
   "team": "LAL",
   "salary": {
@@ -6053,23 +6062,6 @@
   }
  },
  {
-  "name": "Johni Broome",
-  "team": "PHI",
-  "salary": {
-   "2026-27": 2150917,
-   "2027-28": 2525901,
-   "2028-29": 2735698
-  },
-  "options": {
-   "2028-29": "Team"
-  },
-  "bbrefId": "broomjo01",
-  "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
-  }
- },
- {
   "name": "Noah Penda",
   "team": "ORL",
   "salary": {
@@ -6116,6 +6108,23 @@
   "bbrefId": "thierad01",
   "acquisition": {
    "date": "2025-07-06",
+   "method": "free-agent"
+  }
+ },
+ {
+  "name": "Johni Broome",
+  "team": "LAC",
+  "salary": {
+   "2026-27": 2150917,
+   "2027-28": 2525901,
+   "2028-29": 2735698
+  },
+  "options": {
+   "2028-29": "Team"
+  },
+  "bbrefId": "broomjo01",
+  "acquisition": {
+   "date": "2025-07-01",
    "method": "free-agent"
   }
  },
