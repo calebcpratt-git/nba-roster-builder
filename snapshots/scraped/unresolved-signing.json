@@ -1,0 +1,632 @@
+[
+ {
+  "name": "Anthony Davis",
+  "team": "WAS",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Giannis Antetokounmpo",
+  "team": "MIA",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jaylen Brown",
+  "team": "PHI",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Karl-Anthony Towns",
+  "team": "NYK",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jimmy Butler",
+  "team": "GSW",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Paul George",
+  "team": "BOS",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jaren Jackson Jr.",
+  "team": "UTA",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Zach LaVine",
+  "team": "SAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "James Harden",
+  "team": "CLE",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Ja Morant",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Darius Garland",
+  "team": "LAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Shai Gilgeous-Alexander",
+  "team": "OKC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Michael Porter Jr.",
+  "team": "BRK",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "LaMelo Ball",
+  "team": "MIN",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Desmond Bane",
+  "team": "ORL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jalen Green",
+  "team": "PHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jrue Holiday",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jerami Grant",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jordan Poole",
+  "team": "NOP",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Julius Randle",
+  "team": "BRK",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Tyler Herro",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Dejounte Murray",
+  "team": "NOP",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Walker Kessler",
+  "team": "LAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "RJ Barrett",
+  "team": "TOR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "De'Andre Hunter",
+  "team": "SAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jonathan Kuminga",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Naz Reid",
+  "team": "CHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Nic Claxton",
+  "team": "CHI",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Cameron Johnson",
+  "team": "DEN",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Miles Bridges",
+  "team": "PHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Damian Lillard",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kentavious Caldwell-Pope",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kyle Kuzma",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Ivica Zubac",
+  "team": "IND",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Dillon Brooks",
+  "team": "PHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Bradley Beal",
+  "team": "PHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Luguentz Dort",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Grayson Allen",
+  "team": "CHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Wendell Carter Jr.",
+  "team": "ORL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Klay Thompson",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Santi Aldama",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "John Collins",
+  "team": "DET",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Max Strus",
+  "team": "CLE",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Duncan Robinson",
+  "team": "DET",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Terance Mann",
+  "team": "BRK",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Gary Trent Jr.",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Isaiah Stewart",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Caris LeVert",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Dennis Schröder",
+  "team": "CLE",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Josh Green",
+  "team": "MIN",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Bobby Portis",
+  "team": "MIA",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Nickeil Alexander-Walker",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Grant Williams",
+  "team": "CHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Corey Kispert",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Robert Williams",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Zaccharie Risacher",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Dorian Finney-Smith",
+  "team": "CHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Deni Avdija",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Donte DiVincenzo",
+  "team": "MIN",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Alex Sarr",
+  "team": "WAS",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Isaac Okoro",
+  "team": "CHI",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Isaiah Joe",
+  "team": "DET",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Royce O'Neale",
+  "team": "CHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Derrick Jones Jr.",
+  "team": "LAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Caleb Martin",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Buddy Hield",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Aaron Wiggins",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Ron Holland",
+  "team": "DET",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Mikel Brown Jr.",
+  "team": "BRK",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Max Christie",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Deandre Ayton",
+  "team": "WAS",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kelly Oubre Jr.",
+  "team": "IND",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Darius Acuff Jr.",
+  "team": "SAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Taylor Hendricks",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Egor Dёmin",
+  "team": "BRK",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Isaiah Jackson",
+  "team": "LAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Rob Dillingham",
+  "team": "CHI",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Morez Johnson Jr.",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Tim Hardaway Jr.",
+  "team": "MIA",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Saddiq Bey",
+  "team": "NOP",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "John Konchar",
+  "team": "UTA",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jaden Hardy",
+  "team": "LAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "D'Angelo Russell",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jaime Jaquez Jr.",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kris Dunn",
+  "team": "LAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Khris Middleton",
+  "team": "WAS",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Cam Whitmore",
+  "team": "WAS",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kevin Porter Jr.",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kris Murray",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Marcus Sasser",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Devin Carter",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Bub Carrington",
+  "team": "WAS",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kel'el Ware",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Yang Hansen",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jared McCain",
+  "team": "OKC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Christian Anderson Jr.",
+  "team": "CHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Walter Clayton",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Svi Mykhailiuk",
+  "team": "UTA",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Kasparas Jakučionis",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Taurean Prince",
+  "team": "DET",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Gary Harris",
+  "team": "DET",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Cole Anthony",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Labaron Philon Jr.",
+  "team": "PHI",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "AJ Johnson",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Sergio de Larrea",
+  "team": "DAL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Nassir Little",
+  "team": "PHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Alex Karaban",
+  "team": "SAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Yanic Konan Niederhäuser",
+  "team": "LAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Bones Hyland",
+  "team": "MIN",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Micah Potter",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Vít Krejčí",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Jay Huff",
+  "team": "IND",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Christian Koloko",
+  "team": "NOP",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Larry Nance Jr.",
+  "team": "IND",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Marvin Bagley III",
+  "team": "DEN",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Tolu Smith",
+  "team": "DET",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Mouhamadou Gueye",
+  "team": "CHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Trayce Jackson-Davis",
+  "team": "TOR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Leonard Miller",
+  "team": "CHI",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Cam Christie",
+  "team": "LAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Johni Broome",
+  "team": "LAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Ryan Nembhard",
+  "team": "ATL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "E.J. Liddell",
+  "team": "PHO",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Vasilije Micić",
+  "team": "MIL",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Mamadi Diakite",
+  "team": "MEM",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Didi Louzada",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ }
+]
