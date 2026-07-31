@@ -2348,18 +2348,6 @@
   "swapOption": null,
   "protections": null,
   "pickNumber": null,
-  "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Indiana Pacers, Miami Heat, Utah Jazz, San Antonio Spurs",
-  "rank": "[PHL may convey to LAC] (via HOU to DET to OKC to NYK to NOP; via IND and MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
- },
- {
-  "teamOwner": "Houston Rockets",
-  "year": 2027,
-  "round": "Second Round",
-  "teamFrom": null,
-  "swapOwner": null,
-  "swapOption": null,
-  "protections": null,
-  "pickNumber": null,
   "pickPool": "Portland Trail Blazers, New Orleans Pelicans, Boston Celtics",
   "rank": "Less favorable of POR and NOP if 56-60 (via POR to BOS)"
  },
@@ -2482,18 +2470,6 @@
   "pickNumber": null,
   "pickPool": null,
   "rank": null
- },
- {
-  "teamOwner": "Indiana Pacers",
-  "year": 2027,
-  "round": "Second Round",
-  "teamFrom": null,
-  "swapOwner": null,
-  "swapOption": null,
-  "protections": null,
-  "pickNumber": null,
-  "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Indiana Pacers, Miami Heat, Oklahoma City Thunder, Utah Jazz, San Antonio Spurs, Houston Rockets, Detroit Pistons, New York Knicks, New Orleans Pelicans",
-  "rank": "[PHL may convey to LAC] (via IND and MIA to OKC to UTH to SAN to MIA; via HOU to DET to OKC to NYK to NOP; via OKC to PHL);"
  },
  {
   "teamOwner": "Indiana Pacers",
@@ -3361,18 +3337,6 @@
  },
  {
   "teamOwner": "Miami Heat",
-  "year": 2027,
-  "round": "Second Round",
-  "teamFrom": null,
-  "swapOwner": null,
-  "swapOption": null,
-  "protections": null,
-  "pickNumber": null,
-  "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Miami Heat, Indiana Pacers, Oklahoma City Thunder, Utah Jazz, San Antonio Spurs, Houston Rockets, Detroit Pistons, New York Knicks, New Orleans Pelicans",
-  "rank": "[PHL may convey to LAC] (via MIA and IND to OKC to UTH to SAN to MIA; via HOU to DET to OKC to NYK to NOP; via OKC to PHL)"
- },
- {
-  "teamOwner": "Miami Heat",
   "year": 2029,
   "round": "First Round",
   "teamFrom": null,
@@ -4138,18 +4102,6 @@
   "pickNumber": null,
   "pickPool": null,
   "rank": null
- },
- {
-  "teamOwner": "Oklahoma City Thunder",
-  "year": 2027,
-  "round": "Second Round",
-  "teamFrom": null,
-  "swapOwner": null,
-  "swapOption": null,
-  "protections": null,
-  "pickNumber": null,
-  "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Indiana Pacers, Miami Heat, Utah Jazz, San Antonio Spurs",
-  "rank": "[PHL may convey to LAC] (via HOU to DET to OKC to NYK to NOP; via IND and MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
  },
  {
   "teamOwner": "Oklahoma City Thunder",
