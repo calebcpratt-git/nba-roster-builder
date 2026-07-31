@@ -369,6 +369,7 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [
   { name: "Justin Champagnie", team: 'WAS', salary: { '2026-27': 2667944, '2027-28': 3005085 }, options: { '2027-28': 'Team' }, guarantees: { '2026-27': { status: 'non-guaranteed' } }, acquisition: { date: '2026-03-22', method: 'free-agent' } },
   { name: "Vít Krejčí", team: 'POR', salary: { '2026-27': 2667944, '2027-28': 3005085 }, options: { '2027-28': 'Team' }, guarantees: { '2026-27': { status: 'partial', amount: 250000, guaranteeDate: '2026-10-15' } } },
   { name: "Jay Huff", team: 'IND', salary: { '2026-27': 2667944, '2027-28': 3005085 }, options: {  } },
+  { name: "Christian Koloko", team: 'NOP', salary: { '2026-27': 2625627 }, options: {  }, guarantees: { '2026-27': { status: 'non-guaranteed' } }, acquisition: { date: '2026-01-16', method: 'free-agent' } },
   { name: "Kobe Sanders", team: 'LAC', salary: { '2026-27': 2622139, '2027-28': 2753246, '2028-29': 2884353, '2029-30': 3019474 }, options: { '2029-30': 'Team' }, acquisition: { date: '2026-02-07', method: 'free-agent' } },
   { name: "Jamaree Bouyea", team: 'PHO', salary: { '2026-27': 2584539 }, options: {  }, guarantees: { '2026-27': { status: 'non-guaranteed' } }, acquisition: { date: '2026-03-02', method: 'free-agent' } },
   { name: "Jamal Cain", team: 'ORL', salary: { '2026-27': 2584539 }, options: { '2026-27': 'Team' }, guarantees: { '2026-27': { status: 'non-guaranteed' } }, acquisition: { date: '2026-03-20', method: 'free-agent' } },
