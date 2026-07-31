@@ -224,7 +224,34 @@ def _pool_and_rank(line):
     return pool, line
 
 
+# A line's via-chain names every team the pick's rights ever passed through en
+# route to its current state, but only the team(s) named in a leading
+# "[TEAM may convey to TEAM]" / "[TEAM can swap with TEAM]" annotation can
+# actually end up owning it. Without this, RealGM republishing the same
+# compound-chain note on every entangled team's own page (PHI, LAC, IND, MIA,
+# OKC, UTH, SAN, HOU, DET, NYK, NOP, ...) mints a teamOwner row for each of
+# them, even though e.g. IND was only ever a pass-through link, not a
+# candidate recipient.
+_CONVEY_ELIGIBLE = re.compile(
+    rf'^\[({CODE})\s+(?:may|can|will)\s+convey(?:\s+({CODE}))?\s+to\s+({CODE})', re.I)
+_SWAP_ELIGIBLE = re.compile(
+    rf'^\[({CODE})\s+can\s+(?:then\s+)?swap\s+with\s+({CODE})\]', re.I)
+
+
+def _eligible_owners(line):
+    """Parse a leading bracket annotation for the real set of possible
+    recipients. Returns None when the line carries no such annotation --
+    nothing to restrict on, so the old unrestricted behavior applies."""
+    m = _CONVEY_ELIGIBLE.match(line) or _SWAP_ELIGIBLE.match(line)
+    if not m:
+        return None
+    return {_full(c) for c in m.groups() if c}
+
+
 def _match_complex(line, section_team):
+    eligible = _eligible_owners(line)
+    if eligible is not None and section_team not in eligible:
+        return None
     pool, rank = _pool_and_rank(line)
     return {'teamOwner': section_team, 'pickPool': ', '.join(pool), 'rank': rank}
 
@@ -316,6 +343,8 @@ def parse_picks(path):
                      or _match_frozen(line, team)
                      or _match_simple_favorable(line, team)
                      or _match_complex(line, team))
+            if match is None:
+                continue    # complex line named a bracket that excludes this team
             match.setdefault('year', year)
             match.setdefault('round', round_)
             match['_srcLine'] = line
