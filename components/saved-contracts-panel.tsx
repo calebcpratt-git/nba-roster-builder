@@ -76,7 +76,7 @@ export function SavedContractsPanel() {
         onClick={(e) => e.stopPropagation()}
       >
       <div className="overflow-hidden">
-      <CardContent className="pt-4">
+      <CardContent className="px-3.5 pt-3 pb-3.5">
         <div className="space-y-2">
           {savedContracts.map((contract) => {
             const years = Object.keys(contract.salary).length
