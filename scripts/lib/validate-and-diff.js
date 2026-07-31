@@ -161,7 +161,7 @@ function validateTeamCapState(records, errors) {
       }
     }
     for (const t of record.heldTPEs ?? []) {
-      if (typeof t.amount !== 'number' || t.amount <= 0 || t.amount > SALARY_CEILING) {
+      if (typeof t.amount !== 'number' || t.amount < 0 || t.amount > SALARY_CEILING) {
         errors.push(`team-cap-state[${i}] (${record.team}): heldTPE "${t.id}" has implausible amount ${t.amount}`)
       }
       if (!/^\d{4}-\d{2}-\d{2}$/.test(t.expires ?? '')) {

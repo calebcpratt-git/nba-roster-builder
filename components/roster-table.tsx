@@ -776,7 +776,7 @@ export function RosterTable() {
                               >
                                 <SelectTrigger
                                   size="sm"
-                                  className="h-[18px] text-[10px] px-1.5 py-0 min-w-0 w-auto gap-0.5 border-border/50 text-muted-foreground"
+                                  className="!h-[18px] text-[10px] px-1.5 py-0 min-w-0 w-auto gap-0.5 border-border/50 text-muted-foreground"
                                 >
                                   <SelectValue />
                                 </SelectTrigger>
