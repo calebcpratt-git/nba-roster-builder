@@ -4,6 +4,17 @@
 // back on merge. Fully-generated files are replaced wholesale with main's
 // copy; files that mix hand-written code with a generated block only have
 // the GENERATED:START..GENERATED:END region forced to match main.
+//
+// IMPORTANT: this only overwrites a file/block if THIS BRANCH hasn't
+// touched it since diverging from main. If the branch itself committed a
+// fresh scrape (e.g. a manual run.py + generate-from-scrape.js run before
+// opening a PR), that data is newer than main and must NOT be reverted —
+// see the 2026-07-31 incident where a first successful SalarySwish-
+// integrated scrape on qa-repo was silently discarded by this exact
+// script because it blindly trusted main over the branch.
+// branchTouchedFile() below is the fix: skip any file the branch has
+// modified since its merge-base with main, and only force-sync files the
+// branch left completely untouched.
 const { execSync } = require('child_process')
 const fs = require('fs')
 const path = require('path')
@@ -42,7 +53,40 @@ function mainContent(relPath) {
   return execSync(`git show origin/main:${relPath}`, { cwd: ROOT, encoding: 'utf-8' })
 }
 
+// The commit this branch forked from main at. Every "has the branch
+// touched this file" check below is relative to this point, not to main's
+// current tip — a branch shouldn't be penalized for main moving on after
+// the fork.
+let mergeBase
+try {
+  mergeBase = execSync('git merge-base HEAD origin/main', { cwd: ROOT, encoding: 'utf-8' }).trim()
+} catch {
+  mergeBase = null
+}
+
+// True if this branch has its own commit(s) touching `relPath` since it
+// forked from main. A branch that's touched a file has deliberately taken
+// ownership of it for this PR (e.g. a manual scrape run before opening
+// the PR) — forcing main's copy over that would silently discard real
+// work, per the 2026-07-31 incident in the header comment above. A branch
+// that hasn't touched the file is the normal case this script exists
+// for: it's just sitting there while the daily cron moves main forward,
+// and syncing is exactly the right thing to do.
+function branchTouchedFile(relPath) {
+  if (!mergeBase) return false // no merge-base found — fail open to the old (sync-everything) behavior
+  try {
+    const diff = execSync(`git diff --name-only ${mergeBase} HEAD -- ${relPath}`, { cwd: ROOT, encoding: 'utf-8' })
+    return diff.trim().length > 0
+  } catch {
+    return false
+  }
+}
+
 for (const rel of FULLY_GENERATED) {
+  if (branchTouchedFile(rel)) {
+    console.log(`skipped ${rel} — branch has its own changes to this file since forking from main`)
+    continue
+  }
   const abs = path.join(ROOT, rel)
   let upstream
   try {
@@ -57,6 +101,10 @@ for (const rel of FULLY_GENERATED) {
 }
 
 for (const rel of MARKER_FILES) {
+  if (branchTouchedFile(rel)) {
+    console.log(`skipped ${rel} — branch has its own changes to this file since forking from main`)
+    continue
+  }
   const abs = path.join(ROOT, rel)
   if (!fs.existsSync(abs)) continue
   let upstream
