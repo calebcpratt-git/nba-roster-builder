@@ -4625,23 +4625,6 @@
     "options": {}
   },
   {
-    "name": "Christian Koloko",
-    "team": "NOP",
-    "salary": {
-      "2026-27": 2625627
-    },
-    "options": {},
-    "acquisition": {
-      "date": "2026-01-16",
-      "method": "free-agent"
-    },
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
-  },
-  {
     "name": "Kobe Sanders",
     "team": "LAC",
     "salary": {

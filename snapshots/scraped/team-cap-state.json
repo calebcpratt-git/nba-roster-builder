@@ -68,42 +68,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "ATL-kobe-bufkin-2025-09-16",
-    "amount": 4503720,
-    "expires": "2026-09-16",
-    "fromPlayer": "Kobe Bufkin"
-   },
-   {
-    "id": "ATL-trae-young-2026-01-09",
-    "amount": 1357994,
-    "expires": "2027-01-09",
-    "fromPlayer": "Trae Young"
-   },
-   {
-    "id": "ATL-vit-krejci-2026-02-01",
-    "amount": 2349578,
-    "expires": "2027-02-01",
-    "fromPlayer": "Vit Krejci"
-   },
-   {
-    "id": "ATL-luke-kennard-2026-02-05",
-    "amount": 1775700,
-    "expires": "2027-02-05",
-    "fromPlayer": "Luke Kennard"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Jock Landale (Jul 10)"
-  },
-  "cashLedger": {
-   "availableToSend": 1964000,
-   "availableToReceive": 7768700
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "ATL",
@@ -149,8 +114,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "ATL",
@@ -191,8 +155,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "ATL",
@@ -233,8 +196,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "ATL",
@@ -296,48 +258,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "BOS-georges-niang-2025-08-06",
-    "amount": 8200000,
-    "expires": "2026-08-06",
-    "fromPlayer": "Georges Niang"
-   },
-   {
-    "id": "BOS-xavier-tillman-sr-2026-02-05",
-    "amount": 2546675,
-    "expires": "2027-02-05",
-    "fromPlayer": "Xavier Tillman Sr."
-   },
-   {
-    "id": "BOS-josh-minott-2026-02-05",
-    "amount": 2378870,
-    "expires": "2027-02-05",
-    "fromPlayer": "Josh Minott"
-   },
-   {
-    "id": "BOS-chris-boucher-2026-02-05",
-    "amount": 2296274,
-    "expires": "2027-02-05",
-    "fromPlayer": "Chris Boucher"
-   },
-   {
-    "id": "BOS-jaylen-brown-2026-07-06",
-    "amount": 2952438,
-    "expires": "2027-07-06",
-    "fromPlayer": "Jaylen Brown"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Mitchell Robinson (Jul 6)"
-  },
-  "cashLedger": {
-   "availableToSend": 4464000,
-   "availableToReceive": 6754000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "BOS",
@@ -403,8 +324,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "BOS",
@@ -450,8 +370,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "BOS",
@@ -512,8 +431,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "BOS",
@@ -580,12 +498,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "cashLedger": {
-   "availableToSend": 6644000,
-   "availableToReceive": 4464000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "BRK",
@@ -626,8 +539,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "BRK",
@@ -658,8 +570,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "BRK",
@@ -700,8 +611,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "BRK",
@@ -742,42 +652,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "CHO-collin-sexton-2026-02-04",
-    "amount": 8200962,
-    "expires": "2027-02-04",
-    "fromPlayer": "Collin Sexton"
-   },
-   {
-    "id": "CHO-mason-plumlee-2026-02-04",
-    "amount": 2296274,
-    "expires": "2027-02-04",
-    "fromPlayer": "Mason Plumlee"
-   },
-   {
-    "id": "CHO-tyus-jones-2026-02-05",
-    "amount": 7000000,
-    "expires": "2027-02-05",
-    "fromPlayer": "Tyus Jones"
-   },
-   {
-    "id": "CHO-lamelo-ball-2026-07-10",
-    "amount": 40770520,
-    "expires": "2027-07-10",
-    "fromPlayer": "LaMelo Ball"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Jul 6 trade"
-  },
-  "cashLedger": {
-   "availableToSend": 7854000,
-   "availableToReceive": 4464000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "CHO",
@@ -818,8 +693,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "CHO",
@@ -855,8 +729,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "CHO",
@@ -907,8 +780,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "CHO",
@@ -989,44 +861,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "CHI-kevin-huerter-2026-02-03",
-    "amount": 17991071,
-    "expires": "2027-02-03",
-    "fromPlayer": "Kevin Huerter"
-   },
-   {
-    "id": "CHI-mike-conley-2026-02-04",
-    "amount": 10774038,
-    "expires": "2027-02-04",
-    "fromPlayer": "Mike Conley"
-   },
-   {
-    "id": "CHI-coby-white-2026-02-04",
-    "amount": 0,
-    "expires": "2027-02-04",
-    "fromPlayer": "Coby White"
-   },
-   {
-    "id": "CHI-ousmane-dieng-2026-02-05",
-    "amount": 6670882,
-    "expires": "2027-02-05",
-    "fromPlayer": "Ousmane Dieng"
-   },
-   {
-    "id": "CHI-julian-phillips-2026-02-05",
-    "amount": 2221677,
-    "expires": "2027-02-05",
-    "fromPlayer": "Julian Phillips"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 3674541
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "CHI",
@@ -1067,8 +902,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "CHI",
@@ -1109,8 +943,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "CHI",
@@ -1156,8 +989,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "CHI",
@@ -1233,32 +1065,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "CLE-deandre-hunter-2026-02-01",
-    "amount": 6897984,
-    "expires": "2027-02-01",
-    "fromPlayer": "De'Andre Hunter"
-   },
-   {
-    "id": "CLE-darius-garland-2026-02-04",
-    "amount": 263397,
-    "expires": "2027-02-04",
-    "fromPlayer": "Darius Garland"
-   },
-   {
-    "id": "CLE-lonzo-ball-2026-02-05",
-    "amount": 10000000,
-    "expires": "2027-02-05",
-    "fromPlayer": "Lonzo Ball"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7854000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "CLE",
@@ -1309,8 +1116,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "CLE",
@@ -1371,8 +1177,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "CLE",
@@ -1433,8 +1238,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "CLE",
@@ -1535,42 +1339,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "DAL-anthony-davis-2026-02-05",
-    "amount": 20830154,
-    "expires": "2027-02-05",
-    "fromPlayer": "Anthony Davis"
-   },
-   {
-    "id": "DAL-jaden-hardy-2026-02-05",
-    "amount": 6000000,
-    "expires": "2027-02-05",
-    "fromPlayer": "Jaden Hardy"
-   },
-   {
-    "id": "DAL-dante-exum-2026-02-05",
-    "amount": 2296274,
-    "expires": "2027-02-05",
-    "fromPlayer": "Dante Exum"
-   },
-   {
-    "id": "DAL-ryan-nembhard-2026-07-19",
-    "amount": 2150917,
-    "expires": "2027-07-19",
-    "fromPlayer": "Ryan Nembhard"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "BAE: Jul 8 trade"
-  },
-  "cashLedger": {
-   "availableToSend": 6264000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "DAL",
@@ -1645,8 +1414,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "DAL",
@@ -1712,8 +1480,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "DAL",
@@ -1769,8 +1536,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "DAL",
@@ -1866,20 +1632,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "DEN-hunter-tyson-2026-02-05",
-    "amount": 2221677,
-    "expires": "2027-02-05",
-    "fromPlayer": "Hunter Tyson"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 1680000
+  "secondApron": 222000000
  },
  {
   "team": "DEN",
@@ -1950,8 +1703,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 1814400
+  "secondApron": 233100000
  },
  {
   "team": "DEN",
@@ -2032,8 +1784,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 1948800
+  "secondApron": 244755000
  },
  {
   "team": "DEN",
@@ -2114,8 +1865,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "DEN",
@@ -2125,8 +1875,7 @@
   "salaryCap": 201774000,
   "taxLine": 245155000,
   "firstApron": 255616000,
-  "secondApron": 271115000,
-  "apronAddon": 0
+  "secondApron": 271115000
  },
  {
   "team": "DET",
@@ -2167,30 +1916,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "DET-isaiah-stewart-2026-07-08",
-    "amount": 15000000,
-    "expires": "2027-07-08",
-    "fromPlayer": "Isaiah Stewart"
-   },
-   {
-    "id": "DET-marcus-sasser-2026-07-08",
-    "amount": 5198983,
-    "expires": "2027-07-08",
-    "fromPlayer": "Marcus Sasser"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "MLE Trade: Jul 6 trade"
-  },
-  "cashLedger": {
-   "availableToSend": 4364000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "DET",
@@ -2246,8 +1972,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "DET",
@@ -2313,8 +2038,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "DET",
@@ -2390,8 +2114,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "DET",
@@ -2517,20 +2240,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "GSW-trayce-jackson-davis-2026-02-05",
-    "amount": 2221677,
-    "expires": "2027-02-05",
-    "fromPlayer": "Trayce Jackson-Davis"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 500000
+  "secondApron": 222000000
  },
  {
   "team": "GSW",
@@ -2651,8 +2361,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 574075
+  "secondApron": 233100000
  },
  {
   "team": "GSW",
@@ -2778,8 +2487,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "GSW",
@@ -2915,8 +2623,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "GSW",
@@ -2982,24 +2689,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "HOU-dorian-finney-smith-2026-07-06",
-    "amount": 13335000,
-    "expires": "2027-07-06",
-    "fromPlayer": "Dorian Finney-Smith"
-   }
-  ],
-  "hardCapped": {
-   "apron": 2,
-   "trigger": "Any MLE: Marcus Smart (Jul 10)"
-  },
-  "cashLedger": {
-   "availableToSend": 7878700,
-   "availableToReceive": 6000000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "HOU",
@@ -3070,8 +2760,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "HOU",
@@ -3162,8 +2851,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "HOU",
@@ -3259,8 +2947,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "HOU",
@@ -3276,8 +2963,7 @@
   "salaryCap": 201774000,
   "taxLine": 245155000,
   "firstApron": 255616000,
-  "secondApron": 271115000,
-  "apronAddon": 0
+  "secondApron": 271115000
  },
  {
   "team": "IND",
@@ -3308,24 +2994,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "IND-kam-jones-2026-06-24",
-    "amount": 1075459,
-    "expires": "2027-06-24",
-    "fromPlayer": "Kam Jones"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Kelly Oubre Jr. (Jul 7)"
-  },
-  "cashLedger": {
-   "availableToSend": 3388541,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 480000
+  "secondApron": 222000000
  },
  {
   "team": "IND",
@@ -3366,8 +3035,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 440000
+  "secondApron": 233100000
  },
  {
   "team": "IND",
@@ -3458,8 +3126,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "IND",
@@ -3540,42 +3207,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "LAC-kobe-brown-2026-02-05",
-    "amount": 2654880,
-    "expires": "2027-02-05",
-    "fromPlayer": "Kobe Brown"
-   },
-   {
-    "id": "LAC-chris-paul-2026-02-05",
-    "amount": 2296274,
-    "expires": "2027-02-05",
-    "fromPlayer": "Chris Paul"
-   },
-   {
-    "id": "LAC-ivica-zubac-2026-02-05",
-    "amount": 1314427,
-    "expires": "2027-02-05",
-    "fromPlayer": "Ivica Zubac"
-   },
-   {
-    "id": "LAC-john-collins-2026-07-08",
-    "amount": 15740741,
-    "expires": "2027-07-08",
-    "fromPlayer": "John Collins"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
-  },
-  "cashLedger": {
-   "availableToSend": 0,
-   "availableToReceive": 6464000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "LAC",
@@ -3666,8 +3298,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "LAC",
@@ -3718,8 +3349,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "LAC",
@@ -3729,8 +3359,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "LAC",
@@ -3831,24 +3460,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "LAL-gabe-vincent-2026-02-05",
-    "amount": 500000,
-    "expires": "2027-02-05",
-    "fromPlayer": "Gabe Vincent"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": null
-  },
-  "cashLedger": {
-   "availableToSend": 0,
-   "availableToReceive": 6264000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "LAL",
@@ -3924,8 +3536,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "LAL",
@@ -3956,8 +3567,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "LAL",
@@ -3967,8 +3577,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "LAL",
@@ -4008,24 +3617,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "MEM-jaren-jackson-jr-2026-02-03",
-    "amount": 28872920,
-    "expires": "2027-02-03",
-    "fromPlayer": "Jaren Jackson Jr."
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Quinten Post (Jul 8)"
-  },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 1850000
+  "secondApron": 222000000
  },
  {
   "team": "MEM",
@@ -4081,8 +3673,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 1282500
+  "secondApron": 233100000
  },
  {
   "team": "MEM",
@@ -4143,8 +3734,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 1282500
+  "secondApron": 244755000
  },
  {
   "team": "MEM",
@@ -4160,8 +3750,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "MEM",
@@ -4237,24 +3826,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "MIA-haywood-highsmith-2025-08-15",
-    "amount": 5616000,
-    "expires": "2026-08-15",
-    "fromPlayer": "Haywood Highsmith"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Tim Hardaway Jr. (Jul 6)"
-  },
-  "cashLedger": {
-   "availableToSend": 6464000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "MIA",
@@ -4310,8 +3882,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "MIA",
@@ -4352,8 +3923,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "MIA",
@@ -4394,8 +3964,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "MIA",
@@ -4455,24 +4024,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "MIL-giannis-antetokounmpo-2026-07-06",
-    "amount": 25456566,
-    "expires": "2027-07-06",
-    "fromPlayer": "Giannis Antetokounmpo"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "Trade Salary Acquired: Jul 8 trade"
-  },
-  "cashLedger": {
-   "availableToSend": 6714000,
-   "availableToReceive": 3464000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "MIL",
@@ -4562,8 +4114,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "MIL",
@@ -4649,8 +4200,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "MIL",
@@ -4696,8 +4246,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "MIL",
@@ -4768,30 +4317,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "MIN-mike-conley-2026-02-03",
-    "amount": 10774038,
-    "expires": "2027-02-03",
-    "fromPlayer": "Mike Conley"
-   },
-   {
-    "id": "MIN-rob-dillingham-2026-02-05",
-    "amount": 6576120,
-    "expires": "2027-02-05",
-    "fromPlayer": "Rob Dillingham"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "Trade Salary Acquired: Jul 10 trade"
-  },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 2114000
-  },
-  "apronAddon": 1000000
+  "secondApron": 222000000
  },
  {
   "team": "MIN",
@@ -4842,8 +4368,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 1068964
+  "secondApron": 233100000
  },
  {
   "team": "MIN",
@@ -4929,8 +4454,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 1137930
+  "secondApron": 244755000
  },
  {
   "team": "MIN",
@@ -5051,8 +4575,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "MIN",
@@ -5062,8 +4585,7 @@
   "salaryCap": 201774000,
   "taxLine": 245155000,
   "firstApron": 255616000,
-  "secondApron": 271115000,
-  "apronAddon": 0
+  "secondApron": 271115000
  },
  {
   "team": "NOP",
@@ -5134,20 +4656,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "NOP-jose-alvarado-2026-02-05",
-    "amount": 4500000,
-    "expires": "2027-02-05",
-    "fromPlayer": "Jose Alvarado"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7575000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "NOP",
@@ -5233,8 +4742,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "NOP",
@@ -5320,8 +4828,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "NOP",
@@ -5488,26 +4995,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "NYK-dalen-terry-2026-02-05",
-    "amount": 899118,
-    "expires": "2027-02-05",
-    "fromPlayer": "Dalen Terry"
-   },
-   {
-    "id": "NYK-guerschon-yabusele-2026-02-05",
-    "amount": 100882,
-    "expires": "2027-02-05",
-    "fromPlayer": "Guerschon Yabusele"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7075000,
-   "availableToReceive": 464000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "NYK",
@@ -5578,8 +5066,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "NYK",
@@ -5675,8 +5162,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "NYK",
@@ -5777,8 +5263,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "NYK",
@@ -5829,38 +5314,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "OKC-ousmane-dieng-2026-02-04",
-    "amount": 2449522,
-    "expires": "2027-02-04",
-    "fromPlayer": "Ousmane Dieng"
-   },
-   {
-    "id": "OKC-isaiah-joe-2026-07-06",
-    "amount": 11323006,
-    "expires": "2027-07-06",
-    "fromPlayer": "Isaiah Joe"
-   },
-   {
-    "id": "OKC-aaron-wiggins-2026-07-06",
-    "amount": 9224300,
-    "expires": "2027-07-06",
-    "fromPlayer": "Aaron Wiggins"
-   },
-   {
-    "id": "OKC-luguentz-dort-2026-07-19",
-    "amount": 17722222,
-    "expires": "2027-07-19",
-    "fromPlayer": "Luguentz Dort"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7214000,
-   "availableToReceive": 6464000
-  },
-  "apronAddon": 500000
+  "secondApron": 222000000
  },
  {
   "team": "OKC",
@@ -5911,8 +5365,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "OKC",
@@ -5983,8 +5436,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "OKC",
@@ -6055,8 +5507,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "OKC",
@@ -6066,8 +5517,7 @@
   "salaryCap": 201774000,
   "taxLine": 245155000,
   "firstApron": 255616000,
-  "secondApron": 271115000,
-  "apronAddon": 0
+  "secondApron": 271115000
  },
  {
   "team": "ORL",
@@ -6113,20 +5563,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "ORL-tyus-jones-2026-02-04",
-    "amount": 7000000,
-    "expires": "2027-02-04",
-    "fromPlayer": "Tyus Jones"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 6604000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "ORL",
@@ -6187,8 +5624,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "ORL",
@@ -6254,8 +5690,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "ORL",
@@ -6336,8 +5771,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "ORL",
@@ -6358,8 +5792,7 @@
   "salaryCap": 201774000,
   "taxLine": 245155000,
   "firstApron": 255616000,
-  "secondApron": 271115000,
-  "apronAddon": 0
+  "secondApron": 271115000
  },
  {
   "team": "PHI",
@@ -6415,36 +5848,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "PHI-jared-mccain-2026-02-04",
-    "amount": 4221360,
-    "expires": "2027-02-04",
-    "fromPlayer": "Jared McCain"
-   },
-   {
-    "id": "PHI-eric-gordon-2026-02-05",
-    "amount": 2296274,
-    "expires": "2027-02-05",
-    "fromPlayer": "Eric Gordon"
-   },
-   {
-    "id": "PHI-johni-broome-2026-07-28",
-    "amount": 2150917,
-    "expires": "2027-07-28",
-    "fromPlayer": "Johni Broome"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Dean Wade (Jul 6)"
-  },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "PHI",
@@ -6510,8 +5914,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "PHI",
@@ -6577,8 +5980,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "PHI",
@@ -6614,8 +6016,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "PHI",
@@ -6714,30 +6115,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "PHO-nick-richards-2026-02-05",
-    "amount": 5000000,
-    "expires": "2027-02-05",
-    "fromPlayer": "Nick Richards"
-   },
-   {
-    "id": "PHO-nigel-hayes-davis-2026-02-05",
-    "amount": 2048492,
-    "expires": "2027-02-05",
-    "fromPlayer": "Nigel Hayes-Davis"
-   }
-  ],
-  "hardCapped": {
-   "apron": 2,
-   "trigger": "Any MLE: Luke Kennard (Jul 14)"
-  },
-  "cashLedger": {
-   "availableToSend": 1464000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "PHO",
@@ -6782,8 +6160,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "PHO",
@@ -6818,8 +6195,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "PHO",
@@ -6859,8 +6235,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "PHO",
@@ -6936,20 +6311,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "POR-kris-murray-2026-06-29",
-    "amount": 3132000,
-    "expires": "2027-06-29",
-    "fromPlayer": "Kris Murray"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "POR",
@@ -6985,8 +6347,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "POR",
@@ -7037,8 +6398,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "POR",
@@ -7084,8 +6444,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "POR",
@@ -7176,30 +6535,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "SAC-dario-saric-2026-02-01",
-    "amount": 5426000,
-    "expires": "2027-02-01",
-    "fromPlayer": "Dario Saric"
-   },
-   {
-    "id": "SAC-devin-carter-2026-06-30",
-    "amount": 4923720,
-    "expires": "2027-06-30",
-    "fromPlayer": "Devin Carter"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "BAE: Precious Achiuwa (Jul 7)"
-  },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 2600000
+  "secondApron": 222000000
  },
  {
   "team": "SAC",
@@ -7280,8 +6616,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 2600000
+  "secondApron": 233100000
  },
  {
   "team": "SAC",
@@ -7352,8 +6687,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "SAC",
@@ -7419,8 +6753,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "SAC",
@@ -7430,8 +6763,7 @@
   "salaryCap": 201774000,
   "taxLine": 245155000,
   "firstApron": 255616000,
-  "secondApron": 271115000,
-  "apronAddon": 0
+  "secondApron": 271115000
  },
  {
   "team": "SAS",
@@ -7487,16 +6819,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "TP-MLE Exceeded: Tobias Harris (Jul 6)"
-  },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 5464000
-  },
-  "apronAddon": 3700000
+  "secondApron": 222000000
  },
  {
   "team": "SAS",
@@ -7562,8 +6885,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 2008697
+  "secondApron": 233100000
  },
  {
   "team": "SAS",
@@ -7624,8 +6946,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 2200000
+  "secondApron": 244755000
  },
  {
   "team": "SAS",
@@ -7686,8 +7007,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "SAS",
@@ -7748,20 +7068,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "TOR-ochai-agbaji-2026-02-05",
-    "amount": 6383525,
-    "expires": "2027-02-05",
-    "fromPlayer": "Ochai Agbaji"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 3000000
+  "secondApron": 222000000
  },
  {
   "team": "TOR",
@@ -7822,8 +7129,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 2500000
+  "secondApron": 233100000
  },
  {
   "team": "TOR",
@@ -7894,8 +7200,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 2500000
+  "secondApron": 244755000
  },
  {
   "team": "TOR",
@@ -7941,8 +7246,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "TOR",
@@ -7994,20 +7298,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "UTA-walker-kessler-2026-07-08",
-    "amount": 15054411,
-    "expires": "2027-07-08",
-    "fromPlayer": "Walker Kessler"
-   }
-  ],
-  "cashLedger": {
-   "availableToSend": 7854000,
-   "availableToReceive": 843000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "UTA",
@@ -8068,8 +7359,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "UTA",
@@ -8155,8 +7445,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "UTA",
@@ -8257,8 +7546,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "UTA",
@@ -8344,30 +7632,7 @@
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
-  "secondApron": 222000000,
-  "heldTPEs": [
-   {
-    "id": "WAS-jaden-hardy-2026-07-08",
-    "amount": 6000000,
-    "expires": "2027-07-08",
-    "fromPlayer": "Jaden Hardy"
-   },
-   {
-    "id": "WAS-dangelo-russell-2026-07-08",
-    "amount": 5969250,
-    "expires": "2027-07-08",
-    "fromPlayer": "D'Angelo Russell"
-   }
-  ],
-  "hardCapped": {
-   "apron": 1,
-   "trigger": "Past-Season TPE: Jul 8 trade Jul 8 trade"
-  },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0
+  "secondApron": 222000000
  },
  {
   "team": "WAS",
@@ -8458,8 +7723,7 @@
   "salaryCap": 173250000,
   "taxLine": 210499000,
   "firstApron": 219450000,
-  "secondApron": 233100000,
-  "apronAddon": 0
+  "secondApron": 233100000
  },
  {
   "team": "WAS",
@@ -8565,8 +7829,7 @@
   "salaryCap": 181913000,
   "taxLine": 221025000,
   "firstApron": 230423000,
-  "secondApron": 244755000,
-  "apronAddon": 0
+  "secondApron": 244755000
  },
  {
   "team": "WAS",
@@ -8637,8 +7900,7 @@
   "salaryCap": 192166000,
   "taxLine": 233482000,
   "firstApron": 243445000,
-  "secondApron": 258205000,
-  "apronAddon": 0
+  "secondApron": 258205000
  },
  {
   "team": "WAS",
