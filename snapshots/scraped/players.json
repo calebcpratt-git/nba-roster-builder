@@ -868,9 +868,7 @@
   "salary": {
    "2026-27": 27678571
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "greendr01"
  },
  {
@@ -5647,24 +5645,6 @@
   "acquisition": {
    "date": "2025-07-03",
    "method": "free-agent"
-  }
- },
- {
-  "name": "Mouhamadou Gueye",
-  "team": "CHO",
-  "salary": {
-   "2026-27": 2411090
-  },
-  "options": {},
-  "bbrefId": "gueyemo01",
-  "acquisition": {
-   "date": "2026-04-09",
-   "method": "free-agent"
-  },
-  "guarantees": {
-   "2026-27": {
-    "status": "non-guaranteed"
-   }
   }
  },
  {

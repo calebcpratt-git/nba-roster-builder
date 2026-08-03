@@ -30,6 +30,32 @@
   "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,584,539). ( ✅ )"
  },
  {
+  "player": "Mario Hezonja",
+  "team": "Cavaliers",
+  "guaranteeDate": "2026-11-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2845883,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,845,883) becomes fully guaranteed."
+ },
+ {
+  "player": "Mouhamadou Gueye",
+  "team": "Charlotte Hornets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Mario Hezonja",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Taj Gibson",
   "team": "Memphis Grizzlies",
   "fullAmount": null,
@@ -52,5 +78,13 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
+ },
+ {
+  "player": "Jeremy Sochan",
+  "team": "Portland Trail Blazers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
  }
 ]
