@@ -506,14 +506,6 @@ export function RosterTable() {
               </Badge>
             </div>
             <div className="flex items-center gap-3.5 text-[10.5px]">
-              <div className="flex items-center gap-1.5">
-                <div className="h-2 w-2 rounded-sm bg-primary" />
-                <span className="text-muted-foreground">Current</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="h-2 w-2 rounded-sm bg-chart-2" />
-                <span className="text-muted-foreground">Saved</span>
-              </div>
               <SaveCapSheetButton />
             </div>
           </div>

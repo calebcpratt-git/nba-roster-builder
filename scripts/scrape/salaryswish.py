@@ -49,6 +49,7 @@ BACKOFF_BASE = 3
 TRADE_EXCEPTION_URL = 'https://salaryswish.com/trade-exception'
 HARD_CAP_URL = 'https://salaryswish.com/hard-cap-tracker'
 PLAYER_URL = 'https://salaryswish.com/players/{slug}'
+SITEMAP_URL = 'https://salaryswish.com/sitemap.xml'
 
 # SalarySwish's own 3-letter codes differ from this app's in three spots —
 # the same two nbacaptracker's SLUG_TO_ABBR already has (captracker.py:
@@ -76,6 +77,66 @@ def slugify(name):
     return n
 
 
+def squash(text):
+    """Lowercase, accent-stripped, alphanumeric-only — no hyphens/spaces at
+    all. Used to match a player name against a SalarySwish slug regardless
+    of how inconsistently the site hyphenates compound surnames and Jr/Sr/II
+    suffixes (verified live: 'Jaren Jackson Jr.' -> /players/jaren-jacksonjr,
+    but 'Andre Jackson Jr.' -> /players/andre-jackson-jr; 'Shai
+    Gilgeous-Alexander' -> /players/shai-gilgeousalexander). Squashing both
+    sides to the same bare alphanumeric string sidesteps the inconsistency
+    instead of trying to special-case it in slugify()."""
+    n = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
+    return re.sub(r'[^a-z0-9]', '', n.lower())
+
+
+# SalarySwish indexes a handful of players under their full legal name or a
+# suffix our data doesn't carry, rather than the common name BBRef/our app
+# uses — squash() alone can't bridge that gap (it's not a formatting
+# difference, it's a different name/suffix). Keyed by squash(our name) ->
+# squash(their name); verified against live sitemap.xml entries. Add to this
+# as new mismatches turn up in unresolved-signing.json rather than building
+# a general fuzzy matcher, which risks false-positive matches across the
+# league's many shared surnames.
+NAME_ALIASES = {
+    squash('Nic Claxton'): squash('Nicolas Claxton'),
+    squash('Alex Sarr'): squash('Alexandre Sarr'),
+    squash('Svi Mykhailiuk'): squash('Sviatoslav Mykhailiuk'),
+    squash('Bones Hyland'): squash('Nahshon Bones Hyland'),
+    squash('Robert Williams'): squash('Robert Williams III'),
+    squash('Ron Holland'): squash('Ron Holland II'),
+    squash('Bub Carrington'): squash('Carlton Carrington'),
+    squash('Cam Christie'): squash('Cameron Christie'),
+    squash('Walter Clayton'): squash('Walter Clayton Jr.'),
+    squash('Yanic Konan Niederhäuser'): squash('Yanic Niederhauser'),
+    squash('Egor Dёmin'): squash('Egor Demin'),
+    squash('Tolu Smith'): squash('Tolu Smith III'),
+}
+
+
+def parse_sitemap_slugs(path):
+    """sitemap.xml -> {squash(name-ish key): real /players/{slug}}, built
+    from every /players/<slug> URL the sitemap lists (verified ~2,500 of
+    them, current roster + historical players). This is the authoritative
+    slug source: slugify() only guesses a plausible slug and is wrong for
+    a meaningful share of real players (see squash()'s docstring), so
+    build_signing_incentives() should look a player up here first and only
+    fall back to slugify() if the sitemap has no entry (e.g. a slug not
+    covered yet). On a squash collision (rare same-name duplicates, e.g.
+    'justin-jackson' vs 'justin-jackson2') the shorter slug wins, since the
+    unsuffixed form is consistently the more common/current player in spot
+    checks — not a guarantee, just the best available tiebreak."""
+    text = open(path, encoding='utf-8', errors='replace').read()
+    mapping = {}
+    for slug in re.findall(r'/players/([a-z0-9-]+)</loc>', text):
+        key = squash(slug)
+        if key not in mapping or len(slug) < len(mapping[key]):
+            mapping[key] = slug
+    if not mapping:
+        raise RuntimeError('sitemap parsed to zero player slugs — page layout changed')
+    return mapping
+
+
 def _money(text):
     t = text.replace('$', '').replace(',', '').strip()
     return int(t) if t.lstrip('-').isdigit() else None
@@ -84,6 +145,16 @@ def _money(text):
 def _iso_date(text):
     try:
         return datetime.strptime(text.strip(), '%b %d, %Y').date().isoformat()
+    except ValueError:
+        return None
+
+
+def _iso_date_long(text):
+    """Like _iso_date but for the player-contract block's 'Signing Date',
+    which renders the full month name (e.g. 'August 6, 2023') rather than
+    the trade-exception tracker's abbreviated form."""
+    try:
+        return datetime.strptime(text.strip(), '%B %d, %Y').date().isoformat()
     except ValueError:
         return None
 
@@ -204,47 +275,74 @@ def classify_signing_method(text):
     return None
 
 
-def parse_player(path, team_abbr):
+def parse_player(path, team_abbr=None, min_season=None):
     """/players/{slug} -> {signedUnder, incentives: {season: {likely, unlikely}}}
-    for the contract block whose "Signing Team" matches `team_abbr` (the
-    player's CURRENT team per our own data) — a player's page lists every
-    past contract too, most-recent first, so matching on team is how the
-    current deal is picked out rather than assuming block order.
-    Returns None if no block matches (stale page relative to our data, or a
-    slug that resolved to the wrong player) — caller treats that as
-    unresolved, not a hard failure."""
+    for the player's CURRENT contract. `min_season` (e.g. '2026-27'), when
+    given, drops incentive rows for seasons before it — a player's
+    incentive table includes past seasons too (their whole contract's
+    history, not just what's left of it), and the app's Season type only
+    covers the current season onward. Comparing season strings lexically is
+    safe here since they're all 'YYYY-YY' with YYYY in the same range.
+
+    Originally this picked the block whose "Signing Team" matched the
+    player's current team per our own data. That's wrong for anyone who has
+    been TRADED since they last signed: SalarySwish's "Signing Team" records
+    who they signed with, not who currently holds the contract, so a traded
+    player's active deal permanently shows their old team (verified live —
+    e.g. Anthony Davis's most-recent-dated block still reads "Signing Team:
+    LAL" from his 2023 extension, even though he was later traded to DAL;
+    Giannis/Morant still show MIL/MEM because they haven't been traded since
+    signing, which is why team-matching happened to work for them and masked
+    the bug). `team_abbr` is kept as an accepted param for call-site
+    stability but is no longer used to select the block.
+
+    The reliable signal instead is recency: a player's page lists every past
+    contract too, and the block with the latest "Signing Date" is always
+    their current deal regardless of any trade since. Confirmed against
+    several live pages that this holds even though the remaining (older)
+    blocks are not necessarily in a consistent chronological order.
+    Returns None if no block has a parseable Signing Date (stale page
+    relative to our data, or a slug that resolved to the wrong player) —
+    caller treats that as unresolved, not a hard failure."""
     soup = _soup(path)
+    best = None  # (date, incentives, method_text)
     for block in soup.find_all('div', class_='sw_playerContract'):
-        block_team = None
+        signing_date = None
         method_text = None
         for meta in block.find_all('div'):
             title = meta.find('span', class_='sw_playerContract__meta_title', recursive=False)
             if title is None:
                 continue
             label = title.get_text(strip=True)
-            if label == 'Signing Team':
-                m = re.search(r'([A-Z]{2,3})\s*$', meta.get_text(' ', strip=True))
-                block_team = to_app_abbr(m.group(1)) if m else None
+            if label == 'Signing Date':
+                signing_date = _iso_date_long(meta.get_text(' ', strip=True).split(':', 1)[-1])
             elif label == 'Signing Method':
                 method_text = meta.get_text(' ', strip=True).split(':', 1)[-1].strip()
-        if block_team != team_abbr:
+        if signing_date is None:
             continue
-        incentives = {}
-        table = block.find('table')
-        if table is not None and table.find('thead') is not None:
-            head_cells = [th.get_text(' ', strip=True) for th in table.find('thead').find_all('th')]
-            likely_idx = next((i for i, h in enumerate(head_cells) if h.startswith('Likely')), None)
-            unlikely_idx = next((i for i, h in enumerate(head_cells) if h.startswith('Unlikely')), None)
-            for tr in table.find('tbody').find_all('tr'):
-                tds = tr.find_all('td')
-                if not tds:
-                    continue
-                season = tds[0].get_text(' ', strip=True).split()[0]
-                if not re.match(r'^\d{4}-\d{2}$', season):
-                    continue
-                likely = _money(tds[likely_idx].get_text(strip=True)) if likely_idx is not None and likely_idx < len(tds) else None
-                unlikely = _money(tds[unlikely_idx].get_text(strip=True)) if unlikely_idx is not None and unlikely_idx < len(tds) else None
-                if likely is not None or unlikely is not None:
-                    incentives[season] = {'likely': likely or 0, 'unlikely': unlikely or 0}
-        return {'signedUnder': classify_signing_method(method_text), 'incentives': incentives}
+        if best is None or signing_date > best[0]:
+            best = (signing_date, block, method_text)
+    if best is None:
+        return None
+    _, block, method_text = best
+    incentives = {}
+    table = block.find('table')
+    if table is not None and table.find('thead') is not None:
+        head_cells = [th.get_text(' ', strip=True) for th in table.find('thead').find_all('th')]
+        likely_idx = next((i for i, h in enumerate(head_cells) if h.startswith('Likely')), None)
+        unlikely_idx = next((i for i, h in enumerate(head_cells) if h.startswith('Unlikely')), None)
+        for tr in table.find('tbody').find_all('tr'):
+            tds = tr.find_all('td')
+            if not tds:
+                continue
+            season = tds[0].get_text(' ', strip=True).split()[0]
+            if not re.match(r'^\d{4}-\d{2}$', season):
+                continue
+            if min_season is not None and season < min_season:
+                continue
+            likely = _money(tds[likely_idx].get_text(strip=True)) if likely_idx is not None and likely_idx < len(tds) else None
+            unlikely = _money(tds[unlikely_idx].get_text(strip=True)) if unlikely_idx is not None and unlikely_idx < len(tds) else None
+            if likely is not None or unlikely is not None:
+                incentives[season] = {'likely': likely or 0, 'unlikely': unlikely or 0}
+    return {'signedUnder': classify_signing_method(method_text), 'incentives': incentives}
     return None

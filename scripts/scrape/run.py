@@ -74,6 +74,7 @@ SOURCES = {
     'hr_cash_in_trade': HR_CASH_IN_TRADE_URL,
     'salaryswish_trade_exceptions': salaryswish.TRADE_EXCEPTION_URL,
     'salaryswish_hard_cap': salaryswish.HARD_CAP_URL,
+    'salaryswish_sitemap': salaryswish.SITEMAP_URL,
     **{f'bbref_draft_{y}': f'https://www.basketball-reference.com/draft/NBA_{y}.html' for y in DRAFT_YEARS},
 }
 
@@ -402,6 +403,21 @@ def build_signing_incentives(offline=False):
     cache = _load_json('salaryswish-players', {})
     os.makedirs(SALARYSWISH_PLAYERS_RAW, exist_ok=True)
 
+    # The sitemap is the authoritative slug source — slugify() is only a
+    # plausible guess and is wrong for a meaningful share of real players
+    # (inconsistent hyphenation of compound surnames and Jr/Sr/II suffixes,
+    # e.g. /players/jaren-jacksonjr vs /players/andre-jackson-jr). Fall back
+    # to slugify() per-player if the sitemap is unavailable or has no entry.
+    sitemap_path = os.path.join(RAW, 'salaryswish_sitemap.html')
+    slug_by_squash = {}
+    if os.path.exists(sitemap_path):
+        try:
+            slug_by_squash = salaryswish.parse_sitemap_slugs(sitemap_path)
+        except RuntimeError as e:
+            print(f'  WARNING  salaryswish sitemap unusable ({e}) — falling back to slugify() for all players')
+    else:
+        print('  WARNING  no salaryswish sitemap snapshot — falling back to slugify() for all players')
+
     new_cache = {}
     unresolved = []
     fetched = reused = 0
@@ -413,7 +429,9 @@ def build_signing_incentives(offline=False):
             new_cache[key] = cached
             reused += 1
             continue
-        slug = salaryswish.slugify(p['name'])
+        squashed = salaryswish.squash(p['name'])
+        squashed = salaryswish.NAME_ALIASES.get(squashed, squashed)
+        slug = slug_by_squash.get(squashed) or salaryswish.slugify(p['name'])
         path = os.path.join(SALARYSWISH_PLAYERS_RAW, f'{slug}.html')
         if offline:
             if not os.path.exists(path):
@@ -426,7 +444,7 @@ def build_signing_incentives(offline=False):
             fetched += 1
             time.sleep(SS_FETCH_DELAY)
         try:
-            parsed = salaryswish.parse_player(path, team)
+            parsed = salaryswish.parse_player(path, team, min_season=CURRENT_SEASON_LABEL)
         except Exception as e:
             unresolved.append({'name': p['name'], 'team': team, 'reason': f'parse error: {e}'})
             continue
