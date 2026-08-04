@@ -383,7 +383,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Pete Nance": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Oscar Tshiebwe": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Julian Phillips": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
-  "Olivier-Maxence Prosper": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
+  "Olivier-Maxence Prosper": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Sidy Cissoko": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Scotty Pippen Jr.": { incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Moussa Diabaté": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },

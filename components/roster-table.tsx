@@ -101,7 +101,7 @@ export function TotalPayrollCell({ proj }: {
     <Popover open={isHovering}>
       <PopoverTrigger asChild>
         <button
-          className="flex flex-col items-start gap-1 cursor-default"
+          className="flex flex-col items-center gap-1 cursor-default"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
@@ -186,12 +186,12 @@ export function OptionSalaryCell({
   })() : false
 
   return (
-    <div className="inline-flex items-center gap-1">
+    <div className="flex w-full items-center justify-center">
       <Popover open={!hasEarlierDeclinedTeamOption && (isOpen || isHovering)} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <button
             className={cn(
-              "inline-flex items-center gap-1.5 rounded px-1 -mx-1 transition-colors",
+              "relative inline-flex items-center rounded px-1 -mx-1 transition-colors",
               hasEarlierDeclinedTeamOption
                 ? "cursor-not-allowed opacity-50"
                 : "cursor-pointer hover:bg-muted/50"
@@ -214,7 +214,7 @@ export function OptionSalaryCell({
             </span>
             <span
               className={cn(
-                "text-[8px] px-0.5 rounded font-semibold",
+                "absolute left-full top-1/2 -translate-y-1/2 ml-1 whitespace-nowrap text-[8px] px-0.5 rounded font-semibold",
                 isDeclined
                   ? "bg-muted text-muted-foreground line-through"
                   : optionBgClass,
@@ -350,62 +350,64 @@ export function PlainSalaryCell({
     savedContracts.some(c => c.id === player.id && c.isMLE)
 
   return (
-    <div className="inline-flex items-center gap-1">
-      {editableContract ? (
-        <button
-          onClick={() => onEditContract(editableContract, player)}
-          className={cn(
-            SALARY_PILL_BASE,
-            "transition-opacity hover:opacity-70 cursor-pointer",
-            getSalaryColor(displaySalary)
-          )}
-          title={`Edit ${player.name}'s ${editableContract.type === 'extension' ? 'extension' : 'contract'}`}
-        >
-          {formatCurrency(displaySalary)}
-        </button>
-      ) : (
-        <span
-          className={cn(
-            isCellDeleted
-              ? "text-[12px] font-mono tabular-nums text-muted-foreground/50 line-through"
-              : cn(SALARY_PILL_BASE, getSalaryColor(displaySalary))
-          )}
-        >
-          {formatCurrency(displaySalary)}
-        </span>
-      )}
-      {isExtensionSalary && (
-        <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/15 text-purple-700">
-          EXT
-        </span>
-      )}
-      {isMLESalary && (
-        <span className="text-[8px] px-0.5 rounded font-semibold bg-emerald-500/15 text-emerald-700">
-          MLE
-        </span>
-      )}
-      {isExtensionDeleted && extensionContractRaw && (
-        <div className="flex items-center gap-0.5">
+    <div className="flex w-full items-center justify-center">
+      <div className="relative inline-flex items-center">
+        {editableContract ? (
           <button
-            onClick={() => {
-              const newDeleted = new Set(deletedContractIds)
-              newDeleted.delete(extensionContractRaw.id)
-              setDeletedContractIds(newDeleted)
-            }}
-            className="text-muted-foreground hover:text-emerald-500 transition-colors"
-            title="Undo"
+            onClick={() => onEditContract(editableContract, player)}
+            className={cn(
+              SALARY_PILL_BASE,
+              "transition-opacity hover:opacity-70 cursor-pointer",
+              getSalaryColor(displaySalary)
+            )}
+            title={`Edit ${player.name}'s ${editableContract.type === 'extension' ? 'extension' : 'contract'}`}
           >
-            <RotateCcw className="h-3 w-3" />
+            {formatCurrency(displaySalary)}
           </button>
-          <button
-            onClick={() => removeSavedContract(extensionContractRaw.id)}
-            className="text-muted-foreground hover:text-destructive transition-colors"
-            title="Delete permanently"
+        ) : (
+          <span
+            className={cn(
+              isCellDeleted
+                ? "text-[12px] font-mono tabular-nums text-muted-foreground/50 line-through"
+                : cn(SALARY_PILL_BASE, getSalaryColor(displaySalary))
+            )}
           >
-            <Trash2 className="h-3 w-3" />
-          </button>
-        </div>
-      )}
+            {formatCurrency(displaySalary)}
+          </span>
+        )}
+        {isExtensionSalary && (
+          <span className="absolute left-full top-1/2 -translate-y-1/2 ml-1 whitespace-nowrap text-[8px] px-0.5 rounded font-semibold bg-purple-500/15 text-purple-700">
+            EXT
+          </span>
+        )}
+        {isMLESalary && (
+          <span className="absolute left-full top-1/2 -translate-y-1/2 ml-1 whitespace-nowrap text-[8px] px-0.5 rounded font-semibold bg-emerald-500/15 text-emerald-700">
+            MLE
+          </span>
+        )}
+        {isExtensionDeleted && extensionContractRaw && (
+          <div className="absolute left-full top-1/2 -translate-y-1/2 ml-1 flex items-center gap-0.5 whitespace-nowrap">
+            <button
+              onClick={() => {
+                const newDeleted = new Set(deletedContractIds)
+                newDeleted.delete(extensionContractRaw.id)
+                setDeletedContractIds(newDeleted)
+              }}
+              className="text-muted-foreground hover:text-emerald-500 transition-colors"
+              title="Undo"
+            >
+              <RotateCcw className="h-3 w-3" />
+            </button>
+            <button
+              onClick={() => removeSavedContract(extensionContractRaw.id)}
+              className="text-muted-foreground hover:text-destructive transition-colors"
+              title="Delete permanently"
+            >
+              <Trash2 className="h-3 w-3" />
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
@@ -706,7 +708,7 @@ export function RosterTable() {
                         // If there's an option, use the combined component (always show; OptionSalaryCell handles strikethrough)
                         if (hasOption) {
                           return (
-                            <td key={season} className="px-2 py-1.5 text-left">
+                            <td key={season} className="px-2 py-1.5 text-center">
                               <OptionSalaryCell
                                 playerId={player.id}
                                 optionType={optionType}
@@ -731,7 +733,7 @@ export function RosterTable() {
                         }
 
                         return (
-                          <td key={season} className="px-2 py-1.5 text-left">
+                          <td key={season} className="px-2 py-1.5 text-center">
                             <PlainSalaryCell
                               player={player}
                               season={season}
@@ -823,7 +825,7 @@ export function RosterTable() {
 
                       if (hasOption) {
                         return (
-                          <td key={season} className="px-2 py-1.5 text-left">
+                          <td key={season} className="px-2 py-1.5 text-center">
                             <OptionSalaryCell
                               playerId={pick.id}
                               optionType={optionType}
@@ -848,7 +850,7 @@ export function RosterTable() {
                       }
 
                       return (
-                        <td key={season} className="px-2 py-1.5 text-left">
+                        <td key={season} className="px-2 py-1.5 text-center">
                           <span className={cn(SALARY_PILL_BASE, getSalaryColor(salary))}>
                             {formatCurrency(salary)}
                           </span>
@@ -887,7 +889,7 @@ export function RosterTable() {
 
                           if (hasOption) {
                             return (
-                              <td key={season} className="px-2 py-1.5 text-left">
+                              <td key={season} className="px-2 py-1.5 text-center">
                                 <OptionSalaryCell
                                   playerId={pick.id}
                                   optionType={optionType}
@@ -912,7 +914,7 @@ export function RosterTable() {
                           }
 
                           return (
-                            <td key={season} className="px-2 py-1.5 text-left">
+                            <td key={season} className="px-2 py-1.5 text-center">
                               <span className={cn(SALARY_PILL_BASE, getSalaryColor(salary))}>
                                 {formatCurrency(salary)}
                               </span>
@@ -933,7 +935,7 @@ export function RosterTable() {
                   {displayedSeasons.map((season) => {
                     const proj = projections.find((p) => p.season === season)!
                     return (
-                      <td key={season} className="px-2 py-2 text-left">
+                      <td key={season} className="px-2 py-2 text-center">
                         <TotalPayrollCell proj={proj} />
                       </td>
                     )

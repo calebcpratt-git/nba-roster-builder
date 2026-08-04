@@ -1408,7 +1408,7 @@
   }
  },
  "damian lillard": {
-  "team": "POR",
+  "team": "MIL",
   "signedUnder": null,
   "incentives": {
    "2026-27": {
@@ -1644,7 +1644,7 @@
   }
  },
  "bradley beal": {
-  "team": "LAC",
+  "team": "PHO",
   "signedUnder": null,
   "incentives": {
    "2026-27": {
@@ -5438,8 +5438,8 @@
   }
  },
  "olivier maxence prosper": {
-  "team": "DAL",
-  "signedUnder": "rookie-scale",
+  "team": "MEM",
+  "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
     "likely": 0,
