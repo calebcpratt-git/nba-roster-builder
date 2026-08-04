@@ -154,7 +154,7 @@ export function SaveCapSheetButton() {
           onClick={handleSaveClick}
         >
           <Save className="h-3 w-3" />
-          {saving ? 'Saving...' : activeCapSheet ? 'Update Cap Sheet' : 'Save Cap Sheet'}
+          {saving ? 'Saving...' : activeCapSheet ? 'Save Changes' : 'Save Cap Sheet'}
         </Button>
         {error && !isOpen && <span className="text-[10px] text-red-500">{error}</span>}
       </div>
