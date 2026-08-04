@@ -65,6 +65,7 @@ def parse_contracts(path):
     if table is None:
         raise RuntimeError('player-contracts table not found — page layout changed')
     out = []
+    seen = set()
     for tr in table.find('tbody').find_all('tr'):
         if 'thead' in (tr.get('class') or []):
             continue
@@ -75,6 +76,17 @@ def parse_contracts(path):
         team = cells['team_id'].get_text(strip=True)
         if not name or not team:
             continue
+        # BBRef's contracts table occasionally repeats a player's row verbatim
+        # (confirmed live for De'Anthony Melton — two identical <tr>s, same
+        # rank-adjacent duplicate, not a traded-mid-season split) — dedupe by
+        # id (or name+team when a row has no bbrefId) so it doesn't produce
+        # two Player records that only an enrichment step downstream (which
+        # keys off bbrefId/name and would silently pick just one to update)
+        # would make look different.
+        dedupe_key = _player_id(cells['player']) or (name, team)
+        if dedupe_key in seen:
+            continue
+        seen.add(dedupe_key)
         salary, options = {}, {}
         for col, season in SEASON_COL.items():
             td = cells.get(col)
