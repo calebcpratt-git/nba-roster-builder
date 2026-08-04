@@ -1,6 +1,8 @@
 {
  "written": [
   "players",
+  "free-agent-reconciliation",
+  "picks",
   "enrichment",
   "clauses",
   "cap-state",
@@ -9,14 +11,12 @@
   "cash-ledger",
   "apron-addon"
  ],
- "staleSources": [
-  "picks (fetch failed)"
- ],
+ "staleSources": [],
  "unresolved": {
   "before": {
    "draft-year": 0,
-   "acquisition": 382,
-   "guarantees": 9,
+   "acquisition": 380,
+   "guarantees": 7,
    "signing": 8
   },
   "after": {
@@ -27,13 +27,5 @@
   },
   "newUnresolved": 0,
   "newByCategory": {}
- },
- "warnings": [],
- "diffSummaries": [
-  "players: +5 -0 ~2 (of 454)",
-  "draft-picks: +0 -0 ~0 (of 525)",
-  "contract-details: +4 -0 ~10 (of 442)",
-  "team-cap-state: +0 -0 ~21 (of 150)"
- ],
- "clean": false
+ }
 }

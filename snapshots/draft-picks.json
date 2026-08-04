@@ -2348,18 +2348,6 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Indiana Pacers, Miami Heat, Utah Jazz, San Antonio Spurs",
-    "rank": "[PHL may convey to LAC] (via HOU to DET to OKC to NYK to NOP; via IND and MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
-  },
-  {
-    "teamOwner": "Houston Rockets",
-    "year": 2027,
-    "round": "Second Round",
-    "teamFrom": null,
-    "swapOwner": null,
-    "swapOption": null,
-    "protections": null,
-    "pickNumber": null,
     "pickPool": "Portland Trail Blazers, New Orleans Pelicans, Boston Celtics",
     "rank": "Less favorable of POR and NOP if 56-60 (via POR to BOS)"
   },
@@ -2482,18 +2470,6 @@
     "pickNumber": null,
     "pickPool": null,
     "rank": null
-  },
-  {
-    "teamOwner": "Indiana Pacers",
-    "year": 2027,
-    "round": "Second Round",
-    "teamFrom": null,
-    "swapOwner": null,
-    "swapOption": null,
-    "protections": null,
-    "pickNumber": null,
-    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Indiana Pacers, Miami Heat, Oklahoma City Thunder, Utah Jazz, San Antonio Spurs, Houston Rockets, Detroit Pistons, New York Knicks, New Orleans Pelicans",
-    "rank": "[PHL may convey to LAC] (via IND and MIA to OKC to UTH to SAN to MIA; via HOU to DET to OKC to NYK to NOP; via OKC to PHL);"
   },
   {
     "teamOwner": "Indiana Pacers",
@@ -2673,7 +2649,7 @@
     "protections": null,
     "pickNumber": null,
     "pickPool": "Philadelphia Sixers, Golden State Warriors, Phoenix Suns, Washington Wizards, Oklahoma City Thunder, Houston Rockets, Indiana Pacers, Miami Heat, Detroit Pistons",
-    "rank": "Second most favorable of (i) PHL, (ii) more favorable of GOS and PHX (via WAS to PHL) and (iii) most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via IND and MIA to OKC; via OKC to PHL)"
+    "rank": "Second most favorable of (i) PHL, (ii) more favorable of GOS and PHX (via WAS) and (iii) most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via IND and MIA to OKC)"
   },
   {
     "teamOwner": "Los Angeles Clippers",
@@ -3358,18 +3334,6 @@
     "pickNumber": null,
     "pickPool": "Miami Heat, Oklahoma City Thunder, Houston Rockets, Indiana Pacers, San Antonio Spurs",
     "rank": "Least favorable of MIA, OKC, HOU, IND and SAN;"
-  },
-  {
-    "teamOwner": "Miami Heat",
-    "year": 2027,
-    "round": "Second Round",
-    "teamFrom": null,
-    "swapOwner": null,
-    "swapOption": null,
-    "protections": null,
-    "pickNumber": null,
-    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Miami Heat, Indiana Pacers, Oklahoma City Thunder, Utah Jazz, San Antonio Spurs, Houston Rockets, Detroit Pistons, New York Knicks, New Orleans Pelicans",
-    "rank": "[PHL may convey to LAC] (via MIA and IND to OKC to UTH to SAN to MIA; via HOU to DET to OKC to NYK to NOP; via OKC to PHL)"
   },
   {
     "teamOwner": "Miami Heat",
@@ -4138,18 +4102,6 @@
     "pickNumber": null,
     "pickPool": null,
     "rank": null
-  },
-  {
-    "teamOwner": "Oklahoma City Thunder",
-    "year": 2027,
-    "round": "Second Round",
-    "teamFrom": null,
-    "swapOwner": null,
-    "swapOption": null,
-    "protections": null,
-    "pickNumber": null,
-    "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Houston Rockets, Detroit Pistons, Oklahoma City Thunder, New York Knicks, New Orleans Pelicans, Indiana Pacers, Miami Heat, Utah Jazz, San Antonio Spurs",
-    "rank": "[PHL may convey to LAC] (via HOU to DET to OKC to NYK to NOP; via IND and MIA to OKC to UTH to SAN to MIA; via OKC to PHL);"
   },
   {
     "teamOwner": "Oklahoma City Thunder",
@@ -5888,8 +5840,8 @@
     "swapOption": null,
     "protections": null,
     "pickNumber": null,
-    "pickPool": "Detroit Pistons 31-55, Charlotte Hornets, Los Angeles Clippers, Dallas Mavericks, Detroit Pistons, Miami Heat, San Antonio Spurs, New York Knicks",
-    "rank": "Least / less favorable of (i) DET 31-55, (ii) less favorable of CHA and LAC (via CHA to DAL to DET), (iii) MIA if DAL conveys 1st round pick to CHA in 2027 (via SAN to DAL to DET) and (iv) NYK (via DET)"
+    "pickPool": "Detroit Pistons 31-55, Charlotte Hornets, Los Angeles Clippers, Dallas Mavericks, Miami Heat, San Antonio Spurs, New York Knicks",
+    "rank": "Least / less favorable of (i) DET 31-55, (ii) less favorable of CHA and LAC (via CHA to DAL), (iii) MIA if DAL conveys 1st round pick to CHA in 2027 (via SAN to DAL) and (iv) NYK"
   },
   {
     "teamOwner": "Utah Jazz",

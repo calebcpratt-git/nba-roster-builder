@@ -284,9 +284,7 @@
   "salary": {
    "2026-27": 48967380
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "lavinza01"
  },
  {
@@ -374,12 +372,8 @@
  {
   "name": "James Harden",
   "team": "CLE",
-  "salary": {
-   "2026-27": 42317307
-  },
-  "options": {
-   "2026-27": "Player"
-  },
+  "salary": {},
+  "options": {},
   "bbrefId": "hardeja01",
   "acquisition": {
    "date": "2026-02-04",
@@ -825,7 +819,6 @@
    "2028-29": 17653846
   },
   "options": {
-   "2026-27": "Player",
    "2028-29": "Player"
   },
   "bbrefId": "wiggian01"
@@ -958,9 +951,7 @@
   "salary": {
    "2026-27": 25000000
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "vanvlfr01",
   "acquisition": {
    "date": "2025-07-06",
@@ -983,12 +974,8 @@
  {
   "name": "Jonathan Kuminga",
   "team": "ATL",
-  "salary": {
-   "2026-27": 24300000
-  },
-  "options": {
-   "2026-27": "Team"
-  },
+  "salary": {},
+  "options": {},
   "bbrefId": "kuminjo01",
   "acquisition": {
    "date": "2026-02-05",
@@ -1113,17 +1100,17 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "lillada01"
+  "bbrefId": "lillada01",
+  "acquisition": {
+   "date": "2025-07-19",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Kentavious Caldwell-Pope",
   "team": "MEM",
-  "salary": {
-   "2026-27": 21621500
-  },
-  "options": {
-   "2026-27": "Player"
-  },
+  "salary": {},
+  "options": {},
   "bbrefId": "caldwke01"
  },
  {
@@ -1313,9 +1300,7 @@
    "2028-29": 29484000,
    "2029-30": 27300000
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "poeltja01",
   "acquisition": {
    "date": "2025-07-07",
@@ -1331,10 +1316,12 @@
    "2028-29": 19383010,
    "2029-30": 19383010
   },
-  "options": {
-   "2026-27": "Player"
-  },
-  "bbrefId": "bealbr01"
+  "options": {},
+  "bbrefId": "bealbr01",
+  "acquisition": {
+   "date": "2025-07-18",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Ayo Dosunmu",
@@ -1361,9 +1348,7 @@
   "salary": {
    "2026-27": 18222222
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "dortlu01"
  },
  {
@@ -1496,7 +1481,6 @@
    "2031-32": 57420000
   },
   "options": {
-   "2026-27": "Team",
    "2031-32": "Player"
   },
   "bbrefId": "wembavi01"
@@ -1592,9 +1576,7 @@
   "salary": {
    "2026-27": 15104626
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "millebr02"
  },
  {
@@ -1874,7 +1856,6 @@
    "2027-28": 17434637
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "risacza01"
@@ -1885,28 +1866,8 @@
   "salary": {
    "2026-27": 13585523
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "hendesc01"
- },
- {
-  "name": "Damian Lillard",
-  "team": "POR",
-  "salary": {
-   "2026-27": 35915403,
-   "2027-28": 36620603,
-   "2028-29": 22516603,
-   "2029-30": 22516603
-  },
-  "options": {
-   "2027-28": "Player"
-  },
-  "bbrefId": "lillada01",
-  "acquisition": {
-   "date": "2025-07-19",
-   "method": "free-agent"
-  }
  },
  {
   "name": "Dorian Finney-Smith",
@@ -2057,7 +2018,6 @@
    "2027-28": 15611798
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "sarral01"
@@ -2068,9 +2028,7 @@
   "salary": {
    "2026-27": 12258609
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "thompam01"
  },
  {
@@ -2144,9 +2102,7 @@
   "salary": {
    "2026-27": 11117925
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "thompau01"
  },
  {
@@ -2157,7 +2113,6 @@
    "2027-28": 14041625
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "sheppre01"
@@ -2302,9 +2257,7 @@
   "salary": {
    "2026-27": 10106316
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "blackan01"
  },
  {
@@ -2331,7 +2284,6 @@
    "2027-28": 12670139
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "castlst01"
@@ -2468,9 +2420,7 @@
   "salary": {
    "2026-27": 9240012
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "coulibi01"
  },
  {
@@ -2508,9 +2458,7 @@
   "salary": {
    "2026-27": 9187500
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "lopezbr01",
   "acquisition": {
    "date": "2025-07-06",
@@ -2540,7 +2488,6 @@
    "2027-28": 11491183
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "hollaro01"
@@ -2610,9 +2557,7 @@
   "salary": {
    "2026-27": 8478542
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "walkeja02"
  },
  {
@@ -2671,7 +2616,6 @@
    "2027-28": 10445633
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "salauti01"
@@ -2682,9 +2626,7 @@
   "salary": {
    "2026-27": 8104000
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "aytonde01",
   "acquisition": {
    "date": "2025-07-06",
@@ -2723,7 +2665,14 @@
    "2026-27": 10449421
   },
   "options": {},
-  "bbrefId": "isaacjo01"
+  "bbrefId": "isaacjo01",
+  "guarantees": {
+   "2026-27": {
+    "status": "partial",
+    "amount": 8000000,
+    "guaranteeDate": "2026-06-28"
+   }
+  }
  },
  {
   "name": "Harrison Barnes",
@@ -2790,9 +2739,7 @@
   "salary": {
    "2026-27": 7805900
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "hendrta01"
  },
  {
@@ -2838,7 +2785,6 @@
    "2027-28": 9550298
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "clingdo01"
@@ -2861,9 +2807,7 @@
   "salary": {
    "2026-27": 7420806
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "wallaca01"
  },
  {
@@ -2887,9 +2831,7 @@
   "salary": {
    "2026-27": 7239131
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "livelde01"
  },
  {
@@ -2916,9 +2858,7 @@
   "salary": {
    "2026-27": 7131511
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "dickgr01"
  },
  {
@@ -2941,9 +2881,7 @@
   "salary": {
    "2026-27": 7021895
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "hawkijo01"
  },
  {
@@ -2968,7 +2906,6 @@
    "2027-28": 8763216
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "dilliro01",
@@ -3030,9 +2967,7 @@
   "salary": {
    "2026-27": 6563925
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "georgke01"
  },
  {
@@ -3084,7 +3019,6 @@
    "2027-28": 8067937
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "edeyza01"
@@ -3171,7 +3105,6 @@
    "2027-28": 7669890
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "willico04"
@@ -3202,7 +3135,11 @@
    "2027-28": 11896341
   },
   "options": {},
-  "bbrefId": "jonessp01"
+  "bbrefId": "jonessp01",
+  "acquisition": {
+   "date": "2026-02-19",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jaxson Hayes",
@@ -3283,9 +3220,7 @@
   "salary": {
    "2026-27": 5969250
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "russeda01",
   "acquisition": {
    "date": "2026-02-05",
@@ -3298,20 +3233,14 @@
   "salary": {
    "2026-27": 5939141
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "jaqueja01"
  },
  {
   "name": "Nicolas Batum",
   "team": "LAC",
-  "salary": {
-   "2026-27": 5881680
-  },
-  "options": {
-   "2026-27": "Team"
-  },
+  "salary": {},
+  "options": {},
   "bbrefId": "batumni01",
   "acquisition": {
    "date": "2025-07-06",
@@ -3333,20 +3262,6 @@
   "acquisition": {
    "date": "2025-07-23",
    "method": "waiver"
-  }
- },
- {
-  "name": "Spencer Jones",
-  "team": "DEN",
-  "salary": {
-   "2026-27": 11853659,
-   "2027-28": 11896341
-  },
-  "options": {},
-  "bbrefId": "jonessp01",
-  "acquisition": {
-   "date": "2026-02-19",
-   "method": "free-agent"
   }
  },
  {
@@ -3389,7 +3304,6 @@
    "2027-28": 7584283
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "buzelma01"
@@ -3433,28 +3347,8 @@
   "salary": {
    "2026-27": 5679459
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "podzibr01"
- },
- {
-  "name": "Bradley Beal",
-  "team": "LAC",
-  "salary": {
-   "2026-27": 25004710,
-   "2027-28": 19383010,
-   "2028-29": 19383010,
-   "2029-30": 19383010
-  },
-  "options": {
-   "2026-27": "Player"
-  },
-  "bbrefId": "bealbr01",
-  "acquisition": {
-   "date": "2025-07-18",
-   "method": "free-agent"
-  }
  },
  {
   "name": "Paul Reed",
@@ -3526,10 +3420,13 @@
    "2027-28": 5750850
   },
   "options": {
-   "2026-27": "Player",
    "2027-28": "Player"
   },
-  "bbrefId": "meltode01"
+  "bbrefId": "meltode01",
+  "acquisition": {
+   "date": "2025-10-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Cam Whitmore",
@@ -3537,9 +3434,7 @@
   "salary": {
    "2026-27": 5458310
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "whitmca01",
   "acquisition": {
    "date": "2025-07-06",
@@ -3554,7 +3449,6 @@
    "2027-28": 7482210
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "topicni01"
@@ -3583,9 +3477,7 @@
   "salary": {
    "2026-27": 5414034
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "clownno01"
  },
  {
@@ -3594,9 +3486,7 @@
   "salary": {
    "2026-27": 5390700
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "porteke02",
   "acquisition": {
    "date": "2025-07-07",
@@ -3625,9 +3515,7 @@
   "salary": {
    "2026-27": 5315004
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "murrakr01"
  },
  {
@@ -3668,9 +3556,7 @@
   "salary": {
    "2026-27": 5198983
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "sassema01"
  },
  {
@@ -3681,7 +3567,6 @@
    "2027-28": 7370897
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "cartede02"
@@ -3710,9 +3595,7 @@
   "salary": {
    "2026-27": 5031669
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "sheppbe01"
  },
  {
@@ -3747,7 +3630,6 @@
    "2027-28": 7257730
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "carrica01"
@@ -3776,9 +3658,7 @@
   "salary": {
    "2026-27": 4862237
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "sensabr01"
  },
  {
@@ -3787,9 +3667,7 @@
   "salary": {
    "2026-27": 4826931
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "strawju01"
  },
  {
@@ -3819,7 +3697,6 @@
    "2027-28": 7135992
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "wareke01"
@@ -3913,7 +3790,6 @@
    "2027-28": 6784268
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "mccaija01"
@@ -3959,7 +3835,6 @@
    "2027-28": 6452860
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "knechda01"
@@ -4037,9 +3912,7 @@
   "salary": {
    "2026-27": 4000000
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "jenkida01",
   "acquisition": {
    "date": "2026-02-08",
@@ -4054,7 +3927,6 @@
    "2027-28": 6138466
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "dasiltr01"
@@ -4164,9 +4036,7 @@
   "salary": {
    "2026-27": 3815861
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "princta02",
   "acquisition": {
    "date": "2025-07-08",
@@ -4179,9 +4049,7 @@
   "salary": {
    "2026-27": 3815861
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "harriga01",
   "acquisition": {
    "date": "2025-07-08",
@@ -4214,7 +4082,6 @@
    "2027-28": 5870172
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "walteja01"
@@ -4278,7 +4145,6 @@
    "2027-28": 5641500
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "tysonja01"
@@ -4324,7 +4190,6 @@
    "2027-28": 5595827
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "missiyv01"
@@ -4345,31 +4210,12 @@
   "bbrefId": "ejiofzu01"
  },
  {
-  "name": "De'Anthony Melton",
-  "team": "GSW",
-  "salary": {
-   "2026-27": 8928779,
-   "2027-28": 5750850
-  },
-  "options": {
-   "2026-27": "Player",
-   "2027-28": "Player"
-  },
-  "bbrefId": "meltode01",
-  "acquisition": {
-   "date": "2025-10-01",
-   "method": "free-agent"
-  }
- },
- {
   "name": "Dominick Barlow",
   "team": "PHI",
   "salary": {
    "2026-27": 3415000
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "barlodo01",
   "acquisition": {
    "date": "2026-02-05",
@@ -4411,7 +4257,6 @@
    "2027-28": 5547138
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "holmeda01"
@@ -4482,7 +4327,6 @@
    "2027-28": 5493394
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "johnsaj01",
@@ -4554,7 +4398,6 @@
    "2027-28": 5435892
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "georgky01"
@@ -4690,7 +4533,6 @@
    "2027-28": 5373608
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "dadiepa01"
@@ -4868,7 +4710,6 @@
    "2027-28": 5054159
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "shannte01"
@@ -4897,9 +4738,7 @@
   "salary": {
    "2026-27": 2801346
   },
-  "options": {
-   "2026-27": "Player"
-  },
+  "options": {},
   "bbrefId": "simsje01",
   "acquisition": {
    "date": "2025-07-09",
@@ -4922,12 +4761,8 @@
  {
   "name": "Trendon Watford",
   "team": "PHI",
-  "salary": {
-   "2026-27": 2801346
-  },
-  "options": {
-   "2026-27": "Team"
-  },
+  "salary": {},
+  "options": {},
   "bbrefId": "watfotr01",
   "acquisition": {
    "date": "2025-07-02",
@@ -4942,7 +4777,6 @@
    "2027-28": 5025553
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "dunnry01"
@@ -4955,7 +4789,6 @@
    "2027-28": 4988948
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "colliis01"
@@ -4968,7 +4801,6 @@
    "2027-28": 4952993
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "scheiba01"
@@ -4983,9 +4815,7 @@
    "2029-30": 14500000,
    "2030-31": 15500000
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "quetane01"
  },
  {
@@ -5098,9 +4928,7 @@
   "salary": {
    "2026-27": 2584539
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "cainja01",
   "acquisition": {
    "date": "2026-03-20",
@@ -5134,9 +4962,7 @@
   "salary": {
    "2026-27": 2584539
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "davisjd01",
   "acquisition": {
    "date": "2026-04-07",
@@ -5255,10 +5081,13 @@
    "2027-28": 1002360
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
-  "bbrefId": "prospol01"
+  "bbrefId": "prospol01",
+  "acquisition": {
+   "date": "2026-03-04",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Sidy Cissoko",
@@ -5300,22 +5129,6 @@
   "acquisition": {
    "date": "2026-02-11",
    "method": "free-agent"
-  }
- },
- {
-  "name": "Jonathan Isaac",
-  "team": "ORL",
-  "salary": {
-   "2026-27": 10449421
-  },
-  "options": {},
-  "bbrefId": "isaacjo01",
-  "guarantees": {
-   "2026-27": {
-    "status": "partial",
-    "amount": 8000000,
-    "guaranteeDate": "2026-06-28"
-   }
   }
  },
  {
@@ -5764,9 +5577,7 @@
    "2028-29": 5000000,
    "2029-30": 5370370
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "walshjo01",
   "guarantees": {
    "2026-27": {
@@ -5781,9 +5592,7 @@
   "salary": {
    "2026-27": 2406205
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "jackstr02"
  },
  {
@@ -5792,9 +5601,7 @@
   "salary": {
    "2026-27": 2406205
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "jacksgg01"
  },
  {
@@ -5803,9 +5610,7 @@
   "salary": {
    "2026-27": 2406205
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "portecr01",
   "guarantees": {
    "2026-27": {
@@ -5819,9 +5624,7 @@
   "salary": {
    "2026-27": 2406205
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "millele01",
   "acquisition": {
    "date": "2026-02-05",
@@ -5840,9 +5643,7 @@
   "salary": {
    "2026-27": 2406205
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "gueyemo02",
   "guarantees": {
    "2026-27": {
@@ -5856,20 +5657,14 @@
   "salary": {
    "2026-27": 2406205
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "jacksan01"
  },
  {
   "name": "Jalen Pickett",
   "team": "DEN",
-  "salary": {
-   "2026-27": 2406205
-  },
-  "options": {
-   "2026-27": "Team"
-  },
+  "salary": {},
+  "options": {},
   "bbrefId": "pickeja02"
  },
  {
@@ -5878,9 +5673,7 @@
   "salary": {
    "2026-27": 2296271
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "sheadja01"
  },
  {
@@ -5901,9 +5694,7 @@
   "salary": {
    "2026-27": 2296271
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "matkoka01"
  },
  {
@@ -5912,9 +5703,7 @@
   "salary": {
    "2026-27": 2296271
   },
-  "options": {
-   "2026-27": "Team"
-  },
+  "options": {},
   "bbrefId": "larsspe01",
   "guarantees": {
    "2026-27": {
@@ -6465,23 +6254,6 @@
   }
  },
  {
-  "name": "Olivier-Maxence Prosper",
-  "team": "DAL",
-  "salary": {
-   "2026-27": 3500172,
-   "2027-28": 1002360
-  },
-  "options": {
-   "2026-27": "Team",
-   "2027-28": "Team"
-  },
-  "bbrefId": "prospol01",
-  "acquisition": {
-   "date": "2026-03-04",
-   "method": "free-agent"
-  }
- },
- {
   "name": "E.J. Liddell",
   "team": "PHO",
   "salary": {
@@ -6502,7 +6274,6 @@
    "2027-28": 666667
   },
   "options": {
-   "2026-27": "Team",
    "2027-28": "Team"
   },
   "bbrefId": "micicva01",
