@@ -4981,6 +4981,24 @@
   "bbrefId": "huffja01"
  },
  {
+  "name": "Christian Koloko",
+  "team": "NOP",
+  "salary": {
+   "2026-27": 2625627
+  },
+  "options": {},
+  "bbrefId": "kolokch01",
+  "acquisition": {
+   "date": "2026-01-16",
+   "method": "free-agent"
+  },
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
+ },
+ {
   "name": "Kobe Sanders",
   "team": "LAC",
   "salary": {
