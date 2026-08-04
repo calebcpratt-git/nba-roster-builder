@@ -1,0 +1,41 @@
+{
+  "written": [
+    "players",
+    "enrichment",
+    "clauses",
+    "cap-state",
+    "salaryswish-league",
+    "signing-incentives",
+    "cash-ledger",
+    "apron-addon"
+  ],
+  "staleSources": [
+    "picks (fetch failed)"
+  ],
+  "unresolved": {
+    "before": {
+      "draft-year": 22,
+      "acquisition": 383,
+      "guarantees": 10,
+      "signing": 125
+    },
+    "after": {
+      "draft-year": 26,
+      "acquisition": 380,
+      "guarantees": 7,
+      "signing": 124
+    },
+    "newUnresolved": 4,
+    "newByCategory": {
+      "draft-year": 4
+    }
+  },
+  "warnings": [],
+  "diffSummaries": [
+    "players: +6 -0 ~2 (of 453)",
+    "draft-picks: +0 -0 ~0 (of 525)",
+    "contract-details: +4 -0 ~0 (of 337)",
+    "team-cap-state: +0 -0 ~0 (of 150)"
+  ],
+  "clean": false
+}

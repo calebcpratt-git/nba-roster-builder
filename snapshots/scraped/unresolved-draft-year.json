@@ -1,5 +1,13 @@
 [
  {
+  "name": "Moritz Wagner",
+  "team": "BRK"
+ },
+ {
+  "name": "Spencer Jones",
+  "team": "DEN"
+ },
+ {
   "name": "Spencer Jones",
   "team": "DEN"
  },
@@ -14,6 +22,10 @@
  {
   "name": "Tarik Biberovic",
   "team": "DAL"
+ },
+ {
+  "name": "Christian Koloko",
+  "team": "NOP"
  },
  {
   "name": "Jamaree Bouyea",
@@ -62,6 +74,10 @@
  {
   "name": "Jae'Sean Tate",
   "team": "HOU"
+ },
+ {
+  "name": "Mario Hezonja",
+  "team": "CLE"
  },
  {
   "name": "Tolu Smith",

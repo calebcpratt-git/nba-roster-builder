@@ -2635,6 +2635,20 @@
     }
   },
   {
+    "name": "Moritz Wagner",
+    "signedUnder": "bird",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Bilal Coulibaly",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -3334,6 +3348,20 @@
     }
   },
   {
+    "name": "Spencer Jones",
+    "signedUnder": "early-bird",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Jaxson Hayes",
     "incentives": {
       "2026-27": {
@@ -3398,20 +3426,6 @@
         "unlikely": 0
       },
       "2028-29": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Spencer Jones",
-    "signedUnder": "early-bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -3562,6 +3576,19 @@
   {
     "name": "Precious Achiuwa",
     "signedUnder": "bi-annual",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "De'Anthony Melton",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -4180,6 +4207,28 @@
     }
   },
   {
+    "name": "Karim López",
+    "signedUnder": "rookie-scale",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 100000,
+        "unlikely": 0
+      },
+      "2028-29": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2029-30": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Will Riley",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -4284,19 +4333,6 @@
         "unlikely": 0
       },
       "2029-30": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "De'Anthony Melton",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -4946,6 +4982,16 @@
     }
   },
   {
+    "name": "Christian Koloko",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Kobe Sanders",
     "signedUnder": "non-bird",
     "incentives": {
@@ -5364,6 +5410,16 @@
   },
   {
     "name": "Tyus Jones",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Mario Hezonja",
     "signedUnder": "minimum",
     "incentives": {
       "2026-27": {
