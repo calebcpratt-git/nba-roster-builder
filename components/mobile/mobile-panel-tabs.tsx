@@ -15,7 +15,7 @@ type PanelKey = 'fa' | 'trades' | 'saved'
 export function MobilePanelTabs() {
   const { savedContracts, savedTrades, selectedTeam } = useRoster()
   const [activePanel, setActivePanel] = useState<PanelKey | null>(null)
-  const [selectedYear, setSelectedYear] = useState(SEASONS[0])
+  const [selectedYear, setSelectedYear] = useState(SEASONS[1])
   const [isTradeModalOpen, setIsTradeModalOpen] = useState(false)
   const [editingTrade, setEditingTrade] = useState<SavedTrade | null>(null)
 
