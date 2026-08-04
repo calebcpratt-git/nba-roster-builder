@@ -103,7 +103,7 @@
    "availableToSend": 1964000,
    "availableToReceive": 7768700
   },
-  "apronAddon": 0
+  "apronAddon": 1196262
  },
  {
   "team": "ATL",
@@ -150,7 +150,7 @@
   "taxLine": 210499000,
   "firstApron": 219450000,
   "secondApron": 233100000,
-  "apronAddon": 0
+  "apronAddon": 177571
  },
  {
   "team": "ATL",
@@ -192,7 +192,7 @@
   "taxLine": 221025000,
   "firstApron": 230423000,
   "secondApron": 244755000,
-  "apronAddon": 0
+  "apronAddon": 177571
  },
  {
   "team": "ATL",
@@ -777,7 +777,7 @@
    "availableToSend": 7854000,
    "availableToReceive": 4464000
   },
-  "apronAddon": 0
+  "apronAddon": 500000
  },
  {
   "team": "CHO",
@@ -819,7 +819,7 @@
   "taxLine": 210499000,
   "firstApron": 219450000,
   "secondApron": 233100000,
-  "apronAddon": 0
+  "apronAddon": 500000
  },
  {
   "team": "CHO",
@@ -1026,7 +1026,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 3674541
   },
-  "apronAddon": 0
+  "apronAddon": 2315117
  },
  {
   "team": "CHI",
@@ -1068,7 +1068,7 @@
   "taxLine": 210499000,
   "firstApron": 219450000,
   "secondApron": 233100000,
-  "apronAddon": 0
+  "apronAddon": 491200
  },
  {
   "team": "CHI",
@@ -1570,7 +1570,7 @@
    "availableToSend": 6264000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 0
+  "apronAddon": 1344585
  },
  {
   "team": "DAL",
@@ -1646,7 +1646,7 @@
   "taxLine": 210499000,
   "firstApron": 219450000,
   "secondApron": 233100000,
-  "apronAddon": 0
+  "apronAddon": 1405703
  },
  {
   "team": "DAL",
@@ -1879,7 +1879,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 1680000
+  "apronAddon": 5617500
  },
  {
   "team": "DEN",
@@ -4025,7 +4025,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 1850000
+  "apronAddon": 2850000
  },
  {
   "team": "MEM",
@@ -4082,7 +4082,7 @@
   "taxLine": 210499000,
   "firstApron": 219450000,
   "secondApron": 233100000,
-  "apronAddon": 1282500
+  "apronAddon": 2282500
  },
  {
   "team": "MEM",
@@ -4472,7 +4472,7 @@
    "availableToSend": 6714000,
    "availableToReceive": 3464000
   },
-  "apronAddon": 0
+  "apronAddon": 5075000
  },
  {
   "team": "MIL",
@@ -4791,7 +4791,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 2114000
   },
-  "apronAddon": 1000000
+  "apronAddon": 1750000
  },
  {
   "team": "MIN",
@@ -5147,7 +5147,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 7575000
   },
-  "apronAddon": 0
+  "apronAddon": 6918801
  },
  {
   "team": "NOP",
@@ -5234,7 +5234,7 @@
   "taxLine": 210499000,
   "firstApron": 219450000,
   "secondApron": 233100000,
-  "apronAddon": 0
+  "apronAddon": 2603997
  },
  {
   "team": "NOP",
@@ -6126,7 +6126,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 6604000
   },
-  "apronAddon": 0
+  "apronAddon": 1733910
  },
  {
   "team": "ORL",
@@ -6188,7 +6188,7 @@
   "taxLine": 210499000,
   "firstApron": 219450000,
   "secondApron": 233100000,
-  "apronAddon": 0
+  "apronAddon": 1853490
  },
  {
   "team": "ORL",
@@ -6255,7 +6255,7 @@
   "taxLine": 221025000,
   "firstApron": 230423000,
   "secondApron": 244755000,
-  "apronAddon": 0
+  "apronAddon": 1973070
  },
  {
   "team": "ORL",
@@ -7199,7 +7199,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 2600000
+  "apronAddon": 3850000
  },
  {
   "team": "SAC",
@@ -7761,7 +7761,7 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 3000000
+  "apronAddon": 6598209
  },
  {
   "team": "TOR",
