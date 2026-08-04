@@ -2265,6 +2265,19 @@
     "options": {}
   },
   {
+    "name": "Moritz Wagner",
+    "team": "BRK",
+    "salary": {
+      "2026-27": 9268293,
+      "2027-28": 9731707
+    },
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
+    }
+  },
+  {
     "name": "Bilal Coulibaly",
     "team": "WAS",
     "salary": {
@@ -2943,6 +2956,15 @@
     }
   },
   {
+    "name": "Spencer Jones",
+    "team": "DEN",
+    "salary": {
+      "2026-27": 11853659,
+      "2027-28": 11896341
+    },
+    "options": {}
+  },
+  {
     "name": "Jaxson Hayes",
     "team": "UTA",
     "salary": {
@@ -3068,8 +3090,8 @@
     "name": "Spencer Jones",
     "team": "DEN",
     "salary": {
-      "2026-27": 5853659,
-      "2027-28": 6146341
+      "2026-27": 11853659,
+      "2027-28": 11896341
     },
     "options": {},
     "acquisition": {
@@ -3233,6 +3255,18 @@
     "acquisition": {
       "date": "2025-11-04",
       "method": "free-agent"
+    }
+  },
+  {
+    "name": "De'Anthony Melton",
+    "team": "GSW",
+    "salary": {
+      "2026-27": 8928779,
+      "2027-28": 5750850
+    },
+    "options": {
+      "2026-27": "Player",
+      "2027-28": "Player"
     }
   },
   {
@@ -3877,6 +3911,24 @@
     }
   },
   {
+    "name": "Karim López",
+    "team": "MEM",
+    "salary": {
+      "2026-27": 3746760,
+      "2027-28": 3934320,
+      "2028-29": 4121760,
+      "2029-30": 6565964
+    },
+    "options": {
+      "2028-29": "Team",
+      "2029-30": "Team"
+    },
+    "acquisition": {
+      "date": "2026-06-23",
+      "method": "trade"
+    }
+  },
+  {
     "name": "Cole Anthony",
     "team": "MEM",
     "salary": {
@@ -3979,10 +4031,12 @@
     "name": "De'Anthony Melton",
     "team": "GSW",
     "salary": {
-      "2026-27": 3451779
+      "2026-27": 8928779,
+      "2027-28": 5750850
     },
     "options": {
-      "2026-27": "Player"
+      "2026-27": "Player",
+      "2027-28": "Player"
     },
     "acquisition": {
       "date": "2025-10-01",
@@ -4625,6 +4679,23 @@
     "options": {}
   },
   {
+    "name": "Christian Koloko",
+    "team": "NOP",
+    "salary": {
+      "2026-27": 2625627
+    },
+    "options": {},
+    "acquisition": {
+      "date": "2026-01-16",
+      "method": "free-agent"
+    },
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
     "name": "Kobe Sanders",
     "team": "LAC",
     "salary": {
@@ -5145,6 +5216,20 @@
     "acquisition": {
       "date": "2026-03-05",
       "method": "free-agent"
+    }
+  },
+  {
+    "name": "Mario Hezonja",
+    "team": "CLE",
+    "salary": {
+      "2026-27": 2449421
+    },
+    "options": {},
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed",
+        "guaranteeDate": "2026-11-15"
+      }
     }
   },
   {

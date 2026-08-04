@@ -2905,6 +2905,20 @@
    }
   }
  },
+ "moritz wagner": {
+  "team": "BRK",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "bilal coulibaly": {
   "team": "WAS",
   "signedUnder": "rookie-scale",
@@ -3618,6 +3632,20 @@
    }
   }
  },
+ "spencer jones": {
+  "team": "DEN",
+  "signedUnder": "early-bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "jaxson hayes": {
   "team": "UTA",
   "signedUnder": null,
@@ -3722,20 +3750,6 @@
     "unlikely": 0
    },
    "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "spencer jones": {
-  "team": "DEN",
-  "signedUnder": "early-bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -3886,6 +3900,20 @@
  "precious achiuwa": {
   "team": "SAC",
   "signedUnder": "bi-annual",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "deanthony melton": {
+  "team": "GSW",
+  "signedUnder": null,
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -4563,6 +4591,28 @@
    }
   }
  },
+ "karim lopez": {
+  "team": "MEM",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 100000,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "cole anthony": {
   "team": "MEM",
   "signedUnder": "minimum",
@@ -4649,20 +4699,6 @@
     "unlikely": 0
    },
    "2029-30": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "deanthony melton": {
-  "team": "GSW",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -5267,6 +5303,16 @@
    }
   }
  },
+ "christian koloko": {
+  "team": "NOP",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "kobe sanders": {
   "team": "LAC",
   "signedUnder": "non-bird",
@@ -5663,6 +5709,16 @@
  },
  "tyus jones": {
   "team": "DEN",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "mario hezonja": {
+  "team": "CLE",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {

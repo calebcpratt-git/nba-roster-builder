@@ -220,11 +220,6 @@
   "method": "trade"
  },
  {
-  "name": "Moe Wagner",
-  "date": "2025-07-07",
-  "method": "free-agent"
- },
- {
   "name": "Georges Niang",
   "date": "2026-02-05",
   "method": "free-agent"
@@ -417,11 +412,6 @@
  {
   "name": "Ethan thompson",
   "date": "2025-11-30",
-  "method": "free-agent"
- },
- {
-  "name": "Christian Koloko",
-  "date": "2026-01-16",
   "method": "free-agent"
  },
  {
@@ -1738,11 +1728,6 @@
   "name": "Jaden Ivey",
   "date": "2026-03-30",
   "method": "free-agent"
- },
- {
-  "name": "Karim Lopez",
-  "date": "2026-06-23",
-  "method": "trade"
  },
  {
   "name": "Balsa Koprivica",

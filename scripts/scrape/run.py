@@ -45,6 +45,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 RAW = os.path.join(ROOT, 'snapshots', 'raw')
 CAPTRACKER_RAW = os.path.join(RAW, 'nbacaptracker')
 SALARYSWISH_PLAYERS_RAW = os.path.join(RAW, 'salaryswish_players')
+BBREF_PLAYERS_RAW = os.path.join(RAW, 'bbref_players')
 OUT = os.path.join(ROOT, 'snapshots', 'scraped')
 ROOKIE_YEARS_TS = os.path.join(ROOT, 'lib', 'rookie-years.ts')
 SS_PLAYER_CACHE = os.path.join(OUT, 'salaryswish-players.json')
@@ -171,6 +172,7 @@ def count_unresolved():
 
 def build_players():
     """Parse the Basketball Reference half and write its three scraped files."""
+    offline = '--offline' in sys.argv  # same flag main() reads; not worth threading through GROUPS' build() signature
     contracts = bbref.parse_contracts(os.path.join(RAW, 'bbref_contracts.html'))
     draft = []
     for y in DRAFT_YEARS:
@@ -194,7 +196,48 @@ def build_players():
         if year:
             rookie_years[c['name']] = year
         else:
-            unresolved.append({'name': c['name'], 'team': c['team']})
+            unresolved.append(c)
+
+    # Fallback for whatever the draft-class join still couldn't place:
+    # DRAFT_YEARS only covers the last two draft classes (see its
+    # definition), so anyone drafted earlier — or genuinely undrafted — is
+    # invisible to that join no matter how many runs go by. Their own BBRef
+    # bio page states rookie year directly (NBA Debut date, or "Experience:
+    # Rookie" pre-debut), so fetch just this small residual list — one
+    # fetch per still-unresolved player, not the whole roster — and resolve
+    # from there. Once resolved, existing_rookie_years() makes it permanent
+    # (lib/rookie-years.ts is consulted as `known` on every future run), so
+    # this fallback only ever pays for genuinely new stragglers.
+    still_unresolved = []
+    if unresolved:
+        os.makedirs(BBREF_PLAYERS_RAW, exist_ok=True)
+        resolved_by_fallback = 0
+        for c in unresolved:
+            bbrefId = c.get('bbrefId')
+            if not bbrefId:
+                still_unresolved.append(c)
+                continue
+            path = os.path.join(BBREF_PLAYERS_RAW, f'{bbrefId}.html')
+            if offline:
+                if not os.path.exists(path):
+                    still_unresolved.append(c)
+                    continue
+            else:
+                url = bbref.PLAYER_URL.format(first=bbrefId[0], bbrefId=bbrefId)
+                if not bbref.fetch_page(url, path):
+                    still_unresolved.append(c)
+                    continue
+                time.sleep(1.0)
+            year = bbref.parse_player_debut(path, CURRENT_SEASON_YEAR)
+            if year:
+                rookie_years[c['name']] = year
+                resolved_by_fallback += 1
+            else:
+                still_unresolved.append(c)
+        if resolved_by_fallback:
+            print(f'  draft-year fallback (BBRef bio pages): resolved {resolved_by_fallback}, '
+                  f'still unresolved {len(still_unresolved)}')
+    unresolved = [{'name': c['name'], 'team': c['team']} for c in still_unresolved]
 
     json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(rookie_years, open(os.path.join(OUT, 'rookie-years.json'), 'w'), indent=1, ensure_ascii=False)
