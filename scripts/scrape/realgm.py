@@ -373,3 +373,107 @@ def parse_picks(path):
               'protections', 'pickNumber', 'pickPool', 'rank']
     out = [{f: p.get(f) for f in FIELDS} for p in picks]
     return out, {'sections': len(sections), 'unreconciled': unreconciled}
+
+
+# ---------- free-agent-options / current-free-agents (stale-option reconciliation) ----------
+
+# REALGM_TO_NAME's own key set isn't quite what these two pages use: the
+# future_drafts page's headings are consistent with REALGM_TO_NAME's keys, but
+# free_agent_options' "Current Team" column spells out the full name directly
+# (already matches REALGM_TO_NAME.values()), and current_free_agents' "Prior
+# NBA Team" column uses a THIRD code variant for a few teams (confirmed live:
+# SAS/UTA there, vs. SAN/UTH in REALGM_TO_NAME) alongside CHA/GOS/PHL/PHX
+# which do match REALGM_TO_NAME's keys. None of these three pages' codes are
+# the app's own bbref-style abbreviations (CHO not CHA, GSW not GOS, PHI not
+# PHL, PHO not PHX) used in players.json's `team` field, so both need mapping
+# through to the app abbreviation before they can be compared to it.
+_APP_ABBR_OVERRIDES = {'CHA': 'CHO', 'GOS': 'GSW', 'PHL': 'PHI', 'PHX': 'PHO', 'SAN': 'SAS', 'UTH': 'UTA'}
+REALGM_CODE_TO_APP_ABBR = {code: _APP_ABBR_OVERRIDES.get(code, code) for code in REALGM_TO_NAME}
+REALGM_NAME_TO_APP_ABBR = {name: REALGM_CODE_TO_APP_ABBR[code] for code, name in REALGM_TO_NAME.items()}
+# current_free_agents' "Prior NBA Team" column additionally uses SAS/UTA
+# directly (not SAN/UTH) — extend rather than replace the code map above.
+_PRIOR_TEAM_TO_APP_ABBR = {**REALGM_CODE_TO_APP_ABBR, 'SAS': 'SAS', 'UTA': 'UTA'}
+
+_SEASON_RANGE = re.compile(r'^(\d{4})-(\d{4})$')
+
+
+def _normalize_season(text):
+    """'2027-2028' -> '2027-28', matching CURRENT_SEASON_LABEL's format."""
+    m = _SEASON_RANGE.match(text.strip())
+    if not m:
+        return None
+    return f'{m.group(1)}-{m.group(2)[-2:]}'
+
+
+def parse_free_agent_options(path):
+    """-> [{name, team, season, optionType}]
+    Parses the free_agent_options table (Player / Pos / Current Team / Season
+    / Option Type / ...). `season` is normalized to the 'YYYY-YY' label format
+    already used elsewhere in the pipeline (matches CURRENT_SEASON_LABEL in
+    run.py) so it can be directly compared to players.json's options dict
+    keys."""
+    soup = BeautifulSoup(open(path, encoding='ISO-8859-1', errors='replace').read(), 'html.parser')
+    table = None
+    for t in soup.find_all('table'):
+        header_cells = [c.get_text(strip=True) for c in t.find_all(['th', 'td'])[:5]]
+        if header_cells[:3] == ['Player', 'Pos', 'Current Team']:
+            table = t
+            break
+    if table is None:
+        raise RuntimeError('free_agent_options table not found — page layout changed')
+    body = table.find('tbody')
+    if body is None:
+        raise RuntimeError('free_agent_options table has no tbody — page layout changed')
+    out = []
+    for tr in body.find_all('tr'):
+        tds = tr.find_all('td')
+        if len(tds) < 5:
+            continue
+        name = tds[0].get_text(strip=True)
+        team_name = tds[2].get_text(strip=True)
+        season = _normalize_season(tds[3].get_text(strip=True))
+        option_type = tds[4].get_text(strip=True)
+        team = REALGM_NAME_TO_APP_ABBR.get(team_name)
+        if not name or team is None or season is None or not option_type:
+            continue
+        out.append({'name': name, 'team': team, 'season': season, 'optionType': option_type})
+    if not out:
+        raise RuntimeError('free_agent_options parsed to zero rows — page layout changed')
+    return out
+
+
+def parse_current_free_agents(path):
+    """-> [{name, priorTeam, faType}]
+    Parses the current_free_agents table (Player / ... / FA Type / Prior NBA
+    Team / ...). faType is the raw column value ('U' unrestricted, 'R'
+    restricted, etc.) — kept as-is, not interpreted here."""
+    soup = BeautifulSoup(open(path, encoding='ISO-8859-1', errors='replace').read(), 'html.parser')
+    table = None
+    for t in soup.find_all('table'):
+        header_cells = [c.get_text(strip=True) for c in t.find_all(['th', 'td'])[:9]]
+        if 'FA Type' in header_cells and 'Prior NBA Team' in header_cells:
+            table = t
+            header = header_cells
+            break
+    if table is None:
+        raise RuntimeError('current_free_agents table not found — page layout changed')
+    body = table.find('tbody')
+    if body is None:
+        raise RuntimeError('current_free_agents table has no tbody — page layout changed')
+    fa_type_idx = header.index('FA Type')
+    prior_team_idx = header.index('Prior NBA Team')
+    out = []
+    for tr in body.find_all('tr'):
+        tds = tr.find_all('td')
+        if len(tds) <= max(fa_type_idx, prior_team_idx):
+            continue
+        name = tds[0].get_text(strip=True)
+        fa_type = tds[fa_type_idx].get_text(strip=True)
+        prior_team_code = tds[prior_team_idx].get_text(strip=True)
+        prior_team = _PRIOR_TEAM_TO_APP_ABBR.get(prior_team_code)
+        if not name or prior_team is None or not fa_type:
+            continue
+        out.append({'name': name, 'priorTeam': prior_team, 'faType': fa_type})
+    if not out:
+        raise RuntimeError('current_free_agents parsed to zero rows — page layout changed')
+    return out

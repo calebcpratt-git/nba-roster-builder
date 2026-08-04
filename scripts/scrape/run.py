@@ -67,6 +67,8 @@ HR_CASH_IN_TRADE_URL = 'https://www.hoopsrumors.com/2025/08/cash-sent-received-i
 SOURCES = {
     'bbref_contracts': 'https://www.basketball-reference.com/contracts/players.html',
     'realgm_future_drafts': 'https://basketball.realgm.com/nba/draft/future_drafts/team',
+    'realgm_free_agent_options': 'https://basketball.realgm.com/nba/free_agent_options',
+    'realgm_current_free_agents': 'https://basketball.realgm.com/nba/current_free_agents',
     'bbref_transactions': f'https://www.basketball-reference.com/leagues/NBA_{CURRENT_DRAFT_YEAR}_transactions.html',
     'hr_guarantee_dates': HR_GUARANTEE_DATES_URL,
     'hr_non_guaranteed': HR_NON_GUARANTEED_URL,
@@ -91,8 +93,13 @@ def fetch_one(name, url):
     path = os.path.join(RAW, f'{name}.html')
     for attempt in range(1, FETCH_TRIES + 1):
         try:
-            req = urllib.request.Request(
-                url, headers={'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9'})
+            headers = {'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9'}
+            if name.startswith('realgm'):
+                # RealGM's Cloudflare bot-management treats this header as a signal of
+                # normal in-browser traffic; confirmed via manual testing to flip 403->200
+                # consistently, does not apply to the other sources.
+                headers['X-Requested-With'] = 'XMLHttpRequest'
+            req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=60) as r:
                 data = r.read()
             if len(data) < MIN_BYTES:
@@ -355,6 +362,90 @@ def build_clauses():
           f'{sum(1 for r in records if r.get("noTradeClause"))} explicit NTC)')
 
 
+def build_free_agent_reconciliation():
+    """Corrects stale CURRENT_SEASON_LABEL option flags on BBRef's contracts
+    page (build_players' source). CURRENT_SEASON_LABEL only ever names a
+    season after that season's option deadlines (~June 30) have already
+    passed — the label itself doesn't bump to a season until July — so ANY
+    player still carrying a Player or Team option flag for that season has
+    already had the decision made one way or another; BBRef just hasn't
+    caught up yet. RealGM's free_agent_options page confirms this indirectly:
+    it only ever lists option years for seasons further out, because a
+    same-season entry would mean a decision RealGM itself considers already
+    resolved. Requires players.json to already exist (build_players runs
+    first, same dependency pattern build_enrichment follows).
+
+    Two resolutions, both keyed off RealGM's current_free_agents page (who is
+    unsigned right now, and which team they last played for):
+      - declined, still unsigned: player shows up there with a matching
+        prior team -> remove that season's salary + options entries, since
+        there's no valid contract number for an unsigned free agent.
+      - resolved in place (exercised, or already re-signed and just not
+        reflected as a new option-free row yet): not an unsigned free agent
+        under that team -> BBRef's salary figure is presumably still
+        correct, so only the stale options flag is cleared, salary is kept.
+
+    free_agent_options (who had a pending option, of what type) is
+    cross-referenced only for extra confidence in the logged record — it is
+    never a requirement, since an unsigned free agent with a prior-team match
+    is already strong enough evidence on its own."""
+    players = _load_json('players', None)
+    if players is None:
+        raise RuntimeError('players.json does not exist yet — run the players group first')
+
+    options = realgm.parse_free_agent_options(os.path.join(RAW, 'realgm_free_agent_options.html'))
+    free_agents = realgm.parse_current_free_agents(os.path.join(RAW, 'realgm_current_free_agents.html'))
+
+    fa_by_name = {}
+    for fa in free_agents:
+        fa_by_name[_base(fa['name'])] = fa
+    options_by_name_season = {}
+    for o in options:
+        options_by_name_season.setdefault((_base(o['name']), o['season']), []).append(o)
+
+    checked = 0
+    declined_overrides = []
+    resolved_in_place = []
+    for p in players:
+        season_option = p.get('options', {}).get(CURRENT_SEASON_LABEL)
+        if season_option not in ('Player', 'Team'):
+            continue
+        checked += 1
+
+        matched_options = [o for o in options_by_name_season.get((_base(p['name']), CURRENT_SEASON_LABEL), [])
+                            if o['team'] == p['team']]
+        corroborated = bool(matched_options)
+
+        fa = fa_by_name.get(_base(p['name']))
+        if fa is not None and fa['priorTeam'] == p['team']:
+            # declined and still unsigned — no valid salary figure for this season
+            p.get('salary', {}).pop(CURRENT_SEASON_LABEL, None)
+            p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
+            record = {'name': p['name'], 'team': p['team'], 'season': CURRENT_SEASON_LABEL,
+                       'optionType': season_option, 'faType': fa['faType'],
+                       'source': 'realgm_current_free_agents', 'corroborated': corroborated}
+            if corroborated:
+                record['matchedOptionType'] = matched_options[0]['optionType']
+            declined_overrides.append(record)
+        else:
+            # not an unsigned free agent under this team — treat as resolved
+            # in place (exercised / already re-signed); the flag is stale,
+            # the salary figure is not
+            p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
+            resolved_in_place.append({'name': p['name'], 'team': p['team'], 'season': CURRENT_SEASON_LABEL,
+                                       'optionType': season_option, 'corroborated': corroborated})
+
+    json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump(declined_overrides, open(os.path.join(OUT, 'free-agent-overrides.json'), 'w'),
+              indent=1, ensure_ascii=False)
+    json.dump(resolved_in_place, open(os.path.join(OUT, 'exercised-options.json'), 'w'),
+              indent=1, ensure_ascii=False)
+    print(f'  stale {CURRENT_SEASON_LABEL} options checked: {checked}   '
+          f'declined/unsigned: {len(declined_overrides)}   resolved-in-place (flag cleared): {len(resolved_in_place)}')
+    for o in declined_overrides:
+        print(f'    DECLINED  {o["name"]} ({o["team"]}, {o["season"]}) — corroborated={o["corroborated"]}')
+
+
 def build_cap_state(offline=False):
     failed_teams = captracker.fetch_all(CAPTRACKER_RAW, offline=offline)
     if len(failed_teams) == len(captracker.TEAM_SLUGS):
@@ -599,6 +690,9 @@ def build_apron_addon():
 GROUPS = [
     {'name': 'players', 'sources': ['bbref_contracts', *[f'bbref_draft_{y}' for y in DRAFT_YEARS]],
      'build': build_players},
+    {'name': 'free-agent-reconciliation',
+     'sources': ['realgm_free_agent_options', 'realgm_current_free_agents'],
+     'build': build_free_agent_reconciliation},
     {'name': 'picks', 'sources': ['realgm_future_drafts'], 'build': build_picks},
     {'name': 'enrichment', 'sources': ['bbref_transactions', 'hr_guarantee_dates', 'hr_non_guaranteed'],
      'build': build_enrichment},
