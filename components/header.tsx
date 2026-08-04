@@ -7,8 +7,10 @@ import { useAuth } from '@/lib/auth-context'
 import { useRoster } from '@/lib/roster-context'
 import { TEAMS, getTeamLogoUrl } from '@/lib/data'
 import { TEAM_ABBREVIATIONS } from '@/lib/types'
+import { getHeaderAccent } from '@/lib/team-theme'
 import { Button } from '@/components/ui/button'
 import { AuthPanel } from '@/components/auth-panel'
+import { TintedLogo } from '@/components/tinted-logo'
 import { FilePlus2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -33,22 +35,24 @@ export function Header() {
     selectedTeamBtnRef.current?.scrollIntoView({ block: 'nearest', inline: 'center' })
   }, [selectedTeamAbbr])
 
+  const headerAccent = getHeaderAccent(selectedTeam.primaryColor, selectedTeam.secondaryColor)
+
   return (
     <header className="border-b border-border bg-card">
       <div
-        className="flex items-center justify-between px-6 py-[18px]"
+        className="flex items-center justify-between px-8 py-6"
         style={{ background: `linear-gradient(135deg, ${selectedTeam.primaryColor}, ${selectedTeam.secondaryColor})` }}
       >
-        <div className="flex items-center gap-3">
-          <div
-            className="h-[38px] w-[38px] rounded-full bg-white border-2 flex items-center justify-center shrink-0"
-            style={{ borderColor: selectedTeam.secondaryColor }}
-          >
-            <Image src="/logo.png" alt="Association GM" width={22} height={22} />
-          </div>
+        <div className="flex items-center gap-4">
+          <TintedLogo color={headerAccent} size={52} className="shrink-0 object-contain" />
           <div>
-            <div className="font-bold text-[17px] leading-tight text-white">Association GM</div>
-            <div className="font-medium text-[11px] leading-tight" style={{ color: selectedTeam.secondaryColor }}>
+            <div className="font-extrabold text-[26px] leading-tight tracking-tight text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.25)' }}>
+              Association GM
+            </div>
+            <div
+              className="font-bold text-[12px] leading-tight uppercase tracking-widest mt-1.5"
+              style={{ color: headerAccent }}
+            >
               Pro Forma Cap Sheet
             </div>
           </div>
@@ -118,7 +122,7 @@ export function Header() {
                 >
                   <span
                     className={cn(
-                      "h-[38px] w-[38px] rounded-full flex items-center justify-center overflow-hidden border-2",
+                      "h-[52px] w-[52px] rounded-full flex items-center justify-center overflow-hidden border-2",
                       isSelected ? "bg-white" : "bg-background border-transparent"
                     )}
                     style={isSelected ? { borderColor: team.primaryColor } : undefined}
@@ -126,8 +130,8 @@ export function Header() {
                     <Image
                       src={getTeamLogoUrl(abbr)}
                       alt={abbr}
-                      width={24}
-                      height={24}
+                      width={32}
+                      height={32}
                       className="object-contain"
                     />
                   </span>

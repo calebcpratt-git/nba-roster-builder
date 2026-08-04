@@ -37,8 +37,61 @@ function getTradeFirstSeasonTotals(trade: SavedTrade, roster: { id: string; sala
   return { season, outgoingTotal, incomingTotal }
 }
 
+export function TradesPanelContent({ onEditTrade }: { onEditTrade: (trade: SavedTrade) => void }) {
+  const { savedTrades, removeSavedTrade, roster, draftPickPlayers } = useRoster()
+
+  if (savedTrades.length === 0) {
+    return <p className="text-sm text-muted-foreground text-center py-2">No trades yet</p>
+  }
+
+  return (
+    <>
+      {savedTrades.map((trade) => {
+        const teamName = TEAM_NAMES[trade.tradeTeamAbbr] || trade.tradeTeamAbbr
+        const { season, outgoingTotal, incomingTotal } = getTradeFirstSeasonTotals(trade, roster, draftPickPlayers)
+        const dateLabel = new Date(trade.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+
+        return (
+          <div
+            key={trade.id}
+            className="rounded-[7px] border border-border overflow-hidden cursor-pointer hover:bg-accent/40 transition-colors"
+            onClick={() => onEditTrade(trade)}
+          >
+            <div className="px-2.5 py-2 bg-accent flex items-center justify-between gap-2">
+              <span className="text-[12px] font-semibold text-foreground flex items-center gap-1.5 min-w-0">
+                <ArrowLeftRight className="h-3 w-3 shrink-0 text-muted-foreground" />
+                <span className="truncate">Trade with {teamName}</span>
+              </span>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-[9px] font-semibold text-muted-foreground">{dateLabel}</span>
+                <button
+                  onClick={(e) => { e.stopPropagation(); removeSavedTrade(trade.id) }}
+                  className="text-muted-foreground/60 hover:text-destructive transition-colors"
+                  title="Remove trade"
+                >
+                  <Trash2 className="h-3 w-3" />
+                </button>
+              </div>
+            </div>
+            <div className="px-2.5 py-2 text-[11.5px] space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Outgoing ({season})</span>
+                <span className="font-mono tabular-nums font-medium">{formatCurrency(outgoingTotal)}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Incoming ({season})</span>
+                <span className="font-mono tabular-nums font-medium">{formatCurrency(incomingTotal)}</span>
+              </div>
+            </div>
+          </div>
+        )
+      })}
+    </>
+  )
+}
+
 export function TradesPanel() {
-  const { savedTrades, removeSavedTrade, roster, draftPickPlayers, selectedTeam } = useRoster()
+  const { savedTrades, selectedTeam } = useRoster()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingTrade, setEditingTrade] = useState<SavedTrade | null>(null)
   const [isCollapsed, setIsCollapsed] = useState(true)
@@ -108,50 +161,7 @@ export function TradesPanel() {
           >
             <div className="overflow-hidden">
               <CardContent className="space-y-2.5 pt-3">
-                {savedTrades.length > 0 ? (
-                  savedTrades.map((trade) => {
-                    const teamName = TEAM_NAMES[trade.tradeTeamAbbr] || trade.tradeTeamAbbr
-                    const { season, outgoingTotal, incomingTotal } = getTradeFirstSeasonTotals(trade, roster, draftPickPlayers)
-                    const dateLabel = new Date(trade.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
-
-                    return (
-                      <div
-                        key={trade.id}
-                        className="rounded-[7px] border border-border overflow-hidden cursor-pointer hover:bg-accent/40 transition-colors"
-                        onClick={() => handleOpenEdit(trade)}
-                      >
-                        <div className="px-2.5 py-2 bg-accent flex items-center justify-between gap-2">
-                          <span className="text-[12px] font-semibold text-foreground flex items-center gap-1.5 min-w-0">
-                            <ArrowLeftRight className="h-3 w-3 shrink-0 text-muted-foreground" />
-                            <span className="truncate">Trade with {teamName}</span>
-                          </span>
-                          <div className="flex items-center gap-2 shrink-0">
-                            <span className="text-[9px] font-semibold text-muted-foreground">{dateLabel}</span>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); removeSavedTrade(trade.id) }}
-                              className="text-muted-foreground/60 hover:text-destructive transition-colors"
-                              title="Remove trade"
-                            >
-                              <Trash2 className="h-3 w-3" />
-                            </button>
-                          </div>
-                        </div>
-                        <div className="px-2.5 py-2 text-[11.5px] space-y-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-muted-foreground">Outgoing ({season})</span>
-                            <span className="font-mono tabular-nums font-medium">{formatCurrency(outgoingTotal)}</span>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-muted-foreground">Incoming ({season})</span>
-                            <span className="font-mono tabular-nums font-medium">{formatCurrency(incomingTotal)}</span>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })
-                ) : (
-                  <p className="text-sm text-muted-foreground text-center py-2">No trades yet</p>
-                )}
+                <TradesPanelContent onEditTrade={handleOpenEdit} />
               </CardContent>
             </div>
           </div>

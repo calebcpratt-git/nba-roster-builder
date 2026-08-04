@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useRoster } from '@/lib/roster-context'
+import { useRosterTableData } from '@/hooks/use-roster-table-data'
 import { SEASONS, Season, Player, CapStatus, SavedContract } from '@/lib/types'
-import { formatCurrency, CAP_THRESHOLDS, getCapStatus, getCapStatusColor, getTotalSalaryColor } from '@/lib/data'
+import { formatCurrency, CAP_THRESHOLDS, getCapStatusColor, getTotalSalaryColor } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -28,13 +29,12 @@ import {
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
 import { SignFreeAgentModal } from '@/components/sign-free-agent-modal'
 import { SaveCapSheetButton } from '@/components/save-cap-sheet-modal'
-import { getDisplayedSeasons } from '@/lib/contract-utils'
 import { Check, X, Info, Plus, RotateCcw, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // Get salary pill classes on a red > yellow > green gradient based on salary amount
 // $50M+ = red, $30M-50M = orange, $15M-30M = amber/yellow, $5M-15M = lime, <$5M = green
-function getSalaryColor(salary: number): string {
+export function getSalaryColor(salary: number): string {
   if (salary >= 50000000) return 'bg-red-500/15 text-red-600'
   if (salary >= 35000000) return 'bg-orange-500/15 text-orange-600'
   if (salary >= 20000000) return 'bg-amber-500/15 text-amber-700'
@@ -43,7 +43,15 @@ function getSalaryColor(salary: number): string {
   return 'bg-emerald-500/15 text-emerald-700'
 }
 
-const SALARY_PILL_BASE = "font-mono font-semibold text-[11.5px] tabular-nums px-[7px] py-[2px] rounded-[5px]"
+export const SALARY_PILL_BASE = "font-mono font-semibold text-[11.5px] tabular-nums px-[7px] py-[2px] rounded-[5px]"
+
+// Season columns dynamically fill the available width so the last season the
+// user cares most about (2029-30, index 3 => 4 columns) is always visible
+// without horizontal scroll, on any window size. Never shrinks below the
+// table's original fixed width, so narrow windows still scroll gracefully.
+const PLAYER_COL_WIDTH = 185
+const MIN_SEASON_COL_WIDTH = 108
+const TARGET_LAST_VISIBLE_SEASON = '2029-30' as Season
 
 function CapThresholdPopup({ season, total, thresholds }: {
   season: string
@@ -77,7 +85,7 @@ function CapThresholdPopup({ season, total, thresholds }: {
   )
 }
 
-function TotalPayrollCell({ proj }: {
+export function TotalPayrollCell({ proj }: {
   proj: {
     season: string
     total: number
@@ -123,7 +131,7 @@ function TotalPayrollCell({ proj }: {
   )
 }
 
-function OptionSalaryCell({ 
+export function OptionSalaryCell({ 
   playerId,
   optionType, 
   isExercised, 
@@ -277,13 +285,158 @@ function OptionSalaryCell({
   )
 }
 
+// A season cell with no contract on the books yet — either a dash, or (on the
+// first such season) the "extend this player" affordance.
+export function EmptyOrExtendCell({
+  shouldShowExtendButton,
+  player,
+  season,
+  onExtend,
+}: {
+  shouldShowExtendButton: boolean
+  player: Player
+  season: Season
+  onExtend: (player: Player, season: Season) => void
+}) {
+  if (shouldShowExtendButton) {
+    return (
+      <div className="flex justify-center">
+        <ExtendButton player={player} onOpenModal={(p) => onExtend(p, season)} />
+      </div>
+    )
+  }
+  return (
+    <div className="flex justify-center">
+      <span className="text-[10px] text-muted-foreground/30">—</span>
+    </div>
+  )
+}
+
+// A season cell with a plain (non-option) salary — an editable pill if it
+// came from a saved extension/FA contract, EXT/MLE tags, and undo/delete
+// controls for a soft-deleted extension.
+export function PlainSalaryCell({
+  player,
+  season,
+  displaySalary,
+  savedContracts,
+  deletedContractIds,
+  setDeletedContractIds,
+  removeSavedContract,
+  onEditContract,
+}: {
+  player: { id: string; name: string; source: 'current' | 'saved' | 'trade-incoming' }
+  season: Season
+  displaySalary: number
+  savedContracts: SavedContract[]
+  deletedContractIds: Set<string>
+  setDeletedContractIds: (ids: Set<string>) => void
+  removeSavedContract: (id: string) => void
+  onEditContract: (contract: SavedContract, player: { id: string; name: string; source: 'current' | 'saved' | 'trade-incoming' }) => void
+}) {
+  const extensionContractRaw = (player.source === 'current' || player.source === 'trade-incoming')
+    ? savedContracts.find(c => c.type === 'extension' && c.playerId === player.id && c.salary[season])
+    : undefined
+  const isExtensionDeleted = !!extensionContractRaw && deletedContractIds.has(extensionContractRaw.id)
+  const extensionContract = extensionContractRaw && !isExtensionDeleted ? extensionContractRaw : undefined
+  const savedFAContract = player.source === 'saved'
+    ? savedContracts.find(c => c.id === player.id)
+    : undefined
+  const isFAContractDeleted = !!savedFAContract && deletedContractIds.has(savedFAContract.id)
+  const editableContract = extensionContract ?? (isFAContractDeleted ? undefined : savedFAContract)
+  const isExtensionSalary = !!extensionContract
+  const isCellDeleted = isExtensionDeleted || isFAContractDeleted
+  const isMLESalary = player.source === 'saved' && !isFAContractDeleted && displaySalary > 0 &&
+    savedContracts.some(c => c.id === player.id && c.isMLE)
+
+  return (
+    <div className="inline-flex items-center gap-1">
+      {editableContract ? (
+        <button
+          onClick={() => onEditContract(editableContract, player)}
+          className={cn(
+            SALARY_PILL_BASE,
+            "transition-opacity hover:opacity-70 cursor-pointer",
+            getSalaryColor(displaySalary)
+          )}
+          title={`Edit ${player.name}'s ${editableContract.type === 'extension' ? 'extension' : 'contract'}`}
+        >
+          {formatCurrency(displaySalary)}
+        </button>
+      ) : (
+        <span
+          className={cn(
+            isCellDeleted
+              ? "text-[12px] font-mono tabular-nums text-muted-foreground/50 line-through"
+              : cn(SALARY_PILL_BASE, getSalaryColor(displaySalary))
+          )}
+        >
+          {formatCurrency(displaySalary)}
+        </span>
+      )}
+      {isExtensionSalary && (
+        <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/15 text-purple-700">
+          EXT
+        </span>
+      )}
+      {isMLESalary && (
+        <span className="text-[8px] px-0.5 rounded font-semibold bg-emerald-500/15 text-emerald-700">
+          MLE
+        </span>
+      )}
+      {isExtensionDeleted && extensionContractRaw && (
+        <div className="flex items-center gap-0.5">
+          <button
+            onClick={() => {
+              const newDeleted = new Set(deletedContractIds)
+              newDeleted.delete(extensionContractRaw.id)
+              setDeletedContractIds(newDeleted)
+            }}
+            className="text-muted-foreground hover:text-emerald-500 transition-colors"
+            title="Undo"
+          >
+            <RotateCcw className="h-3 w-3" />
+          </button>
+          <button
+            onClick={() => removeSavedContract(extensionContractRaw.id)}
+            className="text-muted-foreground hover:text-destructive transition-colors"
+            title="Delete permanently"
+          >
+            <Trash2 className="h-3 w-3" />
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// Adjusts a future first-round pick's assumed draft slot (1-30), which
+// re-scales its rookie-deal salary.
+export function PickNumberSelect({ value, onChange }: { value: number; onChange: (n: number) => void }) {
+  return (
+    <Select value={String(value)} onValueChange={(val) => onChange(parseInt(val))}>
+      <SelectTrigger
+        size="sm"
+        className="!h-[18px] text-[10px] px-1.5 py-0 min-w-0 w-auto gap-0.5 border-border/50 text-muted-foreground"
+      >
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent className="text-[11px] min-w-[64px]">
+        {Array.from({ length: 30 }, (_, i) => i + 1).map((n) => (
+          <SelectItem key={n} value={String(n)} className="text-[11px] py-1 pl-2 pr-6">
+            #{n}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
+
 export function RosterTable() {
   const {
     roster,
     savedContracts,
     getEffectiveSalary,
-    getDisplaySalary,
-    getTotalSalary,
     toggleTeamOption,
     togglePlayerOption,
     isOptionExercised,
@@ -297,7 +450,6 @@ export function RosterTable() {
     releaseRosterPlayer,
     restoreRosterPlayer,
     savedTrades,
-    tradedRosterPlayerIds,
     tradedPickIds,
     selectedTeam,
   } = useRoster()
@@ -313,100 +465,52 @@ export function RosterTable() {
     isOpen: false,
   })
 
-  // Calculate dynamic seasons based on roster and saved contracts
-  const displayedSeasons = useMemo(
-    () => getDisplayedSeasons(roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades),
-    [roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades]
-  )
+  const { displayedSeasons, allPlayers, projections } = useRosterTableData()
 
-  const allPlayers = [
-    ...roster.map((p) => {
-      // Use extension salary for 26-27 if one exists (covers new signings and declined-option re-signs),
-      // otherwise fall back to effective salary (returns 0 for declined options).
-      const extension = savedContracts.find(
-        c => c.type === 'extension' && c.playerId === p.id && !deletedContractIds.has(c.id)
-      )
-      const sortSalary = extension?.salary['2026-27'] || getEffectiveSalary(p, '2026-27')
-      return { ...p, source: 'current' as const, sortSalary, isTraded: tradedRosterPlayerIds.has(p.id) }
-    }),
-    ...savedContracts
-      .filter((c) => c.type === 'free-agent')
-      .map((c) => {
-        const firstYearSalary = SEASONS.reduce<number>((first, season) => {
-          if (first === 0 && c.salary[season]) return c.salary[season]!
-          return first
-        }, 0)
-        return {
-          id: c.id,
-          name: c.playerName,
-          team: '',
-          salary: c.salary,
-          options: {} as Partial<Record<Season, 'Player' | 'Team'>>,
-          isUserCreated: true,
-          source: 'saved' as const,
-          type: c.type,
-          sortSalary: firstYearSalary,
-          isMinimum: c.isMinimum || false,
-          isTraded: tradedRosterPlayerIds.has(c.id),
-          isDeleted: deletedContractIds.has(c.id),
-        }
-      }),
-    // Incoming trade players
-    ...savedTrades.flatMap((trade) =>
-      trade.incomingPlayers.map((p) => {
-        const firstYearSalary = SEASONS.reduce<number>((first, season) => {
-          if (first === 0 && p.salary[season]) return p.salary[season]!
-          return first
-        }, 0)
-        return {
-          id: `${trade.id}-player-${p.playerId}`,
-          name: p.playerName,
-          team: trade.tradeTeamAbbr,
-          salary: p.salary,
-          options: p.options,
-          isUserCreated: true,
-          source: 'trade-incoming' as const,
-          type: 'trade' as const,
-          sortSalary: firstYearSalary,
-          isMinimum: false,
-          isTraded: false,
-        }
-      })
-    ),
-  ].sort((a, b) => b.sortSalary - a.sortSalary)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [seasonColWidth, setSeasonColWidth] = useState(MIN_SEASON_COL_WIDTH)
 
-  const projections = displayedSeasons.map((season) => {
-    const { current, saved, total } = getTotalSalary(season)
-    const thresholds = CAP_THRESHOLDS[season]
-    const status = getCapStatus(total, thresholds)
-    
-    return {
-      season,
-      current,
-      saved,
-      total,
-      thresholds,
-      status,
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (!container) return
+
+    const targetIndex = SEASONS.indexOf(TARGET_LAST_VISIBLE_SEASON)
+    const visibleSeasonCount = Math.max(1, Math.min(displayedSeasons.length, targetIndex + 1))
+
+    const recompute = () => {
+      const available = container.clientWidth - PLAYER_COL_WIDTH
+      setSeasonColWidth(Math.max(MIN_SEASON_COL_WIDTH, Math.floor(available / visibleSeasonCount)))
     }
-  })
+
+    recompute()
+    const observer = new ResizeObserver(recompute)
+    observer.observe(container)
+    // Belt-and-suspenders: some embedded/automated browser environments resize
+    // the viewport without reliably firing ResizeObserver callbacks.
+    window.addEventListener('resize', recompute)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', recompute)
+    }
+  }, [displayedSeasons.length])
 
   return (
     <>
-      <Card className="bg-card border-border text-[13px] h-full flex flex-col">
-        <CardHeader className="pb-2 px-3 pt-3 shrink-0">
+      <Card className="bg-card border-border text-[13px] h-full flex flex-col py-0 gap-0">
+        <CardHeader className="pt-4 pb-3 px-[18px] gap-0 border-b border-border shrink-0">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <CardTitle className="text-sm font-medium">Roster & Contracts</CardTitle>
-              <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
+            <div className="flex items-center gap-2.5">
+              <CardTitle className="text-[15px] font-bold tracking-tight">Roster & Contracts</CardTitle>
+              <Badge variant="secondary" className="text-[10.5px] font-bold px-2 py-[2px] rounded-md">
                 {roster.length} players
               </Badge>
             </div>
-            <div className="flex items-center gap-3 text-[10px]">
-              <div className="flex items-center gap-1">
+            <div className="flex items-center gap-3.5 text-[10.5px]">
+              <div className="flex items-center gap-1.5">
                 <div className="h-2 w-2 rounded-sm bg-primary" />
                 <span className="text-muted-foreground">Current</span>
               </div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 <div className="h-2 w-2 rounded-sm bg-chart-2" />
                 <span className="text-muted-foreground">Saved</span>
               </div>
@@ -415,8 +519,8 @@ export function RosterTable() {
           </div>
         </CardHeader>
         <CardContent className="p-0 flex flex-col flex-1 min-h-0">
-          <div className="overflow-x-auto flex-1 min-h-0 overflow-y-auto">
-            <table className="w-full">
+          <div ref={scrollContainerRef} className="overflow-x-auto flex-1 min-h-0 overflow-y-auto">
+            <table className="w-full table-fixed">
               <thead>
                 <tr className="bg-muted/30">
                   <th className="sticky left-0 bg-muted/30 px-3 pt-1.5 text-left text-[10.5px] font-semibold uppercase tracking-wide text-muted-foreground w-[185px]">
@@ -425,7 +529,8 @@ export function RosterTable() {
                   {displayedSeasons.map((season) => (
                     <th
                       key={season}
-                      className="px-2 pt-1.5 text-center text-[10.5px] font-semibold uppercase tracking-wide text-muted-foreground w-[108px]"
+                      className="px-2 pt-1.5 text-center text-[10.5px] font-semibold uppercase tracking-wide text-muted-foreground"
+                      style={{ width: seasonColWidth }}
                     >
                       {season}
                     </th>
@@ -440,7 +545,8 @@ export function RosterTable() {
                     return (
                       <th
                         key={season}
-                        className="px-2 pb-1.5 text-center text-[9px] font-mono text-muted-foreground/60 w-[108px]"
+                        className="px-2 pb-1.5 text-center text-[9px] font-mono text-muted-foreground/60"
+                        style={{ width: seasonColWidth }}
                       >
                         {cap ? formatCurrency(cap) : ''}
                       </th>
@@ -595,18 +701,12 @@ export function RosterTable() {
                         if (!displaySalary) {
                           return (
                             <td key={season} className="px-2 py-1.5">
-                              {shouldShowExtendButton ? (
-                                <div className="flex justify-center">
-                                  <ExtendButton
-                                    player={player as Player}
-                                    onOpenModal={(p) => setExtensionModal({ player: p, isOpen: true, startSeason: season })}
-                                  />
-                                </div>
-                              ) : (
-                                <div className="flex justify-center">
-                                  <span className="text-[10px] text-muted-foreground/30">—</span>
-                                </div>
-                              )}
+                              <EmptyOrExtendCell
+                                shouldShowExtendButton={shouldShowExtendButton}
+                                player={player as Player}
+                                season={season}
+                                onExtend={(p, s) => setExtensionModal({ player: p, isOpen: true, startSeason: s })}
+                              />
                             </td>
                           )
                         }
@@ -638,84 +738,18 @@ export function RosterTable() {
                           )
                         }
 
-                        // Regular salary without option - use gradient color
-                        // Check if this salary is from an extension or MLE contract
-                        const extensionContractRaw = (player.source === 'current' || player.source === 'trade-incoming')
-                          ? savedContracts.find(
-                              c => c.type === 'extension' && c.playerId === player.id && c.salary[season]
-                            )
-                          : undefined
-                        const isExtensionDeleted = !!extensionContractRaw && deletedContractIds.has(extensionContractRaw.id)
-                        const extensionContract = extensionContractRaw && !isExtensionDeleted ? extensionContractRaw : undefined
-                        const savedFAContract = player.source === 'saved'
-                          ? savedContracts.find(c => c.id === player.id)
-                          : undefined
-                        const isFAContractDeleted = !!savedFAContract && deletedContractIds.has(savedFAContract.id)
-                        const editableContract = extensionContract ?? (isFAContractDeleted ? undefined : savedFAContract)
-                        const isExtensionSalary = !!extensionContract
-                        const isCellDeleted = isExtensionDeleted || isFAContractDeleted
-                        const isMLESalary = player.source === 'saved' && !isFAContractDeleted && displaySalary > 0 &&
-                          savedContracts.some(c => c.id === player.id && c.isMLE)
-
                         return (
                           <td key={season} className="px-2 py-1.5 text-left">
-                            <div className="inline-flex items-center gap-1">
-                              {editableContract ? (
-                                <button
-                                  onClick={() => setEditContractModal({ contract: editableContract, player: player as Player, isOpen: true })}
-                                  className={cn(
-                                    SALARY_PILL_BASE,
-                                    "transition-opacity hover:opacity-70 cursor-pointer",
-                                    getSalaryColor(displaySalary)
-                                  )}
-                                  title={`Edit ${player.name}'s ${editableContract.type === 'extension' ? 'extension' : 'contract'}`}
-                                >
-                                  {formatCurrency(displaySalary)}
-                                </button>
-                              ) : (
-                                <span
-                                  className={cn(
-                                    isCellDeleted
-                                      ? "text-[12px] font-mono tabular-nums text-muted-foreground/50 line-through"
-                                      : cn(SALARY_PILL_BASE, getSalaryColor(displaySalary))
-                                  )}
-                                >
-                                  {formatCurrency(displaySalary)}
-                                </span>
-                              )}
-                              {isExtensionSalary && (
-                                <span className="text-[8px] px-0.5 rounded font-semibold bg-purple-500/15 text-purple-700">
-                                  EXT
-                                </span>
-                              )}
-                              {isMLESalary && (
-                                <span className="text-[8px] px-0.5 rounded font-semibold bg-emerald-500/15 text-emerald-700">
-                                  MLE
-                                </span>
-                              )}
-                              {isExtensionDeleted && extensionContractRaw && (
-                                <div className="flex items-center gap-0.5">
-                                  <button
-                                    onClick={() => {
-                                      const newDeleted = new Set(deletedContractIds)
-                                      newDeleted.delete(extensionContractRaw.id)
-                                      setDeletedContractIds(newDeleted)
-                                    }}
-                                    className="text-muted-foreground hover:text-emerald-500 transition-colors"
-                                    title="Undo"
-                                  >
-                                    <RotateCcw className="h-3 w-3" />
-                                  </button>
-                                  <button
-                                    onClick={() => removeSavedContract(extensionContractRaw.id)}
-                                    className="text-muted-foreground hover:text-destructive transition-colors"
-                                    title="Delete permanently"
-                                  >
-                                    <Trash2 className="h-3 w-3" />
-                                  </button>
-                                </div>
-                              )}
-                            </div>
+                            <PlainSalaryCell
+                              player={player}
+                              season={season}
+                              displaySalary={displaySalary}
+                              savedContracts={savedContracts}
+                              deletedContractIds={deletedContractIds}
+                              setDeletedContractIds={setDeletedContractIds}
+                              removeSavedContract={removeSavedContract}
+                              onEditContract={(contract) => setEditContractModal({ contract, player: player as Player, isOpen: true })}
+                            />
                       </td>
                     )
                   })}
@@ -770,24 +804,10 @@ export function RosterTable() {
                               <span className="text-[9px] font-semibold text-chart-4/70 tracking-wide">TRADED</span>
                             )}
                             {isAdjustable && (
-                              <Select
-                                value={String(currentOverride ?? 16)}
-                                onValueChange={(val) => setPickNumberOverride(pick.id, parseInt(val))}
-                              >
-                                <SelectTrigger
-                                  size="sm"
-                                  className="!h-[18px] text-[10px] px-1.5 py-0 min-w-0 w-auto gap-0.5 border-border/50 text-muted-foreground"
-                                >
-                                  <SelectValue />
-                                </SelectTrigger>
-                                <SelectContent className="text-[11px] min-w-[64px]">
-                                  {Array.from({ length: 30 }, (_, i) => i + 1).map((n) => (
-                                    <SelectItem key={n} value={String(n)} className="text-[11px] py-1 pl-2 pr-6">
-                                      #{n}
-                                    </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
+                              <PickNumberSelect
+                                value={currentOverride ?? 16}
+                                onChange={(n) => setPickNumberOverride(pick.id, n)}
+                              />
                             )}
                           </div>
                         )
