@@ -392,13 +392,13 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
       seasonsFromEval.find((s) => allPlayerAssets.some((a) => (a.salaryBySeason[s] ?? 0) > 0)) ?? TRADE_EVAL_SEASON
     const thresholds = CAP_THRESHOLDS[season]
 
-    const yourPreTradeTotal = getTotalSalary(season).total
+    const yourPreTradeTotal = getTotalSalary(season).capSpaceTotal
     // Partner total includes whatever contracts/trades have already been
     // built for them in this app (getTeamCapTotal reads their own saved
     // contracts + saved trades), not just their starting roster. Trades built
     // from another team's perspective, and real-world moves outside this app,
     // still aren't visible here — see the "(est.)" tooltip.
-    const theirPreTradeTotal = getTeamCapTotal(tradeTeamAbbr, season)
+    const theirPreTradeTotal = getTeamCapTotal(tradeTeamAbbr, season).capSpaceTotal
 
     const yourSide: TradeSideInput = {
       side: 'yours',

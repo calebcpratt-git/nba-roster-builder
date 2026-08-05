@@ -99,6 +99,8 @@ export interface CapSheetSnapshot {
   deletedContractIds: string[]
   releasedRosterIds: string[]
   pickNumberOverrides: Record<string, number>
+  /** Renounced free-agent cap holds — keys `${teamAbbr}-${season}-${holdLabel}`. */
+  renouncedCapHoldKeys: string[]
 }
 
 export interface CapSheetSeasonSummary {

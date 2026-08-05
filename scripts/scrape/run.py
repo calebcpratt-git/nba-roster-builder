@@ -482,6 +482,57 @@ def build_cap_state(offline=False):
     print(f'  team-cap-state records {len(records)}   total dead-money entries {total_dead}')
 
 
+def build_cap_hold_reconciliation():
+    """Cross-checks free-agent-kind cap holds in team-cap-state.json's
+    CURRENT_SEASON_LABEL entries against RealGM's current_free_agents page.
+    nbacaptracker projects holds forward without distinguishing "still an
+    active free agent" from "retired, or signed and not yet reflected" —
+    this is the same class of staleness build_free_agent_reconciliation
+    already corrects for option flags, applied to capHolds instead.
+
+    Team-match guard on priorTeam, same anti-false-positive pattern as the
+    option reconciliation: a name match alone isn't enough, since a name
+    could coincidentally match a free agent who left a different team.
+
+    Requires team-cap-state.json to already exist (build_cap_state runs
+    first)."""
+    records = _load_json('team-cap-state', None)
+    if records is None:
+        raise RuntimeError('team-cap-state.json does not exist yet — run build_cap_state first')
+
+    free_agents = realgm.parse_current_free_agents(os.path.join(RAW, 'realgm_current_free_agents.html'))
+    fa_by_name = {}
+    for fa in free_agents:
+        fa_by_name[_base(fa['name'])] = fa
+
+    removed = []
+    for r in records:
+        if r['season'] != CURRENT_SEASON_LABEL:
+            continue
+        kept_holds = []
+        for hold in r['capHolds']:
+            if hold['kind'] != 'free-agent':
+                kept_holds.append(hold)
+                continue
+            fa = fa_by_name.get(_base(hold['label']))
+            if fa is not None and fa['priorTeam'] == r['team']:
+                kept_holds.append(hold)  # genuinely still an active FA — keep
+            elif fa is not None:
+                kept_holds.append(hold)  # name matched a different team's FA — ambiguous, keep and log
+                removed.append({'team': r['team'], 'player': hold['label'], 'amount': hold['amount'],
+                                 'reason': 'name-matched-different-team', 'matchedPriorTeam': fa['priorTeam']})
+            else:
+                removed.append({'team': r['team'], 'player': hold['label'], 'amount': hold['amount'],
+                                 'reason': 'not-in-realgm-current-free-agents'})
+        r['capHolds'] = kept_holds
+
+    json.dump(records, open(os.path.join(OUT, 'team-cap-state.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump(removed, open(os.path.join(OUT, 'cap-hold-overrides.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  cap-hold reconciliation: {len(removed)} stale hold(s) removed/flagged')
+    for o in removed:
+        print(f'    {o["reason"].upper()}  {o["player"]} ({o["team"]}) ${o["amount"]}')
+
+
 def build_salaryswish_league():
     """SalarySwish's two league-wide trackers (TPEs, hard-cap status) merged
     onto team-cap-state.json's CURRENT-season entries only — both are
@@ -737,6 +788,18 @@ def main():
     except Exception as e:
         skipped.append(f'cap-state ({e})')
         print(f'  SKIP cap-state — {e}\n       keeping last-good output')
+
+    print('cap-hold reconciliation (RealGM current free agents — merges onto team-cap-state.json):')
+    if 'realgm_current_free_agents' in failed:
+        skipped.append('cap-hold-reconciliation (fetch failed)')
+        print('  SKIP cap-hold-reconciliation — fetch failed; keeping last-good output')
+    else:
+        try:
+            build_cap_hold_reconciliation()
+            written.append('cap-hold-reconciliation')
+        except Exception as e:
+            skipped.append(f'cap-hold-reconciliation ({e})')
+            print(f'  SKIP cap-hold-reconciliation — {e}\n       keeping last-good output')
 
     print('salaryswish-league (held TPEs, hard-cap status — merges onto team-cap-state.json):')
     if {'salaryswish_trade_exceptions', 'salaryswish_hard_cap'} & failed:

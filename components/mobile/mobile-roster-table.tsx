@@ -404,13 +404,13 @@ export function MobileRosterTable() {
         {/* Footer */}
         <div className="flex sticky bottom-0 z-[3] bg-muted border-t-2" style={{ borderTopColor: selectedTeam.primaryColor }}>
           <div className="shrink-0 sticky left-0 z-[4] bg-muted px-2.5 py-2 font-extrabold text-[12.5px]" style={{ width: PLAYER_COL_W }}>
-            Total Payroll
+            Team Salary
           </div>
           {displayedSeasons.map((season) => {
             const proj = projections.find((p) => p.season === season)!
             return (
               <div key={season} className="shrink-0 flex items-center justify-center py-2" style={{ width: SEASON_COL_W }}>
-                <TotalPayrollCell proj={proj} />
+                <TotalPayrollCell proj={proj} total={proj.capSpaceTotal} status={proj.capSpaceStatus} />
               </div>
             )
           })}

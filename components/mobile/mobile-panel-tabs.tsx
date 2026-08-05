@@ -6,6 +6,8 @@ import { SEASONS, SavedTrade } from '@/lib/types'
 import { SignFreeAgentsPanelContent, getAvailableFreeAgents } from '@/components/sign-free-agents-panel'
 import { TradesPanelContent } from '@/components/trades-panel'
 import { SavedContractsPanelContent } from '@/components/saved-contracts-panel'
+import { SigningExceptionsPanel } from '@/components/signing-exceptions-panel'
+import { TradeExceptionsPanel } from '@/components/trade-exceptions-panel'
 import { TradeModal } from '@/components/trade-modal'
 import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -74,8 +76,10 @@ export function MobilePanelTabs() {
       )}
 
       {activePanel === 'saved' && (
-        <div className="bg-card rounded-xl p-2.5 max-h-[260px] overflow-y-auto">
+        <div className="bg-card rounded-xl p-2.5 max-h-[260px] overflow-y-auto flex flex-col gap-2.5">
           <SavedContractsPanelContent />
+          <SigningExceptionsPanel />
+          <TradeExceptionsPanel />
         </div>
       )}
     </div>
