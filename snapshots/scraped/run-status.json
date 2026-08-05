@@ -1,31 +1,39 @@
 {
- "written": [
-  "players",
-  "free-agent-reconciliation",
-  "picks",
-  "enrichment",
-  "clauses",
-  "cap-state",
-  "salaryswish-league",
-  "signing-incentives",
-  "cash-ledger",
-  "apron-addon"
- ],
- "staleSources": [],
- "unresolved": {
-  "before": {
-   "draft-year": 0,
-   "acquisition": 380,
-   "guarantees": 7,
-   "signing": 8
+  "written": [
+    "players",
+    "free-agent-reconciliation",
+    "picks",
+    "enrichment",
+    "clauses",
+    "cap-state",
+    "salaryswish-league",
+    "signing-incentives",
+    "cash-ledger",
+    "apron-addon"
+  ],
+  "staleSources": [],
+  "unresolved": {
+    "before": {
+      "draft-year": 0,
+      "acquisition": 380,
+      "guarantees": 7,
+      "signing": 8
+    },
+    "after": {
+      "draft-year": 0,
+      "acquisition": 378,
+      "guarantees": 6,
+      "signing": 8
+    },
+    "newUnresolved": 0,
+    "newByCategory": {}
   },
-  "after": {
-   "draft-year": 0,
-   "acquisition": 380,
-   "guarantees": 7,
-   "signing": 8
-  },
-  "newUnresolved": 0,
-  "newByCategory": {}
- }
+  "warnings": [],
+  "diffSummaries": [
+    "players: +2 -0 ~3 (of 453)",
+    "draft-picks: +0 -0 ~0 (of 521)",
+    "contract-details: +2 -0 ~0 (of 446)",
+    "team-cap-state: +0 -0 ~0 (of 150)"
+  ],
+  "clean": true
 }

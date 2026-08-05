@@ -5547,6 +5547,16 @@
    }
   }
  },
+ "jeremy sochan": {
+  "team": "POR",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "branden carlson": {
   "team": "POR",
   "signedUnder": "minimum",
@@ -5679,6 +5689,16 @@
  },
  "bogdan bogdanovic": {
   "team": "HOU",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "gary payton": {
+  "team": "GSW",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {

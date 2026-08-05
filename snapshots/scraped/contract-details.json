@@ -5552,6 +5552,16 @@
   }
  },
  {
+  "name": "Jeremy Sochan",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Branden Carlson",
   "signedUnder": "minimum",
   "incentives": {
@@ -5673,6 +5683,16 @@
  },
  {
   "name": "Bogdan Bogdanović",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Gary Payton II",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
