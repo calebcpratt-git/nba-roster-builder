@@ -2376,7 +2376,10 @@
   "name": "Naji Marshall",
   "team": "DAL",
   "salary": {
-   "2026-27": 9428571
+   "2026-27": 9428571,
+   "2027-28": 18195600,
+   "2028-29": 17285820,
+   "2029-30": 16376040
   },
   "options": {},
   "bbrefId": "marshna01"
@@ -3131,8 +3134,8 @@
   "name": "Spencer Jones",
   "team": "DEN",
   "salary": {
-   "2026-27": 11853659,
-   "2027-28": 11896341
+   "2026-27": 6000000,
+   "2027-28": 5750000
   },
   "options": {},
   "bbrefId": "jonessp01",
@@ -3416,7 +3419,7 @@
   "name": "De'Anthony Melton",
   "team": "GSW",
   "salary": {
-   "2026-27": 8928779,
+   "2026-27": 5477000,
    "2027-28": 5750850
   },
   "options": {
@@ -5210,6 +5213,24 @@
   }
  },
  {
+  "name": "Jeremy Sochan",
+  "team": "POR",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "bbrefId": "sochaje01",
+  "acquisition": {
+   "date": "2026-02-13",
+   "method": "free-agent"
+  },
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
+ },
+ {
   "name": "Branden Carlson",
   "team": "POR",
   "salary": {
@@ -5383,6 +5404,19 @@
   },
   "options": {},
   "bbrefId": "bogdabo01"
+ },
+ {
+  "name": "Gary Payton II",
+  "team": "GSW",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "bbrefId": "paytoga02",
+  "acquisition": {
+   "date": "2025-09-29",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Charles Bassey",
