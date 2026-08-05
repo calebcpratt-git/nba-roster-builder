@@ -52,13 +52,5 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
- },
- {
-  "player": "Jeremy Sochan",
-  "team": "Portland Trail Blazers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
  }
 ]
