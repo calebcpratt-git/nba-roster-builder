@@ -139,6 +139,19 @@ export function getTeamLogoUrl(teamAbbr: string): string {
   return `https://a.espncdn.com/i/teamlogos/nba/500/${code}.png`
 }
 
+// Cap Space Status and Apron Status use identical ladder math but are kept as
+// distinct named exports since each documents which total it expects — Team
+// Salary (cap holds included by default) vs Apron Team Salary (cap holds
+// excluded, unlikely-bonus addon included). See getTotalSalary in
+// roster-context.tsx for how the two totals are computed.
+export function getCapSpaceStatus(total: number, thresholds: { type: string; value: number }[]): CapStatus {
+  return getCapStatus(total, thresholds)
+}
+
+export function getApronStatus(apronTotal: number, thresholds: { type: string; value: number }[]): CapStatus {
+  return getCapStatus(apronTotal, thresholds)
+}
+
 export function getCapStatus(total: number, thresholds: { type: string; value: number }[]): CapStatus {
   const secondApron = thresholds.find((t) => t.type === 'second-apron')?.value || 0
   const firstApron = thresholds.find((t) => t.type === 'first-apron')?.value || 0

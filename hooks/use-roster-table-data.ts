@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { SEASONS, Season } from '@/lib/types'
-import { CAP_THRESHOLDS, getCapStatus } from '@/lib/data'
+import { CAP_THRESHOLDS, getCapSpaceStatus, getApronStatus } from '@/lib/data'
 import { getDisplayedSeasons } from '@/lib/contract-utils'
+import { getTeamCapState } from '@/lib/team-cap-state'
 
 // Shared row/season derivation used by both the desktop and mobile roster
 // tables, so cap-total math and roster composition can't drift between them.
@@ -16,6 +17,7 @@ export function useRosterTableData() {
     draftPickPlayers,
     savedTrades,
     tradedRosterPlayerIds,
+    selectedTeamAbbr,
   } = useRoster()
 
   const displayedSeasons = useMemo(
@@ -80,19 +82,35 @@ export function useRosterTableData() {
   ].sort((a, b) => b.sortSalary - a.sortSalary), [roster, savedContracts, deletedContractIds, savedTrades, tradedRosterPlayerIds, getEffectiveSalary])
 
   const projections = useMemo(() => displayedSeasons.map((season) => {
-    const { current, saved, total } = getTotalSalary(season)
+    const { current, saved, capSpaceTotal, apronTotal } = getTotalSalary(season)
     const thresholds = CAP_THRESHOLDS[season]
-    const status = getCapStatus(total, thresholds)
+    const capSpaceStatus = getCapSpaceStatus(capSpaceTotal, thresholds)
+    const apronStatus = getApronStatus(apronTotal, thresholds)
 
     return {
       season,
       current,
       saved,
-      total,
+      // capSpaceTotal/status kept as total/status too, for callers (trade
+      // modal previews, cap-sheet summaries) that only care about one number.
+      total: capSpaceTotal,
+      status: capSpaceStatus,
+      capSpaceTotal,
+      capSpaceStatus,
+      apronTotal,
+      apronStatus,
       thresholds,
-      status,
     }
   }), [displayedSeasons, getTotalSalary])
 
-  return { displayedSeasons, allPlayers, projections }
+  // Hard-cap status is a separate fact from apron status — a team can be over
+  // an apron without being hard-capped there, or vice versa (e.g. a July
+  // sign-and-trade hard-caps at the first apron for the season regardless of
+  // where Apron Team Salary later lands). Only present for the current season.
+  const hardCapped = useMemo(
+    () => getTeamCapState(selectedTeamAbbr, SEASONS[0])?.hardCapped,
+    [selectedTeamAbbr]
+  )
+
+  return { displayedSeasons, allPlayers, projections, hardCapped }
 }

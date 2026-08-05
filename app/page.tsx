@@ -7,6 +7,8 @@ import { RosterTable } from '@/components/roster-table'
 import { SignFreeAgentsPanel } from '@/components/sign-free-agents-panel'
 import { TradesPanel } from '@/components/trades-panel'
 import { SavedContractsPanel } from '@/components/saved-contracts-panel'
+import { SigningExceptionsPanel } from '@/components/signing-exceptions-panel'
+import { TradeExceptionsPanel } from '@/components/trade-exceptions-panel'
 import { CapSheetLoader } from '@/components/cap-sheet-loader'
 import { MobileBuilder } from '@/components/mobile/mobile-builder'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -41,6 +43,8 @@ export default function Home() {
                   <SignFreeAgentsPanel />
                   <TradesPanel />
                   <SavedContractsPanel />
+                  <SigningExceptionsPanel />
+                  <TradeExceptionsPanel />
                 </div>
               </div>
             </main>

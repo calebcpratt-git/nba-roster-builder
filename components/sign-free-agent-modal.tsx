@@ -117,7 +117,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const effectiveStartingSeason = (editingFirstSeason ?? startingSeason) as Season
 
   // Cap threshold checks
-  const { total: currentTeamTotal } = getTotalSalary(effectiveStartingSeason)
+  const { capSpaceTotal: currentTeamTotal } = getTotalSalary(effectiveStartingSeason)
   const seasonThresholds = CAP_THRESHOLDS[effectiveStartingSeason]
   const softCap = seasonThresholds?.find((t) => t.type === 'soft-cap')?.value ?? 0
   const firstApron = seasonThresholds?.find((t) => t.type === 'first-apron')?.value ?? 0

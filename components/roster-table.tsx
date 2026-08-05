@@ -5,6 +5,7 @@ import { useRoster } from '@/lib/roster-context'
 import { useRosterTableData } from '@/hooks/use-roster-table-data'
 import { SEASONS, Season, Player, CapStatus, SavedContract } from '@/lib/types'
 import { formatCurrency, CAP_THRESHOLDS, getCapStatusColor, getTotalSalaryColor } from '@/lib/data'
+import { CapHold, DeadMoney, getTeamCapState } from '@/lib/team-cap-state'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -29,7 +30,7 @@ import {
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
 import { SignFreeAgentModal } from '@/components/sign-free-agent-modal'
 import { SaveCapSheetButton } from '@/components/save-cap-sheet-modal'
-import { Check, X, Info, Plus, RotateCcw, Trash2 } from 'lucide-react'
+import { Check, X, Info, Plus, RotateCcw, Trash2, AlertTriangle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // Get salary pill classes on a red > yellow > green gradient based on salary amount
@@ -85,17 +86,17 @@ function CapThresholdPopup({ season, total, thresholds }: {
   )
 }
 
-export function TotalPayrollCell({ proj }: {
+export function TotalPayrollCell({ proj, total, status }: {
   proj: {
     season: string
-    total: number
-    status: CapStatus
     thresholds: { name: string; value: number; type: string }[]
   }
+  total: number
+  status: CapStatus
 }) {
   const [isHovering, setIsHovering] = useState(false)
-  const pillColor = getCapStatusColor(proj.status)
-  const labelColor = getTotalSalaryColor(proj.status)
+  const pillColor = getCapStatusColor(status)
+  const labelColor = getTotalSalaryColor(status)
 
   return (
     <Popover open={isHovering}>
@@ -106,10 +107,10 @@ export function TotalPayrollCell({ proj }: {
           onMouseLeave={() => setIsHovering(false)}
         >
           <span className={cn("text-[12.5px] font-mono font-bold tabular-nums px-[7px] py-[2px] rounded-[5px]", pillColor)}>
-            {formatCurrency(proj.total)}
+            {formatCurrency(total)}
           </span>
           <span className={cn("text-[9px] font-bold uppercase tracking-wide pl-px", labelColor)}>
-            {proj.status}
+            {status}
           </span>
         </button>
       </PopoverTrigger>
@@ -123,7 +124,7 @@ export function TotalPayrollCell({ proj }: {
       >
         <CapThresholdPopup
           season={proj.season}
-          total={proj.total}
+          total={total}
           thresholds={proj.thresholds}
         />
       </PopoverContent>
@@ -131,7 +132,121 @@ export function TotalPayrollCell({ proj }: {
   )
 }
 
-export function OptionSalaryCell({ 
+// A season's unresolved free-agent cap holds, shown as a single clickable
+// pill (the sum still counting toward Team Salary) that opens a popover to
+// renounce/restore individual holds. Non-free-agent holds (empty-roster,
+// draft-pick) are structural — listed but never toggleable.
+function CapHoldsCell({
+  teamAbbr,
+  season,
+  holds,
+  isRenounced,
+  onRenounce,
+  onRestore,
+}: {
+  teamAbbr: string
+  season: Season
+  holds: CapHold[]
+  isRenounced: (label: string) => boolean
+  onRenounce: (label: string) => void
+  onRestore: (label: string) => void
+}) {
+  const [isOpen, setIsOpen] = useState(false)
+  if (holds.length === 0) {
+    return <span className="text-[10px] text-muted-foreground/30">—</span>
+  }
+  const countedTotal = holds
+    .filter((h) => h.kind !== 'free-agent' || !isRenounced(h.label))
+    .reduce((sum, h) => sum + h.amount, 0)
+
+  return (
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
+      <PopoverTrigger asChild>
+        <button
+          className={cn(
+            SALARY_PILL_BASE,
+            "cursor-pointer transition-opacity hover:opacity-70",
+            countedTotal > 0 ? "bg-sky-500/15 text-sky-700" : "bg-muted text-muted-foreground/50 line-through"
+          )}
+        >
+          {formatCurrency(countedTotal)}
+        </button>
+      </PopoverTrigger>
+      <PopoverContent side="top" align="center" className="w-64 p-2.5" sideOffset={4}>
+        <p className="text-xs font-semibold mb-2 text-muted-foreground">{season} Cap Holds</p>
+        <div className="space-y-1 max-h-64 overflow-y-auto">
+          {holds.map((hold) => {
+            const renounced = hold.kind === 'free-agent' && isRenounced(hold.label)
+            const toggleable = hold.kind === 'free-agent'
+            return (
+              <div key={hold.label} className="flex items-center justify-between gap-2 text-xs">
+                <span className={cn("truncate", renounced && "line-through text-muted-foreground")}>{hold.label}</span>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <span className={cn("font-mono tabular-nums", renounced && "line-through text-muted-foreground")}>
+                    {formatCurrency(hold.amount)}
+                  </span>
+                  {toggleable ? (
+                    <button
+                      onClick={() => (renounced ? onRestore(hold.label) : onRenounce(hold.label))}
+                      className={cn(
+                        "text-[9px] font-semibold px-1 py-0.5 rounded uppercase tracking-wide",
+                        renounced
+                          ? "text-emerald-600 hover:bg-emerald-500/10"
+                          : "text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
+                      )}
+                    >
+                      {renounced ? 'Restore' : 'Renounce'}
+                    </button>
+                  ) : (
+                    <span className="text-[8px] text-muted-foreground/50 uppercase tracking-wide">{hold.kind === 'empty-roster' ? 'Roster' : 'Pick'}</span>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
+// Dead money (waived/stretched cap hits) — real and unavoidable regardless of
+// roster choices, so unlike cap holds it's never renounceable. Shown as its
+// own read-only pill so it isn't confused with the toggleable FA holds above
+// it, with a tooltip spelling out that it counts toward both totals.
+function DeadMoneyCell({ season, entries }: { season: Season; entries: DeadMoney[] }) {
+  const [isOpen, setIsOpen] = useState(false)
+  if (entries.length === 0) {
+    return <span className="text-[10px] text-muted-foreground/30">—</span>
+  }
+  const total = entries.reduce((sum, d) => sum + d.amount, 0)
+
+  return (
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
+      <PopoverTrigger asChild>
+        <button className={cn(SALARY_PILL_BASE, "cursor-pointer transition-opacity hover:opacity-70 bg-red-500/15 text-red-600")}>
+          {formatCurrency(total)}
+        </button>
+      </PopoverTrigger>
+      <PopoverContent side="top" align="center" className="w-64 p-2.5" sideOffset={4}>
+        <p className="text-xs font-semibold mb-1 text-muted-foreground">{season} Dead Money</p>
+        <p className="text-[10px] text-muted-foreground/70 mb-2 leading-relaxed">
+          Waived/stretched cap hits — always counts toward both Team Salary and Apron Salary. Not renounceable.
+        </p>
+        <div className="space-y-1 max-h-64 overflow-y-auto">
+          {entries.map((d) => (
+            <div key={d.player} className="flex items-center justify-between gap-2 text-xs">
+              <span className="truncate">{d.player}</span>
+              <span className="font-mono tabular-nums shrink-0">{formatCurrency(d.amount)}</span>
+            </div>
+          ))}
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
+export function OptionSalaryCell({
   playerId,
   optionType, 
   isExercised, 
@@ -454,6 +569,11 @@ export function RosterTable() {
     savedTrades,
     tradedPickIds,
     selectedTeam,
+    selectedTeamAbbr,
+    getUnresolvedCapHolds,
+    isCapHoldRenounced,
+    renounceCapHold,
+    restoreCapHold,
   } = useRoster()
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean; startSeason?: Season }>({
@@ -467,7 +587,7 @@ export function RosterTable() {
     isOpen: false,
   })
 
-  const { displayedSeasons, allPlayers, projections } = useRosterTableData()
+  const { displayedSeasons, allPlayers, projections, hardCapped } = useRosterTableData()
 
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [seasonColWidth, setSeasonColWidth] = useState(MIN_SEASON_COL_WIDTH)
@@ -506,6 +626,22 @@ export function RosterTable() {
               <Badge variant="secondary" className="text-[10.5px] font-bold px-2 py-[2px] rounded-md">
                 {roster.length} players
               </Badge>
+              {hardCapped && (
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-red-500 bg-red-500/10 px-1.5 py-[2px] rounded-md">
+                      <AlertTriangle className="h-3 w-3" />
+                      Hard-Capped · {hardCapped.apron === 1 ? '1st' : '2nd'} Apron
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent side="bottom" align="start" className="w-64 p-2.5 text-xs">
+                    <p className="font-semibold mb-1">Hard-capped at the {hardCapped.apron === 1 ? 'first' : 'second'} apron</p>
+                    <p className="text-muted-foreground">
+                      {hardCapped.trigger ?? 'This team cannot exceed this apron for the rest of the league year, regardless of where Apron Team Salary lands.'}
+                    </p>
+                  </PopoverContent>
+                </Popover>
+              )}
             </div>
             <div className="flex items-center gap-3.5 text-[10.5px]">
               <SaveCapSheetButton />
@@ -751,6 +887,74 @@ export function RosterTable() {
                   )
                 })}
                 
+                {/* Dead Money section — waived/stretched cap hits. Always counts
+                    toward Team Salary (and Apron Salary); never renounceable, so
+                    it's kept separate from the toggleable FA holds below. */}
+                {displayedSeasons.some((s) => (getTeamCapState(selectedTeamAbbr, s)?.deadMoney.length ?? 0) > 0) && (
+                  <>
+                    <tr className="border-t border-border bg-muted/40">
+                      <td
+                        colSpan={displayedSeasons.length + 1}
+                        className="sticky left-0 bg-muted/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground"
+                      >
+                        Dead Money
+                      </td>
+                    </tr>
+                    <tr className="border-b border-border/30 hover:bg-muted/20 transition-colors">
+                      <td className="sticky left-0 bg-card px-3 py-1.5">
+                        <span className="text-[12px] font-medium text-muted-foreground whitespace-nowrap">
+                          Dead Money
+                        </span>
+                      </td>
+                      {displayedSeasons.map((season) => {
+                        const entries = getTeamCapState(selectedTeamAbbr, season)?.deadMoney ?? []
+                        return (
+                          <td key={season} className="px-2 py-1.5 text-center">
+                            <DeadMoneyCell season={season} entries={entries} />
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  </>
+                )}
+
+                {/* Cap Holds section — free-agent holds count toward Team Salary by
+                    default; click a season's pill to renounce/restore individually. */}
+                {displayedSeasons.some((s) => getUnresolvedCapHolds(selectedTeamAbbr, s).length > 0) && (
+                  <>
+                    <tr className="border-t border-border bg-muted/40">
+                      <td
+                        colSpan={displayedSeasons.length + 1}
+                        className="sticky left-0 bg-muted/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground"
+                      >
+                        Cap Holds
+                      </td>
+                    </tr>
+                    <tr className="border-b border-border/30 hover:bg-muted/20 transition-colors">
+                      <td className="sticky left-0 bg-card px-3 py-1.5">
+                        <span className="text-[12px] font-medium text-muted-foreground whitespace-nowrap">
+                          Unresolved FA Holds
+                        </span>
+                      </td>
+                      {displayedSeasons.map((season) => {
+                        const holds = getUnresolvedCapHolds(selectedTeamAbbr, season)
+                        return (
+                          <td key={season} className="px-2 py-1.5 text-center">
+                            <CapHoldsCell
+                              teamAbbr={selectedTeamAbbr}
+                              season={season}
+                              holds={holds}
+                              isRenounced={(label) => isCapHoldRenounced(selectedTeamAbbr, season, label)}
+                              onRenounce={(label) => renounceCapHold(selectedTeamAbbr, season, label)}
+                              onRestore={(label) => restoreCapHold(selectedTeamAbbr, season, label)}
+                            />
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  </>
+                )}
+
                 {/* Draft Picks section */}
                 {draftPickPlayers.length > 0 && (
                   <tr className="border-t border-border bg-muted/40">
@@ -930,13 +1134,27 @@ export function RosterTable() {
               <tfoot className="sticky bottom-0 bg-muted">
                 <tr className="border-t-2" style={{ borderTopColor: selectedTeam.primaryColor }}>
                   <td className="sticky left-0 bg-muted px-3 py-2">
-                    <span className="text-[12.5px] font-bold text-foreground">Total Payroll</span>
+                    <span className="text-[12.5px] font-bold text-foreground">Team Salary</span>
                   </td>
                   {displayedSeasons.map((season) => {
                     const proj = projections.find((p) => p.season === season)!
                     return (
                       <td key={season} className="px-2 py-2 text-center">
-                        <TotalPayrollCell proj={proj} />
+                        <TotalPayrollCell proj={proj} total={proj.capSpaceTotal} status={proj.capSpaceStatus} />
+                      </td>
+                    )
+                  })}
+                  <td className="px-1 py-2"></td>
+                </tr>
+                <tr className="border-t border-border/50">
+                  <td className="sticky left-0 bg-muted px-3 py-2">
+                    <span className="text-[12.5px] font-bold text-foreground">Apron Salary</span>
+                  </td>
+                  {displayedSeasons.map((season) => {
+                    const proj = projections.find((p) => p.season === season)!
+                    return (
+                      <td key={season} className="px-2 py-2 text-center">
+                        <TotalPayrollCell proj={proj} total={proj.apronTotal} status={proj.apronStatus} />
                       </td>
                     )
                   })}
