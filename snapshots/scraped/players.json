@@ -4970,11 +4970,6 @@
   "acquisition": {
    "date": "2026-04-07",
    "method": "free-agent"
-  },
-  "guarantees": {
-   "2026-27": {
-    "status": "non-guaranteed"
-   }
   }
  },
  {
@@ -5692,7 +5687,12 @@
    "2026-27": 2406205
   },
   "options": {},
-  "bbrefId": "jacksan01"
+  "bbrefId": "jacksan01",
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
  },
  {
   "name": "Jalen Pickett",

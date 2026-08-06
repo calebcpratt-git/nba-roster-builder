@@ -376,6 +376,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Harrison Ingram": 2024,
   "Kyle Anderson": 2014,
   "Jordan McLaughlin": 2019,
+  "Jeremy Sochan": 2022,
   "Branden Carlson": 2024,
   "Jevon Carter": 2018,
   "Nikola Vučević": 2011,
@@ -390,6 +391,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Larry Nance Jr.": 2015,
   "Jae'Sean Tate": 2020,
   "Bogdan Bogdanović": 2014,
+  "Gary Payton II": 2016,
   "Charles Bassey": 2021,
   "Marvin Bagley III": 2018,
   "Tyus Jones": 2015,
@@ -453,6 +455,4 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Mamadi Diakite": 2020,
   "Ricky Rubio": 2009,
   "Didi Louzada": 2019,
-  "Jeremy Sochan": 2022,
-  "Gary Payton II": 2016,
 }
