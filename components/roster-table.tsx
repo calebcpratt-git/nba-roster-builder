@@ -34,7 +34,7 @@ import { Check, X, Info, Plus, RotateCcw, Trash2, AlertTriangle } from 'lucide-r
 import { cn } from '@/lib/utils'
 
 // Get salary pill classes on a red > yellow > green gradient based on salary amount
-// $50M+ = red, $30M-50M = orange, $15M-30M = amber/yellow, $5M-15M = lime, <$5M = green
+// $50M+ = red, $35M-50M = orange, $20M-35M = amber, $10M-20M = yellow, $5M-10M = lime, <$5M = green
 export function getSalaryColor(salary: number): string {
   if (salary >= 50000000) return 'bg-red-500/15 text-red-600'
   if (salary >= 35000000) return 'bg-orange-500/15 text-orange-600'
@@ -797,9 +797,9 @@ export function RosterTable() {
                       {displayedSeasons.map((season, index) => {
                         // Raw salary — used to decide whether a cell has a contract at all
                         const rawSalary = player.salary[season] || 0
-                        // Display salary — for current roster players, merges in any saved extension salaries
+                        // Display salary — for current-roster and trade-incoming players, merges in any saved extension salaries.
                         // This intentionally uses the raw value for option years so we can still show
-                        // the crossed-out number; getEffectiveSalary is only used for cap totals.
+                        // the crossed-out number; cap totals use getEffectiveSalary instead, which zeroes declined options.
                         const extensionSalary = (player.source === 'current' || player.source === 'trade-incoming')
                           ? (() => {
                               const ext = savedContracts.find(

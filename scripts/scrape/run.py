@@ -14,8 +14,11 @@ Resilience:
 
 Groups (each independent — a failure in one never blocks the others):
   players             BBRef contracts + draft classes             -> players.json, rookie-years.json, unresolved-draft-year.json
+  free-agent-reconciliation  RealGM free-agent-options +          -> corrects stale CURRENT_SEASON_LABEL option
+                      current-free-agents pages                      flags directly on players.json (no new file)
   picks               RealGM future drafts                        -> draft-picks.json
-  enrichment          BBRef transactions + HR guarantee data       -> merged onto players.json (acquisition, guarantees)
+  enrichment          SalarySwish per-team transactions (30        -> merged onto players.json (acquisition, guarantees)
+                      pages) + HR guarantee data
   clauses             HR trade kickers + veto-trades               -> contract-details.json
   cap-state           nbacaptracker.com (30 team pages)            -> team-cap-state.json
   salaryswish-league  SalarySwish trade-exception + hard-cap       -> merged onto team-cap-state.json (heldTPEs, hardCapped)
@@ -27,15 +30,16 @@ Groups (each independent — a failure in one never blocks the others):
                       incentive sums — no new fetch of its own
 
 NOTE ON DATED URLS: the Hoops Rumors sources below are annual blog posts with
-season-specific URLs, not stable endpoints. HR_TRADE_KICKERS_URL and
-HR_VETO_TRADES_URL below are still pointing at the 2025/26 articles because,
-as of this pipeline's last update (July 2026), Hoops Rumors had not yet
-published the 2026/27 versions (they typically go up in August). Records
-pulled from a still-current older-season article are still correct for
-"who currently has a trade kicker" purposes but check for the 2026/27
+season-specific URLs, not stable endpoints. HR_TRADE_KICKERS_URL,
+HR_VETO_TRADES_URL, and HR_CASH_IN_TRADE_URL below are still pointing at the
+2025/26 articles because, as of this pipeline's last update (July 2026),
+Hoops Rumors had not yet published the 2026/27 versions (they typically go up
+in August). Records pulled from a still-current older-season article are
+still correct for "who currently has X" purposes but check for the 2026/27
 version each time you re-run this and update the URL when it exists —
-search "hoopsrumors nba players with trade kickers 2026/27" and
-"hoopsrumors nba players who can veto trades 2026/27".
+search "hoopsrumors nba players with trade kickers 2026/27",
+"hoopsrumors nba players who can veto trades 2026/27", and
+"hoopsrumors cash sent received nba trades 2026/27".
 """
 import json, os, re, sys, time, random, unicodedata, urllib.request, urllib.error
 
@@ -44,6 +48,7 @@ import bbref, realgm, hoopsrumors, captracker, salaryswish
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 RAW = os.path.join(ROOT, 'snapshots', 'raw')
 CAPTRACKER_RAW = os.path.join(RAW, 'nbacaptracker')
+SS_TEAM_TRANSACTIONS_RAW = os.path.join(RAW, 'salaryswish_transactions')
 SALARYSWISH_PLAYERS_RAW = os.path.join(RAW, 'salaryswish_players')
 BBREF_PLAYERS_RAW = os.path.join(RAW, 'bbref_players')
 OUT = os.path.join(ROOT, 'snapshots', 'scraped')
@@ -69,7 +74,6 @@ SOURCES = {
     'realgm_future_drafts': 'https://basketball.realgm.com/nba/draft/future_drafts/team',
     'realgm_free_agent_options': 'https://basketball.realgm.com/nba/free_agent_options',
     'realgm_current_free_agents': 'https://basketball.realgm.com/nba/current_free_agents',
-    'bbref_transactions': f'https://www.basketball-reference.com/leagues/NBA_{CURRENT_DRAFT_YEAR}_transactions.html',
     'hr_guarantee_dates': HR_GUARANTEE_DATES_URL,
     'hr_non_guaranteed': HR_NON_GUARANTEED_URL,
     'hr_trade_kickers': HR_TRADE_KICKERS_URL,
@@ -77,6 +81,9 @@ SOURCES = {
     'hr_cash_in_trade': HR_CASH_IN_TRADE_URL,
     'salaryswish_trade_exceptions': salaryswish.TRADE_EXCEPTION_URL,
     'salaryswish_hard_cap': salaryswish.HARD_CAP_URL,
+    'salaryswish_mle': salaryswish.MLE_URL,
+    'salaryswish_bae': salaryswish.BAE_URL,
+    'salaryswish_dpe': salaryswish.DPE_URL,
     'salaryswish_sitemap': salaryswish.SITEMAP_URL,
     **{f'bbref_draft_{y}': f'https://www.basketball-reference.com/draft/NBA_{y}.html' for y in DRAFT_YEARS},
 }
@@ -264,21 +271,44 @@ def build_picks():
 
 
 def build_enrichment():
-    """Merges acquisition (BBRef transactions) and guarantees (Hoops Rumors)
-    onto players.json. Requires players.json to already exist — either freshly
-    written this run by build_players(), or last-good from a previous run —
-    since this only enriches existing player records, never creates new ones.
-    Unmatched entries are written to unresolved-*.json rather than dropped or
-    treated as a hard failure, matching the unresolved-draft-year.json
-    precedent already in this pipeline."""
+    """Merges acquisition (SalarySwish per-team transactions) and guarantees
+    (Hoops Rumors) onto players.json. Requires players.json to already exist
+    — either freshly written this run by build_players(), or last-good from
+    a previous run — since this only enriches existing player records, never
+    creates new ones. Unmatched entries are written to unresolved-*.json
+    rather than dropped or treated as a hard failure, matching the
+    unresolved-draft-year.json precedent already in this pipeline.
+
+    Acquisition used to come from BBRef's season transactions page, with
+    RealGM's transactions log as a supplementary fix for the gap while
+    BBRef's new-season page didn't exist yet. Both were retired 2026-08-06
+    in favor of this single SalarySwish source, which covers everything they
+    did (signings, waivers, extensions) plus what neither did (trades,
+    drafts) — see salaryswish.py's module docstring on TEAM_SLUG_TO_ABBR.
+    Verified against real data before the retirement: this source correctly
+    resolved acquisitions BBRef/RealGM either missed entirely or (worse) got
+    actively wrong from a stale prior-season record — e.g. Deandre Ayton's
+    2026-07-08 trade to Washington, previously invisible behind a stale
+    2025-07-06 free-agent signing record.
+
+    Fetch failure here (all 30 team pages) doesn't take down guarantees
+    processing — it's not in the `enrichment` GROUPS entry's required
+    sources, same as RealGM was before it."""
     players = _load_json('players', None)
     if players is None:
         raise RuntimeError('players.json does not exist yet — run the players group first')
     by_id = {p.get('bbrefId'): p for p in players if p.get('bbrefId')}
     by_name = {_base(p['name']): p for p in players}
 
-    # --- acquisition (BBRef transactions) ---
-    transactions = bbref.parse_transactions(os.path.join(RAW, 'bbref_transactions.html'))
+    # --- acquisition (SalarySwish per-team transactions) ---
+    ss_offline = '--offline' in sys.argv
+    ss_failed_teams = salaryswish.fetch_team_transactions(SS_TEAM_TRANSACTIONS_RAW, offline=ss_offline)
+    if ss_failed_teams:
+        print(f'  WARN {len(ss_failed_teams)} salaryswish team-transaction page(s) failed to fetch, '
+              f'proceeding with the rest: {sorted(ss_failed_teams)}')
+    if len(ss_failed_teams) == len(salaryswish.TEAM_SLUG_TO_ABBR):
+        raise RuntimeError('every salaryswish team-transaction page failed to fetch')
+    transactions = salaryswish.parse_all_team_transactions(SS_TEAM_TRANSACTIONS_RAW)
     unresolved_acq = []
     matched_acq = 0
     # A player can appear multiple times in a season's transaction log (waived
@@ -534,16 +564,47 @@ def build_cap_hold_reconciliation():
 
 
 def build_salaryswish_league():
-    """SalarySwish's two league-wide trackers (TPEs, hard-cap status) merged
-    onto team-cap-state.json's CURRENT-season entries only — both are
-    "right now" facts, not per-season projections, so they don't apply to
-    the future seasons nbacaptracker otherwise projects. Requires
-    team-cap-state.json to already exist (build_cap_state runs first)."""
+    """SalarySwish's league-wide trackers merged onto team-cap-state.json's
+    CURRENT-season entries only — all "right now" facts, not per-season
+    projections, so none apply to the future seasons nbacaptracker otherwise
+    projects. Requires team-cap-state.json to already exist (build_cap_state
+    runs first).
+
+    Held TPEs and hard-cap status were the original two trackers here.
+    2026-08-06 added exceptionsUsed (NTMLE/TMLE/room-MLE/BAE/DPE usage and
+    remaining balance, plus which TPE financed which trade) — this is the
+    field the whole "what exception has this team used, and what's left"
+    question needed, read directly off SalarySwish's own live-computed
+    tables. An earlier app-side derivation (lib/exceptions-used.ts, joining
+    acquisition date against signedUnder) was deleted once this made it
+    redundant — don't recreate it; read TEAM_CAP_STATE[team][season]
+    .exceptionsUsed directly instead."""
     records = _load_json('team-cap-state', None)
     if records is None:
         raise RuntimeError('team-cap-state.json does not exist yet — run cap-state first')
     tpes = salaryswish.parse_trade_exceptions(os.path.join(RAW, 'salaryswish_trade_exceptions.html'))
     hard_caps = salaryswish.parse_hard_cap(os.path.join(RAW, 'salaryswish_hard_cap.html'))
+    # The three exceptionsUsed trackers are best-effort, unlike tpes/hard_caps
+    # above — a markup change or fetch failure on just one of these shouldn't
+    # take down the long-established heldTPEs/hardCapped merge too.
+    tpe_usage, mle, bae, dpe = [], [], [], []
+    try:
+        tpe_usage = salaryswish.parse_trade_exception_usage(os.path.join(RAW, 'salaryswish_trade_exceptions.html'))
+    except Exception as e:
+        print(f'  WARN trade-exception usage parse failed ({e}) — continuing without it')
+    for name, parser, out_list in (
+        ('salaryswish_mle', salaryswish.parse_mle_tracker, mle),
+        ('salaryswish_bae', salaryswish.parse_bae_tracker, bae),
+        ('salaryswish_dpe', salaryswish.parse_dpe_tracker, dpe),
+    ):
+        path = os.path.join(RAW, f'{name}.html')
+        if not os.path.exists(path):
+            print(f'  WARN {name}.html not fetched this run — continuing without it')
+            continue
+        try:
+            out_list.extend(parser(path))
+        except Exception as e:
+            print(f'  WARN {name} parse failed ({e}) — continuing without it')
     tpes_by_team = {}
     for t in tpes:
         tpes_by_team.setdefault(t['team'], []).append(
@@ -557,7 +618,15 @@ def build_salaryswish_league():
         existing = hardcap_by_team.get(h['team'])
         if existing is None or h['apron'] > existing['apron']:
             hardcap_by_team[h['team']] = {'apron': h['apron'], 'trigger': h['trigger']}
-    matched_tpe = matched_hc = 0
+    tpe_usage_by_team = {}
+    for u in tpe_usage:
+        tpe_usage_by_team.setdefault(u['team'], []).append(
+            {'tpeFromPlayer': u['tpeFromPlayer'], 'usedByPlayer': u['usedByPlayer'],
+             'amount': u['amount'], 'date': u['date']})
+    mle_by_team = {m['team']: m for m in mle}
+    bae_by_team = {b['team']: b for b in bae}
+    dpe_by_team = {d['team']: d for d in dpe}
+    matched_tpe = matched_hc = matched_exceptions = 0
     for r in records:
         if r['season'] != CURRENT_SEASON_LABEL:
             continue
@@ -567,14 +636,44 @@ def build_salaryswish_league():
         if r['team'] in hardcap_by_team:
             r['hardCapped'] = hardcap_by_team[r['team']]
             matched_hc += 1
+        exceptions_used = {}
+        m = mle_by_team.get(r['team'])
+        if m is not None:
+            for key, remaining_key, exception_id in (
+                ('nonTaxpayerMLE', 'nonTaxpayerRemaining', 'non-taxpayer-mle'),
+                ('taxpayerMLE', 'taxpayerRemaining', 'taxpayer-mle'),
+                ('roomMLE', 'roomRemaining', 'room-mle'),
+            ):
+                signings = [s for s in m['signings'] if s['exception'] == exception_id]
+                remaining = m[remaining_key]
+                if signings or remaining is not None:
+                    exceptions_used[key] = {
+                        'signings': [{'player': s['player'], 'amount': s['amount']} for s in signings],
+                        'remaining': remaining,
+                    }
+        b = bae_by_team.get(r['team'])
+        if b is not None and (b['signings'] or b['remaining'] is not None):
+            exceptions_used['biAnnual'] = {'signings': b['signings'], 'remaining': b['remaining']}
+        d = dpe_by_team.get(r['team'])
+        if d is not None:
+            exceptions_used['dpe'] = {
+                'player': d['player'], 'initial': d['initial'], 'used': d['used'], 'remaining': d['room'],
+            }
+        if r['team'] in tpe_usage_by_team:
+            exceptions_used['tradeExceptionsUsed'] = tpe_usage_by_team[r['team']]
+        if exceptions_used:
+            r['exceptionsUsed'] = exceptions_used
+            matched_exceptions += 1
     json.dump(records, open(os.path.join(OUT, 'team-cap-state.json'), 'w'), indent=1, ensure_ascii=False)
     print(f'  held TPEs: {sum(len(v) for v in tpes_by_team.values())} across {matched_tpe} teams   '
-          f'hard-capped teams: {matched_hc}')
+          f'hard-capped teams: {matched_hc}   exceptionsUsed: {matched_exceptions} teams')
 
 
 def build_signing_incentives(offline=False):
     """Per-player SalarySwish scrape -> signedUnder + incentives, merged onto
-    contract-details.json (written by build_clauses, which must run first).
+    contract-details.json (normally already written by build_clauses; falls
+    back to an empty list rather than raising if it isn't there yet — unlike
+    this file's other build_* prerequisites).
     One fetch per player (~475 league-wide) is a lot for a small independent
     site to eat every day, so this only (re)fetches a player when they're new
     to the cache (snapshots/scraped/salaryswish-players.json, committed like
@@ -662,7 +761,7 @@ def build_cash_ledger():
     team-cap-state.json's CURRENT-season entries only (a running balance for
     this league year, not something future seasons have a value for).
     Requires team-cap-state.json to already exist (build_cap_state runs
-    first). Same dated-URL-bumped-each-season caveat as the other three
+    first). Same dated-URL-bumped-each-season caveat as the other four
     Hoops Rumors sources — see HR_CASH_IN_TRADE_URL above."""
     records = _load_json('team-cap-state', None)
     if records is None:
@@ -745,7 +844,7 @@ GROUPS = [
      'sources': ['realgm_free_agent_options', 'realgm_current_free_agents'],
      'build': build_free_agent_reconciliation},
     {'name': 'picks', 'sources': ['realgm_future_drafts'], 'build': build_picks},
-    {'name': 'enrichment', 'sources': ['bbref_transactions', 'hr_guarantee_dates', 'hr_non_guaranteed'],
+    {'name': 'enrichment', 'sources': ['hr_guarantee_dates', 'hr_non_guaranteed'],
      'build': build_enrichment},
     {'name': 'clauses', 'sources': ['hr_trade_kickers', 'hr_veto_trades'], 'build': build_clauses},
 ]

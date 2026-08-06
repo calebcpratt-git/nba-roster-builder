@@ -28,7 +28,11 @@ export interface LeagueCapYear {
   minimumByYos: Record<number, number>
 
   // exception amounts (for future hard-cap / signing logic — not yet read by the validator).
-  // Scaled from a single unverified 2026-27 estimate; spot-check before relying on these.
+  // 2026-27's figures are now spot-checked against live SalarySwish data (see
+  // that season's entry below). Seasons after it are still scaled from the
+  // OLD, since-corrected 2026-27 estimate (not re-derived from the new base)
+  // and remain projections (`official: false`) — treat those as more stale
+  // than before, not less, until they're refreshed off the corrected anchor.
   exceptions: {
     nonTaxpayerMLE: number
     taxpayerMLE: number
@@ -55,7 +59,10 @@ export const LEAGUE_CAP: Record<Season, LeagueCapYear> = {
     secondApron: 221686000, salaryFloor: 148465000,
     matching: { lowerCeiling: 7250000, upperFloor: 29000000, middleCushion: 8527000, flatCushion: 250000 },
     minimumByYos: flatMinimumScale(1320000),
-    exceptions: { nonTaxpayerMLE: 14100000, taxpayerMLE: 5700000, roomMLE: 8800000, biAnnual: 5000000 },
+    // Spot-checked against SalarySwish's live /mid-level-exception and
+    // /bi-annual-exception trackers (2026-08-06) — all four corrected from
+    // the prior unverified estimate to match.
+    exceptions: { nonTaxpayerMLE: 15044000, taxpayerMLE: 6064000, roomMLE: 9366000, biAnnual: 5477000 },
     cashInTradeLimit: 8495000,
   },
   '2027-28': {

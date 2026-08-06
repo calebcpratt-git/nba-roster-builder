@@ -28,8 +28,9 @@ function yearsOfServiceFor(playerName: string): number | undefined {
 
 // schema doc §2a — converts a player's per-season guarantee status into the
 // discounted "counts toward the match" amount. Returns undefined (no discount,
-// full salary counts) whenever the player has no guarantee data at all, which
-// is every player today since no data source populates Player.guarantees yet.
+// full salary counts) whenever the player has no guarantee data for that
+// season — most players, since only Hoops Rumors' partial/non-guaranteed
+// cases are sourced into Player.guarantees.
 function guaranteedBySeasonFor(player: Player, getSalary: (p: Player, s: Season) => number): Partial<Record<Season, number>> | undefined {
   if (!player.guarantees) return undefined
   const result: Partial<Record<Season, number>> = {}
@@ -64,7 +65,7 @@ interface RosterState {
   roster: Player[]
   savedContracts: SavedContract[]
   exercisedTeamOptions: Set<string> // player-id-season keys
-  exercisedPlayerOptions: Set<string> // player-id-season keys (declined = not in set)
+  exercisedPlayerOptions: Set<string> // player-id-season keys (declined = in set; absent = exercised)
   renouncedCapHolds: Set<string> // `${teamAbbr}-${season}-${holdLabel}` keys
   hasUnsavedChanges: boolean
   activeCapSheet: { id: string; name: string } | null
@@ -83,8 +84,7 @@ interface AuthRedirectDraft {
 // route's NextResponse.redirect), which wipes all in-memory React state.
 // persistDraftForAuthRedirect stashes the working cap sheet here right before
 // the redirect so it — and the intent to reopen the save-name dialog, if any
-// — survives the round trip. Consumed by the lazy useState initializers below
-// and cleared by the mount effect right after.
+// — survives the round trip. Restored (and cleared) by the mount effect below.
 function readAuthRedirectDraft(): AuthRedirectDraft | null {
   if (typeof window === 'undefined') return null
   try {
@@ -181,7 +181,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
 
   // A fresh team selection starts with its "Save Cap Sheet" button greyed out
   // and no longer tied to whatever saved sheet you were last editing — see
-  // the Save Cap Sheet button's disabled/label state in roster-table.tsx.
+  // the Save Cap Sheet button's disabled/label state in save-cap-sheet-modal.tsx.
   const setSelectedTeamAbbr = useCallback((abbr: string) => {
     setSelectedTeamAbbrState(abbr)
     setHasUnsavedChanges(false)

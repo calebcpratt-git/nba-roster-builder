@@ -6,7 +6,7 @@ export interface ContractDetail {
   tradeBonusPct?: number
   /** likely/unlikely incentives per season (best public estimate; label as such) */
   incentives?: Partial<Record<Season, { likely: number; unlikely: number }>>
-  /** exception the deal was signed under — drives the "$0 incoming min" + hard-cap logic */
+  /** exception the deal was signed under — currently only drives the "$0 incoming min" (isMinimum) classification in trade-validation.ts */
   signedUnder?: 'minimum' | 'rookie-scale' | 'bird' | 'early-bird' | 'non-bird'
     | 'non-taxpayer-mle' | 'taxpayer-mle' | 'room-mle' | 'bi-annual' | 'cap-room' | 'max'
   /** rare — a handful league-wide. Eligibility (8 yrs svc + 4 w/ team) is derivable; possession isn't */
@@ -17,7 +17,6 @@ export interface ContractDetail {
   poisonPill?: { outgoingValue: number; incomingValue: number }
 }
 
-// Sparse and empty by design — no contract-level detail has been sourced yet.
 // Keyed by raw display name (same convention as rookie-years.ts); read through
 // nameLookup() below, never by direct index, so accent/case variants resolve.
 // GENERATED:START

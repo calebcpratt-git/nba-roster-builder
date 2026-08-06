@@ -12,7 +12,9 @@ const CAP_BY_SEASON: Record<string, number> = {
   '2033-34': 239_966_000,
   '2034-35': 253_164_000,
 }
-// Second round picks: $1.3M base in 2026-27 (cap $150M), scaled proportionally each season
+// Second round picks: $1.3M is a baseline value at a hypothetical $150M cap;
+// every season, including 2026-27, is scaled up from that baseline by the
+// ratio of that season's real cap (see CAP_BY_SEASON) to $150M.
 const SECOND_ROUND_BASE = 1_300_000
 export const SECOND_ROUND_SALARY_BY_SEASON: Record<string, number> = Object.fromEntries(
   Object.entries(CAP_BY_SEASON).map(([season, cap]) => [

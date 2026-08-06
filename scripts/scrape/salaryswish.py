@@ -4,8 +4,9 @@ signing-exception type + likely/unlikely incentive amounts.
 Added per the July 2026 sourcing review of the six "no identified source"
 CBA fields. SalarySwish (the independent CapFriendly-team successor, launched
 Sept 2023) is the only public, non-Spotrac source found for these three.
-Cash-in-trade ledgers and the "apron addon" gap are NOT covered by this
-module — see data-inventory.md for why those stay open.
+Cash-in-trade ledgers are sourced from Hoops Rumors instead (see
+hoopsrumors.py); the "apron addon" gap is since closed too, derived from
+this module's own unlikely-incentive data — see run.py's build_apron_addon.
 
 Confirmed live (July 2026) that the site is genuinely static server-rendered
 HTML: no __NEXT_DATA__, no self.__next_f.push hydration payload (unlike
@@ -345,4 +346,397 @@ def parse_player(path, team_abbr=None, min_season=None):
             if likely is not None or unlikely is not None:
                 incentives[season] = {'likely': likely or 0, 'unlikely': unlikely or 0}
     return {'signedUnder': classify_signing_method(method_text), 'incentives': incentives}
+
+
+# ---------------------------------------------------------------------------
+# /transactions/{team-slug} — full per-team transaction history. Added
+# 2026-08-06 to replace bbref.py's parse_transactions() as the source of
+# Player.acquisition: BBRef's season transactions page is bound to a season
+# number (NBA_{year}_transactions.html) that doesn't exist until BBRef
+# publishes it — historically weeks to months after a new season starts,
+# which left every acquisition since ~2026-07-09 either missing or (worse)
+# silently wrong (a stale prior-season record left in place — e.g. Deandre
+# Ayton's Feb 2026 trade to Washington was invisible behind a July 2025
+# free-agent signing record with a different team). This source has no such
+# gap: confirmed live, a single team's page (Atlanta Hawks) reaches back to
+# April 2026 activity and beyond with no season boundary, and the league-wide
+# /transactions feed (a shallower, non-authoritative preview of the same
+# data) already showed entries dated the same day this was checked.
+#
+# 30 team-scoped pages, not one URL, so — like captracker.py — this owns its
+# own small fetch loop instead of going through run.py's single-URL
+# fetch_one/fetch_all.
+TEAM_SLUG_TO_ABBR = {
+    'hawks': 'ATL', 'celtics': 'BOS', 'nets': 'BRK', 'hornets': 'CHO',
+    'bulls': 'CHI', 'cavaliers': 'CLE', 'mavericks': 'DAL', 'nuggets': 'DEN',
+    'pistons': 'DET', 'warriors': 'GSW', 'rockets': 'HOU', 'pacers': 'IND',
+    'clippers': 'LAC', 'lakers': 'LAL', 'grizzlies': 'MEM', 'heat': 'MIA',
+    'bucks': 'MIL', 'timberwolves': 'MIN', 'pelicans': 'NOP', 'knicks': 'NYK',
+    'thunder': 'OKC', 'magic': 'ORL', 'sixers': 'PHI', 'suns': 'PHO',
+    'trailblazers': 'POR', 'kings': 'SAC', 'spurs': 'SAS', 'raptors': 'TOR',
+    'jazz': 'UTA', 'wizards': 'WAS',
+}
+TEAM_TRANSACTIONS_URL = 'https://www.salaryswish.com/transactions/{slug}'
+
+
+def fetch_team_transactions(raw_dir, offline=False):
+    """Fetches all 30 team transaction pages into raw_dir. Returns the set
+    of slugs that failed (never raises for a single team) — mirrors
+    captracker.py's fetch_all so a failed team just falls back to that
+    team's last-good snapshot rather than aborting the whole source."""
+    os.makedirs(raw_dir, exist_ok=True)
+    failed = set()
+    for slug in TEAM_SLUG_TO_ABBR:
+        path = os.path.join(raw_dir, f'{slug}.html')
+        if offline:
+            if not os.path.exists(path):
+                failed.add(slug)
+            continue
+        if not fetch_page(TEAM_TRANSACTIONS_URL.format(slug=slug), path):
+            failed.add(slug)
+        time.sleep(1.0)
+    return failed
+
+
+# Ordered against a full 30-team live sample (2026-08-06) of every distinct
+# TRANSACTION column value in use — not guessed from a handful of examples.
+# Anything not matched here is deliberately NOT an acquisition: roster-status
+# churn (Inactive List, G-League recalls/reassignments), option/guarantee
+# decisions, holds, and departures (waived, cleared waivers, contract
+# terminated/bought out) don't put a player on a new team, and including them
+# would let a later, unrelated status change silently overwrite a real
+# acquisition in run.py's "latest by date wins" merge.
+def _classify_team_transaction(text):
+    if text.startswith('Traded from'):
+        return 'trade'
+    if text.startswith('Claimed on waivers by'):
+        return 'waiver'
+    if text == 'Drafted':
+        return 'draft'
+    if text.startswith('Signed to') and 'Extension' in text:
+        return 'extension'
+    if text.startswith('Signed to'):
+        # Veteran / Rookie / Rookie Scale / Two-Way / Exhibit 10 / 10-Day
+        # Contract — all a fresh signing, none of them a pool-limited
+        # exception distinction (that's signedUnder's job, not this field's).
+        return 'free-agent'
     return None
+
+
+def parse_team_transactions(path, team_abbr):
+    """/transactions/{team-slug} -> [{name, date, dateRaw, method, toTeams,
+    fromTeams, text, flags}], same record shape as bbref.parse_transactions()
+    / realgm.parse_transactions() so all three can merge into one list.
+
+    Table shape (verified against a 30-team live sample): a header row, then
+    repeating (date row, N data rows, separator row) groups. The date row is
+    `<tr class="sw_table__secondaryHeader">` with one <td colspan="4">; data
+    rows have exactly 4 <td>s (team, player, transaction text, a literal '✔'
+    or empty for "rights acquired"). No bbrefId/realgmId — matching in
+    run.py's build_enrichment falls through to name normalization via
+    _base(), same as any cross-source record with no id match.
+
+    Uses get_text(' ', strip=True) on the transaction cell, not bare
+    get_text(strip=True) — the "Traded from OKC" text is split across an
+    <a>Traded</a> plus a trailing text node, and BeautifulSoup's per-node
+    stripping otherwise silently swallows the space between them (confirmed:
+    produces "Tradedfrom OKC"). This is the exact bug bbref.py's own
+    parse_transactions already had to work around once.
+    """
+    soup = _soup(path)
+    table = soup.find('table')
+    if table is None:
+        raise RuntimeError(f'team transactions table not found for {team_abbr} — page layout changed')
+    out = []
+    current_date = None
+    current_date_raw = None
+    for tr in table.find_all('tr'):
+        if 'sw_table__secondaryHeader' in (tr.get('class') or []):
+            td = tr.find('td')
+            current_date_raw = td.get_text(strip=True) if td else None
+            current_date = _iso_date(current_date_raw) if current_date_raw else None
+            continue
+        tds = tr.find_all('td')
+        if len(tds) != 4 or current_date is None:
+            continue
+        player_link = tds[1].find('a')
+        if player_link is None:
+            continue
+        name = player_link.get_text(strip=True)
+        txn_text = tds[2].get_text(' ', strip=True)
+        method = _classify_team_transaction(txn_text)
+        if method is None:
+            continue
+        from_teams = []
+        if method == 'trade':
+            m = re.search(r'from (\w+)$', txn_text)
+            if m:
+                from_teams = [m.group(1)]
+        elif method == 'waiver' and txn_text.startswith('Claimed on waivers by'):
+            # This team's own page only shows waiver claims IT made — the
+            # claiming team is already team_abbr, not worth re-parsing here.
+            pass
+        out.append({
+            'bbrefId': None,
+            'name': name,
+            'date': current_date,
+            'dateRaw': current_date_raw,
+            'method': method,
+            'toTeams': [team_abbr],
+            'fromTeams': from_teams,
+            'text': txn_text,
+            'flags': [],
+        })
+    if not out:
+        raise RuntimeError(f'team transactions parsed to zero rows for {team_abbr} — page layout changed')
+    return out
+
+
+def parse_all_team_transactions(raw_dir, slugs=None):
+    """Aggregates parse_team_transactions() across every team whose raw HTML
+    exists in raw_dir. A team missing its file (fetch failed this run) is
+    silently skipped — caller falls back to that team's contribution from
+    the prior run's merged transactions.json, matching every other
+    partial-failure path in this pipeline."""
+    slugs = slugs or list(TEAM_SLUG_TO_ABBR)
+    out = []
+    for slug in slugs:
+        path = os.path.join(raw_dir, f'{slug}.html')
+        if not os.path.exists(path):
+            continue
+        out.extend(parse_team_transactions(path, TEAM_SLUG_TO_ABBR[slug]))
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Exception-usage trackers, added 2026-08-06 to answer "which exception
+# financed this signing/trade, and how much does each team have left" —
+# these are the fields nothing in the pipeline had a source for before:
+# NTMLE/TMLE/room-MLE/BAE usage and remaining balance, and which TPE
+# financed a given trade acquisition. All four are single-page, league-wide
+# (not per-team), so they go through run.py's normal fetch_one/SOURCES path
+# like /trade-exception and /hard-cap-tracker already do — no new fetch loop
+# needed.
+#
+# Full team-name -> app abbreviation. A separate table from TEAM_TO_ABBR
+# above (which only overrides 3-letter codes): these tracker pages render
+# the team as its full display name, not a code, and none of the existing
+# per-source name maps elsewhere in this pipeline (realgm.py, draft-picks.ts)
+# are imported cross-module, so this one is self-contained like the others.
+TEAM_NAME_TO_ABBR = {
+    'Atlanta Hawks': 'ATL', 'Boston Celtics': 'BOS', 'Brooklyn Nets': 'BRK',
+    'Charlotte Hornets': 'CHO', 'Chicago Bulls': 'CHI', 'Cleveland Cavaliers': 'CLE',
+    'Dallas Mavericks': 'DAL', 'Denver Nuggets': 'DEN', 'Detroit Pistons': 'DET',
+    'Golden State Warriors': 'GSW', 'Houston Rockets': 'HOU', 'Indiana Pacers': 'IND',
+    'LA Clippers': 'LAC', 'Los Angeles Lakers': 'LAL', 'Memphis Grizzlies': 'MEM',
+    'Miami Heat': 'MIA', 'Milwaukee Bucks': 'MIL', 'Minnesota Timberwolves': 'MIN',
+    'New Orleans Pelicans': 'NOP', 'New York Knicks': 'NYK', 'Oklahoma City Thunder': 'OKC',
+    'Orlando Magic': 'ORL', 'Philadelphia 76ers': 'PHI', 'Phoenix Suns': 'PHO',
+    'Portland Trail Blazers': 'POR', 'Sacramento Kings': 'SAC', 'San Antonio Spurs': 'SAS',
+    'Toronto Raptors': 'TOR', 'Utah Jazz': 'UTA', 'Washington Wizards': 'WAS',
+}
+
+MLE_URL = 'https://salaryswish.com/mid-level-exception'
+BAE_URL = 'https://salaryswish.com/bi-annual-exception'
+DPE_URL = 'https://salaryswish.com/disabled-player-exception'
+
+# The 'Signings' column's <b>TIER</b> label -> our signedUnder vocabulary.
+# Confirmed live: 'MLE' (non-taxpayer), 'TP-MLE' (taxpayer), 'R-MLE' (room).
+_MLE_TIER_LABEL = {'MLE': 'non-taxpayer-mle', 'TP-MLE': 'taxpayer-mle', 'R-MLE': 'room-mle'}
+
+_SIGNING_ENTRY_RE = re.compile(r'^(.+?)\s*\(\$?([\d,]+)\)$')
+_BAE_ENTRY_RE = re.compile(r'^(.+?)\s*\(\$?([\d,]+)\s*-\s*([A-Za-z]{3} \d{1,2}, \d{4})\)$')
+
+
+def parse_trade_exception_usage(path):
+    """/trade-exception's 'Used' column -> [{team, tpeFromPlayer,
+    usedByPlayer, amount, date}]. A nonzero Used value carries a tooltip
+    (`<span class="q" title="PLAYER (Mon DD, YYYY)">`, confirmed live) naming
+    which player the TPE was applied to acquire, and when — the direct
+    answer to "which exception financed this trade." `team`/`tpeFromPlayer`
+    identify which TPE (same row as parse_trade_exceptions); a zero-used row
+    has no tooltip and is skipped, not an error — most TPEs go unused."""
+    table = _soup(path).find('table', class_=re.compile('sw_table__tradeExptn'))
+    if table is None:
+        raise RuntimeError('trade-exception table not found — page layout changed')
+    out = []
+    for tr in table.find('tbody').find_all('tr'):
+        tds = tr.find_all('td')
+        abbr_span = tr.find('span', class_='sw_table__collapsibleTeamColumn_abbreviation')
+        if abbr_span is None or len(tds) < 4:
+            continue
+        used_span = tds[3].find('span', class_='q')
+        if used_span is None or not used_span.get('title'):
+            continue
+        m = re.match(r'^(.+?)\s*\(([A-Za-z]{3} \d{1,2}, \d{4})\)$', used_span['title'])
+        if not m:
+            continue
+        amount = _money(used_span.get_text(strip=True))
+        date = _iso_date(m.group(2))
+        if amount is None or not date:
+            continue
+        out.append({
+            'team': to_app_abbr(abbr_span.get_text(strip=True)),
+            'tpeFromPlayer': tds[1].get_text(strip=True),
+            'usedByPlayer': m.group(1),
+            'amount': amount,
+            'date': date,
+        })
+    return out
+
+
+def parse_mle_tracker(path):
+    """/mid-level-exception -> [{team, signings: [{exception, player,
+    amount}], roomRemaining, nonTaxpayerRemaining, taxpayerRemaining}], one
+    row per team league-wide (not one row per signing — a team can have
+    zero, one, or several signings, but always has three remaining-space
+    figures worth recording either way). The remaining-space figures are
+    read directly off the page's own 'Room Space' / 'Non-Taxpayer Space' /
+    'Taxpayer Space' columns rather than derived from LEAGUE_CAP's pool
+    amounts — SalarySwish already accounts for real subtleties we shouldn't
+    re-derive ourselves (the page's own note: it auto-zeroes an exception
+    that isn't actually usable yet, e.g. NTMLE space shows $0 if the team's
+    cap room already exceeds the NTMLE amount). A '-' cell (not applicable —
+    e.g. forfeited by using a different exception this season) parses to
+    None via _money(), not 0; treat None and 0 differently downstream.
+
+    The 'Signings' cell groups multiple players under one <b>TIER</b> label
+    when a team splits its MLE across several signings (confirmed live on
+    Philadelphia's row: two players, only the first tagged <b>MLE</b> — both
+    share it, since the NTMLE is explicitly splittable per the CBA). Track
+    the running label per cell rather than assuming every entry is
+    separately labeled."""
+    soup = _soup(path)
+    table = soup.find('table')
+    if table is None:
+        raise RuntimeError('mid-level-exception table not found — page layout changed')
+    out = []
+    for tr in table.find('tbody').find_all('tr'):
+        team_link = tr.find('td').find('a')
+        if team_link is None:
+            continue
+        team_name = team_link.find('span', class_='sw_table__collapsibleTeamColumn_name')
+        team = TEAM_NAME_TO_ABBR.get(team_name.get_text(strip=True)) if team_name else None
+        if team is None:
+            continue
+        tds = tr.find_all('td')
+        if len(tds) < 10:
+            continue
+        signings = []
+        current_tier = None
+        for div in tds[6].find_all('div'):
+            b = div.find('b')
+            if b is not None:
+                current_tier = _MLE_TIER_LABEL.get(b.get_text(strip=True))
+            if current_tier is None:
+                continue
+            a = div.find('a')
+            if a is None:
+                continue
+            text = div.get_text(' ', strip=True)
+            # b's own text (e.g. "MLE") is part of get_text() too — strip it.
+            if b is not None:
+                text = text[len(b.get_text(strip=True)):].strip()
+            m = _SIGNING_ENTRY_RE.match(text)
+            if not m:
+                continue
+            signings.append({
+                'exception': current_tier,
+                'player': a.get_text(strip=True),
+                'amount': int(m.group(2).replace(',', '')),
+            })
+        out.append({
+            'team': team,
+            'signings': signings,
+            'roomRemaining': _money(tds[7].get_text(strip=True)),
+            'nonTaxpayerRemaining': _money(tds[8].get_text(strip=True)),
+            'taxpayerRemaining': _money(tds[9].get_text(strip=True)),
+        })
+    return out
+
+
+def parse_bae_tracker(path):
+    """/bi-annual-exception -> [{team, signings: [{player, amount, date}],
+    remaining}], one row per team league-wide (not one row per signing — a
+    team with zero signings and a full remaining balance is real, useful
+    information, not a no-op row to skip).
+
+    `remaining` is read from the rendered 'Space' <td> text via _money(),
+    NOT the <tr>'s `data-sort-remaining` attribute — confirmed live that the
+    attribute defaults to "0" even when the real state is "not applicable"
+    (e.g. Brooklyn's row: remaining shows literal '-' — BAE forfeited this
+    season because the team already used cap room — but
+    data-sort-remaining="0" all the same). _money() correctly returns None
+    for '-'; treat None (not applicable / forfeited) and 0 (available but
+    exhausted) as different states downstream. This is the same class of
+    trap as the already-documented data-sort-end_date bug on the
+    trade-exception tracker — trust rendered text over data-sort-* here too."""
+    soup = _soup(path)
+    table = soup.find('table')
+    if table is None:
+        raise RuntimeError('bi-annual-exception table not found — page layout changed')
+    out = []
+    for tr in table.find('tbody').find_all('tr'):
+        team_link = tr.find('td').find('a')
+        if team_link is None:
+            continue
+        team_name = team_link.find('span', class_='sw_table__collapsibleTeamColumn_name')
+        team = TEAM_NAME_TO_ABBR.get(team_name.get_text(strip=True)) if team_name else None
+        if team is None:
+            continue
+        tds = tr.find_all('td')
+        if len(tds) < 7:
+            continue
+        signings = []
+        for div in tds[2].find_all('div'):
+            a = div.find('a')
+            if a is None:
+                continue
+            m = _BAE_ENTRY_RE.match(div.get_text(' ', strip=True))
+            if not m:
+                continue
+            signings.append({
+                'player': a.get_text(strip=True),
+                'amount': int(m.group(2).replace(',', '')),
+                'date': _iso_date(m.group(3)),
+            })
+        out.append({
+            'team': team,
+            'signings': signings,
+            'remaining': _money(tds[6].get_text(strip=True)),
+        })
+    return out
+
+
+def parse_dpe_tracker(path):
+    """/disabled-player-exception -> [{team, player, initial, used, room}].
+    One row per team that currently has an active DPE grant; teams without
+    one simply don't appear (their row's PLAYER cell is '-', not parsed).
+    `used` is a bool — the page's own 'DPE USED' column ('Yes'/'No'), not
+    yet whether it's been spent, just whether the grant itself is live."""
+    soup = _soup(path)
+    table = soup.find('table')
+    if table is None:
+        raise RuntimeError('disabled-player-exception table not found — page layout changed')
+    out = []
+    for tr in table.find('tbody').find_all('tr'):
+        tds = tr.find_all('td')
+        if len(tds) < 5:
+            continue
+        team = TEAM_NAME_TO_ABBR.get(tds[0].get_text(strip=True))
+        player_link = tds[1].find('a')
+        if team is None or player_link is None:
+            continue
+        initial = _money(tds[2].get_text(strip=True))
+        used_text = tds[3].get_text(strip=True)
+        room = _money(tds[4].get_text(strip=True))
+        if initial is None:
+            continue
+        out.append({
+            'team': team,
+            'player': player_link.get_text(strip=True),
+            'initial': initial,
+            'used': used_text.lower() == 'yes',
+            'room': room if room is not None else 0,
+        })
+    return out

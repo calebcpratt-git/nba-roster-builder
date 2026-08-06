@@ -13,9 +13,8 @@ export interface Player {
   salary: Partial<Record<Season, number>>
   options: Partial<Record<Season, 'Player' | 'Team'>>
   isUserCreated?: boolean
-  /** Absent season = assume 'full'. Not yet populated by any data source — see schema doc §2a. */
+  /** Absent season = assume 'full'. */
   guarantees?: Partial<Record<Season, SeasonGuarantee>>
-  /** Not yet populated by any data source — see schema doc §5. */
   acquisition?: { date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension' }
   onPlayoffRoster?: boolean
 }

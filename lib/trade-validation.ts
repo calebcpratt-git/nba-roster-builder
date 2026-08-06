@@ -88,7 +88,7 @@ export function parsePickIdMeta(id: string): { pickYear?: number; pickRound?: 1 
 export const PARTNER_FINDINGS_ARE_WARNINGS = false
 
 export const FIDELITY_NOTE =
-  "Not checked: Bird rights, non-guaranteed salary, trade bonuses/kickers, base-year compensation & poison-pill contracts, sign-and-trades, cash in trades, pick protections/swaps, the moratorium & trade-deadline timing, the two-month re-aggregation rule, and the touch rule (this tool only builds two-team trades). Cap and apron figures are approximations for planning, not a substitute for a live trade machine. The partner team's salary includes their roster, saved contracts, and saved trades in this app — trades built from another team's perspective aren't visible here."
+  "Not checked: Bird rights, base-year compensation & poison-pill contracts, sign-and-trades, cash in trades, full pick-conveyance logic for protections/swaps (only consulted to soften Stepien-rule warnings), the moratorium & trade-deadline timing, the two-month re-aggregation rule, and the touch rule (this tool only builds two-team trades). No-trade clauses and trade bonuses/kickers are checked, but only for the small set of players with that data populated in CONTRACT_DETAILS. Cap and apron figures are approximations for planning, not a substitute for a live trade machine. The partner team's salary includes their roster, saved contracts, and saved trades in this app — trades built from another team's perspective aren't visible here."
 
 // ---------------------------------------------------------------------------
 // small helpers
@@ -123,8 +123,8 @@ function incomingSalaryOf(asset: TradeAsset, season: Season): number {
 
 // Non-guaranteed/partial salary doesn't count toward what the sending team
 // has to match with. Falls back to the full salary when no guarantee detail
-// exists for the asset/season (today's behavior, unconditionally, until
-// schema doc §2a's guarantee data is sourced).
+// exists for the asset/season — true for most players, though a growing set
+// now has real Player.guarantees data (see player-data.ts) that discounts it.
 function outgoingSalaryOf(asset: TradeAsset, season: Season): number {
   return asset.guaranteedBySeason?.[season] ?? salaryOf(asset, season)
 }
@@ -359,10 +359,12 @@ function checkSevenYearWindow(side: TradeSideInput, input: ValidateTradeInput): 
 }
 
 // ---------------------------------------------------------------------------
-// Rule 5b — Stepien rule (no consecutive missing firsts). Conservative: the
-// app doesn't model pick protections/swaps, so a clear unconditional gap is
-// an error, but if a pick relevant to the gap carries protection/swap data
-// this is downgraded to a warning that names the specific pick.
+// Rule 5b — Stepien rule (no consecutive missing firsts). Conservative: pick
+// protections/swaps are parsed into structured data (DraftPick.protection /
+// .swap, see draft-picks.ts), but nothing here resolves whether a given
+// protection would actually trigger — so a clear unconditional gap is an
+// error, while a gap that depends on a protected/swap pick is downgraded to
+// a warning that names the specific pick instead of guessing the outcome.
 // ---------------------------------------------------------------------------
 
 function checkStepien(side: TradeSideInput, input: ValidateTradeInput): TradeViolation[] {
@@ -477,9 +479,9 @@ function checkRosterSpots(side: TradeSideInput): TradeViolation[] {
 }
 
 // ---------------------------------------------------------------------------
-// Rule 7 — no-trade clause (schema doc §2b). Always empty today since
-// CONTRACT_DETAILS has no real no-trade-clause data yet; wired so a side
-// gets a hard error the moment that data exists, with no further code changes.
+// Rule 7 — no-trade clause (schema doc §2b). Only fires for the handful of
+// players with noTradeClause set in CONTRACT_DETAILS; everyone else passes
+// silently, not because they lack a clause but because it isn't sourced yet.
 // ---------------------------------------------------------------------------
 
 function checkNoTradeClause(side: TradeSideInput): TradeViolation[] {

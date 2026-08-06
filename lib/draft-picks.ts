@@ -11,9 +11,9 @@ export interface PickProtection {
 }
 
 export interface SwapRight {
-  withTeams: string[]   // real data is a team-name list (e.g. "Portland, New Orleans")
+  withTeams: string[]   // parseSwap comma-splits on this; real data is always a single team name
   favorable?: boolean   // usually unknowable from the string — leave undefined
-  condition?: string    // raw remainder for edge cases
+  condition?: string    // never populated — parseSwap only fills withTeams
 }
 
 export interface DraftPick {

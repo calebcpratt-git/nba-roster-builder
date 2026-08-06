@@ -10,6 +10,39 @@ function moneyOrLiteral(v) {
   return v === null || v === undefined ? 'undefined' : String(v)
 }
 
+function buildExceptionPool(pool) {
+  const signings = (pool.signings ?? [])
+    .map((s) => {
+      const date = s.date ? `, date: ${JSON.stringify(s.date)}` : ''
+      return `{ player: ${JSON.stringify(s.player)}, amount: ${moneyOrLiteral(s.amount)}${date} }`
+    })
+    .join(', ')
+  const remaining = pool.remaining != null ? `, remaining: ${moneyOrLiteral(pool.remaining)}` : ''
+  return `{ signings: [${signings}]${remaining} }`
+}
+
+function buildExceptionsUsed(exceptionsUsed) {
+  if (!exceptionsUsed) return ''
+  const parts = []
+  for (const key of ['nonTaxpayerMLE', 'taxpayerMLE', 'roomMLE', 'biAnnual']) {
+    const pool = exceptionsUsed[key]
+    if (pool) parts.push(`${key}: ${buildExceptionPool(pool)}`)
+  }
+  if (exceptionsUsed.dpe) {
+    const d = exceptionsUsed.dpe
+    const remaining = d.remaining != null ? `, remaining: ${moneyOrLiteral(d.remaining)}` : ''
+    parts.push(`dpe: { player: ${JSON.stringify(d.player)}, initial: ${moneyOrLiteral(d.initial)}, used: ${!!d.used}${remaining} }`)
+  }
+  if (exceptionsUsed.tradeExceptionsUsed?.length) {
+    const entries = exceptionsUsed.tradeExceptionsUsed
+      .map((u) => `{ tpeFromPlayer: ${JSON.stringify(u.tpeFromPlayer)}, usedByPlayer: ${JSON.stringify(u.usedByPlayer)}, amount: ${moneyOrLiteral(u.amount)}, date: ${JSON.stringify(u.date)} }`)
+      .join(', ')
+    parts.push(`tradeExceptionsUsed: [${entries}]`)
+  }
+  if (!parts.length) return ''
+  return `, exceptionsUsed: { ${parts.join(', ')} }`
+}
+
 /**
  * @typedef {{ team: string, season: string,
  *   deadMoney: {player: string, amount: number}[],
@@ -50,7 +83,8 @@ function buildTeamCapStateBlock(records) {
       const cashLedger = r.cashLedger
         ? `, cashLedger: { availableToSend: ${moneyOrLiteral(r.cashLedger.availableToSend)}, availableToReceive: ${moneyOrLiteral(r.cashLedger.availableToReceive)} }`
         : ''
-      block += `    '${r.season}': { deadMoney: [${deadMoney}], capHolds: [${capHolds}], heldTPEs: [${heldTPEs}]${apronAddon}${hardCapped}${cashLedger} },\n`
+      const exceptionsUsed = buildExceptionsUsed(r.exceptionsUsed)
+      block += `    '${r.season}': { deadMoney: [${deadMoney}], capHolds: [${capHolds}], heldTPEs: [${heldTPEs}]${apronAddon}${hardCapped}${cashLedger}${exceptionsUsed} },\n`
     }
     block += `  },\n`
   }
