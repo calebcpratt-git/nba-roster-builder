@@ -15,16 +15,6 @@
         "kind": "free-agent"
       },
       {
-        "label": "Christian Koloko",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jock Landale",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Tony Bradley",
         "amount": 2500000,
         "kind": "free-agent"
@@ -35,33 +25,8 @@
         "kind": "free-agent"
       },
       {
-        "label": "Wesley Matthews",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Trent Forrest",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Jonathan Kuminga",
         "amount": 35000000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Dylan Windler",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kingston Flemings",
-        "amount": 7400000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Zuby Ejiofor",
-        "amount": 3500000,
         "kind": "free-agent"
       }
     ],
@@ -281,38 +246,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Blake Griffin",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Nikola Vucevic",
-        "amount": 32200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Max Shulga",
         "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "John Tonje",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Torrey Craig",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Mfiondu Kabengele",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Chris Cenac Jr.",
-        "amount": 3000000,
         "kind": "free-agent"
       }
     ],
@@ -575,11 +510,6 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Jalen Wilson",
-        "amount": 5400000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Tyson Etienne",
         "amount": 2200000,
         "kind": "free-agent"
@@ -592,26 +522,6 @@
       {
         "label": "Ochai Agbaji",
         "amount": 19200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ziaire Williams",
-        "amount": 11900000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Joshua Jefferson",
-        "amount": 3000000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Nikola Milutinov",
-        "amount": 3200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Mikel Brown Jr.",
-        "amount": 8800000,
         "kind": "free-agent"
       }
     ],
@@ -763,23 +673,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Xavier Tillman Sr.",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Antonio Reeves",
         "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Christian Anderson",
-        "amount": 4300000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Hannes Steinbach",
-        "amount": 5200000,
         "kind": "free-agent"
       }
     ],
@@ -994,18 +889,8 @@
         "kind": "free-agent"
       },
       {
-        "label": "Talen Horton-Tucker",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Nick Richards",
         "amount": 9500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Matt Thomas",
-        "amount": 2500000,
         "kind": "free-agent"
       },
       {
@@ -1014,33 +899,8 @@
         "kind": "free-agent"
       },
       {
-        "label": "Zach Collins",
-        "amount": 27100000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Guerschon Yabusele",
         "amount": 6600000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Collin Sexton",
-        "amount": 28800000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Anfernee Simons",
-        "amount": 41517857,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Dailyn Swain",
-        "amount": 5000000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Caleb Wilson",
-        "amount": 10700000,
         "kind": "free-agent"
       }
     ],
@@ -1252,53 +1112,8 @@
     ],
     "capHolds": [
       {
-        "label": "Raul Neto",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Chuma Okeke",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Keon Ellis",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Olivier Sarr",
         "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Dean Wade",
-        "amount": 12600000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Damian Jones",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Larry Nance Jr.",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Tristan Thompson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Rajon Rondo",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ed Davis",
-        "amount": 2500000,
         "kind": "free-agent"
       }
     ],
@@ -1553,63 +1368,8 @@
     ],
     "capHolds": [
       {
-        "label": "Moussa Cisse",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Nicolo Melli",
-        "amount": 5100000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Theo Pinson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "McKinley Wright IV",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Moses Wright",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Greg Brown III",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kai Jones",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Dwight Powell",
         "amount": 7600000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Sergio de Larrea",
-        "amount": 3200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Morez Johnson Jr.",
-        "amount": 6800000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Khris Middleton",
-        "amount": 52600000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Marvin Bagley III",
-        "amount": 2500000,
         "kind": "free-agent"
       },
       {
@@ -1895,58 +1655,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Tim Hardaway Jr.",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Curtis Jones",
         "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Bruce Brown Jr.",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Spencer Jones",
-        "amount": 2700000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Richard Jefferson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Markus Howard",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "K.J. Simpson",
-        "amount": 4074252,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Tyus Jones",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Justin Holiday",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Vlatko Cancar",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Troy Daniels",
-        "amount": 2500000,
         "kind": "free-agent"
       },
       {
@@ -1957,11 +1667,6 @@
       {
         "label": "Peyton Watson",
         "amount": 13100000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "DeMarcus Cousins",
-        "amount": 2500000,
         "kind": "free-agent"
       },
       {
@@ -2247,33 +1952,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Ebuka Okorie",
-        "amount": 4500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Jalen Duren",
         "amount": 19400000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Malik Beasley",
-        "amount": 7200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Javonte Green",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Wendell Moore Jr.",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Tobias Harris",
-        "amount": 40000000,
         "kind": "free-agent"
       }
     ],
@@ -2542,108 +2222,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Quinten Post",
-        "amount": 2700000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Draymond Green",
-        "amount": 20487805,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Gary Payton II",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Charles Bassey",
-        "amount": 2700000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Pat Spencer",
-        "amount": 3400000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jeenathan Williams",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Yaxel Lendeborg",
-        "amount": 6100000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Taran Armstrong",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Nico Mannion",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Seth Curry",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "David West",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kevin Knox",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Andre Iguodala",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "JaMychal Green",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Nemanja Bjelica",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Andrew Bogut",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Anthony Lamb",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Usman Garuba",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Matt Barnes",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jonas Jerebko",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jerome Robinson",
-        "amount": 2200000,
         "kind": "free-agent"
       }
     ],
@@ -3082,47 +2662,12 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Jae'Sean Tate",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Josh Okogie",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Tari Eason",
-        "amount": 17000000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Jeff Green",
         "amount": 2500000,
         "kind": "free-agent"
       },
       {
-        "label": "Isaiah Crawford",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Aaron Holiday",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jack McVeigh",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Reggie Bullock",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Boban Marjanovic",
         "amount": 2500000,
         "kind": "free-agent"
       }
@@ -3452,28 +2997,7 @@
     "team": "IND",
     "season": "2026-27",
     "deadMoney": [],
-    "capHolds": [
-      {
-        "label": "Kobe Brown",
-        "amount": 4800000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "James Johnson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jalen Slawson",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Gabe York",
-        "amount": 2200000,
-        "kind": "free-agent"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -3677,48 +3201,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "TyTy Washington Jr.",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Sean Pedulla",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Keaton Wagler",
-        "amount": 9700000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Bennedict Mathurin",
         "amount": 27600000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "John Collins",
-        "amount": 39900000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ben Simmons",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Rodney Hood",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Patty Mills",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Xavier Moon",
-        "amount": 2200000,
         "kind": "free-agent"
       },
       {
@@ -3959,83 +3443,13 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Cameron Carr",
-        "amount": 3300000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Chris Manon",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Rui Hachimura",
-        "amount": 27400000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Drew Timme",
         "amount": 2200000,
         "kind": "free-agent"
       },
       {
-        "label": "LeBron James",
-        "amount": 59500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Luke Kennard",
-        "amount": 13200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Marcus Smart",
-        "amount": 6200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jaxson Hayes",
-        "amount": 4500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Maxi Kleber",
         "amount": 20900000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Wayne Ellington",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Avery Bradley",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jared Dudley",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Dwight Howard",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Dion Waiters",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Carmelo Anthony",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Markieff Morris",
-        "amount": 2500000,
         "kind": "free-agent"
       }
     ],
@@ -4215,18 +3629,7 @@
         "amount": 464050
       }
     ],
-    "capHolds": [
-      {
-        "label": "Karim Lopez",
-        "amount": 3700000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Cameron Boozer",
-        "amount": 11900000,
-        "kind": "free-agent"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -4423,51 +3826,6 @@
       {
         "label": "Keshad Johnson",
         "amount": 2700000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Vladislav Goldin",
-        "amount": 0,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Josh Christopher",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Nate Ament",
-        "amount": 5500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Dwyane Wade",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jordan Mickey",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Udonis Haslem",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Alec Burks",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Simone Fontecchio",
-        "amount": 15800000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Norman Powell",
-        "amount": 30700000,
         "kind": "free-agent"
       }
     ],
@@ -4674,28 +4032,8 @@
     ],
     "capHolds": [
       {
-        "label": "Cameron Thomas",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Thanasis Antetokounmpo",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Brayden Burries",
-        "amount": 6400000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Gary Trent Jr.",
-        "amount": 0,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ousmane Dieng",
-        "amount": 20000000,
         "kind": "free-agent"
       },
       {
@@ -4981,53 +4319,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Austin Rivers",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Greg Monroe",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Joe Ingles",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Nah'Shon Hyland",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Mike Conley",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Aaron Brooks",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kyle Anderson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Enrique Freeman",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jaylen Clark",
-        "amount": 3000000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Evan Turner",
-        "amount": 27900000,
         "kind": "free-agent"
       }
     ],
@@ -5347,62 +4640,7 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Keion Brooks Jr.",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "James Nunnally",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "DeAndre Jordan",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Hunter Dickinson",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Josh Oduro",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Trey Alexander",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Willy Hernangomez",
-        "amount": 4600000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Elfrid Payton",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Tony Snell",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Brandon Boston Jr.",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Gary Clark",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jared Harper",
         "amount": 2200000,
         "kind": "free-agent"
       }
@@ -5726,48 +4964,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Ariel Hukporti",
-        "amount": 2700000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Mitchell Robinson",
-        "amount": 24600000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kevin McCullar Jr.",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jordan Clarkson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "P.J. Tucker",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jeremy Sochan",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Trey Jemison",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Dillon Jones",
         "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Petteri Koponen",
-        "amount": 3200000,
         "kind": "free-agent"
       }
     ],
@@ -6090,38 +5288,7 @@
     "team": "OKC",
     "season": "2026-27",
     "deadMoney": [],
-    "capHolds": [
-      {
-        "label": "Alex Ducas",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Branden Carlson",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Brooks Barnhizer",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Bennett Stirtz",
-        "amount": 4700000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Aday Mara",
-        "amount": 5800000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kenrich Williams",
-        "amount": 7200000,
-        "kind": "free-agent"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -6390,38 +5557,7 @@
         "amount": 8000000
       }
     ],
-    "capHolds": [
-      {
-        "label": "Jett Howard",
-        "amount": 7300000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Colin Castleton",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Moritz Wagner",
-        "amount": 9500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Cory Joseph",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jevon Carter",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Trevelin Queen",
-        "amount": 2200000,
-        "kind": "free-agent"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -6689,48 +5825,13 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Andre Drummond",
-        "amount": 6500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kelly Oubre Jr.",
-        "amount": 15900000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Lonnie Walker IV",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Quentin Grimes",
-        "amount": 16600000,
-        "kind": "free-agent"
-      },
-      {
         "label": "MarJon Beauchamp",
         "amount": 2500000,
         "kind": "free-agent"
       },
       {
-        "label": "Jeff Dowtin",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jalen Hood-Schifino",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Kyle Lowry",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Labaron Philon Jr.",
-        "amount": 3600000,
         "kind": "free-agent"
       }
     ],
@@ -6993,68 +6094,13 @@
     ],
     "capHolds": [
       {
-        "label": "Thaddeus Young",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Terrence Ross",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Bol Bol",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Damion Lee",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Amir Coffey",
         "amount": 2500000,
         "kind": "free-agent"
       },
       {
-        "label": "Isaiah Thomas",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Saben Lee",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Koby Brea",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Isaiah Livers",
         "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Udoka Azubuike",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ish Wainright",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Gabriel Lundberg",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Koa Peat",
-        "amount": 2900000,
         "kind": "free-agent"
       }
     ],
@@ -7241,53 +6287,8 @@
     ],
     "capHolds": [
       {
-        "label": "Robert Williams III",
-        "amount": 19900000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Blake Wesley",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Caleb Love",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Matisse Thybulle",
-        "amount": 21900000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Rayan Rupert",
-        "amount": 3000000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Rondae Hollis-Jefferson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ben McLemore",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "T.J. Leaf",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Keljin Blevins",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ashton Hagans",
-        "amount": 2200000,
         "kind": "free-agent"
       }
     ],
@@ -7480,32 +6481,7 @@
         "kind": "free-agent"
       },
       {
-        "label": "Daeqwon Plowden",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Doug McDermott",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Patrick Baldwin Jr.",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Trey Lyles",
-        "amount": 15200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jae Crowder",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "JaVale McGee",
         "amount": 2500000,
         "kind": "free-agent"
       },
@@ -7515,33 +6491,8 @@
         "kind": "free-agent"
       },
       {
-        "label": "Precious Achiuwa",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Mason Jones",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jordan Ford",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Markelle Fultz",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Alex Karaban",
-        "amount": 2900000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Darius Acuff Jr.",
-        "amount": 8000000,
         "kind": "free-agent"
       }
     ],
@@ -7842,33 +6793,8 @@
         "kind": "free-agent"
       },
       {
-        "label": "Jordan McLaughlin",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Lindy Waters III",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Harrison Ingram",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "David Jones",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Tarris Reed Jr.",
-        "amount": 3100000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jayden Quaintance",
-        "amount": 3900000,
         "kind": "free-agent"
       }
     ],
@@ -8108,23 +7034,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Alijah Martin",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Garrett Temple",
         "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Will Barton",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Jordan Nwora",
-        "amount": 5700000,
         "kind": "free-agent"
       },
       {
@@ -8135,16 +7046,6 @@
       {
         "label": "Tyreke Key",
         "amount": 2400000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Allen Graves",
-        "amount": 4100000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Chucky Hepburn",
-        "amount": 2200000,
         "kind": "free-agent"
       }
     ],
@@ -8383,28 +7284,8 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Elijah Harkless",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Walker Kessler",
-        "amount": 14600000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Kevin Love",
         "amount": 7900000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Oscar Tshiebwe",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Darryn Peterson",
-        "amount": 13200000,
         "kind": "free-agent"
       }
     ],
@@ -8712,68 +7593,13 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Ian Mahinmi",
-        "amount": 23200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Kendrick Nunn",
-        "amount": 6800000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Tomas Satoransky",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Shabazz Napier",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Anthony Gill",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ty Lawson",
-        "amount": 2500000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Ramon Sessions",
         "amount": 2500000,
         "kind": "free-agent"
       },
       {
         "label": "Sharife Cooper",
         "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Johnathan Williams",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Cassius Winston",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "JT Thor",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "AJ Dybantsa",
-        "amount": 14800000,
-        "kind": "free-agent"
-      },
-      {
-        "label": "Trae Young",
-        "amount": 48709374,
         "kind": "free-agent"
       }
     ],
