@@ -26,7 +26,7 @@ export function ExtendPlayersPanel() {
           break
         }
       }
-      // If player has salary in any season but not in all through 2029-30, they're extendable
+      // If player has salary in any season but not through the final season in SEASONS, they're extendable
       return lastSeason >= 0 && lastSeason < SEASONS.length - 1
     })
   }, [roster])

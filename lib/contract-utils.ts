@@ -70,8 +70,9 @@ export function getMaxAllowedTotal(
 }
 
 // The seasons worth showing for a team's cap table: everything through the
-// latest season any roster player, saved contract, draft pick, or incoming
-// trade asset carries salary in (always at least 2026-27).
+// latest season any roster player, saved contract, or draft pick carries
+// salary in (always at least 2026-27). Only incoming trade picks are
+// checked here, not incoming trade players.
 export function getDisplayedSeasons(
   roster: Player[],
   savedContracts: SavedContract[],

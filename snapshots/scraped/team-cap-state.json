@@ -103,7 +103,30 @@
    "availableToSend": 1964000,
    "availableToReceive": 7768700
   },
-  "apronAddon": 1196262
+  "apronAddon": 1196262,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Jock Landale",
+      "amount": 14100000
+     }
+    ],
+    "remaining": 944000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   },
+   "tradeExceptionsUsed": [
+    {
+     "tpeFromPlayer": "Luke Kennard",
+     "usedByPlayer": "Aaron Wiggins",
+     "amount": 9224300,
+     "date": "2026-07-06"
+    }
+   ]
+  }
  },
  {
   "team": "ATL",
@@ -337,7 +360,22 @@
    "availableToSend": 4464000,
    "availableToReceive": 6754000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Mitchell Robinson",
+      "amount": 15044000
+     }
+    ],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "BOS",
@@ -585,7 +623,13 @@
    "availableToSend": 6644000,
    "availableToReceive": 4464000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "roomMLE": {
+    "signings": [],
+    "remaining": 9366000
+   }
+  }
  },
  {
   "team": "BRK",
@@ -777,7 +821,21 @@
    "availableToSend": 7854000,
    "availableToReceive": 4464000
   },
-  "apronAddon": 500000
+  "apronAddon": 500000,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 15044000
+   },
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "CHO",
@@ -1026,7 +1084,21 @@
    "availableToSend": 7964000,
    "availableToReceive": 3674541
   },
-  "apronAddon": 2315117
+  "apronAddon": 2315117,
+  "exceptionsUsed": {
+   "roomMLE": {
+    "signings": [],
+    "remaining": 9366000
+   },
+   "tradeExceptionsUsed": [
+    {
+     "tpeFromPlayer": "Coby White",
+     "usedByPlayer": "Kam Jones",
+     "amount": 1218007,
+     "date": "2026-06-24"
+    }
+   ]
+  }
  },
  {
   "team": "CHI",
@@ -1258,7 +1330,21 @@
    "availableToSend": 7964000,
    "availableToReceive": 7854000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 15044000
+   },
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "CLE",
@@ -1570,7 +1656,28 @@
    "availableToSend": 6264000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 1344585
+  "apronAddon": 1344585,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Tarik Biberovic",
+      "amount": 3000000
+     }
+    ],
+    "remaining": 9804321
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   },
+   "dpe": {
+    "player": "Dereck Lively II",
+    "initial": 3619565,
+    "used": false,
+    "remaining": 3619565
+   }
+  }
  },
  {
   "team": "DAL",
@@ -1879,7 +1986,13 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 5617500
+  "apronAddon": 5617500,
+  "exceptionsUsed": {
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "DEN",
@@ -2190,7 +2303,27 @@
    "availableToSend": 4364000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 15044000
+   },
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [
+     {
+      "player": "Daniss Jenkins",
+      "amount": 3809524,
+      "date": "2026-02-09"
+     }
+    ],
+    "remaining": null
+   }
+  }
  },
  {
   "team": "DET",
@@ -2530,7 +2663,22 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 500000
+  "apronAddon": 500000,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "De'Anthony Melton",
+      "amount": 6064000
+     }
+    ],
+    "remaining": null
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "GSW",
@@ -2999,7 +3147,28 @@
    "availableToSend": 7878700,
    "availableToReceive": 6000000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "taxpayerMLE": {
+    "signings": [
+     {
+      "player": "Marcus Smart",
+      "amount": 6064000
+     }
+    ],
+    "remaining": null
+   },
+   "roomMLE": {
+    "signings": [],
+    "remaining": 9366000
+   },
+   "dpe": {
+    "player": "Fred VanVleet",
+    "initial": 12500000,
+    "used": false,
+    "remaining": 12500000
+   }
+  }
  },
  {
   "team": "HOU",
@@ -3325,7 +3494,28 @@
    "availableToSend": 3388541,
    "availableToReceive": 7964000
   },
-  "apronAddon": 480000
+  "apronAddon": 480000,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Kelly Oubre Jr.",
+      "amount": 8050000
+     }
+    ],
+    "remaining": null
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   },
+   "dpe": {
+    "player": "Tyrese Haliburton",
+    "initial": 15044000,
+    "used": false,
+    "remaining": 15044000
+   }
+  }
  },
  {
   "team": "IND",
@@ -3575,7 +3765,28 @@
    "availableToSend": 0,
    "availableToReceive": 6464000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Rui Hachimura",
+      "amount": 14000000
+     }
+    ],
+    "remaining": 1044000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   },
+   "dpe": {
+    "player": "Bradley Beal",
+    "initial": 0,
+    "used": false,
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "LAC",
@@ -3848,7 +4059,18 @@
    "availableToSend": 0,
    "availableToReceive": 6264000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "roomMLE": {
+    "signings": [
+     {
+      "player": "Collin Sexton",
+      "amount": 9366000
+     }
+    ],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "LAL",
@@ -4025,7 +4247,22 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 2850000
+  "apronAddon": 2850000,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Quinten Post",
+      "amount": 9000000
+     }
+    ],
+    "remaining": null
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "MEM",
@@ -4254,7 +4491,22 @@
    "availableToSend": 6464000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Tim Hardaway Jr.",
+      "amount": 6065000
+     }
+    ],
+    "remaining": 6789258
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "MIA",
@@ -4472,7 +4724,21 @@
    "availableToSend": 6714000,
    "availableToReceive": 3464000
   },
-  "apronAddon": 5075000
+  "apronAddon": 5075000,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 13641684
+   },
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "MIL",
@@ -4791,7 +5057,17 @@
    "availableToSend": 7964000,
    "availableToReceive": 2114000
   },
-  "apronAddon": 1750000
+  "apronAddon": 1750000,
+  "exceptionsUsed": {
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 6064000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "MIN",
@@ -5147,7 +5423,17 @@
    "availableToSend": 7964000,
    "availableToReceive": 7575000
   },
-  "apronAddon": 6918801
+  "apronAddon": 6918801,
+  "exceptionsUsed": {
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 6064000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "NOP",
@@ -5507,7 +5793,17 @@
    "availableToSend": 7075000,
    "availableToReceive": 464000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 6064000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "NYK",
@@ -5860,7 +6156,23 @@
    "availableToSend": 7214000,
    "availableToReceive": 6464000
   },
-  "apronAddon": 500000
+  "apronAddon": 500000,
+  "exceptionsUsed": {
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 6064000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   },
+   "dpe": {
+    "player": "Thomas Sorber",
+    "initial": 2443860,
+    "used": false,
+    "remaining": 2443860
+   }
+  }
  },
  {
   "team": "OKC",
@@ -6126,7 +6438,17 @@
    "availableToSend": 7964000,
    "availableToReceive": 6604000
   },
-  "apronAddon": 1733910
+  "apronAddon": 1733910,
+  "exceptionsUsed": {
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 6064000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "ORL",
@@ -6444,7 +6766,32 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Anfernee Simons",
+      "amount": 6000000
+     },
+     {
+      "player": "Dean Wade",
+      "amount": 9000000
+     }
+    ],
+    "remaining": 44000
+   },
+   "biAnnual": {
+    "signings": [
+     {
+      "player": "Ariel Hukporti",
+      "amount": 3400000,
+      "date": "2026-07-06"
+     }
+    ],
+    "remaining": 470766
+   }
+  }
  },
  {
   "team": "PHI",
@@ -6737,7 +7084,18 @@
    "availableToSend": 1464000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "taxpayerMLE": {
+    "signings": [
+     {
+      "player": "Luke Kennard",
+      "amount": 6064000
+     }
+    ],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "PHO",
@@ -6949,7 +7307,21 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 13110137
+   },
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "POR",
@@ -7199,7 +7571,23 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 3850000
+  "apronAddon": 3850000,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 2305628
+   },
+   "biAnnual": {
+    "signings": [
+     {
+      "player": "Precious Achiuwa",
+      "amount": 5477000,
+      "date": "2026-07-07"
+     }
+    ],
+    "remaining": 0
+   }
+  }
  },
  {
   "team": "SAC",
@@ -7496,7 +7884,22 @@
    "availableToSend": 7964000,
    "availableToReceive": 5464000
   },
-  "apronAddon": 3700000
+  "apronAddon": 3700000,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Tobias Harris",
+      "amount": 15044000
+     }
+    ],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "SAS",
@@ -7761,7 +8164,21 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 6598209
+  "apronAddon": 6598209,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 585003
+   },
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 6064000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 585003
+   }
+  }
  },
  {
   "team": "TOR",
@@ -8007,7 +8424,26 @@
    "availableToSend": 7854000,
    "availableToReceive": 843000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Jaxson Hayes",
+      "amount": 6000000
+     },
+     {
+      "player": "Josh Okogie",
+      "amount": 6000000
+     }
+    ],
+    "remaining": 3044000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "UTA",
@@ -8367,7 +8803,21 @@
    "availableToSend": 7964000,
    "availableToReceive": 7964000
   },
-  "apronAddon": 0
+  "apronAddon": 0,
+  "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 15044000
+   },
+   "taxpayerMLE": {
+    "signings": [],
+    "remaining": 0
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 5477000
+   }
+  }
  },
  {
   "team": "WAS",

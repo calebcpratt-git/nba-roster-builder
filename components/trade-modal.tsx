@@ -334,9 +334,10 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
   const selectedIncomingPickObjects = tradeTeamPicks.filter((p) => selectedIncomingPickIds.has(p.id))
 
   // Assemble validation input from the current trays and run the pure
-  // trade-rules validator. Both sides are evaluated independently; the
-  // partner's numbers are estimates, so its findings surface as warnings
-  // (see PARTNER_FINDINGS_ARE_WARNINGS in lib/trade-validation.ts).
+  // trade-rules validator. Both sides are evaluated independently; even
+  // though the partner's numbers are estimates, its findings are still
+  // hard errors, not downgraded (see PARTNER_FINDINGS_ARE_WARNINGS in
+  // lib/trade-validation.ts).
   const tradeAnalysis = useMemo(() => {
     if (!tradeTeamAbbr) return null
 

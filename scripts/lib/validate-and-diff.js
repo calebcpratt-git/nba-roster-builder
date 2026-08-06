@@ -182,6 +182,20 @@ function validateTeamCapState(records, errors) {
         }
       }
     }
+    if (record.exceptionsUsed !== undefined) {
+      for (const key of ['nonTaxpayerMLE', 'taxpayerMLE', 'roomMLE', 'biAnnual']) {
+        for (const s of record.exceptionsUsed[key]?.signings ?? []) {
+          if (typeof s.amount !== 'number' || s.amount <= 0 || s.amount > SALARY_CEILING) {
+            errors.push(`team-cap-state[${i}] (${record.team}): exceptionsUsed.${key} signing for "${s.player}" has implausible amount ${s.amount}`)
+          }
+        }
+      }
+      for (const u of record.exceptionsUsed.tradeExceptionsUsed ?? []) {
+        if (typeof u.amount !== 'number' || u.amount <= 0 || u.amount > SALARY_CEILING) {
+          errors.push(`team-cap-state[${i}] (${record.team}): exceptionsUsed.tradeExceptionsUsed for "${u.usedByPlayer}" has implausible amount ${u.amount}`)
+        }
+      }
+    }
   })
 }
 
@@ -243,7 +257,7 @@ function diffRecords(kind, records, previousRecords) {
 
 /**
  * @param {object} input
- * @param {'players' | 'draft-picks'} input.kind
+ * @param {'players' | 'draft-picks' | 'contract-details' | 'team-cap-state'} input.kind
  * @param {any[]} input.records         - the new records about to be written
  * @param {any[]} input.previousRecords - parsed from the CURRENT generated file, for diffing
  * @param {boolean} [input.allowLargeDiff] - opt in to a diff above the threshold.

@@ -62,7 +62,13 @@ function writeRunStatus(diffResults) {
 
   const staleSources = runStatus.staleSources ?? []
   const newUnresolved = runStatus.unresolved?.newUnresolved ?? 0
-  const clean = staleSources.length === 0 && newUnresolved === 0 && warnings.length === 0
+  // A new unresolved entry means a clause the scraper found couldn't be
+  // matched to a roster player, so it was skipped — nothing incorrect gets
+  // written, a fact just doesn't make it in. That's not a correctness risk
+  // like a stale source (silently kept last-good data) or a validation
+  // warning (an actual conflict/oversized diff), so it doesn't block
+  // auto-merge — it's only surfaced in the PR body below for visibility.
+  const clean = staleSources.length === 0 && warnings.length === 0
 
   const bodyLines = [
     '_Automated scrape of Basketball Reference, RealGM, Hoops Rumors, nbacaptracker.com, and SalarySwish.com._',
@@ -85,7 +91,9 @@ function writeRunStatus(diffResults) {
   bodyLines.push(
     '',
     clean
-      ? '**Clean run — auto-merged.** No stale sources, no new unresolved entries, no validation warnings.'
+      ? newUnresolved > 0
+        ? `**Auto-merged.** ${newUnresolved} new unresolved entr${newUnresolved === 1 ? 'y was' : 'ies were'} skipped (see above) — no stale sources, no validation warnings.`
+        : '**Clean run — auto-merged.** No stale sources, no new unresolved entries, no validation warnings.'
       : '**Needs review** — see above for why this run did not auto-merge.'
   )
 

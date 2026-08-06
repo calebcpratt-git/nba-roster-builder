@@ -4,7 +4,6 @@ import { getTeamRoster as getTeamRosterFromData, ALL_TEAMS, TEAM_NAMES } from '.
 // Re-export from player-data
 export { ALL_TEAMS, TEAM_NAMES }
 
-// Get players for a specific team (converts PlayerContract to Player format)
 function dropNulls<T extends string, V>(record: Partial<Record<T, V | null>>): Partial<Record<T, V>> {
   const result: Partial<Record<T, V>> = {}
   for (const [key, value] of Object.entries(record) as [T, V | null][]) {
@@ -13,6 +12,7 @@ function dropNulls<T extends string, V>(record: Partial<Record<T, V | null>>): P
   return result
 }
 
+// Get players for a specific team (converts RawPlayerData to Player format)
 export function getTeamRoster(teamAbbreviation: string): Player[] {
   const contracts = getTeamRosterFromData(teamAbbreviation)
   return contracts.map((c, idx) => ({
@@ -25,7 +25,8 @@ export function getTeamRoster(teamAbbreviation: string): Player[] {
   }))
 }
 
-// Cap thresholds (placeholder values - user will provide real ones)
+// Cap thresholds — official 2026-27 NBA/NBPA figures; later seasons are
+// projections that mirror LEAGUE_CAP in league-cap.ts.
 export const CAP_THRESHOLDS: Record<Season, CapThreshold[]> = {
   '2026-27': [
     { name: 'Salary Cap', value: 164961000, type: 'soft-cap', description: 'Soft cap - can exceed using exceptions' },
