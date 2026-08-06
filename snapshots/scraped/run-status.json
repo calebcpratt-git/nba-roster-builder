@@ -6,6 +6,7 @@
     "enrichment",
     "clauses",
     "cap-state",
+    "cap-hold-reconciliation",
     "salaryswish-league",
     "signing-incentives",
     "cash-ledger",
@@ -15,25 +16,27 @@
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 380,
-      "guarantees": 7,
+      "acquisition": 378,
+      "guarantees": 6,
       "signing": 8
     },
     "after": {
       "draft-year": 0,
       "acquisition": 378,
-      "guarantees": 6,
+      "guarantees": 7,
       "signing": 8
     },
-    "newUnresolved": 0,
-    "newByCategory": {}
+    "newUnresolved": 1,
+    "newByCategory": {
+      "guarantees": 1
+    }
   },
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -0 ~3 (of 453)",
+    "players: +0 -0 ~2 (of 455)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +2 -0 ~0 (of 446)",
-    "team-cap-state: +0 -0 ~0 (of 150)"
+    "contract-details: +0 -0 ~0 (of 448)",
+    "team-cap-state: +0 -0 ~30 (of 150)"
   ],
-  "clean": true
+  "clean": false
 }
