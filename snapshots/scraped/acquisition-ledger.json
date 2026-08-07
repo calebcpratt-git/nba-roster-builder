@@ -1,0 +1,2277 @@
+{
+ "jakucka01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "MIL"
+ },
+ "proctty01": {
+  "date": "2025-07-01",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "gonzahu01": {
+  "date": "2025-07-01",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "murraco01": {
+  "date": "2025-07-01",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "broomjo01": {
+  "date": "2026-07-28",
+  "method": "trade",
+  "team": "LAC"
+ },
+ "edgecvj01": {
+  "date": "2025-07-01",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "yangha01": {
+  "date": "2025-07-01",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "raynama01": {
+  "date": "2025-07-02",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "gilleco01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "watfotr01": {
+  "date": "2025-07-02",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "claytwa01": {
+  "date": "2025-07-02",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "baileac01": {
+  "date": "2025-07-02",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "flaggco01": {
+  "date": "2025-07-02",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "jonessp01": {
+  "date": "2026-07-25",
+  "method": "free-agent",
+  "team": "DEN"
+ },
+ "mamuksa01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "nembhry01": {
+  "date": "2026-07-19",
+  "method": "trade",
+  "team": "ATL"
+ },
+ "sorbeth01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "kalkbry01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "mcneeli01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "knuepko01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "richaja02": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "wolfda01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "sarafbe01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "demineg01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "bryanca01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "harpedy01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "cliffni01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "newelas01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "jamessi01": {
+  "date": "2025-07-03",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "traorno01": {
+  "date": "2025-07-04",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "pendano01": {
+  "date": "2025-07-04",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "essenno01": {
+  "date": "2025-07-04",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "tateja01": {
+  "date": "2026-07-23",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "walkeja01": {
+  "date": "2025-07-05",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "queende01": {
+  "date": "2025-07-05",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "fearsje01": {
+  "date": "2025-07-05",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "johnstr03": {
+  "date": "2025-07-05",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "mitchaj01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "laravja01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "hayesja02": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "aytonde01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "WAS"
+ },
+ "lopezbr01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "batumni01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "smithja05": {
+  "date": "2025-07-06",
+  "method": "extension",
+  "team": "HOU"
+ },
+ "irvinky01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "merrisa01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "richawi02": {
+  "date": "2025-09-29",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "alexani01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "whitmca01": {
+  "date": "2025-07-06",
+  "method": "trade",
+  "team": "WAS"
+ },
+ "mccolcj01": {
+  "date": "2026-06-22",
+  "method": "extension",
+  "team": "ATL"
+ },
+ "beysa01": {
+  "date": "2025-07-06",
+  "method": "trade",
+  "team": "NOP"
+ },
+ "peavymi01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "poolejo01": {
+  "date": "2025-07-06",
+  "method": "trade",
+  "team": "NOP"
+ },
+ "jonestr01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "jonesty01": {
+  "date": "2026-07-14",
+  "method": "free-agent",
+  "team": "DEN"
+ },
+ "capelca01": {
+  "date": "2025-07-06",
+  "method": "trade",
+  "team": "HOU"
+ },
+ "plowdda01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "thierad01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "brookdi01": {
+  "date": "2026-08-05",
+  "method": "extension",
+  "team": "PHO"
+ },
+ "greenja05": {
+  "date": "2025-07-06",
+  "method": "trade",
+  "team": "PHO"
+ },
+ "maluakh01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "flemira01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "duranke01": {
+  "date": "2025-10-19",
+  "method": "extension",
+  "team": "HOU"
+ },
+ "turnemy01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "portibo01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "MIA"
+ },
+ "vanvlfr01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "russeda01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "MEM"
+ },
+ "rileywi01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "nancela02": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "finnedo01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "CHO"
+ },
+ "hardeja01": {
+  "date": "2026-02-04",
+  "method": "trade",
+  "team": "CLE"
+ },
+ "edwarju01": {
+  "date": "2025-07-06",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "banchpa01": {
+  "date": "2025-07-07",
+  "method": "extension",
+  "team": "ORL"
+ },
+ "looneke01": {
+  "date": "2026-07-12",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "porteke02": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "mitchda01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "powelno01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "anderky01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "collijo01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "DET"
+ },
+ "robindu01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "wagnemo01": {
+  "date": "2026-07-31",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "mannte01": {
+  "date": "2025-07-07",
+  "method": "trade",
+  "team": "BRK"
+ },
+ "poweldr01": {
+  "date": "2025-07-08",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "porzikr01": {
+  "date": "2026-06-30",
+  "method": "extension",
+  "team": "GSW"
+ },
+ "konanya01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "cowarce01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "gilgesh01": {
+  "date": "2025-07-07",
+  "method": "extension",
+  "team": "OKC"
+ },
+ "trentga02": {
+  "date": "2026-07-15",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "reedpa01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "leverca01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "MIL"
+ },
+ "schrode01": {
+  "date": "2026-02-01",
+  "method": "trade",
+  "team": "CLE"
+ },
+ "berinjo01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "garzalu01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "clarkjo01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "NYK"
+ },
+ "minotjo01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "laniech01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "kornelu01": {
+  "date": "2025-07-07",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "poeltja01": {
+  "date": "2025-07-07",
+  "method": "extension",
+  "team": "TOR"
+ },
+ "kennalu01": {
+  "date": "2026-07-14",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "rolliry01": {
+  "date": "2025-07-08",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "harriga01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "DET"
+ },
+ "princta02": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "DET"
+ },
+ "cissemo01": {
+  "date": "2026-07-18",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "barlodo01": {
+  "date": "2025-07-09",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "simsje01": {
+  "date": "2025-07-09",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "baglema01": {
+  "date": "2026-07-14",
+  "method": "free-agent",
+  "team": "DEN"
+ },
+ "sandeko01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "bookede01": {
+  "date": "2025-07-10",
+  "method": "extension",
+  "team": "PHO"
+ },
+ "hardati02": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "martial01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "jacksis01": {
+  "date": "2025-07-11",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "gaffoda01": {
+  "date": "2025-07-12",
+  "method": "extension",
+  "team": "DAL"
+ },
+ "mclaujo01": {
+  "date": "2026-07-13",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "jacksja02": {
+  "date": "2025-07-13",
+  "method": "extension",
+  "team": "MEM"
+ },
+ "holmgch01": {
+  "date": "2025-07-13",
+  "method": "extension",
+  "team": "OKC"
+ },
+ "willija06": {
+  "date": "2025-07-13",
+  "method": "extension",
+  "team": "OKC"
+ },
+ "manntr01": {
+  "date": "2025-07-13",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "joneshe01": {
+  "date": "2025-07-14",
+  "method": "extension",
+  "team": "NOP"
+ },
+ "reidna01": {
+  "date": "2026-07-10",
+  "method": "trade",
+  "team": "CHO"
+ },
+ "spencca01": {
+  "date": "2025-07-14",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "jeromty01": {
+  "date": "2025-07-14",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "aldamsa01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "DAL"
+ },
+ "randlju01": {
+  "date": "2026-07-10",
+  "method": "trade",
+  "team": "BRK"
+ },
+ "landajo01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "anthoco01": {
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "PHO"
+ },
+ "bealbr01": {
+  "date": "2025-07-18",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "lillada01": {
+  "date": "2025-07-19",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "smartma01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "okogijo01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "kolokch01": {
+  "date": "2026-07-28",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "goodwjo01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "gardnmy01": {
+  "date": "2025-07-24",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "cainja01": {
+  "date": "2026-03-20",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "crawfis01": {
+  "date": "2026-07-22",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "millejo02": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "mcgowbr01": {
+  "date": "2026-02-20",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "bridgmi01": {
+  "date": "2025-08-01",
+  "method": "extension",
+  "team": "NYK"
+ },
+ "doncilu01": {
+  "date": "2025-08-02",
+  "method": "extension",
+  "team": "LAL"
+ },
+ "jenkida01": {
+  "date": "2025-08-02",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "foxde01": {
+  "date": "2025-08-04",
+  "method": "extension",
+  "team": "SAS"
+ },
+ "ingraha01": {
+  "date": "2026-07-25",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "pottemi01": {
+  "date": "2026-07-10",
+  "method": "waiver",
+  "team": "POR"
+ },
+ "greenja02": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "smithdr01": {
+  "date": "2025-08-16",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "tshieos01": {
+  "date": "2026-07-23",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "houstca01": {
+  "date": "2026-08-03",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "sharpda01": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "BRK"
+ },
+ "liddeej01": {
+  "date": "2025-09-03",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "prospol01": {
+  "date": "2025-09-04",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "willizi02": {
+  "date": "2026-07-19",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "bassech01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "washipj01": {
+  "date": "2025-09-10",
+  "method": "extension",
+  "team": "DAL"
+ },
+ "shamela01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "NYK"
+ },
+ "diawamo01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "NYK"
+ },
+ "hylanbo01": {
+  "date": "2025-09-15",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "harpero02": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "giddejo01": {
+  "date": "2025-09-24",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "achiupr01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "bryanth01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "bambamo01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "carlsbr01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "paytoga02": {
+  "date": "2026-08-01",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "grimequ01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "kuminjo01": {
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "ATL"
+ },
+ "meltode01": {
+  "date": "2026-07-31",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "horfoal01": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "GSW"
+ },
+ "jovicni01": {
+  "date": "2025-10-03",
+  "method": "extension",
+  "team": "MIA"
+ },
+ "murrake02": {
+  "date": "2025-10-16",
+  "method": "extension",
+  "team": "SAC"
+ },
+ "greenaj01": {
+  "date": "2025-10-17",
+  "method": "extension",
+  "team": "MIL"
+ },
+ "bouyeja01": {
+  "date": "2025-11-18",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "camarto01": {
+  "date": "2025-10-19",
+  "method": "extension",
+  "team": "POR"
+ },
+ "sharpsh01": {
+  "date": "2025-10-20",
+  "method": "extension",
+  "team": "POR"
+ },
+ "braunch01": {
+  "date": "2025-10-20",
+  "method": "extension",
+  "team": "DEN"
+ },
+ "daniedy01": {
+  "date": "2025-10-20",
+  "method": "extension",
+  "team": "ATL"
+ },
+ "nesmiaa01": {
+  "date": "2025-10-20",
+  "method": "extension",
+  "team": "IND"
+ },
+ "jordade01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "bufkiko01": {
+  "date": "2026-07-25",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "huntede01": {
+  "date": "2026-02-01",
+  "method": "trade",
+  "team": "SAC"
+ },
+ "elliske01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "huertke01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "jeffejo01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "conlemi01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "lopezka01": {
+  "date": "2026-07-29",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "garlada01": {
+  "date": "2026-02-04",
+  "method": "trade",
+  "team": "LAC"
+ },
+ "veesahe01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "hieldbu01": {
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "ATL"
+ },
+ "davisan02": {
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "WAS"
+ },
+ "hardyja02": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "LAL"
+ },
+ "johnsaj01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "MEM"
+ },
+ "middlkh01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "WAS"
+ },
+ "peatko01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "dosunay01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "phillju01": {
+  "date": "2026-07-25",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "dilliro01": {
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "CHI"
+ },
+ "millele01": {
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "CHI"
+ },
+ "diengou01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "carteje01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "connapa01": {
+  "date": "2026-02-09",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "sochaje01": {
+  "date": "2026-08-02",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "highsha01": {
+  "date": "2026-02-18",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "santogu01": {
+  "date": "2026-02-28",
+  "method": "extension",
+  "team": "GSW"
+ },
+ "stirtbe01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "okorieb01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "reedjta01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "brazitr01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "DEN"
+ },
+ "thornbr01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "karabal01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "thomame01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "delarse01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "carrca01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "conwery01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "georgky01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "postqu01": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "ighodos01": {
+  "date": "2024-07-04",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "hukpoar01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "larsspe01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "kolekty01": {
+  "date": "2024-07-04",
+  "method": "free-agent",
+  "team": "NYK"
+ },
+ "wareke01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "MIL"
+ },
+ "castlst01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "colliis01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "willico04": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "dunnry01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "sheppre01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "knechda01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "tysonja01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "buzelma01": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "jamesbr02": {
+  "date": "2024-07-02",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "salauti01": {
+  "date": "2024-07-03",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "dadiepa01": {
+  "date": "2024-07-03",
+  "method": "free-agent",
+  "team": "NYK"
+ },
+ "walteja01": {
+  "date": "2024-07-04",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "sheadja01": {
+  "date": "2024-07-04",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "mccaija01": {
+  "date": "2024-07-04",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "clingdo01": {
+  "date": "2024-07-04",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "chrisca02": {
+  "date": "2024-07-05",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "jamesle01": {
+  "date": "2026-07-26",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "georgpa01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "BOS"
+ },
+ "martica02": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "thompkl01": {
+  "date": "2024-07-06",
+  "method": "trade",
+  "team": "DAL"
+ },
+ "greenjo02": {
+  "date": "2026-07-10",
+  "method": "trade",
+  "team": "MIN"
+ },
+ "marshna01": {
+  "date": "2026-08-02",
+  "method": "extension",
+  "team": "DAL"
+ },
+ "quetane01": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "anunoog01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "NYK"
+ },
+ "adebaba01": {
+  "date": "2024-07-06",
+  "method": "extension",
+  "team": "MIA"
+ },
+ "bitadgo01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "willipa01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "wellsja01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "edeyza01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "furphjo01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "siakapa01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "toppiob01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "topicni01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "chrisma02": {
+  "date": "2025-02-02",
+  "method": "trade",
+  "team": "DAL"
+ },
+ "wagnefr01": {
+  "date": "2024-07-06",
+  "method": "extension",
+  "team": "ORL"
+ },
+ "onealro01": {
+  "date": "2026-07-13",
+  "method": "trade",
+  "team": "CHO"
+ },
+ "whitede01": {
+  "date": "2024-07-06",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "scheiba01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "caldwke01": {
+  "date": "2026-08-05",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "tatumja01": {
+  "date": "2024-07-06",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "isaacjo01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "monkma01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "harteis01": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "OKC"
+ },
+ "claxtni01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "hollaro01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "dasiltr01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "risacza01": {
+  "date": "2026-07-19",
+  "method": "trade",
+  "team": "DAL"
+ },
+ "sarral01": {
+  "date": "2024-07-06",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "mitchdo01": {
+  "date": "2026-07-07",
+  "method": "extension",
+  "team": "CLE"
+ },
+ "joeis01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "DET"
+ },
+ "maxeyty01": {
+  "date": "2024-07-07",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "oubreke01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "drumman01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "NYK"
+ },
+ "carrica01": {
+  "date": "2024-07-07",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "wiggiaa01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "ATL"
+ },
+ "smithja04": {
+  "date": "2024-07-08",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "barneha02": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "harrito02": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "missiyv01": {
+  "date": "2024-07-08",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "shannte01": {
+  "date": "2024-07-08",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "quickim01": {
+  "date": "2024-07-08",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "barnesc01": {
+  "date": "2024-07-08",
+  "method": "extension",
+  "team": "TOR"
+ },
+ "holmeda01": {
+  "date": "2024-07-09",
+  "method": "free-agent",
+  "team": "DEN"
+ },
+ "cartede02": {
+  "date": "2026-06-30",
+  "method": "trade",
+  "team": "ATL"
+ },
+ "jonesde02": {
+  "date": "2024-07-09",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "cunnica01": {
+  "date": "2024-07-10",
+  "method": "extension",
+  "team": "DET"
+ },
+ "fontesi01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "brunsja01": {
+  "date": "2024-07-12",
+  "method": "extension",
+  "team": "NYK"
+ },
+ "krejcvi01": {
+  "date": "2024-07-12",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "matkoka01": {
+  "date": "2024-07-13",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "bridgmi02": {
+  "date": "2026-07-13",
+  "method": "trade",
+  "team": "PHO"
+ },
+ "battlja01": {
+  "date": "2024-10-19",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "dunnkr01": {
+  "date": "2024-07-18",
+  "method": "trade",
+  "team": "LAC"
+ },
+ "bonaad01": {
+  "date": "2024-07-21",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "mobleev01": {
+  "date": "2024-07-22",
+  "method": "extension",
+  "team": "CLE"
+ },
+ "hausesa01": {
+  "date": "2024-07-23",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "huffja01": {
+  "date": "2024-07-24",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "nembhan01": {
+  "date": "2024-07-26",
+  "method": "extension",
+  "team": "IND"
+ },
+ "diabamo01": {
+  "date": "2024-07-31",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "allenja01": {
+  "date": "2024-08-02",
+  "method": "extension",
+  "team": "CLE"
+ },
+ "markkla01": {
+  "date": "2024-08-07",
+  "method": "extension",
+  "team": "UTA"
+ },
+ "mykhasv01": {
+  "date": "2024-08-10",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "filipky01": {
+  "date": "2024-08-12",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "curryst01": {
+  "date": "2024-08-29",
+  "method": "extension",
+  "team": "GSW"
+ },
+ "mccontj01": {
+  "date": "2024-09-03",
+  "method": "extension",
+  "team": "IND"
+ },
+ "zubaciv01": {
+  "date": "2024-09-03",
+  "method": "extension",
+  "team": "LAC"
+ },
+ "murraja01": {
+  "date": "2024-09-11",
+  "method": "extension",
+  "team": "DEN"
+ },
+ "okorois01": {
+  "date": "2024-09-17",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "smithto05": {
+  "date": "2026-04-07",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "embiijo01": {
+  "date": "2024-09-19",
+  "method": "extension",
+  "team": "PHI"
+ },
+ "littlna01": {
+  "date": "2024-09-24",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "tomlina01": {
+  "date": "2025-03-02",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "diakima01": {
+  "date": "2024-09-26",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "alvarjo01": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "NYK"
+ },
+ "townska01": {
+  "date": "2024-10-02",
+  "method": "trade",
+  "team": "NYK"
+ },
+ "divindo01": {
+  "date": "2024-10-02",
+  "method": "trade",
+  "team": "MIN"
+ },
+ "cartewe01": {
+  "date": "2024-10-07",
+  "method": "extension",
+  "team": "ORL"
+ },
+ "gordoaa01": {
+  "date": "2024-10-21",
+  "method": "extension",
+  "team": "DEN"
+ },
+ "sengual01": {
+  "date": "2024-10-21",
+  "method": "extension",
+  "team": "HOU"
+ },
+ "johnsja05": {
+  "date": "2024-10-21",
+  "method": "extension",
+  "team": "ATL"
+ },
+ "kispeco01": {
+  "date": "2024-10-21",
+  "method": "extension",
+  "team": "WAS"
+ },
+ "murphtr02": {
+  "date": "2024-10-21",
+  "method": "extension",
+  "team": "NOP"
+ },
+ "suggsja01": {
+  "date": "2024-10-21",
+  "method": "extension",
+  "team": "ORL"
+ },
+ "moodymo01": {
+  "date": "2024-10-21",
+  "method": "extension",
+  "team": "GSW"
+ },
+ "goberru01": {
+  "date": "2024-10-24",
+  "method": "extension",
+  "team": "MIN"
+ },
+ "nancepe01": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "carusal01": {
+  "date": "2024-12-22",
+  "method": "extension",
+  "team": "OKC"
+ },
+ "lavinza01": {
+  "date": "2025-02-03",
+  "method": "trade",
+  "team": "SAC"
+ },
+ "colliza01": {
+  "date": "2026-06-30",
+  "method": "extension",
+  "team": "CHI"
+ },
+ "cissosi01": {
+  "date": "2025-02-08",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "sharpem01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "kuzmaky01": {
+  "date": "2025-02-06",
+  "method": "trade",
+  "team": "MIL"
+ },
+ "markobo01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "butleji01": {
+  "date": "2025-02-06",
+  "method": "trade",
+  "team": "GSW"
+ },
+ "wiggian01": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "MIA"
+ },
+ "ingrabr01": {
+  "date": "2026-06-30",
+  "method": "trade",
+  "team": "LAC"
+ },
+ "adamsst01": {
+  "date": "2025-06-14",
+  "method": "extension",
+  "team": "HOU"
+ },
+ "banede01": {
+  "date": "2025-06-15",
+  "method": "trade",
+  "team": "ORL"
+ },
+ "wagleke01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "flemiki01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "willija07": {
+  "date": "2025-06-29",
+  "method": "extension",
+  "team": "OKC"
+ },
+ "hendesc01": {
+  "date": "2023-07-01",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "walkeja02": {
+  "date": "2023-07-01",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "murrakr01": {
+  "date": "2026-06-29",
+  "method": "trade",
+  "team": "MEM"
+ },
+ "blackan01": {
+  "date": "2023-07-01",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "wembavi01": {
+  "date": "2026-07-10",
+  "method": "extension",
+  "team": "SAS"
+ },
+ "jaqueja01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "MIL"
+ },
+ "sheppbe01": {
+  "date": "2023-07-01",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "millebr02": {
+  "date": "2023-07-02",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "georgke01": {
+  "date": "2023-07-02",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "hendrta01": {
+  "date": "2023-07-02",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "sensabr01": {
+  "date": "2023-07-02",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "dickgr01": {
+  "date": "2026-06-30",
+  "method": "trade",
+  "team": "LAC"
+ },
+ "coulibi01": {
+  "date": "2023-07-02",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "thompau01": {
+  "date": "2023-07-02",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "gueyemo02": {
+  "date": "2023-07-03",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "podzibr01": {
+  "date": "2023-07-03",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "thompam01": {
+  "date": "2023-07-03",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "hawkijo01": {
+  "date": "2023-07-03",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "portecr01": {
+  "date": "2023-07-03",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "sassema01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "DAL"
+ },
+ "strusma01": {
+  "date": "2023-07-06",
+  "method": "trade",
+  "team": "CLE"
+ },
+ "ballla01": {
+  "date": "2026-07-10",
+  "method": "trade",
+  "team": "MIN"
+ },
+ "hachiru01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "wallaca01": {
+  "date": "2023-07-07",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "livelde01": {
+  "date": "2023-07-08",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "strawju01": {
+  "date": "2023-07-06",
+  "method": "free-agent",
+  "team": "DEN"
+ },
+ "pickeja02": {
+  "date": "2026-08-05",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "halibty01": {
+  "date": "2023-07-06",
+  "method": "extension",
+  "team": "IND"
+ },
+ "johnsca02": {
+  "date": "2023-07-06",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "sabondo01": {
+  "date": "2023-07-06",
+  "method": "extension",
+  "team": "SAC"
+ },
+ "jackstr02": {
+  "date": "2023-07-06",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "walshjo01": {
+  "date": "2026-07-23",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "thybuma01": {
+  "date": "2026-07-27",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "jacksan01": {
+  "date": "2026-08-04",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "lylestr01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "whiteco01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "milleba01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "clarkja02": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "edwaran01": {
+  "date": "2023-07-08",
+  "method": "extension",
+  "team": "MIN"
+ },
+ "greendr01": {
+  "date": "2026-07-29",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "grantje01": {
+  "date": "2026-06-29",
+  "method": "trade",
+  "team": "MEM"
+ },
+ "murrade01": {
+  "date": "2023-07-09",
+  "method": "extension",
+  "team": "ATL"
+ },
+ "willigr01": {
+  "date": "2023-07-12",
+  "method": "trade",
+  "team": "DAL"
+ },
+ "clownno01": {
+  "date": "2023-07-11",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "stewais01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "MEM"
+ },
+ "micicva01": {
+  "date": "2023-07-17",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "anderch02": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "brownja02": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "PHI"
+ },
+ "hartjo01": {
+  "date": "2023-08-10",
+  "method": "extension",
+  "team": "NYK"
+ },
+ "champju01": {
+  "date": "2024-03-03",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "jacksgg01": {
+  "date": "2023-08-31",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "mcgeeja01": {
+  "date": "2023-09-02",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "pippesc02": {
+  "date": "2024-01-16",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "vandeja01": {
+  "date": "2023-09-18",
+  "method": "extension",
+  "team": "LAL"
+ },
+ "allengr01": {
+  "date": "2026-07-13",
+  "method": "trade",
+  "team": "CHO"
+ },
+ "holidjr01": {
+  "date": "2024-04-11",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "nurkiju01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "vassede01": {
+  "date": "2023-10-03",
+  "method": "extension",
+  "team": "SAS"
+ },
+ "pritcpa01": {
+  "date": "2023-10-10",
+  "method": "extension",
+  "team": "BOS"
+ },
+ "okongon01": {
+  "date": "2023-10-23",
+  "method": "extension",
+  "team": "ATL"
+ },
+ "mcdanja02": {
+  "date": "2023-10-23",
+  "method": "extension",
+  "team": "MIN"
+ },
+ "avdijde01": {
+  "date": "2023-10-23",
+  "method": "extension",
+  "team": "WAS"
+ },
+ "antetgi01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "MIA"
+ },
+ "mcbrimi01": {
+  "date": "2023-12-30",
+  "method": "extension",
+  "team": "NYK"
+ },
+ "leonaka01": {
+  "date": "2026-06-30",
+  "method": "trade",
+  "team": "TOR"
+ },
+ "brownmi02": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "easonta01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "willima07": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "champju02": {
+  "date": "2026-06-29",
+  "method": "extension",
+  "team": "SAS"
+ },
+ "willizi01": {
+  "date": "2022-07-06",
+  "method": "extension",
+  "team": "NOP"
+ },
+ "dortlu01": {
+  "date": "2026-07-19",
+  "method": "trade",
+  "team": "ATL"
+ },
+ "simonan01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "moranja01": {
+  "date": "2026-06-29",
+  "method": "trade",
+  "team": "POR"
+ },
+ "rubiori01": {
+  "date": "2022-07-07",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "konchjo01": {
+  "date": "2022-07-07",
+  "method": "extension",
+  "team": "MEM"
+ },
+ "jokicni01": {
+  "date": "2022-07-08",
+  "method": "extension",
+  "team": "DEN"
+ },
+ "kesslwa01": {
+  "date": "2026-07-08",
+  "method": "trade",
+  "team": "LAL"
+ },
+ "robinmi01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "johnske04": {
+  "date": "2022-07-18",
+  "method": "extension",
+  "team": "SAS"
+ },
+ "willike04": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "barrerj01": {
+  "date": "2022-09-01",
+  "method": "extension",
+  "team": "NYK"
+ },
+ "sextoco01": {
+  "date": "2026-07-11",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "wadede01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "herroty01": {
+  "date": "2026-07-06",
+  "method": "trade",
+  "team": "MIL"
+ },
+ "clarkbr01": {
+  "date": "2022-10-16",
+  "method": "extension",
+  "team": "MEM"
+ },
+ "louzama01": {
+  "date": "2022-10-17",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "bogdabo01": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "vucevni01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "reaveau01": {
+  "date": "2026-07-12",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "youngtr01": {
+  "date": "2026-07-06",
+  "method": "extension",
+  "team": "WAS"
+ },
+ "williro04": {
+  "date": "2026-06-30",
+  "method": "extension",
+  "team": "POR"
+ },
+ "swainda01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "portemi01": {
+  "date": "2021-09-29",
+  "method": "extension",
+  "team": "DEN"
+ },
+ "quainja01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "hezonma01": {
+  "date": "2026-07-31",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "nnajize01": {
+  "date": "2020-11-30",
+  "method": "free-agent",
+  "team": "DEN"
+ },
+ "maraad01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "philola01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "ejiofzu01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "uzanmi01": {
+  "date": "2026-07-14",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "devritu01": {
+  "date": "2026-07-14",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "cenacch01": {
+  "date": "2026-07-04",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "evansis01": {
+  "date": "2026-07-13",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "steinha02": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "wilsoca01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "biberta01": {
+  "date": "2026-07-10",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "johnsmo01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "lendeya01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "GSW"
+ },
+ "boozeca02": {
+  "date": "2026-07-13",
+  "method": "free-agent",
+  "team": "MEM"
+ },
+ "amentna01": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "burribr01": {
+  "date": "2026-07-05",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "acuffda01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "bittlna01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "graveal01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "peterda02": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "dybanaj01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "WAS"
+ }
+}

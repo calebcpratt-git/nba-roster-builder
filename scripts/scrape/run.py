@@ -54,6 +54,7 @@ BBREF_PLAYERS_RAW = os.path.join(RAW, 'bbref_players')
 OUT = os.path.join(ROOT, 'snapshots', 'scraped')
 ROOKIE_YEARS_TS = os.path.join(ROOT, 'lib', 'rookie-years.ts')
 SS_PLAYER_CACHE = os.path.join(OUT, 'salaryswish-players.json')
+ACQUISITION_LEDGER = os.path.join(OUT, 'acquisition-ledger.json')
 SS_FETCH_DELAY = 1.2  # polite delay between per-player fetches — see salaryswish.py's module docstring
 
 UA = 'nba-roster-builder-pipeline/1.0 (personal project; +https://github.com/calebcpratt-git/nba-roster-builder)'
@@ -184,10 +185,68 @@ def count_unresolved():
     return {label: len(_load_json(name, []) or []) for label, name in UNRESOLVED_FILES.items()}
 
 
+def resolve_duplicate_bbrefIds(contracts):
+    """bbref.parse_contracts() now preserves BOTH rows when the same player
+    appears under two different teams (see its docstring — confirmed live
+    2026-08-07: Lillard/Beal/Prosper each had a stale row and a correct one,
+    the old id-only dedup silently kept whichever came first). Resolve each
+    such pair here, cross-referenced against the acquisition ledger — an
+    independent, already-corroborated source for "which team is this
+    player actually on" — rather than guessing from row order. Falls back
+    to keeping the first row (the old behavior) when the ledger has nothing
+    for that player either; those are logged, not silently guessed."""
+    ledger = _load_json('acquisition-ledger', {})
+    by_bbrefId = {}
+    for c in contracts:
+        bbrefId = c.get('bbrefId')
+        if bbrefId is not None:
+            by_bbrefId.setdefault(bbrefId, []).append(c)
+
+    resolved, unresolved = [], []
+    out = []
+    seen_ids = set()
+    for c in contracts:
+        bbrefId = c.get('bbrefId')
+        if bbrefId is None:
+            out.append(c)
+            continue
+        if bbrefId in seen_ids:
+            continue
+        seen_ids.add(bbrefId)
+        dupes = by_bbrefId[bbrefId]
+        if len(dupes) == 1:
+            out.append(dupes[0])
+            continue
+        ledger_team = ledger.get(bbrefId, {}).get('team')
+        match = next((d for d in dupes if d['team'] == ledger_team), None)
+        if match is not None:
+            out.append(match)
+            resolved.append({'name': match['name'], 'kept': match['team'],
+                              'dropped': [d['team'] for d in dupes if d is not match],
+                              'via': 'acquisition-ledger'})
+        else:
+            out.append(dupes[0])
+            unresolved.append({'name': dupes[0]['name'],
+                                'teams': [d['team'] for d in dupes],
+                                'kept': dupes[0]['team']})
+    if resolved:
+        print(f'  {len(resolved)} duplicate contract row(s) resolved via acquisition ledger:')
+        for r in resolved:
+            print(f'    {r["name"]}  kept {r["kept"]}, dropped {r["dropped"]}')
+    if unresolved:
+        print(f'  {len(unresolved)} duplicate contract row(s) UNRESOLVED — no ledger match, kept first seen:')
+        for u in unresolved:
+            print(f'    {u["name"]}  {u["teams"]} -> kept {u["kept"]}')
+    json.dump(resolved + unresolved, open(os.path.join(OUT, 'duplicate-contracts.json'), 'w'),
+              indent=1, ensure_ascii=False)
+    return out
+
+
 def build_players():
     """Parse the Basketball Reference half and write its three scraped files."""
     offline = '--offline' in sys.argv  # same flag main() reads; not worth threading through GROUPS' build() signature
     contracts = bbref.parse_contracts(os.path.join(RAW, 'bbref_contracts.html'))
+    contracts = resolve_duplicate_bbrefIds(contracts)
     draft = []
     for y in DRAFT_YEARS:
         draft += bbref.parse_draft(os.path.join(RAW, f'bbref_draft_{y}.html'), y)
@@ -300,7 +359,32 @@ def build_enrichment():
     by_id = {p.get('bbrefId'): p for p in players if p.get('bbrefId')}
     by_name = {_base(p['name']): p for p in players}
 
-    # --- acquisition (SalarySwish per-team transactions) ---
+    # --- acquisition (SalarySwish per-team transactions, backed by a
+    # persisted ledger — see snapshots/scraped/acquisition-ledger.json) ---
+    # SalarySwish's team pages only cover roughly the last few months
+    # (confirmed live 2026-08-07: the Suns' page only reaches back to
+    # 2026-03-24), so a player whose last real acquisition predates that
+    # window has nothing to match here on any given day. Rebuilding
+    # `players` from scratch every run and only ever setting `acquisition`
+    # from *this run's* match (the pre-2026-08-07 behavior) silently blanked
+    # every such player instead of carrying forward what we already knew —
+    # this is what actually shipped in PR #49 and had to be corrected.
+    #
+    # The ledger fixes that: a persisted, git-committed store keyed by
+    # player, tagged with the team the event was for. Every run, a fresh
+    # SalarySwish match always overwrites the ledger (today's data is always
+    # at least as current as anything already stored). No match today ->
+    # fall back to the ledger, but ONLY if its stored team still matches the
+    # player's CURRENT team (from this run's fresh BBRef contracts fetch).
+    # That guard is the whole point: a ledger entry for a team the player
+    # has since left is exactly the stale-data failure BBRef's old
+    # season-transactions source had (see its docstring's Ayton example) —
+    # showing nothing is strictly better than showing a confidently wrong
+    # answer. scripts/scrape/backfill_acquisitions.py seeds the ledger for
+    # players with no history in SalarySwish's window at all; that's a
+    # manual, one-time/occasional script, not part of this daily run.
+    ledger = _load_json('acquisition-ledger', {})
+
     ss_offline = '--offline' in sys.argv
     ss_failed_teams = salaryswish.fetch_team_transactions(SS_TEAM_TRANSACTIONS_RAW, offline=ss_offline)
     if ss_failed_teams:
@@ -311,6 +395,7 @@ def build_enrichment():
     transactions = salaryswish.parse_all_team_transactions(SS_TEAM_TRANSACTIONS_RAW)
     unresolved_acq = []
     matched_acq = 0
+    stale_cleared = []
     # A player can appear multiple times in a season's transaction log (waived
     # then re-signed, etc.) — keep the most recent by date as the "current"
     # acquisition, matching how the app treats acquisition as current-state.
@@ -320,14 +405,63 @@ def build_enrichment():
         prev = latest_by_player.get(key)
         if prev is None or (t['date'] or '') >= (prev['date'] or ''):
             latest_by_player[key] = t
-    for key, t in latest_by_player.items():
+    matched_today = set()
+    for source_key, t in latest_by_player.items():
         target = by_id.get(t.get('bbrefId')) or by_name.get(_base(t['name']))
         if target is None:
             unresolved_acq.append({'name': t['name'], 'date': t['date'], 'method': t['method']})
             continue
+        # Key the ledger off the RESOLVED player's own identity, not
+        # whatever identifier this source record happened to carry.
+        # SalarySwish's daily transactions never carry a bbrefId at all
+        # (confirmed in salaryswish.py — always None), so without this a
+        # player ends up with two separate ledger entries: one bbrefId-keyed
+        # from the BBRef backfill, one name-keyed from today's SalarySwish
+        # match — same person, two keys, and the carry-forward loop below
+        # would treat the stale half as an unrelated "mismatch" forever.
+        key = target.get('bbrefId') or _base(target['name'])
         if t['date']:
-            target['acquisition'] = {'date': t['date'], 'method': t['method']}
-            matched_acq += 1
+            # SalarySwish's own per-team page IS the team this transaction is
+            # for (toTeams is always exactly [team_abbr] — see salaryswish.py's
+            # parse_team_transactions), so the LEDGER is always safe to
+            # overwrite with it. Applying it to the player record is a
+            # separate decision, though: `team` comes from BBRef's contracts
+            # page, a DIFFERENT daily-fetched source that can lag behind
+            # SalarySwish by days on the very same run (confirmed live,
+            # 2026-08-07: Kentavious Caldwell-Pope's SalarySwish page already
+            # showed his Aug 5 signing to PHI while BBRef's contracts page
+            # still had him under MEM at $21.6M) — showing team=MEM next to
+            # acquisition="signed Aug 5" reads as "re-signed with Memphis",
+            # which is false. Only surface it once both sources agree.
+            ledger[key] = {'date': t['date'], 'method': t['method'], 'team': t['toTeams'][0]}
+            if t['toTeams'][0] == target.get('team'):
+                target['acquisition'] = {'date': t['date'], 'method': t['method']}
+                matched_acq += 1
+            else:
+                stale_cleared.append({'name': target['name'], 'ledgerTeam': t['toTeams'][0],
+                                       'currentTeam': target.get('team'), 'date': t['date'],
+                                       'reason': 'bbref-contracts-lagging'})
+            matched_today.add(key)
+    # Carry forward from the ledger for anyone not matched this run, but only
+    # while the ledger's team still agrees with today's actual team.
+    for key, entry in ledger.items():
+        if key in matched_today:
+            continue
+        target = by_id.get(key) or by_name.get(key)
+        if target is None:
+            continue
+        if entry.get('team') == target.get('team'):
+            target['acquisition'] = {'date': entry['date'], 'method': entry['method']}
+        else:
+            stale_cleared.append({'name': target['name'], 'ledgerTeam': entry.get('team'),
+                                   'currentTeam': target.get('team'), 'date': entry['date'],
+                                   'reason': 'no-new-match'})
+    json.dump(ledger, open(ACQUISITION_LEDGER, 'w'), indent=1, ensure_ascii=False)
+    if stale_cleared:
+        print(f'  {len(stale_cleared)} entr{"y" if len(stale_cleared)==1 else "ies"} '
+              f'team-mismatched — left blank, not shown:')
+        for s in stale_cleared:
+            print(f'    {s["name"]}  ledger={s["ledgerTeam"]}  current={s["currentTeam"]}  ({s["reason"]})')
 
     # --- guarantees (Hoops Rumors, two pages merged; exact-date page wins on conflict) ---
     exact = hoopsrumors.parse_guarantee_dates(os.path.join(RAW, 'hr_guarantee_dates.html'), CURRENT_SEASON_YEAR)
@@ -365,6 +499,8 @@ def build_enrichment():
     json.dump(unresolved_acq, open(os.path.join(OUT, 'unresolved-acquisition.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(unresolved_guar, open(os.path.join(OUT, 'unresolved-guarantees.json'), 'w'), indent=1, ensure_ascii=False)
     print(f'  acquisition matched {matched_acq}/{len(latest_by_player)}   unresolved {len(unresolved_acq)}')
+    have_acq = sum(1 for p in players if p.get('acquisition'))
+    print(f'  acquisition coverage: {have_acq}/{len(players)} players ({len(players) - have_acq} blank)')
     print(f'  guarantees matched {matched_guar}   unresolved {len(unresolved_guar)}')
 
 
@@ -405,15 +541,34 @@ def build_free_agent_reconciliation():
     resolved. Requires players.json to already exist (build_players runs
     first, same dependency pattern build_enrichment follows).
 
-    Two resolutions, both keyed off RealGM's current_free_agents page (who is
-    unsigned right now, and which team they last played for):
-      - declined, still unsigned: player shows up there with a matching
-        prior team -> remove that season's salary + options entries, since
-        there's no valid contract number for an unsigned free agent.
-      - resolved in place (exercised, or already re-signed and just not
-        reflected as a new option-free row yet): not an unsigned free agent
-        under that team -> BBRef's salary figure is presumably still
-        correct, so only the stale options flag is cleared, salary is kept.
+    Three resolutions now (was two before 2026-08-07):
+      - declined, still unsigned: player shows up on RealGM's
+        current_free_agents page with a matching prior team -> remove that
+        season's salary + options entries, since there's no valid contract
+        number for an unsigned free agent.
+      - declined, already signed elsewhere: player does NOT show up on
+        current_free_agents (so at first glance looks "resolved in place"),
+        but transactions.json — SalarySwish acquisition data, read straight
+        off disk here rather than requiring build_enrichment to run first
+        THIS execution (build_players always rebuilds `players` fresh from
+        raw BBRef every run, which would just reset any same-run fix before
+        this function's own correction could stick — reading yesterday's
+        already-persisted transactions.json sidesteps that entirely, same
+        "it'll catch up within a day" tradeoff the acquisition ledger
+        already makes) — has a signing/trade record for them dated after
+        their option decision, to a DIFFERENT team than BBRef's contracts
+        page still shows. Confirmed live 2026-08-07: Kentavious
+        Caldwell-Pope's Team option showed as "still on Memphis" because
+        he'd already re-signed with Philadelphia fast enough to drop off
+        RealGM's free-agent list before this ran — the old two-way logic
+        misread that absence as "exercised in place" and kept his stale
+        $21.6M Memphis salary. -> remove the stale salary + options, and
+        correct `team` to match the transaction (the one field this
+        function never used to touch at all).
+      - resolved in place (exercised, or re-signed with the SAME team and
+        just not reflected as a new option-free row yet): neither of the
+        above -> BBRef's salary figure is presumably still correct, so only
+        the stale options flag is cleared, salary and team are kept.
 
     free_agent_options (who had a pending option, of what type) is
     cross-referenced only for extra confidence in the logged record — it is
@@ -433,8 +588,19 @@ def build_free_agent_reconciliation():
     for o in options:
         options_by_name_season.setdefault((_base(o['name']), o['season']), []).append(o)
 
+    # Most-recent-by-date SalarySwish transaction per player, written by
+    # build_enrichment (which GROUPS now runs before this function).
+    transactions = _load_json('transactions', [])
+    latest_txn = {}
+    for t in transactions:
+        key = t.get('bbrefId') or _base(t['name'])
+        prev = latest_txn.get(key)
+        if prev is None or (t['date'] or '') >= (prev['date'] or ''):
+            latest_txn[key] = t
+
     checked = 0
     declined_overrides = []
+    signed_elsewhere = []
     resolved_in_place = []
     for p in players:
         season_option = p.get('options', {}).get(CURRENT_SEASON_LABEL)
@@ -447,6 +613,9 @@ def build_free_agent_reconciliation():
         corroborated = bool(matched_options)
 
         fa = fa_by_name.get(_base(p['name']))
+        txn = latest_txn.get(p.get('bbrefId')) or latest_txn.get(_base(p['name']))
+        txn_team = txn['toTeams'][0] if txn and len(txn.get('toTeams', [])) == 1 else None
+
         if fa is not None and fa['priorTeam'] == p['team']:
             # declined and still unsigned — no valid salary figure for this season
             p.get('salary', {}).pop(CURRENT_SEASON_LABEL, None)
@@ -457,21 +626,41 @@ def build_free_agent_reconciliation():
             if corroborated:
                 record['matchedOptionType'] = matched_options[0]['optionType']
             declined_overrides.append(record)
+        elif txn_team is not None and txn_team != p['team']:
+            # not on RealGM's free-agent list, but a real transaction moved
+            # them to a DIFFERENT team than BBRef still shows — they signed
+            # elsewhere fast enough to drop off that list, not "in place".
+            old_team, old_salary = p['team'], p.get('salary', {}).get(CURRENT_SEASON_LABEL)
+            p['team'] = txn_team
+            p.get('salary', {}).pop(CURRENT_SEASON_LABEL, None)
+            p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
+            signed_elsewhere.append({'name': p['name'], 'oldTeam': old_team, 'newTeam': txn_team,
+                                      'oldSalary': old_salary, 'season': CURRENT_SEASON_LABEL,
+                                      'txnDate': txn['date'], 'txnMethod': txn['method']})
         else:
             # not an unsigned free agent under this team — treat as resolved
-            # in place (exercised / already re-signed); the flag is stale,
-            # the salary figure is not
+            # in place (exercised / already re-signed with the SAME team);
+            # the flag is stale, the salary figure and team are not
             p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
             resolved_in_place.append({'name': p['name'], 'team': p['team'], 'season': CURRENT_SEASON_LABEL,
                                        'optionType': season_option, 'corroborated': corroborated})
 
+    if signed_elsewhere:
+        print(f'  {len(signed_elsewhere)} player(s) signed elsewhere before dropping off '
+              f'the free-agent list — team + salary corrected:')
+        for s in signed_elsewhere:
+            print(f'    {s["name"]}  {s["oldTeam"]} -> {s["newTeam"]}  (was ${s["oldSalary"]})')
+
     json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(declined_overrides, open(os.path.join(OUT, 'free-agent-overrides.json'), 'w'),
+              indent=1, ensure_ascii=False)
+    json.dump(signed_elsewhere, open(os.path.join(OUT, 'signed-elsewhere-overrides.json'), 'w'),
               indent=1, ensure_ascii=False)
     json.dump(resolved_in_place, open(os.path.join(OUT, 'exercised-options.json'), 'w'),
               indent=1, ensure_ascii=False)
     print(f'  stale {CURRENT_SEASON_LABEL} options checked: {checked}   '
-          f'declined/unsigned: {len(declined_overrides)}   resolved-in-place (flag cleared): {len(resolved_in_place)}')
+          f'declined/unsigned: {len(declined_overrides)}   signed-elsewhere: {len(signed_elsewhere)}   '
+          f'resolved-in-place (flag cleared): {len(resolved_in_place)}')
     for o in declined_overrides:
         print(f'    DECLINED  {o["name"]} ({o["team"]}, {o["season"]}) — corroborated={o["corroborated"]}')
 

@@ -17,7 +17,7 @@
     "before": {
       "draft-year": 0,
       "acquisition": 138,
-      "guarantees": 7,
+      "guarantees": 6,
       "signing": 8
     },
     "after": {
@@ -30,13 +30,13 @@
     "newByCategory": {}
   },
   "warnings": [
-    "players: diff too large — 140 of 455 previous records changed (30.8%, threshold 30%) — proceeding because a large diff was explicitly accepted"
+    "players: diff too large — 238 of 455 previous records changed (52.3%, threshold 30%) — proceeding because a large diff was explicitly accepted"
   ],
   "diffSummaries": [
-    "players: +1 -1 ~138 (of 455)",
+    "players: +0 -0 ~238 (of 455)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +1 -1 ~1 (of 448)",
-    "team-cap-state: +0 -0 ~30 (of 150)"
+    "contract-details: +0 -0 ~0 (of 448)",
+    "team-cap-state: +0 -0 ~0 (of 150)"
   ],
   "clean": false
 }

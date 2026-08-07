@@ -35,13 +35,6 @@
   "corroborated": false
  },
  {
-  "name": "Bradley Beal",
-  "team": "PHO",
-  "season": "2026-27",
-  "optionType": "Player",
-  "corroborated": false
- },
- {
   "name": "Luguentz Dort",
   "team": "ATL",
   "season": "2026-27",
@@ -184,13 +177,6 @@
  {
   "name": "Dereck Lively II",
   "team": "DAL",
-  "season": "2026-27",
-  "optionType": "Team",
-  "corroborated": false
- },
- {
-  "name": "Gradey Dick",
-  "team": "TOR",
   "season": "2026-27",
   "optionType": "Team",
   "corroborated": false

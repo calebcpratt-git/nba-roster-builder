@@ -357,6 +357,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Vít Krejčí": 2020,
   "Jay Huff": 2021,
   "Christian Koloko": 2022,
+  "Caleb Houstan": 2022,
   "Kobe Sanders": 2025,
   "Jamaree Bouyea": 2022,
   "Jamal Cain": 2022,
@@ -454,5 +455,4 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Mamadi Diakite": 2020,
   "Ricky Rubio": 2009,
   "Didi Louzada": 2019,
-  "Caleb Houstan": 2022,
 }
