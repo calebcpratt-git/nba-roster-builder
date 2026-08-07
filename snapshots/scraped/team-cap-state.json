@@ -64,11 +64,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Jock Landale (Jul 10)"
   },
-  "cashLedger": {
-   "availableToSend": 1964000,
-   "availableToReceive": 7768700
-  },
-  "apronAddon": 1196262,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -91,7 +86,12 @@
      "date": "2026-07-06"
     }
    ]
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 1964000,
+   "availableToReceive": 7768700
+  },
+  "apronAddon": 1196262
  },
  {
   "team": "ATL",
@@ -257,12 +257,6 @@
   "secondApron": 222000000,
   "heldTPEs": [
    {
-    "id": "BOS-georges-niang-2025-08-06",
-    "amount": 8200000,
-    "expires": "2026-08-06",
-    "fromPlayer": "Georges Niang"
-   },
-   {
     "id": "BOS-xavier-tillman-sr-2026-02-05",
     "amount": 2546675,
     "expires": "2027-02-05",
@@ -291,11 +285,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Mitchell Robinson (Jul 6)"
   },
-  "cashLedger": {
-   "availableToSend": 4464000,
-   "availableToReceive": 6754000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -310,7 +299,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 4464000,
+   "availableToReceive": 6754000
+  },
+  "apronAddon": 0
  },
  {
   "team": "BOS",
@@ -529,17 +523,17 @@
   "taxLine": 201000000,
   "firstApron": 209000000,
   "secondApron": 222000000,
-  "cashLedger": {
-   "availableToSend": 6644000,
-   "availableToReceive": 4464000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "roomMLE": {
     "signings": [],
     "remaining": 9366000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 6644000,
+   "availableToReceive": 4464000
+  },
+  "apronAddon": 0
  },
  {
   "team": "BRK",
@@ -712,11 +706,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Jul 6 trade"
   },
-  "cashLedger": {
-   "availableToSend": 7854000,
-   "availableToReceive": 4464000
-  },
-  "apronAddon": 500000,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -730,7 +719,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7854000,
+   "availableToReceive": 4464000
+  },
+  "apronAddon": 500000
  },
  {
   "team": "CHO",
@@ -940,11 +934,6 @@
     "fromPlayer": "Julian Phillips"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 3674541
-  },
-  "apronAddon": 2315117,
   "exceptionsUsed": {
    "roomMLE": {
     "signings": [],
@@ -958,7 +947,12 @@
      "date": "2026-06-24"
     }
    ]
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 3674541
+  },
+  "apronAddon": 2315117
  },
  {
   "team": "CHI",
@@ -1141,11 +1135,6 @@
     "fromPlayer": "Lonzo Ball"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7854000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -1159,7 +1148,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7854000
+  },
+  "apronAddon": 0
  },
  {
   "team": "CLE",
@@ -1412,11 +1406,6 @@
    "apron": 1,
    "trigger": "BAE: Jul 8 trade"
   },
-  "cashLedger": {
-   "availableToSend": 6264000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 1344585,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -1437,7 +1426,12 @@
     "used": false,
     "remaining": 3619565
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 6264000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 1344585
  },
  {
   "team": "DAL",
@@ -1687,17 +1681,17 @@
     "fromPlayer": "Hunter Tyson"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 5617500,
   "exceptionsUsed": {
    "biAnnual": {
     "signings": [],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 5617500
  },
  {
   "team": "DEN",
@@ -1979,11 +1973,6 @@
    "apron": 1,
    "trigger": "MLE Trade: Jul 6 trade"
   },
-  "cashLedger": {
-   "availableToSend": 4364000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -2003,7 +1992,12 @@
     ],
     "remaining": null
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 4364000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 0
  },
  {
   "team": "DET",
@@ -2239,11 +2233,6 @@
     "fromPlayer": "Trayce Jackson-Davis"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 500000,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -2258,7 +2247,12 @@
     "signings": [],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 500000
  },
  {
   "team": "GSW",
@@ -2688,11 +2682,6 @@
    "apron": 2,
    "trigger": "Any MLE: Marcus Smart (Jul 10)"
   },
-  "cashLedger": {
-   "availableToSend": 7878700,
-   "availableToReceive": 6000000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "taxpayerMLE": {
     "signings": [
@@ -2713,7 +2702,12 @@
     "used": false,
     "remaining": 12500000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7878700,
+   "availableToReceive": 6000000
+  },
+  "apronAddon": 0
  },
  {
   "team": "HOU",
@@ -3014,11 +3008,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Kelly Oubre Jr. (Jul 7)"
   },
-  "cashLedger": {
-   "availableToSend": 3388541,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 480000,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -3039,7 +3028,12 @@
     "used": false,
     "remaining": 15044000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 3388541,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 480000
  },
  {
   "team": "IND",
@@ -3245,11 +3239,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
   },
-  "cashLedger": {
-   "availableToSend": 0,
-   "availableToReceive": 6464000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -3270,7 +3259,12 @@
     "used": false,
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 0,
+   "availableToReceive": 6464000
+  },
+  "apronAddon": 0
  },
  {
   "team": "LAC",
@@ -3469,11 +3463,6 @@
    "apron": 1,
    "trigger": null
   },
-  "cashLedger": {
-   "availableToSend": 0,
-   "availableToReceive": 6264000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "roomMLE": {
     "signings": [
@@ -3484,7 +3473,12 @@
     ],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 0,
+   "availableToReceive": 6264000
+  },
+  "apronAddon": 0
  },
  {
   "team": "LAL",
@@ -3646,11 +3640,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Quinten Post (Jul 8)"
   },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 2850000,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -3665,7 +3654,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 2850000
  },
  {
   "team": "MEM",
@@ -3845,11 +3839,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Tim Hardaway Jr. (Jul 6)"
   },
-  "cashLedger": {
-   "availableToSend": 6464000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -3864,7 +3853,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 6464000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 0
  },
  {
   "team": "MIA",
@@ -4058,11 +4052,6 @@
    "apron": 1,
    "trigger": "Trade Salary Acquired: Jul 8 trade"
   },
-  "cashLedger": {
-   "availableToSend": 6714000,
-   "availableToReceive": 3464000
-  },
-  "apronAddon": 5075000,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -4076,7 +4065,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 6714000,
+   "availableToReceive": 3464000
+  },
+  "apronAddon": 5075000
  },
  {
   "team": "MIL",
@@ -4346,11 +4340,6 @@
    "apron": 1,
    "trigger": "Trade Salary Acquired: Jul 10 trade"
   },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 2114000
-  },
-  "apronAddon": 1750000,
   "exceptionsUsed": {
    "taxpayerMLE": {
     "signings": [],
@@ -4360,7 +4349,12 @@
     "signings": [],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 2114000
+  },
+  "apronAddon": 1750000
  },
  {
   "team": "MIN",
@@ -4657,11 +4651,6 @@
     "fromPlayer": "Jose Alvarado"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7575000
-  },
-  "apronAddon": 6918801,
   "exceptionsUsed": {
    "taxpayerMLE": {
     "signings": [],
@@ -4671,7 +4660,12 @@
     "signings": [],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7575000
+  },
+  "apronAddon": 6918801
  },
  {
   "team": "NOP",
@@ -4987,11 +4981,6 @@
     "fromPlayer": "Guerschon Yabusele"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7075000,
-   "availableToReceive": 464000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "taxpayerMLE": {
     "signings": [],
@@ -5001,7 +4990,12 @@
     "signings": [],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7075000,
+   "availableToReceive": 464000
+  },
+  "apronAddon": 0
  },
  {
   "team": "NYK",
@@ -5319,11 +5313,6 @@
     "fromPlayer": "Luguentz Dort"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7214000,
-   "availableToReceive": 6464000
-  },
-  "apronAddon": 500000,
   "exceptionsUsed": {
    "taxpayerMLE": {
     "signings": [],
@@ -5339,7 +5328,12 @@
     "used": false,
     "remaining": 2443860
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7214000,
+   "availableToReceive": 6464000
+  },
+  "apronAddon": 500000
  },
  {
   "team": "OKC",
@@ -5570,11 +5564,6 @@
     "fromPlayer": "Tyus Jones"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 6604000
-  },
-  "apronAddon": 1733910,
   "exceptionsUsed": {
    "taxpayerMLE": {
     "signings": [],
@@ -5584,7 +5573,12 @@
     "signings": [],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 6604000
+  },
+  "apronAddon": 1733910
  },
  {
   "team": "ORL",
@@ -5863,11 +5857,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Dean Wade (Jul 6)"
   },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -5892,7 +5881,12 @@
     ],
     "remaining": 470766
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 0
  },
  {
   "team": "PHI",
@@ -6126,11 +6120,6 @@
    "apron": 2,
    "trigger": "Any MLE: Luke Kennard (Jul 14)"
   },
-  "cashLedger": {
-   "availableToSend": 1464000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "taxpayerMLE": {
     "signings": [
@@ -6141,7 +6130,12 @@
     ],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 1464000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 0
  },
  {
   "team": "PHO",
@@ -6304,11 +6298,6 @@
     "fromPlayer": "Kris Murray"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -6322,7 +6311,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 0
  },
  {
   "team": "POR",
@@ -6518,11 +6512,6 @@
    "apron": 1,
    "trigger": "BAE: Precious Achiuwa (Jul 7)"
   },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 3850000,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -6538,7 +6527,12 @@
     ],
     "remaining": 0
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 3850000
  },
  {
   "team": "SAC",
@@ -6806,11 +6800,6 @@
    "apron": 1,
    "trigger": "TP-MLE Exceeded: Tobias Harris (Jul 6)"
   },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 5464000
-  },
-  "apronAddon": 3700000,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -6825,7 +6814,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 5464000
+  },
+  "apronAddon": 3700000
  },
  {
   "team": "SAS",
@@ -7061,11 +7055,6 @@
     "fromPlayer": "Ochai Agbaji"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 6598209,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -7079,7 +7068,12 @@
     "signings": [],
     "remaining": 585003
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 6598209
  },
  {
   "team": "TOR",
@@ -7301,11 +7295,6 @@
     "fromPlayer": "Walker Kessler"
    }
   ],
-  "cashLedger": {
-   "availableToSend": 7854000,
-   "availableToReceive": 843000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -7324,7 +7313,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7854000,
+   "availableToReceive": 843000
+  },
+  "apronAddon": 0
  },
  {
   "team": "UTA",
@@ -7625,11 +7619,6 @@
    "apron": 1,
    "trigger": "Past-Season TPE: Jul 8 trade Jul 8 trade"
   },
-  "cashLedger": {
-   "availableToSend": 7964000,
-   "availableToReceive": 7964000
-  },
-  "apronAddon": 0,
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
@@ -7643,7 +7632,12 @@
     "signings": [],
     "remaining": 5477000
    }
-  }
+  },
+  "cashLedger": {
+   "availableToSend": 7964000,
+   "availableToReceive": 7964000
+  },
+  "apronAddon": 0
  },
  {
   "team": "WAS",

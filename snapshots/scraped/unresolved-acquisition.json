@@ -240,6 +240,11 @@
   "method": "draft"
  },
  {
+  "name": "JD Davison",
+  "date": "2026-04-07",
+  "method": "free-agent"
+ },
+ {
   "name": "Jalen Slawson",
   "date": "2026-07-22",
   "method": "free-agent"
@@ -408,11 +413,6 @@
   "name": "Trey Kaufman-Renn",
   "date": "2026-06-23",
   "method": "draft"
- },
- {
-  "name": "Caleb Houstan",
-  "date": "2026-08-03",
-  "method": "free-agent"
  },
  {
   "name": "Jaron Pierre",
