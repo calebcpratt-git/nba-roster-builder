@@ -5313,6 +5313,16 @@
    }
   }
  },
+ "caleb houstan": {
+  "team": "NOP",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "kobe sanders": {
   "team": "LAC",
   "signedUnder": "non-bird",
@@ -5369,16 +5379,6 @@
    }
   }
  },
- "jd davison": {
-  "team": "HOU",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "jabari walker": {
   "team": "PHI",
   "signedUnder": "minimum",
@@ -5429,6 +5429,16 @@
  },
  "julian phillips": {
   "team": "HOU",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "andre jackson": {
+  "team": "TOR",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
@@ -5907,16 +5917,6 @@
  },
  "mouhamed gueye": {
   "team": "ATL",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "andre jackson": {
-  "team": "MIL",
   "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
