@@ -44,11 +44,7 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "davisan02",
-  "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
-  }
+  "bbrefId": "davisan02"
  },
  {
   "name": "Giannis Antetokounmpo",
@@ -60,7 +56,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "antetgi01"
+  "bbrefId": "antetgi01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Joel Embiid",
@@ -84,7 +84,11 @@
    "2028-29": 64951656
   },
   "options": {},
-  "bbrefId": "brownja02"
+  "bbrefId": "brownja02",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Devin Booker",
@@ -98,11 +102,7 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "bookede01",
-  "acquisition": {
-   "date": "2025-07-10",
-   "method": "free-agent"
-  }
+  "bbrefId": "bookede01"
  },
  {
   "name": "Karl-Anthony Towns",
@@ -137,8 +137,8 @@
   },
   "bbrefId": "georgpa01",
   "acquisition": {
-   "date": "2026-01-31",
-   "method": "free-agent"
+   "date": "2026-07-06",
+   "method": "trade"
   }
  },
  {
@@ -148,7 +148,11 @@
    "2026-27": 50300000
   },
   "options": {},
-  "bbrefId": "leonaka01"
+  "bbrefId": "leonaka01",
+  "acquisition": {
+   "date": "2026-06-30",
+   "method": "trade"
+  }
  },
  {
   "name": "Donovan Mitchell",
@@ -163,7 +167,11 @@
   "options": {
    "2030-31": "Player"
   },
-  "bbrefId": "mitchdo01"
+  "bbrefId": "mitchdo01",
+  "acquisition": {
+   "date": "2026-07-07",
+   "method": "extension"
+  }
  },
  {
   "name": "Cade Cunningham",
@@ -210,11 +218,7 @@
    "2029-30": 61752000
   },
   "options": {},
-  "bbrefId": "foxde01",
-  "acquisition": {
-   "date": "2025-08-04",
-   "method": "free-agent"
-  }
+  "bbrefId": "foxde01"
  },
  {
   "name": "Bam Adebayo",
@@ -240,11 +244,7 @@
   "options": {
    "2028-29": "Player"
   },
-  "bbrefId": "doncilu01",
-  "acquisition": {
-   "date": "2026-03-28",
-   "method": "free-agent"
-  }
+  "bbrefId": "doncilu01"
  },
  {
   "name": "Trae Young",
@@ -258,7 +258,11 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "youngtr01"
+  "bbrefId": "youngtr01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "extension"
+  }
  },
  {
   "name": "Jaren Jackson Jr.",
@@ -272,11 +276,7 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "jacksja02",
-  "acquisition": {
-   "date": "2025-07-13",
-   "method": "free-agent"
-  }
+  "bbrefId": "jacksja02"
  },
  {
   "name": "Zach LaVine",
@@ -350,11 +350,7 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "duranke01",
-  "acquisition": {
-   "date": "2025-10-19",
-   "method": "free-agent"
-  }
+  "bbrefId": "duranke01"
  },
  {
   "name": "OG Anunoby",
@@ -374,11 +370,7 @@
   "team": "CLE",
   "salary": {},
   "options": {},
-  "bbrefId": "hardeja01",
-  "acquisition": {
-   "date": "2026-02-04",
-   "method": "trade"
-  }
+  "bbrefId": "hardeja01"
  },
  {
   "name": "Ja Morant",
@@ -388,7 +380,11 @@
    "2027-28": 44886930
   },
   "options": {},
-  "bbrefId": "moranja01"
+  "bbrefId": "moranja01",
+  "acquisition": {
+   "date": "2026-06-29",
+   "method": "trade"
+  }
  },
  {
   "name": "Zion Williamson",
@@ -408,11 +404,7 @@
    "2027-28": 44886930
   },
   "options": {},
-  "bbrefId": "garlada01",
-  "acquisition": {
-   "date": "2026-02-04",
-   "method": "trade"
-  }
+  "bbrefId": "garlada01"
  },
  {
   "name": "Scottie Barnes",
@@ -449,11 +441,7 @@
    "2030-31": 54780000
   },
   "options": {},
-  "bbrefId": "willija06",
-  "acquisition": {
-   "date": "2025-07-13",
-   "method": "free-agent"
-  }
+  "bbrefId": "willija06"
  },
  {
   "name": "Chet Holmgren",
@@ -466,11 +454,7 @@
    "2030-31": 54780000
   },
   "options": {},
-  "bbrefId": "holmgch01",
-  "acquisition": {
-   "date": "2025-07-13",
-   "method": "free-agent"
-  }
+  "bbrefId": "holmgch01"
  },
  {
   "name": "Paolo Banchero",
@@ -485,11 +469,7 @@
   "options": {
    "2030-31": "Player"
   },
-  "bbrefId": "banchpa01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "banchpa01"
  },
  {
   "name": "Austin Reaves",
@@ -503,7 +483,11 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "reaveau01"
+  "bbrefId": "reaveau01",
+  "acquisition": {
+   "date": "2026-07-12",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Shai Gilgeous-Alexander",
@@ -518,11 +502,7 @@
   "options": {
    "2030-31": "Player"
   },
-  "bbrefId": "gilgesh01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "gilgesh01"
  },
  {
   "name": "Michael Porter Jr.",
@@ -553,7 +533,11 @@
    "2028-29": 46394040
   },
   "options": {},
-  "bbrefId": "ballla01"
+  "bbrefId": "ballla01",
+  "acquisition": {
+   "date": "2026-07-10",
+   "method": "trade"
+  }
  },
  {
   "name": "Brandon Ingram",
@@ -565,7 +549,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "ingrabr01"
+  "bbrefId": "ingrabr01",
+  "acquisition": {
+   "date": "2026-06-30",
+   "method": "trade"
+  }
  },
  {
   "name": "Kyrie Irving",
@@ -577,11 +565,7 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "irvinky01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "irvinky01"
  },
  {
   "name": "Desmond Bane",
@@ -617,11 +601,7 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "goberru01",
-  "acquisition": {
-   "date": "2026-02-21",
-   "method": "free-agent"
-  }
+  "bbrefId": "goberru01"
  },
  {
   "name": "Jalen Green",
@@ -633,11 +613,7 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "greenja05",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "trade"
-  }
+  "bbrefId": "greenja05"
  },
  {
   "name": "Alperen Şengün",
@@ -675,7 +651,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "grantje01"
+  "bbrefId": "grantje01",
+  "acquisition": {
+   "date": "2026-06-29",
+   "method": "trade"
+  }
  },
  {
   "name": "Jordan Poole",
@@ -684,11 +664,7 @@
    "2026-27": 34044642
   },
   "options": {},
-  "bbrefId": "poolejo01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "trade"
-  }
+  "bbrefId": "poolejo01"
  },
  {
   "name": "Aaron Gordon",
@@ -715,11 +691,7 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "bridgmi01",
-  "acquisition": {
-   "date": "2025-08-01",
-   "method": "free-agent"
-  }
+  "bbrefId": "bridgmi01"
  },
  {
   "name": "Julius Randle",
@@ -733,8 +705,8 @@
   },
   "bbrefId": "randlju01",
   "acquisition": {
-   "date": "2025-07-15",
-   "method": "free-agent"
+   "date": "2026-07-10",
+   "method": "trade"
   }
  },
  {
@@ -744,7 +716,11 @@
    "2026-27": 33000000
   },
   "options": {},
-  "bbrefId": "herroty01"
+  "bbrefId": "herroty01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Dejounte Murray",
@@ -808,7 +784,11 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "kesslwa01"
+  "bbrefId": "kesslwa01",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "trade"
+  }
  },
  {
   "name": "Andrew Wiggins",
@@ -821,7 +801,11 @@
   "options": {
    "2028-29": "Player"
   },
-  "bbrefId": "wiggian01"
+  "bbrefId": "wiggian01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "extension"
+  }
  },
  {
   "name": "Jalen Johnson",
@@ -862,7 +846,11 @@
    "2026-27": 27678571
   },
   "options": {},
-  "bbrefId": "greendr01"
+  "bbrefId": "greendr01",
+  "acquisition": {
+   "date": "2026-07-29",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Trey Murphy III",
@@ -897,11 +885,7 @@
   "options": {
    "2028-29": "Player"
   },
-  "bbrefId": "turnemy01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "turnemy01"
  },
  {
   "name": "Jaden McDaniels",
@@ -924,11 +908,7 @@
    "2029-30": 25000000
   },
   "options": {},
-  "bbrefId": "daniedy01",
-  "acquisition": {
-   "date": "2025-10-20",
-   "method": "free-agent"
-  }
+  "bbrefId": "daniedy01"
  },
  {
   "name": "Josh Giddey",
@@ -939,11 +919,7 @@
    "2028-29": 25000000
   },
   "options": {},
-  "bbrefId": "giddejo01",
-  "acquisition": {
-   "date": "2025-09-24",
-   "method": "free-agent"
-  }
+  "bbrefId": "giddejo01"
  },
  {
   "name": "Fred VanVleet",
@@ -952,11 +928,7 @@
    "2026-27": 25000000
   },
   "options": {},
-  "bbrefId": "vanvlfr01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "vanvlfr01"
  },
  {
   "name": "De'Andre Hunter",
@@ -965,22 +937,14 @@
    "2026-27": 24910714
   },
   "options": {},
-  "bbrefId": "huntede01",
-  "acquisition": {
-   "date": "2026-02-01",
-   "method": "trade"
-  }
+  "bbrefId": "huntede01"
  },
  {
   "name": "Jonathan Kuminga",
   "team": "ATL",
   "salary": {},
   "options": {},
-  "bbrefId": "kuminjo01",
-  "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
-  }
+  "bbrefId": "kuminjo01"
  },
  {
   "name": "Keegan Murray",
@@ -993,11 +957,7 @@
    "2030-31": 31862067
   },
   "options": {},
-  "bbrefId": "murrake02",
-  "acquisition": {
-   "date": "2025-10-16",
-   "method": "free-agent"
-  }
+  "bbrefId": "murrake02"
  },
  {
   "name": "Jabari Smith Jr.",
@@ -1010,11 +970,7 @@
    "2030-31": 27426355
   },
   "options": {},
-  "bbrefId": "smithja05",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "smithja05"
  },
  {
   "name": "Naz Reid",
@@ -1030,8 +986,8 @@
   },
   "bbrefId": "reidna01",
   "acquisition": {
-   "date": "2025-07-14",
-   "method": "free-agent"
+   "date": "2026-07-10",
+   "method": "trade"
   }
  },
  {
@@ -1043,7 +999,11 @@
    "2028-29": 26851852
   },
   "options": {},
-  "bbrefId": "harteis01"
+  "bbrefId": "harteis01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "extension"
+  }
  },
  {
   "name": "Nic Claxton",
@@ -1073,7 +1033,11 @@
    "2028-29": 26493827
   },
   "options": {},
-  "bbrefId": "whiteco01"
+  "bbrefId": "whiteco01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Miles Bridges",
@@ -1084,8 +1048,8 @@
   "options": {},
   "bbrefId": "bridgmi02",
   "acquisition": {
-   "date": "2026-02-11",
-   "method": "free-agent"
+   "date": "2026-07-13",
+   "method": "trade"
   }
  },
  {
@@ -1100,18 +1064,20 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "lillada01",
-  "acquisition": {
-   "date": "2025-07-19",
-   "method": "free-agent"
-  }
+  "bbrefId": "lillada01"
  },
  {
   "name": "Kentavious Caldwell-Pope",
   "team": "MEM",
-  "salary": {},
+  "salary": {
+   "2026-27": 21621500
+  },
   "options": {},
-  "bbrefId": "caldwke01"
+  "bbrefId": "caldwke01",
+  "acquisition": {
+   "date": "2026-08-05",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Christian Braun",
@@ -1124,11 +1090,7 @@
    "2030-31": 28448274
   },
   "options": {},
-  "bbrefId": "braunch01",
-  "acquisition": {
-   "date": "2025-10-20",
-   "method": "free-agent"
-  }
+  "bbrefId": "braunch01"
  },
  {
   "name": "Norman Powell",
@@ -1142,8 +1104,8 @@
   },
   "bbrefId": "powelno01",
   "acquisition": {
-   "date": "2025-07-07",
-   "method": "trade"
+   "date": "2026-07-10",
+   "method": "free-agent"
   }
  },
  {
@@ -1156,7 +1118,7 @@
   "bbrefId": "mccolcj01",
   "acquisition": {
    "date": "2026-06-22",
-   "method": "free-agent"
+   "method": "extension"
   }
  },
  {
@@ -1212,11 +1174,7 @@
    "2029-30": 24910713
   },
   "options": {},
-  "bbrefId": "sharpsh01",
-  "acquisition": {
-   "date": "2025-10-20",
-   "method": "free-agent"
-  }
+  "bbrefId": "sharpsh01"
  },
  {
   "name": "Dillon Brooks",
@@ -1227,8 +1185,8 @@
   "options": {},
   "bbrefId": "brookdi01",
   "acquisition": {
-   "date": "2026-02-12",
-   "method": "free-agent"
+   "date": "2026-08-05",
+   "method": "extension"
   }
  },
  {
@@ -1241,11 +1199,7 @@
    "2029-30": 24568176
   },
   "options": {},
-  "bbrefId": "washipj01",
-  "acquisition": {
-   "date": "2025-09-10",
-   "method": "free-agent"
-  }
+  "bbrefId": "washipj01"
  },
  {
   "name": "Alex Caruso",
@@ -1280,8 +1234,8 @@
   },
   "bbrefId": "porzikr01",
   "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
+   "date": "2026-06-30",
+   "method": "extension"
   },
   "guarantees": {
    "2026-27": {
@@ -1301,11 +1255,7 @@
    "2029-30": 27300000
   },
   "options": {},
-  "bbrefId": "poeltja01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "poeltja01"
  },
  {
   "name": "Bradley Beal",
@@ -1317,11 +1267,7 @@
    "2029-30": 19383010
   },
   "options": {},
-  "bbrefId": "bealbr01",
-  "acquisition": {
-   "date": "2025-07-18",
-   "method": "free-agent"
-  }
+  "bbrefId": "bealbr01"
  },
  {
   "name": "Ayo Dosunmu",
@@ -1338,8 +1284,8 @@
   },
   "bbrefId": "dosunay01",
   "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
+   "date": "2026-07-10",
+   "method": "free-agent"
   }
  },
  {
@@ -1349,7 +1295,11 @@
    "2026-27": 18222222
   },
   "options": {},
-  "bbrefId": "dortlu01"
+  "bbrefId": "dortlu01",
+  "acquisition": {
+   "date": "2026-07-19",
+   "method": "trade"
+  }
  },
  {
   "name": "Grayson Allen",
@@ -1361,7 +1311,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "allengr01"
+  "bbrefId": "allengr01",
+  "acquisition": {
+   "date": "2026-07-13",
+   "method": "trade"
+  }
  },
  {
   "name": "Wendell Carter Jr.",
@@ -1386,11 +1340,7 @@
    "2029-30": 22419642
   },
   "options": {},
-  "bbrefId": "camarto01",
-  "acquisition": {
-   "date": "2025-10-19",
-   "method": "free-agent"
-  }
+  "bbrefId": "camarto01"
  },
  {
   "name": "Patrick Williams",
@@ -1432,11 +1382,7 @@
    "2028-29": 18989942
   },
   "options": {},
-  "bbrefId": "gaffoda01",
-  "acquisition": {
-   "date": "2025-07-12",
-   "method": "free-agent"
-  }
+  "bbrefId": "gaffoda01"
  },
  {
   "name": "Santi Aldama",
@@ -1450,8 +1396,8 @@
   },
   "bbrefId": "aldamsa01",
   "acquisition": {
-   "date": "2025-07-15",
-   "method": "free-agent"
+   "date": "2026-07-08",
+   "method": "trade"
   }
  },
  {
@@ -1465,7 +1411,7 @@
   "options": {},
   "bbrefId": "collijo01",
   "acquisition": {
-   "date": "2025-07-07",
+   "date": "2026-07-08",
    "method": "trade"
   }
  },
@@ -1483,7 +1429,11 @@
   "options": {
    "2031-32": "Player"
   },
-  "bbrefId": "wembavi01"
+  "bbrefId": "wembavi01",
+  "acquisition": {
+   "date": "2026-07-10",
+   "method": "extension"
+  }
  },
  {
   "name": "Max Strus",
@@ -1504,11 +1454,7 @@
    "2029-30": 16200000
   },
   "options": {},
-  "bbrefId": "jovicni01",
-  "acquisition": {
-   "date": "2025-10-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "jovicni01"
  },
  {
   "name": "Onyeka Okongwu",
@@ -1529,10 +1475,6 @@
   },
   "options": {},
   "bbrefId": "robindu01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -1548,11 +1490,7 @@
    "2027-28": 16000000
   },
   "options": {},
-  "bbrefId": "mannte01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "trade"
-  }
+  "bbrefId": "mannte01"
  },
  {
   "name": "Gary Trent Jr.",
@@ -1566,7 +1504,7 @@
   "options": {},
   "bbrefId": "trentga02",
   "acquisition": {
-   "date": "2025-07-07",
+   "date": "2026-07-15",
    "method": "free-agent"
   }
  },
@@ -1588,7 +1526,11 @@
    "2028-29": 16548400
   },
   "options": {},
-  "bbrefId": "robinmi01"
+  "bbrefId": "robinmi01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Tobias Harris",
@@ -1598,7 +1540,11 @@
    "2027-28": 15796200
   },
   "options": {},
-  "bbrefId": "harrito02"
+  "bbrefId": "harrito02",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Obi Toppin",
@@ -1622,8 +1568,8 @@
   },
   "bbrefId": "stewais01",
   "acquisition": {
-   "date": "2026-02-11",
-   "method": "free-agent"
+   "date": "2026-07-08",
+   "method": "trade"
   }
  },
  {
@@ -1638,11 +1584,7 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "joneshe01",
-  "acquisition": {
-   "date": "2025-07-14",
-   "method": "free-agent"
-  }
+  "bbrefId": "joneshe01"
  },
  {
   "name": "Caris LeVert",
@@ -1653,8 +1595,8 @@
   "options": {},
   "bbrefId": "leverca01",
   "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
+   "date": "2026-07-08",
+   "method": "trade"
   }
  },
  {
@@ -1665,11 +1607,7 @@
    "2027-28": 15514400
   },
   "options": {},
-  "bbrefId": "schrode01",
-  "acquisition": {
-   "date": "2026-02-01",
-   "method": "trade"
-  }
+  "bbrefId": "schrode01"
  },
  {
   "name": "AJ Dybantsa",
@@ -1684,7 +1622,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "dybanaj01"
+  "bbrefId": "dybanaj01",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Josh Green",
@@ -1693,7 +1635,11 @@
    "2026-27": 14679012
   },
   "options": {},
-  "bbrefId": "greenjo02"
+  "bbrefId": "greenjo02",
+  "acquisition": {
+   "date": "2026-07-10",
+   "method": "trade"
+  }
  },
  {
   "name": "Bobby Portis",
@@ -1707,8 +1653,8 @@
   },
   "bbrefId": "portibo01",
   "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
+   "date": "2026-07-06",
+   "method": "trade"
   }
  },
  {
@@ -1723,11 +1669,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "flaggco01",
-  "acquisition": {
-   "date": "2025-07-02",
-   "method": "free-agent"
-  }
+  "bbrefId": "flaggco01"
  },
  {
   "name": "Nickeil Alexander-Walker",
@@ -1740,11 +1682,7 @@
   "options": {
    "2028-29": "Player"
   },
-  "bbrefId": "alexani01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "alexani01"
  },
  {
   "name": "Grant Williams",
@@ -1764,7 +1702,7 @@
   "options": {},
   "bbrefId": "landajo01",
   "acquisition": {
-   "date": "2025-07-15",
+   "date": "2026-07-10",
    "method": "free-agent"
   }
  },
@@ -1781,7 +1719,11 @@
   "options": {
    "2030-31": "Player"
   },
-  "bbrefId": "easonta01"
+  "bbrefId": "easonta01",
+  "acquisition": {
+   "date": "2026-07-09",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Rui Hachimura",
@@ -1793,7 +1735,11 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "hachiru01"
+  "bbrefId": "hachiru01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Corey Kispert",
@@ -1817,7 +1763,11 @@
    "2028-29": 15365079
   },
   "options": {},
-  "bbrefId": "williro04"
+  "bbrefId": "williro04",
+  "acquisition": {
+   "date": "2026-06-30",
+   "method": "extension"
+  }
  },
  {
   "name": "Quentin Grimes",
@@ -1833,7 +1783,7 @@
   },
   "bbrefId": "grimequ01",
   "acquisition": {
-   "date": "2025-09-30",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -1846,7 +1796,11 @@
    "2028-29": 16111111
   },
   "options": {},
-  "bbrefId": "champju02"
+  "bbrefId": "champju02",
+  "acquisition": {
+   "date": "2026-06-29",
+   "method": "extension"
+  }
  },
  {
   "name": "Zaccharie Risacher",
@@ -1858,7 +1812,11 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "risacza01"
+  "bbrefId": "risacza01",
+  "acquisition": {
+   "date": "2026-07-19",
+   "method": "trade"
+  }
  },
  {
   "name": "Scoot Henderson",
@@ -1882,8 +1840,8 @@
   },
   "bbrefId": "finnedo01",
   "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
+   "date": "2026-07-06",
+   "method": "trade"
   }
  },
  {
@@ -1899,7 +1857,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "peterda02"
+  "bbrefId": "peterda02",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Deni Avdija",
@@ -1925,7 +1887,7 @@
   },
   "bbrefId": "mamuksa01",
   "acquisition": {
-   "date": "2025-07-03",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -1951,11 +1913,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "harpedy01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "harpedy01"
  },
  {
   "name": "Donte DiVincenzo",
@@ -2004,11 +1962,7 @@
    "2026-27": 12400000
   },
   "options": {},
-  "bbrefId": "mitchda01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "mitchda01"
  },
  {
   "name": "Alex Sarr",
@@ -2044,7 +1998,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "boozeca02"
+  "bbrefId": "boozeca02",
+  "acquisition": {
+   "date": "2026-07-13",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Isaac Okoro",
@@ -2064,7 +2022,11 @@
    "2028-29": 13604938
   },
   "options": {},
-  "bbrefId": "willima07"
+  "bbrefId": "willima07",
+  "acquisition": {
+   "date": "2026-07-07",
+   "method": "free-agent"
+  }
  },
  {
   "name": "VJ Edgecombe",
@@ -2078,11 +2040,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "edgecvj01",
-  "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
-  }
+  "bbrefId": "edgecvj01"
  },
  {
   "name": "Isaiah Joe",
@@ -2094,7 +2052,11 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "joeis01"
+  "bbrefId": "joeis01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Ausar Thompson",
@@ -2126,11 +2088,7 @@
    "2028-29": 20971440
   },
   "options": {},
-  "bbrefId": "nesmiaa01",
-  "acquisition": {
-   "date": "2025-10-20",
-   "method": "free-agent"
-  }
+  "bbrefId": "nesmiaa01"
  },
  {
   "name": "T.J. McConnell",
@@ -2153,7 +2111,11 @@
    "2027-28": 11625000
   },
   "options": {},
-  "bbrefId": "onealro01"
+  "bbrefId": "onealro01",
+  "acquisition": {
+   "date": "2026-07-13",
+   "method": "trade"
+  }
  },
  {
   "name": "Sam Hauser",
@@ -2178,7 +2140,7 @@
   "options": {},
   "bbrefId": "gilleco01",
   "acquisition": {
-   "date": "2025-07-02",
+   "date": "2026-07-07",
    "method": "free-agent"
   }
  },
@@ -2195,7 +2157,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "wilsoca01"
+  "bbrefId": "wilsoca01",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jusuf Nurkić",
@@ -2205,7 +2171,11 @@
    "2027-28": 11423077
   },
   "options": {},
-  "bbrefId": "nurkiju01"
+  "bbrefId": "nurkiju01",
+  "acquisition": {
+   "date": "2026-07-09",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Kon Knueppel",
@@ -2219,11 +2189,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "knuepko01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "knuepko01"
  },
  {
   "name": "Derrick Jones Jr.",
@@ -2245,11 +2211,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "kornelu01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "kornelu01"
  },
  {
   "name": "Anthony Black",
@@ -2270,11 +2232,7 @@
    "2029-30": 12455355
   },
   "options": {},
-  "bbrefId": "greenaj01",
-  "acquisition": {
-   "date": "2025-10-17",
-   "method": "free-agent"
-  }
+  "bbrefId": "greenaj01"
  },
  {
   "name": "Stephon Castle",
@@ -2312,8 +2270,8 @@
   },
   "bbrefId": "sharpda01",
   "acquisition": {
-   "date": "2025-09-03",
-   "method": "free-agent"
+   "date": "2026-07-06",
+   "method": "extension"
   }
  },
  {
@@ -2329,7 +2287,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "wagleke01"
+  "bbrefId": "wagleke01",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Buddy Hield",
@@ -2342,10 +2304,6 @@
    "2027-28": "Player"
   },
   "bbrefId": "hieldbu01",
-  "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
-  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -2366,11 +2324,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "baileac01",
-  "acquisition": {
-   "date": "2025-07-02",
-   "method": "free-agent"
-  }
+  "bbrefId": "baileac01"
  },
  {
   "name": "Naji Marshall",
@@ -2382,7 +2336,11 @@
    "2029-30": 16376040
   },
   "options": {},
-  "bbrefId": "marshna01"
+  "bbrefId": "marshna01",
+  "acquisition": {
+   "date": "2026-08-02",
+   "method": "extension"
+  }
  },
  {
   "name": "Jalen Smith",
@@ -2401,7 +2359,11 @@
    "2027-28": 9834300
   },
   "options": {},
-  "bbrefId": "sextoco01"
+  "bbrefId": "sextoco01",
+  "acquisition": {
+   "date": "2026-07-11",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Moritz Wagner",
@@ -2413,7 +2375,7 @@
   "options": {},
   "bbrefId": "wagnemo01",
   "acquisition": {
-   "date": "2025-07-07",
+   "date": "2026-07-31",
    "method": "free-agent"
   }
  },
@@ -2437,7 +2399,11 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "wiggiaa01"
+  "bbrefId": "wiggiaa01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Ty Jerome",
@@ -2449,11 +2415,7 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "jeromty01",
-  "acquisition": {
-   "date": "2025-07-14",
-   "method": "free-agent"
-  }
+  "bbrefId": "jeromty01"
  },
  {
   "name": "Brook Lopez",
@@ -2462,11 +2424,7 @@
    "2026-27": 9187500
   },
   "options": {},
-  "bbrefId": "lopezbr01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "lopezbr01"
  },
  {
   "name": "Sam Merrill",
@@ -2477,11 +2435,7 @@
    "2028-29": 10517856
   },
   "options": {},
-  "bbrefId": "merrisa01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "merrisa01"
  },
  {
   "name": "Ron Holland",
@@ -2505,7 +2459,11 @@
    "2029-30": 10350000
   },
   "options": {},
-  "bbrefId": "wadede01"
+  "bbrefId": "wadede01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Mikel Brown Jr.",
@@ -2520,7 +2478,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "brownmi02"
+  "bbrefId": "brownmi02",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Keon Ellis",
@@ -2532,8 +2494,8 @@
   "options": {},
   "bbrefId": "elliske01",
   "acquisition": {
-   "date": "2026-02-01",
-   "method": "trade"
+   "date": "2026-07-06",
+   "method": "free-agent"
   }
  },
  {
@@ -2548,11 +2510,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "johnstr03",
-  "acquisition": {
-   "date": "2025-07-05",
-   "method": "free-agent"
-  }
+  "bbrefId": "johnstr03"
  },
  {
   "name": "Jarace Walker",
@@ -2574,8 +2532,8 @@
   "options": {},
   "bbrefId": "huertke01",
   "acquisition": {
-   "date": "2026-02-03",
-   "method": "trade"
+   "date": "2026-07-09",
+   "method": "free-agent"
   }
  },
  {
@@ -2586,7 +2544,11 @@
    "2027-28": 8707317
   },
   "options": {},
-  "bbrefId": "colliza01"
+  "bbrefId": "colliza01",
+  "acquisition": {
+   "date": "2026-06-30",
+   "method": "extension"
+  }
  },
  {
   "name": "Quinten Post",
@@ -2597,7 +2559,11 @@
    "2028-29": 9114286
   },
   "options": {},
-  "bbrefId": "postqu01"
+  "bbrefId": "postqu01",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Max Christie",
@@ -2632,8 +2598,8 @@
   "options": {},
   "bbrefId": "aytonde01",
   "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
+   "date": "2026-07-08",
+   "method": "trade"
   }
  },
  {
@@ -2644,7 +2610,11 @@
    "2027-28": 8450000
   },
   "options": {},
-  "bbrefId": "oubreke01"
+  "bbrefId": "oubreke01",
+  "acquisition": {
+   "date": "2026-07-07",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Darius Acuff Jr.",
@@ -2659,7 +2629,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "acuffda01"
+  "bbrefId": "acuffda01",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jonathan Isaac",
@@ -2669,6 +2643,10 @@
   },
   "options": {},
   "bbrefId": "isaacjo01",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -2684,7 +2662,11 @@
    "2026-27": 8000000
   },
   "options": {},
-  "bbrefId": "barneha02"
+  "bbrefId": "barneha02",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Tre Mann",
@@ -2696,11 +2678,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "manntr01",
-  "acquisition": {
-   "date": "2025-07-13",
-   "method": "free-agent"
-  }
+  "bbrefId": "manntr01"
  },
  {
   "name": "Tre Jones",
@@ -2712,11 +2690,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "jonestr01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "jonestr01"
  },
  {
   "name": "Jeremiah Fears",
@@ -2730,11 +2704,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "fearsje01",
-  "acquisition": {
-   "date": "2025-07-05",
-   "method": "free-agent"
-  }
+  "bbrefId": "fearsje01"
  },
  {
   "name": "Taylor Hendricks",
@@ -2755,11 +2725,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "willija07",
-  "acquisition": {
-   "date": "2025-09-28",
-   "method": "free-agent"
-  }
+  "bbrefId": "willija07"
  },
  {
   "name": "Payton Pritchard",
@@ -2826,7 +2792,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "flemiki01"
+  "bbrefId": "flemiki01",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Dereck Lively II",
@@ -2849,11 +2819,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "demineg01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "demineg01"
  },
  {
   "name": "Gradey Dick",
@@ -2862,7 +2828,11 @@
    "2026-27": 7131511
   },
   "options": {},
-  "bbrefId": "dickgr01"
+  "bbrefId": "dickgr01",
+  "acquisition": {
+   "date": "2026-06-30",
+   "method": "trade"
+  }
  },
  {
   "name": "Clint Capela",
@@ -2872,11 +2842,7 @@
    "2027-28": 7370000
   },
   "options": {},
-  "bbrefId": "capelca01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "trade"
-  }
+  "bbrefId": "capelca01"
  },
  {
   "name": "Jordan Hawkins",
@@ -2895,11 +2861,7 @@
    "2027-28": 6400000
   },
   "options": {},
-  "bbrefId": "jacksis01",
-  "acquisition": {
-   "date": "2025-07-11",
-   "method": "free-agent"
-  }
+  "bbrefId": "jacksis01"
  },
  {
   "name": "Rob Dillingham",
@@ -2911,11 +2873,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "dilliro01",
-  "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
-  }
+  "bbrefId": "dilliro01"
  },
  {
   "name": "Al Horford",
@@ -2927,8 +2885,8 @@
   "options": {},
   "bbrefId": "horfoal01",
   "acquisition": {
-   "date": "2025-10-01",
-   "method": "free-agent"
+   "date": "2026-07-06",
+   "method": "extension"
   }
  },
  {
@@ -2944,7 +2902,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "johnsmo01"
+  "bbrefId": "johnsmo01",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Collin Murray-Boyles",
@@ -2958,11 +2920,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "murraco01",
-  "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
-  }
+  "bbrefId": "murraco01"
  },
  {
   "name": "Keyonte George",
@@ -2982,7 +2940,7 @@
   "options": {},
   "bbrefId": "hardati02",
   "acquisition": {
-   "date": "2025-07-10",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -2993,11 +2951,7 @@
    "2026-27": 6440678
   },
   "options": {},
-  "bbrefId": "beysa01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "trade"
-  }
+  "bbrefId": "beysa01"
  },
  {
   "name": "Brayden Burries",
@@ -3012,7 +2966,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "burribr01"
+  "bbrefId": "burribr01",
+  "acquisition": {
+   "date": "2026-07-05",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Zach Edey",
@@ -3038,11 +2996,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "maluakh01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "maluakh01"
  },
  {
   "name": "John Konchar",
@@ -3066,7 +3020,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "lendeya01"
+  "bbrefId": "lendeya01",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Luke Kennard",
@@ -3080,7 +3038,7 @@
   },
   "bbrefId": "kennalu01",
   "acquisition": {
-   "date": "2025-07-08",
+   "date": "2026-07-14",
    "method": "free-agent"
   }
  },
@@ -3096,7 +3054,7 @@
   },
   "bbrefId": "smartma01",
   "acquisition": {
-   "date": "2025-07-22",
+   "date": "2026-07-10",
    "method": "free-agent"
   }
  },
@@ -3124,11 +3082,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "cowarce01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "cowarce01"
  },
  {
   "name": "Spencer Jones",
@@ -3140,7 +3094,7 @@
   "options": {},
   "bbrefId": "jonessp01",
   "acquisition": {
-   "date": "2026-02-19",
+   "date": "2026-07-25",
    "method": "free-agent"
   }
  },
@@ -3156,7 +3110,7 @@
   },
   "bbrefId": "hayesja02",
   "acquisition": {
-   "date": "2026-02-04",
+   "date": "2026-07-09",
    "method": "free-agent"
   }
  },
@@ -3172,7 +3126,7 @@
   },
   "bbrefId": "okogijo01",
   "acquisition": {
-   "date": "2025-07-22",
+   "date": "2026-07-09",
    "method": "free-agent"
   }
  },
@@ -3186,7 +3140,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "simonan01"
+  "bbrefId": "simonan01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jake LaRavia",
@@ -3195,11 +3153,7 @@
    "2026-27": 6000000
   },
   "options": {},
-  "bbrefId": "laravja01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "laravja01"
  },
  {
   "name": "Jaden Hardy",
@@ -3213,7 +3167,7 @@
   },
   "bbrefId": "hardyja02",
   "acquisition": {
-   "date": "2026-02-05",
+   "date": "2026-07-08",
    "method": "trade"
   }
  },
@@ -3226,7 +3180,7 @@
   "options": {},
   "bbrefId": "russeda01",
   "acquisition": {
-   "date": "2026-02-05",
+   "date": "2026-07-08",
    "method": "trade"
   }
  },
@@ -3237,18 +3191,18 @@
    "2026-27": 5939141
   },
   "options": {},
-  "bbrefId": "jaqueja01"
+  "bbrefId": "jaqueja01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Nicolas Batum",
   "team": "LAC",
   "salary": {},
   "options": {},
-  "bbrefId": "batumni01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "batumni01"
  },
  {
   "name": "Jordan Goodwin",
@@ -3263,8 +3217,8 @@
   },
   "bbrefId": "goodwjo01",
   "acquisition": {
-   "date": "2025-07-23",
-   "method": "waiver"
+   "date": "2026-07-07",
+   "method": "free-agent"
   }
  },
  {
@@ -3280,7 +3234,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "maraad01"
+  "bbrefId": "maraad01",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Ousmane Dieng",
@@ -3295,8 +3253,8 @@
   },
   "bbrefId": "diengou01",
   "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
+   "date": "2026-07-09",
+   "method": "free-agent"
   }
  },
  {
@@ -3323,11 +3281,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "essenno01",
-  "acquisition": {
-   "date": "2025-07-04",
-   "method": "free-agent"
-  }
+  "bbrefId": "essenno01"
  },
  {
   "name": "Kris Dunn",
@@ -3361,10 +3315,6 @@
   },
   "options": {},
   "bbrefId": "reedpa01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed"
@@ -3382,7 +3332,7 @@
   "options": {},
   "bbrefId": "middlkh01",
   "acquisition": {
-   "date": "2026-02-05",
+   "date": "2026-07-08",
    "method": "trade"
   }
  },
@@ -3399,7 +3349,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "amentna01"
+  "bbrefId": "amentna01",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Precious Achiuwa",
@@ -3411,7 +3365,7 @@
   "options": {},
   "bbrefId": "achiupr01",
   "acquisition": {
-   "date": "2025-11-04",
+   "date": "2026-07-07",
    "method": "free-agent"
   }
  },
@@ -3427,7 +3381,7 @@
   },
   "bbrefId": "meltode01",
   "acquisition": {
-   "date": "2025-10-01",
+   "date": "2026-07-31",
    "method": "free-agent"
   }
  },
@@ -3438,11 +3392,7 @@
    "2026-27": 5458310
   },
   "options": {},
-  "bbrefId": "whitmca01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "trade"
-  }
+  "bbrefId": "whitmca01"
  },
  {
   "name": "Nikola Topić",
@@ -3468,11 +3418,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "queende01",
-  "acquisition": {
-   "date": "2025-07-05",
-   "method": "free-agent"
-  }
+  "bbrefId": "queende01"
  },
  {
   "name": "Noah Clowney",
@@ -3490,11 +3436,7 @@
    "2026-27": 5390700
   },
   "options": {},
-  "bbrefId": "porteke02",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "porteke02"
  },
  {
   "name": "Landry Shamet",
@@ -3508,7 +3450,7 @@
   "options": {},
   "bbrefId": "shamela01",
   "acquisition": {
-   "date": "2025-09-15",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -3519,7 +3461,11 @@
    "2026-27": 5315004
   },
   "options": {},
-  "bbrefId": "murrakr01"
+  "bbrefId": "murrakr01",
+  "acquisition": {
+   "date": "2026-06-29",
+   "method": "trade"
+  }
  },
  {
   "name": "Jordan Miller",
@@ -3534,7 +3480,7 @@
   },
   "bbrefId": "millejo02",
   "acquisition": {
-   "date": "2026-02-18",
+   "date": "2026-07-09",
    "method": "free-agent"
   }
  },
@@ -3551,7 +3497,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "steinha02"
+  "bbrefId": "steinha02",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Marcus Sasser",
@@ -3560,7 +3510,11 @@
    "2026-27": 5198983
   },
   "options": {},
-  "bbrefId": "sassema01"
+  "bbrefId": "sassema01",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "trade"
+  }
  },
  {
   "name": "Devin Carter",
@@ -3572,7 +3526,11 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "cartede02"
+  "bbrefId": "cartede02",
+  "acquisition": {
+   "date": "2026-06-30",
+   "method": "trade"
+  }
  },
  {
   "name": "Carter Bryant",
@@ -3586,11 +3544,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "bryanca01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "bryanca01"
  },
  {
   "name": "Ben Sheppard",
@@ -3608,7 +3562,11 @@
    "2026-27": 5000000
   },
   "options": {},
-  "bbrefId": "willike04"
+  "bbrefId": "willike04",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Dailyn Swain",
@@ -3623,7 +3581,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "swainda01"
+  "bbrefId": "swainda01",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Bub Carrington",
@@ -3649,11 +3611,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "sorbeth01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "sorbeth01"
  },
  {
   "name": "Brice Sensabaugh",
@@ -3688,8 +3646,8 @@
   },
   "bbrefId": "stirtbe01",
   "acquisition": {
-   "date": "2026-06-23",
-   "method": "trade"
+   "date": "2026-07-03",
+   "method": "free-agent"
   }
  },
  {
@@ -3702,7 +3660,11 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "wareke01"
+  "bbrefId": "wareke01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Yang Hansen",
@@ -3716,11 +3678,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "yangha01",
-  "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
-  }
+  "bbrefId": "yangha01"
  },
  {
   "name": "Gui Santos",
@@ -3733,11 +3691,7 @@
   "options": {
    "2028-29": "Player"
   },
-  "bbrefId": "santogu01",
-  "acquisition": {
-   "date": "2026-02-28",
-   "method": "free-agent"
-  }
+  "bbrefId": "santogu01"
  },
  {
   "name": "Jose Alvarado",
@@ -3748,7 +3702,11 @@
    "2028-29": 5220000
   },
   "options": {},
-  "bbrefId": "alvarjo01"
+  "bbrefId": "alvarjo01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "extension"
+  }
  },
  {
   "name": "Josh Minott",
@@ -3762,7 +3720,7 @@
   },
   "bbrefId": "minotjo01",
   "acquisition": {
-   "date": "2025-07-07",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -3781,8 +3739,8 @@
   },
   "bbrefId": "okorieb01",
   "acquisition": {
-   "date": "2026-06-23",
-   "method": "trade"
+   "date": "2026-07-06",
+   "method": "free-agent"
   }
  },
  {
@@ -3809,11 +3767,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "berinjo01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "berinjo01"
  },
  {
   "name": "Christian Anderson Jr.",
@@ -3828,7 +3782,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "anderch02"
+  "bbrefId": "anderch02",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Dalton Knecht",
@@ -3854,11 +3812,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "claytwa01",
-  "acquisition": {
-   "date": "2025-07-02",
-   "method": "free-agent"
-  }
+  "bbrefId": "claytwa01"
  },
  {
   "name": "Allen Graves",
@@ -3873,7 +3827,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "graveal01"
+  "bbrefId": "graveal01",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Nolan Traoré",
@@ -3887,11 +3845,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "traorno01",
-  "acquisition": {
-   "date": "2025-07-04",
-   "method": "free-agent"
-  }
+  "bbrefId": "traorno01"
  },
  {
   "name": "Ryan Rollins",
@@ -3903,11 +3857,7 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "rolliry01",
-  "acquisition": {
-   "date": "2025-07-08",
-   "method": "free-agent"
-  }
+  "bbrefId": "rolliry01"
  },
  {
   "name": "Daniss Jenkins",
@@ -3916,11 +3866,7 @@
    "2026-27": 4000000
   },
   "options": {},
-  "bbrefId": "jenkida01",
-  "acquisition": {
-   "date": "2026-02-08",
-   "method": "free-agent"
-  }
+  "bbrefId": "jenkida01"
  },
  {
   "name": "Tristan Da Silva",
@@ -3952,7 +3898,7 @@
   "options": {},
   "bbrefId": "greenja02",
   "acquisition": {
-   "date": "2025-08-14",
+   "date": "2026-07-08",
    "method": "free-agent"
   }
  },
@@ -3969,7 +3915,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "quainja01"
+  "bbrefId": "quainja01",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "DeAndre Jordan",
@@ -3981,7 +3931,7 @@
   "options": {},
   "bbrefId": "jordade01",
   "acquisition": {
-   "date": "2025-10-23",
+   "date": "2026-07-10",
    "method": "free-agent"
   }
  },
@@ -3995,7 +3945,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "jamesle01"
+  "bbrefId": "jamesle01",
+  "acquisition": {
+   "date": "2026-07-26",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Svi Mykhailiuk",
@@ -4029,8 +3983,8 @@
   },
   "bbrefId": "jakucka01",
   "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
+   "date": "2026-07-06",
+   "method": "trade"
   }
  },
  {
@@ -4042,8 +3996,8 @@
   "options": {},
   "bbrefId": "princta02",
   "acquisition": {
-   "date": "2025-07-08",
-   "method": "free-agent"
+   "date": "2026-07-08",
+   "method": "trade"
   }
  },
  {
@@ -4055,8 +4009,8 @@
   "options": {},
   "bbrefId": "harriga01",
   "acquisition": {
-   "date": "2025-07-08",
-   "method": "free-agent"
+   "date": "2026-07-08",
+   "method": "trade"
   }
  },
  {
@@ -4067,10 +4021,6 @@
   },
   "options": {},
   "bbrefId": "connapa01",
-  "acquisition": {
-   "date": "2026-02-09",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed"
@@ -4104,8 +4054,8 @@
   },
   "bbrefId": "lopezka01",
   "acquisition": {
-   "date": "2026-06-23",
-   "method": "trade"
+   "date": "2026-07-29",
+   "method": "free-agent"
   }
  },
  {
@@ -4116,11 +4066,7 @@
    "2027-28": 3700000
   },
   "options": {},
-  "bbrefId": "anthoco01",
-  "acquisition": {
-   "date": "2026-02-27",
-   "method": "free-agent"
-  }
+  "bbrefId": "anthoco01"
  },
  {
   "name": "Will Riley",
@@ -4134,11 +4080,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "rileywi01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "rileywi01"
  },
  {
   "name": "Jaylon Tyson",
@@ -4165,7 +4107,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "philola01"
+  "bbrefId": "philola01",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Drake Powell",
@@ -4179,11 +4125,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "poweldr01",
-  "acquisition": {
-   "date": "2025-07-08",
-   "method": "free-agent"
-  }
+  "bbrefId": "poweldr01"
  },
  {
   "name": "Yves Missi",
@@ -4210,7 +4152,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "ejiofzu01"
+  "bbrefId": "ejiofzu01",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Dominick Barlow",
@@ -4219,11 +4165,7 @@
    "2026-27": 3415000
   },
   "options": {},
-  "bbrefId": "barlodo01",
-  "acquisition": {
-   "date": "2026-02-05",
-   "method": "free-agent"
-  }
+  "bbrefId": "barlodo01"
  },
  {
   "name": "Ariel Hukporti",
@@ -4232,7 +4174,11 @@
    "2026-27": 3400000
   },
   "options": {},
-  "bbrefId": "hukpoar01"
+  "bbrefId": "hukpoar01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Asa Newell",
@@ -4246,11 +4192,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "newelas01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "newelas01"
  },
  {
   "name": "DaRon Holmes",
@@ -4279,8 +4221,8 @@
   },
   "bbrefId": "carrca01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-02",
+   "method": "free-agent"
   }
  },
  {
@@ -4293,7 +4235,7 @@
   "options": {},
   "bbrefId": "bambamo01",
   "acquisition": {
-   "date": "2026-03-13",
+   "date": "2026-07-10",
    "method": "free-agent"
   },
   "guarantees": {
@@ -4316,11 +4258,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "cliffni01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "cliffni01"
  },
  {
   "name": "AJ Johnson",
@@ -4334,7 +4272,7 @@
   },
   "bbrefId": "johnsaj01",
   "acquisition": {
-   "date": "2026-02-05",
+   "date": "2026-07-08",
    "method": "trade"
   }
  },
@@ -4353,8 +4291,8 @@
   },
   "bbrefId": "delarse01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-03",
+   "method": "free-agent"
   }
  },
  {
@@ -4371,8 +4309,8 @@
   },
   "bbrefId": "harpero02",
   "acquisition": {
-   "date": "2026-04-04",
-   "method": "free-agent"
+   "date": "2026-07-06",
+   "method": "extension"
   }
  },
  {
@@ -4387,11 +4325,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "richaja02",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "richaja02"
  },
  {
   "name": "Kyshawn George",
@@ -4425,7 +4359,11 @@
    "2028-29": 3580246
   },
   "options": {},
-  "bbrefId": "clarkja02"
+  "bbrefId": "clarkja02",
+  "acquisition": {
+   "date": "2026-07-10",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Tarris Reed Jr.",
@@ -4442,8 +4380,8 @@
   },
   "bbrefId": "reedjta01",
   "acquisition": {
-   "date": "2026-06-23",
-   "method": "trade"
+   "date": "2026-07-03",
+   "method": "free-agent"
   }
  },
  {
@@ -4458,11 +4396,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "sarafbe01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "sarafbe01"
  },
  {
   "name": "Haywood Highsmith",
@@ -4472,10 +4406,6 @@
   },
   "options": {},
   "bbrefId": "highsha01",
-  "acquisition": {
-   "date": "2026-02-18",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -4493,7 +4423,11 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "biberta01"
+  "bbrefId": "biberta01",
+  "acquisition": {
+   "date": "2026-07-10",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Kyle Filipowski",
@@ -4526,7 +4460,11 @@
    "2028-29": "Team",
    "2029-30": "Team"
   },
-  "bbrefId": "cenacch01"
+  "bbrefId": "cenacch01",
+  "acquisition": {
+   "date": "2026-07-04",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Pacôme Dadiet",
@@ -4555,8 +4493,8 @@
   },
   "bbrefId": "jeffejo01",
   "acquisition": {
-   "date": "2026-02-03",
-   "method": "trade"
+   "date": "2026-07-10",
+   "method": "free-agent"
   }
  },
  {
@@ -4574,8 +4512,8 @@
   },
   "bbrefId": "karabal01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-01",
+   "method": "free-agent"
   }
  },
  {
@@ -4590,11 +4528,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "wolfda01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "wolfda01"
  },
  {
   "name": "Koa Peat",
@@ -4611,8 +4545,8 @@
   },
   "bbrefId": "peatko01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-01",
+   "method": "free-agent"
   }
  },
  {
@@ -4627,11 +4561,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "gonzahu01",
-  "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
-  }
+  "bbrefId": "gonzahu01"
  },
  {
   "name": "Liam McNeeley",
@@ -4645,11 +4575,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "mcneeli01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "mcneeli01"
  },
  {
   "name": "Yanic Konan Niederhäuser",
@@ -4663,11 +4589,7 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "konanya01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "konanya01"
  },
  {
   "name": "Ajay Mitchell",
@@ -4680,10 +4602,6 @@
    "2027-28": "Team"
   },
   "bbrefId": "mitchaj01",
-  "acquisition": {
-   "date": "2026-03-22",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -4699,11 +4617,7 @@
    "2026-27": 2845883
   },
   "options": {},
-  "bbrefId": "hylanbo01",
-  "acquisition": {
-   "date": "2025-09-15",
-   "method": "free-agent"
-  }
+  "bbrefId": "hylanbo01"
  },
  {
   "name": "Terrence Shannon Jr.",
@@ -4726,8 +4640,8 @@
   "options": {},
   "bbrefId": "pottemi01",
   "acquisition": {
-   "date": "2025-12-26",
-   "method": "free-agent"
+   "date": "2026-07-10",
+   "method": "waiver"
   },
   "guarantees": {
    "2026-27": {
@@ -4742,11 +4656,7 @@
    "2026-27": 2801346
   },
   "options": {},
-  "bbrefId": "simsje01",
-  "acquisition": {
-   "date": "2025-07-09",
-   "method": "free-agent"
-  }
+  "bbrefId": "simsje01"
  },
  {
   "name": "Luka Garza",
@@ -4755,22 +4665,14 @@
    "2026-27": 2801346
   },
   "options": {},
-  "bbrefId": "garzalu01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "garzalu01"
  },
  {
   "name": "Trendon Watford",
   "team": "PHI",
   "salary": {},
   "options": {},
-  "bbrefId": "watfotr01",
-  "acquisition": {
-   "date": "2025-07-02",
-   "method": "free-agent"
-  }
+  "bbrefId": "watfotr01"
  },
  {
   "name": "Ryan Dunn",
@@ -4819,7 +4721,11 @@
    "2030-31": 15500000
   },
   "options": {},
-  "bbrefId": "quetane01"
+  "bbrefId": "quetane01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "extension"
+  }
  },
  {
   "name": "Justin Champagnie",
@@ -4832,10 +4738,6 @@
    "2027-28": "Team"
   },
   "bbrefId": "champju01",
-  "acquisition": {
-   "date": "2026-03-22",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed"
@@ -4880,7 +4782,25 @@
   "options": {},
   "bbrefId": "kolokch01",
   "acquisition": {
-   "date": "2026-01-16",
+   "date": "2026-07-28",
+   "method": "free-agent"
+  },
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
+ },
+ {
+  "name": "Caleb Houstan",
+  "team": "NOP",
+  "salary": {
+   "2026-27": 5251254
+  },
+  "options": {},
+  "bbrefId": "houstca01",
+  "acquisition": {
+   "date": "2026-08-03",
    "method": "free-agent"
   },
   "guarantees": {
@@ -4903,7 +4823,7 @@
   },
   "bbrefId": "sandeko01",
   "acquisition": {
-   "date": "2026-02-07",
+   "date": "2026-07-07",
    "method": "free-agent"
   }
  },
@@ -4915,10 +4835,6 @@
   },
   "options": {},
   "bbrefId": "bouyeja01",
-  "acquisition": {
-   "date": "2026-03-02",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed"
@@ -4960,19 +4876,6 @@
   }
  },
  {
-  "name": "JD Davison",
-  "team": "HOU",
-  "salary": {
-   "2026-27": 2584539
-  },
-  "options": {},
-  "bbrefId": "davisjd01",
-  "acquisition": {
-   "date": "2026-04-07",
-   "method": "free-agent"
-  }
- },
- {
   "name": "Jabari Walker",
   "team": "PHI",
   "salary": {
@@ -4980,10 +4883,6 @@
   },
   "options": {},
   "bbrefId": "walkeja01",
-  "acquisition": {
-   "date": "2026-02-19",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -5002,10 +4901,6 @@
    "2027-28": "Team"
   },
   "bbrefId": "smithdr01",
-  "acquisition": {
-   "date": "2025-08-16",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed",
@@ -5025,7 +4920,7 @@
   },
   "bbrefId": "nancepe01",
   "acquisition": {
-   "date": "2026-03-23",
+   "date": "2026-07-08",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5044,7 +4939,7 @@
   "options": {},
   "bbrefId": "tshieos01",
   "acquisition": {
-   "date": "2025-08-18",
+   "date": "2026-07-23",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5062,8 +4957,26 @@
   "options": {},
   "bbrefId": "phillju01",
   "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
+   "date": "2026-07-25",
+   "method": "free-agent"
+  },
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
+ },
+ {
+  "name": "Andre Jackson Jr.",
+  "team": "TOR",
+  "salary": {
+   "2026-27": 2537526
+  },
+  "options": {},
+  "bbrefId": "jacksan01",
+  "acquisition": {
+   "date": "2026-08-04",
+   "method": "free-agent"
   },
   "guarantees": {
    "2026-27": {
@@ -5081,11 +4994,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "prospol01",
-  "acquisition": {
-   "date": "2026-03-04",
-   "method": "free-agent"
-  }
+  "bbrefId": "prospol01"
  },
  {
   "name": "Sidy Cissoko",
@@ -5095,10 +5004,6 @@
   },
   "options": {},
   "bbrefId": "cissosi01",
-  "acquisition": {
-   "date": "2026-02-20",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed",
@@ -5123,11 +5028,7 @@
    "2026-27": 2461462
   },
   "options": {},
-  "bbrefId": "diabamo01",
-  "acquisition": {
-   "date": "2026-02-11",
-   "method": "free-agent"
-  }
+  "bbrefId": "diabamo01"
  },
  {
   "name": "Daeqwon Plowden",
@@ -5139,7 +5040,7 @@
   "options": {},
   "bbrefId": "plowdda01",
   "acquisition": {
-   "date": "2025-07-30",
+   "date": "2026-07-03",
    "method": "free-agent"
   }
  },
@@ -5153,7 +5054,7 @@
   "options": {},
   "bbrefId": "crawfis01",
   "acquisition": {
-   "date": "2025-07-26",
+   "date": "2026-07-22",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5172,7 +5073,7 @@
   "options": {},
   "bbrefId": "ingraha01",
   "acquisition": {
-   "date": "2025-08-06",
+   "date": "2026-07-25",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5190,7 +5091,7 @@
   "options": {},
   "bbrefId": "anderky01",
   "acquisition": {
-   "date": "2026-03-01",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -5203,7 +5104,7 @@
   "options": {},
   "bbrefId": "mclaujo01",
   "acquisition": {
-   "date": "2025-07-12",
+   "date": "2026-07-13",
    "method": "free-agent"
   }
  },
@@ -5216,7 +5117,7 @@
   "options": {},
   "bbrefId": "sochaje01",
   "acquisition": {
-   "date": "2026-02-13",
+   "date": "2026-08-02",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5234,7 +5135,7 @@
   "options": {},
   "bbrefId": "carlsbr01",
   "acquisition": {
-   "date": "2025-09-26",
+   "date": "2026-07-01",
    "method": "free-agent"
   }
  },
@@ -5247,7 +5148,7 @@
   "options": {},
   "bbrefId": "carteje01",
   "acquisition": {
-   "date": "2026-02-06",
+   "date": "2026-07-01",
    "method": "free-agent"
   }
  },
@@ -5258,7 +5159,11 @@
    "2026-27": 2449421
   },
   "options": {},
-  "bbrefId": "vucevni01"
+  "bbrefId": "vucevni01",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jordan Clarkson",
@@ -5269,7 +5174,7 @@
   "options": {},
   "bbrefId": "clarkjo01",
   "acquisition": {
-   "date": "2025-07-07",
+   "date": "2026-07-10",
    "method": "free-agent"
   }
  },
@@ -5280,7 +5185,11 @@
    "2026-27": 2449421
   },
   "options": {},
-  "bbrefId": "drumman01"
+  "bbrefId": "drumman01",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Kobe Bufkin",
@@ -5291,7 +5200,7 @@
   "options": {},
   "bbrefId": "bufkiko01",
   "acquisition": {
-   "date": "2026-04-10",
+   "date": "2026-07-25",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5308,6 +5217,10 @@
   },
   "options": {},
   "bbrefId": "lylestr01",
+  "acquisition": {
+   "date": "2026-07-10",
+   "method": "free-agent"
+  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -5322,7 +5235,11 @@
    "2026-27": 2449421
   },
   "options": {},
-  "bbrefId": "fontesi01"
+  "bbrefId": "fontesi01",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Matisse Thybulle",
@@ -5331,7 +5248,11 @@
    "2026-27": 2449421
   },
   "options": {},
-  "bbrefId": "thybuma01"
+  "bbrefId": "thybuma01",
+  "acquisition": {
+   "date": "2026-07-27",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Ziaire Williams",
@@ -5342,7 +5263,7 @@
   "options": {},
   "bbrefId": "willizi02",
   "acquisition": {
-   "date": "2025-09-08",
+   "date": "2026-07-19",
    "method": "free-agent"
   }
  },
@@ -5355,7 +5276,7 @@
   "options": {},
   "bbrefId": "looneke01",
   "acquisition": {
-   "date": "2025-07-07",
+   "date": "2026-07-12",
    "method": "free-agent"
   }
  },
@@ -5368,7 +5289,7 @@
   "options": {},
   "bbrefId": "nancela02",
   "acquisition": {
-   "date": "2025-07-06",
+   "date": "2026-07-09",
    "method": "free-agent"
   }
  },
@@ -5381,7 +5302,7 @@
   "options": {},
   "bbrefId": "tateja01",
   "acquisition": {
-   "date": "2025-07-05",
+   "date": "2026-07-23",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5398,7 +5319,11 @@
    "2026-27": 2449421
   },
   "options": {},
-  "bbrefId": "bogdabo01"
+  "bbrefId": "bogdabo01",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Gary Payton II",
@@ -5409,7 +5334,7 @@
   "options": {},
   "bbrefId": "paytoga02",
   "acquisition": {
-   "date": "2025-09-29",
+   "date": "2026-08-01",
    "method": "free-agent"
   }
  },
@@ -5441,8 +5366,8 @@
   "options": {},
   "bbrefId": "baglema01",
   "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
+   "date": "2026-07-14",
+   "method": "free-agent"
   }
  },
  {
@@ -5454,7 +5379,7 @@
   "options": {},
   "bbrefId": "jonesty01",
   "acquisition": {
-   "date": "2026-03-05",
+   "date": "2026-07-14",
    "method": "free-agent"
   }
  },
@@ -5466,6 +5391,10 @@
   },
   "options": {},
   "bbrefId": "hezonma01",
+  "acquisition": {
+   "date": "2026-07-31",
+   "method": "free-agent"
+  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed",
@@ -5482,7 +5411,7 @@
   "options": {},
   "bbrefId": "bryanth01",
   "acquisition": {
-   "date": "2025-09-25",
+   "date": "2026-07-07",
    "method": "free-agent"
   }
  },
@@ -5495,7 +5424,7 @@
   "options": {},
   "bbrefId": "conlemi01",
   "acquisition": {
-   "date": "2026-02-17",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -5510,11 +5439,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "spencca01",
-  "acquisition": {
-   "date": "2025-07-14",
-   "method": "free-agent"
-  }
+  "bbrefId": "spencca01"
  },
  {
   "name": "Justin Edwards",
@@ -5526,11 +5451,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "edwarju01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "edwarju01"
  },
  {
   "name": "Tolu Smith",
@@ -5557,11 +5478,7 @@
    "2026-27": 2411090
   },
   "options": {},
-  "bbrefId": "tomlina01",
-  "acquisition": {
-   "date": "2026-02-11",
-   "method": "free-agent"
-  }
+  "bbrefId": "tomlina01"
  },
  {
   "name": "Ryan Kalkbrenner",
@@ -5574,11 +5491,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "kalkbry01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "kalkbry01"
  },
  {
   "name": "Sion James",
@@ -5591,11 +5504,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "jamessi01",
-  "acquisition": {
-   "date": "2025-07-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "jamessi01"
  },
  {
   "name": "Jordan Walsh",
@@ -5608,6 +5517,10 @@
   },
   "options": {},
   "bbrefId": "walshjo01",
+  "acquisition": {
+   "date": "2026-07-23",
+   "method": "extension"
+  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed",
@@ -5655,10 +5568,6 @@
   },
   "options": {},
   "bbrefId": "millele01",
-  "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
-  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed",
@@ -5681,25 +5590,15 @@
   }
  },
  {
-  "name": "Andre Jackson Jr.",
-  "team": "MIL",
-  "salary": {
-   "2026-27": 2406205
-  },
-  "options": {},
-  "bbrefId": "jacksan01",
-  "guarantees": {
-   "2026-27": {
-    "status": "non-guaranteed"
-   }
-  }
- },
- {
   "name": "Jalen Pickett",
   "team": "DEN",
   "salary": {},
   "options": {},
-  "bbrefId": "pickeja02"
+  "bbrefId": "pickeja02",
+  "acquisition": {
+   "date": "2026-08-05",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jamal Shead",
@@ -5871,7 +5770,7 @@
   "options": {},
   "bbrefId": "diawamo01",
   "acquisition": {
-   "date": "2025-09-15",
+   "date": "2026-07-06",
    "method": "free-agent"
   }
  },
@@ -5897,7 +5796,7 @@
   },
   "bbrefId": "martial01",
   "acquisition": {
-   "date": "2025-07-10",
+   "date": "2026-07-03",
    "method": "free-agent"
   }
  },
@@ -5911,7 +5810,7 @@
   "options": {},
   "bbrefId": "cissemo01",
   "acquisition": {
-   "date": "2025-10-18",
+   "date": "2026-07-18",
    "method": "free-agent"
   },
   "guarantees": {
@@ -5933,11 +5832,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "flemira01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "flemira01"
  },
  {
   "name": "Maxime Raynaud",
@@ -5949,11 +5844,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "raynama01",
-  "acquisition": {
-   "date": "2025-07-02",
-   "method": "free-agent"
-  }
+  "bbrefId": "raynama01"
  },
  {
   "name": "Noah Penda",
@@ -5966,11 +5857,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "pendano01",
-  "acquisition": {
-   "date": "2025-07-04",
-   "method": "free-agent"
-  }
+  "bbrefId": "pendano01"
  },
  {
   "name": "Micah Peavy",
@@ -5983,11 +5870,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "peavymi01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "peavymi01"
  },
  {
   "name": "Adou Thiero",
@@ -5999,11 +5882,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "thierad01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "thierad01"
  },
  {
   "name": "Johni Broome",
@@ -6018,8 +5897,8 @@
   },
   "bbrefId": "broomjo01",
   "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
+   "date": "2026-07-28",
+   "method": "trade"
   }
  },
  {
@@ -6033,11 +5912,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "richawi02",
-  "acquisition": {
-   "date": "2025-09-29",
-   "method": "free-agent"
-  }
+  "bbrefId": "richawi02"
  },
  {
   "name": "Chaz Lanier",
@@ -6050,11 +5925,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "laniech01",
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "free-agent"
-  }
+  "bbrefId": "laniech01"
  },
  {
   "name": "Tyrese Proctor",
@@ -6067,11 +5938,7 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "proctty01",
-  "acquisition": {
-   "date": "2025-07-01",
-   "method": "free-agent"
-  }
+  "bbrefId": "proctty01"
  },
  {
   "name": "Ryan Nembhard",
@@ -6082,8 +5949,8 @@
   "options": {},
   "bbrefId": "nembhry01",
   "acquisition": {
-   "date": "2026-02-28",
-   "method": "free-agent"
+   "date": "2026-07-19",
+   "method": "trade"
   }
  },
  {
@@ -6095,10 +5962,6 @@
   },
   "options": {},
   "bbrefId": "gardnmy01",
-  "acquisition": {
-   "date": "2026-02-18",
-   "method": "free-agent"
-  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
@@ -6118,7 +5981,11 @@
   "options": {
    "2029-30": "Team"
   },
-  "bbrefId": "milleba01"
+  "bbrefId": "milleba01",
+  "acquisition": {
+   "date": "2026-07-09",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Isaiah Evans",
@@ -6132,7 +5999,11 @@
   "options": {
    "2029-30": "Team"
   },
-  "bbrefId": "evansis01"
+  "bbrefId": "evansis01",
+  "acquisition": {
+   "date": "2026-07-13",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Bogoljub Markovic",
@@ -6146,7 +6017,11 @@
   "options": {
    "2029-30": "Team"
   },
-  "bbrefId": "markobo01"
+  "bbrefId": "markobo01",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Meleek Thomas",
@@ -6162,8 +6037,8 @@
   },
   "bbrefId": "thomame01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-01",
+   "method": "free-agent"
   }
  },
  {
@@ -6177,7 +6052,11 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "sharpem01"
+  "bbrefId": "sharpem01",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Ryan Conwell",
@@ -6192,8 +6071,8 @@
   },
   "bbrefId": "conwery01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-01",
+   "method": "free-agent"
   }
  },
  {
@@ -6210,8 +6089,8 @@
   },
   "bbrefId": "veesahe01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-01",
+   "method": "free-agent"
   }
  },
  {
@@ -6228,8 +6107,8 @@
   },
   "bbrefId": "thornbr01",
   "acquisition": {
-   "date": "2026-06-24",
-   "method": "trade"
+   "date": "2026-07-07",
+   "method": "free-agent"
   }
  },
  {
@@ -6241,8 +6120,8 @@
   "options": {},
   "bbrefId": "brazitr01",
   "acquisition": {
-   "date": "2026-06-23",
-   "method": "trade"
+   "date": "2026-07-10",
+   "method": "free-agent"
   }
  },
  {
@@ -6253,6 +6132,10 @@
   },
   "options": {},
   "bbrefId": "bittlna01",
+  "acquisition": {
+   "date": "2026-07-09",
+   "method": "free-agent"
+  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed"
@@ -6267,6 +6150,10 @@
   },
   "options": {},
   "bbrefId": "devritu01",
+  "acquisition": {
+   "date": "2026-07-14",
+   "method": "free-agent"
+  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed"
@@ -6281,6 +6168,10 @@
   },
   "options": {},
   "bbrefId": "uzanmi01",
+  "acquisition": {
+   "date": "2026-07-14",
+   "method": "free-agent"
+  },
   "guarantees": {
    "2026-27": {
     "status": "non-guaranteed"
@@ -6294,11 +6185,7 @@
    "2026-27": 706898
   },
   "options": {},
-  "bbrefId": "liddeej01",
-  "acquisition": {
-   "date": "2025-09-03",
-   "method": "free-agent"
-  }
+  "bbrefId": "liddeej01"
  },
  {
   "name": "Vasilije Micić",
@@ -6310,11 +6197,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "micicva01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
+  "bbrefId": "micicva01"
  },
  {
   "name": "Mamadi Diakite",

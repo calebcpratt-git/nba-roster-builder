@@ -5321,6 +5321,16 @@
   }
  },
  {
+  "name": "Caleb Houstan",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Kobe Sanders",
   "signedUnder": "non-bird",
   "incentives": {
@@ -5376,16 +5386,6 @@
   }
  },
  {
-  "name": "JD Davison",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Jabari Walker",
   "signedUnder": "minimum",
   "incentives": {
@@ -5435,6 +5435,16 @@
  },
  {
   "name": "Julian Phillips",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Andre Jackson Jr.",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
@@ -5899,16 +5909,6 @@
  },
  {
   "name": "Mouhamed Gueye",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
-  "name": "Andre Jackson Jr.",
   "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
