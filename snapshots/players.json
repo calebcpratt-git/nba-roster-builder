@@ -5,7 +5,11 @@
     "salary": {
       "2026-27": 62587158
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-08-29",
+      "method": "extension"
+    }
   },
   {
     "name": "Nikola Jokić",
@@ -16,6 +20,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2022-07-08",
+      "method": "extension"
     }
   },
   {
@@ -29,6 +37,10 @@
     },
     "options": {
       "2029-30": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "extension"
     }
   },
   {
@@ -40,6 +52,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
     }
   },
   {
@@ -67,6 +83,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2024-09-19",
+      "method": "extension"
     }
   },
   {
@@ -94,6 +114,10 @@
     },
     "options": {
       "2029-30": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-10",
+      "method": "extension"
     }
   },
   {
@@ -105,6 +129,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2024-10-02",
+      "method": "trade"
     }
   },
   {
@@ -113,7 +141,11 @@
     "salary": {
       "2026-27": 56832773
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-02-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Paul George",
@@ -136,11 +168,7 @@
     "salary": {
       "2026-27": 50300000
     },
-    "options": {},
-    "acquisition": {
-      "date": "2026-06-30",
-      "method": "trade"
-    }
+    "options": {}
   },
   {
     "name": "Donovan Mitchell",
@@ -169,7 +197,11 @@
       "2028-29": 57528684,
       "2029-30": 61240212
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-10",
+      "method": "extension"
+    }
   },
   {
     "name": "Evan Mobley",
@@ -180,7 +212,11 @@
       "2028-29": 57528684,
       "2029-30": 61240212
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-22",
+      "method": "extension"
+    }
   },
   {
     "name": "Jamal Murray",
@@ -190,7 +226,11 @@
       "2027-28": 53817156,
       "2028-29": 57528684
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-09-11",
+      "method": "extension"
+    }
   },
   {
     "name": "De'Aaron Fox",
@@ -201,7 +241,11 @@
       "2028-29": 57768000,
       "2029-30": 61752000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-08-04",
+      "method": "extension"
+    }
   },
   {
     "name": "Bam Adebayo",
@@ -213,6 +257,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "extension"
     }
   },
   {
@@ -225,6 +273,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2025-08-02",
+      "method": "extension"
     }
   },
   {
@@ -263,7 +315,11 @@
     "salary": {
       "2026-27": 48967380
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-02-03",
+      "method": "trade"
+    }
   },
   {
     "name": "Anthony Edwards",
@@ -273,7 +329,11 @@
       "2027-28": 52298736,
       "2028-29": 55672848
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-08",
+      "method": "extension"
+    }
   },
   {
     "name": "Tyrese Haliburton",
@@ -283,7 +343,11 @@
       "2027-28": 52298736,
       "2028-29": 55672848
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-06",
+      "method": "extension"
+    }
   },
   {
     "name": "Pascal Siakam",
@@ -292,7 +356,11 @@
       "2026-27": 48924624,
       "2027-28": 52298736
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Lauri Markkanen",
@@ -302,7 +370,11 @@
       "2027-28": 49824681,
       "2028-29": 53536209
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-08-07",
+      "method": "extension"
+    }
   },
   {
     "name": "Domantas Sabonis",
@@ -311,7 +383,11 @@
       "2026-27": 45472000,
       "2027-28": 48608000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-06",
+      "method": "extension"
+    }
   },
   {
     "name": "Kevin Durant",
@@ -322,6 +398,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-10-19",
+      "method": "extension"
     }
   },
   {
@@ -334,13 +414,21 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
     "name": "James Harden",
     "team": "CLE",
     "salary": {},
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-04",
+      "method": "trade"
+    }
   },
   {
     "name": "Ja Morant",
@@ -362,7 +450,11 @@
       "2026-27": 42166510,
       "2027-28": 44886930
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2022-07-06",
+      "method": "extension"
+    }
   },
   {
     "name": "Darius Garland",
@@ -371,7 +463,11 @@
       "2026-27": 42166510,
       "2027-28": 44886930
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-04",
+      "method": "trade"
+    }
   },
   {
     "name": "Scottie Barnes",
@@ -382,7 +478,11 @@
       "2028-29": 47940570,
       "2029-30": 51033510
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-08",
+      "method": "extension"
+    }
   },
   {
     "name": "Franz Wagner",
@@ -393,7 +493,11 @@
       "2028-29": 47940570,
       "2029-30": 51033510
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "extension"
+    }
   },
   {
     "name": "Jalen Williams",
@@ -405,7 +509,11 @@
       "2029-30": 51460000,
       "2030-31": 54780000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-13",
+      "method": "extension"
+    }
   },
   {
     "name": "Chet Holmgren",
@@ -417,7 +525,11 @@
       "2029-30": 51460000,
       "2030-31": 54780000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-13",
+      "method": "extension"
+    }
   },
   {
     "name": "Paolo Banchero",
@@ -431,6 +543,10 @@
     },
     "options": {
       "2030-31": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "extension"
     }
   },
   {
@@ -462,6 +578,10 @@
     },
     "options": {
       "2030-31": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "extension"
     }
   },
   {
@@ -480,7 +600,11 @@
       "2027-28": 43582280,
       "2028-29": 46394040
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-07",
+      "method": "free-agent"
+    }
   },
   {
     "name": "LaMelo Ball",
@@ -505,10 +629,6 @@
     },
     "options": {
       "2027-28": "Player"
-    },
-    "acquisition": {
-      "date": "2026-06-30",
-      "method": "trade"
     }
   },
   {
@@ -520,6 +640,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -530,7 +654,11 @@
       "2027-28": 42166510,
       "2028-29": 44886930
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-06-15",
+      "method": "trade"
+    }
   },
   {
     "name": "Jalen Brunson",
@@ -542,6 +670,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-12",
+      "method": "extension"
     }
   },
   {
@@ -553,6 +685,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2024-10-24",
+      "method": "extension"
     }
   },
   {
@@ -564,6 +700,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "trade"
     }
   },
   {
@@ -577,6 +717,10 @@
     },
     "options": {
       "2029-30": "Player"
+    },
+    "acquisition": {
+      "date": "2024-10-21",
+      "method": "extension"
     }
   },
   {
@@ -611,7 +755,11 @@
     "salary": {
       "2026-27": 34044642
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Aaron Gordon",
@@ -623,6 +771,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2024-10-21",
+      "method": "extension"
     }
   },
   {
@@ -636,6 +788,10 @@
     },
     "options": {
       "2029-30": "Player"
+    },
+    "acquisition": {
+      "date": "2025-08-01",
+      "method": "extension"
     }
   },
   {
@@ -684,7 +840,11 @@
       "2027-28": 32500000,
       "2028-29": 32500000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-08",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Jalen Suggs",
@@ -697,6 +857,10 @@
     },
     "options": {
       "2029-30": "Team"
+    },
+    "acquisition": {
+      "date": "2024-10-21",
+      "method": "extension"
     }
   },
   {
@@ -709,6 +873,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "extension"
     }
   },
   {
@@ -753,7 +921,11 @@
       "2028-29": 30000000,
       "2029-30": 30000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-10-21",
+      "method": "extension"
+    }
   },
   {
     "name": "RJ Barrett",
@@ -771,7 +943,11 @@
       "2027-28": 30240000,
       "2028-29": 32480000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-08-02",
+      "method": "extension"
+    }
   },
   {
     "name": "Draymond Green",
@@ -793,7 +969,11 @@
       "2027-28": 29000000,
       "2028-29": 31000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-10-21",
+      "method": "extension"
+    }
   },
   {
     "name": "Devin Vassell",
@@ -803,7 +983,11 @@
       "2027-28": 24652174,
       "2028-29": 27000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-10-03",
+      "method": "extension"
+    }
   },
   {
     "name": "Myles Turner",
@@ -815,6 +999,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -825,7 +1013,11 @@
       "2027-28": 28006898,
       "2028-29": 29813790
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-10-23",
+      "method": "extension"
+    }
   },
   {
     "name": "Dyson Daniels",
@@ -836,7 +1028,11 @@
       "2028-29": 25000000,
       "2029-30": 25000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-20",
+      "method": "extension"
+    }
   },
   {
     "name": "Josh Giddey",
@@ -846,7 +1042,11 @@
       "2027-28": 25000000,
       "2028-29": 25000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-09-24",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Fred VanVleet",
@@ -854,7 +1054,11 @@
     "salary": {
       "2026-27": 25000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "De'Andre Hunter",
@@ -862,13 +1066,21 @@
     "salary": {
       "2026-27": 24910714
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-01",
+      "method": "trade"
+    }
   },
   {
     "name": "Jonathan Kuminga",
     "team": "ATL",
     "salary": {},
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
+    }
   },
   {
     "name": "Keegan Murray",
@@ -880,7 +1092,11 @@
       "2029-30": 29931033,
       "2030-31": 31862067
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-16",
+      "method": "extension"
+    }
   },
   {
     "name": "Jabari Smith Jr.",
@@ -892,7 +1108,11 @@
       "2029-30": 25534883,
       "2030-31": 27426355
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "extension"
+    }
   },
   {
     "name": "Naz Reid",
@@ -970,7 +1190,7 @@
   },
   {
     "name": "Damian Lillard",
-    "team": "MIL",
+    "team": "POR",
     "salary": {
       "2026-27": 35915403,
       "2027-28": 36620603,
@@ -979,14 +1199,16 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-19",
+      "method": "free-agent"
     }
   },
   {
     "name": "Kentavious Caldwell-Pope",
-    "team": "MEM",
-    "salary": {
-      "2026-27": 21621500
-    },
+    "team": "PHI",
+    "salary": {},
     "options": {},
     "acquisition": {
       "date": "2026-08-05",
@@ -1003,7 +1225,11 @@
       "2029-30": 26724137,
       "2030-31": 28448274
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-20",
+      "method": "extension"
+    }
   },
   {
     "name": "Norman Powell",
@@ -1041,6 +1267,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2023-08-10",
+      "method": "extension"
     }
   },
   {
@@ -1049,7 +1279,11 @@
     "salary": {
       "2026-27": 20345152
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-02-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Ivica Zubac",
@@ -1069,6 +1303,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -1080,7 +1318,11 @@
       "2028-29": 23303571,
       "2029-30": 24910713
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-20",
+      "method": "extension"
+    }
   },
   {
     "name": "Dillon Brooks",
@@ -1103,7 +1345,11 @@
       "2028-29": 22983132,
       "2029-30": 24568176
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-09-10",
+      "method": "extension"
+    }
   },
   {
     "name": "Alex Caruso",
@@ -1113,7 +1359,11 @@
       "2027-28": 20998320,
       "2028-29": 22446480
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-12-22",
+      "method": "extension"
+    }
   },
   {
     "name": "Andrew Nembhard",
@@ -1122,7 +1372,11 @@
       "2026-27": 19550160,
       "2027-28": 20998320
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-26",
+      "method": "extension"
+    }
   },
   {
     "name": "Kristaps Porziņģis",
@@ -1155,18 +1409,25 @@
       "2028-29": 29484000,
       "2029-30": 27300000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "extension"
+    }
   },
   {
     "name": "Bradley Beal",
-    "team": "PHO",
+    "team": "LAC",
     "salary": {
-      "2026-27": 25004710,
       "2027-28": 19383010,
       "2028-29": 19383010,
       "2029-30": 19383010
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-18",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Ayo Dosunmu",
@@ -1223,6 +1484,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2024-10-07",
+      "method": "extension"
     }
   },
   {
@@ -1234,7 +1499,11 @@
       "2028-29": 20973214,
       "2029-30": 22419642
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-19",
+      "method": "extension"
+    }
   },
   {
     "name": "Patrick Williams",
@@ -1246,6 +1515,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -1254,7 +1527,11 @@
     "salary": {
       "2026-27": 17500000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2022-07-18",
+      "method": "extension"
+    }
   },
   {
     "name": "Klay Thompson",
@@ -1262,7 +1539,11 @@
     "salary": {
       "2026-27": 17460317
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Daniel Gafford",
@@ -1272,7 +1553,11 @@
       "2027-28": 18126763,
       "2028-29": 18989942
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-12",
+      "method": "extension"
+    }
   },
   {
     "name": "Santi Aldama",
@@ -1328,7 +1613,11 @@
     "salary": {
       "2026-27": 16660836
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Nikola Jović",
@@ -1339,7 +1628,11 @@
       "2028-29": 15096000,
       "2029-30": 16200000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-03",
+      "method": "extension"
+    }
   },
   {
     "name": "Onyeka Okongwu",
@@ -1348,7 +1641,11 @@
       "2026-27": 16120000,
       "2027-28": 16880000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-10-23",
+      "method": "extension"
+    }
   },
   {
     "name": "Duncan Robinson",
@@ -1372,7 +1669,11 @@
       "2026-27": 15500000,
       "2027-28": 16000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "trade"
+    }
   },
   {
     "name": "Gary Trent Jr.",
@@ -1395,7 +1696,11 @@
     "salary": {
       "2026-27": 15104626
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Mitchell Robinson",
@@ -1431,7 +1736,11 @@
       "2026-27": 15000000,
       "2027-28": 16025000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Isaiah Stewart",
@@ -1459,6 +1768,10 @@
     },
     "options": {
       "2029-30": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-14",
+      "method": "extension"
     }
   },
   {
@@ -1480,7 +1793,11 @@
       "2026-27": 14809200,
       "2027-28": 15514400
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-01",
+      "method": "trade"
+    }
   },
   {
     "name": "AJ Dybantsa",
@@ -1538,6 +1855,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -1683,7 +2004,11 @@
     "salary": {
       "2026-27": 13585523
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-01",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Dorian Finney-Smith",
@@ -1752,7 +2077,11 @@
       "2026-27": 13000000,
       "2027-28": 11869566
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-06-14",
+      "method": "extension"
+    }
   },
   {
     "name": "Dylan Harper",
@@ -1765,6 +2094,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -1773,7 +2106,11 @@
     "salary": {
       "2026-27": 12535000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-10-02",
+      "method": "trade"
+    }
   },
   {
     "name": "Moses Moody",
@@ -1782,7 +2119,11 @@
       "2026-27": 12500000,
       "2027-28": 13425925
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-10-21",
+      "method": "extension"
+    }
   },
   {
     "name": "Brandon Clarke",
@@ -1790,7 +2131,11 @@
     "salary": {
       "2026-27": 12500000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2022-10-16",
+      "method": "extension"
+    }
   },
   {
     "name": "Jarred Vanderbilt",
@@ -1801,6 +2146,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2023-09-18",
+      "method": "extension"
     }
   },
   {
@@ -1809,7 +2158,11 @@
     "salary": {
       "2026-27": 12400000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Alex Sarr",
@@ -1820,6 +2173,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -1828,7 +2185,11 @@
     "salary": {
       "2026-27": 12258609
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-03",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Cameron Boozer",
@@ -1881,6 +2242,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-01",
+      "method": "free-agent"
     }
   },
   {
@@ -1904,7 +2269,11 @@
     "salary": {
       "2026-27": 11117925
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Reed Sheppard",
@@ -1915,6 +2284,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -1925,7 +2298,11 @@
       "2027-28": 19418000,
       "2028-29": 20971440
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-20",
+      "method": "extension"
+    }
   },
   {
     "name": "T.J. McConnell",
@@ -1937,6 +2314,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2024-09-03",
+      "method": "extension"
     }
   },
   {
@@ -1960,7 +2341,11 @@
       "2027-28": 11651785,
       "2028-29": 12455356
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-23",
+      "method": "extension"
+    }
   },
   {
     "name": "Collin Gillespie",
@@ -2019,6 +2404,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -2027,7 +2416,11 @@
     "salary": {
       "2026-27": 10476190
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-09",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Luke Kornet",
@@ -2039,6 +2432,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -2047,7 +2444,11 @@
     "salary": {
       "2026-27": 10106316
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-01",
+      "method": "free-agent"
+    }
   },
   {
     "name": "A.J. Green",
@@ -2058,7 +2459,11 @@
       "2028-29": 11651786,
       "2029-30": 12455355
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-10-17",
+      "method": "extension"
+    }
   },
   {
     "name": "Stephon Castle",
@@ -2069,6 +2474,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -2125,6 +2534,10 @@
     "options": {
       "2027-28": "Player"
     },
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
+    },
     "guarantees": {
       "2026-27": {
         "status": "partial",
@@ -2144,6 +2557,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -2167,7 +2584,11 @@
     "salary": {
       "2026-27": 9428571
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-08",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Collin Sexton",
@@ -2201,7 +2622,11 @@
     "salary": {
       "2026-27": 9240012
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Aaron Wiggins",
@@ -2228,6 +2653,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-14",
+      "method": "free-agent"
     }
   },
   {
@@ -2236,7 +2665,11 @@
     "salary": {
       "2026-27": 9187500
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Sam Merrill",
@@ -2246,7 +2679,11 @@
       "2027-28": 9839285,
       "2028-29": 10517856
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Ron Holland",
@@ -2257,6 +2694,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -2316,6 +2757,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-05",
+      "method": "free-agent"
     }
   },
   {
@@ -2324,7 +2769,11 @@
     "salary": {
       "2026-27": 8478542
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-01",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Kevin Huerter",
@@ -2376,6 +2825,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-02-02",
+      "method": "trade"
     }
   },
   {
@@ -2387,6 +2840,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -2472,6 +2929,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-13",
+      "method": "free-agent"
     }
   },
   {
@@ -2483,6 +2944,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -2496,6 +2961,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-05",
+      "method": "free-agent"
     }
   },
   {
@@ -2515,6 +2984,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-06-29",
+      "method": "extension"
     }
   },
   {
@@ -2524,7 +2997,11 @@
       "2026-27": 7767857,
       "2027-28": 8303571
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-10-10",
+      "method": "extension"
+    }
   },
   {
     "name": "Goga Bitadze",
@@ -2532,7 +3009,11 @@
     "salary": {
       "2026-27": 7608696
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Donovan Clingan",
@@ -2543,6 +3024,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-04",
+      "method": "free-agent"
     }
   },
   {
@@ -2554,6 +3039,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2020-11-30",
+      "method": "free-agent"
     }
   },
   {
@@ -2562,7 +3051,11 @@
     "salary": {
       "2026-27": 7420806
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-07",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Kingston Flemings",
@@ -2588,7 +3081,11 @@
     "salary": {
       "2026-27": 7239131
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-08",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Egor Dёmin",
@@ -2601,14 +3098,16 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
     "name": "Gradey Dick",
-    "team": "TOR",
-    "salary": {
-      "2026-27": 7131511
-    },
+    "team": "LAC",
+    "salary": {},
     "options": {},
     "acquisition": {
       "date": "2026-06-30",
@@ -2622,7 +3121,11 @@
       "2026-27": 7035000,
       "2027-28": 7370000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Jordan Hawkins",
@@ -2630,7 +3133,11 @@
     "salary": {
       "2026-27": 7021895
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-03",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Isaiah Jackson",
@@ -2650,6 +3157,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
     }
   },
   {
@@ -2694,6 +3205,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-01",
+      "method": "free-agent"
     }
   },
   {
@@ -2702,7 +3217,11 @@
     "salary": {
       "2026-27": 6563925
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Tim Hardaway Jr.",
@@ -2722,7 +3241,11 @@
     "salary": {
       "2026-27": 6440678
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Brayden Burries",
@@ -2751,6 +3274,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -2764,6 +3291,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -2831,6 +3362,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -2844,6 +3379,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -2910,7 +3449,11 @@
     "salary": {
       "2026-27": 6000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Jaden Hardy",
@@ -2955,7 +3498,11 @@
     "name": "Nicolas Batum",
     "team": "LAC",
     "salary": {},
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Jordan Goodwin",
@@ -3016,6 +3563,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -3029,6 +3580,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-04",
+      "method": "free-agent"
     }
   },
   {
@@ -3038,6 +3593,10 @@
       "2026-27": 5684800
     },
     "options": {},
+    "acquisition": {
+      "date": "2024-07-18",
+      "method": "trade"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed",
@@ -3051,7 +3610,11 @@
     "salary": {
       "2026-27": 5679459
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-03",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Paul Reed",
@@ -3060,6 +3623,10 @@
       "2026-27": 5602689
     },
     "options": {},
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed"
@@ -3132,7 +3699,11 @@
     "salary": {
       "2026-27": 5458310
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Nikola Topić",
@@ -3143,6 +3714,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -3156,6 +3731,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-05",
+      "method": "free-agent"
     }
   },
   {
@@ -3164,7 +3743,11 @@
     "salary": {
       "2026-27": 5414034
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-11",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Kevin Porter Jr.",
@@ -3172,7 +3755,11 @@
     "salary": {
       "2026-27": 5390700
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Landry Shamet",
@@ -3273,6 +3860,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -3281,7 +3872,11 @@
     "salary": {
       "2026-27": 5031669
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-01",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Kenrich Williams",
@@ -3322,6 +3917,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -3335,6 +3934,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -3343,7 +3946,11 @@
     "salary": {
       "2026-27": 4862237
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Julian Strawther",
@@ -3351,7 +3958,11 @@
     "salary": {
       "2026-27": 4826931
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-07-06",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Bennett Stirtz",
@@ -3397,6 +4008,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-01",
+      "method": "free-agent"
     }
   },
   {
@@ -3409,6 +4024,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2026-02-28",
+      "method": "extension"
     }
   },
   {
@@ -3480,6 +4099,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -3509,6 +4132,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -3553,6 +4180,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-04",
+      "method": "free-agent"
     }
   },
   {
@@ -3564,6 +4195,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-08",
+      "method": "free-agent"
     }
   },
   {
@@ -3572,7 +4207,11 @@
     "salary": {
       "2026-27": 4000000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-08-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Tristan Da Silva",
@@ -3583,6 +4222,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -3591,7 +4234,11 @@
     "salary": {
       "2026-27": 3956523
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-12-30",
+      "method": "extension"
+    }
   },
   {
     "name": "Javonte Green",
@@ -3661,6 +4308,10 @@
     "options": {
       "2027-28": "Team"
     },
+    "acquisition": {
+      "date": "2024-08-10",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed",
@@ -3716,6 +4367,10 @@
       "2026-27": 3815861
     },
     "options": {},
+    "acquisition": {
+      "date": "2026-02-09",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed"
@@ -3731,6 +4386,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-04",
+      "method": "free-agent"
     }
   },
   {
@@ -3771,6 +4430,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -3782,6 +4445,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -3813,6 +4480,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-08",
+      "method": "free-agent"
     }
   },
   {
@@ -3824,6 +4495,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-08",
+      "method": "free-agent"
     }
   },
   {
@@ -3850,7 +4525,11 @@
     "salary": {
       "2026-27": 3415000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-09",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Ariel Hukporti",
@@ -3875,6 +4554,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -3886,6 +4569,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-09",
+      "method": "free-agent"
     }
   },
   {
@@ -3937,6 +4624,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -4000,6 +4691,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -4011,6 +4706,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -4066,6 +4765,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -4075,6 +4778,10 @@
       "2026-27": 3018158
     },
     "options": {},
+    "acquisition": {
+      "date": "2026-02-18",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "partial",
@@ -4106,6 +4813,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-08-12",
+      "method": "free-agent"
     },
     "guarantees": {
       "2026-27": {
@@ -4141,6 +4852,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -4190,6 +4905,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -4221,6 +4940,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-01",
+      "method": "free-agent"
     }
   },
   {
@@ -4234,6 +4957,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -4247,6 +4974,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -4258,6 +4989,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     },
     "guarantees": {
       "2026-27": {
@@ -4273,7 +5008,11 @@
     "salary": {
       "2026-27": 2845883
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-09-15",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Terrence Shannon Jr.",
@@ -4284,6 +5023,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-08",
+      "method": "free-agent"
     }
   },
   {
@@ -4309,7 +5052,11 @@
     "salary": {
       "2026-27": 2801346
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-09",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Luka Garza",
@@ -4317,13 +5064,21 @@
     "salary": {
       "2026-27": 2801346
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Trendon Watford",
     "team": "PHI",
     "salary": {},
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Ryan Dunn",
@@ -4334,6 +5089,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -4345,6 +5104,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -4356,6 +5119,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -4383,6 +5150,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-03-03",
+      "method": "free-agent"
     },
     "guarantees": {
       "2026-27": {
@@ -4475,6 +5246,10 @@
       "2026-27": 2584539
     },
     "options": {},
+    "acquisition": {
+      "date": "2025-11-18",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed"
@@ -4520,6 +5295,10 @@
       "2026-27": 2584539
     },
     "options": {},
+    "acquisition": {
+      "date": "2025-07-05",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "partial",
@@ -4536,6 +5315,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-08-16",
+      "method": "free-agent"
     },
     "guarantees": {
       "2026-27": {
@@ -4625,6 +5408,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-09-04",
+      "method": "free-agent"
     }
   },
   {
@@ -4634,6 +5421,10 @@
       "2026-27": 2497812
     },
     "options": {},
+    "acquisition": {
+      "date": "2025-02-08",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed",
@@ -4648,7 +5439,11 @@
       "2026-27": 2461462,
       "2027-28": 2789215
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-01-16",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Moussa Diabaté",
@@ -4656,7 +5451,11 @@
     "salary": {
       "2026-27": 2461462
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-31",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Daeqwon Plowden",
@@ -5039,6 +5838,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-14",
+      "method": "free-agent"
     }
   },
   {
@@ -5050,6 +5853,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -5075,7 +5882,11 @@
     "salary": {
       "2026-27": 2411090
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-03-02",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Ryan Kalkbrenner",
@@ -5087,6 +5898,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -5099,6 +5914,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-03",
+      "method": "free-agent"
     }
   },
   {
@@ -5136,7 +5955,11 @@
     "salary": {
       "2026-27": 2406205
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-08-31",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Craig Porter Jr.",
@@ -5145,6 +5968,10 @@
       "2026-27": 2406205
     },
     "options": {},
+    "acquisition": {
+      "date": "2023-07-03",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed"
@@ -5158,6 +5985,10 @@
       "2026-27": 2406205
     },
     "options": {},
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed",
@@ -5172,6 +6003,10 @@
       "2026-27": 2406205
     },
     "options": {},
+    "acquisition": {
+      "date": "2023-07-03",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed"
@@ -5182,11 +6017,7 @@
     "name": "Jalen Pickett",
     "team": "DEN",
     "salary": {},
-    "options": {},
-    "acquisition": {
-      "date": "2026-08-05",
-      "method": "free-agent"
-    }
+    "options": {}
   },
   {
     "name": "Jamal Shead",
@@ -5194,7 +6025,11 @@
     "salary": {
       "2026-27": 2296271
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-04",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Tyler Kolek",
@@ -5205,6 +6040,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-04",
+      "method": "free-agent"
     }
   },
   {
@@ -5213,7 +6052,11 @@
     "salary": {
       "2026-27": 2296271
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-13",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Pelle Larsson",
@@ -5222,6 +6065,10 @@
       "2026-27": 2296271
     },
     "options": {},
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed",
@@ -5238,6 +6085,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -5247,6 +6098,10 @@
       "2026-27": 2296271
     },
     "options": {},
+    "acquisition": {
+      "date": "2024-10-19",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed",
@@ -5263,6 +6118,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-04",
+      "method": "free-agent"
     }
   },
   {
@@ -5274,6 +6133,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-21",
+      "method": "free-agent"
     },
     "guarantees": {
       "2026-27": {
@@ -5291,6 +6154,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "free-agent"
     },
     "guarantees": {
       "2026-27": {
@@ -5310,6 +6177,10 @@
     "options": {
       "2027-28": "Team"
     },
+    "acquisition": {
+      "date": "2024-07-02",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "partial",
@@ -5327,6 +6198,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2024-07-05",
+      "method": "free-agent"
     },
     "guarantees": {
       "2026-27": {
@@ -5404,6 +6279,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -5415,6 +6294,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-02",
+      "method": "free-agent"
     }
   },
   {
@@ -5427,6 +6310,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-04",
+      "method": "free-agent"
     }
   },
   {
@@ -5439,6 +6326,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -5450,6 +6341,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "free-agent"
     }
   },
   {
@@ -5478,6 +6373,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-09-29",
+      "method": "free-agent"
     }
   },
   {
@@ -5490,6 +6389,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "free-agent"
     }
   },
   {
@@ -5502,6 +6405,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2025-07-01",
+      "method": "free-agent"
     }
   },
   {
@@ -5524,6 +6431,10 @@
       "2027-28": 2525901
     },
     "options": {},
+    "acquisition": {
+      "date": "2025-07-24",
+      "method": "free-agent"
+    },
     "guarantees": {
       "2026-27": {
         "status": "partial",
@@ -5761,7 +6672,11 @@
     "salary": {
       "2026-27": 424672
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2022-07-07",
+      "method": "free-agent"
+    }
   },
   {
     "name": "Didi Louzada",

@@ -1,0 +1,26 @@
+[
+ {
+  "name": "Damian Lillard",
+  "kept": "POR",
+  "dropped": [
+   "MIL"
+  ],
+  "via": "acquisition-ledger"
+ },
+ {
+  "name": "Bradley Beal",
+  "kept": "LAC",
+  "dropped": [
+   "PHO"
+  ],
+  "via": "acquisition-ledger"
+ },
+ {
+  "name": "Olivier-Maxence Prosper",
+  "kept": "MEM",
+  "dropped": [
+   "DAL"
+  ],
+  "via": "acquisition-ledger"
+ }
+]
