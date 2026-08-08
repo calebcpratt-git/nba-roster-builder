@@ -442,15 +442,24 @@ def parse_free_agent_options(path):
     return out
 
 
+_VETERAN_FA_STATUS_TO_BIRD_RIGHTS = {
+    'Non-Bird': 'non-bird', 'Early Bird': 'early-bird', 'Bird': 'full-bird',
+}
+
+
 def parse_current_free_agents(path):
-    """-> [{name, priorTeam, faType}]
-    Parses the current_free_agents table (Player / ... / FA Type / Prior NBA
-    Team / ...). faType is the raw column value ('U' unrestricted, 'R'
-    restricted, etc.) — kept as-is, not interpreted here."""
+    """-> [{name, priorTeam, faType, birdRights}]
+    Parses the current_free_agents table (Player / ... / FA Type / Veteran
+    FA Status / Prior NBA Team / ...). faType is the raw column value ('U'
+    unrestricted, 'R' restricted, etc.) — kept as-is, not interpreted here.
+    birdRights is mapped from the "Veteran FA Status" column ('Non-Bird' /
+    'Early Bird' / 'Bird') to the app's lowercase-hyphenated form; None when
+    the column reads 'N/A' (no NBA veteran service) or the column itself is
+    missing from an older page layout."""
     soup = BeautifulSoup(open(path, encoding='ISO-8859-1', errors='replace').read(), 'html.parser')
     table = None
     for t in soup.find_all('table'):
-        header_cells = [c.get_text(strip=True) for c in t.find_all(['th', 'td'])[:9]]
+        header_cells = [c.get_text(strip=True) for c in t.find_all(['th', 'td'])[:15]]
         if 'FA Type' in header_cells and 'Prior NBA Team' in header_cells:
             table = t
             header = header_cells
@@ -462,6 +471,7 @@ def parse_current_free_agents(path):
         raise RuntimeError('current_free_agents table has no tbody — page layout changed')
     fa_type_idx = header.index('FA Type')
     prior_team_idx = header.index('Prior NBA Team')
+    bird_idx = header.index('Veteran FA Status') if 'Veteran FA Status' in header else None
     out = []
     for tr in body.find_all('tr'):
         tds = tr.find_all('td')
@@ -473,7 +483,10 @@ def parse_current_free_agents(path):
         prior_team = _PRIOR_TEAM_TO_APP_ABBR.get(prior_team_code)
         if not name or prior_team is None or not fa_type:
             continue
-        out.append({'name': name, 'priorTeam': prior_team, 'faType': fa_type})
+        bird_rights = None
+        if bird_idx is not None and len(tds) > bird_idx:
+            bird_rights = _VETERAN_FA_STATUS_TO_BIRD_RIGHTS.get(tds[bird_idx].get_text(strip=True))
+        out.append({'name': name, 'priorTeam': prior_team, 'faType': fa_type, 'birdRights': bird_rights})
     if not out:
         raise RuntimeError('current_free_agents parsed to zero rows — page layout changed')
     return out

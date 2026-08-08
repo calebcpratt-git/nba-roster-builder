@@ -4,10 +4,12 @@ import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { SEASONS, SavedTrade } from '@/lib/types'
 import { SignFreeAgentsPanelContent, getAvailableFreeAgents } from '@/components/sign-free-agents-panel'
+import { RestrictedFreeAgencyPanelContent } from '@/components/restricted-free-agency-panel'
 import { TradesPanelContent } from '@/components/trades-panel'
 import { SavedContractsPanelContent } from '@/components/saved-contracts-panel'
 import { SigningExceptionsPanel } from '@/components/signing-exceptions-panel'
 import { TradeExceptionsPanel } from '@/components/trade-exceptions-panel'
+import { RosterCompliancePanel } from '@/components/roster-compliance-panel'
 import { TradeModal } from '@/components/trade-modal'
 import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -53,6 +55,8 @@ export function MobilePanelTabs() {
       {activePanel === 'fa' && (
         <div className="bg-card rounded-xl p-2.5 flex flex-col gap-2">
           <SignFreeAgentsPanelContent selectedYear={selectedYear} onSelectedYearChange={setSelectedYear} />
+          <p className="text-xs font-semibold text-muted-foreground pt-1">Restricted Free Agency</p>
+          <RestrictedFreeAgencyPanelContent />
         </div>
       )}
 
@@ -78,6 +82,7 @@ export function MobilePanelTabs() {
       {activePanel === 'saved' && (
         <div className="bg-card rounded-xl p-2.5 max-h-[260px] overflow-y-auto flex flex-col gap-2.5">
           <SavedContractsPanelContent />
+          <RosterCompliancePanel />
           <SigningExceptionsPanel />
           <TradeExceptionsPanel />
         </div>

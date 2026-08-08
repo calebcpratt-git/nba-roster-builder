@@ -10,8 +10,12 @@ import {
   getMaxContractPct,
   getMaxContractSalaries,
   getMaxAllowedTotal,
+  isLikelyRestrictedFreeAgent,
   DistributionType,
 } from '@/lib/contract-utils'
+import { getMinimumSalaryThreshold, LEAGUE_CAP } from '@/lib/league-cap'
+import { TEAM_CAP_STATE } from '@/lib/team-cap-state'
+import { getUsedExceptions } from '@/components/signing-exceptions-panel'
 import {
   Dialog,
   DialogContent,
@@ -74,14 +78,26 @@ function detectDistribution(salary: Partial<Record<Season, number>>): Distributi
   return avg > 1.0 ? 'escalating' : 'declining'
 }
 
+type ExceptionType = 'ntmle' | 'tmle' | 'bae'
+
+const EXCEPTION_LABELS: Record<ExceptionType, string> = {
+  ntmle: 'Non-Taxpayer MLE',
+  tmle: 'Taxpayer MLE',
+  bae: 'Bi-Annual Exception',
+}
+const EXCEPTION_MAX_YEARS: Record<ExceptionType, number> = { ntmle: 4, tmle: 2, bae: 2 }
+
 export function SignFreeAgentModal({ player, startingSeason, isOpen, editingContract, onClose }: SignFreeAgentModalProps) {
   const { addSavedContract, updateSavedContract, setDeletedContractIds, selectedTeamAbbr, getTotalSalary, savedContracts, deletedContractIds } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
   const [isMinimum, setIsMinimum] = useState(false)
-  const [isMLE, setIsMLE] = useState(false)
+  const [exceptionType, setExceptionType] = useState<ExceptionType | null>(null)
   const [isMaxContract, setIsMaxContract] = useState(false)
+  const [isTwoWay, setIsTwoWay] = useState(false)
+  const [isRestrictedFA, setIsRestrictedFA] = useState(false)
+  const [isQualifyingOffer, setIsQualifyingOffer] = useState(false)
   const [yearsError, setYearsError] = useState('')
 
   useEffect(() => {
@@ -93,19 +109,25 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setTotalValue((total / 1_000_000).toFixed(2))
       setDistribution(detectDistribution(editingContract.salary))
       setIsMinimum(editingContract.isMinimum ?? false)
-      setIsMLE(editingContract.isMLE ?? false)
+      setExceptionType(editingContract.exceptionType ?? null)
       setIsMaxContract(editingContract.isMaxContract ?? false)
+      setIsTwoWay(editingContract.contractType === 'two-way')
+      setIsRestrictedFA(!!editingContract.rfaPath)
+      setIsQualifyingOffer(editingContract.rfaPath === 'qualifying-offer')
       setYearsError('')
     } else {
       setYears('3')
       setTotalValue('')
       setDistribution('escalating')
       setIsMinimum(false)
-      setIsMLE(false)
+      setExceptionType(null)
       setIsMaxContract(false)
+      setIsTwoWay(false)
+      setIsRestrictedFA(player ? isLikelyRestrictedFreeAgent(player.name, startingSeason) : false)
+      setIsQualifyingOffer(false)
       setYearsError('')
     }
-  }, [isOpen, editingContract?.id])
+  }, [isOpen, editingContract?.id, player, startingSeason])
 
   if (!player) return null
 
@@ -116,29 +138,58 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     : undefined
   const effectiveStartingSeason = (editingFirstSeason ?? startingSeason) as Season
 
-  // Cap threshold checks
-  const { capSpaceTotal: currentTeamTotal } = getTotalSalary(effectiveStartingSeason)
+  const isOnSelectedTeam = player.team === selectedTeamAbbr
+  // An RFA signing with a different team than the player's own is an offer
+  // sheet — min 2/max 4 years, no two-way. Tendering a QO only applies when
+  // re-signing your own player.
+  const isOfferSheet = isRestrictedFA && !isOnSelectedTeam
+
+  // Cap-room status and apron status are two different numbers (capSpaceTotal
+  // strips nothing, apronTotal strips cap holds back out) — which exceptions
+  // exist is gated by apron status, matching SigningExceptionsPanel.
+  const { capSpaceTotal: currentTeamTotal, apronTotal } = getTotalSalary(effectiveStartingSeason)
   const seasonThresholds = CAP_THRESHOLDS[effectiveStartingSeason]
   const softCap = seasonThresholds?.find((t) => t.type === 'soft-cap')?.value ?? 0
   const firstApron = seasonThresholds?.find((t) => t.type === 'first-apron')?.value ?? 0
   const secondApron = seasonThresholds?.find((t) => t.type === 'second-apron')?.value ?? 0
-  const isOverSecondApron = currentTeamTotal > secondApron
-  const isOverFirstApronBelowSecondApron = currentTeamTotal > firstApron && !isOverSecondApron
-  const isOverCapBelowFirstApron = currentTeamTotal > softCap && currentTeamTotal < firstApron
+  const hasCapRoom = currentTeamTotal < softCap
+  const isOverSecondApron = apronTotal >= secondApron
+  const isOverFirstApronBelowSecondApron = apronTotal >= firstApron && !isOverSecondApron
+  const isOverCapBelowFirstApron = !hasCapRoom && apronTotal < firstApron
 
-  const mleAlreadyUsedForSeason = savedContracts.some(
-    (c) =>
-      c.isMLE &&
-      !deletedContractIds.has(c.id) &&
-      c.id !== editingContract?.id &&
-      SEASONS.find((s) => (c.salary[s] ?? 0) > 0) === effectiveStartingSeason
+  // Real per-team "already used" data for the current season, layered with any
+  // exception-funded contract already sitting in this builder session — the
+  // same source SigningExceptionsPanel reads, so both stay in sync.
+  const exceptionsUsed = TEAM_CAP_STATE[selectedTeamAbbr]?.[effectiveStartingSeason]?.exceptionsUsed
+  const usedExceptions = getUsedExceptions(
+    exceptionsUsed,
+    savedContracts.filter((c) => c.id !== editingContract?.id),
+    deletedContractIds,
+    effectiveStartingSeason
   )
-  const mleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && !isOverSecondApron
+  // The Non-Taxpayer and Taxpayer MLE share a single mid-level allocation per
+  // season — once either is spent, both read as used.
+  const mleAlreadyUsedForSeason = usedExceptions.has('non-taxpayer-mle') || usedExceptions.has('taxpayer-mle')
+  const baeAlreadyUsedForSeason = usedExceptions.has('bi-annual')
+
+  const ntmleAvailable = isOverCapBelowFirstApron && !mleAlreadyUsedForSeason
+  const baeAvailable = isOverCapBelowFirstApron && !baeAlreadyUsedForSeason
+  const tmleAvailable = isOverFirstApronBelowSecondApron && !mleAlreadyUsedForSeason
 
   // Seasons / year calculations
   const startIndex = SEASONS.indexOf(effectiveStartingSeason)
   const maxYears = SEASONS.length - startIndex
-  const maxYearsAllowed = isMinimum ? 2 : isMaxContract ? Math.min(5, maxYears) : maxYears
+  const maxYearsAllowed = isQualifyingOffer
+    ? 1
+    : isMinimum || isTwoWay
+    ? 2
+    : isMaxContract
+    ? Math.min(5, maxYears)
+    : exceptionType
+    ? Math.min(EXCEPTION_MAX_YEARS[exceptionType], maxYears)
+    : isOfferSheet
+    ? Math.min(4, maxYears)
+    : maxYears
   const numYears = Math.min(parseInt(years) || 3, maxYearsAllowed)
   const contractSeasons = SEASONS.slice(startIndex, startIndex + numYears)
 
@@ -156,24 +207,47 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       : Infinity
   const maxAllowedTotalM = maxAllowedTotalDollars / 1_000_000
 
-  // Minimum / MLE totals
+  // Minimum totals
   const minimumTotalValue = numYears === 1 ? 1.32 : 2.75
-  const mleSoftCapBase = CAP_THRESHOLDS['2026-27']?.find((t) => t.type === 'soft-cap')?.value ?? 150000000
-  const mleTotalValue = contractSeasons.reduce((sum, season) => {
-    const seasonSoftCap = CAP_THRESHOLDS[season]?.find((t) => t.type === 'soft-cap')?.value ?? mleSoftCapBase
-    return sum + (15.1 * seasonSoftCap) / mleSoftCapBase
-  }, 0)
 
-  const totalValueNum = isMinimum
+  // Exception salaries: each starts at that season's published exception
+  // amount and escalates 5%/yr for subsequent contract years — not a total
+  // split evenly across an escalating curve.
+  const exceptionSalaries = (type: ExceptionType, seasons: Season[]): Partial<Record<Season, number>> => {
+    const baseAnnual = LEAGUE_CAP[effectiveStartingSeason]?.exceptions[
+      type === 'ntmle' ? 'nonTaxpayerMLE' : type === 'tmle' ? 'taxpayerMLE' : 'biAnnual'
+    ] ?? 0
+    const result: Partial<Record<Season, number>> = {}
+    seasons.forEach((season, index) => {
+      result[season] = baseAnnual * Math.pow(1.05, index)
+    })
+    return result
+  }
+  const exceptionTotalValue = exceptionType
+    ? Object.values(exceptionSalaries(exceptionType, contractSeasons)).reduce((a, b) => a + (b ?? 0), 0) / 1_000_000
+    : 0
+
+  const twoWayTotalValue = contractSeasons.reduce(
+    (sum, season) => sum + getMinimumSalaryThreshold(season, 0) * 0.5,
+    0
+  ) / 1_000_000
+
+  const totalValueNum = isTwoWay
+    ? twoWayTotalValue
+    : isMinimum
     ? minimumTotalValue
-    : isMLE
-    ? mleTotalValue
+    : exceptionType
+    ? exceptionTotalValue
     : parseFloat(totalValue) || 0
 
   const capRestricted =
-    (isOverSecondApron && !isMinimum) ||
-    (isOverFirstApronBelowSecondApron && !isMinimum) ||
-    (isOverCapBelowFirstApron && !isMinimum && !(isMLE && mleAvailable))
+    !isTwoWay &&
+    !isQualifyingOffer &&
+    ((isOverSecondApron && !isMinimum) ||
+      (isOverFirstApronBelowSecondApron && !isMinimum && !(exceptionType === 'tmle' && tmleAvailable)) ||
+      (isOverCapBelowFirstApron &&
+        !isMinimum &&
+        !((exceptionType === 'ntmle' && ntmleAvailable) || (exceptionType === 'bae' && baeAvailable))))
 
   // Clamp a total-value string to the current max allowed
   const clampTotalValue = (
@@ -193,7 +267,9 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     setYearsError('')
     if (checked) {
       setIsMinimum(false)
-      setIsMLE(false)
+      setExceptionType(null)
+      setIsTwoWay(false)
+      setIsQualifyingOffer(false)
       setTotalValue('')
       if (parseInt(years) > 5) setYears('5')
     }
@@ -204,7 +280,9 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     setYearsError('')
     if (checked) {
       setIsMaxContract(false)
-      setIsMLE(false)
+      setExceptionType(null)
+      setIsTwoWay(false)
+      setIsQualifyingOffer(false)
       setYears('1')
       setDistribution('flat')
     } else {
@@ -213,11 +291,62 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     }
   }
 
-  const handleMLEToggle = (checked: boolean) => {
-    setIsMLE(checked)
+  const handleExceptionToggle = (type: ExceptionType, checked: boolean) => {
+    setExceptionType(checked ? type : null)
+    setYearsError('')
     if (checked) {
       setIsMinimum(false)
       setIsMaxContract(false)
+      setIsTwoWay(false)
+      setIsQualifyingOffer(false)
+      setYears(String(Math.min(EXCEPTION_MAX_YEARS[type], maxYears)))
+      setDistribution('escalating')
+    } else {
+      setYears('3')
+      setDistribution('escalating')
+    }
+  }
+
+  const handleTwoWayToggle = (checked: boolean) => {
+    setIsTwoWay(checked)
+    setYearsError('')
+    if (checked) {
+      setIsMinimum(false)
+      setExceptionType(null)
+      setIsMaxContract(false)
+      setIsQualifyingOffer(false)
+      if (parseInt(years) > 2) setYears('2')
+      setDistribution('flat')
+    } else {
+      setYears('3')
+      setDistribution('escalating')
+    }
+  }
+
+  // Gates whether the QO sub-toggle is even shown — turning it off when
+  // switching to a different team (offer-sheet mode) or off entirely.
+  const handleRestrictedFAToggle = (checked: boolean) => {
+    setIsRestrictedFA(checked)
+    setIsQualifyingOffer(false)
+    setYearsError('')
+    if (checked && isOfferSheet) {
+      setIsTwoWay(false)
+      const clamped = Math.min(Math.max(parseInt(years) || 2, 2), Math.min(4, maxYears))
+      setYears(String(clamped))
+    }
+  }
+
+  const handleQualifyingOfferToggle = (checked: boolean) => {
+    setIsQualifyingOffer(checked)
+    setYearsError('')
+    if (checked) {
+      setIsMinimum(false)
+      setIsMaxContract(false)
+      setExceptionType(null)
+      setIsTwoWay(false)
+      setYears('1')
+      setDistribution('flat')
+    } else {
       setYears('3')
       setDistribution('escalating')
     }
@@ -226,8 +355,18 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const handleYearsChange = (value: string) => {
     setYearsError('')
     const numValue = parseInt(value)
+    if (isQualifyingOffer && numValue !== 1) {
+      setYearsError('A qualifying offer is always 1 year')
+      setYears('1')
+      return
+    }
     if (isMinimum && numValue > 2) {
       setYearsError('Minimum contracts can only be for 1 or 2 years')
+      setYears('2')
+      return
+    }
+    if (isTwoWay && numValue > 2) {
+      setYearsError('Two-way contracts can only be for 1 or 2 years')
       setYears('2')
       return
     }
@@ -236,9 +375,19 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setYears('5')
       return
     }
+    if (isOfferSheet && numValue > 4) {
+      setYearsError('Offer sheets can run at most 4 years')
+      setYears('4')
+      return
+    }
+    if (isOfferSheet && numValue < 2) {
+      setYearsError('Offer sheets must run at least 2 years')
+      setYears('2')
+      return
+    }
     setYears(value)
     // Clamp total value against the new seasons
-    if (!isMaxContract && !isMinimum && !isMLE && totalValue) {
+    if (!isMaxContract && !isMinimum && !exceptionType && totalValue) {
       const newNumYears = Math.min(numValue || 3, isMaxContract ? Math.min(5, maxYears) : maxYears)
       const newSeasons = SEASONS.slice(startIndex, startIndex + newNumYears)
       setTotalValue(clampTotalValue(totalValue, distribution, newSeasons))
@@ -247,14 +396,14 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
 
   const handleDistributionChange = (v: DistributionType) => {
     setDistribution(v)
-    if (!isMaxContract && !isMinimum && !isMLE && totalValue) {
+    if (!isMaxContract && !isMinimum && !exceptionType && totalValue) {
       setTotalValue(clampTotalValue(totalValue, v, contractSeasons))
     }
   }
 
   const handleTotalValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value
-    if (!isMaxContract && !isMinimum && !isMLE) {
+    if (!isMaxContract && !isMinimum && !exceptionType) {
       setTotalValue(clampTotalValue(val, distribution, contractSeasons))
     } else {
       setTotalValue(val)
@@ -267,12 +416,15 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     const result: Partial<Record<Season, number>> = {}
     if (contractSeasons.length === 0) return result
 
-    if (isMLE) {
+    if (isTwoWay) {
       contractSeasons.forEach((season) => {
-        const seasonSoftCap = CAP_THRESHOLDS[season]?.find((t) => t.type === 'soft-cap')?.value ?? mleSoftCapBase
-        result[season] = (15100000 * seasonSoftCap) / mleSoftCapBase
+        result[season] = getMinimumSalaryThreshold(season, 0) * 0.5
       })
       return result
+    }
+
+    if (exceptionType) {
+      return exceptionSalaries(exceptionType, contractSeasons)
     }
 
     if (totalValueNum <= 0) return result
@@ -309,10 +461,12 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     ? Object.values(maxContractSalaries).reduce((a, b) => a + (b ?? 0), 0) / 1_000_000
     : 0
 
-  const totalValueDisplayed = isMinimum
+  const totalValueDisplayed = isTwoWay
+    ? twoWayTotalValue.toFixed(2)
+    : isMinimum
     ? minimumTotalValue.toString()
-    : isMLE
-    ? mleTotalValue.toFixed(1)
+    : exceptionType
+    ? exceptionTotalValue.toFixed(1)
     : isMaxContract
     ? maxContractTotalM.toFixed(1)
     : totalValue
@@ -322,10 +476,23 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     setTotalValue('')
     setDistribution('escalating')
     setIsMinimum(false)
-    setIsMLE(false)
+    setExceptionType(null)
     setIsMaxContract(false)
+    setIsTwoWay(false)
+    setIsRestrictedFA(false)
+    setIsQualifyingOffer(false)
     setYearsError('')
   }
+
+  // Preserves the matched badge if editing a contract matchOfferSheet already
+  // created; otherwise derives rfaPath from the toggles above.
+  const rfaPath: SavedContract['rfaPath'] = !isRestrictedFA
+    ? undefined
+    : isQualifyingOffer
+    ? 'qualifying-offer'
+    : isOnSelectedTeam
+    ? (editingContract?.rfaPath === 'matched-offer-sheet' ? 'matched-offer-sheet' : undefined)
+    : 'offer-sheet'
 
   const handleSave = () => {
     if (editingContract) {
@@ -333,11 +500,12 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
         ...editingContract,
         salary: salaries,
         isMinimum: isMinimum,
-        isMLE: isMLE,
+        exceptionType: exceptionType ?? undefined,
         isMaxContract: isMaxContract,
+        contractType: isTwoWay ? 'two-way' : undefined,
+        rfaPath,
       })
     } else {
-      const isOnSelectedTeam = player.team === selectedTeamAbbr
       addSavedContract({
         id: `fa-${player.id}-${Date.now()}`,
         playerId: player.id,
@@ -346,8 +514,10 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
         salary: salaries,
         createdAt: new Date(),
         isMinimum: isMinimum,
-        isMLE: isMLE,
+        exceptionType: exceptionType ?? undefined,
         isMaxContract: isMaxContract,
+        contractType: isTwoWay ? 'two-way' : undefined,
+        rfaPath,
       })
     }
 
@@ -364,15 +534,24 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     onClose()
   }
 
-  const isValid = isOverSecondApron || isOverFirstApronBelowSecondApron
-    ? isMinimum && numYears > 0
-    : isOverCapBelowFirstApron
-    ? (isMinimum || (isMLE && mleAvailable)) && numYears > 0
-    : isMaxContract
-    ? numYears > 0 && maxContractSalaries !== null
-    : totalValueNum > 0 && numYears > 0
+  const meetsOfferSheetTermBand = !isOfferSheet || (numYears >= 2 && numYears <= 4)
 
-  const isTotalValueDisabled = isMinimum || isMLE || isMaxContract || capRestricted
+  const isValid = isQualifyingOffer
+    ? totalValueNum > 0 && numYears === 1
+    : meetsOfferSheetTermBand &&
+      (isTwoWay
+        ? numYears > 0
+        : isOverSecondApron
+        ? isMinimum && numYears > 0
+        : isOverFirstApronBelowSecondApron
+        ? (isMinimum || (exceptionType === 'tmle' && tmleAvailable)) && numYears > 0
+        : isOverCapBelowFirstApron
+        ? (isMinimum || (exceptionType === 'ntmle' && ntmleAvailable) || (exceptionType === 'bae' && baeAvailable)) && numYears > 0
+        : isMaxContract
+        ? numYears > 0 && maxContractSalaries !== null
+        : totalValueNum > 0 && numYears > 0)
+
+  const isTotalValueDisabled = isMinimum || !!exceptionType || isMaxContract || isTwoWay || capRestricted
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -396,22 +575,48 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
             )}
             {isOverFirstApronBelowSecondApron && (
               <p className="text-xs text-red-500">
-                Team is over the first apron. Only minimum contracts are available.
+                Team is over the first apron. {tmleAvailable ? 'Minimum or Taxpayer MLE contracts are available.' : 'The Taxpayer MLE has already been used — only a minimum contract is available.'}
               </p>
             )}
-            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && isOverCapBelowFirstApron && !mleAlreadyUsedForSeason && (
+            {isOverCapBelowFirstApron && (ntmleAvailable || baeAvailable) && (
               <p className="text-xs text-amber-500">
-                Team is over the salary cap. Only Minimum or Mid-Level Exception contracts are available.
+                Team is over the salary cap. Minimum{ntmleAvailable ? ', Non-Taxpayer MLE' : ''}{baeAvailable ? ', or Bi-Annual Exception' : ''} contracts are available.
               </p>
             )}
-            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && isOverCapBelowFirstApron && mleAlreadyUsedForSeason && (
+            {isOverCapBelowFirstApron && !ntmleAvailable && !baeAvailable && (
               <p className="text-xs text-amber-500">
-                Team is over the salary cap and has already used the MLE for {effectiveStartingSeason}. Only a minimum contract is available.
+                Team is over the salary cap and has already used its Mid-Level and Bi-Annual Exceptions for {effectiveStartingSeason}. Only a minimum contract is available.
               </p>
             )}
 
             {/* Contract type toggles */}
             <div className="flex items-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Label htmlFor="restricted-fa" className="text-xs font-medium cursor-pointer">
+                  Restricted Free Agent
+                </Label>
+                <Switch
+                  id="restricted-fa"
+                  checked={isRestrictedFA}
+                  onCheckedChange={handleRestrictedFAToggle}
+                  className="data-[state=unchecked]:bg-gray-400"
+                />
+              </div>
+
+              {isRestrictedFA && isOnSelectedTeam && (
+                <div className="flex items-center gap-2">
+                  <Label htmlFor="qualifying-offer" className="text-xs font-medium cursor-pointer">
+                    Tender Qualifying Offer
+                  </Label>
+                  <Switch
+                    id="qualifying-offer"
+                    checked={isQualifyingOffer}
+                    onCheckedChange={handleQualifyingOfferToggle}
+                    className="data-[state=unchecked]:bg-gray-400"
+                  />
+                </div>
+              )}
+
               {/* Maximum Contract — shown when cap allows non-minimum contracts */}
               {!isOverSecondApron && !isOverFirstApronBelowSecondApron && !(isOverCapBelowFirstApron) && rookieYear !== undefined && (
                 <div className="flex items-center gap-2">
@@ -439,20 +644,91 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 />
               </div>
 
-              {mleAvailable && (
+              {ntmleAvailable && (
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="mle-contract-fa" className="text-xs font-medium cursor-pointer">
-                    Mid-Level Exception
+                  <Label htmlFor="ntmle-contract-fa" className="text-xs font-medium cursor-pointer">
+                    Non-Taxpayer MLE
                   </Label>
                   <Switch
-                    id="mle-contract-fa"
-                    checked={isMLE}
-                    onCheckedChange={handleMLEToggle}
+                    id="ntmle-contract-fa"
+                    checked={exceptionType === 'ntmle'}
+                    onCheckedChange={(checked) => handleExceptionToggle('ntmle', checked)}
+                    className="data-[state=unchecked]:bg-gray-400"
+                  />
+                </div>
+              )}
+
+              {tmleAvailable && (
+                <div className="flex items-center gap-2">
+                  <Label htmlFor="tmle-contract-fa" className="text-xs font-medium cursor-pointer">
+                    Taxpayer MLE
+                  </Label>
+                  <Switch
+                    id="tmle-contract-fa"
+                    checked={exceptionType === 'tmle'}
+                    onCheckedChange={(checked) => handleExceptionToggle('tmle', checked)}
+                    className="data-[state=unchecked]:bg-gray-400"
+                  />
+                </div>
+              )}
+
+              {baeAvailable && (
+                <div className="flex items-center gap-2">
+                  <Label htmlFor="bae-contract-fa" className="text-xs font-medium cursor-pointer">
+                    Bi-Annual Exception
+                  </Label>
+                  <Switch
+                    id="bae-contract-fa"
+                    checked={exceptionType === 'bae'}
+                    onCheckedChange={(checked) => handleExceptionToggle('bae', checked)}
+                    className="data-[state=unchecked]:bg-gray-400"
+                  />
+                </div>
+              )}
+
+              {!isOfferSheet && (
+                <div className="flex items-center gap-2">
+                  <Label htmlFor="two-way-contract-fa" className="text-xs font-medium cursor-pointer">
+                    Two-Way Contract
+                  </Label>
+                  <Switch
+                    id="two-way-contract-fa"
+                    checked={isTwoWay}
+                    onCheckedChange={handleTwoWayToggle}
                     className="data-[state=unchecked]:bg-gray-400"
                   />
                 </div>
               )}
             </div>
+
+            {isQualifyingOffer && (
+              <p className="text-xs text-muted-foreground">
+                A qualifying offer is a 1-year, fully guaranteed deal that gives {player.team} matching rights over
+                any offer sheet {player.name} signs elsewhere. Enter the QO amount manually.
+              </p>
+            )}
+
+            {isOfferSheet && (
+              <p className="text-xs text-muted-foreground">
+                Offer sheet — must run 2–4 years and can&apos;t be a two-way deal. {player.team} will have a chance to
+                match; if they do, {player.name} can&apos;t be traded without his consent for one year, and never to{' '}
+                {selectedTeamAbbr} even with it.
+              </p>
+            )}
+
+            {isTwoWay && (
+              <p className="text-xs text-muted-foreground">
+                50% of the 0-YOS minimum, flat, 1–2 years. Excluded from Team Salary entirely and counts against the
+                team&apos;s 3 two-way slots{yoe !== undefined && yoe > 4 ? ' — note: players with more than 4 YOS are not eligible for a two-way deal' : ''}.
+              </p>
+            )}
+
+            {exceptionType && (
+              <p className="text-xs text-muted-foreground">
+                {EXCEPTION_LABELS[exceptionType]}: up to {EXCEPTION_MAX_YEARS[exceptionType]} years, 5% annual raises
+                {exceptionType === 'tmle' ? ' — signings only, and it hard-caps the team at the second apron for the rest of the year' : ''}.
+              </p>
+            )}
 
             {/* Max contract info line */}
             {!isOverSecondApron && !isOverFirstApronBelowSecondApron && !isOverCapBelowFirstApron && yoe !== undefined && maxPct !== undefined && (
@@ -475,11 +751,11 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
               <Input
                 id="years"
                 type="number"
-                min="1"
+                min={isOfferSheet ? 2 : 1}
                 max={maxYearsAllowed}
                 value={years}
                 onChange={(e) => handleYearsChange(e.target.value)}
-                disabled={capRestricted}
+                disabled={capRestricted || isQualifyingOffer}
                 className={cn('h-8 text-sm', yearsError && 'border-red-500', capRestricted && 'bg-muted cursor-not-allowed')}
               />
               {yearsError && <p className="text-xs text-red-500 mt-1">{yearsError}</p>}
@@ -487,7 +763,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
             <div>
               <Label htmlFor="total-value" className="text-xs">
                 Total Value (Millions)
-                {!isMaxContract && !isMinimum && !isMLE && maxAllowedTotalM < Infinity && (
+                {!isMaxContract && !isMinimum && !exceptionType && maxAllowedTotalM < Infinity && (
                   <span className="text-muted-foreground font-normal"> · max ${maxAllowedTotalM.toFixed(1)}M</span>
                 )}
               </Label>
@@ -509,12 +785,12 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
             <Select
               value={distribution}
               onValueChange={(v) => handleDistributionChange(v as DistributionType)}
-              disabled={isMinimum || isMLE || capRestricted}
+              disabled={isMinimum || !!exceptionType || isTwoWay || capRestricted}
             >
               <SelectTrigger
                 className={cn(
                   'flex-1 text-sm justify-start items-start py-2',
-                  (isMinimum || isMLE || capRestricted) && 'bg-muted cursor-not-allowed opacity-50'
+                  (isMinimum || !!exceptionType || isTwoWay || capRestricted) && 'bg-muted cursor-not-allowed opacity-50'
                 )}
                 style={{ height: 'auto' }}
               >

@@ -17,6 +17,16 @@ export function getPlayerYOE(rookieYear: number, startSeason: Season): number {
   return startYear - rookieYear
 }
 
+// Catches only the "3 or fewer years of service" branch of RFA eligibility —
+// a first-rounder finishing year 4 of his rookie scale is also an RFA, but
+// there's no draft-round data to detect that case, so this is a default for
+// a user-overridable toggle, not a hard eligibility gate.
+export function isLikelyRestrictedFreeAgent(playerName: string, season: Season): boolean {
+  const rookieYear = getPlayerRookieYear(playerName)
+  if (rookieYear === undefined) return false
+  return getPlayerYOE(rookieYear, season) <= 3
+}
+
 export function getMaxContractPct(yoe: number): number {
   if (yoe <= 6) return 0.25
   if (yoe <= 9) return 0.30

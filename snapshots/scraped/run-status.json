@@ -30,13 +30,13 @@
     "newByCategory": {}
   },
   "warnings": [
-    "players: diff too large — 238 of 455 previous records changed (52.3%, threshold 30%) — proceeding because a large diff was explicitly accepted"
+    "team-cap-state: diff too large — 124 of 150 previous records changed (82.7%, threshold 30%) — proceeding because a large diff was explicitly accepted"
   ],
   "diffSummaries": [
-    "players: +0 -0 ~238 (of 455)",
+    "players: +0 -0 ~0 (of 455)",
     "draft-picks: +0 -0 ~0 (of 521)",
     "contract-details: +0 -0 ~0 (of 448)",
-    "team-cap-state: +0 -0 ~0 (of 150)"
+    "team-cap-state: +0 -0 ~124 (of 150)"
   ],
   "clean": false
 }

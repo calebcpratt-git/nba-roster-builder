@@ -33,7 +33,7 @@ export function useRosterTableData() {
         c => c.type === 'extension' && c.playerId === p.id && !deletedContractIds.has(c.id)
       )
       const sortSalary = extension?.salary['2026-27'] || getEffectiveSalary(p, '2026-27')
-      return { ...p, source: 'current' as const, sortSalary, isTraded: tradedRosterPlayerIds.has(p.id) }
+      return { ...p, source: 'current' as const, sortSalary, isTraded: tradedRosterPlayerIds.has(p.id), rfaPath: extension?.rfaPath }
     }),
     ...savedContracts
       .filter((c) => c.type === 'free-agent')
@@ -51,10 +51,12 @@ export function useRosterTableData() {
           isUserCreated: true,
           source: 'saved' as const,
           type: c.type,
+          contractType: c.contractType,
           sortSalary: firstYearSalary,
           isMinimum: c.isMinimum || false,
           isTraded: tradedRosterPlayerIds.has(c.id),
           isDeleted: deletedContractIds.has(c.id),
+          rfaPath: c.rfaPath,
         }
       }),
     // Incoming trade players
