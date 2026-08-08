@@ -28,8 +28,13 @@ export interface SavedContract {
   createdAt: Date
   notes?: string
   isMinimum?: boolean
-  isMLE?: boolean
+  /** Which signing exception funded this contract, if any. */
+  exceptionType?: 'ntmle' | 'tmle' | 'bae'
   isMaxContract?: boolean
+  /** Absent = standard contract. 'two-way' counts against the 3-slot limit and is excluded from Team Salary. */
+  contractType?: 'two-way'
+  /** Restricted-free-agency path this contract represents. Absent = not RFA-related. */
+  rfaPath?: 'qualifying-offer' | 'offer-sheet' | 'matched-offer-sheet'
 }
 
 export interface CapThreshold {

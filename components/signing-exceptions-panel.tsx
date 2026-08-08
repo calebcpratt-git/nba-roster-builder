@@ -2,19 +2,14 @@
 
 import { useRoster } from '@/lib/roster-context'
 import { CAP_THRESHOLDS } from '@/lib/data'
-import { getContractDetail } from '@/lib/contract-details'
+import { ExceptionsUsed, TEAM_CAP_STATE } from '@/lib/team-cap-state'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Check, X } from 'lucide-react'
-import { Player, SavedContract, Season, SEASONS } from '@/lib/types'
+import { SavedContract, Season, SEASONS } from '@/lib/types'
 
 const SEASON: Season = '2026-27'
 
-// The four exceptions the data pipeline can actually tag a contract with
-// (see ContractDetail['signedUnder'] in lib/contract-details.ts). The
-// Disabled Player Exception isn't among them — it's granted per-player via a
-// medical review, not tracked as a season-long team resource in this data,
-// so its row can only reflect apron eligibility, not "already used."
-type TrackedException = 'room-mle' | 'non-taxpayer-mle' | 'taxpayer-mle' | 'bi-annual'
+export type TrackedException = 'room-mle' | 'non-taxpayer-mle' | 'taxpayer-mle' | 'bi-annual'
 
 interface Mechanism {
   key: TrackedException | 'disabled-player'
@@ -27,47 +22,52 @@ function firstFundedSeason(salary: Partial<Record<Season, number>>): Season | un
   return SEASONS.find((s) => (salary[s] ?? 0) > 0)
 }
 
-// A team's exception is spent for the season either by an existing roster
-// contract the pipeline tagged with that exception (signed this off-season,
-// i.e. its own first funded season is the season in question), or by a
-// contract signed live in this builder. The free-agent modal's MLE checkbox
-// only ever grants the Non-Taxpayer MLE (it's disabled once a team is at or
-// above the first apron), so an isMLE saved contract always maps to that one.
-function getUsedExceptions(
-  roster: Player[],
+const EXCEPTION_TYPE_TO_TRACKED: Record<NonNullable<SavedContract['exceptionType']>, TrackedException> = {
+  ntmle: 'non-taxpayer-mle',
+  tmle: 'taxpayer-mle',
+  bae: 'bi-annual',
+}
+
+// Sourced straight from TEAM_CAP_STATE[team][season].exceptionsUsed — SalarySwish's
+// own live-computed per-team tracker, not an app-side re-derivation from roster
+// contracts' signedUnder tags (that join was replaced once the pipeline started
+// pulling the authoritative field directly; see the comment on ExceptionsUsed in
+// lib/team-cap-state.ts). Covers all 30 teams, so this is accurate for whichever
+// team is selected, not just a heuristic for the currently-loaded roster.
+export function getUsedExceptions(
+  exceptionsUsed: ExceptionsUsed | undefined,
   savedContracts: SavedContract[],
   deletedContractIds: Set<string>,
-  excludedRosterIds: Set<string>,
   season: Season
 ): Set<TrackedException> {
   const used = new Set<TrackedException>()
-  const trackedTypes: TrackedException[] = ['room-mle', 'non-taxpayer-mle', 'taxpayer-mle', 'bi-annual']
 
-  roster.forEach((player) => {
-    if (excludedRosterIds.has(player.id)) return
-    if (firstFundedSeason(player.salary) !== season) return
-    const signedUnder = getContractDetail(player.name)?.signedUnder
-    if (signedUnder && (trackedTypes as string[]).includes(signedUnder)) {
-      used.add(signedUnder as TrackedException)
-    }
-  })
+  if ((exceptionsUsed?.nonTaxpayerMLE?.signings.length ?? 0) > 0) used.add('non-taxpayer-mle')
+  if ((exceptionsUsed?.taxpayerMLE?.signings.length ?? 0) > 0) used.add('taxpayer-mle')
+  if ((exceptionsUsed?.roomMLE?.signings.length ?? 0) > 0) used.add('room-mle')
+  if ((exceptionsUsed?.biAnnual?.signings.length ?? 0) > 0) used.add('bi-annual')
 
+  // A contract signed live in this builder session isn't reflected in the
+  // scraped exceptionsUsed snapshot yet, so it's layered on top, keyed off
+  // which exception the free-agent modal tagged the contract with.
   savedContracts.forEach((contract) => {
     if (deletedContractIds.has(contract.id)) return
-    if (contract.type !== 'free-agent' || !contract.isMLE) return
+    if (contract.type !== 'free-agent' || !contract.exceptionType) return
     if (firstFundedSeason(contract.salary) !== season) return
-    used.add('non-taxpayer-mle')
+    used.add(EXCEPTION_TYPE_TO_TRACKED[contract.exceptionType])
   })
 
   return used
 }
 
 export function getSigningExceptions(
+  season: Season,
   capSpaceTotal: number,
   apronTotal: number,
-  usedExceptions: Set<TrackedException>
+  usedExceptions: Set<TrackedException>,
+  dpeUsed: boolean
 ): Mechanism[] {
-  const thresholds = CAP_THRESHOLDS[SEASON]
+  const thresholds = CAP_THRESHOLDS[season]
   const softCap = thresholds.find((t) => t.type === 'soft-cap')?.value ?? 0
   const firstApron = thresholds.find((t) => t.type === 'first-apron')?.value ?? 0
   const secondApron = thresholds.find((t) => t.type === 'second-apron')?.value ?? 0
@@ -105,25 +105,23 @@ export function getSigningExceptions(
       eligible: !belowFirstApron && belowSecondApron,
       alreadyUsed: mleUsed,
     },
-    { key: 'disabled-player', label: 'Disabled Player Exception', eligible: belowSecondApron, alreadyUsed: false },
+    {
+      key: 'disabled-player',
+      label: 'Disabled Player Exception',
+      eligible: belowSecondApron,
+      alreadyUsed: dpeUsed,
+    },
   ]
 }
 
 export function SigningExceptionsPanel() {
-  const {
-    selectedTeamAbbr,
-    getTeamCapTotal,
-    roster,
-    savedContracts,
-    deletedContractIds,
-    releasedRosterIds,
-    tradedRosterPlayerIds,
-  } = useRoster()
+  const { selectedTeamAbbr, getTeamCapTotal, savedContracts, deletedContractIds } = useRoster()
   const { capSpaceTotal, apronTotal } = getTeamCapTotal(selectedTeamAbbr, SEASON)
 
-  const excludedRosterIds = new Set([...releasedRosterIds, ...tradedRosterPlayerIds])
-  const usedExceptions = getUsedExceptions(roster, savedContracts, deletedContractIds, excludedRosterIds, SEASON)
-  const mechanisms = getSigningExceptions(capSpaceTotal, apronTotal, usedExceptions)
+  const exceptionsUsed = TEAM_CAP_STATE[selectedTeamAbbr]?.[SEASON]?.exceptionsUsed
+  const usedExceptions = getUsedExceptions(exceptionsUsed, savedContracts, deletedContractIds, SEASON)
+  const dpeUsed = exceptionsUsed?.dpe?.used ?? false
+  const mechanisms = getSigningExceptions(SEASON, capSpaceTotal, apronTotal, usedExceptions, dpeUsed)
 
   return (
     <Card className="border border-border rounded-lg overflow-hidden shadow-none py-0 gap-0">
@@ -147,7 +145,7 @@ export function SigningExceptionsPanel() {
                 ) : (
                   <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground">
                     <X className="h-3.5 w-3.5" />
-                    {mechanism.eligible && mechanism.alreadyUsed ? 'Already Used' : 'Unavailable'}
+                    {mechanism.alreadyUsed ? 'Already Used' : 'Unavailable'}
                   </span>
                 )}
               </div>
@@ -155,8 +153,9 @@ export function SigningExceptionsPanel() {
           })}
         </div>
         <p className="text-[10.5px] text-muted-foreground mt-2.5 pt-2.5 border-t border-border">
-          The Disabled Player Exception also requires a qualifying player and a physician&apos;s designation, which
-          isn&apos;t modeled here — its row reflects apron eligibility only.
+          Already-used status is sourced directly from SalarySwish&apos;s per-team exception trackers. A team only
+          gets a Disabled Player Exception grant if it has a qualifying player and physician&apos;s designation —
+          absent a known grant, that row reflects apron eligibility only.
         </p>
       </CardContent>
     </Card>

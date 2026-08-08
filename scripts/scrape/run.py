@@ -713,6 +713,11 @@ def build_cap_hold_reconciliation():
     option reconciliation: a name match alone isn't enough, since a name
     could coincidentally match a free agent who left a different team.
 
+    Also stamps birdRights (non-bird/early-bird/full-bird) onto every
+    genuinely-matched hold, sourced from RealGM's own "Veteran FA Status"
+    column — only on the confirmed-same-team match, not the ambiguous
+    different-team case, since that match itself is already uncertain.
+
     Requires team-cap-state.json to already exist (build_cap_state runs
     first)."""
     records = _load_json('team-cap-state', None)
@@ -725,6 +730,7 @@ def build_cap_hold_reconciliation():
         fa_by_name[_base(fa['name'])] = fa
 
     removed = []
+    bird_stamped = 0
     for r in records:
         if r['season'] != CURRENT_SEASON_LABEL:
             continue
@@ -735,6 +741,9 @@ def build_cap_hold_reconciliation():
                 continue
             fa = fa_by_name.get(_base(hold['label']))
             if fa is not None and fa['priorTeam'] == r['team']:
+                if fa.get('birdRights'):
+                    hold['birdRights'] = fa['birdRights']
+                    bird_stamped += 1
                 kept_holds.append(hold)  # genuinely still an active FA — keep
             elif fa is not None:
                 kept_holds.append(hold)  # name matched a different team's FA — ambiguous, keep and log
@@ -747,7 +756,8 @@ def build_cap_hold_reconciliation():
 
     json.dump(records, open(os.path.join(OUT, 'team-cap-state.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(removed, open(os.path.join(OUT, 'cap-hold-overrides.json'), 'w'), indent=1, ensure_ascii=False)
-    print(f'  cap-hold reconciliation: {len(removed)} stale hold(s) removed/flagged')
+    print(f'  cap-hold reconciliation: {len(removed)} stale hold(s) removed/flagged, '
+          f'{bird_stamped} hold(s) stamped with birdRights')
     for o in removed:
         print(f'    {o["reason"].upper()}  {o["player"]} ({o["team"]}) ${o["amount"]}')
 
@@ -942,7 +952,48 @@ def build_signing_incentives(offline=False):
             rec['signedUnder'] = entry['signedUnder']
         if entry.get('incentives'):
             rec['incentives'] = entry['incentives']
+
+    # Backfill signedUnder from team-cap-state.json's exceptionsUsed for
+    # anyone the per-player page left unclassified. classify_signing_method()
+    # is deliberately conservative (a bare "Mid-Level Exception" without a
+    # Non-Taxpayer/Taxpayer/Room qualifier maps to None rather than guessing —
+    # see salaryswish.py), so real MLE/BAE signings routinely come back with
+    # no signedUnder from the per-player scrape even though SalarySwish's
+    # /mid-level-exception and /bi-annual-exception trackers (parsed earlier
+    # this run by build_salaryswish_league, into team-cap-state.json) already
+    # know the exact tier. Matching is name-based (_base(), same normalizer
+    # used for the player-cache key above) since the tracker's player text
+    # isn't guaranteed to match our display name byte-for-byte.
+    base_to_name = {_base(p['name']): p['name'] for p in players}
+    cap_state = _load_json('team-cap-state', [])
+    exception_by_base = {}
+    for r in cap_state:
+        if r.get('season') != CURRENT_SEASON_LABEL:
+            continue
+        exceptions_used = r.get('exceptionsUsed') or {}
+        for key, exception_id in (
+            ('nonTaxpayerMLE', 'non-taxpayer-mle'),
+            ('taxpayerMLE', 'taxpayer-mle'),
+            ('roomMLE', 'room-mle'),
+            ('biAnnual', 'bi-annual'),
+        ):
+            pool = exceptions_used.get(key)
+            if not pool:
+                continue
+            for signing in pool.get('signings', []):
+                exception_by_base[_base(signing['player'])] = exception_id
+    backfilled = 0
+    for base, exception_id in exception_by_base.items():
+        name = base_to_name.get(base)
+        if name is None:
+            continue
+        rec = by_name.setdefault(name, {'name': name})
+        if not rec.get('signedUnder'):
+            rec['signedUnder'] = exception_id
+            backfilled += 1
+
     json.dump(list(by_name.values()), open(os.path.join(OUT, 'contract-details.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  signedUnder backfilled from exceptionsUsed trackers: {backfilled}')
 
 
 def build_cash_ledger():

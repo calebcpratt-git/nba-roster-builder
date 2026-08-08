@@ -25,6 +25,19 @@ export function getTeamRoster(teamAbbreviation: string): Player[] {
   }))
 }
 
+// Player.id is only unique within a single getTeamRoster() call (it's
+// `player-${idx}` per team, not global) — sign-free-agents-panel.tsx already
+// works around this with a `${team}-${id}` composite key. RFA offer sheets
+// need to resolve a player's original team from just a name (a SavedContract
+// only stores playerName), so this scans every team the same way
+// getAvailableFreeAgents does.
+export function findPlayerHomeTeam(playerName: string): string | undefined {
+  for (const teamAbbr of ALL_TEAMS) {
+    if (getTeamRoster(teamAbbr).some((p) => p.name === playerName)) return teamAbbr
+  }
+  return undefined
+}
+
 // Cap thresholds — official 2026-27 NBA/NBPA figures; later seasons are
 // projections that mirror LEAGUE_CAP in league-cap.ts.
 export const CAP_THRESHOLDS: Record<Season, CapThreshold[]> = {

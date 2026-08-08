@@ -5,10 +5,12 @@ import { RosterProvider } from '@/lib/roster-context'
 import { Header } from '@/components/header'
 import { RosterTable } from '@/components/roster-table'
 import { SignFreeAgentsPanel } from '@/components/sign-free-agents-panel'
+import { RestrictedFreeAgencyPanel } from '@/components/restricted-free-agency-panel'
 import { TradesPanel } from '@/components/trades-panel'
 import { SavedContractsPanel } from '@/components/saved-contracts-panel'
 import { SigningExceptionsPanel } from '@/components/signing-exceptions-panel'
 import { TradeExceptionsPanel } from '@/components/trade-exceptions-panel'
+import { RosterCompliancePanel } from '@/components/roster-compliance-panel'
 import { CapSheetLoader } from '@/components/cap-sheet-loader'
 import { MobileBuilder } from '@/components/mobile/mobile-builder'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -41,8 +43,10 @@ export default function Home() {
                 {/* Right Column - Sign Free Agents, Trades, and Saved Contracts - 50% width */}
                 <div className="flex-1 min-w-0 h-full overflow-y-auto space-y-4">
                   <SignFreeAgentsPanel />
+                  <RestrictedFreeAgencyPanel />
                   <TradesPanel />
                   <SavedContractsPanel />
+                  <RosterCompliancePanel />
                   <SigningExceptionsPanel />
                   <TradeExceptionsPanel />
                 </div>

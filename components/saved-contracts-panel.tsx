@@ -52,7 +52,32 @@ export function SavedContractsPanelContent() {
                   )}
                 </div>
                 <div>
-                  <p className="text-sm font-medium">{contract.playerName}</p>
+                  <p className="text-sm font-medium flex items-center gap-1.5">
+                    {contract.playerName}
+                    {contract.contractType === 'two-way' && (
+                      <span className="text-[10px] font-normal text-sky-600 bg-sky-500/10 px-1 py-px rounded">
+                        Two-Way
+                      </span>
+                    )}
+                    {contract.rfaPath === 'qualifying-offer' && (
+                      <span className="text-[10px] font-normal text-amber-600 bg-amber-500/10 px-1 py-px rounded">
+                        QO
+                      </span>
+                    )}
+                    {contract.rfaPath === 'offer-sheet' && (
+                      <span className="text-[10px] font-normal text-amber-600 bg-amber-500/10 px-1 py-px rounded">
+                        Offer Sheet — Pending
+                      </span>
+                    )}
+                    {contract.rfaPath === 'matched-offer-sheet' && (
+                      <span
+                        className="text-[10px] font-normal text-red-600 bg-red-500/10 px-1 py-px rounded"
+                        title="Cannot be traded without his consent for one year, and never to the offering team even with it."
+                      >
+                        Matched — 1yr No-Trade
+                      </span>
+                    )}
+                  </p>
                   <p className="text-xs text-muted-foreground">
                     {years}yr / {formatCurrency(totalSalary)} ({formatCurrency(avgSalary)}/yr)
                   </p>

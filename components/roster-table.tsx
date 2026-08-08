@@ -461,8 +461,10 @@ export function PlainSalaryCell({
   const editableContract = extensionContract ?? (isFAContractDeleted ? undefined : savedFAContract)
   const isExtensionSalary = !!extensionContract
   const isCellDeleted = isExtensionDeleted || isFAContractDeleted
-  const isMLESalary = player.source === 'saved' && !isFAContractDeleted && displaySalary > 0 &&
-    savedContracts.some(c => c.id === player.id && c.isMLE)
+  const exceptionBadge = player.source === 'saved' && !isFAContractDeleted && displaySalary > 0
+    ? savedContracts.find(c => c.id === player.id)?.exceptionType
+    : undefined
+  const exceptionBadgeLabel = exceptionBadge === 'ntmle' ? 'MLE' : exceptionBadge === 'tmle' ? 'TMLE' : exceptionBadge === 'bae' ? 'BAE' : undefined
 
   return (
     <div className="flex w-full items-center justify-center">
@@ -495,9 +497,9 @@ export function PlainSalaryCell({
             EXT
           </span>
         )}
-        {isMLESalary && (
+        {exceptionBadgeLabel && (
           <span className="absolute left-full top-1/2 -translate-y-1/2 ml-1 whitespace-nowrap text-[8px] px-0.5 rounded font-semibold bg-emerald-500/15 text-emerald-700">
-            MLE
+            {exceptionBadgeLabel}
           </span>
         )}
         {isExtensionDeleted && extensionContractRaw && (
@@ -727,14 +729,36 @@ export function RosterTable() {
                                 "text-[9px] px-1 py-0",
                                 isTradeIncoming
                                   ? "text-chart-4 border-chart-4"
+                                  : 'contractType' in player && player.contractType === 'two-way'
+                                  ? "text-sky-500 border-sky-500"
                                   : 'type' in player && player.type === 'free-agent'
                                   ? "text-sky-700 border-sky-700"
                                   : "text-chart-2 border-chart-2"
                               )}
                             >
                               {isTradeIncoming ? 'TRADE' :
+                               'contractType' in player && player.contractType === 'two-way' ? '2W' :
                                'type' in player && player.type === 'extension' ? 'EXT' :
                                'type' in player && player.type === 'trade' ? 'TRADE' : 'FA'}
+                            </Badge>
+                          )}
+                          {'rfaPath' in player && player.rfaPath === 'qualifying-offer' && (
+                            <Badge variant="outline" className="text-[9px] px-1 py-0 text-amber-600 border-amber-600">
+                              QO
+                            </Badge>
+                          )}
+                          {'rfaPath' in player && player.rfaPath === 'offer-sheet' && (
+                            <Badge variant="outline" className="text-[9px] px-1 py-0 text-amber-600 border-amber-600">
+                              PENDING
+                            </Badge>
+                          )}
+                          {'rfaPath' in player && player.rfaPath === 'matched-offer-sheet' && (
+                            <Badge
+                              variant="outline"
+                              className="text-[9px] px-1 py-0 text-red-600 border-red-600"
+                              title="Cannot be traded without his consent for one year, and never to the offering team even with it."
+                            >
+                              MATCHED
                             </Badge>
                           )}
                           {isTraded && (

@@ -46,7 +46,7 @@ function buildExceptionsUsed(exceptionsUsed) {
 /**
  * @typedef {{ team: string, season: string,
  *   deadMoney: {player: string, amount: number}[],
- *   capHolds: {label: string, amount: number, kind: string}[],
+ *   capHolds: {label: string, amount: number, kind: string, birdRights?: string}[],
  *   heldTPEs?: {id: string, amount: number, expires: string, fromPlayer?: string}[],
  *   apronAddon?: number,
  *   hardCapped?: {apron: 1 | 2, trigger?: string},
@@ -68,7 +68,10 @@ function buildTeamCapStateBlock(records) {
         .map((d) => `{ player: ${JSON.stringify(d.player)}, amount: ${moneyOrLiteral(d.amount)} }`)
         .join(', ')
       const capHolds = (r.capHolds ?? [])
-        .map((c) => `{ label: ${JSON.stringify(c.label)}, amount: ${moneyOrLiteral(c.amount)}, kind: '${c.kind}' }`)
+        .map((c) => {
+          const birdRights = c.birdRights ? `, birdRights: '${c.birdRights}'` : ''
+          return `{ label: ${JSON.stringify(c.label)}, amount: ${moneyOrLiteral(c.amount)}, kind: '${c.kind}'${birdRights} }`
+        })
         .join(', ')
       const heldTPEs = (r.heldTPEs ?? [])
         .map((t) => {

@@ -2,7 +2,7 @@
 
 import { useState, createContext, useContext, ReactNode, useMemo, useCallback, useEffect } from 'react'
 import { Player, SavedContract, SavedTrade, Season, SEASONS, CapSheet, CapSheetSnapshot, CapSheetSummary } from './types'
-import { getTeamRoster, TEAMS, CAP_THRESHOLDS, getCapStatus } from './data'
+import { getTeamRoster, TEAMS, CAP_THRESHOLDS, getCapStatus, findPlayerHomeTeam } from './data'
 import { getDraftPickPlayers, applyPickNumberOverrides, DraftPickPlayer } from './draft-picks'
 import { getPlayerRookieYear, getPlayerYOE, getDisplayedSeasons } from './contract-utils'
 import { getContractDetail } from './contract-details'
@@ -106,6 +106,9 @@ interface RosterContextType extends RosterState {
   addSavedContract: (contract: SavedContract) => void
   removeSavedContract: (id: string) => void
   updateSavedContract: (contract: SavedContract) => void
+  getPendingOfferSheets: (teamAbbr: string) => Array<{ contract: SavedContract; fromTeam: string }>
+  matchOfferSheet: (offerSheetContract: SavedContract, fromTeamAbbr: string) => void
+  declineOfferSheet: (offerSheetContract: SavedContract, fromTeamAbbr: string) => void
   toggleTeamOption: (playerId: string, season: Season, exercise: boolean) => void
   togglePlayerOption: (playerId: string, season: Season, exercise: boolean) => void
   getEffectiveSalary: (player: Player, season: Season) => number
@@ -418,6 +421,56 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     markChanged()
   }
 
+  // Offer sheets are saved under the *offering* team, tagged rfaPath
+  // 'offer-sheet' — this scans every team's saved contracts for ones whose
+  // player's original team (resolved by name, since Player.id isn't globally
+  // unique — see findPlayerHomeTeam) is teamAbbr, so the original team sees
+  // pending offer sheets against its own free agents regardless of which
+  // team is currently selected.
+  const getPendingOfferSheets = useCallback((teamAbbr: string): Array<{ contract: SavedContract; fromTeam: string }> => {
+    const results: Array<{ contract: SavedContract; fromTeam: string }> = []
+    Object.entries(savedContractsByTeam).forEach(([fromTeam, contracts]) => {
+      if (fromTeam === teamAbbr) return
+      contracts.forEach((contract) => {
+        if (contract.rfaPath === 'offer-sheet' && findPlayerHomeTeam(contract.playerName) === teamAbbr) {
+          results.push({ contract, fromTeam })
+        }
+      })
+    })
+    return results
+  }, [savedContractsByTeam])
+
+  // Matching copies the offer sheet's terms onto the original team as a new
+  // contract and removes the pending offer sheet from the offering team — it
+  // never happened. The 1-year no-trade/no-amend restriction that comes with
+  // a match is display-only (see roster-table.tsx's badge), not enforced here.
+  const matchOfferSheet = useCallback((offerSheetContract: SavedContract, fromTeamAbbr: string) => {
+    const matchedContract: SavedContract = {
+      ...offerSheetContract,
+      id: `ext-${offerSheetContract.playerId}-${Date.now()}`,
+      type: 'extension',
+      rfaPath: 'matched-offer-sheet',
+    }
+    setSavedContractsByTeam((prev) => ({
+      ...prev,
+      [selectedTeamAbbr]: [...(prev[selectedTeamAbbr] || []), matchedContract],
+      [fromTeamAbbr]: (prev[fromTeamAbbr] || []).filter((c) => c.id !== offerSheetContract.id),
+    }))
+    markChanged()
+  }, [selectedTeamAbbr, markChanged])
+
+  // Declining just clears the pending flag — the contract stays on the
+  // offering team as an ordinary finalized signing.
+  const declineOfferSheet = useCallback((offerSheetContract: SavedContract, fromTeamAbbr: string) => {
+    setSavedContractsByTeam((prev) => ({
+      ...prev,
+      [fromTeamAbbr]: (prev[fromTeamAbbr] || []).map((c) =>
+        c.id === offerSheetContract.id ? { ...c, rfaPath: undefined } : c
+      ),
+    }))
+    markChanged()
+  }, [markChanged])
+
   // exercise = true means keep the salary, false means decline (salary becomes 0)
   const toggleTeamOption = (playerId: string, season: Season, exercise: boolean) => {
     markChanged()
@@ -554,7 +607,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       .filter((player) => !releasedRosterIds.has(player.id) && !tradedRosterPlayerIds.has(player.id))
       .reduce((sum, player) => sum + getEffectiveSalary(player, season), 0)
     const savedSalary = savedContracts
-      .filter((contract) => !deletedContractIds.has(contract.id))
+      .filter((contract) => !deletedContractIds.has(contract.id) && contract.contractType !== 'two-way')
       .reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
     const draftSalary = draftPickPlayers
       .filter((pick) => !tradedPickIds.has(pick.id))
@@ -601,7 +654,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       .filter((player) => !releasedRosterIds.has(player.id) && !teamTradedRosterIds.has(player.id))
       .reduce((sum, player) => sum + getEffectiveSalary(player, season), 0)
     const savedSalary = teamSavedContracts
-      .filter((contract) => !deletedContractIds.has(contract.id))
+      .filter((contract) => !deletedContractIds.has(contract.id) && contract.contractType !== 'two-way')
       .reduce((sum, contract) => sum + (contract.salary[season] || 0), 0)
     const draftSalary = teamDraftPicks
       .filter((pick) => !teamTradedPickIds.has(pick.id))
@@ -744,6 +797,9 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         addSavedContract,
         removeSavedContract,
         updateSavedContract,
+        getPendingOfferSheets,
+        matchOfferSheet,
+        declineOfferSheet,
         toggleTeamOption,
         togglePlayerOption,
         getEffectiveSalary,
