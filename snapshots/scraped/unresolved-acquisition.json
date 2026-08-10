@@ -275,8 +275,13 @@
   "method": "free-agent"
  },
  {
+  "name": "Yuki Kawamura",
+  "date": "2026-08-09",
+  "method": "free-agent"
+ },
+ {
   "name": "Jamarion Sharp",
-  "date": "2026-07-21",
+  "date": "2026-08-06",
   "method": "free-agent"
  },
  {
@@ -587,6 +592,11 @@
  {
   "name": "Killian Hayes",
   "date": "2026-03-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Taelon Peter",
+  "date": "2026-08-07",
   "method": "free-agent"
  },
  {

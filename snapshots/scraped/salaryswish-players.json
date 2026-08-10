@@ -1421,16 +1421,6 @@
    }
   }
  },
- "kentavious caldwell pope": {
-  "team": "PHI",
-  "signedUnder": "cap-room",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "christian braun": {
   "team": "DEN",
   "signedUnder": "bird",
@@ -1756,6 +1746,16 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "kentavious caldwell pope": {
+  "team": "PHI",
+  "signedUnder": "cap-room",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

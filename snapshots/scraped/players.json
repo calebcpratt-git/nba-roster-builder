@@ -1327,17 +1327,6 @@
   }
  },
  {
-  "name": "Kentavious Caldwell-Pope",
-  "team": "PHI",
-  "salary": {},
-  "options": {},
-  "bbrefId": "caldwke01",
-  "acquisition": {
-   "date": "2026-08-05",
-   "method": "free-agent"
-  }
- },
- {
   "name": "Christian Braun",
   "team": "DEN",
   "salary": {
@@ -1467,7 +1456,7 @@
   "options": {},
   "bbrefId": "brookdi01",
   "acquisition": {
-   "date": "2026-08-05",
+   "date": "2026-08-08",
    "method": "extension"
   }
  },
@@ -1665,6 +1654,19 @@
   "bbrefId": "willipa01",
   "acquisition": {
    "date": "2024-07-06",
+   "method": "free-agent"
+  }
+ },
+ {
+  "name": "Kentavious Caldwell-Pope",
+  "team": "PHI",
+  "salary": {
+   "2026-27": 20194392
+  },
+  "options": {},
+  "bbrefId": "caldwke01",
+  "acquisition": {
+   "date": "2026-08-05",
    "method": "free-agent"
   }
  },

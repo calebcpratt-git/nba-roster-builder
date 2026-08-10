@@ -1594,16 +1594,6 @@
   }
  },
  {
-  "name": "Kentavious Caldwell-Pope",
-  "signedUnder": "cap-room",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Christian Braun",
   "signedUnder": "bird",
   "incentives": {
@@ -1904,6 +1894,16 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Kentavious Caldwell-Pope",
+  "signedUnder": "cap-room",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

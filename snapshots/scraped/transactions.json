@@ -2191,6 +2191,32 @@
  },
  {
   "bbrefId": null,
+  "name": "Yuki Kawamura",
+  "date": "2026-08-09",
+  "dateRaw": "Aug 9, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jamarion Sharp",
+  "date": "2026-08-06",
+  "dateRaw": "Aug 6, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jalen Pickett",
   "date": "2026-08-05",
   "dateRaw": "Aug 5, 2026",
@@ -2215,19 +2241,6 @@
    "PHI"
   ],
   "text": "Traded from PHI",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Jamarion Sharp",
-  "date": "2026-07-21",
-  "dateRaw": "Jul 21, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "LAC"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -4185,8 +4198,8 @@
  {
   "bbrefId": null,
   "name": "Dillon Brooks",
-  "date": "2026-08-05",
-  "dateRaw": "Aug 5, 2026",
+  "date": "2026-08-08",
+  "dateRaw": "Aug 8, 2026",
   "method": "extension",
   "toTeams": [
    "PHO"
@@ -4612,6 +4625,19 @@
   "method": "free-agent",
   "toTeams": [
    "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Taelon Peter",
+  "date": "2026-08-07",
+  "dateRaw": "Aug 7, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAS"
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
