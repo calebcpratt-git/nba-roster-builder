@@ -579,6 +579,12 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   }, [markChanged])
 
   const getEffectiveSalary = (player: Player, season: Season): number => {
+    // Two-way salary is real (it's what makes the free-agent panel correctly
+    // treat a two-way signee as already employed), but it never counts
+    // toward Team Salary — same exclusion SavedContract.contractType
+    // 'two-way' already gets in getTotalSalary/getTeamCapTotal below.
+    if (player.contractType === 'two-way') return 0
+
     const salary = player.salary[season]
     if (!salary) return 0
 

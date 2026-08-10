@@ -722,7 +722,7 @@ export function RosterTable() {
                           )}>
                             {player.name}
                           </span>
-                          {(player.source === 'saved' || isTradeIncoming) && (
+                          {(player.source === 'saved' || isTradeIncoming || player.contractType === 'two-way') && (
                             <Badge
                               variant="outline"
                               className={cn(

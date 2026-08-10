@@ -325,7 +325,6 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Pat Connaughton": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Ja'Kobe Walter": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Karim López": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 100000, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
-  "Cole Anthony": { signedUnder: 'minimum' },
   "Will Riley": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 200000, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Jaylon Tyson": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Drake Powell": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 100000, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
@@ -342,7 +341,6 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Ron Harper Jr.": { signedUnder: 'non-bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Jase Richardson": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Kyshawn George": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
-  "Nassir Little": { signedUnder: 'minimum' },
   "Jaylen Clark": { signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Tarris Reed Jr.": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 538420, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Ben Saraf": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 100000, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
@@ -438,7 +436,6 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Bronny James": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Cam Christie": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Mohamed Diawara": { signedUnder: 'non-bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
-  "JaVale McGee": { signedUnder: 'minimum' },
   "Alijah Martin": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Moussa Cisse": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Rasheer Fleming": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
@@ -464,7 +461,6 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Nate Bittle": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Tucker DeVries": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Milos Uzan": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
-  "Mamadi Diakite": { signedUnder: 'minimum' },
 }
 // GENERATED:END
 

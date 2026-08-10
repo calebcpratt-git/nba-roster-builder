@@ -76,6 +76,10 @@ function validatePlayers(records, errors, now = new Date()) {
         errors.push(`players[${i}] (${record.name ?? 'unknown'}): guarantees.${season}.status "${g.status}" is not 'full'|'partial'|'non-guaranteed'`)
       }
     }
+
+    if (record.contractType !== undefined && record.contractType !== 'two-way') {
+      errors.push(`players[${i}] (${record.name ?? 'unknown'}): contractType "${record.contractType}" must be 'two-way' or absent`)
+    }
   })
 
   const floor = minRosterSize(now)
@@ -145,6 +149,28 @@ function validateContractDetails(records, errors) {
   })
 }
 
+const VALID_FA_TYPES = new Set(['U', 'R'])
+const VALID_BIRD_RIGHTS = new Set(['non-bird', 'early-bird', 'full-bird'])
+
+function validateFreeAgents(records, errors) {
+  const TEAM_ABBREVIATIONS = loadTeamAbbreviations()
+  const teamSet = new Set(TEAM_ABBREVIATIONS)
+  records.forEach((record, i) => {
+    if (!record.name || typeof record.name !== 'string' || !record.name.trim()) {
+      errors.push(`free-agents[${i}]: missing or empty "name"`)
+    }
+    if (!record.priorTeam || !teamSet.has(record.priorTeam)) {
+      errors.push(`free-agents[${i}] (${record.name ?? 'unknown'}): priorTeam "${record.priorTeam}" is not in TEAM_ABBREVIATIONS`)
+    }
+    if (!VALID_FA_TYPES.has(record.faType)) {
+      errors.push(`free-agents[${i}] (${record.name ?? 'unknown'}): faType "${record.faType}" must be 'U' or 'R'`)
+    }
+    if (record.birdRights != null && !VALID_BIRD_RIGHTS.has(record.birdRights)) {
+      errors.push(`free-agents[${i}] (${record.name ?? 'unknown'}): birdRights "${record.birdRights}" is not a recognized value`)
+    }
+  })
+}
+
 function validateTeamCapState(records, errors) {
   const TEAM_ABBREVIATIONS = loadTeamAbbreviations()
   const teamSet = new Set(TEAM_ABBREVIATIONS)
@@ -203,7 +229,7 @@ function validateTeamCapState(records, errors) {
 // identity is inferred from the fields that stay stable across a normal
 // update (name for players; the pick's origin/slot for draft picks).
 function recordKey(kind, record) {
-  if (kind === 'players' || kind === 'contract-details') {
+  if (kind === 'players' || kind === 'contract-details' || kind === 'free-agents') {
     return String(record.name).trim().toLowerCase()
   }
   if (kind === 'team-cap-state') {
@@ -257,7 +283,7 @@ function diffRecords(kind, records, previousRecords) {
 
 /**
  * @param {object} input
- * @param {'players' | 'draft-picks' | 'contract-details' | 'team-cap-state'} input.kind
+ * @param {'players' | 'draft-picks' | 'contract-details' | 'team-cap-state' | 'free-agents'} input.kind
  * @param {any[]} input.records         - the new records about to be written
  * @param {any[]} input.previousRecords - parsed from the CURRENT generated file, for diffing
  * @param {boolean} [input.allowLargeDiff] - opt in to a diff above the threshold.
@@ -285,6 +311,8 @@ function validateAndDiff({ kind, records, previousRecords, allowLargeDiff, now }
     validateContractDetails(records, errors)
   } else if (kind === 'team-cap-state') {
     validateTeamCapState(records, errors)
+  } else if (kind === 'free-agents') {
+    validateFreeAgents(records, errors)
   } else {
     throw new Error(`Unknown kind: ${kind}`)
   }

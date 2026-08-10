@@ -14,8 +14,10 @@ Resilience:
 
 Groups (each independent — a failure in one never blocks the others):
   players             BBRef contracts + draft classes             -> players.json, rookie-years.json, unresolved-draft-year.json
+  two-way-contracts   Hoops Rumors two-way tracker                -> merged onto players.json (team, contractType, salary)
   free-agent-reconciliation  RealGM free-agent-options +          -> corrects stale CURRENT_SEASON_LABEL option
                       current-free-agents pages                      flags directly on players.json (no new file)
+  free-agent-pool     RealGM current-free-agents                  -> free-agents.json (currently-unsigned players not in players.json)
   picks               RealGM future drafts                        -> draft-picks.json
   enrichment          SalarySwish per-team transactions (30        -> merged onto players.json (acquisition, guarantees)
                       pages) + HR guarantee data
@@ -69,6 +71,18 @@ HR_NON_GUARANTEED_URL = 'https://www.hoopsrumors.com/2026/07/2026-27-non-guarant
 HR_TRADE_KICKERS_URL = 'https://www.hoopsrumors.com/2025/08/nba-players-with-trade-kickers-in-2025-26.html'   # STALE — 2026/27 not yet published as of last update
 HR_VETO_TRADES_URL = 'https://www.hoopsrumors.com/2025/07/nba-players-who-can-veto-trades-in-2025-26.html'    # STALE — 2026/27 not yet published as of last update
 HR_CASH_IN_TRADE_URL = 'https://www.hoopsrumors.com/2025/08/cash-sent-received-in-nba-trades-for-2025-26.html'  # STALE — 2026/27 not yet published as of last update
+# Evergreen post HR keeps updated in place all season (confirmed live: an
+# "Updated 8-7-26" stamp near the top) — unlike the three above, this one
+# does NOT need a yearly URL bump.
+HR_TWO_WAY_TRACKER_URL = 'https://www.hoopsrumors.com/2026/07/2026-27-nba-two-way-contract-tracker.html'
+
+# Flat, league-wide two-way salary per season — not individually negotiated,
+# so unlike every other salary figure in this pipeline there's no per-player
+# number to source. HR's tracker states the current season's figure in its
+# own intro; spot-check there when bumping the season.
+TWO_WAY_SALARY = {
+    '2026-27': 678_882,
+}
 
 SOURCES = {
     'bbref_contracts': 'https://www.basketball-reference.com/contracts/players.html',
@@ -80,6 +94,7 @@ SOURCES = {
     'hr_trade_kickers': HR_TRADE_KICKERS_URL,
     'hr_veto_trades': HR_VETO_TRADES_URL,
     'hr_cash_in_trade': HR_CASH_IN_TRADE_URL,
+    'hr_two_way_tracker': HR_TWO_WAY_TRACKER_URL,
     'salaryswish_trade_exceptions': salaryswish.TRADE_EXCEPTION_URL,
     'salaryswish_hard_cap': salaryswish.HARD_CAP_URL,
     'salaryswish_mle': salaryswish.MLE_URL,
@@ -318,6 +333,70 @@ def build_players():
     print(f'  players {len(players)}   draft years {len(rookie_years)}   unresolved {len(unresolved)}')
     if unresolved:
         print('  (unresolved draft years are undrafted players — expected, not an error)')
+
+
+def build_two_way_contracts():
+    """Merges Hoops Rumors' two-way contract tracker onto players.json:
+    corrects `team` and stamps `contractType: 'two-way'` + the flat two-way
+    salary (TWO_WAY_SALARY) onto the matched row. Runs right after
+    build_players and before build_free_agent_reconciliation specifically so
+    a corrected team is what that reconciliation (and build_free_agent_pool
+    after it) sees — a two-way signing BBRef hasn't caught up to yet is
+    exactly the kind of staleness that made Jalen Pickett briefly look like
+    a Denver free agent who'd declined his option, when he'd actually
+    already agreed to a two-way deal with the Clippers.
+
+    Two-way salary isn't individually negotiated (one flat league-wide
+    number per season) — there's no real per-player figure to source beyond
+    that constant, so stamping it on is the correct figure, not an estimate.
+    This is also what stops the free-agent panel's "empty salary = still a
+    free agent" heuristic from misreading an already-signed two-way player:
+    once salary[CURRENT_SEASON_LABEL] is populated, that heuristic no longer
+    fires for them. getEffectiveSalary (lib/roster-context.tsx) then
+    excludes contractType='two-way' rows from Team Salary the same way it
+    already does for two-way SavedContracts, so populating a real number
+    here doesn't leak into cap totals.
+
+    Matches primarily by bbrefId (exact); falls back to name only for a
+    tracker entry with no bbrefId link. A tracker entry naming a player with
+    no players.json row at all (a two-way rookie who's never had a BBRef
+    contracts-page row) is left unresolved rather than inventing a new row —
+    same boundary build_free_agent_reconciliation holds to."""
+    players = _load_json('players', None)
+    if players is None:
+        raise RuntimeError('players.json does not exist yet — run the players group first')
+    by_id = {p.get('bbrefId'): p for p in players if p.get('bbrefId')}
+    by_name = {_base(p['name']): p for p in players}
+
+    tracker = hoopsrumors.parse_two_way_tracker(os.path.join(RAW, 'hr_two_way_tracker.html'))
+    salary = TWO_WAY_SALARY.get(CURRENT_SEASON_LABEL)
+
+    matched = 0
+    team_corrected = []
+    unresolved = []
+    for entry in tracker:
+        target = (by_id.get(entry['bbrefId']) if entry['bbrefId'] else None) or by_name.get(_base(entry['name']))
+        if target is None:
+            unresolved.append(entry)
+            continue
+        if target.get('team') != entry['team']:
+            team_corrected.append({'name': target['name'], 'oldTeam': target.get('team'),
+                                    'newTeam': entry['team'], 'reported': entry['reported']})
+            target['team'] = entry['team']
+        target['contractType'] = 'two-way'
+        if salary is not None:
+            target.setdefault('salary', {})[CURRENT_SEASON_LABEL] = salary
+        matched += 1
+
+    json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump(unresolved, open(os.path.join(OUT, 'unresolved-two-way.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  two-way tracker: {matched}/{len(tracker)} matched to a players.json row   '
+          f'{len(unresolved)} unresolved (no players.json row)')
+    if team_corrected:
+        print(f'  {len(team_corrected)} team correction(s):')
+        for c in team_corrected:
+            note = '  (reported, not yet official)' if c['reported'] else ''
+            print(f'    {c["name"]}  {c["oldTeam"]} -> {c["newTeam"]}{note}')
 
 
 def build_picks():
@@ -663,6 +742,38 @@ def build_free_agent_reconciliation():
           f'resolved-in-place (flag cleared): {len(resolved_in_place)}')
     for o in declined_overrides:
         print(f'    DECLINED  {o["name"]} ({o["team"]}, {o["season"]}) — corroborated={o["corroborated"]}')
+
+
+def build_free_agent_pool():
+    """Writes the full list of currently-unsigned free agents, sourced from
+    the same RealGM current_free_agents page build_free_agent_reconciliation
+    reads. Different job, same source: that function only patches stale
+    entries on players who already have a row in players.json (from BBRef);
+    this one covers the players who have NO row there at all, because no
+    team currently employs them — e.g. Lonzo Ball, Ochai Agbaji. Confirmed
+    2026-08-07: only 8 of 152 current free agents had any players.json row.
+
+    RealGM's own page can lag a real signing by days (confirmed live
+    2026-08-10: Jalen Pickett still listed as a Denver free agent here
+    several days after signing a two-way deal with the Clippers — a real
+    transaction players.json/build_players already has via BBRef+the
+    acquisition ledger). Anyone who already has a players.json row is
+    excluded here even if RealGM still lists them: that row means the app
+    already accounts for them one way or another (signed with a salary, or
+    corrected by build_free_agent_reconciliation), so re-adding a
+    stale/wrong prior team from this pool would just contradict it.
+    {name, priorTeam, faType, birdRights} — same fields, kept as raw as the
+    parser returns them (faType 'U'/'R' interpreted downstream, not here)."""
+    players = _load_json('players', [])
+    known_names = {_base(p['name']) for p in players}
+
+    free_agents = realgm.parse_current_free_agents(os.path.join(RAW, 'realgm_current_free_agents.html'))
+    pool = [fa for fa in free_agents if _base(fa['name']) not in known_names]
+    skipped = len(free_agents) - len(pool)
+
+    json.dump(pool, open(os.path.join(OUT, 'free-agents.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  free-agent pool: {len(pool)} currently-unsigned players'
+          + (f'   ({skipped} skipped — already has a players.json row)' if skipped else ''))
 
 
 def build_cap_state(offline=False):
@@ -1080,9 +1191,12 @@ def build_apron_addon():
 GROUPS = [
     {'name': 'players', 'sources': ['bbref_contracts', *[f'bbref_draft_{y}' for y in DRAFT_YEARS]],
      'build': build_players},
+    {'name': 'two-way-contracts', 'sources': ['hr_two_way_tracker'], 'build': build_two_way_contracts},
     {'name': 'free-agent-reconciliation',
      'sources': ['realgm_free_agent_options', 'realgm_current_free_agents'],
      'build': build_free_agent_reconciliation},
+    {'name': 'free-agent-pool', 'sources': ['realgm_current_free_agents'],
+     'build': build_free_agent_pool},
     {'name': 'picks', 'sources': ['realgm_future_drafts'], 'build': build_picks},
     {'name': 'enrichment', 'sources': ['hr_guarantee_dates', 'hr_non_guaranteed'],
      'build': build_enrichment},

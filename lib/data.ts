@@ -22,6 +22,7 @@ export function getTeamRoster(teamAbbreviation: string): Player[] {
     salary: dropNulls(c.salary),
     options: dropNulls(c.options),
     guarantees: c.guarantees,
+    contractType: c.contractType,
   }))
 }
 

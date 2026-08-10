@@ -50,9 +50,9 @@
   "team": "PHI"
  },
  "claytwa01": {
-  "date": "2025-07-02",
-  "method": "free-agent",
-  "team": "UTA"
+  "date": "2026-02-03",
+  "method": "trade",
+  "team": "MEM"
  },
  "baileac01": {
   "date": "2025-07-02",
@@ -236,8 +236,8 @@
  },
  "alexani01": {
   "date": "2025-07-06",
-  "method": "free-agent",
-  "team": "MIN"
+  "method": "sign-and-trade",
+  "team": "ATL"
  },
  "whitmca01": {
   "date": "2025-07-06",
@@ -396,8 +396,8 @@
  },
  "robindu01": {
   "date": "2025-07-07",
-  "method": "free-agent",
-  "team": "MIA"
+  "method": "sign-and-trade",
+  "team": "DET"
  },
  "wagnemo01": {
   "date": "2026-07-31",
@@ -550,9 +550,9 @@
   "team": "TOR"
  },
  "jacksis01": {
-  "date": "2025-07-11",
-  "method": "free-agent",
-  "team": "IND"
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "LAC"
  },
  "gaffoda01": {
   "date": "2025-07-12",
@@ -565,9 +565,9 @@
   "team": "SAS"
  },
  "jacksja02": {
-  "date": "2025-07-13",
-  "method": "extension",
-  "team": "MEM"
+  "date": "2026-02-03",
+  "method": "trade",
+  "team": "UTA"
  },
  "holmgch01": {
   "date": "2025-07-13",
@@ -618,11 +618,6 @@
   "date": "2026-07-10",
   "method": "free-agent",
   "team": "ATL"
- },
- "anthoco01": {
-  "date": "2026-02-05",
-  "method": "trade",
-  "team": "PHO"
  },
  "bealbr01": {
   "date": "2025-07-18",
@@ -732,11 +727,6 @@
  "sharpda01": {
   "date": "2026-07-06",
   "method": "extension",
-  "team": "BRK"
- },
- "liddeej01": {
-  "date": "2025-09-03",
-  "method": "free-agent",
   "team": "BRK"
  },
  "prospol01": {
@@ -1155,9 +1145,9 @@
   "team": "TOR"
  },
  "mccaija01": {
-  "date": "2024-07-04",
-  "method": "free-agent",
-  "team": "PHI"
+  "date": "2026-02-04",
+  "method": "trade",
+  "team": "OKC"
  },
  "clingdo01": {
   "date": "2024-07-04",
@@ -1180,9 +1170,9 @@
   "team": "BOS"
  },
  "martica02": {
-  "date": "2024-07-06",
-  "method": "free-agent",
-  "team": "PHI"
+  "date": "2025-02-06",
+  "method": "trade",
+  "team": "DAL"
  },
  "thompkl01": {
   "date": "2024-07-06",
@@ -1305,9 +1295,9 @@
   "team": "OKC"
  },
  "claxtni01": {
-  "date": "2024-07-06",
-  "method": "free-agent",
-  "team": "BRK"
+  "date": "2026-07-10",
+  "method": "trade",
+  "team": "CHI"
  },
  "hollaro01": {
   "date": "2024-07-06",
@@ -1430,9 +1420,9 @@
   "team": "NYK"
  },
  "krejcvi01": {
-  "date": "2024-07-12",
-  "method": "free-agent",
-  "team": "ATL"
+  "date": "2026-02-01",
+  "method": "trade",
+  "team": "POR"
  },
  "matkoka01": {
   "date": "2024-07-13",
@@ -1470,9 +1460,9 @@
   "team": "BOS"
  },
  "huffja01": {
-  "date": "2024-07-24",
-  "method": "free-agent",
-  "team": "MEM"
+  "date": "2025-07-05",
+  "method": "trade",
+  "team": "IND"
  },
  "nembhan01": {
   "date": "2024-07-26",
@@ -1515,9 +1505,9 @@
   "team": "IND"
  },
  "zubaciv01": {
-  "date": "2024-09-03",
-  "method": "extension",
-  "team": "LAC"
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "IND"
  },
  "murraja01": {
   "date": "2024-09-11",
@@ -1525,9 +1515,9 @@
   "team": "DEN"
  },
  "okorois01": {
-  "date": "2024-09-17",
-  "method": "free-agent",
-  "team": "CLE"
+  "date": "2025-07-06",
+  "method": "trade",
+  "team": "CHI"
  },
  "smithto05": {
   "date": "2026-04-07",
@@ -1539,20 +1529,10 @@
   "method": "extension",
   "team": "PHI"
  },
- "littlna01": {
-  "date": "2024-09-24",
-  "method": "free-agent",
-  "team": "MIA"
- },
  "tomlina01": {
   "date": "2025-03-02",
   "method": "free-agent",
   "team": "CLE"
- },
- "diakima01": {
-  "date": "2024-09-26",
-  "method": "free-agent",
-  "team": "PHO"
  },
  "alvarjo01": {
   "date": "2026-07-06",
@@ -1590,9 +1570,9 @@
   "team": "ATL"
  },
  "kispeco01": {
-  "date": "2024-10-21",
-  "method": "extension",
-  "team": "WAS"
+  "date": "2026-01-09",
+  "method": "trade",
+  "team": "ATL"
  },
  "murphtr02": {
   "date": "2024-10-21",
@@ -1665,9 +1645,9 @@
   "team": "MIA"
  },
  "ingrabr01": {
-  "date": "2026-06-30",
+  "date": "2025-02-06",
   "method": "trade",
-  "team": "LAC"
+  "team": "TOR"
  },
  "adamsst01": {
   "date": "2025-06-14",
@@ -1740,9 +1720,9 @@
   "team": "UTA"
  },
  "hendrta01": {
-  "date": "2023-07-02",
-  "method": "free-agent",
-  "team": "UTA"
+  "date": "2026-02-03",
+  "method": "trade",
+  "team": "MEM"
  },
  "sensabr01": {
   "date": "2023-07-02",
@@ -1835,9 +1815,9 @@
   "team": "IND"
  },
  "johnsca02": {
-  "date": "2023-07-06",
-  "method": "free-agent",
-  "team": "BRK"
+  "date": "2025-07-08",
+  "method": "trade",
+  "team": "DEN"
  },
  "sabondo01": {
   "date": "2023-07-06",
@@ -1845,9 +1825,9 @@
   "team": "SAC"
  },
  "jackstr02": {
-  "date": "2023-07-06",
-  "method": "free-agent",
-  "team": "GSW"
+  "date": "2026-02-05",
+  "method": "trade",
+  "team": "TOR"
  },
  "walshjo01": {
   "date": "2026-07-23",
@@ -1900,14 +1880,14 @@
   "team": "MEM"
  },
  "murrade01": {
-  "date": "2023-07-09",
-  "method": "extension",
-  "team": "ATL"
+  "date": "2024-07-06",
+  "method": "trade",
+  "team": "NOP"
  },
  "willigr01": {
-  "date": "2023-07-12",
+  "date": "2024-02-08",
   "method": "trade",
-  "team": "DAL"
+  "team": "CHO"
  },
  "clownno01": {
   "date": "2023-07-11",
@@ -1918,11 +1898,6 @@
   "date": "2026-07-08",
   "method": "trade",
   "team": "MEM"
- },
- "micicva01": {
-  "date": "2023-07-17",
-  "method": "free-agent",
-  "team": "OKC"
  },
  "anderch02": {
   "date": "2026-07-06",
@@ -1949,11 +1924,6 @@
   "method": "free-agent",
   "team": "MEM"
  },
- "mcgeeja01": {
-  "date": "2023-09-02",
-  "method": "free-agent",
-  "team": "SAC"
- },
  "pippesc02": {
   "date": "2024-01-16",
   "method": "free-agent",
@@ -1970,9 +1940,9 @@
   "team": "CHO"
  },
  "holidjr01": {
-  "date": "2024-04-11",
-  "method": "extension",
-  "team": "BOS"
+  "date": "2025-07-07",
+  "method": "trade",
+  "team": "POR"
  },
  "nurkiju01": {
   "date": "2026-07-09",
@@ -2000,9 +1970,9 @@
   "team": "MIN"
  },
  "avdijde01": {
-  "date": "2023-10-23",
-  "method": "extension",
-  "team": "WAS"
+  "date": "2024-07-06",
+  "method": "trade",
+  "team": "POR"
  },
  "antetgi01": {
   "date": "2026-07-06",
@@ -2015,9 +1985,9 @@
   "team": "NYK"
  },
  "leonaka01": {
-  "date": "2026-06-30",
-  "method": "trade",
-  "team": "TOR"
+  "date": "2024-01-10",
+  "method": "extension",
+  "team": "LAC"
  },
  "brownmi02": {
   "date": "2026-07-02",
@@ -2065,9 +2035,9 @@
   "team": "CLE"
  },
  "konchjo01": {
-  "date": "2022-07-07",
-  "method": "extension",
-  "team": "MEM"
+  "date": "2026-02-03",
+  "method": "trade",
+  "team": "UTA"
  },
  "jokicni01": {
   "date": "2022-07-08",
@@ -2095,9 +2065,9 @@
   "team": "OKC"
  },
  "barrerj01": {
-  "date": "2022-09-01",
-  "method": "extension",
-  "team": "NYK"
+  "date": "2023-12-30",
+  "method": "trade",
+  "team": "TOR"
  },
  "sextoco01": {
   "date": "2026-07-11",
@@ -2118,11 +2088,6 @@
   "date": "2022-10-16",
   "method": "extension",
   "team": "MEM"
- },
- "louzama01": {
-  "date": "2022-10-17",
-  "method": "free-agent",
-  "team": "CLE"
  },
  "bogdabo01": {
   "date": "2026-07-08",
@@ -2155,9 +2120,9 @@
   "team": "CHI"
  },
  "portemi01": {
-  "date": "2021-09-29",
-  "method": "extension",
-  "team": "DEN"
+  "date": "2025-07-08",
+  "method": "trade",
+  "team": "BRK"
  },
  "quainja01": {
   "date": "2026-07-03",

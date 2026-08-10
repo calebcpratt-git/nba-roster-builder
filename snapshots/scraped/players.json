@@ -180,7 +180,11 @@
    "2026-27": 50300000
   },
   "options": {},
-  "bbrefId": "leonaka01"
+  "bbrefId": "leonaka01",
+  "acquisition": {
+   "date": "2024-01-10",
+   "method": "extension"
+  }
  },
  {
   "name": "Donovan Mitchell",
@@ -328,7 +332,11 @@
   "options": {
    "2029-30": "Player"
   },
-  "bbrefId": "jacksja02"
+  "bbrefId": "jacksja02",
+  "acquisition": {
+   "date": "2026-02-03",
+   "method": "trade"
+  }
  },
  {
   "name": "Zach LaVine",
@@ -631,7 +639,11 @@
    "2026-27": 40806150
   },
   "options": {},
-  "bbrefId": "portemi01"
+  "bbrefId": "portemi01",
+  "acquisition": {
+   "date": "2025-07-08",
+   "method": "trade"
+  }
  },
  {
   "name": "Tyrese Maxey",
@@ -673,7 +685,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "ingrabr01"
+  "bbrefId": "ingrabr01",
+  "acquisition": {
+   "date": "2025-02-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Kyrie Irving",
@@ -783,7 +799,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "holidjr01"
+  "bbrefId": "holidjr01",
+  "acquisition": {
+   "date": "2025-07-07",
+   "method": "trade"
+  }
  },
  {
   "name": "Jerami Grant",
@@ -888,7 +908,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "murrade01"
+  "bbrefId": "murrade01",
+  "acquisition": {
+   "date": "2024-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Immanuel Quickley",
@@ -998,7 +1022,11 @@
    "2026-27": 29616071
   },
   "options": {},
-  "bbrefId": "barrerj01"
+  "bbrefId": "barrerj01",
+  "acquisition": {
+   "date": "2023-12-30",
+   "method": "trade"
+  }
  },
  {
   "name": "Jarrett Allen",
@@ -1233,7 +1261,11 @@
    "2027-28": 20943184
   },
   "options": {},
-  "bbrefId": "claxtni01"
+  "bbrefId": "claxtni01",
+  "acquisition": {
+   "date": "2026-07-10",
+   "method": "trade"
+  }
  },
  {
   "name": "Cameron Johnson",
@@ -1242,7 +1274,11 @@
    "2026-27": 23062500
   },
   "options": {},
-  "bbrefId": "johnsca02"
+  "bbrefId": "johnsca02",
+  "acquisition": {
+   "date": "2025-07-08",
+   "method": "trade"
+  }
  },
  {
   "name": "Coby White",
@@ -1384,7 +1420,11 @@
    "2027-28": 21790300
   },
   "options": {},
-  "bbrefId": "zubaciv01"
+  "bbrefId": "zubaciv01",
+  "acquisition": {
+   "date": "2026-02-05",
+   "method": "trade"
+  }
  },
  {
   "name": "Malik Monk",
@@ -1777,6 +1817,10 @@
     "status": "partial",
     "amount": 2000000
    }
+  },
+  "acquisition": {
+   "date": "2025-07-07",
+   "method": "sign-and-trade"
   }
  },
  {
@@ -2003,7 +2047,11 @@
   "options": {
    "2028-29": "Player"
   },
-  "bbrefId": "alexani01"
+  "bbrefId": "alexani01",
+  "acquisition": {
+   "date": "2025-07-06",
+   "method": "sign-and-trade"
+  }
  },
  {
   "name": "Grant Williams",
@@ -2012,7 +2060,11 @@
    "2026-27": 14265750
   },
   "options": {},
-  "bbrefId": "willigr01"
+  "bbrefId": "willigr01",
+  "acquisition": {
+   "date": "2024-02-08",
+   "method": "trade"
+  }
  },
  {
   "name": "Jock Landale",
@@ -2073,7 +2125,11 @@
   "options": {
    "2028-29": "Team"
   },
-  "bbrefId": "kispeco01"
+  "bbrefId": "kispeco01",
+  "acquisition": {
+   "date": "2026-01-09",
+   "method": "trade"
+  }
  },
  {
   "name": "Robert Williams",
@@ -2196,7 +2252,11 @@
    "2027-28": 11875000
   },
   "options": {},
-  "bbrefId": "avdijde01"
+  "bbrefId": "avdijde01",
+  "acquisition": {
+   "date": "2024-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Sandro Mamukelashvili",
@@ -2372,7 +2432,11 @@
    "2026-27": 11814814
   },
   "options": {},
-  "bbrefId": "okorois01"
+  "bbrefId": "okorois01",
+  "acquisition": {
+   "date": "2025-07-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Mark Williams",
@@ -2665,7 +2729,11 @@
   "options": {
    "2027-28": "Player"
   },
-  "bbrefId": "martica02"
+  "bbrefId": "martica02",
+  "acquisition": {
+   "date": "2025-02-06",
+   "method": "trade"
+  }
  },
  {
   "name": "Day'Ron Sharpe",
@@ -3182,7 +3250,11 @@
    "2026-27": 7805900
   },
   "options": {},
-  "bbrefId": "hendrta01"
+  "bbrefId": "hendrta01",
+  "acquisition": {
+   "date": "2026-02-03",
+   "method": "trade"
+  }
  },
  {
   "name": "Jaylin Williams",
@@ -3368,7 +3440,11 @@
    "2027-28": 6400000
   },
   "options": {},
-  "bbrefId": "jacksis01"
+  "bbrefId": "jacksis01",
+  "acquisition": {
+   "date": "2026-02-05",
+   "method": "trade"
+  }
  },
  {
   "name": "Rob Dillingham",
@@ -3536,7 +3612,11 @@
    "2026-27": 6165000
   },
   "options": {},
-  "bbrefId": "konchjo01"
+  "bbrefId": "konchjo01",
+  "acquisition": {
+   "date": "2026-02-03",
+   "method": "trade"
+  }
  },
  {
   "name": "Yaxel Lendeborg",
@@ -4372,7 +4452,11 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "mccaija01"
+  "bbrefId": "mccaija01",
+  "acquisition": {
+   "date": "2026-02-04",
+   "method": "trade"
+  }
  },
  {
   "name": "Joan Beringer",
@@ -4439,7 +4523,11 @@
    "2027-28": "Team",
    "2028-29": "Team"
   },
-  "bbrefId": "claytwa01"
+  "bbrefId": "claytwa01",
+  "acquisition": {
+   "date": "2026-02-03",
+   "method": "trade"
+  }
  },
  {
   "name": "Allen Graves",
@@ -4716,16 +4804,6 @@
    "date": "2026-07-29",
    "method": "free-agent"
   }
- },
- {
-  "name": "Cole Anthony",
-  "team": "MEM",
-  "salary": {
-   "2026-27": 3700000,
-   "2027-28": 3700000
-  },
-  "options": {},
-  "bbrefId": "anthoco01"
  },
  {
   "name": "Will Riley",
@@ -5037,17 +5115,6 @@
    "date": "2024-07-06",
    "method": "free-agent"
   }
- },
- {
-  "name": "Nassir Little",
-  "team": "PHO",
-  "salary": {
-   "2026-27": 3107143,
-   "2027-28": 3107143,
-   "2028-29": 3107143
-  },
-  "options": {},
-  "bbrefId": "littlna01"
  },
  {
   "name": "Jaylen Clark",
@@ -5532,6 +5599,10 @@
     "amount": 250000,
     "guaranteeDate": "2026-10-15"
    }
+  },
+  "acquisition": {
+   "date": "2026-02-01",
+   "method": "trade"
   }
  },
  {
@@ -5542,7 +5613,11 @@
    "2027-28": 3005085
   },
   "options": {},
-  "bbrefId": "huffja01"
+  "bbrefId": "huffja01",
+  "acquisition": {
+   "date": "2025-07-05",
+   "method": "trade"
+  }
  },
  {
   "name": "Christian Koloko",
@@ -6354,7 +6429,11 @@
    "2026-27": 2406205
   },
   "options": {},
-  "bbrefId": "jackstr02"
+  "bbrefId": "jackstr02",
+  "acquisition": {
+   "date": "2026-02-05",
+   "method": "trade"
+  }
  },
  {
   "name": "GG Jackson II",
@@ -6426,10 +6505,17 @@
  },
  {
   "name": "Jalen Pickett",
-  "team": "DEN",
-  "salary": {},
+  "team": "LAC",
+  "salary": {
+   "2026-27": 678882
+  },
   "options": {},
-  "bbrefId": "pickeja02"
+  "bbrefId": "pickeja02",
+  "acquisition": {
+   "date": "2026-08-05",
+   "method": "free-agent"
+  },
+  "contractType": "two-way"
  },
  {
   "name": "Jamal Shead",
@@ -6648,16 +6734,6 @@
    "date": "2026-07-06",
    "method": "free-agent"
   }
- },
- {
-  "name": "JaVale McGee",
-  "team": "DAL",
-  "salary": {
-   "2026-27": 2208856,
-   "2027-28": 2208856
-  },
-  "options": {},
-  "bbrefId": "mcgeeja01"
  },
  {
   "name": "Alijah Martin",
@@ -7090,36 +7166,6 @@
   }
  },
  {
-  "name": "E.J. Liddell",
-  "team": "PHO",
-  "salary": {
-   "2026-27": 706898
-  },
-  "options": {},
-  "bbrefId": "liddeej01"
- },
- {
-  "name": "Vasilije Micić",
-  "team": "MIL",
-  "salary": {
-   "2026-27": 666667,
-   "2027-28": 666667
-  },
-  "options": {
-   "2027-28": "Team"
-  },
-  "bbrefId": "micicva01"
- },
- {
-  "name": "Mamadi Diakite",
-  "team": "MEM",
-  "salary": {
-   "2026-27": 464050
-  },
-  "options": {},
-  "bbrefId": "diakima01"
- },
- {
   "name": "Ricky Rubio",
   "team": "CLE",
   "salary": {
@@ -7131,16 +7177,5 @@
    "date": "2022-07-07",
    "method": "free-agent"
   }
- },
- {
-  "name": "Didi Louzada",
-  "team": "POR",
-  "salary": {
-   "2026-27": 268032,
-   "2027-28": 268032,
-   "2028-29": 268032
-  },
-  "options": {},
-  "bbrefId": "louzama01"
  }
 ]
