@@ -168,7 +168,11 @@
     "salary": {
       "2026-27": 50300000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-01-10",
+      "method": "extension"
+    }
   },
   {
     "name": "Donovan Mitchell",
@@ -307,6 +311,10 @@
     },
     "options": {
       "2029-30": "Player"
+    },
+    "acquisition": {
+      "date": "2026-02-03",
+      "method": "trade"
     }
   },
   {
@@ -590,7 +598,11 @@
     "salary": {
       "2026-27": 40806150
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-08",
+      "method": "trade"
+    }
   },
   {
     "name": "Tyrese Maxey",
@@ -629,6 +641,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-02-06",
+      "method": "trade"
     }
   },
   {
@@ -732,6 +748,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "trade"
     }
   },
   {
@@ -830,6 +850,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "trade"
     }
   },
   {
@@ -933,7 +957,11 @@
     "salary": {
       "2026-27": 29616071
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2023-12-30",
+      "method": "trade"
+    }
   },
   {
     "name": "Jarrett Allen",
@@ -1152,7 +1180,11 @@
       "2026-27": 23147727,
       "2027-28": 20943184
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-07-10",
+      "method": "trade"
+    }
   },
   {
     "name": "Cameron Johnson",
@@ -1160,7 +1192,11 @@
     "salary": {
       "2026-27": 23062500
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-08",
+      "method": "trade"
+    }
   },
   {
     "name": "Coby White",
@@ -1282,7 +1318,11 @@
       "2026-27": 20342140,
       "2027-28": 21790300
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
+    }
   },
   {
     "name": "Malik Monk",
@@ -1662,6 +1702,10 @@
         "status": "partial",
         "amount": 2000000
       }
+    },
+    "acquisition": {
+      "date": "2025-07-07",
+      "method": "sign-and-trade"
     }
   },
   {
@@ -1873,6 +1917,10 @@
     },
     "options": {
       "2028-29": "Player"
+    },
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "sign-and-trade"
     }
   },
   {
@@ -1881,7 +1929,11 @@
     "salary": {
       "2026-27": 14265750
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-02-08",
+      "method": "trade"
+    }
   },
   {
     "name": "Jock Landale",
@@ -1938,6 +1990,10 @@
     },
     "options": {
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2026-01-09",
+      "method": "trade"
     }
   },
   {
@@ -2053,7 +2109,11 @@
       "2026-27": 13125000,
       "2027-28": 11875000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2024-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Sandro Mamukelashvili",
@@ -2217,7 +2277,11 @@
     "salary": {
       "2026-27": 11814814
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-06",
+      "method": "trade"
+    }
   },
   {
     "name": "Mark Williams",
@@ -2491,6 +2555,10 @@
     },
     "options": {
       "2027-28": "Player"
+    },
+    "acquisition": {
+      "date": "2025-02-06",
+      "method": "trade"
     }
   },
   {
@@ -2975,7 +3043,11 @@
     "salary": {
       "2026-27": 7805900
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-03",
+      "method": "trade"
+    }
   },
   {
     "name": "Jaylin Williams",
@@ -3148,7 +3220,11 @@
       "2026-27": 7000000,
       "2027-28": 6400000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
+    }
   },
   {
     "name": "Rob Dillingham",
@@ -3305,7 +3381,11 @@
     "salary": {
       "2026-27": 6165000
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-03",
+      "method": "trade"
+    }
   },
   {
     "name": "Yaxel Lendeborg",
@@ -4088,6 +4168,10 @@
     },
     "options": {
       "2027-28": "Team"
+    },
+    "acquisition": {
+      "date": "2026-02-04",
+      "method": "trade"
     }
   },
   {
@@ -4151,6 +4235,10 @@
     "options": {
       "2027-28": "Team",
       "2028-29": "Team"
+    },
+    "acquisition": {
+      "date": "2026-02-03",
+      "method": "trade"
     }
   },
   {
@@ -4411,15 +4499,6 @@
       "date": "2026-07-29",
       "method": "free-agent"
     }
-  },
-  {
-    "name": "Cole Anthony",
-    "team": "MEM",
-    "salary": {
-      "2026-27": 3700000,
-      "2027-28": 3700000
-    },
-    "options": {}
   },
   {
     "name": "Will Riley",
@@ -4713,16 +4792,6 @@
       "date": "2024-07-06",
       "method": "free-agent"
     }
-  },
-  {
-    "name": "Nassir Little",
-    "team": "PHO",
-    "salary": {
-      "2026-27": 3107143,
-      "2027-28": 3107143,
-      "2028-29": 3107143
-    },
-    "options": {}
   },
   {
     "name": "Jaylen Clark",
@@ -5179,6 +5248,10 @@
         "amount": 250000,
         "guaranteeDate": "2026-10-15"
       }
+    },
+    "acquisition": {
+      "date": "2026-02-01",
+      "method": "trade"
     }
   },
   {
@@ -5188,7 +5261,11 @@
       "2026-27": 2667944,
       "2027-28": 3005085
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2025-07-05",
+      "method": "trade"
+    }
   },
   {
     "name": "Christian Koloko",
@@ -5949,7 +6026,11 @@
     "salary": {
       "2026-27": 2406205
     },
-    "options": {}
+    "options": {},
+    "acquisition": {
+      "date": "2026-02-05",
+      "method": "trade"
+    }
   },
   {
     "name": "GG Jackson II",
@@ -6017,9 +6098,16 @@
   },
   {
     "name": "Jalen Pickett",
-    "team": "DEN",
-    "salary": {},
-    "options": {}
+    "team": "LAC",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "acquisition": {
+      "date": "2026-08-05",
+      "method": "free-agent"
+    },
+    "contractType": "two-way"
   },
   {
     "name": "Jamal Shead",
@@ -6226,15 +6314,6 @@
       "date": "2026-07-06",
       "method": "free-agent"
     }
-  },
-  {
-    "name": "JaVale McGee",
-    "team": "DAL",
-    "salary": {
-      "2026-27": 2208856,
-      "2027-28": 2208856
-    },
-    "options": {}
   },
   {
     "name": "Alijah Martin",
@@ -6642,33 +6721,6 @@
     }
   },
   {
-    "name": "E.J. Liddell",
-    "team": "PHO",
-    "salary": {
-      "2026-27": 706898
-    },
-    "options": {}
-  },
-  {
-    "name": "Vasilije Micić",
-    "team": "MIL",
-    "salary": {
-      "2026-27": 666667,
-      "2027-28": 666667
-    },
-    "options": {
-      "2027-28": "Team"
-    }
-  },
-  {
-    "name": "Mamadi Diakite",
-    "team": "MEM",
-    "salary": {
-      "2026-27": 464050
-    },
-    "options": {}
-  },
-  {
     "name": "Ricky Rubio",
     "team": "CLE",
     "salary": {
@@ -6679,15 +6731,5 @@
       "date": "2022-07-07",
       "method": "free-agent"
     }
-  },
-  {
-    "name": "Didi Louzada",
-    "team": "POR",
-    "salary": {
-      "2026-27": 268032,
-      "2027-28": 268032,
-      "2028-29": 268032
-    },
-    "options": {}
   }
 ]

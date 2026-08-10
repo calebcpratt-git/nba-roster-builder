@@ -4643,10 +4643,6 @@
     }
   },
   {
-    "name": "Cole Anthony",
-    "signedUnder": "minimum"
-  },
-  {
     "name": "Will Riley",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -4904,10 +4900,6 @@
         "unlikely": 0
       }
     }
-  },
-  {
-    "name": "Nassir Little",
-    "signedUnder": "minimum"
   },
   {
     "name": "Jaylen Clark",
@@ -6103,10 +6095,6 @@
     }
   },
   {
-    "name": "JaVale McGee",
-    "signedUnder": "minimum"
-  },
-  {
     "name": "Alijah Martin",
     "signedUnder": "minimum",
     "incentives": {
@@ -6532,19 +6520,6 @@
     }
   },
   {
-    "name": "E.J. Liddell"
-  },
-  {
-    "name": "Vasilije Micić"
-  },
-  {
-    "name": "Mamadi Diakite",
-    "signedUnder": "minimum"
-  },
-  {
     "name": "Ricky Rubio"
-  },
-  {
-    "name": "Didi Louzada"
   }
 ]

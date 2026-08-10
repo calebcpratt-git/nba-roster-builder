@@ -5,6 +5,7 @@ import { useRoster } from '@/lib/roster-context'
 import { SEASONS } from '@/lib/types'
 import type { Season, Player, SavedContract } from '@/lib/types'
 import { getTeamRoster, ALL_TEAMS, formatCurrency } from '@/lib/data'
+import { FREE_AGENT_POOL } from '@/lib/free-agents'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Select,
@@ -23,6 +24,7 @@ import { cn } from '@/lib/utils'
 // in one place so they can't drift out of sync.
 export function getAvailableFreeAgents(year: Season, savedContracts: SavedContract[]): Player[] {
   const freeAgents: Player[] = []
+  const seenNames = new Set<string>()
 
   ALL_TEAMS.forEach((teamAbbr) => {
     const teamRoster = getTeamRoster(teamAbbr)
@@ -45,8 +47,29 @@ export function getAvailableFreeAgents(year: Season, savedContracts: SavedContra
       if (hasExtensionThisYear) return
 
       freeAgents.push(player)
+      seenNames.add(player.name)
     })
   })
+
+  // RealGM's current-free-agents pool (lib/free-agents.ts) covers players
+  // with no roster row in player-data.ts at all — they're unsigned right
+  // now, so they never show up in the loop above. Only valid for the
+  // current free-agency period: it's a snapshot of who's unsigned today,
+  // not a projection of future years' free agents.
+  if (year === SEASONS[0]) {
+    FREE_AGENT_POOL.forEach((fa, idx) => {
+      if (seenNames.has(fa.name)) return
+
+      const id = `fa-${idx}`
+      const hasExtensionThisYear = savedContracts.some(
+        (c) => c.type === 'extension' && c.playerId === id && c.salary[year] && c.salary[year]! > 0
+      )
+      if (hasExtensionThisYear) return
+
+      freeAgents.push({ id, name: fa.name, team: fa.priorTeam, salary: {}, options: {} })
+      seenNames.add(fa.name)
+    })
+  }
 
   return freeAgents.sort((a, b) => (b.salary['2026-27'] || 0) - (a.salary['2026-27'] || 0))
 }

@@ -45,7 +45,8 @@ const TEAM_NAMES = {
  *   salary: Record<string, number|null>,
  *   options: Record<string, 'Team'|'Player'|null>,
  *   guarantees?: Record<string, { status: 'full'|'partial'|'non-guaranteed', amount?: number, guaranteeDate?: string }>,
- *   acquisition?: { date: string, method: 'draft'|'trade'|'free-agent'|'waiver'|'sign-and-trade'|'extension' }
+ *   acquisition?: { date: string, method: 'draft'|'trade'|'free-agent'|'waiver'|'sign-and-trade'|'extension' },
+ *   contractType?: 'two-way'
  * }} PlayerRecord
  * @param {PlayerRecord[]} players
  * @returns {string}
@@ -63,6 +64,8 @@ export interface RawPlayerData {
   options: Partial<Record<Season, OptionType>>
   guarantees?: Partial<Record<Season, SeasonGuarantee>>
   acquisition?: { date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension' }
+  /** Flat league-wide two-way salary, not a real negotiated figure — see scripts/scrape/run.py's TWO_WAY_SALARY. */
+  contractType?: 'two-way'
 }
 
 export const RAW_PLAYER_DATA: RawPlayerData[] = [\n`
@@ -97,7 +100,9 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [\n`
       acquisitionField = `, acquisition: { date: '${player.acquisition.date}', method: '${player.acquisition.method}' }`
     }
 
-    output += `  { name: ${JSON.stringify(player.name)}, team: '${player.team}', salary: { ${salaryEntries} }, options: { ${optionEntries} }${guaranteesField}${acquisitionField} },\n`
+    const contractTypeField = player.contractType === 'two-way' ? `, contractType: 'two-way'` : ''
+
+    output += `  { name: ${JSON.stringify(player.name)}, team: '${player.team}', salary: { ${salaryEntries} }, options: { ${optionEntries} }${guaranteesField}${acquisitionField}${contractTypeField} },\n`
   }
 
   const teamNamesEntries = Object.entries(TEAM_NAMES)

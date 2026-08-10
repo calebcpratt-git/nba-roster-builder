@@ -46,12 +46,30 @@ export function RosterCompliancePanel() {
     [roster, releasedRosterIds, tradedRosterPlayerIds, getEffectiveSalary]
   )
 
+  // Real two-way players sourced onto the roster from data (contractType is
+  // stamped by scripts/scrape/run.py::build_two_way_contracts) already fall
+  // out of standardRosterPlayers above, since getEffectiveSalary treats them
+  // as $0 — but they still need to actually count toward the 3-slot limit,
+  // not just be silently excluded from the standard count.
+  const twoWayRosterPlayers = useMemo(
+    () =>
+      roster.filter(
+        (p) => !releasedRosterIds.has(p.id) && !tradedRosterPlayerIds.has(p.id) && p.contractType === 'two-way'
+      ),
+    [roster, releasedRosterIds, tradedRosterPlayerIds]
+  )
+
   const twoWaySignings = activeContracts.filter((c) => c.contractType === 'two-way')
   const standardSignings = activeContracts.filter((c) => c.contractType !== 'two-way')
   const incomingTradePlayers = useMemo(() => savedTrades.flatMap((t) => t.incomingPlayers), [savedTrades])
 
+  const twoWayEntries = [
+    ...twoWayRosterPlayers.map((p) => ({ id: p.id, playerName: p.name })),
+    ...twoWaySignings.map((c) => ({ id: c.id, playerName: c.playerName })),
+  ]
+
   const standardCount = standardRosterPlayers.length + standardSignings.length + incomingTradePlayers.length
-  const twoWayCount = twoWaySignings.length
+  const twoWayCount = twoWayEntries.length
 
   const belowFloor = standardCount < STANDARD_FLOOR
   const belowMinimum = !belowFloor && standardCount < STANDARD_MINIMUM
@@ -66,7 +84,7 @@ export function RosterCompliancePanel() {
     ? { label: 'Above 15-player max — needs hardship', tone: 'amber' as const }
     : { label: 'Compliant', tone: 'green' as const }
 
-  const playoffIneligible = playoffLockActive ? twoWaySignings : []
+  const playoffIneligible = playoffLockActive ? twoWayEntries : []
 
   return (
     <Card className="border border-border rounded-lg overflow-hidden shadow-none py-0 gap-0">
@@ -92,10 +110,10 @@ export function RosterCompliancePanel() {
           />
         </div>
 
-        {twoWaySignings.length > 0 && (
+        {twoWayEntries.length > 0 && (
           <div className="space-y-1">
             <p className="text-[10.5px] font-medium text-muted-foreground uppercase tracking-wide">Two-Way Roster</p>
-            {twoWaySignings.map((c) => (
+            {twoWayEntries.map((c) => (
               <div key={c.id} className="flex items-center justify-between text-xs">
                 <span>{c.playerName}</span>
                 <Badge variant="outline" className="text-[10px] font-normal text-sky-600 border-sky-600/30">

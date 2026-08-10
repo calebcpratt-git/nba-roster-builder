@@ -17,6 +17,8 @@ export interface Player {
   guarantees?: Partial<Record<Season, SeasonGuarantee>>
   acquisition?: { date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension' }
   onPlayoffRoster?: boolean
+  /** Flat league-wide two-way salary, not a real negotiated figure. Excluded from Team Salary — see getEffectiveSalary. */
+  contractType?: 'two-way'
 }
 
 export interface SavedContract {

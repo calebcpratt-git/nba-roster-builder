@@ -11,6 +11,7 @@ const { generatePlayerData } = require('./generate-player-data')
 const { generateDraftPicks } = require('./generate-draft-picks')
 const { generateContractDetails } = require('./generate-contract-details')
 const { generateTeamCapState } = require('./generate-team-cap-state')
+const { generateFreeAgents } = require('./generate-free-agents')
 
 const SCRAPED = path.join(__dirname, '../snapshots/scraped')
 const allowLargeDiff =
@@ -128,6 +129,9 @@ if (contractDetails) diffResults.push(['contract-details', generateContractDetai
 
 const capState = readOptional('team-cap-state.json', 'team cap state (dead money, cap holds)')
 if (capState) diffResults.push(['team-cap-state', generateTeamCapState(capState, { allowLargeDiff })])
+
+const freeAgentPool = readOptional('free-agents.json', 'free agent pool (currently-unsigned players)')
+if (freeAgentPool) diffResults.push(['free-agents', generateFreeAgents(freeAgentPool, { allowLargeDiff })])
 
 for (const name of ['unresolved-acquisition.json', 'unresolved-guarantees.json', 'unresolved-signing.json']) {
   const unresolvedExtra = readOptional(name, name)
