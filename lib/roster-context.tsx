@@ -1,12 +1,13 @@
 'use client'
 
 import { useState, createContext, useContext, ReactNode, useMemo, useCallback, useEffect } from 'react'
-import { Player, SavedContract, SavedTrade, Season, SEASONS, CapSheet, CapSheetSnapshot, CapSheetSummary } from './types'
+import { Player, SavedContract, SavedTrade, Season, SEASONS, CapSheet, CapSheetSnapshot, CapSheetSummary, SeasonGuarantee, ReleaseDetail } from './types'
 import { getTeamRoster, TEAMS, CAP_THRESHOLDS, getCapStatus, findPlayerHomeTeam } from './data'
 import { getDraftPickPlayers, applyPickNumberOverrides, DraftPickPlayer } from './draft-picks'
 import { getPlayerRookieYear, getPlayerYOE, getDisplayedSeasons } from './contract-utils'
 import { getContractDetail } from './contract-details'
-import { getTeamCapState, CapHold } from './team-cap-state'
+import { getTeamCapState, CapHold, DeadMoney } from './team-cap-state'
+import { getCurrentSeason, guaranteeLockDate, SEASON_CALENDAR } from './season-calendar'
 import {
   TradeAsset,
   TradeSideInput,
@@ -26,6 +27,20 @@ function yearsOfServiceFor(playerName: string): number | undefined {
   return rookieYear !== undefined ? getPlayerYOE(rookieYear, TRADE_EVAL_SEASON) : undefined
 }
 
+// Hoops Rumors' guarantee-status articles only get re-scraped when the
+// source republishes, so a 'partial'/'non-guaranteed' status can sit stale
+// well past its own guaranteeDate. Once that date has passed, the season is
+// fully guaranteed regardless of what the stored status still says. Same
+// treatment for the CBA's own January 10 lock-in date (see
+// season-calendar.ts's guaranteeLockDate) when a season is supplied — that
+// applies even to contracts with no guaranteeDate on file at all.
+export function effectiveGuarantee(g: SeasonGuarantee, today: Date = new Date(), season?: Season): SeasonGuarantee {
+  if (g.status === 'full') return g
+  if (g.guaranteeDate && new Date(g.guaranteeDate) <= today) return { status: 'full' }
+  if (season && today >= new Date(guaranteeLockDate(season))) return { status: 'full' }
+  return g
+}
+
 // schema doc §2a — converts a player's per-season guarantee status into the
 // discounted "counts toward the match" amount. Returns undefined (no discount,
 // full salary counts) whenever the player has no guarantee data for that
@@ -35,11 +50,70 @@ function guaranteedBySeasonFor(player: Player, getSalary: (p: Player, s: Season)
   if (!player.guarantees) return undefined
   const result: Partial<Record<Season, number>> = {}
   SEASONS.forEach((s) => {
-    const g = player.guarantees?.[s]
-    if (!g || g.status === 'full') return // absent or full — no entry needed, full salary counts
+    const raw = player.guarantees?.[s]
+    if (!raw) return
+    const g = effectiveGuarantee(raw, new Date(), s)
+    if (g.status === 'full') return // absent, full, or past its guaranteeDate/lock date — full salary counts
     result[s] = g.status === 'non-guaranteed' ? 0 : (g.amount ?? 0)
   })
   return Object.keys(result).length > 0 ? result : undefined
+}
+
+// A regular season year is always treated as 174 days for this formula,
+// regardless of the actual per-season game calendar — see the real CBA rule
+// below.
+const REGULAR_SEASON_DAYS = 174
+
+// Full salary unless the season has guarantee data on file, in which case it's
+// capped at whatever's actually guaranteed as of `asOf` (0 for non-guaranteed,
+// the stored amount for partial) — except that a non-guaranteed/partial
+// player cut in-season (after the season starts, before the Jan 10 lock)
+// still accrues a real per-day charge under the CBA: salary ÷ 174 regular-
+// season days × days already spent on the roster, with the guaranteed floor
+// as a backstop if that's larger. Cutting him before the season starts still
+// carries no per-day charge — only the guaranteed floor applies. Waiving
+// doesn't erase any of this — it's what becomes dead money below. Exported
+// so the release-date UI can preview it.
+export function guaranteedAmountForSeason(player: Player, season: Season, effectiveSalary: number, asOf: Date = new Date()): number {
+  const raw = player.guarantees?.[season]
+  if (!raw) return effectiveSalary
+  const g = effectiveGuarantee(raw, asOf, season)
+  if (g.status === 'full') return effectiveSalary
+  const floor = g.status === 'non-guaranteed' ? 0 : Math.min(g.amount ?? 0, effectiveSalary)
+
+  const seasonStart = SEASON_CALENDAR[season]?.seasonStart
+  if (!seasonStart || asOf <= new Date(seasonStart)) return floor
+
+  const daysOnRoster = Math.floor((asOf.getTime() - new Date(seasonStart).getTime()) / 86_400_000)
+  const perDiemCharge = (effectiveSalary / REGULAR_SEASON_DAYS) * daysOnRoster
+  return Math.min(effectiveSalary, Math.max(floor, perDiemCharge))
+}
+
+// Releasing a player is modeled as waiving them on a chosen date (defaults to
+// today) — their guaranteed salary for whatever league year that date falls
+// in becomes dead money exactly like a real waiver, rather than just
+// vanishing. A predicted waiver claim (detail.claimed) transfers the whole
+// contract away instead, so it's excluded entirely — real waiver claims
+// leave zero dead money behind. Only the release's own season is charged;
+// multi-year guarantees on later seasons aren't modeled yet, so those
+// columns just drop the salary entirely.
+function releaseDeadMoneyEntries(
+  teamRoster: Player[],
+  releaseDetails: Record<string, ReleaseDetail>,
+  season: Season,
+  getEffectiveSalary: (p: Player, s: Season) => number
+): DeadMoney[] {
+  return teamRoster
+    .filter((p) => {
+      const detail = releaseDetails[p.id]
+      if (!detail || detail.claimed) return false
+      return getCurrentSeason(new Date(detail.date)) === season
+    })
+    .map((p) => {
+      const detail = releaseDetails[p.id]
+      return { player: p.name, amount: guaranteedAmountForSeason(p, season, getEffectiveSalary(p, season), new Date(detail.date)) }
+    })
+    .filter((d) => d.amount > 0)
 }
 
 // Team Salary (cap-space total) and Apron Team Salary are two different
@@ -48,12 +122,22 @@ function guaranteedBySeasonFor(player: Player, getSalary: (p: Player, s: Season)
 // Apron Team Salary; the apron total instead adds back the scraped
 // unlikely-incentive addon, which cap holds never include. Dead money counts
 // toward both — it's a real, unavoidable cap hit regardless of roster
-// choices or FA-hold resolution.
-function apronAddon(teamAbbr: string, season: Season): number {
+// choices or FA-hold resolution. releaseDeadMoney (waived-today, computed
+// above) counts toward both for the same reason.
+function apronAddon(teamAbbr: string, season: Season, releaseDeadMoney: number): number {
   const state = getTeamCapState(teamAbbr, season)
-  if (!state) return 0
-  const deadMoney = state.deadMoney.reduce((sum, d) => sum + d.amount, 0)
-  return deadMoney + (state.apronAddon ?? 0)
+  const scrapedDeadMoney = state ? state.deadMoney.reduce((sum, d) => sum + d.amount, 0) : 0
+  return scrapedDeadMoney + (state?.apronAddon ?? 0) + releaseDeadMoney
+}
+
+// Older saved cap sheets only have releasedRosterIds (no per-player date or
+// claim prediction) — treat those as if released today, unclaimed.
+function releaseDetailsFromSnapshot(snapshot: { releasedRosterIds: string[]; releaseDetails?: Record<string, ReleaseDetail> }): Record<string, ReleaseDetail> {
+  if (snapshot.releaseDetails) return snapshot.releaseDetails
+  const today = new Date().toISOString().slice(0, 10)
+  const result: Record<string, ReleaseDetail> = {}
+  snapshot.releasedRosterIds.forEach((id) => { result[id] = { date: today, claimed: false } })
+  return result
 }
 
 function renouncedCapHoldKey(teamAbbr: string, season: Season, label: string): string {
@@ -116,6 +200,7 @@ interface RosterContextType extends RosterState {
   getTotalSalary: (season: Season) => { current: number; saved: number; capSpaceTotal: number; apronTotal: number }
   getTeamCapTotal: (teamAbbr: string, season: Season) => { capSpaceTotal: number; apronTotal: number }
   getUnresolvedCapHolds: (teamAbbr: string, season: Season) => CapHold[]
+  getReleaseDeadMoney: (teamAbbr: string, season: Season) => DeadMoney[]
   renounceCapHold: (teamAbbr: string, season: Season, label: string) => void
   restoreCapHold: (teamAbbr: string, season: Season, label: string) => void
   isCapHoldRenounced: (teamAbbr: string, season: Season, label: string) => boolean
@@ -126,7 +211,10 @@ interface RosterContextType extends RosterState {
   pickNumberOverrides: Record<string, number>
   setPickNumberOverride: (pickId: string, pickNumber: number | null) => void
   releasedRosterIds: Set<string>
-  releaseRosterPlayer: (playerId: string) => void
+  releaseDetails: Record<string, ReleaseDetail>
+  getReleaseDetail: (playerId: string) => ReleaseDetail | undefined
+  releaseRosterPlayer: (playerId: string, date?: string) => void
+  setReleaseDetail: (playerId: string, detail: ReleaseDetail) => void
   restoreRosterPlayer: (playerId: string) => void
   savedTrades: SavedTrade[]
   addSavedTrade: (trade: SavedTrade) => void
@@ -151,7 +239,8 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   const [exercisedPlayerOptions, setExercisedPlayerOptions] = useState<Set<string>>(new Set())
   const [renouncedCapHolds, setRenouncedCapHolds] = useState<Set<string>>(new Set())
   const [deletedContractIds, setDeletedContractIds] = useState<Set<string>>(new Set())
-  const [releasedRosterIds, setReleasedRosterIds] = useState<Set<string>>(new Set())
+  const [releaseDetails, setReleaseDetails] = useState<Record<string, ReleaseDetail>>({})
+  const releasedRosterIds = useMemo(() => new Set(Object.keys(releaseDetails)), [releaseDetails])
   const [pickNumberOverrides, setPickNumberOverrides] = useState<Record<string, number>>({})
   const [savedTradesByTeam, setSavedTradesByTeam] = useState<Record<string, SavedTrade[]>>({})
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
@@ -173,7 +262,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     setExercisedPlayerOptions(new Set(snapshot.exercisedPlayerOptionKeys))
     setRenouncedCapHolds(new Set(snapshot.renouncedCapHoldKeys ?? []))
     setDeletedContractIds(new Set(snapshot.deletedContractIds))
-    setReleasedRosterIds(new Set(snapshot.releasedRosterIds))
+    setReleaseDetails(releaseDetailsFromSnapshot(snapshot))
     setPickNumberOverrides({ ...snapshot.pickNumberOverrides })
     setHasUnsavedChanges(true)
     setPendingSaveIntent(draft.pendingSaveIntent)
@@ -391,15 +480,22 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     markChanged()
   }
 
-  const releaseRosterPlayer = (playerId: string) => {
-    setReleasedRosterIds((prev) => new Set(prev).add(playerId))
+  const releaseRosterPlayer = (playerId: string, date: string = new Date().toISOString().slice(0, 10)) => {
+    setReleaseDetails((prev) => ({ ...prev, [playerId]: { date, claimed: false } }))
     markChanged()
   }
 
+  const setReleaseDetail = (playerId: string, detail: ReleaseDetail) => {
+    setReleaseDetails((prev) => ({ ...prev, [playerId]: detail }))
+    markChanged()
+  }
+
+  const getReleaseDetail = useCallback((playerId: string): ReleaseDetail | undefined => releaseDetails[playerId], [releaseDetails])
+
   const restoreRosterPlayer = (playerId: string) => {
-    setReleasedRosterIds((prev) => {
-      const next = new Set(prev)
-      next.delete(playerId)
+    setReleaseDetails((prev) => {
+      const next = { ...prev }
+      delete next[playerId]
       return next
     })
     markChanged()
@@ -544,14 +640,15 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     return state.capHolds.filter((hold) => hold.kind !== 'free-agent' || !signedNames.has(hold.label))
   }
 
-  function capSpaceAddon(teamAbbr: string, season: Season, teamRoster: Player[], teamSavedContracts: SavedContract[]): number {
+  function capSpaceAddon(teamAbbr: string, season: Season, teamRoster: Player[], teamSavedContracts: SavedContract[], releaseDeadMoney: number): number {
     const state = getTeamCapState(teamAbbr, season)
-    if (!state) return 0
-    const deadMoney = state.deadMoney.reduce((sum, d) => sum + d.amount, 0)
-    const holds = unresolvedCapHolds(teamAbbr, season, teamRoster, teamSavedContracts)
-      .filter((h) => h.kind !== 'free-agent' || !renouncedCapHolds.has(renouncedCapHoldKey(teamAbbr, season, h.label)))
-      .reduce((sum, h) => sum + h.amount, 0)
-    return deadMoney + holds
+    const deadMoney = state ? state.deadMoney.reduce((sum, d) => sum + d.amount, 0) : 0
+    const holds = state
+      ? unresolvedCapHolds(teamAbbr, season, teamRoster, teamSavedContracts)
+          .filter((h) => h.kind !== 'free-agent' || !renouncedCapHolds.has(renouncedCapHoldKey(teamAbbr, season, h.label)))
+          .reduce((sum, h) => sum + h.amount, 0)
+      : 0
+    return deadMoney + holds + releaseDeadMoney
   }
 
   const getUnresolvedCapHolds = useCallback((teamAbbr: string, season: Season): CapHold[] => {
@@ -626,14 +723,24 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     }, 0)
 
     const base = currentSalary + savedSalary + draftSalary + tradeIncomingPlayerSalary + tradeIncomingPickSalary
+    const releaseDeadMoney = releaseDeadMoneyEntries(roster, releaseDetails, season, getEffectiveSalary)
+      .reduce((sum, d) => sum + d.amount, 0)
 
     return {
       current: currentSalary,
       saved: savedSalary,
-      capSpaceTotal: base + capSpaceAddon(selectedTeamAbbr, season, roster, savedContracts),
-      apronTotal: base + apronAddon(selectedTeamAbbr, season),
+      capSpaceTotal: base + capSpaceAddon(selectedTeamAbbr, season, roster, savedContracts, releaseDeadMoney),
+      apronTotal: base + apronAddon(selectedTeamAbbr, season, releaseDeadMoney),
     }
   }
+
+  // Dead-money entries created by releasing a player on their chosen date
+  // (see releaseDeadMoneyEntries) — exposed so the UI can show them alongside
+  // the scraped TEAM_CAP_STATE dead money in the same "Dead Money" row.
+  const getReleaseDeadMoney = useCallback((teamAbbr: string, season: Season): DeadMoney[] => {
+    const teamRoster = teamAbbr === selectedTeamAbbr ? roster : getTeamRoster(teamAbbr)
+    return releaseDeadMoneyEntries(teamRoster, releaseDetails, season, getEffectiveSalary)
+  }, [selectedTeamAbbr, roster, releaseDetails, exercisedTeamOptions, exercisedPlayerOptions])
 
   // Same total as getTotalSalary, but for any team abbreviation — not just
   // the currently selected one. Used by the trade validator so a partner
@@ -672,9 +779,11 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     }, 0)
 
     const base = currentSalary + savedSalary + draftSalary + tradeIncomingSalary
+    const releaseDeadMoney = releaseDeadMoneyEntries(teamRoster, releaseDetails, season, getEffectiveSalary)
+      .reduce((sum, d) => sum + d.amount, 0)
     return {
-      capSpaceTotal: base + capSpaceAddon(teamAbbr, season, teamRoster, teamSavedContracts),
-      apronTotal: base + apronAddon(teamAbbr, season),
+      capSpaceTotal: base + capSpaceAddon(teamAbbr, season, teamRoster, teamSavedContracts, releaseDeadMoney),
+      apronTotal: base + apronAddon(teamAbbr, season, releaseDeadMoney),
     }
   }
 
@@ -708,6 +817,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       exercisedPlayerOptionKeys: Array.from(exercisedPlayerOptions),
       deletedContractIds: Array.from(deletedContractIds),
       releasedRosterIds: Array.from(releasedRosterIds),
+      releaseDetails,
       pickNumberOverrides,
       renouncedCapHoldKeys: Array.from(renouncedCapHolds),
     }
@@ -730,7 +840,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     }
 
     return { snapshot, summary }
-  }, [savedContracts, savedTrades, exercisedTeamOptions, exercisedPlayerOptions, renouncedCapHolds, deletedContractIds, releasedRosterIds, pickNumberOverrides, roster, draftPickPlayers])
+  }, [savedContracts, savedTrades, exercisedTeamOptions, exercisedPlayerOptions, renouncedCapHolds, deletedContractIds, releasedRosterIds, releaseDetails, pickNumberOverrides, roster, draftPickPlayers])
 
   const markCapSheetSaved = useCallback((sheet: { id: string; name: string }) => {
     setHasUnsavedChanges(false)
@@ -746,7 +856,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     setExercisedPlayerOptions(new Set(snapshot.exercisedPlayerOptionKeys))
     setRenouncedCapHolds(new Set(snapshot.renouncedCapHoldKeys ?? []))
     setDeletedContractIds(new Set(snapshot.deletedContractIds))
-    setReleasedRosterIds(new Set(snapshot.releasedRosterIds))
+    setReleaseDetails(releaseDetailsFromSnapshot(snapshot))
     setPickNumberOverrides({ ...snapshot.pickNumberOverrides })
     setHasUnsavedChanges(false)
     setActiveCapSheet({ id: sheet.id, name: sheet.name })
@@ -765,7 +875,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     setExercisedPlayerOptions(new Set())
     setRenouncedCapHolds(new Set())
     setDeletedContractIds(new Set())
-    setReleasedRosterIds(new Set())
+    setReleaseDetails({})
     setPickNumberOverrides({})
     setHasUnsavedChanges(false)
     setActiveCapSheet(null)
@@ -813,6 +923,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         getTotalSalary,
         getTeamCapTotal,
         getUnresolvedCapHolds,
+        getReleaseDeadMoney,
         renounceCapHold,
         restoreCapHold,
         isCapHoldRenounced,
@@ -823,7 +934,10 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         pickNumberOverrides,
         setPickNumberOverride,
         releasedRosterIds,
+        releaseDetails,
+        getReleaseDetail,
         releaseRosterPlayer,
+        setReleaseDetail,
         restoreRosterPlayer,
         savedTrades,
         addSavedTrade,

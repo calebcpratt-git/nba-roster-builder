@@ -21,6 +21,16 @@ export interface Player {
   contractType?: 'two-way'
 }
 
+// A hypothetical release (waiver) of a current-roster player. `date` drives
+// which league year the dead money lands in and how much of the contract is
+// guaranteed as of that date; `claimed` predicts whether another team claims
+// him off waivers, which (if true) transfers the whole contract away instead
+// of leaving guaranteed money behind as dead cap.
+export interface ReleaseDetail {
+  date: string // ISO 'YYYY-MM-DD'
+  claimed: boolean
+}
+
 export interface SavedContract {
   id: string
   playerId: string
@@ -104,6 +114,8 @@ export interface CapSheetSnapshot {
   exercisedPlayerOptionKeys: string[]
   deletedContractIds: string[]
   releasedRosterIds: string[]
+  /** Absent (older saved sheets) — fall back to releasedRosterIds with today's date and claimed:false. */
+  releaseDetails?: Record<string, ReleaseDetail>
   pickNumberOverrides: Record<string, number>
   /** Renounced free-agent cap holds — keys `${teamAbbr}-${season}-${holdLabel}`. */
   renouncedCapHoldKeys: string[]
