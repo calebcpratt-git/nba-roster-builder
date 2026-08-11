@@ -2,6 +2,7 @@ import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
 import { CAP_THRESHOLDS } from './data'
 import { PLAYER_ROOKIE_YEARS } from './rookie-years'
 import { nameLookup } from './player-key'
+import { getFreeAgentPoolEntry } from './free-agents'
 import type { DraftPickPlayer } from './draft-picks'
 
 export type DistributionType = 'flat' | 'escalating' | 'declining'
@@ -19,12 +20,25 @@ export function getPlayerYOE(rookieYear: number, startSeason: Season): number {
 
 // Catches only the "3 or fewer years of service" branch of RFA eligibility —
 // a first-rounder finishing year 4 of his rookie scale is also an RFA, but
-// there's no draft-round data to detect that case, so this is a default for
-// a user-overridable toggle, not a hard eligibility gate.
-export function isLikelyRestrictedFreeAgent(playerName: string, season: Season): boolean {
+// there's no draft-round data to detect that case. Used only as a fallback
+// for players not yet in RealGM's free-agent pool (see isRestrictedFreeAgent).
+function isLikelyRestrictedFreeAgent(playerName: string, season: Season): boolean {
   const rookieYear = getPlayerRookieYear(playerName)
   if (rookieYear === undefined) return false
   return getPlayerYOE(rookieYear, season) <= 3
+}
+
+// RealGM's free-agent pool (lib/free-agents.ts) records each unsigned
+// player's actual restricted/unrestricted status, but only covers the
+// current free-agency period and only players with no team right now.
+// Everyone else (still on a roster, contract not yet expired, or a future
+// season) falls back to the years-of-service heuristic above.
+export function isRestrictedFreeAgent(playerName: string, season: Season): boolean {
+  if (season === SEASONS[0]) {
+    const poolEntry = getFreeAgentPoolEntry(playerName)
+    if (poolEntry) return poolEntry.faType === 'restricted'
+  }
+  return isLikelyRestrictedFreeAgent(playerName, season)
 }
 
 export function getMaxContractPct(yoe: number): number {
