@@ -218,7 +218,11 @@ export function ReleasePlayerModal({ player, isOpen, onClose }: ReleasePlayerMod
             </button>
           </div>
 
-          {isAlwaysFull ? (
+          {player.contractType === 'two-way' ? (
+            <p className="text-xs text-muted-foreground leading-relaxed rounded-md border bg-muted/30 p-3">
+              Two-way salary never counts against Team Salary, so releasing him creates no dead money regardless of date.
+            </p>
+          ) : isAlwaysFull ? (
             <p className="text-xs text-muted-foreground leading-relaxed rounded-md border bg-muted/30 p-3">
               No non-guaranteed language is on file for this contract — the full salary ({formatCurrency(effectiveSalary)}) is dead money no matter when he's released.
             </p>

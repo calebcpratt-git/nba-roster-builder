@@ -568,6 +568,7 @@ export function RosterTable() {
     setPickNumberOverride,
     releasedRosterIds,
     getReleaseDetail,
+    releaseRosterPlayer,
     restoreRosterPlayer,
     savedTrades,
     tradedPickIds,
@@ -773,7 +774,11 @@ export function RosterTable() {
                           )}
                           {isReleasable && !isReleased && !isTraded && (
                             <button
-                              onClick={() => setReleaseModal({ player: player as Player, isOpen: true })}
+                              onClick={() =>
+                                player.contractType === 'two-way'
+                                  ? releaseRosterPlayer(player.id)
+                                  : setReleaseModal({ player: player as Player, isOpen: true })
+                              }
                               className="opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 text-[9px] font-semibold text-muted-foreground/50 hover:text-red-500 tracking-wide"
                             >
                               RELEASE
@@ -782,8 +787,14 @@ export function RosterTable() {
                           {isReleased && (
                             <>
                               <button
-                                onClick={() => setReleaseModal({ player: player as Player, isOpen: true })}
-                                className="ml-0.5 text-[9px] font-semibold text-muted-foreground/50 hover:text-red-500 tracking-wide"
+                                onClick={() => player.contractType !== 'two-way' && setReleaseModal({ player: player as Player, isOpen: true })}
+                                disabled={player.contractType === 'two-way'}
+                                className={cn(
+                                  'ml-0.5 text-[9px] font-semibold tracking-wide',
+                                  player.contractType === 'two-way'
+                                    ? 'text-muted-foreground/50 cursor-default'
+                                    : 'text-muted-foreground/50 hover:text-red-500'
+                                )}
                                 title={(() => {
                                   const detail = getReleaseDetail(player.id)
                                   if (!detail) return 'Edit release'
