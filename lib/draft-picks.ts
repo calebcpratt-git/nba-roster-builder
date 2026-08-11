@@ -624,7 +624,7 @@ function enrichPick(p: DraftPick): DraftPick {
 }
 
 // enrich ONCE at module load; every getter filters this instead of DRAFT_PICKS
-const ENRICHED_PICKS: DraftPick[] = DRAFT_PICKS.map(enrichPick)
+export const ENRICHED_PICKS: DraftPick[] = DRAFT_PICKS.map(enrichPick)
 
 export function getPicksByTeam(teamName: string): DraftPick[] {
   return ENRICHED_PICKS.filter(p => p.teamOwner === teamName)
