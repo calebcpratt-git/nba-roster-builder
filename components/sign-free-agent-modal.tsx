@@ -207,8 +207,14 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       : Infinity
   const maxAllowedTotalM = maxAllowedTotalDollars / 1_000_000
 
-  // Minimum totals
-  const minimumTotalValue = numYears === 1 ? 1.32 : 2.75
+  // Minimum totals — cap-hit convention: 2+ YOS players (the common case for a
+  // free-agent minimum signing) count against the cap at the two-year-veteran
+  // minimum scale, not their real, higher paycheck. Unknown YOS defaults to
+  // that veteran tier since this flow is mostly used for established players.
+  const minimumTotalValue = contractSeasons.reduce(
+    (sum, season) => sum + getMinimumSalaryThreshold(season, yoe ?? 2),
+    0
+  ) / 1_000_000
 
   // Exception salaries: each starts at that season's published exception
   // amount and escalates 5%/yr for subsequent contract years — not a total

@@ -28,6 +28,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
+import { ReleasePlayerModal } from '@/components/release-player-modal'
 import { SignFreeAgentModal } from '@/components/sign-free-agent-modal'
 import { SaveCapSheetButton } from '@/components/save-cap-sheet-modal'
 import { Check, X, Info, Plus, RotateCcw, Trash2, AlertTriangle } from 'lucide-react'
@@ -102,7 +103,7 @@ export function TotalPayrollCell({ proj, total, status }: {
     <Popover open={isHovering}>
       <PopoverTrigger asChild>
         <button
-          className="flex flex-col items-center gap-1 cursor-default"
+          className="flex flex-col items-center gap-1 cursor-default mx-auto"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
@@ -566,13 +567,14 @@ export function RosterTable() {
     pickNumberOverrides,
     setPickNumberOverride,
     releasedRosterIds,
-    releaseRosterPlayer,
+    getReleaseDetail,
     restoreRosterPlayer,
     savedTrades,
     tradedPickIds,
     selectedTeam,
     selectedTeamAbbr,
     getUnresolvedCapHolds,
+    getReleaseDeadMoney,
     isCapHoldRenounced,
     renounceCapHold,
     restoreCapHold,
@@ -585,6 +587,11 @@ export function RosterTable() {
 
   const [editContractModal, setEditContractModal] = useState<{ contract: SavedContract | null; player: Player | null; isOpen: boolean }>({
     contract: null,
+    player: null,
+    isOpen: false,
+  })
+
+  const [releaseModal, setReleaseModal] = useState<{ player: Player | null; isOpen: boolean }>({
     player: null,
     isOpen: false,
   })
@@ -766,20 +773,35 @@ export function RosterTable() {
                           )}
                           {isReleasable && !isReleased && !isTraded && (
                             <button
-                              onClick={() => releaseRosterPlayer(player.id)}
+                              onClick={() => setReleaseModal({ player: player as Player, isOpen: true })}
                               className="opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 text-[9px] font-semibold text-muted-foreground/50 hover:text-red-500 tracking-wide"
                             >
                               RELEASE
                             </button>
                           )}
                           {isReleased && (
-                            <button
-                              onClick={() => restoreRosterPlayer(player.id)}
-                              className="ml-0.5 text-muted-foreground hover:text-emerald-500 transition-colors"
-                              title="Restore Player"
-                            >
-                              <RotateCcw className="h-3 w-3" />
-                            </button>
+                            <>
+                              <button
+                                onClick={() => setReleaseModal({ player: player as Player, isOpen: true })}
+                                className="ml-0.5 text-[9px] font-semibold text-muted-foreground/50 hover:text-red-500 tracking-wide"
+                                title={(() => {
+                                  const detail = getReleaseDetail(player.id)
+                                  if (!detail) return 'Edit release'
+                                  return detail.claimed
+                                    ? `Waived ${detail.date} — predicted claimed`
+                                    : `Waived ${detail.date}`
+                                })()}
+                              >
+                                {getReleaseDetail(player.id)?.claimed ? 'CLAIMED' : 'WAIVED'}
+                              </button>
+                              <button
+                                onClick={() => restoreRosterPlayer(player.id)}
+                                className="ml-0.5 text-muted-foreground hover:text-emerald-500 transition-colors"
+                                title="Restore Player"
+                              >
+                                <RotateCcw className="h-3 w-3" />
+                              </button>
+                            </>
                           )}
                           {isFreeAgentRow && !isFADeleted && (
                             <button
@@ -914,7 +936,7 @@ export function RosterTable() {
                 {/* Dead Money section — waived/stretched cap hits. Always counts
                     toward Team Salary (and Apron Salary); never renounceable, so
                     it's kept separate from the toggleable FA holds below. */}
-                {displayedSeasons.some((s) => (getTeamCapState(selectedTeamAbbr, s)?.deadMoney.length ?? 0) > 0) && (
+                {displayedSeasons.some((s) => (getTeamCapState(selectedTeamAbbr, s)?.deadMoney.length ?? 0) + getReleaseDeadMoney(selectedTeamAbbr, s).length > 0) && (
                   <>
                     <tr className="border-t border-border bg-muted/40">
                       <td
@@ -931,7 +953,10 @@ export function RosterTable() {
                         </span>
                       </td>
                       {displayedSeasons.map((season) => {
-                        const entries = getTeamCapState(selectedTeamAbbr, season)?.deadMoney ?? []
+                        const entries = [
+                          ...(getTeamCapState(selectedTeamAbbr, season)?.deadMoney ?? []),
+                          ...getReleaseDeadMoney(selectedTeamAbbr, season),
+                        ]
                         return (
                           <td key={season} className="px-2 py-1.5 text-center">
                             <DeadMoneyCell season={season} entries={entries} />
@@ -1168,7 +1193,6 @@ export function RosterTable() {
                       </td>
                     )
                   })}
-                  <td className="px-1 py-2"></td>
                 </tr>
                 <tr className="border-t border-border/50">
                   <td className="sticky left-0 bg-muted px-3 py-2">
@@ -1182,7 +1206,6 @@ export function RosterTable() {
                       </td>
                     )
                   })}
-                  <td className="px-1 py-2"></td>
                 </tr>
               </tfoot>
             </table>
@@ -1217,6 +1240,12 @@ export function RosterTable() {
           onClose={() => setEditContractModal({ contract: null, player: null, isOpen: false })}
         />
       )}
+
+      <ReleasePlayerModal
+        player={releaseModal.player}
+        isOpen={releaseModal.isOpen}
+        onClose={() => setReleaseModal({ player: null, isOpen: false })}
+      />
     </>
   )
 }

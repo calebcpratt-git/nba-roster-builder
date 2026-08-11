@@ -192,7 +192,7 @@ export function SignFreeAgentsPanelContent({
 }
 
 export function SignFreeAgentsPanel() {
-  const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[1])
+  const [selectedYear, setSelectedYear] = useState<Season>(SEASONS[0])
   const [isCollapsed, setIsCollapsed] = useState(true)
   const { savedContracts, selectedTeam } = useRoster()
 
