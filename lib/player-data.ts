@@ -233,7 +233,7 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [
   { name: "Kingston Flemings", team: 'ATL', salary: { '2026-27': 7348680, '2027-28': 7716120, '2028-29': 8083680, '2029-30': 10282441 }, options: { '2028-29': 'Team', '2029-30': 'Team' }, acquisition: { date: '2026-07-02', method: 'free-agent' } },
   { name: "Dereck Lively II", team: 'DAL', salary: { '2026-27': 7239131 }, options: {  }, acquisition: { date: '2023-07-08', method: 'free-agent' } },
   { name: "Egor Dёmin", team: 'BRK', salary: { '2026-27': 7233720, '2027-28': 7578240, '2028-29': 9639522 }, options: { '2027-28': 'Team', '2028-29': 'Team' }, acquisition: { date: '2025-07-03', method: 'free-agent' } },
-  { name: "Gradey Dick", team: 'LAC', salary: {  }, options: {  }, acquisition: { date: '2026-06-30', method: 'trade' } },
+  { name: "Gradey Dick", team: 'TOR', salary: { '2026-27': 7131511 }, options: {  } },
   { name: "Clint Capela", team: 'HOU', salary: { '2026-27': 7035000, '2027-28': 7370000 }, options: {  }, acquisition: { date: '2025-07-06', method: 'trade' } },
   { name: "Jordan Hawkins", team: 'NOP', salary: { '2026-27': 7021895 }, options: {  }, acquisition: { date: '2023-07-03', method: 'free-agent' } },
   { name: "Isaiah Jackson", team: 'LAC', salary: { '2026-27': 7000000, '2027-28': 6400000 }, options: {  }, acquisition: { date: '2026-02-05', method: 'trade' } },

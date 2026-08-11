@@ -3180,13 +3180,11 @@
   },
   {
     "name": "Gradey Dick",
-    "team": "LAC",
-    "salary": {},
-    "options": {},
-    "acquisition": {
-      "date": "2026-06-30",
-      "method": "trade"
-    }
+    "team": "TOR",
+    "salary": {
+      "2026-27": 7131511
+    },
+    "options": {}
   },
   {
     "name": "Clint Capela",

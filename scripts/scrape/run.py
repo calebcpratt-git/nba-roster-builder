@@ -84,6 +84,24 @@ TWO_WAY_SALARY = {
     '2026-27': 678_882,
 }
 
+# Trades SalarySwish (or another source) has reported but that have NOT
+# actually been executed — e.g. agreed-to-in-principle deals later put on
+# hold. Every transaction matching (name, date) here is dropped before it
+# ever reaches acquisition matching or build_free_agent_reconciliation's
+# team-mismatch logic, so the player(s) involved keep showing on their real,
+# current team with their real salary instead of being moved (and, for
+# build_free_agent_reconciliation specifically, having that season's salary
+# wiped — see its docstring's 'signed elsewhere' branch) to a team they
+# haven't actually joined. Remove an entry here once the trade is confirmed
+# executed (or confirmed dead) so this stops silently overriding fresh data.
+FROZEN_TRANSACTIONS = {
+    # Kawhi Leonard (LAC) / Brandon Ingram + Gradey Dick (TOR) — reported
+    # 2026-06-30, put on hold before closing; confirmed frozen as of 2026-08-10.
+    ('Gradey Dick', '2026-06-30'),
+    ('Brandon Ingram', '2026-06-30'),
+    ('Kawhi Leonard', '2026-06-30'),
+}
+
 SOURCES = {
     'bbref_contracts': 'https://www.basketball-reference.com/contracts/players.html',
     'realgm_future_drafts': 'https://basketball.realgm.com/nba/draft/future_drafts/team',
@@ -486,6 +504,11 @@ def build_enrichment():
     if len(ss_failed_teams) == len(salaryswish.TEAM_SLUG_TO_ABBR):
         raise RuntimeError('every salaryswish team-transaction page failed to fetch')
     transactions = salaryswish.parse_all_team_transactions(SS_TEAM_TRANSACTIONS_RAW)
+    frozen = [t for t in transactions if (t['name'], t['date']) in FROZEN_TRANSACTIONS]
+    if frozen:
+        print(f'  {len(frozen)} transaction(s) dropped as frozen (see FROZEN_TRANSACTIONS): '
+              f'{[f["name"] for f in frozen]}')
+    transactions = [t for t in transactions if (t['name'], t['date']) not in FROZEN_TRANSACTIONS]
     unresolved_acq = []
     matched_acq = 0
     stale_cleared = []
