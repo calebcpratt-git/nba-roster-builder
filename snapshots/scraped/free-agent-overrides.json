@@ -43,14 +43,5 @@
   "faType": "U",
   "source": "realgm_current_free_agents",
   "corroborated": false
- },
- {
-  "name": "Jalen Pickett",
-  "team": "DEN",
-  "season": "2026-27",
-  "optionType": "Team",
-  "faType": "U",
-  "source": "realgm_current_free_agents",
-  "corroborated": false
  }
 ]

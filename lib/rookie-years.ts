@@ -427,6 +427,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "JaVale McGee": 2008,
   "Alijah Martin": 2025,
   "Moussa Cisse": 2025,
+  "Taelon Peter": 2025,
   "Rasheer Fleming": 2025,
   "Maxime Raynaud": 2025,
   "Noah Penda": 2025,
