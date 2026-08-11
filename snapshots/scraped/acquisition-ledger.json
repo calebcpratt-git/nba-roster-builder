@@ -2233,5 +2233,255 @@
   "date": "2026-07-02",
   "method": "free-agent",
   "team": "WAS"
+ },
+ "wilsoja03": {
+  "date": "2026-07-22",
+  "method": "free-agent",
+  "team": "ATL"
+ },
+ "mitchdi01": {
+  "date": "2026-08-05",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "william01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "BOS"
+ },
+ "bilodty01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "johnsch06": {
+  "date": "2026-06-29",
+  "method": "free-agent",
+  "team": "BRK"
+ },
+ "bosweky01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "ajayimi01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "CHO"
+ },
+ "awakato01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "selleja01": {
+  "date": "2026-06-24",
+  "method": "free-agent",
+  "team": "CHI"
+ },
+ "joneska03": {
+  "date": "2026-07-04",
+  "method": "free-agent",
+  "team": "MIL"
+ },
+ "udehjer01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "CLE"
+ },
+ "howarje01": {
+  "date": "2026-07-20",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "lawalto01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "DAL"
+ },
+ "harklej01": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "onyenug01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "DET"
+ },
+ "copelqu01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "HOU"
+ },
+ "slawsja01": {
+  "date": "2026-07-22",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "brownko01": {
+  "date": "2026-07-09",
+  "method": "free-agent",
+  "team": "IND"
+ },
+ "sharpja01": {
+  "date": "2026-08-06",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "martini01": {
+  "date": "2026-06-30",
+  "method": "free-agent",
+  "team": "LAC"
+ },
+ "kalumar01": {
+  "date": "2026-07-21",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "manonch01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "okereak01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "LAL"
+ },
+ "donaltr01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "goldivl01": {
+  "date": "2026-06-26",
+  "method": "free-agent",
+  "team": "MIA"
+ },
+ "owehot01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "freemen01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "MIN"
+ },
+ "pierrja01": {
+  "date": "2026-07-23",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "dickihu01": {
+  "date": "2026-06-26",
+  "method": "free-agent",
+  "team": "NOP"
+ },
+ "dixjo01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "barnhbr01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "OKC"
+ },
+ "castlco01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "nelsoiz01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "ORL"
+ },
+ "okparfe01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "WAS"
+ },
+ "ruperra01": {
+  "date": "2026-07-08",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "loveca01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "PHI"
+ },
+ "breako01": {
+  "date": "2026-07-06",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "spencpa01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "PHO"
+ },
+ "tonjejo01": {
+  "date": "2026-07-24",
+  "method": "free-agent",
+  "team": "POR"
+ },
+ "mogbojo01": {
+  "date": "2026-07-02",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "flaglad01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "SAC"
+ },
+ "peterta01": {
+  "date": "2026-08-07",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "brownma05": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "gilleja02": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "SAS"
+ },
+ "jemistr01": {
+  "date": "2026-08-04",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "bradlja02": {
+  "date": "2026-07-04",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "hepbuch01": {
+  "date": "2026-06-25",
+  "method": "free-agent",
+  "team": "TOR"
+ },
+ "alexatr01": {
+  "date": "2026-07-07",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "batesta01": {
+  "date": "2026-07-03",
+  "method": "free-agent",
+  "team": "UTA"
+ },
+ "watkija01": {
+  "date": "2026-07-01",
+  "method": "free-agent",
+  "team": "WAS"
  }
 }

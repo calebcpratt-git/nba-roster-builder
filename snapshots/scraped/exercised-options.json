@@ -182,6 +182,13 @@
   "corroborated": false
  },
  {
+  "name": "Gradey Dick",
+  "team": "TOR",
+  "season": "2026-27",
+  "optionType": "Team",
+  "corroborated": false
+ },
+ {
   "name": "Jordan Hawkins",
   "team": "NOP",
   "season": "2026-27",
@@ -520,6 +527,13 @@
  {
   "name": "Mouhamed Gueye",
   "team": "ATL",
+  "season": "2026-27",
+  "optionType": "Team",
+  "corroborated": false
+ },
+ {
+  "name": "Jalen Pickett",
+  "team": "LAC",
   "season": "2026-27",
   "optionType": "Team",
   "corroborated": false

@@ -1451,7 +1451,10 @@
   "name": "Dillon Brooks",
   "team": "PHO",
   "salary": {
-   "2026-27": 19992727
+   "2026-27": 19992727,
+   "2027-28": 22530864,
+   "2028-29": 24333333,
+   "2029-30": 26135802
   },
   "options": {},
   "bbrefId": "brookdi01",
@@ -1814,15 +1817,15 @@
   },
   "options": {},
   "bbrefId": "robindu01",
+  "acquisition": {
+   "date": "2025-07-07",
+   "method": "sign-and-trade"
+  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
     "amount": 2000000
    }
-  },
-  "acquisition": {
-   "date": "2025-07-07",
-   "method": "sign-and-trade"
   }
  },
  {
@@ -4806,6 +4809,16 @@
   }
  },
  {
+  "name": "Cole Anthony",
+  "team": "MEM",
+  "salary": {
+   "2026-27": 3700000,
+   "2027-28": 3700000
+  },
+  "options": {},
+  "bbrefId": "anthoco01"
+ },
+ {
   "name": "Will Riley",
   "team": "WAS",
   "salary": {
@@ -5115,6 +5128,17 @@
    "date": "2024-07-06",
    "method": "free-agent"
   }
+ },
+ {
+  "name": "Nassir Little",
+  "team": "PHO",
+  "salary": {
+   "2026-27": 3107143,
+   "2027-28": 3107143,
+   "2028-29": 3107143
+  },
+  "options": {},
+  "bbrefId": "littlna01"
  },
  {
   "name": "Jaylen Clark",
@@ -5593,16 +5617,16 @@
    "2027-28": "Team"
   },
   "bbrefId": "krejcvi01",
+  "acquisition": {
+   "date": "2026-02-01",
+   "method": "trade"
+  },
   "guarantees": {
    "2026-27": {
     "status": "partial",
     "amount": 250000,
     "guaranteeDate": "2026-10-15"
    }
-  },
-  "acquisition": {
-   "date": "2026-02-01",
-   "method": "trade"
   }
  },
  {
@@ -6511,11 +6535,11 @@
   },
   "options": {},
   "bbrefId": "pickeja02",
+  "contractType": "two-way",
   "acquisition": {
    "date": "2026-08-05",
    "method": "free-agent"
-  },
-  "contractType": "two-way"
+  }
  },
  {
   "name": "Jamal Shead",
@@ -6736,6 +6760,16 @@
   }
  },
  {
+  "name": "JaVale McGee",
+  "team": "DAL",
+  "salary": {
+   "2026-27": 2208856,
+   "2027-28": 2208856
+  },
+  "options": {},
+  "bbrefId": "mcgeeja01"
+ },
+ {
   "name": "Alijah Martin",
   "team": "TOR",
   "salary": {
@@ -6770,6 +6804,19 @@
     "amount": 1092558,
     "guaranteeDate": "2026-10-01"
    }
+  }
+ },
+ {
+  "name": "Taelon Peter",
+  "team": "SAS",
+  "salary": {
+   "2026-27": 2185116
+  },
+  "options": {},
+  "bbrefId": "peterta01",
+  "acquisition": {
+   "date": "2026-08-07",
+   "method": "free-agent"
   }
  },
  {
@@ -7166,6 +7213,36 @@
   }
  },
  {
+  "name": "E.J. Liddell",
+  "team": "PHO",
+  "salary": {
+   "2026-27": 706898
+  },
+  "options": {},
+  "bbrefId": "liddeej01"
+ },
+ {
+  "name": "Vasilije Micić",
+  "team": "MIL",
+  "salary": {
+   "2026-27": 666667,
+   "2027-28": 666667
+  },
+  "options": {
+   "2027-28": "Team"
+  },
+  "bbrefId": "micicva01"
+ },
+ {
+  "name": "Mamadi Diakite",
+  "team": "MEM",
+  "salary": {
+   "2026-27": 464050
+  },
+  "options": {},
+  "bbrefId": "diakima01"
+ },
+ {
   "name": "Ricky Rubio",
   "team": "CLE",
   "salary": {
@@ -7177,6 +7254,17 @@
    "date": "2022-07-07",
    "method": "free-agent"
   }
+ },
+ {
+  "name": "Didi Louzada",
+  "team": "POR",
+  "salary": {
+   "2026-27": 268032,
+   "2027-28": 268032,
+   "2028-29": 268032
+  },
+  "options": {},
+  "bbrefId": "louzama01"
  },
  {
   "name": "RayJ Dennis",
@@ -7206,7 +7294,11 @@
   },
   "options": {},
   "bbrefId": "wilsoja03",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-22",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Amari Williams",
@@ -7216,7 +7308,11 @@
   },
   "options": {},
   "bbrefId": "william01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Dillon Mitchell",
@@ -7226,7 +7322,11 @@
   },
   "options": {},
   "bbrefId": "mitchdi01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-08-05",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Chaney Johnson",
@@ -7236,7 +7336,11 @@
   },
   "options": {},
   "bbrefId": "johnsch06",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-06-29",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Tyler Bilodeau",
@@ -7246,7 +7350,11 @@
   },
   "options": {},
   "bbrefId": "bilodty01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "PJ Hall",
@@ -7266,7 +7374,11 @@
   },
   "options": {},
   "bbrefId": "ajayimi01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Kylan Boswell",
@@ -7276,7 +7388,11 @@
   },
   "options": {},
   "bbrefId": "bosweky01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Tobe Awaka",
@@ -7286,7 +7402,11 @@
   },
   "options": {},
   "bbrefId": "awakato01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jaylin Sellers",
@@ -7296,7 +7416,11 @@
   },
   "options": {},
   "bbrefId": "selleja01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-06-24",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Tristan Enaruna",
@@ -7326,7 +7450,11 @@
   },
   "options": {},
   "bbrefId": "udehjer01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "John Poulakidas",
@@ -7346,7 +7474,11 @@
   },
   "options": {},
   "bbrefId": "lawalto01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jett Howard",
@@ -7356,7 +7488,11 @@
   },
   "options": {},
   "bbrefId": "howarje01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-20",
+   "method": "free-agent"
+  }
  },
  {
   "name": "KJ Simpson",
@@ -7386,7 +7522,11 @@
   },
   "options": {},
   "bbrefId": "onyenug01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Elijah Harkless",
@@ -7396,7 +7536,11 @@
   },
   "options": {},
   "bbrefId": "harklej01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "free-agent"
+  }
  },
  {
   "name": "LJ Cryer",
@@ -7436,7 +7580,11 @@
   },
   "options": {},
   "bbrefId": "copelqu01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-07",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Ethan Thompson",
@@ -7456,7 +7604,11 @@
   },
   "options": {},
   "bbrefId": "brownko01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-09",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jalen Slawson",
@@ -7466,7 +7618,11 @@
   },
   "options": {},
   "bbrefId": "slawsja01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-22",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Nick Martinelli",
@@ -7476,7 +7632,11 @@
   },
   "options": {},
   "bbrefId": "martini01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-06-30",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jamarion Sharp",
@@ -7486,7 +7646,11 @@
   },
   "options": {},
   "bbrefId": "sharpja01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-08-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Chris Manon",
@@ -7496,7 +7660,11 @@
   },
   "options": {},
   "bbrefId": "manonch01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "AK Okereke",
@@ -7506,7 +7674,11 @@
   },
   "options": {},
   "bbrefId": "okereak01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Arthur Kaluma",
@@ -7516,7 +7688,11 @@
   },
   "options": {},
   "bbrefId": "kalumar01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-21",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Javon Small",
@@ -7546,7 +7722,11 @@
   },
   "options": {},
   "bbrefId": "donaltr01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Vladislav Goldin",
@@ -7556,7 +7736,11 @@
   },
   "options": {},
   "bbrefId": "goldivl01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-06-26",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Cormac Ryan",
@@ -7576,7 +7760,18 @@
   },
   "options": {},
   "bbrefId": "joneska03",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-04",
+   "method": "free-agent"
+  },
+  "guarantees": {
+   "2026-27": {
+    "status": "partial",
+    "amount": 1075459,
+    "guaranteeDate": "2026-06-30"
+   }
+  }
  },
  {
   "name": "Rocco Zikarsky",
@@ -7606,7 +7801,11 @@
   },
   "options": {},
   "bbrefId": "freemen01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Hunter Dickinson",
@@ -7616,7 +7815,11 @@
   },
   "options": {},
   "bbrefId": "dickihu01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-06-26",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jaron Pierre Jr.",
@@ -7626,7 +7829,11 @@
   },
   "options": {},
   "bbrefId": "pierrja01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-23",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Brooks Barnhizer",
@@ -7636,7 +7843,11 @@
   },
   "options": {},
   "bbrefId": "barnhbr01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Josh Dix",
@@ -7646,7 +7857,11 @@
   },
   "options": {},
   "bbrefId": "dixjo01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Otega Oweh",
@@ -7656,7 +7871,11 @@
   },
   "options": {},
   "bbrefId": "owehot01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Colin Castleton",
@@ -7666,7 +7885,11 @@
   },
   "options": {},
   "bbrefId": "castlco01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Alex Morales",
@@ -7686,7 +7909,11 @@
   },
   "options": {},
   "bbrefId": "nelsoiz01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Caleb Love",
@@ -7696,7 +7923,11 @@
   },
   "options": {},
   "bbrefId": "loveca01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Rayan Rupert",
@@ -7706,7 +7937,11 @@
   },
   "options": {},
   "bbrefId": "ruperra01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-08",
+   "method": "free-agent"
+  }
  },
  {
   "name": "CJ Huntley",
@@ -7726,7 +7961,11 @@
   },
   "options": {},
   "bbrefId": "spencpa01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Koby Brea",
@@ -7736,7 +7975,11 @@
   },
   "options": {},
   "bbrefId": "breako01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-06",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Chris Youngblood",
@@ -7766,7 +8009,11 @@
   },
   "options": {},
   "bbrefId": "tonjejo01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-24",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Adam Flagler",
@@ -7776,7 +8023,11 @@
   },
   "options": {},
   "bbrefId": "flaglad01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jonathan Mogbo",
@@ -7786,7 +8037,11 @@
   },
   "options": {},
   "bbrefId": "mogbojo01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-02",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Ja’Kobi Gillespie",
@@ -7796,7 +8051,11 @@
   },
   "options": {},
   "bbrefId": "gilleja02",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Maliq Brown",
@@ -7806,7 +8065,11 @@
   },
   "options": {},
   "bbrefId": "brownma05",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "David Jones Garcia",
@@ -7826,7 +8089,11 @@
   },
   "options": {},
   "bbrefId": "hepbuch01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-06-25",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Jaden Bradley",
@@ -7836,7 +8103,11 @@
   },
   "options": {},
   "bbrefId": "bradlja02",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-04",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Trey Jemison",
@@ -7846,7 +8117,11 @@
   },
   "options": {},
   "bbrefId": "jemistr01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-08-04",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Blake Hinson",
@@ -7866,7 +8141,11 @@
   },
   "options": {},
   "bbrefId": "batesta01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-03",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Trey Alexander",
@@ -7876,7 +8155,11 @@
   },
   "options": {},
   "bbrefId": "alexatr01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-07",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Julian Reese",
@@ -7896,7 +8179,11 @@
   },
   "options": {},
   "bbrefId": "watkija01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-01",
+   "method": "free-agent"
+  }
  },
  {
   "name": "Felix Okpara",
@@ -7906,6 +8193,10 @@
   },
   "options": {},
   "bbrefId": "okparfe01",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisition": {
+   "date": "2026-07-07",
+   "method": "free-agent"
+  }
  }
 ]
