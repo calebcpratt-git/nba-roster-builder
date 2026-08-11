@@ -14,7 +14,7 @@ Resilience:
 
 Groups (each independent — a failure in one never blocks the others):
   players             BBRef contracts + draft classes             -> players.json, rookie-years.json, unresolved-draft-year.json
-  two-way-contracts   Hoops Rumors two-way tracker                -> merged onto players.json (team, contractType, salary)
+  two-way-contracts   Hoops Rumors two-way tracker                -> merged onto players.json (team, contractType, salary; creates a new row if none exists)
   free-agent-reconciliation  RealGM free-agent-options +          -> corrects stale CURRENT_SEASON_LABEL option
                       current-free-agents pages                      flags directly on players.json (no new file)
   free-agent-pool     RealGM current-free-agents                  -> free-agents.json (currently-unsigned players not in players.json)
@@ -359,9 +359,19 @@ def build_two_way_contracts():
 
     Matches primarily by bbrefId (exact); falls back to name only for a
     tracker entry with no bbrefId link. A tracker entry naming a player with
-    no players.json row at all (a two-way rookie who's never had a BBRef
-    contracts-page row) is left unresolved rather than inventing a new row —
-    same boundary build_free_agent_reconciliation holds to."""
+    NO players.json row at all — the common case: most two-way slots go to
+    rookies/first-timers who've never had a BBRef contracts-page row —
+    gets a brand-new minimal row created here (name, team, contractType,
+    the flat salary, bbrefId as the join key for future runs), rather than
+    being left invisible. This is a deliberate, narrow exception to the
+    'never invent a row' boundary build_free_agent_reconciliation and
+    build_free_agent_pool hold to: those two only ever correct/reference
+    players BBRef already knows about, but a two-way slot is real roster
+    occupancy this pipeline otherwise has no other way to represent at all.
+    Confirmed live 2026-08-10: 73 of 74 tracker entries had no players.json
+    row (e.g. Rockets two-way signees Tristen Newton, Quadir Copeland) —
+    leaving them merely logged and invisible, as this function used to,
+    defeated the point of sourcing this tracker in the first place."""
     players = _load_json('players', None)
     if players is None:
         raise RuntimeError('players.json does not exist yet — run the players group first')
@@ -372,14 +382,20 @@ def build_two_way_contracts():
     salary = TWO_WAY_SALARY.get(CURRENT_SEASON_LABEL)
 
     matched = 0
+    created = 0
     team_corrected = []
-    unresolved = []
     for entry in tracker:
         target = (by_id.get(entry['bbrefId']) if entry['bbrefId'] else None) or by_name.get(_base(entry['name']))
         if target is None:
-            unresolved.append(entry)
-            continue
-        if target.get('team') != entry['team']:
+            target = {'name': entry['name'], 'team': entry['team'], 'salary': {}, 'options': {}}
+            if entry['bbrefId']:
+                target['bbrefId'] = entry['bbrefId']
+            players.append(target)
+            if entry['bbrefId']:
+                by_id[entry['bbrefId']] = target
+            by_name[_base(entry['name'])] = target
+            created += 1
+        elif target.get('team') != entry['team']:
             team_corrected.append({'name': target['name'], 'oldTeam': target.get('team'),
                                     'newTeam': entry['team'], 'reported': entry['reported']})
             target['team'] = entry['team']
@@ -389,9 +405,7 @@ def build_two_way_contracts():
         matched += 1
 
     json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
-    json.dump(unresolved, open(os.path.join(OUT, 'unresolved-two-way.json'), 'w'), indent=1, ensure_ascii=False)
-    print(f'  two-way tracker: {matched}/{len(tracker)} matched to a players.json row   '
-          f'{len(unresolved)} unresolved (no players.json row)')
+    print(f'  two-way tracker: {matched}/{len(tracker)} matched   {created} new players.json row(s) created')
     if team_corrected:
         print(f'  {len(team_corrected)} team correction(s):')
         for c in team_corrected:
