@@ -1,10 +1,5 @@
 [
  {
-  "name": "Jalen Wilson",
-  "date": "2026-07-22",
-  "method": "free-agent"
- },
- {
   "name": "Isaac McKneely",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -20,28 +15,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Dillon Mitchell",
-  "date": "2026-08-05",
-  "method": "free-agent"
- },
- {
-  "name": "Amari Williams",
-  "date": "2026-07-01",
-  "method": "free-agent"
- },
- {
   "name": "Dalano Banton",
   "date": "2026-04-11",
-  "method": "free-agent"
- },
- {
-  "name": "Tyler Bilodeau",
-  "date": "2026-07-02",
-  "method": "free-agent"
- },
- {
-  "name": "Chaney Johnson",
-  "date": "2026-06-29",
   "method": "free-agent"
  },
  {
@@ -62,16 +37,6 @@
  {
   "name": "Malachi Smith",
   "date": "2026-04-04",
-  "method": "free-agent"
- },
- {
-  "name": "Kylan Boswell",
-  "date": "2026-07-06",
-  "method": "free-agent"
- },
- {
-  "name": "Michael Ajayi",
-  "date": "2026-07-06",
   "method": "free-agent"
  },
  {
@@ -100,11 +65,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Tobe Awaka",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
   "name": "Nicolas Claxton",
   "date": "2026-07-10",
   "method": "trade"
@@ -112,16 +72,6 @@
  {
   "name": "Donovan Atwell",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Jaylin Sellers",
-  "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Kam Jones",
-  "date": "2026-07-04",
   "method": "free-agent"
  },
  {
@@ -135,11 +85,6 @@
   "method": "draft"
  },
  {
-  "name": "Ernest Udeh Jr.",
-  "date": "2026-07-01",
-  "method": "free-agent"
- },
- {
   "name": "Rashaun Agee",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -147,16 +92,6 @@
  {
   "name": "Xaivian Lee",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Jett Howard",
-  "date": "2026-07-20",
-  "method": "free-agent"
- },
- {
-  "name": "Tobi Lawal",
-  "date": "2026-07-03",
   "method": "free-agent"
  },
  {
@@ -190,16 +125,6 @@
   "method": "draft"
  },
  {
-  "name": "Elijah Harkless",
-  "date": "2026-07-08",
-  "method": "free-agent"
- },
- {
-  "name": "Ugonna Onyenso",
-  "date": "2026-07-02",
-  "method": "free-agent"
- },
- {
   "name": "Corey Stephenson",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -230,11 +155,6 @@
   "method": "draft"
  },
  {
-  "name": "Quadir Copeland",
-  "date": "2026-07-07",
-  "method": "free-agent"
- },
- {
   "name": "Jack Kayil",
   "date": "2026-06-23",
   "method": "draft"
@@ -242,16 +162,6 @@
  {
   "name": "JD Davison",
   "date": "2026-04-07",
-  "method": "free-agent"
- },
- {
-  "name": "Jalen Slawson",
-  "date": "2026-07-22",
-  "method": "free-agent"
- },
- {
-  "name": "Kobe Brown",
-  "date": "2026-07-09",
   "method": "free-agent"
  },
  {
@@ -280,37 +190,12 @@
   "method": "free-agent"
  },
  {
-  "name": "Jamarion Sharp",
-  "date": "2026-08-06",
-  "method": "free-agent"
- },
- {
-  "name": "Nick Martinelli",
-  "date": "2026-06-30",
-  "method": "free-agent"
- },
- {
   "name": "Fletcher Loyer",
   "date": "2026-06-25",
   "method": "free-agent"
  },
  {
-  "name": "Arthur Kaluma",
-  "date": "2026-07-21",
-  "method": "free-agent"
- },
- {
-  "name": "Chris Manon",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
   "name": "Peter Suder",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
-  "name": "AK Okereke",
   "date": "2026-07-03",
   "method": "free-agent"
  },
@@ -365,16 +250,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Tre Donaldson",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
-  "name": "Vladislav Goldin",
-  "date": "2026-06-26",
-  "method": "free-agent"
- },
- {
   "name": "J'Vonne Hadley",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -387,11 +262,6 @@
  {
   "name": "Tre White",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Otega Oweh",
-  "date": "2026-07-03",
   "method": "free-agent"
  },
  {
@@ -410,24 +280,9 @@
   "method": "free-agent"
  },
  {
-  "name": "Enrique Freeman",
-  "date": "2026-07-02",
-  "method": "free-agent"
- },
- {
   "name": "Trey Kaufman-Renn",
   "date": "2026-06-23",
   "method": "draft"
- },
- {
-  "name": "Jaron Pierre",
-  "date": "2026-07-23",
-  "method": "free-agent"
- },
- {
-  "name": "Hunter Dickinson",
-  "date": "2026-06-26",
-  "method": "free-agent"
  },
  {
   "name": "Chris Bell",
@@ -465,16 +320,6 @@
   "method": "trade"
  },
  {
-  "name": "Josh Dix",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
-  "name": "Brooks Barnhizer",
-  "date": "2026-07-02",
-  "method": "free-agent"
- },
- {
   "name": "Christoph Tilly",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -490,28 +335,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Colin Castleton",
-  "date": "2026-07-01",
-  "method": "free-agent"
- },
- {
-  "name": "Izaiyah Nelson",
-  "date": "2026-07-01",
-  "method": "free-agent"
- },
- {
   "name": "Malik Reneau",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Felix Okpara",
-  "date": "2026-07-07",
-  "method": "free-agent"
- },
- {
-  "name": "Rayan Rupert",
-  "date": "2026-07-08",
   "method": "free-agent"
  },
  {
@@ -520,23 +345,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Caleb Love",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
   "name": "Dalen Terry",
   "date": "2026-04-10",
-  "method": "free-agent"
- },
- {
-  "name": "Koby Brea",
-  "date": "2026-07-06",
-  "method": "free-agent"
- },
- {
-  "name": "Pat Spencer",
-  "date": "2026-07-03",
   "method": "free-agent"
  },
  {
@@ -555,23 +365,8 @@
   "method": "draft"
  },
  {
-  "name": "John Tonje",
-  "date": "2026-07-24",
-  "method": "free-agent"
- },
- {
   "name": "Barry Dunning Jr.",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Jonathan Mogbo",
-  "date": "2026-07-02",
-  "method": "free-agent"
- },
- {
-  "name": "Adam Flagler",
-  "date": "2026-07-01",
   "method": "free-agent"
  },
  {
@@ -595,38 +390,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Taelon Peter",
-  "date": "2026-08-07",
-  "method": "free-agent"
- },
- {
   "name": "David Jones",
   "date": "2026-07-22",
-  "method": "free-agent"
- },
- {
-  "name": "Maliq Brown",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
-  "name": "Ja'Kobi Gillespie",
-  "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
-  "name": "Trey Jemison",
-  "date": "2026-08-04",
-  "method": "free-agent"
- },
- {
-  "name": "Jaden Bradley",
-  "date": "2026-07-04",
-  "method": "free-agent"
- },
- {
-  "name": "Chucky Hepburn",
-  "date": "2026-06-25",
   "method": "free-agent"
  },
  {
@@ -642,16 +407,6 @@
  {
   "name": "Tyreke Key",
   "date": "2026-04-06",
-  "method": "free-agent"
- },
- {
-  "name": "Trey Alexander",
-  "date": "2026-07-07",
-  "method": "free-agent"
- },
- {
-  "name": "Tamar Bates",
-  "date": "2026-07-03",
   "method": "free-agent"
  },
  {
@@ -677,11 +432,6 @@
  {
   "name": "Kennedy Chandler",
   "date": "2026-04-01",
-  "method": "free-agent"
- },
- {
-  "name": "Jamir Watkins",
-  "date": "2026-07-01",
   "method": "free-agent"
  },
  {

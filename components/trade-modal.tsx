@@ -7,6 +7,7 @@ import { getTeamRoster, ALL_TEAMS, TEAM_NAMES, formatCurrency, CAP_THRESHOLDS, g
 import { getDraftPickPlayers, DraftPick } from '@/lib/draft-picks'
 import { DraftPickHoverContent } from '@/components/draft-pick-hover'
 import { getScaledRookieSalary, SECOND_ROUND_SALARY_BY_SEASON } from '@/lib/rookie-salaries'
+import { getTeamCapState } from '@/lib/team-cap-state'
 import {
   TradeAsset,
   TradeSideInput,
@@ -217,6 +218,9 @@ function TradeChip({
   options,
   draftPick,
   onRemove,
+  tpeOptions,
+  tpeValue,
+  onTpeChange,
 }: {
   label: string
   sub?: string
@@ -224,19 +228,39 @@ function TradeChip({
   options?: Partial<Record<Season, 'Player' | 'Team'>>
   draftPick?: DraftPick
   onRemove: () => void
+  /** When provided (a player-kind chip with at least one usable held TPE), renders a TPE picker. */
+  tpeOptions?: { id: string; label: string }[]
+  tpeValue?: string
+  onTpeChange?: (tpeId: string) => void
 }) {
   return (
-    <div className="flex items-center justify-between px-2 py-1 rounded bg-muted/50 border border-border/60 text-xs">
-      <HoverName name={label} salary={salary} options={options} draftPick={draftPick} className="text-foreground" />
-      <div className="flex items-center gap-1.5 shrink-0 ml-1.5">
-        {sub && <span className="text-muted-foreground font-mono tabular-nums text-[10px]">{sub}</span>}
-        <button
-          onClick={onRemove}
-          className="text-muted-foreground hover:text-destructive transition-colors"
-        >
-          <X className="h-3 w-3" />
-        </button>
+    <div className="rounded bg-muted/50 border border-border/60">
+      <div className="flex items-center justify-between px-2 py-1 text-xs">
+        <HoverName name={label} salary={salary} options={options} draftPick={draftPick} className="text-foreground" />
+        <div className="flex items-center gap-1.5 shrink-0 ml-1.5">
+          {sub && <span className="text-muted-foreground font-mono tabular-nums text-[10px]">{sub}</span>}
+          <button
+            onClick={onRemove}
+            className="text-muted-foreground hover:text-destructive transition-colors"
+          >
+            <X className="h-3 w-3" />
+          </button>
+        </div>
       </div>
+      {tpeOptions && tpeOptions.length > 0 && (
+        <div className="px-2 pb-1">
+          <select
+            value={tpeValue ?? ''}
+            onChange={(e) => onTpeChange?.(e.target.value)}
+            className="w-full h-5 text-[10px] bg-background border border-border/60 rounded px-1 text-muted-foreground"
+          >
+            <option value="">Match with salary (no TPE)</option>
+            {tpeOptions.map((t) => (
+              <option key={t.id} value={t.id}>{t.label}</option>
+            ))}
+          </select>
+        </div>
+      )}
     </div>
   )
 }
@@ -271,6 +295,9 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
   const [selectedIncomingPlayerIds, setSelectedIncomingPlayerIds] = useState<Set<string>>(new Set())
   const [selectedIncomingPickIds, setSelectedIncomingPickIds] = useState<Set<string>>(new Set())
   const [incomingCustomPicks, setIncomingCustomPicks] = useState<PendingIncomingPick[]>([])
+  const [incomingTpeUse, setIncomingTpeUse] = useState<Record<string, string>>({})
+  const [cashToPartner, setCashToPartner] = useState('')
+  const [cashFromPartner, setCashFromPartner] = useState('')
 
   const [addPickYear, setAddPickYear] = useState('2027')
   const [addPickRound, setAddPickRound] = useState<'First Round' | 'Second Round'>('First Round')
@@ -283,6 +310,13 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
       setSelectedOutgoingPickIds(new Set(editingTrade.outgoingPickIds))
       setSelectedIncomingPlayerIds(new Set(editingTrade.incomingPlayers.map((p) => p.playerId)))
       setSelectedIncomingPickIds(new Set())
+      setIncomingTpeUse(
+        Object.fromEntries(
+          editingTrade.incomingPlayers.filter((p) => p.heldTpeId).map((p) => [p.playerId, p.heldTpeId!])
+        )
+      )
+      setCashToPartner(editingTrade.cashToPartner ? String(editingTrade.cashToPartner) : '')
+      setCashFromPartner(editingTrade.cashFromPartner ? String(editingTrade.cashFromPartner) : '')
       setIncomingCustomPicks(
         editingTrade.incomingPicks.map((p) => ({
           id: p.id,
@@ -300,6 +334,12 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
 
   const tradeTeamRoster = useMemo(() => (tradeTeamAbbr ? getTeamRoster(tradeTeamAbbr) : []), [tradeTeamAbbr])
   const tradeTeamPicks = useMemo(() => (tradeTeamAbbr ? getDraftPickPlayers(tradeTeamAbbr) : []), [tradeTeamAbbr])
+
+  // Held TPEs and cash room are only tracked for the current league year.
+  const yourCapState = getTeamCapState(selectedTeamAbbr, TRADE_EVAL_SEASON)
+  const theirCapState = tradeTeamAbbr ? getTeamCapState(tradeTeamAbbr, TRADE_EVAL_SEASON) : undefined
+  const yourHeldTPEs = yourCapState?.heldTPEs ?? []
+  const usedTpeIds = new Set(Object.values(incomingTpeUse).filter(Boolean))
 
   const availableTeams = ALL_TEAMS.filter((t) => t !== selectedTeamAbbr)
 
@@ -369,6 +409,7 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
         id: p.id,
         name: p.name,
         salaryBySeason: p.salary,
+        heldTpeId: incomingTpeUse[p.id] || undefined,
       })),
       ...selectedIncomingPickObjects.map((p) => {
         const { pickYear, pickRound } = parsePickIdMeta(p.id)
@@ -401,6 +442,9 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
     // still aren't visible here — see the "(est.)" tooltip.
     const theirPreTradeTotal = getTeamCapTotal(tradeTeamAbbr, season).capSpaceTotal
 
+    const cashOut = parseFloat(cashToPartner) || 0
+    const cashIn = parseFloat(cashFromPartner) || 0
+
     const yourSide: TradeSideInput = {
       side: 'yours',
       teamAbbr: selectedTeamAbbr,
@@ -409,6 +453,10 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
       approximate: false,
       outgoing: yourOutgoing,
       incoming: yourIncoming,
+      heldTPEs: yourHeldTPEs,
+      cashOut,
+      cashIn,
+      cashLedger: yourCapState?.cashLedger,
     }
     const theirSide: TradeSideInput = {
       side: 'theirs',
@@ -418,6 +466,10 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
       approximate: true,
       outgoing: yourIncoming,
       incoming: yourOutgoing,
+      heldTPEs: theirCapState?.heldTPEs ?? [],
+      cashOut: cashIn,
+      cashIn: cashOut,
+      cashLedger: theirCapState?.cashLedger,
     }
 
     const validationInput: ValidateTradeInput = {
@@ -461,6 +513,12 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
     selectedIncomingPlayerObjects,
     selectedIncomingPickObjects,
     incomingCustomPicks,
+    incomingTpeUse,
+    cashToPartner,
+    cashFromPartner,
+    yourHeldTPEs,
+    yourCapState,
+    theirCapState,
     getEffectiveSalary,
     getTotalSalary,
     getTeamCapTotal,
@@ -483,6 +541,13 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
   }
   function removeIncomingPlayer(id: string) {
     setSelectedIncomingPlayerIds((prev) => { const s = new Set(prev); s.delete(id); return s })
+    setIncomingTpeUse((prev) => { const { [id]: _removed, ...rest } = prev; return rest })
+  }
+  function setIncomingPlayerTpe(id: string, tpeId: string) {
+    setIncomingTpeUse((prev) => {
+      if (!tpeId) { const { [id]: _removed, ...rest } = prev; return rest }
+      return { ...prev, [id]: tpeId }
+    })
   }
   function addIncomingPick(id: string) {
     setSelectedIncomingPickIds((prev) => new Set(prev).add(id))
@@ -509,7 +574,10 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
       playerName: p.name,
       salary: p.salary,
       options: p.options,
+      heldTpeId: incomingTpeUse[p.id] || undefined,
     }))
+    const cashOut = parseFloat(cashToPartner) || 0
+    const cashIn = parseFloat(cashFromPartner) || 0
     const incomingPicksFromTeam = selectedIncomingPickObjects.map((p) => ({
       id: `trade-in-${p.id}-${Date.now()}`,
       name: `${p.name} (from ${tradeTeamAbbr})`,
@@ -529,6 +597,8 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
         outgoingPickIds: Array.from(selectedOutgoingPickIds),
         incomingPlayers,
         incomingPicks,
+        cashToPartner: cashOut || undefined,
+        cashFromPartner: cashIn || undefined,
       })
     } else {
       addSavedTrade({
@@ -539,6 +609,8 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
         outgoingPickIds: Array.from(selectedOutgoingPickIds),
         incomingPlayers,
         incomingPicks,
+        cashToPartner: cashOut || undefined,
+        cashFromPartner: cashIn || undefined,
       })
     }
     handleClose()
@@ -551,6 +623,9 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
     setSelectedIncomingPlayerIds(new Set())
     setSelectedIncomingPickIds(new Set())
     setIncomingCustomPicks([])
+    setIncomingTpeUse({})
+    setCashToPartner('')
+    setCashFromPartner('')
     setAddPickYear('2027')
     setAddPickRound('First Round')
     setAddPickNumber('16')
@@ -735,9 +810,27 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
                 <p className="text-xs text-muted-foreground px-2 py-2">No assets selected yet</p>
               ) : (
                 <>
-                  {selectedIncomingPlayerObjects.map((p) => (
-                    <TradeChip key={p.id} label={p.name} sub={formatCurrency(getFirstYearSalary(p))} salary={p.salary} options={p.options} onRemove={() => removeIncomingPlayer(p.id)} />
-                  ))}
+                  {selectedIncomingPlayerObjects.map((p) => {
+                    const eligibleTPEs = yourHeldTPEs.filter(
+                      (t) => (t.id === incomingTpeUse[p.id] || !usedTpeIds.has(t.id)) && getFirstYearSalary(p) <= t.amount + 100_000
+                    )
+                    return (
+                      <TradeChip
+                        key={p.id}
+                        label={p.name}
+                        sub={formatCurrency(getFirstYearSalary(p))}
+                        salary={p.salary}
+                        options={p.options}
+                        onRemove={() => removeIncomingPlayer(p.id)}
+                        tpeOptions={eligibleTPEs.map((t) => ({
+                          id: t.id,
+                          label: `TPE ${formatCurrency(t.amount)} (${t.fromPlayer ?? 'prior trade'})`,
+                        }))}
+                        tpeValue={incomingTpeUse[p.id] ?? ''}
+                        onTpeChange={(tpeId) => setIncomingPlayerTpe(p.id, tpeId)}
+                      />
+                    )
+                  })}
                   {selectedIncomingPickObjects.map((p) => (
                     <TradeChip key={p.id} label={p.name} draftPick={p.draftPick} onRemove={() => removeIncomingPick(p.id)} />
                   ))}
@@ -765,6 +858,42 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
             </div>
           </div>
         </div>
+
+        {/* Cash in trade */}
+        {tradeTeamAbbr && (
+          <div className="flex items-center gap-4 px-5 py-2.5 border-t border-border bg-muted/10 text-xs">
+            <span className="font-semibold uppercase tracking-wide text-muted-foreground text-[10px] shrink-0">Cash</span>
+            <label className="flex items-center gap-1.5">
+              You send
+              <input
+                type="number"
+                min="0"
+                step="1000"
+                placeholder="0"
+                value={cashToPartner}
+                onChange={(e) => setCashToPartner(e.target.value)}
+                className="w-24 h-6 px-1.5 rounded border border-border/60 bg-background text-xs font-mono"
+              />
+            </label>
+            <label className="flex items-center gap-1.5">
+              You receive
+              <input
+                type="number"
+                min="0"
+                step="1000"
+                placeholder="0"
+                value={cashFromPartner}
+                onChange={(e) => setCashFromPartner(e.target.value)}
+                className="w-24 h-6 px-1.5 rounded border border-border/60 bg-background text-xs font-mono"
+              />
+            </label>
+            {yourCapState?.cashLedger && (
+              <span className="text-[10px] text-muted-foreground/70 ml-auto">
+                {TEAM_NAMES[selectedTeamAbbr]} room: {formatCurrency(yourCapState.cashLedger.availableToSend)} to send / {formatCurrency(yourCapState.cashLedger.availableToReceive)} to receive
+              </span>
+            )}
+          </div>
+        )}
 
         {/* Validation */}
         {tradeAnalysis && (

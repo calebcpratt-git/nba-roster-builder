@@ -16,3 +16,7 @@ node_modules
 
 # Scraper raw HTML (uploaded as a workflow artifact instead of committed)
 snapshots/raw/
+
+# Local output of scripts/check-schema-drift.js — the /data dashboard reads it
+# to show when drift was last checked, which is per-machine, not shared state.
+snapshots/schema-drift.json

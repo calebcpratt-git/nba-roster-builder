@@ -1,0 +1,33 @@
+name: Schema drift
+
+# lib/data-schema.ts is the one hand-maintained part of the /data dashboard —
+# it records every field in the data model and the page each one comes from.
+# CLAUDE.md and a PostToolUse hook both ask for it to be updated alongside any
+# schema or source change; this is the backstop for changes made outside Claude
+# Code, and for a scraper that quietly starts emitting a new field.
+#
+# Deliberately does not use --live: a flaky fetch of an upstream site is not a
+# reason to fail someone's PR. Run `node scripts/check-schema-drift.js --live`
+# by hand for source-liveness and the dated Hoops Rumors successor check.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'lib/**'
+      - 'scripts/**'
+      - '.github/workflows/schema-drift.yml'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - run: node scripts/check-schema-drift.js

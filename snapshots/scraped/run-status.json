@@ -1,7 +1,9 @@
 {
   "written": [
     "players",
+    "two-way-contracts",
     "free-agent-reconciliation",
+    "free-agent-pool",
     "picks",
     "enrichment",
     "clauses",
@@ -16,26 +18,28 @@
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 138,
-      "guarantees": 6,
+      "acquisition": 140,
+      "guarantees": 7,
       "signing": 8
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 138,
+      "acquisition": 90,
       "guarantees": 6,
-      "signing": 8
+      "signing": 10
     },
-    "newUnresolved": 0,
-    "newByCategory": {}
+    "newUnresolved": 2,
+    "newByCategory": {
+      "signing": 2
+    }
   },
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 521)",
+    "players: +8 -0 ~53 (of 521)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 441)",
+    "contract-details: +79 -0 ~1 (of 441)",
     "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -0 ~0 (of 146)"
+    "free-agents: +2 -3 ~0 (of 146)"
   ],
   "clean": true
 }

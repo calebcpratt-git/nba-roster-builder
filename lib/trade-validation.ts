@@ -2,6 +2,7 @@ import { Season, CapThreshold } from './types'
 import { formatCurrency } from './data'
 import { getPicksByTeamAbbr, DraftPick } from './draft-picks'
 import { LEAGUE_CAP, getMinimumSalaryThreshold } from './league-cap'
+import { HeldTPE, CashLedger } from './team-cap-state'
 
 export type TradeTeamSide = 'yours' | 'theirs'
 export type TradeSeverity = 'error' | 'warning'
@@ -24,6 +25,9 @@ export interface TradeAsset {
   noTradeClause?: boolean
   /** Parsed protection/swap data for pick assets, carried through for future conveyance checks (schema doc §4). */
   pick?: DraftPick
+  /** Set on an incoming player being absorbed via one of this side's `heldTPEs` instead of
+   *  outgoing salary — the id must match an entry in TradeSideInput.heldTPEs. */
+  heldTpeId?: string
 }
 
 export interface TradeSideInput {
@@ -34,6 +38,14 @@ export interface TradeSideInput {
   approximate: boolean
   outgoing: TradeAsset[]
   incoming: TradeAsset[]
+  /** This side's held trade exceptions available to absorb an incoming player, from TEAM_CAP_STATE. */
+  heldTPEs?: HeldTPE[]
+  /** Cash this side sends out in the deal. */
+  cashOut?: number
+  /** Cash this side receives in the deal. */
+  cashIn?: number
+  /** This side's remaining room under the season cash-in-trade limit, from TEAM_CAP_STATE. */
+  cashLedger?: CashLedger
 }
 
 export interface ValidateTradeInput {
@@ -88,7 +100,7 @@ export function parsePickIdMeta(id: string): { pickYear?: number; pickRound?: 1 
 export const PARTNER_FINDINGS_ARE_WARNINGS = false
 
 export const FIDELITY_NOTE =
-  "Not checked: Bird rights, base-year compensation & poison-pill contracts, sign-and-trades, cash in trades, full pick-conveyance logic for protections/swaps (only consulted to soften Stepien-rule warnings), the moratorium & trade-deadline timing, the two-month re-aggregation rule, and the touch rule (this tool only builds two-team trades). No-trade clauses and trade bonuses/kickers are checked, but only for the small set of players with that data populated in CONTRACT_DETAILS. Cap and apron figures are approximations for planning, not a substitute for a live trade machine. The partner team's salary includes their roster, saved contracts, and saved trades in this app — trades built from another team's perspective aren't visible here."
+  "Not checked: Bird rights, base-year compensation & poison-pill contracts, sign-and-trades, full pick-conveyance logic for protections/swaps (only consulted to soften Stepien-rule warnings), the moratorium & trade-deadline timing, the two-month re-aggregation rule, and the touch rule (this tool only builds two-team trades). No-trade clauses and trade bonuses/kickers are checked, but only for the small set of players with that data populated in CONTRACT_DETAILS. Cash in trades and held trade exceptions are now checked against each team's live SalarySwish-sourced ledger, when available. Cap and apron figures are approximations for planning, not a substitute for a live trade machine. The partner team's salary includes their roster, saved contracts, and saved trades in this app — trades built from another team's perspective aren't visible here."
 
 // ---------------------------------------------------------------------------
 // small helpers
@@ -176,6 +188,7 @@ function computeSideTotals(side: TradeSideInput, season: Season, thresholds: Cap
   const inPlayers = playerAssets(side.incoming)
   const outTotal = outPlayers.reduce((sum, a) => sum + outgoingSalaryOf(a, season), 0)
   const inTotal = inPlayers.reduce((sum, a) => {
+    if (a.heldTpeId) return sum // absorbed via a held TPE — doesn't need outgoing salary matched
     const salary = salaryOf(a, season)
     const treatAsMinimum = a.isMinimum ?? isMinimumSalary(salary, season, a.yearsOfService)
     return sum + (treatAsMinimum ? 0 : incomingSalaryOf(a, season))
@@ -457,6 +470,106 @@ function checkStepien(side: TradeSideInput, input: ValidateTradeInput): TradeVio
 }
 
 // ---------------------------------------------------------------------------
+// Rule 8 — held trade exception usage
+// ---------------------------------------------------------------------------
+
+function checkHeldTpeUsage(side: TradeSideInput, input: ValidateTradeInput): TradeViolation[] {
+  const violations: TradeViolation[] = []
+  const severity = severityFor(side)
+  const seenTpeIds = new Set<string>()
+  const now = Date.now()
+
+  for (const asset of playerAssets(side.incoming)) {
+    if (!asset.heldTpeId) continue
+    const tpe = side.heldTPEs?.find((t) => t.id === asset.heldTpeId)
+
+    if (!tpe) {
+      violations.push({
+        code: 'TPE_NOT_FOUND',
+        severity,
+        side: side.side,
+        assetNames: [asset.name],
+        message: `${side.teamName} tried to use a held trade exception for ${asset.name} that no longer matches its records — remove and reselect it.`,
+      })
+      continue
+    }
+
+    if (seenTpeIds.has(tpe.id)) {
+      violations.push({
+        code: 'TPE_REUSED',
+        severity,
+        side: side.side,
+        assetNames: [asset.name],
+        message: `${side.teamName} can't use the same trade exception (from ${tpe.fromPlayer ?? 'a prior trade'}, ${formatCurrency(tpe.amount)}) to acquire two players in one trade.`,
+      })
+    }
+    seenTpeIds.add(tpe.id)
+
+    if (Date.parse(tpe.expires) < now) {
+      violations.push({
+        code: 'TPE_EXPIRED',
+        severity,
+        side: side.side,
+        assetNames: [asset.name],
+        message: `${side.teamName}'s trade exception from ${tpe.fromPlayer ?? 'a prior trade'} expired ${tpe.expires} and can no longer be used to acquire ${asset.name}.`,
+      })
+    }
+
+    const salary = salaryOf(asset, input.season)
+    const headroom = tpe.amount + 100_000
+    if (salary > headroom) {
+      violations.push({
+        code: 'TPE_TOO_SMALL',
+        severity,
+        side: side.side,
+        assetNames: [asset.name],
+        message: `${side.teamName}'s ${formatCurrency(tpe.amount)} trade exception (from ${tpe.fromPlayer ?? 'a prior trade'}) can't absorb ${asset.name}'s ${formatCurrency(salary)} salary — a TPE can only take back up to $100K more than its amount.`,
+      })
+    }
+  }
+
+  return violations
+}
+
+// ---------------------------------------------------------------------------
+// Rule 9 — cash in trade
+// ---------------------------------------------------------------------------
+
+function checkCashInTrade(side: TradeSideInput, input: ValidateTradeInput): TradeViolation[] {
+  const violations: TradeViolation[] = []
+  const severity = severityFor(side)
+  const seasonLimit = LEAGUE_CAP[input.season]?.cashInTradeLimit
+  const cashOut = side.cashOut ?? 0
+  const cashIn = side.cashIn ?? 0
+
+  if (cashOut > 0) {
+    const cap = side.cashLedger?.availableToSend ?? seasonLimit
+    if (cap !== undefined && cashOut > cap) {
+      violations.push({
+        code: 'CASH_SEND_LIMIT',
+        severity,
+        side: side.side,
+        message: `${side.teamName} has ${formatCurrency(cap)} left${side.cashLedger ? ' of room under the 5.15%-of-cap cash-in-trade limit' : ' under the season cash-in-trade limit'} this league year — this trade sends ${formatCurrency(cashOut)}.`,
+      })
+    }
+  }
+
+  if (cashIn > 0) {
+    const cap = side.cashLedger?.availableToReceive ?? seasonLimit
+    if (cap !== undefined && cashIn > cap) {
+      violations.push({
+        code: 'CASH_RECEIVE_LIMIT',
+        severity,
+        side: side.side,
+        message: `${side.teamName} can receive at most ${formatCurrency(cap)} more in cash${side.cashLedger ? ' under the 5.15%-of-cap cash-in-trade limit' : ' under the season cash-in-trade limit'} this league year — this trade sends them ${formatCurrency(cashIn)}.`,
+      })
+    }
+  }
+
+  return violations
+}
+
+// ---------------------------------------------------------------------------
 // Rule 6 — roster-spot reminder (informational, always a warning)
 // ---------------------------------------------------------------------------
 
@@ -519,6 +632,8 @@ export function validateTrade(input: ValidateTradeInput): TradeValidationResult 
     collect(checkSevenYearWindow(side, input))
     collect(checkStepien(side, input))
     collect(checkNoTradeClause(side))
+    collect(checkHeldTpeUsage(side, input))
+    collect(checkCashInTrade(side, input))
     collect(checkRosterSpots(side))
   }
 

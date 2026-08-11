@@ -1,15 +1,5 @@
 [
  {
-  "player": "Kam Jones",
-  "team": "Bulls",
-  "guaranteeDate": "2026-06-30",
-  "status": "partial",
-  "partialAmount": 1075459,
-  "fullAmount": 2150917,
-  "guaranteeTriggered": false,
-  "raw": "Partial guarantee ($1,075,459) increases to full guarantee ($2,150,917). ( ❌ )"
- },
- {
   "player": "Jonas Valanciunas",
   "team": "Nuggets",
   "guaranteeDate": "2026-07-08",

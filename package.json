@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "schema:check": "node scripts/check-schema-drift.js",
+    "schema:check:live": "node scripts/check-schema-drift.js --live"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

@@ -383,6 +383,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         yearsOfService: yearsOfServiceFor(p.playerName),
         tradeBonusPct: detail?.tradeBonusPct,
         noTradeClause: detail?.noTradeClause,
+        heldTpeId: p.heldTpeId,
       }
     })
     const picks: TradeAsset[] = trade.incomingPicks.map((p) => {
@@ -406,6 +407,8 @@ export function RosterProvider({ children }: { children: ReactNode }) {
 
     const yourPreTradeTotal = getTotalSalary(season).capSpaceTotal
     const theirPreTradeTotal = getTeamCapTotal(trade.tradeTeamAbbr, season).capSpaceTotal
+    const yourCapState = getTeamCapState(selectedTeamAbbr, TRADE_EVAL_SEASON)
+    const theirCapState = getTeamCapState(trade.tradeTeamAbbr, TRADE_EVAL_SEASON)
 
     const yourSide: TradeSideInput = {
       side: 'yours',
@@ -415,6 +418,10 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       approximate: false,
       outgoing: yourOutgoing,
       incoming: yourIncoming,
+      heldTPEs: yourCapState?.heldTPEs ?? [],
+      cashOut: trade.cashToPartner,
+      cashIn: trade.cashFromPartner,
+      cashLedger: yourCapState?.cashLedger,
     }
     const theirSide: TradeSideInput = {
       side: 'theirs',
@@ -424,6 +431,10 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       approximate: true,
       outgoing: yourIncoming,
       incoming: yourOutgoing,
+      heldTPEs: theirCapState?.heldTPEs ?? [],
+      cashOut: trade.cashFromPartner,
+      cashIn: trade.cashToPartner,
+      cashLedger: theirCapState?.cashLedger,
     }
 
     const validation = validateTrade({

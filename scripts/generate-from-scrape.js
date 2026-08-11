@@ -98,7 +98,11 @@ function writeRunStatus(diffResults) {
       : '**Needs review** — see above for why this run did not auto-merge.'
   )
 
-  const finalStatus = { ...runStatus, warnings, diffSummaries, clean }
+  // Stamped here rather than in run.py so it marks when the generated lib/*.ts
+  // files were actually rewritten, which is what the /data dashboard reports
+  // as "data as of". Without it the dashboard can only fall back to file mtimes,
+  // which a git checkout resets.
+  const finalStatus = { ...runStatus, generatedAt: new Date().toISOString(), warnings, diffSummaries, clean }
   fs.writeFileSync(path.join(SCRAPED, 'run-status.json'), JSON.stringify(finalStatus, null, 2) + '\n')
   fs.writeFileSync(path.join(SCRAPED, 'pr-body.md'), bodyLines.join('\n') + '\n')
   console.log(`\nrun-status: clean=${clean}` + (clean ? '' : ` (staleSources=${staleSources.length}, newUnresolved=${newUnresolved}, warnings=${warnings.length})`))

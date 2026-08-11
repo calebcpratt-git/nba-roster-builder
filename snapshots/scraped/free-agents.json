@@ -18,12 +18,6 @@
   "birdRights": "non-bird"
  },
  {
-  "name": "Cole Anthony",
-  "priorTeam": "PHO",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Adama-Alpha Bal",
   "priorTeam": "MEM",
   "faType": "U",
@@ -152,6 +146,12 @@
  {
   "name": "N'Faly Dante",
   "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "J.D. Davison",
+  "priorTeam": "HOU",
   "faType": "U",
   "birdRights": null
  },
@@ -378,12 +378,6 @@
   "birdRights": "early-bird"
  },
  {
-  "name": "E.J. Liddell",
-  "priorTeam": "BRK",
-  "faType": "U",
-  "birdRights": "non-bird"
- },
- {
   "name": "Isaiah Livers",
   "priorTeam": "PHO",
   "faType": "U",
@@ -540,8 +534,8 @@
   "birdRights": null
  },
  {
-  "name": "Taelon Peter",
-  "priorTeam": "IND",
+  "name": "Sean Pedulla",
+  "priorTeam": "LAC",
   "faType": "U",
   "birdRights": null
  },

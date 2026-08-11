@@ -92,6 +92,8 @@ export interface SavedTrade {
     playerName: string
     salary: Partial<Record<Season, number>>
     options: Partial<Record<Season, 'Player' | 'Team'>>
+    /** Held trade exception (TEAM_CAP_STATE heldTPEs id) absorbing this player instead of matched outgoing salary. */
+    heldTpeId?: string
   }>
   incomingPicks: Array<{
     id: string
@@ -102,6 +104,10 @@ export interface SavedTrade {
   }>
   /** UI toggle — sign-and-trade hard-cap + 3-4yr / 1st-yr-guaranteed rule. Not yet enforced — see schema doc §6. */
   isSignAndTrade?: boolean
+  /** Cash your side sends to the trade partner. */
+  cashToPartner?: number
+  /** Cash your side receives from the trade partner. */
+  cashFromPartner?: number
 }
 
 // A saved cap sheet always covers a single team's builder state — see
