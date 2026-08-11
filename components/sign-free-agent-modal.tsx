@@ -10,7 +10,7 @@ import {
   getMaxContractPct,
   getMaxContractSalaries,
   getMaxAllowedTotal,
-  isLikelyRestrictedFreeAgent,
+  isRestrictedFreeAgent,
   DistributionType,
 } from '@/lib/contract-utils'
 import { getMinimumSalaryThreshold, LEAGUE_CAP } from '@/lib/league-cap'
@@ -34,6 +34,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
+import { Badge } from '@/components/ui/badge'
 import { Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -96,7 +97,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const [exceptionType, setExceptionType] = useState<ExceptionType | null>(null)
   const [isMaxContract, setIsMaxContract] = useState(false)
   const [isTwoWay, setIsTwoWay] = useState(false)
-  const [isRestrictedFA, setIsRestrictedFA] = useState(false)
   const [isQualifyingOffer, setIsQualifyingOffer] = useState(false)
   const [yearsError, setYearsError] = useState('')
 
@@ -112,7 +112,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setExceptionType(editingContract.exceptionType ?? null)
       setIsMaxContract(editingContract.isMaxContract ?? false)
       setIsTwoWay(editingContract.contractType === 'two-way')
-      setIsRestrictedFA(!!editingContract.rfaPath)
       setIsQualifyingOffer(editingContract.rfaPath === 'qualifying-offer')
       setYearsError('')
     } else {
@@ -123,7 +122,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setExceptionType(null)
       setIsMaxContract(false)
       setIsTwoWay(false)
-      setIsRestrictedFA(player ? isLikelyRestrictedFreeAgent(player.name, startingSeason) : false)
       setIsQualifyingOffer(false)
       setYearsError('')
     }
@@ -139,6 +137,10 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const effectiveStartingSeason = (editingFirstSeason ?? startingSeason) as Season
 
   const isOnSelectedTeam = player.team === selectedTeamAbbr
+  // Restricted-FA status is sourced data (RealGM's free-agent pool, or a
+  // years-of-service heuristic for players still on a roster), not a user
+  // choice — see isRestrictedFreeAgent.
+  const isRestrictedFA = isRestrictedFreeAgent(player.name, effectiveStartingSeason)
   // An RFA signing with a different team than the player's own is an offer
   // sheet — min 2/max 4 years, no two-way. Tendering a QO only applies when
   // re-signing your own player.
@@ -329,19 +331,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     }
   }
 
-  // Gates whether the QO sub-toggle is even shown — turning it off when
-  // switching to a different team (offer-sheet mode) or off entirely.
-  const handleRestrictedFAToggle = (checked: boolean) => {
-    setIsRestrictedFA(checked)
-    setIsQualifyingOffer(false)
-    setYearsError('')
-    if (checked && isOfferSheet) {
-      setIsTwoWay(false)
-      const clamped = Math.min(Math.max(parseInt(years) || 2, 2), Math.min(4, maxYears))
-      setYears(String(clamped))
-    }
-  }
-
   const handleQualifyingOfferToggle = (checked: boolean) => {
     setIsQualifyingOffer(checked)
     setYearsError('')
@@ -485,13 +474,12 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     setExceptionType(null)
     setIsMaxContract(false)
     setIsTwoWay(false)
-    setIsRestrictedFA(false)
     setIsQualifyingOffer(false)
     setYearsError('')
   }
 
   // Preserves the matched badge if editing a contract matchOfferSheet already
-  // created; otherwise derives rfaPath from the toggles above.
+  // created; otherwise derives rfaPath from the data-sourced RFA status above.
   const rfaPath: SavedContract['rfaPath'] = !isRestrictedFA
     ? undefined
     : isQualifyingOffer
@@ -595,34 +583,46 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
               </p>
             )}
 
+            {/* Restricted free agency status, grouped with whatever it implies for this deal */}
+            {isRestrictedFA && (
+              <div className="flex items-start gap-3 flex-wrap p-2.5 rounded-lg border border-amber-500/20 bg-amber-500/5">
+                <Badge variant="outline" className="text-amber-500 border-amber-500/30 shrink-0">
+                  Restricted Free Agent
+                </Badge>
+
+                {isOnSelectedTeam && (
+                  <div className="flex items-center gap-2">
+                    <Label htmlFor="qualifying-offer" className="text-xs font-medium cursor-pointer">
+                      Tender Qualifying Offer
+                    </Label>
+                    <Switch
+                      id="qualifying-offer"
+                      checked={isQualifyingOffer}
+                      onCheckedChange={handleQualifyingOfferToggle}
+                      className="data-[state=unchecked]:bg-gray-400"
+                    />
+                  </div>
+                )}
+
+                {isOfferSheet && (
+                  <p className="text-xs text-muted-foreground w-full">
+                    Offer sheet — must run 2–4 years and can&apos;t be a two-way deal. {player.team} will have a chance to
+                    match; if they do, {player.name} can&apos;t be traded without his consent for one year, and never to{' '}
+                    {selectedTeamAbbr} even with it.
+                  </p>
+                )}
+
+                {isQualifyingOffer && (
+                  <p className="text-xs text-muted-foreground w-full">
+                    A qualifying offer is a 1-year, fully guaranteed deal that gives {player.team} matching rights over
+                    any offer sheet {player.name} signs elsewhere. Enter the QO amount manually.
+                  </p>
+                )}
+              </div>
+            )}
+
             {/* Contract type toggles */}
             <div className="flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2">
-                <Label htmlFor="restricted-fa" className="text-xs font-medium cursor-pointer">
-                  Restricted Free Agent
-                </Label>
-                <Switch
-                  id="restricted-fa"
-                  checked={isRestrictedFA}
-                  onCheckedChange={handleRestrictedFAToggle}
-                  className="data-[state=unchecked]:bg-gray-400"
-                />
-              </div>
-
-              {isRestrictedFA && isOnSelectedTeam && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="qualifying-offer" className="text-xs font-medium cursor-pointer">
-                    Tender Qualifying Offer
-                  </Label>
-                  <Switch
-                    id="qualifying-offer"
-                    checked={isQualifyingOffer}
-                    onCheckedChange={handleQualifyingOfferToggle}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
-
               {/* Maximum Contract — shown when cap allows non-minimum contracts */}
               {!isOverSecondApron && !isOverFirstApronBelowSecondApron && !(isOverCapBelowFirstApron) && rookieYear !== undefined && (
                 <div className="flex items-center gap-2">
@@ -706,21 +706,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 </div>
               )}
             </div>
-
-            {isQualifyingOffer && (
-              <p className="text-xs text-muted-foreground">
-                A qualifying offer is a 1-year, fully guaranteed deal that gives {player.team} matching rights over
-                any offer sheet {player.name} signs elsewhere. Enter the QO amount manually.
-              </p>
-            )}
-
-            {isOfferSheet && (
-              <p className="text-xs text-muted-foreground">
-                Offer sheet — must run 2–4 years and can&apos;t be a two-way deal. {player.team} will have a chance to
-                match; if they do, {player.name} can&apos;t be traded without his consent for one year, and never to{' '}
-                {selectedTeamAbbr} even with it.
-              </p>
-            )}
 
             {isTwoWay && (
               <p className="text-xs text-muted-foreground">

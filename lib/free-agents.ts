@@ -1,3 +1,5 @@
+import { playerKey } from './player-key'
+
 export type FreeAgentType = 'unrestricted' | 'restricted'
 export type BirdRights = 'non-bird' | 'early-bird' | 'full-bird'
 
@@ -164,3 +166,9 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Omer Yurtseven', priorTeam: 'GSW', faType: 'unrestricted' },
 ]
 // GENERATED:END
+
+const poolByKey = new Map(FREE_AGENT_POOL.map((fa) => [playerKey(fa.name), fa]))
+
+export function getFreeAgentPoolEntry(playerName: string): FreeAgentPoolEntry | undefined {
+  return poolByKey.get(playerKey(playerName))
+}

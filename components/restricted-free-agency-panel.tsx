@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { Player, SavedContract, Season, SEASONS } from '@/lib/types'
 import { TEAMS, formatCurrency } from '@/lib/data'
-import { isLikelyRestrictedFreeAgent } from '@/lib/contract-utils'
+import { isRestrictedFreeAgent } from '@/lib/contract-utils'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronRight, Scale } from 'lucide-react'
@@ -23,7 +23,7 @@ function getOwnUnresolvedRFAs(
   roster.forEach((player) => {
     const firstFreeSeason = SEASONS.find((s) => !(player.salary[s] && player.salary[s]! > 0))
     if (!firstFreeSeason) return
-    if (!isLikelyRestrictedFreeAgent(player.name, firstFreeSeason)) return
+    if (!isRestrictedFreeAgent(player.name, firstFreeSeason)) return
     const covered = savedContracts.some(
       (c) => !deletedContractIds.has(c.id) && c.playerId === player.id && (c.salary[firstFreeSeason] ?? 0) > 0
     )
