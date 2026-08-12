@@ -686,9 +686,18 @@ def build_free_agent_reconciliation():
 
     Three resolutions now (was two before 2026-08-07):
       - declined, still unsigned: player shows up on RealGM's
-        current_free_agents page with a matching prior team -> remove that
-        season's salary + options entries, since there's no valid contract
-        number for an unsigned free agent.
+        current_free_agents page with a matching prior team -> drop the
+        player's row from `players` entirely, not just that season's salary
+        + options. An unexercised option is the last year of the deal, so
+        there's no valid contract left at all, on ANY team, for a season
+        or any that follow — leaving a stripped-but-present row here was
+        the bug behind Beal/Batum/Harden/Kuminga/Watford repeatedly
+        showing up rostered with no contract (or someone else's stale
+        contract, per resolve_duplicate_bbrefIds): build_free_agent_pool
+        (next in GROUPS) only adds players who have NO players.json row,
+        so a merely-stripped row silently excluded them from the free-agent
+        pool forever instead of surfacing them there. Removing the row here
+        is what lets build_free_agent_pool pick them up correctly.
       - declined, already signed elsewhere: player does NOT show up on
         current_free_agents (so at first glance looks "resolved in place"),
         but transactions.json — SalarySwish acquisition data, read straight
@@ -745,9 +754,11 @@ def build_free_agent_reconciliation():
     declined_overrides = []
     signed_elsewhere = []
     resolved_in_place = []
+    kept_players = []
     for p in players:
         season_option = p.get('options', {}).get(CURRENT_SEASON_LABEL)
         if season_option not in ('Player', 'Team'):
+            kept_players.append(p)
             continue
         checked += 1
 
@@ -760,9 +771,13 @@ def build_free_agent_reconciliation():
         txn_team = txn['toTeams'][0] if txn and len(txn.get('toTeams', [])) == 1 else None
 
         if fa is not None and fa['priorTeam'] == p['team']:
-            # declined and still unsigned — no valid salary figure for this season
-            p.get('salary', {}).pop(CURRENT_SEASON_LABEL, None)
-            p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
+            # declined and still unsigned — the whole row is dropped (not
+            # just this season's salary/options): an unexercised option is
+            # the last year of the deal, so there's no valid contract left
+            # on any team, this season or later. Dropping the row is also
+            # what lets build_free_agent_pool (next in GROUPS) add them to
+            # the free-agent pool instead of skipping them as "already
+            # accounted for".
             record = {'name': p['name'], 'team': p['team'], 'season': CURRENT_SEASON_LABEL,
                        'optionType': season_option, 'faType': fa['faType'],
                        'source': 'realgm_current_free_agents', 'corroborated': corroborated}
@@ -780,6 +795,7 @@ def build_free_agent_reconciliation():
             signed_elsewhere.append({'name': p['name'], 'oldTeam': old_team, 'newTeam': txn_team,
                                       'oldSalary': old_salary, 'season': CURRENT_SEASON_LABEL,
                                       'txnDate': txn['date'], 'txnMethod': txn['method']})
+            kept_players.append(p)
         else:
             # not an unsigned free agent under this team — treat as resolved
             # in place (exercised / already re-signed with the SAME team);
@@ -787,6 +803,15 @@ def build_free_agent_reconciliation():
             p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
             resolved_in_place.append({'name': p['name'], 'team': p['team'], 'season': CURRENT_SEASON_LABEL,
                                        'optionType': season_option, 'corroborated': corroborated})
+            kept_players.append(p)
+
+    players = kept_players
+
+    if declined_overrides:
+        print(f'  {len(declined_overrides)} player(s) declined their option and are still unsigned — '
+              f'dropped from the roster entirely (now eligible for the free-agent pool):')
+        for o in declined_overrides:
+            print(f'    {o["name"]}  (was {o["team"]})')
 
     if signed_elsewhere:
         print(f'  {len(signed_elsewhere)} player(s) signed elsewhere before dropping off '

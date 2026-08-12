@@ -1,0 +1,102 @@
+{
+  "added": [],
+  "removed": [
+    {
+      "name": "Trendon Watford",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Taelon Peter",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
+  "changed": [
+    {
+      "before": {
+        "name": "Nicolas Batum",
+        "tradeBonusPct": 15,
+        "signedUnder": "minimum"
+      },
+      "after": {
+        "name": "Nicolas Batum",
+        "tradeBonusPct": 15
+      },
+      "fields": [
+        "signedUnder"
+      ]
+    },
+    {
+      "before": {
+        "name": "Bradley Beal",
+        "tradeBonusPct": 15,
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Bradley Beal",
+        "tradeBonusPct": 15
+      },
+      "fields": [
+        "incentives"
+      ]
+    },
+    {
+      "before": {
+        "name": "James Harden",
+        "tradeBonusPct": 15,
+        "signedUnder": "bird",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "James Harden",
+        "tradeBonusPct": 15
+      },
+      "fields": [
+        "signedUnder",
+        "incentives"
+      ]
+    },
+    {
+      "before": {
+        "name": "Jonathan Kuminga",
+        "tradeBonusPct": 15,
+        "signedUnder": "bird",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Jonathan Kuminga",
+        "tradeBonusPct": 15
+      },
+      "fields": [
+        "signedUnder",
+        "incentives"
+      ]
+    }
+  ]
+}

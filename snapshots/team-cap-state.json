@@ -302,7 +302,7 @@
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 5391952
+        "remaining": 5477000
       }
     },
     "cashLedger": {
@@ -896,6 +896,12 @@
         "label": "Nick Richards",
         "amount": 9500000,
         "kind": "free-agent"
+      },
+      {
+        "label": "Yuki Kawamura",
+        "amount": 2200000,
+        "kind": "free-agent",
+        "birdRights": "non-bird"
       },
       {
         "label": "Guerschon Yabusele",
@@ -3209,11 +3215,6 @@
     "season": "2026-27",
     "deadMoney": [],
     "capHolds": [
-      {
-        "label": "Sean Pedulla",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
       {
         "label": "Bennedict Mathurin",
         "amount": 27600000,

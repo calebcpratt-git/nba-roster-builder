@@ -61,7 +61,7 @@
           },
           "biAnnual": {
             "signings": [],
-            "remaining": 5477000
+            "remaining": 5391952
           }
         },
         "cashLedger": {
@@ -128,7 +128,7 @@
           },
           "biAnnual": {
             "signings": [],
-            "remaining": 5391952
+            "remaining": 5477000
           }
         },
         "cashLedger": {
@@ -143,6 +143,90 @@
     },
     {
       "before": {
+        "team": "CHI",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Lachlan Olbrich",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Mac McClung",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Nick Richards",
+            "amount": 9500000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Guerschon Yabusele",
+            "amount": 6600000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "CHI-kevin-huerter-2026-02-03",
+            "amount": 17991071,
+            "expires": "2027-02-03",
+            "fromPlayer": "Kevin Huerter"
+          },
+          {
+            "id": "CHI-mike-conley-2026-02-04",
+            "amount": 10774038,
+            "expires": "2027-02-04",
+            "fromPlayer": "Mike Conley"
+          },
+          {
+            "id": "CHI-coby-white-2026-02-04",
+            "amount": 0,
+            "expires": "2027-02-04",
+            "fromPlayer": "Coby White"
+          },
+          {
+            "id": "CHI-ousmane-dieng-2026-02-05",
+            "amount": 6670882,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ousmane Dieng"
+          },
+          {
+            "id": "CHI-julian-phillips-2026-02-05",
+            "amount": 2221677,
+            "expires": "2027-02-05",
+            "fromPlayer": "Julian Phillips"
+          }
+        ],
+        "exceptionsUsed": {
+          "roomMLE": {
+            "signings": [],
+            "remaining": 9366000
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Coby White",
+              "usedByPlayer": "Kam Jones",
+              "amount": 1218007,
+              "date": "2026-06-24"
+            }
+          ]
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 3674541
+        },
+        "apronAddon": 2315117
+      },
+      "after": {
         "team": "CHI",
         "season": "2026-27",
         "deadMoney": [],
@@ -232,32 +316,32 @@
         },
         "apronAddon": 2315117
       },
-      "after": {
-        "team": "CHI",
+      "fields": [
+        "capHolds"
+      ]
+    },
+    {
+      "before": {
+        "team": "LAC",
         "season": "2026-27",
         "deadMoney": [],
         "capHolds": [
           {
-            "label": "Lachlan Olbrich",
+            "label": "Sean Pedulla",
             "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          },
-          {
-            "label": "Mac McClung",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          },
-          {
-            "label": "Nick Richards",
-            "amount": 9500000,
             "kind": "free-agent"
           },
           {
-            "label": "Guerschon Yabusele",
-            "amount": 6600000,
-            "kind": "free-agent"
+            "label": "Bennedict Mathurin",
+            "amount": 27600000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          },
+          {
+            "label": "Norchad Omier",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
           }
         ],
         "salaryCap": 165000000,
@@ -266,55 +350,139 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "CHI-kevin-huerter-2026-02-03",
-            "amount": 17991071,
-            "expires": "2027-02-03",
-            "fromPlayer": "Kevin Huerter"
-          },
-          {
-            "id": "CHI-mike-conley-2026-02-04",
-            "amount": 10774038,
-            "expires": "2027-02-04",
-            "fromPlayer": "Mike Conley"
-          },
-          {
-            "id": "CHI-coby-white-2026-02-04",
-            "amount": 0,
-            "expires": "2027-02-04",
-            "fromPlayer": "Coby White"
-          },
-          {
-            "id": "CHI-ousmane-dieng-2026-02-05",
-            "amount": 6670882,
+            "id": "LAC-kobe-brown-2026-02-05",
+            "amount": 2654880,
             "expires": "2027-02-05",
-            "fromPlayer": "Ousmane Dieng"
+            "fromPlayer": "Kobe Brown"
           },
           {
-            "id": "CHI-julian-phillips-2026-02-05",
-            "amount": 2221677,
+            "id": "LAC-chris-paul-2026-02-05",
+            "amount": 2296274,
             "expires": "2027-02-05",
-            "fromPlayer": "Julian Phillips"
+            "fromPlayer": "Chris Paul"
+          },
+          {
+            "id": "LAC-ivica-zubac-2026-02-05",
+            "amount": 1314427,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ivica Zubac"
+          },
+          {
+            "id": "LAC-john-collins-2026-07-08",
+            "amount": 15740741,
+            "expires": "2027-07-08",
+            "fromPlayer": "John Collins"
           }
         ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
+        },
         "exceptionsUsed": {
-          "roomMLE": {
-            "signings": [],
-            "remaining": 9366000
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Rui Hachimura",
+                "amount": 14000000
+              }
+            ],
+            "remaining": 1044000
           },
-          "tradeExceptionsUsed": [
-            {
-              "tpeFromPlayer": "Coby White",
-              "usedByPlayer": "Kam Jones",
-              "amount": 1218007,
-              "date": "2026-06-24"
-            }
-          ]
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          },
+          "dpe": {
+            "player": "Bradley Beal",
+            "initial": 0,
+            "used": false,
+            "remaining": 0
+          }
         },
         "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 3674541
+          "availableToSend": 0,
+          "availableToReceive": 6464000
         },
-        "apronAddon": 2315117
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "LAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Bennedict Mathurin",
+            "amount": 27600000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          },
+          {
+            "label": "Norchad Omier",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "LAC-kobe-brown-2026-02-05",
+            "amount": 2654880,
+            "expires": "2027-02-05",
+            "fromPlayer": "Kobe Brown"
+          },
+          {
+            "id": "LAC-chris-paul-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Chris Paul"
+          },
+          {
+            "id": "LAC-ivica-zubac-2026-02-05",
+            "amount": 1314427,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ivica Zubac"
+          },
+          {
+            "id": "LAC-john-collins-2026-07-08",
+            "amount": 15740741,
+            "expires": "2027-07-08",
+            "fromPlayer": "John Collins"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Rui Hachimura",
+                "amount": 14000000
+              }
+            ],
+            "remaining": 1044000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          },
+          "dpe": {
+            "player": "Bradley Beal",
+            "initial": 0,
+            "used": false,
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 0,
+          "availableToReceive": 6464000
+        },
+        "apronAddon": 0
       },
       "fields": [
         "capHolds"
