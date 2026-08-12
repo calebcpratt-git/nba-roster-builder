@@ -87,10 +87,12 @@ jobs:
             lib/rookie-years.ts
             lib/contract-details.ts
             lib/team-cap-state.ts
+            lib/free-agents.ts
             snapshots/players.json
             snapshots/draft-picks.json
             snapshots/contract-details.json
             snapshots/team-cap-state.json
+            snapshots/free-agents.json
             snapshots/scraped/
 
       # No required review today, so a clean run (no stale sources, no new

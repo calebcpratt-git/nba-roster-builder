@@ -8,7 +8,7 @@ import { sourceFamily, familyColor } from './source-styles'
 
 /** A field's source, rendered as its label — click it to see every field it
  *  populates and open the source page itself. */
-export function SourceLink({ sourceId }: { sourceId: string }) {
+export function SourceLink({ sourceId, fullLabel }: { sourceId: string; fullLabel?: boolean }) {
   const { sources, feeds } = useSourceData()
   const [open, setOpen] = useState(false)
   const source = sources[sourceId]
@@ -38,7 +38,7 @@ export function SourceLink({ sourceId }: { sourceId: string }) {
           className="size-1.5 shrink-0 rounded-full"
           style={{ background: familyColor(sourceFamily(sourceId)) }}
         />
-        {source.label.split('—')[0].trim()}
+        {fullLabel ? source.label : source.label.split('—')[0].trim()}
       </button>
 
       {open && (

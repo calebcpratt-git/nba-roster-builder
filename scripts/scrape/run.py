@@ -218,6 +218,33 @@ def count_unresolved():
     return {label: len(_load_json(name, []) or []) for label, name in UNRESOLVED_FILES.items()}
 
 
+def snapshot_unresolved_records():
+    """Same idea as count_unresolved(), but keeps the actual records rather
+    than just their count — so the /data dashboard can show WHICH entries
+    are new this run, not just how many."""
+    return {label: _load_json(name, []) or [] for label, name in UNRESOLVED_FILES.items()}
+
+
+def _unresolved_identity(record):
+    """These records have no real id — identity is the person, keyed by
+    whichever name field the category uses. Diffing on the full record
+    (rather than just this key) would count a corrected date or reason on
+    the same person as a remove+add, inflating "new this run"."""
+    return record.get('name') or record.get('player')
+
+
+def new_unresolved_records(before, after):
+    """Records for a person present in `after` but not `before` — the
+    identities behind the before/after count delta."""
+    result = {}
+    for label, after_list in after.items():
+        before_identities = {_unresolved_identity(r) for r in before.get(label, [])}
+        new = [r for r in after_list if _unresolved_identity(r) not in before_identities]
+        if new:
+            result[label] = new
+    return result
+
+
 def resolve_duplicate_bbrefIds(contracts):
     """bbref.parse_contracts() now preserves BOTH rows when the same player
     appears under two different teams (see its docstring — confirmed live
@@ -1250,6 +1277,7 @@ def main():
     # regression) versus the same steady-state undrafted/unmatched players
     # every run carries forward.
     unresolved_before = count_unresolved()
+    unresolved_records_before = snapshot_unresolved_records()
 
     print('fetch:')
     failed = fetch_all(offline)
@@ -1339,11 +1367,13 @@ def main():
     status = {
         'written': written,
         'staleSources': skipped,
+        'sourceFetches': {name: name not in failed for name in SOURCES},
         'unresolved': {
             'before': unresolved_before,
             'after': unresolved_after,
             'newUnresolved': sum(new_unresolved.values()),
             'newByCategory': {k: v for k, v in new_unresolved.items() if v > 0},
+            'newRecords': new_unresolved_records(unresolved_records_before, snapshot_unresolved_records()),
         },
     }
     json.dump(status, open(os.path.join(OUT, 'run-status.json'), 'w'), indent=1, ensure_ascii=False)

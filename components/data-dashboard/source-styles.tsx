@@ -15,7 +15,7 @@ export const FAMILY_LABELS: Record<SourceFamily, string> = {
   hoops: 'Hoops Rumors',
   captracker: 'nbacaptracker.com',
   swish: 'SalarySwish.com',
-  hand: 'Hand-maintained / app input',
+  hand: 'Hand-maintained',
   none: 'No source',
 }
 
@@ -25,7 +25,7 @@ export function sourceFamily(sourceId: string): SourceFamily {
   if (sourceId.startsWith('hr-')) return 'hoops'
   if (sourceId.startsWith('captracker')) return 'captracker'
   if (sourceId.startsWith('salaryswish')) return 'swish'
-  if (sourceId === 'cap-memo' || sourceId === 'app-input') return 'hand'
+  if (sourceId === 'cap-memo') return 'hand'
   return 'none'
 }
 

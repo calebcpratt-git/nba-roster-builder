@@ -35,12 +35,11 @@ export type SourceCadence =
   | 'annual-post'    // a dated blog post that has to be re-pointed each season
   | 'one-time'       // seeded once, no longer part of the daily run
   | 'hand-maintained' // typed in from a document, never fetched
-  | 'app-input'      // produced by the user in the app, never sourced
 
 export interface DataSource {
   id: string
   label: string
-  /** Absent for hand-maintained and app-input sources, which have no page. */
+  /** Absent for hand-maintained sources, which have no page. */
   url?: string
   /** True when `url` is a template the scraper iterates (per team, per player). */
   isTemplate?: boolean
@@ -248,13 +247,6 @@ export const DATA_SOURCES: Record<string, DataSource> = {
     scraper: '—',
     cadence: 'hand-maintained',
     note: 'Typed in each July when the league publishes the new figures. Not scraped.',
-  },
-  'app-input': {
-    id: 'app-input',
-    label: 'Built by the user in the app',
-    scraper: '—',
-    cadence: 'app-input',
-    note: 'Hypothetical scenarios created in the extension/free-agent/trade modals and persisted to Supabase. Never sourced from the web.',
   },
 }
 
@@ -609,75 +601,6 @@ const teamEntity: EntitySpec<TeamRow> = {
   ],
 }
 
-// --- App-input entities ---------------------------------------------------
-//
-// Declared in lib/types.ts and persisted to Supabase, but never sourced and
-// empty outside a signed-in user's session. Listed so the dashboard shows the
-// whole schema rather than only the scraped part of it.
-
-const appInputEntities: EntitySpec<any>[] = [
-  {
-    id: 'saved-contract',
-    label: 'Saved contract',
-    file: 'lib/types.ts',
-    description: 'A hypothetical extension, free-agent signing, or incoming trade contract the user builds in a modal.',
-    relationships: ['Belongs to a CapSheet snapshot. References a player by name, not id.'],
-    primaryKey: ['id'],
-    foreignKeys: [{ field: 'playerName', toEntity: 'player', toField: 'name', label: 'playerName' }],
-    keyOf: () => '',
-    rows: () => [],
-    fields: [
-      { path: 'id', type: 'string', description: 'Client-generated identifier for this contract within a cap sheet.', sources: ['app-input'], get: () => undefined },
-      { path: 'playerName', type: 'string', description: 'Who the contract is for.', sources: ['app-input'], get: () => undefined },
-      { path: 'type', type: "'extension' | 'free-agent' | 'trade'", description: 'What kind of move this represents.', sources: ['app-input'], get: () => undefined },
-      { path: 'salary', type: 'Partial<Record<Season, number>>', description: 'Per-season dollars the user entered.', sources: ['app-input'], get: () => undefined },
-      { path: 'exceptionType', type: "'ntmle' | 'tmle' | 'bae'", description: 'Which signing exception the user chose to fund it.', sources: ['app-input'], get: () => undefined },
-      { path: 'rfaPath', type: "'qualifying-offer' | 'offer-sheet' | 'matched-offer-sheet'", description: 'Restricted-free-agency path, when the contract represents one.', sources: ['app-input'], get: () => undefined },
-      { path: 'contractType', type: "'two-way'", description: 'Marks a two-way signing against the 3-slot limit.', sources: ['app-input'], get: () => undefined },
-    ],
-  },
-  {
-    id: 'saved-trade',
-    label: 'Saved trade',
-    file: 'lib/types.ts',
-    description: 'A hypothetical trade the user builds in the trade modal — outgoing and incoming players and picks, plus cash.',
-    relationships: ['Belongs to a CapSheet snapshot. Always single-team: the builder models your side of the deal.'],
-    primaryKey: ['id'],
-    foreignKeys: [{ field: 'tradeTeamAbbr', toEntity: 'team', toField: 'abbreviation', label: 'tradeTeamAbbr' }],
-    keyOf: () => '',
-    rows: () => [],
-    fields: [
-      { path: 'id', type: 'string', description: 'Client-generated identifier for this trade within a cap sheet.', sources: ['app-input'], get: () => undefined },
-      { path: 'tradeTeamAbbr', type: 'string', description: 'The trade partner.', sources: ['app-input'], get: () => undefined },
-      { path: 'outgoingRosterPlayerIds', type: 'string[]', description: 'Players being sent out.', sources: ['app-input'], get: () => undefined },
-      { path: 'incomingPlayers', type: 'Array<{ playerId, playerName, salary, options, heldTpeId? }>', description: 'Players being taken back, optionally absorbed by a held TPE instead of matched salary.', sources: ['app-input'], get: () => undefined },
-      { path: 'incomingPicks', type: 'Array<{ id, name, fromTeam, salary, options }>', description: 'Picks being taken back.', sources: ['app-input'], get: () => undefined },
-      { path: 'cashToPartner', type: 'number', description: 'Cash your side sends.', sources: ['app-input'], get: () => undefined },
-      { path: 'cashFromPartner', type: 'number', description: 'Cash your side receives.', sources: ['app-input'], get: () => undefined },
-      { path: 'isSignAndTrade', type: 'boolean', description: 'UI toggle for the sign-and-trade hard-cap rule. Set but not yet enforced.', sources: ['app-input'], get: () => undefined },
-    ],
-  },
-  {
-    id: 'cap-sheet',
-    label: 'Cap sheet',
-    file: 'lib/types.ts + supabase/migrations/',
-    description: 'A saved scenario — the full set of contracts, trades, exercised options, releases and renunciations for one team. The only entity that lives in Supabase rather than a generated file.',
-    relationships: ['Owned by a Supabase user. Holds SavedContract and SavedTrade rows in its snapshot.'],
-    primaryKey: ['id'],
-    foreignKeys: [{ field: 'teamAbbr', toEntity: 'team', toField: 'abbreviation', label: 'teamAbbr' }],
-    keyOf: () => '',
-    rows: () => [],
-    fields: [
-      { path: 'id', type: 'string', description: 'Supabase row id.', sources: ['app-input'], get: () => undefined },
-      { path: 'userId', type: 'string', description: 'Supabase owner.', sources: ['app-input'], get: () => undefined },
-      { path: 'teamAbbr', type: 'string', description: 'Team the sheet covers. A sheet is always single-team.', sources: ['app-input'], get: () => undefined },
-      { path: 'name', type: 'string', description: 'User-given name.', sources: ['app-input'], get: () => undefined },
-      { path: 'snapshot', type: 'CapSheetSnapshot', description: 'Saved contracts, trades, exercised options, releases, renounced holds, and pick-number overrides.', sources: ['app-input'], get: () => undefined },
-      { path: 'summary', type: 'CapSheetSummary', description: 'Per-season totals and status, denormalized so the sheet list renders without replaying the scenario.', sources: ['app-input'], get: () => undefined },
-    ],
-  },
-]
-
 export const DATA_ENTITIES: EntitySpec<any>[] = [
   playerEntity,
   contractDetailEntity,
@@ -690,7 +613,6 @@ export const DATA_ENTITIES: EntitySpec<any>[] = [
   rookieSalaryEntity,
   seasonCalendarEntity,
   teamEntity,
-  ...appInputEntities,
 ]
 
 export function getEntity(id: string): EntitySpec<any> | undefined {

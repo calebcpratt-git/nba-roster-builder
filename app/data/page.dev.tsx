@@ -5,10 +5,12 @@
 import { AlertTriangle, CheckCircle2 } from 'lucide-react'
 import { DATA_SOURCES, getEntity, erdEdges, erdTiers } from '@/lib/data-schema'
 import { allEntityCoverage, fieldsBySource } from '@/lib/schema-coverage'
-import { readScrapeStatus, readDriftReport } from '@/lib/schema-dashboard'
+import { readScrapeStatus, readSchemaChangeLog } from '@/lib/schema-dashboard'
 import { SOURCE_STYLES, sourceFamily, familyColor, FAMILY_LABELS, type SourceFamily } from '@/components/data-dashboard/source-styles'
 import { RefreshButton } from '@/components/data-dashboard/refresh-button'
+import { DataChatPanel } from '@/components/data-dashboard/chat-panel'
 import { SourceDataProvider } from '@/components/data-dashboard/source-context'
+import { SourceLink } from '@/components/data-dashboard/source-link'
 import { ErdCanvas } from '@/components/data-dashboard/erd-canvas'
 
 export const dynamic = 'force-dynamic'
@@ -40,14 +42,47 @@ function unresolvedRecordLabel(category: string, record: Record<string, unknown>
   }
 }
 
+function formatFieldValue(v: unknown): string {
+  if (v === undefined) return '(none)'
+  if (v === null) return 'null'
+  if (typeof v === 'object') return JSON.stringify(v)
+  return String(v)
+}
+
+function diffRecordLabel(kind: string, record: Record<string, unknown>): string {
+  switch (kind) {
+    case 'players':
+    case 'contract-details':
+      return String(record.name)
+    case 'free-agents':
+      return `${record.name} (${record.priorTeam})`
+    case 'draft-picks':
+      return `${record.teamOwner} ${record.year} ${record.round}${record.teamFrom ? ` via ${record.teamFrom}` : ''}`
+    case 'team-cap-state':
+      return `${record.team} — ${record.season}`
+    default:
+      return Object.entries(record)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join(', ')
+  }
+}
+
 export default function DataSchemaDashboard() {
   const coverage = allEntityCoverage()
   const status = readScrapeStatus()
-  const drift = readDriftReport()
+  const schemaChanges = readSchemaChangeLog()
+  const lastSchemaChange = schemaChanges[0] ?? null
   const bySource = fieldsBySource()
 
   const asOf = status.generatedAt ?? status.filesTouchedAt
   const families = [...new Set(Object.keys(DATA_SOURCES).map(sourceFamily))] as SourceFamily[]
+
+  const sourceFetchRows = Object.values(DATA_SOURCES)
+    .filter((s): s is typeof s & { runPyKey: string } => !!s.runPyKey)
+    .map((s) => ({
+      id: s.id,
+      ok: status.sourceFetches ? status.sourceFetches[s.runPyKey] !== false : null,
+    }))
 
   const tiers = erdTiers()
   const edges = erdEdges()
@@ -72,6 +107,7 @@ export default function DataSchemaDashboard() {
     <div className="ds-scope min-h-screen bg-background text-foreground">
       <style>{SOURCE_STYLES}</style>
 
+      <SourceDataProvider sources={DATA_SOURCES} feeds={bySource}>
       <div className="mx-auto max-w-6xl px-6 py-10">
         <header className="mb-8 flex flex-wrap items-start justify-between gap-4">
           <div>
@@ -83,17 +119,31 @@ export default function DataSchemaDashboard() {
             </p>
           </div>
           <div className="flex flex-col items-end gap-2">
-            <RefreshButton />
+            <div className="flex items-center gap-2">
+              <DataChatPanel />
+              <RefreshButton />
+            </div>
             <div className="text-right text-xs text-muted-foreground">
               <p>
                 Data as of <span className="font-medium text-foreground">{timeAgo(asOf)}</span>
                 {asOf && ` · ${new Date(asOf).toLocaleString()}`}
               </p>
-              <p className="mt-0.5">
-                {drift
-                  ? `Schema drift checked ${timeAgo(drift.checkedAt)} — ${drift.findings.length} finding${drift.findings.length === 1 ? '' : 's'}.`
-                  : 'Schema drift not yet checked — run node scripts/check-schema-drift.js.'}
-              </p>
+              {lastSchemaChange ? (
+                <details className="mt-0.5">
+                  <summary className="cursor-pointer">
+                    Schema last changed <span className="font-medium text-foreground">{timeAgo(lastSchemaChange.date)}</span>
+                  </summary>
+                  <ul className="mt-1 max-h-56 space-y-1 overflow-y-auto border-l-2 pl-2 text-left font-mono text-[11px] text-muted-foreground">
+                    {schemaChanges.map((c) => (
+                      <li key={c.hash}>
+                        {new Date(c.date).toLocaleDateString()} — {c.subject}
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <p className="mt-0.5">No history found for lib/data-schema.ts.</p>
+              )}
             </div>
           </div>
         </header>
@@ -124,18 +174,71 @@ export default function DataSchemaDashboard() {
                 </span>
               </div>
 
-              <div className="grid gap-3 md:grid-cols-2">
+              <div className="grid gap-3 md:grid-cols-3">
                 <div className="rounded-lg border bg-card p-3">
                   <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                     Diff against yesterday
                   </h3>
-                  {status.diffSummaries.length === 0 ? (
+                  {status.diffs.length === 0 ? (
                     <p className="text-xs text-muted-foreground">No diff recorded.</p>
                   ) : (
-                    <ul className="space-y-0.5 font-mono text-xs text-muted-foreground">
-                      {status.diffSummaries.map((s) => (
-                        <li key={s}>{s}</li>
-                      ))}
+                    <ul className="space-y-1.5">
+                      {status.diffs.map((d) => {
+                        const hasDetail = d.added.length > 0 || d.removed.length > 0 || d.changed.length > 0
+                        return (
+                          <li key={d.kind}>
+                            <details>
+                              <summary
+                                className={
+                                  'font-mono text-xs text-muted-foreground' +
+                                  (hasDetail ? ' cursor-pointer' : '')
+                                }
+                              >
+                                {d.summary}
+                              </summary>
+                              {hasDetail ? (
+                                <ul className="mt-1 max-h-56 space-y-0.5 overflow-y-auto border-l-2 pl-2 font-mono text-[11px] text-muted-foreground">
+                                  {d.added.map((r, i) => (
+                                    <li key={`a${i}`} className="text-success">
+                                      + {diffRecordLabel(d.kind, r)}
+                                    </li>
+                                  ))}
+                                  {d.removed.map((r, i) => (
+                                    <li key={`r${i}`} className="text-destructive">
+                                      − {diffRecordLabel(d.kind, r)}
+                                    </li>
+                                  ))}
+                                  {d.changed.map((c, i) => (
+                                    <li key={`c${i}`}>
+                                      <details>
+                                        <summary className="cursor-pointer">
+                                          ~ {diffRecordLabel(d.kind, c.after)}{' '}
+                                          <span className="text-foreground/70">({c.fields.join(', ')})</span>
+                                        </summary>
+                                        <ul className="mt-0.5 space-y-0.5 border-l-2 pl-2">
+                                          {c.fields.map((field) => (
+                                            <li key={field}>
+                                              <span className="text-foreground/70">{field}:</span>{' '}
+                                              <span className="text-destructive line-through">
+                                                {formatFieldValue(c.before[field])}
+                                              </span>{' '}
+                                              <span className="text-success">{formatFieldValue(c.after[field])}</span>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </details>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <p className="mt-1 text-[11px] text-muted-foreground">
+                                  No record detail on disk for this kind.
+                                </p>
+                              )}
+                            </details>
+                          </li>
+                        )
+                      })}
                     </ul>
                   )}
                 </div>
@@ -148,7 +251,9 @@ export default function DataSchemaDashboard() {
                     <p className="text-xs text-muted-foreground">None.</p>
                   ) : (
                     <ul className="space-y-1.5">
-                      {status.unresolved.map((u) => (
+                      {status.unresolved.map((u) => {
+                        const newKeys = new Set(u.newRecords.map((r) => JSON.stringify(r)))
+                        return (
                         <li key={u.category}>
                           <details>
                             <summary className="cursor-pointer font-mono text-xs">
@@ -165,24 +270,55 @@ export default function DataSchemaDashboard() {
                             </summary>
                             {u.records.length > 0 ? (
                               <ul className="mt-1 max-h-56 space-y-0.5 overflow-y-auto border-l-2 pl-2 font-mono text-[11px] text-muted-foreground">
-                                {u.records.map((r, i) => (
-                                  <li key={i}>{unresolvedRecordLabel(u.category, r)}</li>
-                                ))}
+                                {u.records.map((r, i) => {
+                                  const isNew = newKeys.has(JSON.stringify(r))
+                                  return (
+                                    <li
+                                      key={i}
+                                      className={isNew ? 'rounded bg-destructive/10 px-1 font-semibold text-destructive' : undefined}
+                                    >
+                                      {unresolvedRecordLabel(u.category, r)}
+                                      {isNew && <span className="ml-1 font-normal">— new this run</span>}
+                                    </li>
+                                  )
+                                })}
                               </ul>
                             ) : (
                               <p className="mt-1 text-[11px] text-muted-foreground">
                                 No record detail on disk for this category.
                               </p>
                             )}
+                            <p className="mt-1 text-[11px] leading-snug text-muted-foreground">{u.meaning}</p>
                           </details>
-                          <p className="text-[11px] leading-snug text-muted-foreground">{u.meaning}</p>
+                        </li>
+                        )
+                      })}
+                    </ul>
+                  )}
+                </div>
+
+                <div className="rounded-lg border bg-card p-3">
+                  <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                    Source fetches
+                  </h3>
+                  {sourceFetchRows.length === 0 ? (
+                    <p className="text-xs text-muted-foreground">No source-fetch detail on disk for this run.</p>
+                  ) : (
+                    <ul className="space-y-1">
+                      {sourceFetchRows.map((s) => (
+                        <li key={s.id} className="flex items-center justify-between gap-2 text-xs">
+                          <SourceLink sourceId={s.id} fullLabel />
+                          {s.ok === null ? (
+                            <span className="shrink-0 text-muted-foreground">no data</span>
+                          ) : s.ok ? (
+                            <span className="shrink-0 font-semibold text-success">scraped</span>
+                          ) : (
+                            <span className="shrink-0 font-semibold text-destructive">failed</span>
+                          )}
                         </li>
                       ))}
                     </ul>
                   )}
-                  <p className="mt-2 text-[11px] leading-snug text-foreground">
-                    Each total is a standing backlog — only the per-run change means anything.
-                  </p>
                 </div>
               </div>
 
@@ -223,9 +359,7 @@ export default function DataSchemaDashboard() {
             ))}
           </div>
 
-          <SourceDataProvider sources={DATA_SOURCES} feeds={bySource}>
-            <ErdCanvas entities={erdEntities} edges={edges} />
-          </SourceDataProvider>
+          <ErdCanvas entities={erdEntities} edges={edges} />
         </section>
 
         <footer className="mt-10 border-t pt-4 text-xs text-muted-foreground">
@@ -234,6 +368,7 @@ export default function DataSchemaDashboard() {
           <code className="font-mono">lib/schema-coverage.ts</code>.
         </footer>
       </div>
+      </SourceDataProvider>
     </div>
   )
 }

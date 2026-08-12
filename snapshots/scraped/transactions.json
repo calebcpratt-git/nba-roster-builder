@@ -204,6 +204,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Hayden Gray",
+  "date": "2026-08-11",
+  "dateRaw": "Aug 11, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BOS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Dillon Mitchell",
   "date": "2026-08-05",
   "dateRaw": "Aug 5, 2026",
@@ -870,6 +883,32 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Marquel Sutton",
+  "date": "2026-08-07",
+  "dateRaw": "Aug 7, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Isaiah Stevens",
+  "date": "2026-08-07",
+  "dateRaw": "Aug 7, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
