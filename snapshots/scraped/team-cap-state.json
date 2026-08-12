@@ -302,7 +302,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 5477000
+    "remaining": 5391952
    }
   },
   "cashLedger": {
@@ -896,12 +896,6 @@
     "label": "Nick Richards",
     "amount": 9500000,
     "kind": "free-agent"
-   },
-   {
-    "label": "Yuki Kawamura",
-    "amount": 2200000,
-    "kind": "free-agent",
-    "birdRights": "non-bird"
    },
    {
     "label": "Guerschon Yabusele",
