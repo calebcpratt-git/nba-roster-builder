@@ -1,0 +1,40 @@
+{
+  "added": [],
+  "removed": [],
+  "changed": [
+    {
+      "before": {
+        "name": "Taelon Peter",
+        "team": "SAS",
+        "salary": {
+          "2026-27": 2185116
+        },
+        "options": {},
+        "acquisition": {
+          "date": "2026-08-07",
+          "method": "free-agent"
+        }
+      },
+      "after": {
+        "name": "Taelon Peter",
+        "team": "SAS",
+        "salary": {
+          "2026-27": 2185116
+        },
+        "options": {},
+        "acquisition": {
+          "date": "2026-08-07",
+          "method": "free-agent"
+        },
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "fields": [
+        "guarantees"
+      ]
+    }
+  ]
+}

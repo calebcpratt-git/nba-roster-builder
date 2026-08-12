@@ -43,12 +43,9 @@ export function RefreshButton() {
         {busy ? 'Pulling…' : 'Pull latest scrape'}
       </Button>
 
-      {result && (
-        <div className={`max-w-md text-right text-xs ${result.ok ? 'text-muted-foreground' : 'text-destructive'}`}>
+      {result && !result.ok && (
+        <div className="max-w-md text-right text-xs text-destructive">
           <p>{result.message}</p>
-          {result.changed && result.changed.length > 0 && (
-            <p className="font-mono text-[11px]">{result.changed.join(', ')}</p>
-          )}
           {result.blockedBy && result.blockedBy.length > 0 && (
             <p className="font-mono text-[11px]">{result.blockedBy.join(', ')}</p>
           )}

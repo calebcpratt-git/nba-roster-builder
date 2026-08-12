@@ -27,6 +27,40 @@ function cellValue(value: unknown): string | null {
   return String(value)
 }
 
+function isKeyedObject(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
+}
+
+/**
+ * Breaks a `Record<string, X>`-shaped field (salary, options, guarantees, …)
+ * into one sub-column per key, recursing when a key's own value is itself a
+ * keyed object — e.g. guarantees is `Record<Season, SeasonGuarantee>`, so this
+ * yields a season level and, under each season, a status/amount/guaranteeDate
+ * level. Arrays and primitives don't recurse further.
+ */
+function nestedColumnsFor(rawValues: unknown[]): RowColumn['nested'] {
+  const keys = new Set<string>()
+  let anyKeyed = false
+  for (const v of rawValues) {
+    if (isKeyedObject(v)) {
+      anyKeyed = true
+      for (const k of Object.keys(v)) keys.add(k)
+    }
+  }
+  if (!anyKeyed || keys.size === 0) return undefined
+
+  return Array.from(keys)
+    .sort()
+    .map((key) => {
+      const childRaw = rawValues.map((v) => (isKeyedObject(v) ? v[key] : null))
+      return {
+        key,
+        values: childRaw.map(cellValue),
+        nested: nestedColumnsFor(childRaw),
+      }
+    })
+}
+
 export default async function EntityDetail({ params }: { params: Promise<{ entity: string }> }) {
   const { entity: entityId } = await params
   const entity = getEntity(entityId)
@@ -35,16 +69,20 @@ export default async function EntityDetail({ params }: { params: Promise<{ entit
   const coverage = entityCoverage(entity)
   const rows = entity.rows()
 
-  const columns: RowColumn[] = entity.fields.map((field) => ({
-    path: field.path,
-    values: rows.map((row) => {
+  const columns: RowColumn[] = entity.fields.map((field) => {
+    const rawValues = rows.map((row) => {
       try {
-        return cellValue(field.get(row))
+        return field.get(row)
       } catch {
         return null
       }
-    }),
-  }))
+    })
+    return {
+      path: field.path,
+      values: rawValues.map(cellValue),
+      nested: nestedColumnsFor(rawValues),
+    }
+  })
   const keys = rows.map((row) => {
     try {
       return entity.keyOf(row)

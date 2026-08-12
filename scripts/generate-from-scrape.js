@@ -61,6 +61,17 @@ function writeRunStatus(diffResults) {
   const warnings = diffResults.flatMap(([, result]) => result?.warnings ?? [])
   const diffSummaries = diffResults.map(([, result]) => result?.diffSummary).filter(Boolean)
 
+  // One detail file per kind, mirroring unresolved-<category>.json, so the
+  // /data dashboard can show which records actually changed behind each
+  // diff summary line rather than just the +/-/~ counts.
+  for (const [kind, result] of diffResults) {
+    if (!result?.detail) continue
+    fs.writeFileSync(
+      path.join(SCRAPED, `diff-${kind}.json`),
+      JSON.stringify(result.detail, null, 2) + '\n'
+    )
+  }
+
   const staleSources = runStatus.staleSources ?? []
   const newUnresolved = runStatus.unresolved?.newUnresolved ?? 0
   // A new unresolved entry means a clause the scraper found couldn't be

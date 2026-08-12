@@ -250,6 +250,17 @@ function buildIndex(kind, records) {
   return index
 }
 
+// Top-level keys that differ between two versions of the same record — the
+// "what changed" behind a changed++ count, without a full recursive diff.
+function changedFields(prevRecord, newRecord) {
+  const keys = new Set([...Object.keys(prevRecord), ...Object.keys(newRecord)])
+  const fields = []
+  for (const key of keys) {
+    if (JSON.stringify(prevRecord[key]) !== JSON.stringify(newRecord[key])) fields.push(key)
+  }
+  return fields
+}
+
 function diffRecords(kind, records, previousRecords) {
   const prevIndex = buildIndex(kind, previousRecords)
   const newIndex = buildIndex(kind, records)
@@ -257,6 +268,7 @@ function diffRecords(kind, records, previousRecords) {
   let added = 0
   let removed = 0
   let changed = 0
+  const detail = { added: [], removed: [], changed: [] }
 
   for (const [key, newList] of newIndex) {
     const prevList = prevIndex.get(key) ?? []
@@ -265,20 +277,28 @@ function diffRecords(kind, records, previousRecords) {
       const newRecord = newList[i]
       const prevRecord = prevList[i]
       if (newRecord && prevRecord) {
-        if (JSON.stringify(newRecord) !== JSON.stringify(prevRecord)) changed++
+        if (JSON.stringify(newRecord) !== JSON.stringify(prevRecord)) {
+          changed++
+          detail.changed.push({ before: prevRecord, after: newRecord, fields: changedFields(prevRecord, newRecord) })
+        }
       } else if (newRecord && !prevRecord) {
         added++
+        detail.added.push(newRecord)
       } else if (!newRecord && prevRecord) {
         removed++
+        detail.removed.push(prevRecord)
       }
     }
   }
 
   for (const [key, prevList] of prevIndex) {
-    if (!newIndex.has(key)) removed += prevList.length
+    if (!newIndex.has(key)) {
+      removed += prevList.length
+      detail.removed.push(...prevList)
+    }
   }
 
-  return { added, removed, changed }
+  return { added, removed, changed, detail }
 }
 
 /**
@@ -290,7 +310,8 @@ function diffRecords(kind, records, previousRecords) {
  *   Defaults to the --accept-large-diff CLI flag or ACCEPT_LARGE_DIFF=1, so an
  *   unattended scheduled run still blocks unless someone deliberately says so.
  * @param {Date} [input.now] - injectable clock, for testing the offseason branch
- * @returns {{ ok: boolean, errors: string[], warnings: string[], diffSummary: string }}
+ * @returns {{ ok: boolean, errors: string[], warnings: string[], diffSummary: string,
+ *   detail: { added: any[], removed: any[], changed: { before: any, after: any, fields: string[] }[] } }}
  */
 function largeDiffAcceptedFromEnv() {
   return process.argv.includes('--accept-large-diff') || process.env.ACCEPT_LARGE_DIFF === '1'
@@ -317,7 +338,7 @@ function validateAndDiff({ kind, records, previousRecords, allowLargeDiff, now }
     throw new Error(`Unknown kind: ${kind}`)
   }
 
-  const { added, removed, changed } = diffRecords(kind, records, previousRecords)
+  const { added, removed, changed, detail } = diffRecords(kind, records, previousRecords)
   const diffSummary =
     previousRecords.length === 0
       ? `${kind}: initial import of ${records.length} records (no prior snapshot to diff against)`
@@ -349,6 +370,7 @@ function validateAndDiff({ kind, records, previousRecords, allowLargeDiff, now }
     errors,
     warnings,
     diffSummary,
+    detail,
   }
 }
 

@@ -1,0 +1,324 @@
+{
+  "added": [],
+  "removed": [],
+  "changed": [
+    {
+      "before": {
+        "team": "BOS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Max Shulga",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "BOS-xavier-tillman-sr-2026-02-05",
+            "amount": 2546675,
+            "expires": "2027-02-05",
+            "fromPlayer": "Xavier Tillman Sr."
+          },
+          {
+            "id": "BOS-josh-minott-2026-02-05",
+            "amount": 2378870,
+            "expires": "2027-02-05",
+            "fromPlayer": "Josh Minott"
+          },
+          {
+            "id": "BOS-chris-boucher-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Chris Boucher"
+          },
+          {
+            "id": "BOS-jaylen-brown-2026-07-06",
+            "amount": 2952438,
+            "expires": "2027-07-06",
+            "fromPlayer": "Jaylen Brown"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Mitchell Robinson (Jul 6)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Mitchell Robinson",
+                "amount": 15044000
+              }
+            ],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 4464000,
+          "availableToReceive": 6754000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "BOS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Max Shulga",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "BOS-xavier-tillman-sr-2026-02-05",
+            "amount": 2546675,
+            "expires": "2027-02-05",
+            "fromPlayer": "Xavier Tillman Sr."
+          },
+          {
+            "id": "BOS-josh-minott-2026-02-05",
+            "amount": 2378870,
+            "expires": "2027-02-05",
+            "fromPlayer": "Josh Minott"
+          },
+          {
+            "id": "BOS-chris-boucher-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Chris Boucher"
+          },
+          {
+            "id": "BOS-jaylen-brown-2026-07-06",
+            "amount": 2952438,
+            "expires": "2027-07-06",
+            "fromPlayer": "Jaylen Brown"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Mitchell Robinson (Jul 6)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Mitchell Robinson",
+                "amount": 15044000
+              }
+            ],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5391952
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 4464000,
+          "availableToReceive": 6754000
+        },
+        "apronAddon": 0
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "CHI",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Lachlan Olbrich",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Mac McClung",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Nick Richards",
+            "amount": 9500000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Yuki Kawamura",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Guerschon Yabusele",
+            "amount": 6600000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "CHI-kevin-huerter-2026-02-03",
+            "amount": 17991071,
+            "expires": "2027-02-03",
+            "fromPlayer": "Kevin Huerter"
+          },
+          {
+            "id": "CHI-mike-conley-2026-02-04",
+            "amount": 10774038,
+            "expires": "2027-02-04",
+            "fromPlayer": "Mike Conley"
+          },
+          {
+            "id": "CHI-coby-white-2026-02-04",
+            "amount": 0,
+            "expires": "2027-02-04",
+            "fromPlayer": "Coby White"
+          },
+          {
+            "id": "CHI-ousmane-dieng-2026-02-05",
+            "amount": 6670882,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ousmane Dieng"
+          },
+          {
+            "id": "CHI-julian-phillips-2026-02-05",
+            "amount": 2221677,
+            "expires": "2027-02-05",
+            "fromPlayer": "Julian Phillips"
+          }
+        ],
+        "exceptionsUsed": {
+          "roomMLE": {
+            "signings": [],
+            "remaining": 9366000
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Coby White",
+              "usedByPlayer": "Kam Jones",
+              "amount": 1218007,
+              "date": "2026-06-24"
+            }
+          ]
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 3674541
+        },
+        "apronAddon": 2315117
+      },
+      "after": {
+        "team": "CHI",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Lachlan Olbrich",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Mac McClung",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Nick Richards",
+            "amount": 9500000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Guerschon Yabusele",
+            "amount": 6600000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "CHI-kevin-huerter-2026-02-03",
+            "amount": 17991071,
+            "expires": "2027-02-03",
+            "fromPlayer": "Kevin Huerter"
+          },
+          {
+            "id": "CHI-mike-conley-2026-02-04",
+            "amount": 10774038,
+            "expires": "2027-02-04",
+            "fromPlayer": "Mike Conley"
+          },
+          {
+            "id": "CHI-coby-white-2026-02-04",
+            "amount": 0,
+            "expires": "2027-02-04",
+            "fromPlayer": "Coby White"
+          },
+          {
+            "id": "CHI-ousmane-dieng-2026-02-05",
+            "amount": 6670882,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ousmane Dieng"
+          },
+          {
+            "id": "CHI-julian-phillips-2026-02-05",
+            "amount": 2221677,
+            "expires": "2027-02-05",
+            "fromPlayer": "Julian Phillips"
+          }
+        ],
+        "exceptionsUsed": {
+          "roomMLE": {
+            "signings": [],
+            "remaining": 9366000
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Coby White",
+              "usedByPlayer": "Kam Jones",
+              "amount": 1218007,
+              "date": "2026-06-24"
+            }
+          ]
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 3674541
+        },
+        "apronAddon": 2315117
+      },
+      "fields": [
+        "capHolds"
+      ]
+    }
+  ]
+}

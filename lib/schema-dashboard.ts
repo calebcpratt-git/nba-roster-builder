@@ -7,11 +7,12 @@
 
 import fs from 'fs'
 import path from 'path'
+import { execFileSync } from 'child_process'
 
 const ROOT = process.cwd()
 const RUN_STATUS = path.join(ROOT, 'snapshots', 'scraped', 'run-status.json')
-const DRIFT_REPORT = path.join(ROOT, 'snapshots', 'schema-drift.json')
 const SCRAPED_DIR = path.join(ROOT, 'snapshots', 'scraped')
+const SCHEMA_MANIFEST = 'lib/data-schema.ts'
 
 /** The generated files the daily scrape rewrites — mtime is the fallback "as of". */
 export const GENERATED_DATA_FILES = [
@@ -30,7 +31,21 @@ export interface ScrapeStatus {
   written: string[]
   staleSources: string[]
   warnings: string[]
+  /** Per single-URL source in run.py's SOURCES dict: true if this run
+   *  fetched it successfully, false if every retry failed. Null on data
+   *  from before this field existed. */
+  sourceFetches: Record<string, boolean> | null
   diffSummaries: string[]
+  /** Per kind: the summary line plus the actual records behind it, read from
+   *  diff-<kind>.json (written by generate-from-scrape.js). Empty detail
+   *  arrays mean the file predates this field or genuinely had no changes. */
+  diffs: {
+    kind: string
+    summary: string
+    added: Record<string, unknown>[]
+    removed: Record<string, unknown>[]
+    changed: { before: Record<string, unknown>; after: Record<string, unknown>; fields: string[] }[]
+  }[]
   /** Per category: the standing backlog, and how it moved this run. The
    *  delta is the signal — a flat total is just names that never resolve
    *  (non-roster players), while a rising one means the scraper started
@@ -42,6 +57,9 @@ export interface ScrapeStatus {
     delta: number
     meaning: string
     records: Record<string, unknown>[]
+    /** Records in `records` that weren't present before this run — the
+     *  identities behind `delta`, from run.py's new_unresolved_records(). */
+    newRecords: Record<string, unknown>[]
   }[]
   newUnresolved: number
   /** Most recent mtime across the generated files — always available. */
@@ -71,6 +89,20 @@ function readJson(file: string): any | null {
   }
 }
 
+function readDiffs(diffSummaries: string[]): ScrapeStatus['diffs'] {
+  return diffSummaries.map((summary) => {
+    const kind = summary.split(':')[0]
+    const detail = readJson(path.join(SCRAPED_DIR, `diff-${kind}.json`))
+    return {
+      kind,
+      summary,
+      added: detail?.added ?? [],
+      removed: detail?.removed ?? [],
+      changed: detail?.changed ?? [],
+    }
+  })
+}
+
 export function readScrapeStatus(): ScrapeStatus {
   const status = readJson(RUN_STATUS)
 
@@ -90,7 +122,9 @@ export function readScrapeStatus(): ScrapeStatus {
       written: [],
       staleSources: [],
       warnings: [],
+      sourceFetches: null,
       diffSummaries: [],
+      diffs: [],
       unresolved: [],
       newUnresolved: 0,
       filesTouchedAt: mtimes.length ? mtimes.sort().at(-1)! : null,
@@ -105,10 +139,13 @@ export function readScrapeStatus(): ScrapeStatus {
     written: status.written ?? [],
     staleSources: status.staleSources ?? [],
     warnings: status.warnings ?? [],
+    sourceFetches: status.sourceFetches ?? null,
     diffSummaries: status.diffSummaries ?? [],
+    diffs: readDiffs(status.diffSummaries ?? []),
     unresolved: Object.entries(status.unresolved?.after ?? {}).map(([category, after]) => {
       const before = status.unresolved?.before?.[category] ?? 0
       const records = readJson(path.join(SCRAPED_DIR, `unresolved-${category}.json`))
+      const newRecords = status.unresolved?.newRecords?.[category]
       return {
         category,
         before,
@@ -116,6 +153,7 @@ export function readScrapeStatus(): ScrapeStatus {
         delta: (after as number) - before,
         meaning: UNRESOLVED_MEANING[category] ?? 'Records a source reported that could not be matched.',
         records: Array.isArray(records) ? records : [],
+        newRecords: Array.isArray(newRecords) ? newRecords : [],
       }
     }),
     newUnresolved: status.unresolved?.newUnresolved ?? 0,
@@ -124,14 +162,30 @@ export function readScrapeStatus(): ScrapeStatus {
   }
 }
 
-export interface DriftReport {
-  checkedAt: string
-  findings: { kind: string; detail: string }[]
+export interface SchemaChange {
+  hash: string
+  date: string
+  subject: string
 }
 
-/** The last `pnpm schema:check` result, if one has been run. */
-export function readDriftReport(): DriftReport | null {
-  const report = readJson(DRIFT_REPORT)
-  if (!report || typeof report.checkedAt !== 'string') return null
-  return { checkedAt: report.checkedAt, findings: report.findings ?? [] }
+/** The manifest's own commit history. CLAUDE.md requires every schema or
+ *  source change to update lib/data-schema.ts in the same commit, so this
+ *  log *is* the schema change history — nothing to compute or go stale. */
+export function readSchemaChangeLog(limit = 20): SchemaChange[] {
+  try {
+    const out = execFileSync(
+      'git',
+      ['log', '-n', String(limit), '--date=iso-strict', '--pretty=format:%H%x1f%ad%x1f%s', '--', SCHEMA_MANIFEST],
+      { cwd: ROOT, encoding: 'utf8' },
+    )
+    return out
+      .split('\n')
+      .filter(Boolean)
+      .map((line) => {
+        const [hash, date, subject] = line.split('\x1f')
+        return { hash, date, subject }
+      })
+  } catch {
+    return []
+  }
 }
