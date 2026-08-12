@@ -42,6 +42,18 @@
   "birdRights": null
  },
  {
+  "name": "Nicolas Batum",
+  "priorTeam": "LAC",
+  "faType": "U",
+  "birdRights": "early-bird"
+ },
+ {
+  "name": "Bradley Beal",
+  "priorTeam": "LAC",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
   "name": "MarJon Beauchamp",
   "priorTeam": "PHI",
   "faType": "U",
@@ -150,12 +162,6 @@
   "birdRights": null
  },
  {
-  "name": "J.D. Davison",
-  "priorTeam": "HOU",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "DeMar DeRozan",
   "priorTeam": "SAC",
   "faType": "U",
@@ -252,6 +258,12 @@
   "birdRights": null
  },
  {
+  "name": "James Harden",
+  "priorTeam": "CLE",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
   "name": "Kevon Harris",
   "priorTeam": "HOU",
   "faType": "U",
@@ -330,6 +342,12 @@
   "birdRights": null
  },
  {
+  "name": "Yuki Kawamura",
+  "priorTeam": "CHI",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
   "name": "Trevor Keels",
   "priorTeam": "MIA",
   "faType": "U",
@@ -358,6 +376,12 @@
   "priorTeam": "DET",
   "faType": "U",
   "birdRights": null
+ },
+ {
+  "name": "Jonathan Kuminga",
+  "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": "non-bird"
  },
  {
   "name": "Skal Labissiere",
@@ -528,8 +552,8 @@
   "birdRights": null
  },
  {
-  "name": "Sean Pedulla",
-  "priorTeam": "LAC",
+  "name": "Taelon Peter",
+  "priorTeam": "IND",
   "faType": "U",
   "birdRights": null
  },
@@ -770,6 +794,12 @@
  {
   "name": "Lindy Waters III",
   "priorTeam": "SAS",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
+  "name": "Trendon Watford",
+  "priorTeam": "PHI",
   "faType": "U",
   "birdRights": "non-bird"
  },

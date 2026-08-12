@@ -58,18 +58,11 @@
   },
   {
     "name": "Nicolas Batum",
-    "tradeBonusPct": 15,
-    "signedUnder": "minimum"
+    "tradeBonusPct": 15
   },
   {
     "name": "Bradley Beal",
-    "tradeBonusPct": 15,
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
+    "tradeBonusPct": 15
   },
   {
     "name": "Devin Booker",
@@ -251,14 +244,7 @@
   },
   {
     "name": "James Harden",
-    "tradeBonusPct": 15,
-    "signedUnder": "bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
+    "tradeBonusPct": 15
   },
   {
     "name": "Al Horford",
@@ -326,14 +312,7 @@
   },
   {
     "name": "Jonathan Kuminga",
-    "tradeBonusPct": 15,
-    "signedUnder": "bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
+    "tradeBonusPct": 15
   },
   {
     "name": "Kawhi Leonard",
@@ -1594,6 +1573,16 @@
     }
   },
   {
+    "name": "Kentavious Caldwell-Pope",
+    "signedUnder": "cap-room",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Christian Braun",
     "signedUnder": "bird",
     "incentives": {
@@ -1894,16 +1883,6 @@
         "unlikely": 0
       },
       "2028-29": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Kentavious Caldwell-Pope",
-    "signedUnder": "cap-room",
-    "incentives": {
-      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }
@@ -5226,16 +5205,6 @@
     }
   },
   {
-    "name": "Trendon Watford",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Ryan Dunn",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -6128,16 +6097,6 @@
         "unlikely": 0
       },
       "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Taelon Peter",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }

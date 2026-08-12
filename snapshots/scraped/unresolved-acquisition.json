@@ -15,11 +15,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Hayden Gray",
-  "date": "2026-08-11",
-  "method": "free-agent"
- },
- {
   "name": "Dalano Banton",
   "date": "2026-04-11",
   "method": "free-agent"
@@ -67,16 +62,6 @@
  {
   "name": "Wyatt Fricks",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Marquel Sutton",
-  "date": "2026-08-07",
-  "method": "free-agent"
- },
- {
-  "name": "Isaiah Stevens",
-  "date": "2026-08-07",
   "method": "free-agent"
  },
  {
@@ -197,11 +182,6 @@
  {
   "name": "Tamin Lipsey",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Yuki Kawamura",
-  "date": "2026-08-09",
   "method": "free-agent"
  },
  {
@@ -432,6 +412,11 @@
  {
   "name": "Micah Handlogten",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Hayden Gray",
+  "date": "2026-04-11",
   "method": "free-agent"
  },
  {

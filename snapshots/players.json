@@ -429,16 +429,6 @@
     }
   },
   {
-    "name": "James Harden",
-    "team": "CLE",
-    "salary": {},
-    "options": {},
-    "acquisition": {
-      "date": "2026-02-04",
-      "method": "trade"
-    }
-  },
-  {
     "name": "Ja Morant",
     "team": "POR",
     "salary": {
@@ -1101,16 +1091,6 @@
     }
   },
   {
-    "name": "Jonathan Kuminga",
-    "team": "ATL",
-    "salary": {},
-    "options": {},
-    "acquisition": {
-      "date": "2026-02-05",
-      "method": "trade"
-    }
-  },
-  {
     "name": "Keegan Murray",
     "team": "SAC",
     "salary": {
@@ -1242,6 +1222,16 @@
     }
   },
   {
+    "name": "Kentavious Caldwell-Pope",
+    "team": "PHI",
+    "salary": {},
+    "options": {},
+    "acquisition": {
+      "date": "2026-08-05",
+      "method": "free-agent"
+    }
+  },
+  {
     "name": "Christian Braun",
     "team": "DEN",
     "salary": {
@@ -1358,14 +1348,11 @@
     "name": "Dillon Brooks",
     "team": "PHO",
     "salary": {
-      "2026-27": 19992727,
-      "2027-28": 22530864,
-      "2028-29": 24333333,
-      "2029-30": 26135802
+      "2026-27": 19992727
     },
     "options": {},
     "acquisition": {
-      "date": "2026-08-08",
+      "date": "2026-08-05",
       "method": "extension"
     }
   },
@@ -1446,20 +1433,6 @@
     "acquisition": {
       "date": "2025-07-07",
       "method": "extension"
-    }
-  },
-  {
-    "name": "Bradley Beal",
-    "team": "LAC",
-    "salary": {
-      "2027-28": 19383010,
-      "2028-29": 19383010,
-      "2029-30": 19383010
-    },
-    "options": {},
-    "acquisition": {
-      "date": "2025-07-18",
-      "method": "free-agent"
     }
   },
   {
@@ -1551,18 +1524,6 @@
     },
     "acquisition": {
       "date": "2024-07-06",
-      "method": "free-agent"
-    }
-  },
-  {
-    "name": "Kentavious Caldwell-Pope",
-    "team": "PHI",
-    "salary": {
-      "2026-27": 20194392
-    },
-    "options": {},
-    "acquisition": {
-      "date": "2026-08-05",
       "method": "free-agent"
     }
   },
@@ -3578,16 +3539,6 @@
     }
   },
   {
-    "name": "Nicolas Batum",
-    "team": "LAC",
-    "salary": {},
-    "options": {},
-    "acquisition": {
-      "date": "2025-07-06",
-      "method": "free-agent"
-    }
-  },
-  {
     "name": "Jordan Goodwin",
     "team": "PHO",
     "salary": {
@@ -5162,16 +5113,6 @@
     }
   },
   {
-    "name": "Trendon Watford",
-    "team": "PHI",
-    "salary": {},
-    "options": {},
-    "acquisition": {
-      "date": "2025-07-02",
-      "method": "free-agent"
-    }
-  },
-  {
     "name": "Ryan Dunn",
     "team": "PHO",
     "salary": {
@@ -6380,23 +6321,6 @@
     }
   },
   {
-    "name": "Taelon Peter",
-    "team": "SAS",
-    "salary": {
-      "2026-27": 2185116
-    },
-    "options": {},
-    "acquisition": {
-      "date": "2026-08-07",
-      "method": "free-agent"
-    },
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
-  },
-  {
     "name": "Rasheer Fleming",
     "team": "PHO",
     "salary": {
@@ -7166,7 +7090,7 @@
     "options": {},
     "contractType": "two-way",
     "acquisition": {
-      "date": "2026-08-06",
+      "date": "2026-07-21",
       "method": "free-agent"
     }
   },

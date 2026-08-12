@@ -16,14 +16,6 @@
   "via": "acquisition-ledger"
  },
  {
-  "name": "Kentavious Caldwell-Pope",
-  "kept": "PHI",
-  "dropped": [
-   "MEM"
-  ],
-  "via": "acquisition-ledger"
- },
- {
   "name": "Olivier-Maxence Prosper",
   "kept": "MEM",
   "dropped": [
