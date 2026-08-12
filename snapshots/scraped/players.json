@@ -6817,6 +6817,11 @@
   "acquisition": {
    "date": "2026-08-07",
    "method": "free-agent"
+  },
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
   }
  },
  {

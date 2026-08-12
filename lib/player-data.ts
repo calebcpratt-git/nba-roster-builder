@@ -442,7 +442,7 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [
   { name: "JaVale McGee", team: 'DAL', salary: { '2026-27': 2208856, '2027-28': 2208856 }, options: {  } },
   { name: "Alijah Martin", team: 'TOR', salary: { '2026-27': 2185116, '2027-28': 2571895 }, options: { '2027-28': 'Player' }, acquisition: { date: '2026-07-03', method: 'free-agent' } },
   { name: "Moussa Cisse", team: 'DAL', salary: { '2026-27': 2185116, '2027-28': 2571895 }, options: {  }, guarantees: { '2026-27': { status: 'partial', amount: 1092558, guaranteeDate: '2026-10-01' } }, acquisition: { date: '2026-07-18', method: 'free-agent' } },
-  { name: "Taelon Peter", team: 'SAS', salary: { '2026-27': 2185116 }, options: {  }, acquisition: { date: '2026-08-07', method: 'free-agent' } },
+  { name: "Taelon Peter", team: 'SAS', salary: { '2026-27': 2185116 }, options: {  }, guarantees: { '2026-27': { status: 'non-guaranteed' } }, acquisition: { date: '2026-08-07', method: 'free-agent' } },
   { name: "Rasheer Fleming", team: 'PHO', salary: { '2026-27': 2150917, '2027-28': 2525901, '2028-29': 2735698 }, options: { '2028-29': 'Team' }, acquisition: { date: '2025-07-07', method: 'free-agent' } },
   { name: "Maxime Raynaud", team: 'SAC', salary: { '2026-27': 2150917, '2027-28': 2525901 }, options: { '2027-28': 'Team' }, acquisition: { date: '2025-07-02', method: 'free-agent' } },
   { name: "Noah Penda", team: 'ORL', salary: { '2026-27': 2150917, '2027-28': 2525901, '2028-29': 2735698 }, options: { '2028-29': 'Team' }, acquisition: { date: '2025-07-04', method: 'free-agent' } },
