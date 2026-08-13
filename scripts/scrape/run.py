@@ -1,7 +1,13 @@
 """Fetch -> parse -> normalize. Writes JSON for the Node generators to consume.
 
-Usage:  python scripts/scrape/run.py [--offline]
-  --offline   reuse snapshots/raw/*.html instead of hitting the network
+Usage:  python scripts/scrape/run.py [--offline] [--rescue=name1,name2]
+  --offline        reuse snapshots/raw/*.html instead of hitting the network
+  --rescue=names   comma-separated keys from SOURCES below to fetch live even
+                    under --offline, reusing snapshots for everything else —
+                    for re-fetching a single source that failed on a run from
+                    a flagged IP (e.g. GitHub Actions hitting RealGM's
+                    Cloudflare block) without re-fetching the ~30 sources that
+                    already succeeded.
 
 Resilience:
   Each source is fetched with a few retries and a short backoff, because
@@ -161,14 +167,18 @@ def fetch_one(name, url):
     return False
 
 
-def fetch_all(offline=False):
+def fetch_all(offline=False, rescue=None):
     """Fetch every single-URL source. Never raises for a single source;
-    returns the set of source names that could not be obtained this run."""
+    returns the set of source names that could not be obtained this run.
+
+    `rescue`, if given, is a set of SOURCES keys to fetch live even when
+    `offline` is set — see the --rescue usage note in the module docstring."""
+    rescue = rescue or set()
     os.makedirs(RAW, exist_ok=True)
     failed = set()
     for name, url in SOURCES.items():
         path = os.path.join(RAW, f'{name}.html')
-        if offline:
+        if offline and name not in rescue:
             if os.path.exists(path):
                 print(f'  offline  {name}')
             else:
@@ -833,6 +843,51 @@ def build_free_agent_reconciliation():
         print(f'    DECLINED  {o["name"]} ({o["team"]}, {o["season"]}) — corroborated={o["corroborated"]}')
 
 
+def apply_persisted_free_agent_overrides():
+    """Fallback for when build_free_agent_reconciliation can't run this cycle
+    (RealGM fetch/parse failure): build_players always rebuilds `players`
+    fresh from raw BBRef every run, which re-adds rows for players BBRef
+    hasn't caught up on yet — including ones a PRIOR successful run already
+    identified as declined-and-still-unsigned or signed-elsewhere, and wrote
+    to free-agent-overrides.json / signed-elsewhere-overrides.json. GROUPS'
+    "skip, keep last-good output" framing doesn't hold for this group: it has
+    no output file of its own, it mutates players.json that build_players
+    (an independent, earlier group) already overwrote THIS run. Skipping it
+    silently un-does the drop/correction from every prior run instead of
+    preserving it. Confirmed live 2026-08-13: Harden/Kuminga/Beal/Batum/
+    Watford reappeared rostered on their old teams this way, despite already
+    being recorded in free-agent-overrides.json from the last successful
+    reconciliation. Reapplying those persisted files (left untouched by the
+    skip) closes that gap without needing a live RealGM fetch."""
+    players = _load_json('players', [])
+    if not players:
+        return
+
+    declined = _load_json('free-agent-overrides', [])
+    drop_keys = {(_base(o['name']), o['team']) for o in declined}
+    kept = [p for p in players if (_base(p['name']), p['team']) not in drop_keys]
+    dropped = len(players) - len(kept)
+
+    signed_elsewhere = _load_json('signed-elsewhere-overrides', [])
+    by_name = {_base(o['name']): o for o in signed_elsewhere}
+    corrected = 0
+    for p in kept:
+        o = by_name.get(_base(p['name']))
+        if o and p['team'] == o['oldTeam']:
+            p['team'] = o['newTeam']
+            p.get('salary', {}).pop(o['season'], None)
+            p.get('options', {}).pop(o['season'], None)
+            corrected += 1
+
+    if not dropped and not corrected:
+        return
+    json.dump(kept, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  reapplied persisted free-agent overrides: {dropped} dropped, {corrected} team-corrected')
+    for o in declined:
+        if (_base(o['name']), o['team']) in drop_keys:
+            print(f'    DROPPED  {o["name"]}  (was {o["team"]})')
+
+
 def build_free_agent_pool():
     """Writes the full list of currently-unsigned free agents, sourced from
     the same RealGM current_free_agents page build_free_agent_reconciliation
@@ -1295,6 +1350,13 @@ GROUPS = [
 
 def main():
     offline = '--offline' in sys.argv
+    rescue = set()
+    for arg in sys.argv:
+        if arg.startswith('--rescue='):
+            rescue = {n for n in arg.split('=', 1)[1].split(',') if n}
+    unknown_rescue = rescue - set(SOURCES)
+    if unknown_rescue:
+        sys.exit(f'--rescue: unknown source(s): {", ".join(sorted(unknown_rescue))}')
     os.makedirs(OUT, exist_ok=True)
 
     # Snapshot unresolved-*.json counts before this run touches anything, so
@@ -1305,7 +1367,7 @@ def main():
     unresolved_records_before = snapshot_unresolved_records()
 
     print('fetch:')
-    failed = fetch_all(offline)
+    failed = fetch_all(offline, rescue)
 
     print('parse:')
     written = []
@@ -1316,6 +1378,8 @@ def main():
         if not ok:
             skipped.append(f'{group["name"]} (fetch failed)')
             print(f'  SKIP {group["name"]} — fetch failed; keeping last-good output')
+            if group['name'] == 'free-agent-reconciliation':
+                apply_persisted_free_agent_overrides()
             continue
         try:
             group['build']()
@@ -1323,6 +1387,8 @@ def main():
         except Exception as e:
             skipped.append(f'{group["name"]} (parse failed: {e})')
             print(f'  SKIP {group["name"]} — parse error: {e}\n       keeping last-good output')
+            if group['name'] == 'free-agent-reconciliation':
+                apply_persisted_free_agent_overrides()
 
     print('cap-state (nbacaptracker, separate multi-page source with its own fetch loop):')
     try:

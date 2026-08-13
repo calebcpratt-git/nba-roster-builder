@@ -473,6 +473,16 @@
    }
   }
  },
+ "james harden": {
+  "team": "CLE",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "ja morant": {
   "team": "POR",
   "signedUnder": "bird",
@@ -1243,6 +1253,16 @@
    }
   }
  },
+ "jonathan kuminga": {
+  "team": "ATL",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "keegan murray": {
   "team": "SAC",
   "signedUnder": "rookie-scale",
@@ -1396,16 +1416,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "kentavious caldwell pope": {
-  "team": "PHI",
-  "signedUnder": "cap-room",
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -1623,6 +1633,16 @@
    }
   }
  },
+ "bradley beal": {
+  "team": "LAC",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "ayo dosunmu": {
   "team": "MIN",
   "signedUnder": "bird",
@@ -1726,6 +1746,16 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "kentavious caldwell pope": {
+  "team": "PHI",
+  "signedUnder": "cap-room",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -3702,6 +3732,16 @@
    }
   }
  },
+ "nicolas batum": {
+  "team": "LAC",
+  "signedUnder": "non-bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "jordan goodwin": {
   "team": "PHO",
   "signedUnder": "early-bird",
@@ -5164,6 +5204,16 @@
    }
   }
  },
+ "trendon watford": {
+  "team": "PHI",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "ryan dunn": {
   "team": "PHO",
   "signedUnder": "rookie-scale",
@@ -5732,6 +5782,16 @@
    }
   }
  },
+ "yuki kawamura": {
+  "team": "LAC",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "cam spencer": {
   "team": "MEM",
   "signedUnder": "cap-room",
@@ -6078,6 +6138,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "taelon peter": {
+  "team": "SAS",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
