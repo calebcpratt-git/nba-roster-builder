@@ -162,6 +162,63 @@ export function readScrapeStatus(): ScrapeStatus {
   }
 }
 
+export interface PendingScrapeRun {
+  number: number
+  url: string
+  createdAt: string
+  body: string
+}
+
+export interface LatestWorkflowRun {
+  status: string
+  conclusion: string | null
+  createdAt: string
+  url: string
+}
+
+/** The daily update-nba-data.yml workflow always opens PRs from this branch
+ *  (see .github/workflows/update-nba-data.yml) — a clean run merges and
+ *  deletes it immediately, so if it still exists there's an open PR waiting
+ *  on review right now. */
+const AUTO_UPDATE_BRANCH = 'data/auto-update'
+
+/** An open PR on data/auto-update, if today's (or any) scrape produced a
+ *  not-clean run that's sitting unmerged — the dashboard otherwise only ever
+ *  reflects what's been merged to main, so this is the only way to see "a
+ *  run happened but is blocked" without leaving the app. Null means no gh
+ *  auth/network — distinguished from "no open PR" (empty array, no throw) so
+ *  the dashboard can say "couldn't check" instead of falsely implying clean. */
+export function readPendingScrapeRun(): PendingScrapeRun | null | 'unknown' {
+  try {
+    const out = execFileSync(
+      'gh',
+      ['pr', 'list', '--head', AUTO_UPDATE_BRANCH, '--state', 'open', '--json', 'number,url,createdAt,body', '--limit', '1'],
+      { cwd: ROOT, encoding: 'utf8', timeout: 8000 },
+    )
+    const prs = JSON.parse(out)
+    return prs[0] ?? null
+  } catch {
+    return 'unknown'
+  }
+}
+
+/** Most recent run of the scheduled scrape workflow — catches the case where
+ *  the run failed before it ever got as far as opening a PR (build broke,
+ *  the scrape itself errored), which readPendingScrapeRun() can't see. */
+export function readLatestWorkflowRun(): LatestWorkflowRun | null | 'unknown' {
+  try {
+    const out = execFileSync(
+      'gh',
+      ['run', 'list', '--workflow=update-nba-data.yml', '--limit', '1', '--json', 'status,conclusion,createdAt,url'],
+      { cwd: ROOT, encoding: 'utf8', timeout: 8000 },
+    )
+    const runs = JSON.parse(out)
+    return runs[0] ?? null
+  } catch {
+    return 'unknown'
+  }
+}
+
 export interface SchemaChange {
   hash: string
   date: string

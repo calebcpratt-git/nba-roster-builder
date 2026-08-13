@@ -5,9 +5,10 @@
 import { AlertTriangle, CheckCircle2 } from 'lucide-react'
 import { DATA_SOURCES, getEntity, erdEdges, erdTiers } from '@/lib/data-schema'
 import { allEntityCoverage, fieldsBySource } from '@/lib/schema-coverage'
-import { readScrapeStatus, readSchemaChangeLog } from '@/lib/schema-dashboard'
+import { readScrapeStatus, readSchemaChangeLog, readPendingScrapeRun, readLatestWorkflowRun } from '@/lib/schema-dashboard'
 import { SOURCE_STYLES, sourceFamily, familyColor, FAMILY_LABELS, type SourceFamily } from '@/components/data-dashboard/source-styles'
 import { RefreshButton } from '@/components/data-dashboard/refresh-button'
+import { RescueButton } from '@/components/data-dashboard/rescue-button'
 import { DataChatPanel } from '@/components/data-dashboard/chat-panel'
 import { SourceDataProvider } from '@/components/data-dashboard/source-context'
 import { SourceLink } from '@/components/data-dashboard/source-link'
@@ -70,6 +71,8 @@ function diffRecordLabel(kind: string, record: Record<string, unknown>): string 
 export default function DataSchemaDashboard() {
   const coverage = allEntityCoverage()
   const status = readScrapeStatus()
+  const pendingRun = readPendingScrapeRun()
+  const latestRun = readLatestWorkflowRun()
   const schemaChanges = readSchemaChangeLog()
   const lastSchemaChange = schemaChanges[0] ?? null
   const bySource = fieldsBySource()
@@ -81,6 +84,7 @@ export default function DataSchemaDashboard() {
     .filter((s): s is typeof s & { runPyKey: string } => !!s.runPyKey)
     .map((s) => ({
       id: s.id,
+      runPyKey: s.runPyKey,
       ok: status.sourceFetches ? status.sourceFetches[s.runPyKey] !== false : null,
     }))
 
@@ -147,6 +151,49 @@ export default function DataSchemaDashboard() {
             </div>
           </div>
         </header>
+
+        {/* --- Pipeline status: is there a scrape run not yet on main? ----- */}
+        {pendingRun === 'unknown' || latestRun === 'unknown' ? (
+          <div className="mb-8 flex items-start gap-2 rounded-lg border p-3 text-sm text-muted-foreground">
+            <AlertTriangle className="mt-0.5 size-4 shrink-0" />
+            <p>
+              Couldn&rsquo;t check GitHub for pending or failed scrape runs (<code className="font-mono">gh</code> not
+              available or not authenticated) — this dashboard is only showing what&rsquo;s committed locally.
+            </p>
+          </div>
+        ) : pendingRun ? (
+          <div className="mb-8 rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-sm">
+            <div className="flex items-start gap-2">
+              <AlertTriangle className="mt-0.5 size-4 shrink-0 text-amber-600" />
+              <div className="flex-1">
+                <p className="font-semibold text-amber-700 dark:text-amber-500">
+                  Today&rsquo;s scrape is open for review, not on main —{' '}
+                  <a href={pendingRun.url} target="_blank" rel="noreferrer" className="underline">
+                    PR #{pendingRun.number}
+                  </a>{' '}
+                  ({timeAgo(pendingRun.createdAt)})
+                </p>
+                <details className="mt-1.5">
+                  <summary className="cursor-pointer text-xs text-muted-foreground">Why it didn&rsquo;t auto-merge</summary>
+                  <pre className="mt-1 whitespace-pre-wrap font-mono text-[11px] leading-snug text-muted-foreground">
+                    {pendingRun.body}
+                  </pre>
+                </details>
+              </div>
+            </div>
+          </div>
+        ) : latestRun?.conclusion === 'failure' ? (
+          <div className="mb-8 flex items-start gap-2 rounded-lg border border-destructive/40 bg-destructive/5 p-3 text-sm">
+            <AlertTriangle className="mt-0.5 size-4 shrink-0 text-destructive" />
+            <p>
+              The latest scheduled scrape run failed before it could open a PR —{' '}
+              <a href={latestRun.url} target="_blank" rel="noreferrer" className="font-semibold underline">
+                see the run
+              </a>{' '}
+              ({timeAgo(latestRun.createdAt)}).
+            </p>
+          </div>
+        ) : null}
 
         {/* --- Last scrape ------------------------------------------------ */}
         <section className="mb-8">
@@ -308,13 +355,18 @@ export default function DataSchemaDashboard() {
                       {sourceFetchRows.map((s) => (
                         <li key={s.id} className="flex items-center justify-between gap-2 text-xs">
                           <SourceLink sourceId={s.id} fullLabel />
-                          {s.ok === null ? (
-                            <span className="shrink-0 text-muted-foreground">no data</span>
-                          ) : s.ok ? (
-                            <span className="shrink-0 font-semibold text-success">scraped</span>
-                          ) : (
-                            <span className="shrink-0 font-semibold text-destructive">failed</span>
-                          )}
+                          <div className="flex shrink-0 items-center gap-2">
+                            {s.ok === null ? (
+                              <span className="text-muted-foreground">no data</span>
+                            ) : s.ok ? (
+                              <span className="font-semibold text-success">scraped</span>
+                            ) : (
+                              <>
+                                <span className="font-semibold text-destructive">failed</span>
+                                <RescueButton runPyKey={s.runPyKey} />
+                              </>
+                            )}
+                          </div>
                         </li>
                       ))}
                     </ul>
