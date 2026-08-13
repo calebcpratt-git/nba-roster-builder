@@ -290,7 +290,7 @@
   "team": "LAL"
  },
  "brookdi01": {
-  "date": "2026-08-05",
+  "date": "2026-08-08",
   "method": "extension",
   "team": "PHO"
  },
@@ -2325,7 +2325,7 @@
   "team": "IND"
  },
  "sharpja01": {
-  "date": "2026-07-21",
+  "date": "2026-08-06",
   "method": "free-agent",
   "team": "LAC"
  },
@@ -2483,5 +2483,10 @@
   "date": "2026-07-01",
   "method": "free-agent",
   "team": "WAS"
+ },
+ "kawamyu01": {
+  "date": "2026-08-09",
+  "method": "free-agent",
+  "team": "LAC"
  }
 }

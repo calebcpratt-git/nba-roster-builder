@@ -2,24 +2,25 @@
   "written": [
     "players",
     "two-way-contracts",
-    "free-agent-reconciliation",
-    "free-agent-pool",
     "picks",
     "enrichment",
     "clauses",
     "cap-state",
-    "cap-hold-reconciliation",
     "salaryswish-league",
     "signing-incentives",
     "cash-ledger",
     "apron-addon"
   ],
-  "staleSources": [],
+  "staleSources": [
+    "free-agent-reconciliation (fetch failed)",
+    "free-agent-pool (fetch failed)",
+    "cap-hold-reconciliation (fetch failed)"
+  ],
   "sourceFetches": {
     "bbref_contracts": true,
     "realgm_future_drafts": true,
-    "realgm_free_agent_options": true,
-    "realgm_current_free_agents": true,
+    "realgm_free_agent_options": false,
+    "realgm_current_free_agents": false,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -44,22 +45,37 @@
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 89,
+      "acquisition": 91,
       "guarantees": 5,
       "signing": 10
     },
-    "newUnresolved": 0,
-    "newByCategory": {},
-    "newRecords": {}
+    "newUnresolved": 2,
+    "newByCategory": {
+      "acquisition": 2
+    },
+    "newRecords": {
+      "acquisition": [
+        {
+          "name": "Marquel Sutton",
+          "date": "2026-08-07",
+          "method": "free-agent"
+        },
+        {
+          "name": "Isaiah Stevens",
+          "date": "2026-08-07",
+          "method": "free-agent"
+        }
+      ]
+    }
   },
-  "generatedAt": "2026-08-12T21:11:44.122Z",
+  "generatedAt": "2026-08-13T11:52:16.289Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -6 ~3 (of 529)",
+    "players: +7 -0 ~85 (of 523)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -2 ~4 (of 520)",
-    "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +7 -2 ~0 (of 144)"
+    "contract-details: +3 -0 ~4 (of 518)",
+    "team-cap-state: +0 -0 ~30 (of 150)",
+    "free-agents: +0 -0 ~0 (of 149)"
   ],
-  "clean": true
+  "clean": false
 }
