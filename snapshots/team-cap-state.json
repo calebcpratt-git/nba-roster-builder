@@ -3766,14 +3766,20 @@
         "remaining": 1044000
       },
       "biAnnual": {
-        "signings": [],
-        "remaining": 5477000
+        "signings": [
+          {
+            "player": "Bradley Beal",
+            "amount": 6439024,
+            "date": "2026-08-13"
+          }
+        ],
+        "remaining": 0
       },
       "dpe": {
         "player": "Bradley Beal",
-        "initial": 0,
+        "initial": 3219512,
         "used": false,
-        "remaining": 0
+        "remaining": 3219512
       }
     },
     "cashLedger": {
