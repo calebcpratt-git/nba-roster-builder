@@ -473,16 +473,6 @@
    }
   }
  },
- "james harden": {
-  "team": "CLE",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "ja morant": {
   "team": "POR",
   "signedUnder": "bird",
@@ -1253,16 +1243,6 @@
    }
   }
  },
- "jonathan kuminga": {
-  "team": "ATL",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "keegan murray": {
   "team": "SAC",
   "signedUnder": "rookie-scale",
@@ -1630,16 +1610,6 @@
    "2026-27": {
     "likely": 0,
     "unlikely": 500000
-   }
-  }
- },
- "bradley beal": {
-  "team": "LAC",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
    }
   }
  },
@@ -3732,16 +3702,6 @@
    }
   }
  },
- "nicolas batum": {
-  "team": "LAC",
-  "signedUnder": "non-bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "jordan goodwin": {
   "team": "PHO",
   "signedUnder": "early-bird",
@@ -4946,16 +4906,6 @@
    }
   }
  },
- "haywood highsmith": {
-  "team": "PHO",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "tarik biberovic": {
   "team": "DAL",
   "signedUnder": null,
@@ -5196,16 +5146,6 @@
  },
  "luka garza": {
   "team": "BOS",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "trendon watford": {
-  "team": "PHI",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
@@ -6551,6 +6491,16 @@
    }
   }
  },
+ "haywood highsmith": {
+  "team": "PHO",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "ej liddell": {
   "team": "PHO",
   "signedUnder": null,
@@ -6840,16 +6790,6 @@
  },
  "quadir copeland": {
   "team": "HOU",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "ethan thompson": {
-  "team": "IND",
   "signedUnder": null,
   "incentives": {
    "2026-27": {

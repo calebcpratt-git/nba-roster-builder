@@ -45,21 +45,42 @@
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 91,
-      "guarantees": 5,
+      "acquisition": 92,
+      "guarantees": 6,
       "signing": 10
     },
-    "newUnresolved": 0,
-    "newByCategory": {},
-    "newRecords": {}
+    "newUnresolved": 2,
+    "newByCategory": {
+      "acquisition": 1,
+      "guarantees": 1
+    },
+    "newRecords": {
+      "acquisition": [
+        {
+          "name": "Bradley Beal",
+          "date": "2026-08-13",
+          "method": "free-agent"
+        }
+      ],
+      "guarantees": [
+        {
+          "player": "Bradley Beal",
+          "team": "Los Angeles Clippers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        }
+      ]
+    }
   },
-  "generatedAt": "2026-08-13T21:13:41.877Z",
+  "generatedAt": "2026-08-14T11:47:47.651Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -0 ~85 (of 523)",
+    "players: +0 -6 ~1 (of 530)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +3 -0 ~4 (of 518)",
-    "team-cap-state: +0 -0 ~30 (of 150)",
+    "contract-details: +0 -2 ~4 (of 521)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
     "free-agents: +0 -0 ~0 (of 149)"
   ],
   "clean": false

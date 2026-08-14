@@ -5241,19 +5241,6 @@
   }
  },
  {
-  "name": "Haywood Highsmith",
-  "team": "PHO",
-  "salary": {
-   "2026-27": 3018158
-  },
-  "options": {},
-  "bbrefId": "highsha01",
-  "acquisition": {
-   "date": "2026-02-18",
-   "method": "free-agent"
-  }
- },
- {
   "name": "Tarik Biberovic",
   "team": "DAL",
   "salary": {
@@ -7299,6 +7286,19 @@
   }
  },
  {
+  "name": "Haywood Highsmith",
+  "team": "PHO",
+  "salary": {
+   "2026-27": 1000000
+  },
+  "options": {},
+  "bbrefId": "highsha01",
+  "acquisition": {
+   "date": "2026-02-18",
+   "method": "free-agent"
+  }
+ },
+ {
   "name": "E.J. Liddell",
   "team": "PHO",
   "salary": {
@@ -7672,16 +7672,6 @@
    "date": "2026-07-07",
    "method": "free-agent"
   }
- },
- {
-  "name": "Ethan Thompson",
-  "team": "IND",
-  "salary": {
-   "2026-27": 678882
-  },
-  "options": {},
-  "bbrefId": "thompet01",
-  "contractType": "two-way"
  },
  {
   "name": "Kobe Brown",
