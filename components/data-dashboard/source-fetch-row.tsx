@@ -19,7 +19,17 @@ interface RescueResult {
  *  sibling of the whole row in the flex-wrap layout and span the full card
  *  width when it wraps, instead of being squeezed into the button's own
  *  narrow flex box. */
-export function SourceFetchRow({ id, runPyKey, ok }: { id: string; runPyKey: string; ok: boolean | null }) {
+export function SourceFetchRow({
+  id,
+  runPyKey,
+  ok,
+  rescued,
+}: {
+  id: string
+  runPyKey: string
+  ok: boolean | null
+  rescued: boolean
+}) {
   const router = useRouter()
   const [pending, startTransition] = useTransition()
   const [running, setRunning] = useState(false)
@@ -53,7 +63,7 @@ export function SourceFetchRow({ id, runPyKey, ok }: { id: string; runPyKey: str
         {ok === null ? (
           <span className="text-muted-foreground">no data</span>
         ) : ok ? (
-          <span className="font-semibold text-success">scraped</span>
+          <span className="font-semibold text-success">{rescued ? 'rescued' : 'scraped'}</span>
         ) : (
           <>
             <span className="font-semibold text-destructive">failed</span>

@@ -301,6 +301,62 @@ function diffRecords(kind, records, previousRecords) {
   return { added, removed, changed, detail }
 }
 
+// Composes two same-day diff details into one — used when a same-source
+// rescue runs after the morning's regular scrape already produced a diff.
+// The rescue's own diff is computed against the same fixed baseline (see
+// generate-from-scrape.js's skipSnapshotUpdate), so `earlier` and `later`
+// describe two independent deltas off that one baseline, keyed by identity
+// so a record touched by both collapses into a single entry instead of
+// appearing twice.
+function mergeDiffDetail(kind, earlier, later) {
+  const keyOf = (record) => recordKey(kind, record)
+  const addedByKey = new Map(earlier.added.map((r) => [keyOf(r), r]))
+  const removedByKey = new Map(earlier.removed.map((r) => [keyOf(r), r]))
+  const changedByKey = new Map(earlier.changed.map((c) => [keyOf(c.after), { ...c }]))
+
+  for (const record of later.added) {
+    const key = keyOf(record)
+    if (removedByKey.has(key)) {
+      removedByKey.delete(key) // removed earlier today, back now — nets out
+    } else if (changedByKey.has(key)) {
+      changedByKey.get(key).after = record
+    } else {
+      addedByKey.set(key, record)
+    }
+  }
+
+  for (const record of later.removed) {
+    const key = keyOf(record)
+    if (addedByKey.has(key)) {
+      addedByKey.delete(key) // added earlier today, removed now — nets out
+    } else if (changedByKey.has(key)) {
+      removedByKey.set(key, changedByKey.get(key).before)
+      changedByKey.delete(key)
+    } else {
+      removedByKey.set(key, record)
+    }
+  }
+
+  for (const change of later.changed) {
+    const key = keyOf(change.after)
+    if (addedByKey.has(key)) {
+      addedByKey.set(key, change.after) // still "added today" — just a newer version
+    } else if (changedByKey.has(key)) {
+      const existing = changedByKey.get(key)
+      existing.after = change.after
+      existing.fields = Array.from(new Set([...existing.fields, ...change.fields]))
+    } else {
+      changedByKey.set(key, { ...change })
+    }
+  }
+
+  return {
+    added: [...addedByKey.values()],
+    removed: [...removedByKey.values()],
+    changed: [...changedByKey.values()],
+  }
+}
+
 /**
  * @param {object} input
  * @param {'players' | 'draft-picks' | 'contract-details' | 'team-cap-state' | 'free-agents'} input.kind
@@ -374,4 +430,4 @@ function validateAndDiff({ kind, records, previousRecords, allowLargeDiff, now }
   }
 }
 
-module.exports = { validateAndDiff, isOffseason, minRosterSize }
+module.exports = { validateAndDiff, isOffseason, minRosterSize, mergeDiffDetail }

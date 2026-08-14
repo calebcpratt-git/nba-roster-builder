@@ -3,7 +3,7 @@
  * Reads the JSON written by scripts/scrape/run.py and regenerates the app's
  * data files. Refuses to write when validation fails.
  *
- *   node scripts/generate-from-scrape.js [--accept-large-diff]
+ *   node scripts/generate-from-scrape.js [--accept-large-diff] [--rescue]
  */
 const fs = require('fs')
 const path = require('path')
@@ -12,10 +12,27 @@ const { generateDraftPicks } = require('./generate-draft-picks')
 const { generateContractDetails } = require('./generate-contract-details')
 const { generateTeamCapState } = require('./generate-team-cap-state')
 const { generateFreeAgents } = require('./generate-free-agents')
+const { mergeDiffDetail } = require('./lib/validate-and-diff')
 
 const SCRAPED = path.join(__dirname, '../snapshots/scraped')
 const allowLargeDiff =
   process.argv.includes('--accept-large-diff') || process.env.ACCEPT_LARGE_DIFF === '1'
+// A rescue is a partial, same-day follow-up to this morning's full run, not
+// a new day's baseline. Each generate-*.js call normally advances
+// snapshots/<kind>.json to "current" as its own last step, so the next
+// invocation diffs from here — fine for the once-a-day CI job, but a rescue
+// running that same advance-then-diff step treats the morning's own output
+// as its baseline, collapsing every untouched kind's diff to ~0 and
+// overwriting diff-<kind>.json / pr-body.md with just the rescue's sliver.
+// Confirmed live 2026-08-14: a single-source rescue wiped that morning's
+// full diff record. Passing skipSnapshotUpdate leaves the baseline exactly
+// where the day started, so every same-day generate call — the morning run
+// and any rescue after it — keeps diffing against that one fixed point and
+// the diff stays cumulative for the whole day. writeRunStatus below then
+// merges this run's diff-<kind>.json onto whatever the morning run already
+// left on disk, instead of overwriting it.
+const rescueMode = process.argv.includes('--rescue')
+const genOptions = { allowLargeDiff, skipSnapshotUpdate: rescueMode }
 
 function read(name) {
   const file = path.join(SCRAPED, name)
@@ -59,16 +76,34 @@ function writeRunStatus(diffResults) {
   }
 
   const warnings = diffResults.flatMap(([, result]) => result?.warnings ?? [])
-  const diffSummaries = diffResults.map(([, result]) => result?.diffSummary).filter(Boolean)
 
   // One detail file per kind, mirroring unresolved-<category>.json, so the
   // /data dashboard can show which records actually changed behind each
   // diff summary line rather than just the +/-/~ counts.
+  //
+  // In rescue mode this run's records only cover the rescued source(s) —
+  // every other kind's `result.detail` is trivially empty because
+  // skipSnapshotUpdate kept the diff baseline exactly where the morning run
+  // left it. Overwriting diff-<kind>.json with that empty detail would wipe
+  // out the morning's own recorded diff. Instead, merge this run's detail
+  // onto whatever's already on disk, so the file (and the summary line
+  // derived from it below) reflects everything that changed today, not just
+  // this invocation.
+  const diffSummaries = []
   for (const [kind, result] of diffResults) {
     if (!result?.detail) continue
+    const existing = rescueMode ? readOptional(`diff-${kind}.json`, `${kind} diff`) : null
+    const detail = existing ? mergeDiffDetail(kind, existing, result.detail) : result.detail
     fs.writeFileSync(
       path.join(SCRAPED, `diff-${kind}.json`),
-      JSON.stringify(result.detail, null, 2) + '\n'
+      JSON.stringify(detail, null, 2) + '\n'
+    )
+    // "(of N)" in the original diffSummary just documents the baseline size
+    // for context — preserved as-is, only the +/-/~ counts reflect the merge.
+    const ofSuffix = result.diffSummary.match(/\(of .*\)$/)?.[0] ?? ''
+    diffSummaries.push(
+      `${kind}: +${detail.added.length} -${detail.removed.length} ~${detail.changed.length}` +
+        (ofSuffix ? ` ${ofSuffix}` : '')
     )
   }
 
@@ -129,8 +164,8 @@ const picks = read('draft-picks.json')
 const rookieYears = read('rookie-years.json')
 
 const diffResults = []
-diffResults.push(['players', generatePlayerData(players, { allowLargeDiff })])
-diffResults.push(['draft-picks', generateDraftPicks(picks, { allowLargeDiff })])
+diffResults.push(['players', generatePlayerData(players, genOptions)])
+diffResults.push(['draft-picks', generateDraftPicks(picks, genOptions)])
 writeRookieYears(rookieYears)
 
 const unresolved = read('unresolved-draft-year.json')
@@ -140,13 +175,13 @@ if (unresolved.length) {
 }
 
 const contractDetails = readOptional('contract-details.json', 'contract details (trade kickers, no-trade clauses)')
-if (contractDetails) diffResults.push(['contract-details', generateContractDetails(contractDetails, { allowLargeDiff })])
+if (contractDetails) diffResults.push(['contract-details', generateContractDetails(contractDetails, genOptions)])
 
 const capState = readOptional('team-cap-state.json', 'team cap state (dead money, cap holds)')
-if (capState) diffResults.push(['team-cap-state', generateTeamCapState(capState, { allowLargeDiff })])
+if (capState) diffResults.push(['team-cap-state', generateTeamCapState(capState, genOptions)])
 
 const freeAgentPool = readOptional('free-agents.json', 'free agent pool (currently-unsigned players)')
-if (freeAgentPool) diffResults.push(['free-agents', generateFreeAgents(freeAgentPool, { allowLargeDiff })])
+if (freeAgentPool) diffResults.push(['free-agents', generateFreeAgents(freeAgentPool, genOptions)])
 
 for (const name of ['unresolved-acquisition.json', 'unresolved-guarantees.json', 'unresolved-signing.json']) {
   const unresolvedExtra = readOptional(name, name)

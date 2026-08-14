@@ -35,6 +35,9 @@ export interface ScrapeStatus {
    *  fetched it successfully, false if every retry failed. Null on data
    *  from before this field existed. */
   sourceFetches: Record<string, boolean> | null
+  /** runPyKeys currently green because a --rescue click fetched them, not
+   *  this morning's scheduled run. Reset to empty by the next full run. */
+  rescuedSources: string[]
   diffSummaries: string[]
   /** Per kind: the summary line plus the actual records behind it, read from
    *  diff-<kind>.json (written by generate-from-scrape.js). Empty detail
@@ -123,6 +126,7 @@ export function readScrapeStatus(): ScrapeStatus {
       staleSources: [],
       warnings: [],
       sourceFetches: null,
+      rescuedSources: [],
       diffSummaries: [],
       diffs: [],
       unresolved: [],
@@ -140,6 +144,7 @@ export function readScrapeStatus(): ScrapeStatus {
     staleSources: status.staleSources ?? [],
     warnings: status.warnings ?? [],
     sourceFetches: status.sourceFetches ?? null,
+    rescuedSources: status.rescuedSources ?? [],
     diffSummaries: status.diffSummaries ?? [],
     diffs: readDiffs(status.diffSummaries ?? []),
     unresolved: Object.entries(status.unresolved?.after ?? {}).map(([category, after]) => {
