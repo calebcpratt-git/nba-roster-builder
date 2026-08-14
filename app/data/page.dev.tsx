@@ -8,7 +8,7 @@ import { allEntityCoverage, fieldsBySource } from '@/lib/schema-coverage'
 import { readScrapeStatus, readSchemaChangeLog, readPendingScrapeRun, readLatestWorkflowRun } from '@/lib/schema-dashboard'
 import { SOURCE_STYLES, sourceFamily, familyColor, FAMILY_LABELS, type SourceFamily } from '@/components/data-dashboard/source-styles'
 import { RefreshButton } from '@/components/data-dashboard/refresh-button'
-import { RescueButton } from '@/components/data-dashboard/rescue-button'
+import { SourceFetchRow } from '@/components/data-dashboard/source-fetch-row'
 import { DataChatPanel } from '@/components/data-dashboard/chat-panel'
 import { SourceDataProvider } from '@/components/data-dashboard/source-context'
 import { SourceLink } from '@/components/data-dashboard/source-link'
@@ -351,23 +351,9 @@ export default function DataSchemaDashboard() {
                   {sourceFetchRows.length === 0 ? (
                     <p className="text-xs text-muted-foreground">No source-fetch detail on disk for this run.</p>
                   ) : (
-                    <ul className="space-y-1">
+                    <ul className="space-y-1.5">
                       {sourceFetchRows.map((s) => (
-                        <li key={s.id} className="flex items-center justify-between gap-2 text-xs">
-                          <SourceLink sourceId={s.id} fullLabel />
-                          <div className="flex shrink-0 items-center gap-2">
-                            {s.ok === null ? (
-                              <span className="text-muted-foreground">no data</span>
-                            ) : s.ok ? (
-                              <span className="font-semibold text-success">scraped</span>
-                            ) : (
-                              <>
-                                <span className="font-semibold text-destructive">failed</span>
-                                <RescueButton runPyKey={s.runPyKey} />
-                              </>
-                            )}
-                          </div>
-                        </li>
+                        <SourceFetchRow key={s.id} id={s.id} runPyKey={s.runPyKey} ok={s.ok} />
                       ))}
                     </ul>
                   )}

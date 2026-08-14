@@ -2,12 +2,17 @@
 
 Usage:  python scripts/scrape/run.py [--offline] [--rescue=name1,name2]
   --offline        reuse snapshots/raw/*.html instead of hitting the network
-  --rescue=names   comma-separated keys from SOURCES below to fetch live even
-                    under --offline, reusing snapshots for everything else —
+  --rescue=names   comma-separated keys from SOURCES below to fetch live and
+                    rebuild only the groups that depend on them, leaving
+                    every other group's already-committed output untouched —
                     for re-fetching a single source that failed on a run from
                     a flagged IP (e.g. GitHub Actions hitting RealGM's
-                    Cloudflare block) without re-fetching the ~30 sources that
-                    already succeeded.
+                    Cloudflare block) without disturbing the ~30 sources that
+                    already succeeded. Implies --offline is irrelevant: a
+                    rescue never falls back to local snapshots/raw/ for
+                    anything outside the named set, since that directory
+                    isn't synced from the GitHub Actions run and may be
+                    arbitrarily stale.
 
 Resilience:
   Each source is fetched with a few retries and a short backoff, because
@@ -167,18 +172,39 @@ def fetch_one(name, url):
     return False
 
 
-def fetch_all(offline=False, rescue=None):
+def fetch_all(offline=False, rescue=None, rescue_strict=False):
     """Fetch every single-URL source. Never raises for a single source;
     returns the set of source names that could not be obtained this run.
 
     `rescue`, if given, is a set of SOURCES keys to fetch live even when
-    `offline` is set — see the --rescue usage note in the module docstring."""
+    `offline` is set — see the --rescue usage note in the module docstring.
+
+    `rescue_strict`, when a rescue is running, treats every OTHER source as
+    unavailable rather than falling back to whatever's in snapshots/raw/ —
+    that directory is .gitignored and nothing repopulates it from the daily
+    GitHub Actions run (the runner's copy is discarded when the job ends), so
+    a local file there is leftover from some unrelated earlier local run and
+    can be arbitrarily stale. Confirmed live 2026-08-13: a rescue reused a
+    6-day-old local bbref_contracts.html for the 'players' group, silently
+    reverting ~180 lines of since-committed roster changes it had no way of
+    knowing about. Marking non-rescued sources unavailable makes main()'s
+    existing skip-and-keep-last-good-output logic protect every group the
+    rescue isn't touching, instead of quietly rebuilding it from stale data."""
     rescue = rescue or set()
     os.makedirs(RAW, exist_ok=True)
     failed = set()
     for name, url in SOURCES.items():
         path = os.path.join(RAW, f'{name}.html')
-        if offline and name not in rescue:
+        if name in rescue:
+            if not fetch_one(name, url):
+                failed.add(name)
+            time.sleep(4)          # be a polite guest between sources
+            continue
+        if rescue_strict:
+            print(f'  skip     {name}  (not part of this rescue; leaving its group untouched)')
+            failed.add(name)
+            continue
+        if offline:
             if os.path.exists(path):
                 print(f'  offline  {name}')
             else:
@@ -187,7 +213,7 @@ def fetch_all(offline=False, rescue=None):
             continue
         if not fetch_one(name, url):
             failed.add(name)
-        time.sleep(4)          # be a polite guest between sources
+        time.sleep(4)
     return failed
 
 
@@ -1367,7 +1393,7 @@ def main():
     unresolved_records_before = snapshot_unresolved_records()
 
     print('fetch:')
-    failed = fetch_all(offline, rescue)
+    failed = fetch_all(offline, rescue, rescue_strict=bool(rescue))
 
     print('parse:')
     written = []
@@ -1391,12 +1417,16 @@ def main():
                 apply_persisted_free_agent_overrides()
 
     print('cap-state (nbacaptracker, separate multi-page source with its own fetch loop):')
-    try:
-        build_cap_state(offline=offline)
-        written.append('cap-state')
-    except Exception as e:
-        skipped.append(f'cap-state ({e})')
-        print(f'  SKIP cap-state — {e}\n       keeping last-good output')
+    if rescue:
+        skipped.append('cap-state (not covered by --rescue)')
+        print('  SKIP cap-state — not one of the sources named in --rescue; keeping last-good output')
+    else:
+        try:
+            build_cap_state(offline=offline)
+            written.append('cap-state')
+        except Exception as e:
+            skipped.append(f'cap-state ({e})')
+            print(f'  SKIP cap-state — {e}\n       keeping last-good output')
 
     print('cap-hold reconciliation (RealGM current free agents — merges onto team-cap-state.json):')
     if 'realgm_current_free_agents' in failed:
@@ -1423,12 +1453,16 @@ def main():
             print(f'  SKIP salaryswish-league — {e}\n       keeping last-good output')
 
     print('salaryswish player detail (signing method, incentives — one fetch per new/changed player):')
-    try:
-        build_signing_incentives(offline=offline)
-        written.append('signing-incentives')
-    except Exception as e:
-        skipped.append(f'signing-incentives ({e})')
-        print(f'  SKIP signing-incentives — {e}\n       keeping last-good output')
+    if rescue:
+        skipped.append('signing-incentives (not covered by --rescue)')
+        print('  SKIP signing-incentives — not one of the sources named in --rescue; keeping last-good output')
+    else:
+        try:
+            build_signing_incentives(offline=offline)
+            written.append('signing-incentives')
+        except Exception as e:
+            skipped.append(f'signing-incentives ({e})')
+            print(f'  SKIP signing-incentives — {e}\n       keeping last-good output')
 
     print('cash-in-trade ledger (Hoops Rumors — merges onto team-cap-state.json):')
     if 'hr_cash_in_trade' in failed:
@@ -1443,22 +1477,73 @@ def main():
             print(f'  SKIP cash-ledger — {e}\n       keeping last-good output')
 
     print('apron addon (derived from signing-incentives\' unlikely-incentive sums):')
-    try:
-        build_apron_addon()
-        written.append('apron-addon')
-    except Exception as e:
-        skipped.append(f'apron-addon ({e})')
-        print(f'  SKIP apron-addon — {e}\n       keeping last-good output')
+    if rescue:
+        skipped.append('apron-addon (not covered by --rescue)')
+        print('  SKIP apron-addon — signing-incentives didn\'t run this rescue; keeping last-good output')
+    else:
+        try:
+            build_apron_addon()
+            written.append('apron-addon')
+        except Exception as e:
+            skipped.append(f'apron-addon ({e})')
+            print(f'  SKIP apron-addon — {e}\n       keeping last-good output')
 
     unresolved_after = count_unresolved()
     new_unresolved = {
         label: max(0, unresolved_after[label] - unresolved_before.get(label, 0))
         for label in UNRESOLVED_FILES
     }
+
+    source_fetches = {name: name not in failed for name in SOURCES}
+
+    if rescue:
+        # A rescue run only ever *attempts* the named source(s) — every other
+        # group is intentionally skipped (see rescue_strict above), not
+        # actually failed. Overwriting the full written/staleSources/
+        # sourceFetches record with that would make a routine one-source
+        # rescue look like the whole pipeline just went down (confirmed
+        # live 2026-08-13: a single failed RealGM refetch turned "13 groups
+        # written, everything healthy" into "0 groups written, every source
+        # failed" on the dashboard). Merge this run's real outcome for the
+        # rescued group(s) into the previous run-status.json instead of
+        # replacing it, so untouched groups keep reporting what they
+        # actually did last time.
+        prev = _load_json('run-status', {}) or {}
+        rescued_groups = {g['name'] for g in GROUPS if set(g['sources']) & rescue}
+        if 'realgm_current_free_agents' in rescue:
+            rescued_groups.add('cap-hold-reconciliation')
+        if {'salaryswish_trade_exceptions', 'salaryswish_hard_cap'} & rescue:
+            rescued_groups.add('salaryswish-league')
+        if 'hr_cash_in_trade' in rescue:
+            rescued_groups.add('cash-ledger')
+        # cap-state, signing-incentives, apron-addon have no single-URL
+        # source of their own to rescue against — never touched by --rescue.
+
+        all_group_names = [g['name'] for g in GROUPS] + [
+            'cap-state', 'cap-hold-reconciliation', 'salaryswish-league', 'signing-incentives',
+            'cash-ledger', 'apron-addon',
+        ]
+        prev_written = set(prev.get('written', []))
+        merged_written, merged_stale = [], []
+        for name in all_group_names:
+            if name in rescued_groups:
+                if name in written:
+                    merged_written.append(name)
+                else:
+                    merged_stale.append(next((s for s in skipped if s.startswith(name)), f'{name} (fetch failed)'))
+            elif name in prev_written:
+                merged_written.append(name)
+            else:
+                prev_entry = next((s for s in prev.get('staleSources', []) if s.startswith(name)), None)
+                if prev_entry:
+                    merged_stale.append(prev_entry)
+        written, skipped = merged_written, merged_stale
+        source_fetches = {**(prev.get('sourceFetches') or {}), **{n: v for n, v in source_fetches.items() if n in rescue}}
+
     status = {
         'written': written,
         'staleSources': skipped,
-        'sourceFetches': {name: name not in failed for name in SOURCES},
+        'sourceFetches': source_fetches,
         'unresolved': {
             'before': unresolved_before,
             'after': unresolved_after,
