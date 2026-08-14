@@ -1,5 +1,37 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "J.D. Davison",
+      "priorTeam": "HOU",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Sean Pedulla",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Ethan Thompson",
+      "priorTeam": "IND",
+      "faType": "U",
+      "birdRights": "non-bird"
+    }
+  ],
+  "removed": [
+    {
+      "name": "Yuki Kawamura",
+      "priorTeam": "CHI",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Taelon Peter",
+      "priorTeam": "IND",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
   "changed": []
 }

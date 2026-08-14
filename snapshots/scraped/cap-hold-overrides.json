@@ -139,6 +139,12 @@
  },
  {
   "team": "CHI",
+  "player": "Yuki Kawamura",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
   "player": "Zach Collins",
   "amount": 27100000,
   "reason": "not-in-realgm-current-free-agents"
@@ -579,12 +585,6 @@
  {
   "team": "LAC",
   "player": "TyTy Washington Jr.",
-  "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "LAC",
-  "player": "Sean Pedulla",
   "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"
  },

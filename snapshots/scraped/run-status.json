@@ -2,25 +2,24 @@
   "written": [
     "players",
     "two-way-contracts",
+    "free-agent-reconciliation",
+    "free-agent-pool",
     "picks",
     "enrichment",
     "clauses",
     "cap-state",
+    "cap-hold-reconciliation",
     "salaryswish-league",
     "signing-incentives",
     "cash-ledger",
     "apron-addon"
   ],
-  "staleSources": [
-    "free-agent-reconciliation (fetch failed)",
-    "free-agent-pool (fetch failed)",
-    "cap-hold-reconciliation (fetch failed)"
-  ],
+  "staleSources": [],
   "sourceFetches": {
     "bbref_contracts": true,
     "realgm_future_drafts": true,
     "realgm_free_agent_options": true,
-    "realgm_current_free_agents": false,
+    "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -36,11 +35,14 @@
     "bbref_draft_2026": true,
     "bbref_draft_2025": true
   },
+  "rescuedSources": [
+    "realgm_current_free_agents"
+  ],
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 91,
-      "guarantees": 5,
+      "acquisition": 92,
+      "guarantees": 6,
       "signing": 10
     },
     "after": {
@@ -49,39 +51,18 @@
       "guarantees": 6,
       "signing": 10
     },
-    "newUnresolved": 2,
-    "newByCategory": {
-      "acquisition": 1,
-      "guarantees": 1
-    },
-    "newRecords": {
-      "acquisition": [
-        {
-          "name": "Bradley Beal",
-          "date": "2026-08-13",
-          "method": "free-agent"
-        }
-      ],
-      "guarantees": [
-        {
-          "player": "Bradley Beal",
-          "team": "Los Angeles Clippers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": false
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-08-14T11:47:47.651Z",
+  "generatedAt": "2026-08-14T18:09:21.898Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -6 ~1 (of 530)",
+    "players: +0 -6 ~82 (of 524)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -2 ~4 (of 521)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~0 (of 149)"
+    "contract-details: +0 -2 ~4 (of 519)",
+    "team-cap-state: +0 -0 ~30 (of 150)",
+    "free-agents: +3 -2 ~0 (of 149)"
   ],
-  "clean": false
+  "clean": true
 }
