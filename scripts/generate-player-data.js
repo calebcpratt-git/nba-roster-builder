@@ -150,7 +150,7 @@ function generatePlayerData(players, options = {}) {
 
   const output = buildPlayerDataTs(players)
   fs.writeFileSync(outputPath, output)
-  saveSnapshot('players', players)
+  if (!options.skipSnapshotUpdate) saveSnapshot('players', players)
   console.log(`Generated ${players.length} players to ${outputPath}`)
   return result
 }

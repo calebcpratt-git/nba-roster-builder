@@ -74,7 +74,7 @@ function generateFreeAgents(records, options = {}) {
   const newBlock = buildFreeAgentsBlock(records)
   const output = replaceGeneratedBlock(currentContent, newBlock)
   fs.writeFileSync(outputPath, output)
-  saveSnapshot('free-agents', records)
+  if (!options.skipSnapshotUpdate) saveSnapshot('free-agents', records)
   console.log(`Generated ${records.length} free-agent-pool records to ${outputPath}`)
   return result
 }

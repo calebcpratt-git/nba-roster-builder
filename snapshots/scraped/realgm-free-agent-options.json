@@ -1,0 +1,1754 @@
+[
+ {
+  "name": "Karl-Anthony Towns",
+  "team": "NYK",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Nikola Jokic",
+  "team": "DEN",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Jerami Grant",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Dejounte Murray",
+  "team": "NOP",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Isaiah Stewart II",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Anthony Davis",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Josh Hart",
+  "team": "NYK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jarred Vanderbilt",
+  "team": "LAL",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Zeke Nnaji",
+  "team": "DEN",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Giannis Antetokounmpo",
+  "team": "MIA",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Jrue Holiday",
+  "team": "POR",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Grayson Allen",
+  "team": "CHO",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Kel'el Ware",
+  "team": "MIL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Stephon Castle",
+  "team": "SAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Dalton Knecht",
+  "team": "LAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Reed Sheppard",
+  "team": "HOU",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ryan Dunn",
+  "team": "PHO",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Isaiah Collier",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cody Williams",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jaylon Tyson",
+  "team": "CLE",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Matas Buzelis",
+  "team": "CHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tidjane Salaun",
+  "team": "CHO",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Donovan Clingan",
+  "team": "POR",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Pacome Dadiet",
+  "team": "NYK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Bronny James",
+  "team": "LAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tyler Kolek",
+  "team": "NYK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jared McCain",
+  "team": "OKC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ja'Kobe Walter",
+  "team": "TOR",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Oso Ighodaro",
+  "team": "PHO",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cameron Christie",
+  "team": "LAC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "A.J. Johnson",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Alex Sarr",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kyshawn George",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tristan Da Silva",
+  "team": "ORL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ron Holland",
+  "team": "DET",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Malik Monk",
+  "team": "SAC",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Zaccharie Risacher",
+  "team": "DAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Baylor Scheierman",
+  "team": "BOS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jayson Tatum",
+  "team": "BOS",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Max Christie",
+  "team": "DAL",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Nikola Topic",
+  "team": "OKC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Zach Edey",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jaylen Wells",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Patrick Williams",
+  "team": "CHI",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "OG Anunoby",
+  "team": "NYK",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Johnny Furphy",
+  "team": "IND",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Caleb Martin",
+  "team": "DAL",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Buddy Hield",
+  "team": "ATL",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Bub Carrington",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Isaiah Joe",
+  "team": "DET",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Bam Adebayo",
+  "team": "MIA",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Paul George",
+  "team": "BOS",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Derrick White",
+  "team": "BOS",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Aaron Wiggins",
+  "team": "ATL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Rob Dillingham",
+  "team": "CHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Yves Missi",
+  "team": "NOP",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Terrence Shannon, Jr.",
+  "team": "MIN",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Devin Carter",
+  "team": "ATL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "DaRon Holmes II",
+  "team": "DEN",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jalen Brunson",
+  "team": "NYK",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Vit Krejci",
+  "team": "POR",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Adem Bona",
+  "team": "PHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Svi Mykhailiuk",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kyle Filipowski",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "T.J. McConnell",
+  "team": "IND",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Joel Embiid",
+  "team": "PHI",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Wendell Carter, Jr.",
+  "team": "ORL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Scotty Pippen, Jr.",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Aaron Gordon",
+  "team": "DEN",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Jalen Green",
+  "team": "PHO",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Corey Kispert",
+  "team": "ATL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Alperen Sengun",
+  "team": "HOU",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Jaden Hardy",
+  "team": "LAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Rudy Gobert",
+  "team": "MIN",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "James Huff",
+  "team": "IND",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Brandon Ingram",
+  "team": "TOR",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Justin Champagnie",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jaylin Williams",
+  "team": "OKC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Johni Broome",
+  "team": "LAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "V.J. Edgecombe",
+  "team": "PHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "V.J. Edgecombe",
+  "team": "PHI",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Hugo Gonzalez",
+  "team": "BOS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Hugo Gonzalez",
+  "team": "BOS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Yang Hansen",
+  "team": "POR",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Yang Hansen",
+  "team": "POR",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kasparas Jakucionis",
+  "team": "MIL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kasparas Jakucionis",
+  "team": "MIL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Collin Murray-Boyles",
+  "team": "TOR",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Collin Murray-Boyles",
+  "team": "TOR",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tyrese Proctor",
+  "team": "CLE",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Maxime Raynaud",
+  "team": "SAC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ace Bailey",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ace Bailey",
+  "team": "UTA",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Walter Clayton, Jr.",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Walter Clayton, Jr.",
+  "team": "MEM",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cooper Flagg",
+  "team": "DAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cooper Flagg",
+  "team": "DAL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Carter Bryant",
+  "team": "SAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Carter Bryant",
+  "team": "SAS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Nique Clifford",
+  "team": "SAC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Nique Clifford",
+  "team": "SAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Dylan Harper",
+  "team": "SAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Dylan Harper",
+  "team": "SAS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Asa Newell",
+  "team": "ATL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Asa Newell",
+  "team": "ATL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Egor Demin",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Egor Demin",
+  "team": "BRK",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Sion James",
+  "team": "CHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ryan Kalkbrenner",
+  "team": "CHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kon Knueppel",
+  "team": "CHO",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kon Knueppel",
+  "team": "CHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Liam McNeeley",
+  "team": "CHO",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Liam McNeeley",
+  "team": "CHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jase Richardson",
+  "team": "ORL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jase Richardson",
+  "team": "ORL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ben Saraf",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ben Saraf",
+  "team": "BRK",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Thomas Sorber",
+  "team": "OKC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Thomas Sorber",
+  "team": "OKC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Danny Wolf",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Danny Wolf",
+  "team": "BRK",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Noa Essengue",
+  "team": "CHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Noa Essengue",
+  "team": "CHI",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Noah Penda",
+  "team": "ORL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Nolan Traore",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Nolan Traore",
+  "team": "BRK",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jeremiah Fears",
+  "team": "NOP",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jeremiah Fears",
+  "team": "NOP",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Derik Queen",
+  "team": "NOP",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Derik Queen",
+  "team": "NOP",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tre Jones",
+  "team": "CHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kyrie Irving",
+  "team": "DAL",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Nickeil Alexander-Walker",
+  "team": "ATL",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Ajay Mitchell",
+  "team": "OKC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tre Johnson",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tre Johnson",
+  "team": "WAS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Will Riley",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Will Riley",
+  "team": "WAS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Paolo Banchero",
+  "team": "ORL",
+  "season": "2030-31",
+  "optionType": "Player"
+ },
+ {
+  "name": "Bobby Portis",
+  "team": "MIA",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Myles Turner",
+  "team": "MIL",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Joan Beringer",
+  "team": "MIN",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Joan Beringer",
+  "team": "MIN",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Justin Edwards",
+  "team": "PHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Dorian Finney-Smith",
+  "team": "CHO",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Rasheer Fleming",
+  "team": "PHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Chaz Lanier",
+  "team": "DET",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Khaman Maluach",
+  "team": "PHO",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Khaman Maluach",
+  "team": "PHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Micah Peavy",
+  "team": "NOP",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Adou Thiero",
+  "team": "LAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cedric Coward",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cedric Coward",
+  "team": "MEM",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Shai Gilgeous-Alexander",
+  "team": "OKC",
+  "season": "2030-31",
+  "optionType": "Player"
+ },
+ {
+  "name": "Yanic Konan Niederhauser",
+  "team": "LAC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Yanic Konan Niederhauser",
+  "team": "LAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Drake Powell",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Drake Powell",
+  "team": "BRK",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ryan Rollins",
+  "team": "MIL",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Devin Booker",
+  "team": "PHO",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Jaren Jackson, Jr.",
+  "team": "UTA",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Ty Jerome",
+  "team": "MEM",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Herb Jones",
+  "team": "NOP",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Naz Reid",
+  "team": "CHO",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Cam Spencer",
+  "team": "MEM",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tre Mann",
+  "team": "CHO",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Santi Aldama",
+  "team": "DAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Julius Randle",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Damian Lillard",
+  "team": "POR",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Mikal Bridges",
+  "team": "NYK",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Luka Doncic",
+  "team": "LAL",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Dru Smith",
+  "team": "MIA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Will Richard",
+  "team": "GSW",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kevin Durant",
+  "team": "HOU",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Dylan Cardwell",
+  "team": "SAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Bryce McGowens",
+  "team": "NOP",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tristan Vukcevic",
+  "team": "WAS",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Gui Santos",
+  "team": "GSW",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Zach Collins",
+  "team": "CHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kristaps Porzingis",
+  "team": "GSW",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Darius Acuff, Jr.",
+  "team": "SAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Darius Acuff, Jr.",
+  "team": "SAC",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ryan Conwell",
+  "team": "MIA",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Zuby Ejiofor",
+  "team": "ATL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Zuby Ejiofor",
+  "team": "ATL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Alex Karaban",
+  "team": "SAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Alex Karaban",
+  "team": "SAC",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Yaxel Lendeborg",
+  "team": "GSW",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Yaxel Lendeborg",
+  "team": "GSW",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Bogoljub Markovic",
+  "team": "MIL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Koa Peat",
+  "team": "PHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Koa Peat",
+  "team": "PHO",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Darryn Peterson",
+  "team": "UTA",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Darryn Peterson",
+  "team": "UTA",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Emanuel Sharp",
+  "team": "SAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Meleek Thomas",
+  "team": "CLE",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Henri Veesaar",
+  "team": "ATL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "A.J. Dybantsa",
+  "team": "WAS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "A.J. Dybantsa",
+  "team": "WAS",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kingston Flemings",
+  "team": "ATL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kingston Flemings",
+  "team": "ATL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Allen Graves",
+  "team": "TOR",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Allen Graves",
+  "team": "TOR",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cameron Carr",
+  "team": "LAL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cameron Carr",
+  "team": "LAL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Morez Johnson, Jr.",
+  "team": "DAL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Morez Johnson, Jr.",
+  "team": "DAL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Daeqwon Plowden",
+  "team": "SAC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Mikel Brown Jr.",
+  "team": "BRK",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Mikel Brown Jr.",
+  "team": "BRK",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Sergio De Larrea",
+  "team": "DAL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Sergio De Larrea",
+  "team": "DAL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Aday Mara",
+  "team": "OKC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Aday Mara",
+  "team": "OKC",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Labaron Philon, Jr.",
+  "team": "PHI",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Labaron Philon, Jr.",
+  "team": "PHI",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jayden Quaintance",
+  "team": "SAS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jayden Quaintance",
+  "team": "SAS",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tarris Reed, Jr.",
+  "team": "SAS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tarris Reed, Jr.",
+  "team": "SAS",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Bennett Stirtz",
+  "team": "OKC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Bennett Stirtz",
+  "team": "OKC",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Dailyn Swain",
+  "team": "CHI",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Dailyn Swain",
+  "team": "CHI",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Keaton Wagler",
+  "team": "LAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Keaton Wagler",
+  "team": "LAC",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Caleb Wilson",
+  "team": "CHI",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Caleb Wilson",
+  "team": "CHI",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Chris Cenac, Jr.",
+  "team": "BOS",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Chris Cenac, Jr.",
+  "team": "BOS",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Josh Minott",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Day'Ron Sharpe",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Anfernee Simons",
+  "team": "PHI",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Mohamed Diawara",
+  "team": "NYK",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Keon Ellis",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Dual"
+ },
+ {
+  "name": "Al Horford",
+  "team": "GSW",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Mitchell Robinson",
+  "team": "BOS",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Andrew Wiggins",
+  "team": "MIA",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Christian Anderson, Jr.",
+  "team": "CHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Christian Anderson, Jr.",
+  "team": "CHO",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Brayden Burries",
+  "team": "MIL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Brayden Burries",
+  "team": "MIL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ron Harper, Jr.",
+  "team": "BOS",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ebuka Okorie",
+  "team": "DET",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ebuka Okorie",
+  "team": "DET",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Quinten Post",
+  "team": "MEM",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Landry Shamet",
+  "team": "NYK",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Hannes Steinbach",
+  "team": "CHO",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Hannes Steinbach",
+  "team": "CHO",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Rui Hachimura",
+  "team": "LAC",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Isaiah Hartenstein",
+  "team": "OKC",
+  "season": "2028-29",
+  "optionType": "Dual"
+ },
+ {
+  "name": "Trae Young",
+  "team": "WAS",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Bruce Thornton",
+  "team": "HOU",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jordan Goodwin",
+  "team": "PHO",
+  "season": "2028-29",
+  "optionType": "Player"
+ },
+ {
+  "name": "Quentin Grimes",
+  "team": "LAL",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Sandro Mamukelashvili",
+  "team": "LAL",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Kobe Sanders",
+  "team": "LAC",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Walker Kessler",
+  "team": "LAL",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Nate Ament",
+  "team": "MIL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Nate Ament",
+  "team": "MIL",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Donovan Mitchell",
+  "team": "CLE",
+  "season": "2030-31",
+  "optionType": "Player"
+ },
+ {
+  "name": "Tari Eason",
+  "team": "HOU",
+  "season": "2030-31",
+  "optionType": "Player"
+ },
+ {
+  "name": "Pete Nance",
+  "team": "MIL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Kevin Huerter",
+  "team": "DET",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Baba Miller",
+  "team": "LAC",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Tarik Biberovic",
+  "team": "DAL",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ayo Dosunmu",
+  "team": "MIN",
+  "season": "2030-31",
+  "optionType": "Player"
+ },
+ {
+  "name": "Jaxson Hayes",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jordan Miller",
+  "team": "LAC",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Josh Okogie",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Norman Powell",
+  "team": "CHI",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Marcus Smart",
+  "team": "HOU",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Mo Bamba",
+  "team": "UTA",
+  "season": "2027-28",
+  "optionType": "Team"
+ },
+ {
+  "name": "Trevon Brazile",
+  "team": "DEN",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Ousmane Dieng",
+  "team": "MIL",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Joshua Jefferson",
+  "team": "BRK",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Joshua Jefferson",
+  "team": "BRK",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Victor Wembanyama",
+  "team": "SAS",
+  "season": "2031-32",
+  "optionType": "Player"
+ },
+ {
+  "name": "Isaiah Evans",
+  "team": "MIN",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Austin Reaves",
+  "team": "LAL",
+  "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Collin Sexton",
+  "team": "LAL",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Cameron Boozer",
+  "team": "MEM",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Cameron Boozer",
+  "team": "MEM",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Luke Kennard",
+  "team": "PHO",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Isaiah Crawford",
+  "team": "HOU",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "Jordan Walsh",
+  "team": "BOS",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "LeBron James",
+  "team": "PHI",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Karim Lopez",
+  "team": "MEM",
+  "season": "2028-29",
+  "optionType": "Team"
+ },
+ {
+  "name": "Karim Lopez",
+  "team": "MEM",
+  "season": "2029-30",
+  "optionType": "Team"
+ },
+ {
+  "name": "De'Anthony Melton",
+  "team": "GSW",
+  "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Moe Wagner",
+  "team": "BRK",
+  "season": "2027-28",
+  "optionType": "Dual"
+ },
+ {
+  "name": "Bradley Beal",
+  "team": "LAC",
+  "season": "2027-28",
+  "optionType": "Player"
+ }
+]

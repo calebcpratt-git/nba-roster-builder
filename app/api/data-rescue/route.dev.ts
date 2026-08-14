@@ -52,7 +52,11 @@ export async function POST(req: Request) {
       })
     }
 
-    const genResult = await run('node', ['scripts/generate-from-scrape.js'], {
+    // --rescue tells the generator to leave the diff baseline (snapshots/<kind>.json)
+    // where it was this morning instead of advancing it, and to merge this
+    // run's diff-<kind>.json onto the morning run's instead of overwriting
+    // it — see generate-from-scrape.js's rescueMode comment.
+    const genResult = await run('node', ['scripts/generate-from-scrape.js', '--rescue'], {
       cwd,
       timeout: TIMEOUT_MS,
       maxBuffer: 16 * 1024 * 1024,

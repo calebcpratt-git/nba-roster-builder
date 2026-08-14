@@ -26,9 +26,16 @@ Resilience:
 Groups (each independent — a failure in one never blocks the others):
   players             BBRef contracts + draft classes             -> players.json, rookie-years.json, unresolved-draft-year.json
   two-way-contracts   Hoops Rumors two-way tracker                -> merged onto players.json (team, contractType, salary; creates a new row if none exists)
+                      (falls back to hr-two-way-tracker.json, a last-good copy committed to
+                       snapshots/scraped/, on a fetch failure — see _cached_source — rather than
+                       skipping and dropping every two-way row it previously created)
   free-agent-reconciliation  RealGM free-agent-options +          -> corrects stale CURRENT_SEASON_LABEL option
                       current-free-agents pages                      flags directly on players.json (no new file)
+                      (falls back to realgm-free-agent-options.json / realgm-current-free-agents.json,
+                       last-good copies committed to snapshots/scraped/, on a fetch failure — see
+                       _cached_source — rather than skipping and letting stale flags reappear)
   free-agent-pool     RealGM current-free-agents                  -> free-agents.json (currently-unsigned players not in players.json)
+                      (same fallback as above)
   picks               RealGM future drafts                        -> draft-picks.json
   enrichment          SalarySwish per-team transactions (30        -> merged onto players.json (acquisition, guarantees)
                       pages) + HR guarantee data
@@ -55,6 +62,7 @@ search "hoopsrumors nba players with trade kickers 2026/27",
 "hoopsrumors cash sent received nba trades 2026/27".
 """
 import json, os, re, sys, time, random, unicodedata, urllib.request, urllib.error
+from datetime import date
 
 import bbref, realgm, hoopsrumors, captracker, salaryswish
 
@@ -183,13 +191,22 @@ def fetch_all(offline=False, rescue=None, rescue_strict=False):
     unavailable rather than falling back to whatever's in snapshots/raw/ —
     that directory is .gitignored and nothing repopulates it from the daily
     GitHub Actions run (the runner's copy is discarded when the job ends), so
-    a local file there is leftover from some unrelated earlier local run and
-    can be arbitrarily stale. Confirmed live 2026-08-13: a rescue reused a
+    a local file there could be leftover from some unrelated earlier local
+    run and arbitrarily stale. Confirmed live 2026-08-13: a rescue reused a
     6-day-old local bbref_contracts.html for the 'players' group, silently
     reverting ~180 lines of since-committed roster changes it had no way of
-    knowing about. Marking non-rescued sources unavailable makes main()'s
-    existing skip-and-keep-last-good-output logic protect every group the
-    rescue isn't touching, instead of quietly rebuilding it from stale data."""
+    knowing about.
+
+    The one exception: a raw file last written earlier *today* (by an
+    earlier rescue this same session) is reused rather than marked
+    unavailable. That's what lets a multi-source group — e.g.
+    free-agent-reconciliation, which needs both realgm_free_agent_options
+    and realgm_current_free_agents — complete once every source it needs has
+    been fetched today, even across separate rescue clicks, without forcing
+    every rescue to re-list every source the group depends on. Anything
+    older than today still gets marked unavailable, so main()'s existing
+    skip-and-keep-last-good-output logic still protects every group whose
+    sources haven't actually been refreshed today."""
     rescue = rescue or set()
     os.makedirs(RAW, exist_ok=True)
     failed = set()
@@ -201,7 +218,10 @@ def fetch_all(offline=False, rescue=None, rescue_strict=False):
             time.sleep(4)          # be a polite guest between sources
             continue
         if rescue_strict:
-            print(f'  skip     {name}  (not part of this rescue; leaving its group untouched)')
+            if os.path.exists(path) and date.fromtimestamp(os.path.getmtime(path)) == date.today():
+                print(f'  reuse    {name}  (already fetched earlier today)')
+                continue
+            print(f'  skip     {name}  (not fetched today; leaving its group untouched)')
             failed.add(name)
             continue
         if offline:
@@ -215,6 +235,34 @@ def fetch_all(offline=False, rescue=None, rescue_strict=False):
             failed.add(name)
         time.sleep(4)
     return failed
+
+
+def _cached_source(name, cache_name, parse_fn):
+    """Parses name.html if today's fetch produced it, else falls back to the
+    committed cache_name.json — the last successfully-parsed copy of that
+    same page. snapshots/raw/ is gitignored and discarded at the end of
+    every CI run, so a failed fetch used to leave nothing to fall back to:
+    the group depending on it was skipped outright, and build_players'
+    always-fresh-from-BBRef rebuild re-admitted whatever stale state (or, for
+    build_two_way_contracts, dropped whatever rows) a PRIOR successful run
+    had already corrected/created. Confirmed live 2026-08-14: a single failed
+    realgm_current_free_agents fetch let 81 already-resolved option flags
+    reappear in players.json, all clearing again at once the next day the
+    fetch succeeded — a misleadingly large one-day diff instead of steady
+    state. Falling back to the last-good parsed data (rather than skipping)
+    keeps every day's corrections/rows in place even through a one-day fetch
+    outage — the general rule any reconciliation step here should follow:
+    never let a transient fetch failure regress data a prior successful run
+    already fixed, when the last-good parse of that same page is sitting
+    right here in a committed snapshot."""
+    path = os.path.join(RAW, f'{name}.html')
+    if os.path.exists(path):
+        data = parse_fn(path)
+        json.dump(data, open(os.path.join(OUT, f'{cache_name}.json'), 'w'), indent=1, ensure_ascii=False)
+        return data
+    cached = _load_json(cache_name, [])
+    print(f'  {name} fetch failed — reusing {len(cached)} cached record(s) from the last successful fetch')
+    return cached
 
 
 def _base(name):
@@ -459,7 +507,7 @@ def build_two_way_contracts():
     by_id = {p.get('bbrefId'): p for p in players if p.get('bbrefId')}
     by_name = {_base(p['name']): p for p in players}
 
-    tracker = hoopsrumors.parse_two_way_tracker(os.path.join(RAW, 'hr_two_way_tracker.html'))
+    tracker = _cached_source('hr_two_way_tracker', 'hr-two-way-tracker', hoopsrumors.parse_two_way_tracker)
     salary = TWO_WAY_SALARY.get(CURRENT_SEASON_LABEL)
 
     matched = 0
@@ -766,8 +814,10 @@ def build_free_agent_reconciliation():
     if players is None:
         raise RuntimeError('players.json does not exist yet — run the players group first')
 
-    options = realgm.parse_free_agent_options(os.path.join(RAW, 'realgm_free_agent_options.html'))
-    free_agents = realgm.parse_current_free_agents(os.path.join(RAW, 'realgm_current_free_agents.html'))
+    options = _cached_source('realgm_free_agent_options', 'realgm-free-agent-options',
+                              realgm.parse_free_agent_options)
+    free_agents = _cached_source('realgm_current_free_agents', 'realgm-current-free-agents',
+                                  realgm.parse_current_free_agents)
 
     fa_by_name = {}
     for fa in free_agents:
@@ -937,7 +987,8 @@ def build_free_agent_pool():
     players = _load_json('players', [])
     known_names = {_base(p['name']) for p in players}
 
-    free_agents = realgm.parse_current_free_agents(os.path.join(RAW, 'realgm_current_free_agents.html'))
+    free_agents = _cached_source('realgm_current_free_agents', 'realgm-current-free-agents',
+                                  realgm.parse_current_free_agents)
     pool = [fa for fa in free_agents if _base(fa['name']) not in known_names]
     skipped = len(free_agents) - len(pool)
 
@@ -1005,7 +1056,8 @@ def build_cap_hold_reconciliation():
     if records is None:
         raise RuntimeError('team-cap-state.json does not exist yet — run build_cap_state first')
 
-    free_agents = realgm.parse_current_free_agents(os.path.join(RAW, 'realgm_current_free_agents.html'))
+    free_agents = _cached_source('realgm_current_free_agents', 'realgm-current-free-agents',
+                                  realgm.parse_current_free_agents)
     fa_by_name = {}
     for fa in free_agents:
         fa_by_name[_base(fa['name'])] = fa
@@ -1401,6 +1453,17 @@ def main():
 
     for group in GROUPS:
         ok = not (set(group['sources']) & failed)
+        if group['name'] in ('two-way-contracts', 'free-agent-reconciliation', 'free-agent-pool'):
+            # _cached_source() falls back to the last committed cache of
+            # this group's page(s) when today's fetch fails, so none of these
+            # need to skip on a fetch failure anymore — only an actual
+            # build() exception (below) still counts as a failure. Without
+            # this, two-way-contracts skipping on a failed hr_two_way_tracker
+            # fetch would silently drop every two-way player it created
+            # (most of them have no BBRef contracts-page row at all — see
+            # build_two_way_contracts) the moment build_players rebuilds
+            # players.json fresh next.
+            ok = True
         if not ok:
             skipped.append(f'{group["name"]} (fetch failed)')
             print(f'  SKIP {group["name"]} — fetch failed; keeping last-good output')
@@ -1429,16 +1492,16 @@ def main():
             print(f'  SKIP cap-state — {e}\n       keeping last-good output')
 
     print('cap-hold reconciliation (RealGM current free agents — merges onto team-cap-state.json):')
-    if 'realgm_current_free_agents' in failed:
-        skipped.append('cap-hold-reconciliation (fetch failed)')
-        print('  SKIP cap-hold-reconciliation — fetch failed; keeping last-good output')
-    else:
-        try:
-            build_cap_hold_reconciliation()
-            written.append('cap-hold-reconciliation')
-        except Exception as e:
-            skipped.append(f'cap-hold-reconciliation ({e})')
-            print(f'  SKIP cap-hold-reconciliation — {e}\n       keeping last-good output')
+    # _cached_source() inside build_cap_hold_reconciliation() falls back to
+    # the last committed cache when today's fetch fails, so — like
+    # free-agent-reconciliation/free-agent-pool above — this no longer
+    # needs to skip on a fetch failure, only on an actual build exception.
+    try:
+        build_cap_hold_reconciliation()
+        written.append('cap-hold-reconciliation')
+    except Exception as e:
+        skipped.append(f'cap-hold-reconciliation ({e})')
+        print(f'  SKIP cap-hold-reconciliation — {e}\n       keeping last-good output')
 
     print('salaryswish-league (held TPEs, hard-cap status — merges onto team-cap-state.json):')
     if {'salaryswish_trade_exceptions', 'salaryswish_hard_cap'} & failed:
@@ -1453,10 +1516,22 @@ def main():
             print(f'  SKIP salaryswish-league — {e}\n       keeping last-good output')
 
     print('salaryswish player detail (signing method, incentives — one fetch per new/changed player):')
-    if rescue:
+    if rescue and 'clauses' not in written:
         skipped.append('signing-incentives (not covered by --rescue)')
         print('  SKIP signing-incentives — not one of the sources named in --rescue; keeping last-good output')
     else:
+        # Even outside the sources named in --rescue, this must still run
+        # whenever 'clauses' ran this cycle: build_clauses() overwrites
+        # contract-details.json from scratch with just that run's raw
+        # trade-kicker/no-trade-clause records, and build_signing_incentives
+        # is what merges signedUnder/incentives back onto it — skipping it
+        # would leave contract-details.json regressed to a bare subset of
+        # itself. Confirmed live 2026-08-14: clauses' sources (hr_trade_kickers/
+        # hr_veto_trades) happened to already be fetched today during a
+        # realgm_current_free_agents rescue, clauses ran and collapsed
+        # contract-details.json from 519 fully-merged records to 33 bare
+        # ones, and validate-and-diff's oversized-diff guard correctly
+        # refused to write it — but the underlying cause was this skip.
         try:
             build_signing_incentives(offline=offline)
             written.append('signing-incentives')
@@ -1477,7 +1552,7 @@ def main():
             print(f'  SKIP cash-ledger — {e}\n       keeping last-good output')
 
     print('apron addon (derived from signing-incentives\' unlikely-incentive sums):')
-    if rescue:
+    if rescue and 'signing-incentives' not in written:
         skipped.append('apron-addon (not covered by --rescue)')
         print('  SKIP apron-addon — signing-incentives didn\'t run this rescue; keeping last-good output')
     else:
@@ -1540,10 +1615,25 @@ def main():
         written, skipped = merged_written, merged_stale
         source_fetches = {**(prev.get('sourceFetches') or {}), **{n: v for n, v in source_fetches.items() if n in rescue}}
 
+        # Track which currently-good sources got that way via a rescue click
+        # rather than this morning's scheduled run, so the dashboard can show
+        # "rescued" instead of "scraped" for them. Carry forward anything
+        # still marked rescued from a prior rescue, add this run's successes,
+        # and drop anything that failed again.
+        rescued_sources = sorted(
+            (set(prev.get('rescuedSources') or []) | {n for n in rescue if source_fetches.get(n)})
+            & {n for n, v in source_fetches.items() if v}
+        )
+    else:
+        # A full scheduled run re-fetches everything itself, so nothing is
+        # still running on a rescued value afterward.
+        rescued_sources = []
+
     status = {
         'written': written,
         'staleSources': skipped,
         'sourceFetches': source_fetches,
+        'rescuedSources': rescued_sources,
         'unresolved': {
             'before': unresolved_before,
             'after': unresolved_after,

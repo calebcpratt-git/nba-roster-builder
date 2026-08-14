@@ -81,7 +81,7 @@ function generateContractDetails(records, options = {}) {
   const newBlock = buildContractDetailsBlock(records)
   const output = replaceGeneratedBlock(currentContent, newBlock)
   fs.writeFileSync(outputPath, output)
-  saveSnapshot('contract-details', records)
+  if (!options.skipSnapshotUpdate) saveSnapshot('contract-details', records)
   console.log(`Generated ${records.length} contract-detail records to ${outputPath}`)
   return result
 }

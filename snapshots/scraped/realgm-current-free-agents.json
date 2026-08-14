@@ -18,6 +18,12 @@
   "birdRights": "non-bird"
  },
  {
+  "name": "Cole Anthony",
+  "priorTeam": "PHO",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Adama-Alpha Bal",
   "priorTeam": "MEM",
   "faType": "U",
@@ -394,6 +400,12 @@
   "priorTeam": "TOR",
   "faType": "U",
   "birdRights": "early-bird"
+ },
+ {
+  "name": "E.J. Liddell",
+  "priorTeam": "BRK",
+  "faType": "U",
+  "birdRights": "non-bird"
  },
  {
   "name": "Isaiah Livers",

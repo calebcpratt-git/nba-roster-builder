@@ -86,6 +86,7 @@ export default function DataSchemaDashboard() {
       id: s.id,
       runPyKey: s.runPyKey,
       ok: status.sourceFetches ? status.sourceFetches[s.runPyKey] !== false : null,
+      rescued: status.rescuedSources.includes(s.runPyKey),
     }))
 
   const tiers = erdTiers()
@@ -353,7 +354,7 @@ export default function DataSchemaDashboard() {
                   ) : (
                     <ul className="space-y-1.5">
                       {sourceFetchRows.map((s) => (
-                        <SourceFetchRow key={s.id} id={s.id} runPyKey={s.runPyKey} ok={s.ok} />
+                        <SourceFetchRow key={s.id} id={s.id} runPyKey={s.runPyKey} ok={s.ok} rescued={s.rescued} />
                       ))}
                     </ul>
                   )}
