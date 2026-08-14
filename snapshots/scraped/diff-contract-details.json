@@ -1,5 +1,6 @@
 {
-  "added": [
+  "added": [],
+  "removed": [
     {
       "name": "Trendon Watford",
       "signedUnder": "minimum",
@@ -11,18 +12,7 @@
       }
     },
     {
-      "name": "Yuki Kawamura",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Taelon Peter",
-      "signedUnder": "minimum",
+      "name": "Ethan Thompson",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -31,14 +21,9 @@
       }
     }
   ],
-  "removed": [],
   "changed": [
     {
       "before": {
-        "name": "Nicolas Batum",
-        "tradeBonusPct": 15
-      },
-      "after": {
         "name": "Nicolas Batum",
         "tradeBonusPct": 15,
         "signedUnder": "non-bird",
@@ -49,6 +34,10 @@
           }
         }
       },
+      "after": {
+        "name": "Nicolas Batum",
+        "tradeBonusPct": 15
+      },
       "fields": [
         "signedUnder",
         "incentives"
@@ -56,10 +45,6 @@
     },
     {
       "before": {
-        "name": "Bradley Beal",
-        "tradeBonusPct": 15
-      },
-      "after": {
         "name": "Bradley Beal",
         "tradeBonusPct": 15,
         "incentives": {
@@ -69,16 +54,16 @@
           }
         }
       },
+      "after": {
+        "name": "Bradley Beal",
+        "tradeBonusPct": 15
+      },
       "fields": [
         "incentives"
       ]
     },
     {
       "before": {
-        "name": "James Harden",
-        "tradeBonusPct": 15
-      },
-      "after": {
         "name": "James Harden",
         "tradeBonusPct": 15,
         "signedUnder": "bird",
@@ -89,6 +74,10 @@
           }
         }
       },
+      "after": {
+        "name": "James Harden",
+        "tradeBonusPct": 15
+      },
       "fields": [
         "signedUnder",
         "incentives"
@@ -96,10 +85,6 @@
     },
     {
       "before": {
-        "name": "Jonathan Kuminga",
-        "tradeBonusPct": 15
-      },
-      "after": {
         "name": "Jonathan Kuminga",
         "tradeBonusPct": 15,
         "signedUnder": "bird",
@@ -109,6 +94,10 @@
             "unlikely": 0
           }
         }
+      },
+      "after": {
+        "name": "Jonathan Kuminga",
+        "tradeBonusPct": 15
       },
       "fields": [
         "signedUnder",
