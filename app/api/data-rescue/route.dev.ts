@@ -39,7 +39,7 @@ export async function POST(req: Request) {
 
     const fetchResult = await run(
       'python3',
-      ['scripts/scrape/run.py', '--offline', `--rescue=${runPyKey}`],
+      ['scripts/scrape/run.py', `--rescue=${runPyKey}`],
       { cwd, timeout: TIMEOUT_MS, maxBuffer: 16 * 1024 * 1024 },
     )
 

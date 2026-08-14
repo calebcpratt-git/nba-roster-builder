@@ -460,21 +460,6 @@
   }
  },
  {
-  "name": "James Harden",
-  "team": "CLE",
-  "salary": {
-   "2026-27": 42317307
-  },
-  "options": {
-   "2026-27": "Player"
-  },
-  "bbrefId": "hardeja01",
-  "acquisition": {
-   "date": "2026-02-04",
-   "method": "trade"
-  }
- },
- {
   "name": "Ja Morant",
   "team": "POR",
   "salary": {
@@ -1185,21 +1170,6 @@
   }
  },
  {
-  "name": "Jonathan Kuminga",
-  "team": "ATL",
-  "salary": {
-   "2026-27": 24300000
-  },
-  "options": {
-   "2026-27": "Team"
-  },
-  "bbrefId": "kuminjo01",
-  "acquisition": {
-   "date": "2026-02-05",
-   "method": "trade"
-  }
- },
- {
   "name": "Keegan Murray",
   "team": "SAC",
   "salary": {
@@ -1560,24 +1530,6 @@
   "acquisition": {
    "date": "2025-07-07",
    "method": "extension"
-  }
- },
- {
-  "name": "Bradley Beal",
-  "team": "LAC",
-  "salary": {
-   "2026-27": 25004710,
-   "2027-28": 19383010,
-   "2028-29": 19383010,
-   "2029-30": 19383010
-  },
-  "options": {
-   "2026-27": "Player"
-  },
-  "bbrefId": "bealbr01",
-  "acquisition": {
-   "date": "2025-07-18",
-   "method": "free-agent"
   }
  },
  {
@@ -3891,21 +3843,6 @@
   }
  },
  {
-  "name": "Nicolas Batum",
-  "team": "LAC",
-  "salary": {
-   "2026-27": 5881680
-  },
-  "options": {
-   "2026-27": "Team"
-  },
-  "bbrefId": "batumni01",
-  "acquisition": {
-   "date": "2025-07-06",
-   "method": "free-agent"
-  }
- },
- {
   "name": "Jordan Goodwin",
   "team": "PHO",
   "salary": {
@@ -5615,21 +5552,6 @@
   "bbrefId": "garzalu01",
   "acquisition": {
    "date": "2025-07-07",
-   "method": "free-agent"
-  }
- },
- {
-  "name": "Trendon Watford",
-  "team": "PHI",
-  "salary": {
-   "2026-27": 2801346
-  },
-  "options": {
-   "2026-27": "Team"
-  },
-  "bbrefId": "watfotr01",
-  "acquisition": {
-   "date": "2025-07-02",
    "method": "free-agent"
   }
  },
