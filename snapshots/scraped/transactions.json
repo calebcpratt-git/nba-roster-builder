@@ -652,6 +652,21 @@
  },
  {
   "bbrefId": null,
+  "name": "Dennis Schroder",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [
+   "CLE"
+  ],
+  "text": "Traded from CLE",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Kylan Boswell",
   "date": "2026-07-06",
   "dateRaw": "Jul 6, 2026",
@@ -1110,6 +1125,21 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Tre Mann",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [
+   "CHA"
+  ],
+  "text": "Traded from CHA",
   "flags": []
  },
  {
@@ -1590,6 +1620,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Basheer Jihad",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DET"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {

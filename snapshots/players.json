@@ -323,9 +323,7 @@
     "salary": {
       "2026-27": 48967380
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-02-03",
       "method": "trade"
@@ -921,7 +919,6 @@
       "2028-29": 17653846
     },
     "options": {
-      "2026-27": "Player",
       "2028-29": "Player"
     },
     "acquisition": {
@@ -1075,9 +1072,7 @@
     "salary": {
       "2026-27": 25000000
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-07-06",
       "method": "free-agent"
@@ -1427,12 +1422,30 @@
       "2028-29": 29484000,
       "2029-30": 27300000
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-07-07",
       "method": "extension"
+    }
+  },
+  {
+    "name": "Bradley Beal",
+    "team": "LAC",
+    "salary": {
+      "2026-27": 25004710,
+      "2027-28": 19383010,
+      "2028-29": 19383010,
+      "2029-30": 19383010
+    },
+    "options": {},
+    "acquisition": {
+      "date": "2026-08-13",
+      "method": "free-agent"
+    },
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
     }
   },
   {
@@ -1459,9 +1472,7 @@
     "salary": {
       "2026-27": 18222222
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-19",
       "method": "trade"
@@ -1535,9 +1546,7 @@
     "salary": {
       "2026-27": 20194392
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-08-05",
       "method": "free-agent"
@@ -1622,7 +1631,6 @@
       "2031-32": 57420000
     },
     "options": {
-      "2026-27": "Team",
       "2031-32": "Player"
     },
     "acquisition": {
@@ -1723,9 +1731,7 @@
     "salary": {
       "2026-27": 15104626
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-02",
       "method": "free-agent"
@@ -1822,11 +1828,7 @@
       "2026-27": 14809200,
       "2027-28": 15514400
     },
-    "options": {},
-    "acquisition": {
-      "date": "2026-02-01",
-      "method": "trade"
-    }
+    "options": {}
   },
   {
     "name": "AJ Dybantsa",
@@ -2032,7 +2034,6 @@
       "2027-28": 17434637
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -2046,9 +2047,7 @@
     "salary": {
       "2026-27": 13585523
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-01",
       "method": "free-agent"
@@ -2220,7 +2219,6 @@
       "2027-28": 15611798
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -2234,9 +2232,7 @@
     "salary": {
       "2026-27": 12258609
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-03",
       "method": "free-agent"
@@ -2324,9 +2320,7 @@
     "salary": {
       "2026-27": 11117925
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-02",
       "method": "free-agent"
@@ -2340,7 +2334,6 @@
       "2027-28": 14041625
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -2502,9 +2495,7 @@
     "salary": {
       "2026-27": 10106316
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-01",
       "method": "free-agent"
@@ -2533,7 +2524,6 @@
       "2027-28": 12670139
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -2687,9 +2677,7 @@
     "salary": {
       "2026-27": 9240012
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-02",
       "method": "free-agent"
@@ -2732,9 +2720,7 @@
     "salary": {
       "2026-27": 9187500
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-07-06",
       "method": "free-agent"
@@ -2762,7 +2748,6 @@
       "2027-28": 11491183
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -2839,9 +2824,7 @@
     "salary": {
       "2026-27": 8478542
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-01",
       "method": "free-agent"
@@ -2911,7 +2894,6 @@
       "2027-28": 10445633
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -2925,9 +2907,7 @@
     "salary": {
       "2026-27": 8104000
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-08",
       "method": "trade"
@@ -3004,10 +2984,6 @@
     },
     "options": {
       "2027-28": "Team"
-    },
-    "acquisition": {
-      "date": "2025-07-13",
-      "method": "free-agent"
     }
   },
   {
@@ -3048,9 +3024,7 @@
     "salary": {
       "2026-27": 7805900
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-02-03",
       "method": "trade"
@@ -3104,7 +3078,6 @@
       "2027-28": 9550298
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -3133,9 +3106,7 @@
     "salary": {
       "2026-27": 7420806
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-07",
       "method": "free-agent"
@@ -3165,9 +3136,7 @@
     "salary": {
       "2026-27": 7239131
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-08",
       "method": "free-agent"
@@ -3196,9 +3165,7 @@
     "salary": {
       "2026-27": 7131511
     },
-    "options": {
-      "2026-27": "Team"
-    }
+    "options": {}
   },
   {
     "name": "Clint Capela",
@@ -3219,9 +3186,7 @@
     "salary": {
       "2026-27": 7021895
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-03",
       "method": "free-agent"
@@ -3248,7 +3213,6 @@
       "2027-28": 8763216
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -3310,9 +3274,7 @@
     "salary": {
       "2026-27": 6563925
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-02",
       "method": "free-agent"
@@ -3368,7 +3330,6 @@
       "2027-28": 8067937
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -3461,7 +3422,6 @@
       "2027-28": 7669890
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -3577,9 +3537,7 @@
     "salary": {
       "2026-27": 5969250
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-08",
       "method": "trade"
@@ -3591,9 +3549,7 @@
     "salary": {
       "2026-27": 5939141
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-06",
       "method": "trade"
@@ -3657,7 +3613,6 @@
       "2027-28": 7584283
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -3706,9 +3661,7 @@
     "salary": {
       "2026-27": 5679459
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-03",
       "method": "free-agent"
@@ -3797,9 +3750,7 @@
     "salary": {
       "2026-27": 5458310
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-07-06",
       "method": "trade"
@@ -3813,7 +3764,6 @@
       "2027-28": 7482210
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -3844,9 +3794,7 @@
     "salary": {
       "2026-27": 5414034
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-11",
       "method": "free-agent"
@@ -3858,9 +3806,7 @@
     "salary": {
       "2026-27": 5390700
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-07-07",
       "method": "free-agent"
@@ -3887,9 +3833,7 @@
     "salary": {
       "2026-27": 5315004
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-06-29",
       "method": "trade"
@@ -3935,9 +3879,7 @@
     "salary": {
       "2026-27": 5198983
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-08",
       "method": "trade"
@@ -3951,7 +3893,6 @@
       "2027-28": 7370897
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -3982,9 +3923,7 @@
     "salary": {
       "2026-27": 5031669
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-01",
       "method": "free-agent"
@@ -4028,7 +3967,6 @@
       "2027-28": 7257730
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4059,9 +3997,7 @@
     "salary": {
       "2026-27": 4862237
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-02",
       "method": "free-agent"
@@ -4073,9 +4009,7 @@
     "salary": {
       "2026-27": 4826931
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-06",
       "method": "free-agent"
@@ -4107,7 +4041,6 @@
       "2027-28": 7135992
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4203,7 +4136,6 @@
       "2027-28": 6784268
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4254,7 +4186,6 @@
       "2027-28": 6452860
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4335,9 +4266,7 @@
     "salary": {
       "2026-27": 4000000
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-08-02",
       "method": "free-agent"
@@ -4351,7 +4280,6 @@
       "2027-28": 6138466
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4473,9 +4401,7 @@
     "salary": {
       "2026-27": 3815861
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-08",
       "method": "trade"
@@ -4487,9 +4413,7 @@
     "salary": {
       "2026-27": 3815861
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-08",
       "method": "trade"
@@ -4520,7 +4444,6 @@
       "2027-28": 5870172
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4580,7 +4503,6 @@
       "2027-28": 5641500
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4631,7 +4553,6 @@
       "2027-28": 5595827
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4663,9 +4584,7 @@
     "salary": {
       "2026-27": 3415000
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-07-09",
       "method": "free-agent"
@@ -4708,7 +4627,6 @@
       "2027-28": 5547138
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4779,7 +4697,6 @@
       "2027-28": 5493394
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4847,7 +4764,6 @@
       "2027-28": 5435892
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -4976,7 +4892,6 @@
       "2027-28": 5373608
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -5148,7 +5063,6 @@
       "2027-28": 5054159
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -5179,9 +5093,7 @@
     "salary": {
       "2026-27": 2801346
     },
-    "options": {
-      "2026-27": "Player"
-    },
+    "options": {},
     "acquisition": {
       "date": "2025-07-09",
       "method": "free-agent"
@@ -5207,7 +5119,6 @@
       "2027-28": 5025553
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -5223,7 +5134,6 @@
       "2027-28": 4988948
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -5239,7 +5149,6 @@
       "2027-28": 4952993
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -5257,9 +5166,7 @@
       "2029-30": 14500000,
       "2030-31": 15500000
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-06",
       "method": "extension"
@@ -5394,9 +5301,7 @@
     "salary": {
       "2026-27": 2584539
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-03-20",
       "method": "free-agent"
@@ -5541,7 +5446,6 @@
       "2027-28": 1002360
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     },
     "acquisition": {
@@ -6081,9 +5985,7 @@
       "2028-29": 5000000,
       "2029-30": 5370370
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-07-23",
       "method": "extension"
@@ -6101,9 +6003,7 @@
     "salary": {
       "2026-27": 2406205
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-02-05",
       "method": "trade"
@@ -6115,9 +6015,7 @@
     "salary": {
       "2026-27": 2406205
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-08-31",
       "method": "free-agent"
@@ -6129,9 +6027,7 @@
     "salary": {
       "2026-27": 2406205
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-03",
       "method": "free-agent"
@@ -6148,9 +6044,7 @@
     "salary": {
       "2026-27": 2406205
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2026-02-05",
       "method": "trade"
@@ -6168,9 +6062,7 @@
     "salary": {
       "2026-27": 2406205
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2023-07-03",
       "method": "free-agent"
@@ -6187,9 +6079,7 @@
     "salary": {
       "2026-27": 678882
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "contractType": "two-way",
     "acquisition": {
       "date": "2026-08-05",
@@ -6202,9 +6092,7 @@
     "salary": {
       "2026-27": 2296271
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2024-07-04",
       "method": "free-agent"
@@ -6231,9 +6119,7 @@
     "salary": {
       "2026-27": 2296271
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2024-07-13",
       "method": "free-agent"
@@ -6245,9 +6131,7 @@
     "salary": {
       "2026-27": 2296271
     },
-    "options": {
-      "2026-27": "Team"
-    },
+    "options": {},
     "acquisition": {
       "date": "2024-07-02",
       "method": "free-agent"
@@ -6867,7 +6751,6 @@
       "2027-28": 666667
     },
     "options": {
-      "2026-27": "Team",
       "2027-28": "Team"
     }
   },

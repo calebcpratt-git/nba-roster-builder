@@ -21,6 +21,12 @@
   ],
   "removed": [
     {
+      "name": "Bradley Beal",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
       "name": "Yuki Kawamura",
       "priorTeam": "CHI",
       "faType": "U",
