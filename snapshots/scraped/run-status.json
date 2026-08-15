@@ -64,11 +64,11 @@
   "generatedAt": "2026-08-15T11:23:40.205Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~83 (of 524)",
+    "players: +1 -0 ~2 (of 524)",
     "draft-picks: +0 -0 ~0 (of 521)",
     "contract-details: +0 -0 ~1 (of 519)",
-    "team-cap-state: +0 -0 ~30 (of 150)",
-    "free-agents: +3 -3 ~0 (of 149)"
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +0 -1 ~0 (of 149)"
   ],
   "clean": true
 }

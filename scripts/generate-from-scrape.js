@@ -18,21 +18,26 @@ const SCRAPED = path.join(__dirname, '../snapshots/scraped')
 const allowLargeDiff =
   process.argv.includes('--accept-large-diff') || process.env.ACCEPT_LARGE_DIFF === '1'
 // A rescue is a partial, same-day follow-up to this morning's full run, not
-// a new day's baseline. Each generate-*.js call normally advances
-// snapshots/<kind>.json to "current" as its own last step, so the next
-// invocation diffs from here — fine for the once-a-day CI job, but a rescue
-// running that same advance-then-diff step treats the morning's own output
-// as its baseline, collapsing every untouched kind's diff to ~0 and
-// overwriting diff-<kind>.json / pr-body.md with just the rescue's sliver.
-// Confirmed live 2026-08-14: a single-source rescue wiped that morning's
-// full diff record. Passing skipSnapshotUpdate leaves the baseline exactly
-// where the day started, so every same-day generate call — the morning run
-// and any rescue after it — keeps diffing against that one fixed point and
-// the diff stays cumulative for the whole day. writeRunStatus below then
-// merges this run's diff-<kind>.json onto whatever the morning run already
-// left on disk, instead of overwriting it.
+// a new day's baseline. Each generate-*.js call always advances
+// snapshots/<kind>.json to "current" as its own last step, so a rescue's own
+// diff is computed against whatever the morning run (or an earlier rescue)
+// already left there — a small, correct, incremental delta rather than a
+// full day's diff. writeRunStatus below then merges that incremental detail
+// onto whatever's already on disk in diff-<kind>.json instead of overwriting
+// it, so the day's published diff stays cumulative.
+//
+// Earlier this froze snapshots/<kind>.json for the whole rescue (see git
+// history) to keep that cumulative diff correct, but freezing it meant a day
+// that ended on a rescue (no later non-rescue run to unfreeze it) left the
+// next day's run diffing against a stale, pre-rescue baseline — reporting
+// records the rescue had already added/removed as changing again on a day
+// they didn't actually change. Confirmed live 2026-08-15: J.D. Davison and
+// Sean Pedulla, added to the free-agent pool by a 2026-08-14 rescue, showed
+// up as newly "added" again in the 2026-08-15 scheduled run's diff. Always
+// advancing the snapshot keeps it truthful across day boundaries regardless
+// of how a day's runs are split between morning and rescue.
 const rescueMode = process.argv.includes('--rescue')
-const genOptions = { allowLargeDiff, skipSnapshotUpdate: rescueMode }
+const genOptions = { allowLargeDiff }
 
 function read(name) {
   const file = path.join(SCRAPED, name)
@@ -82,13 +87,12 @@ function writeRunStatus(diffResults) {
   // diff summary line rather than just the +/-/~ counts.
   //
   // In rescue mode this run's records only cover the rescued source(s) —
-  // every other kind's `result.detail` is trivially empty because
-  // skipSnapshotUpdate kept the diff baseline exactly where the morning run
-  // left it. Overwriting diff-<kind>.json with that empty detail would wipe
-  // out the morning's own recorded diff. Instead, merge this run's detail
-  // onto whatever's already on disk, so the file (and the summary line
-  // derived from it below) reflects everything that changed today, not just
-  // this invocation.
+  // every other kind's `result.detail` is trivially empty because its
+  // snapshot baseline already matched the morning run's output. Overwriting
+  // diff-<kind>.json with that empty detail would wipe out the morning's own
+  // recorded diff. Instead, merge this run's detail onto whatever's already
+  // on disk, so the file (and the summary line derived from it below)
+  // reflects everything that changed today, not just this invocation.
   const diffSummaries = []
   for (const [kind, result] of diffResults) {
     if (!result?.detail) continue
