@@ -203,7 +203,13 @@ function buildMoves(sheet: CapSheet): MoveItem[] {
     const total = Object.values(contract.salary).reduce((a, b) => a + b, 0)
     const waived = snapshot.deletedContractIds.includes(contract.id)
     const typeLabel =
-      contract.type === 'extension' ? 'Extension' : contract.type === 'trade' ? 'Trade contract' : 'Free agent signing'
+      contract.type === 'extension'
+        ? 'Extension'
+        : contract.isSignAndTrade
+        ? 'Sign-and-trade'
+        : contract.type === 'trade'
+        ? 'Trade contract'
+        : 'Free agent signing'
 
     moves.push({
       key: `contract-${contract.id}`,

@@ -747,6 +747,7 @@ export function RosterTable() {
                               {isTradeIncoming ? 'TRADE' :
                                'contractType' in player && player.contractType === 'two-way' ? '2W' :
                                'type' in player && player.type === 'extension' ? 'EXT' :
+                               'isSignAndTrade' in player && player.isSignAndTrade ? 'S&T' :
                                'type' in player && player.type === 'trade' ? 'TRADE' : 'FA'}
                             </Badge>
                           )}

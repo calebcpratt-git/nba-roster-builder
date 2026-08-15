@@ -35,6 +35,7 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -89,7 +90,7 @@ const EXCEPTION_LABELS: Record<ExceptionType, string> = {
 const EXCEPTION_MAX_YEARS: Record<ExceptionType, number> = { ntmle: 4, tmle: 2, bae: 2 }
 
 export function SignFreeAgentModal({ player, startingSeason, isOpen, editingContract, onClose }: SignFreeAgentModalProps) {
-  const { addSavedContract, updateSavedContract, setDeletedContractIds, selectedTeamAbbr, getTotalSalary, savedContracts, deletedContractIds } = useRoster()
+  const { addSavedContract, updateSavedContract, setDeletedContractIds, selectedTeamAbbr, getTotalSalary, getTeamCapTotal, savedContracts, deletedContractIds } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -98,6 +99,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const [isMaxContract, setIsMaxContract] = useState(false)
   const [isTwoWay, setIsTwoWay] = useState(false)
   const [isQualifyingOffer, setIsQualifyingOffer] = useState(false)
+  const [isSignAndTrade, setIsSignAndTrade] = useState(false)
   const [yearsError, setYearsError] = useState('')
 
   useEffect(() => {
@@ -113,6 +115,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsMaxContract(editingContract.isMaxContract ?? false)
       setIsTwoWay(editingContract.contractType === 'two-way')
       setIsQualifyingOffer(editingContract.rfaPath === 'qualifying-offer')
+      setIsSignAndTrade(editingContract.isSignAndTrade ?? false)
       setYearsError('')
     } else {
       setYears('3')
@@ -123,6 +126,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsMaxContract(false)
       setIsTwoWay(false)
       setIsQualifyingOffer(false)
+      setIsSignAndTrade(false)
       setYearsError('')
     }
   }, [isOpen, editingContract?.id, player, startingSeason])
@@ -144,7 +148,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   // An RFA signing with a different team than the player's own is an offer
   // sheet — min 2/max 4 years, no two-way. Tendering a QO only applies when
   // re-signing your own player.
-  const isOfferSheet = isRestrictedFA && !isOnSelectedTeam
+  const isOfferSheet = isRestrictedFA && !isOnSelectedTeam && !isSignAndTrade
 
   // Cap-room status and apron status are two different numbers (capSpaceTotal
   // strips nothing, apronTotal strips cap holds back out) — which exceptions
@@ -178,6 +182,25 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const baeAvailable = isOverCapBelowFirstApron && !baeAlreadyUsedForSeason
   const tmleAvailable = isOverFirstApronBelowSecondApron && !mleAlreadyUsedForSeason
 
+  // Sign-and-trade eligibility — the acquiring team (us) can't complete one
+  // if it's already used the Taxpayer MLE this season, and the sending team
+  // can't send a player out via sign-and-trade once it's over the second
+  // apron. Both are hard CBA blocks, not just cap-space math.
+  const taxpayerMleUsedForSeason = usedExceptions.has('taxpayer-mle')
+  const sellerApronTotal = !isOnSelectedTeam ? getTeamCapTotal(player.team, effectiveStartingSeason).apronTotal : 0
+  const sellerOverSecondApron = !isOnSelectedTeam && sellerApronTotal >= secondApron
+  const signAndTradeBlocked = taxpayerMleUsedForSeason || sellerOverSecondApron
+  const signAndTradeBlockReason = taxpayerMleUsedForSeason
+    ? `${selectedTeamAbbr} already used its Taxpayer MLE this season`
+    : sellerOverSecondApron
+    ? `${player.team} is over the second apron`
+    : null
+  // The acquiring team is hard-capped at the first apron by a sign-and-trade
+  // and can't complete one that would leave it above the first apron — but
+  // whether it does depends on the outgoing trade pieces this modal doesn't
+  // build, so this is a warning rather than a hard block.
+  const signAndTradeApronWarning = isOverFirstApronBelowSecondApron || isOverSecondApron
+
   // Seasons / year calculations
   const startIndex = SEASONS.indexOf(effectiveStartingSeason)
   const maxYears = SEASONS.length - startIndex
@@ -189,6 +212,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     ? Math.min(5, maxYears)
     : exceptionType
     ? Math.min(EXCEPTION_MAX_YEARS[exceptionType], maxYears)
+    : isSignAndTrade
+    ? Math.min(4, maxYears)
     : isOfferSheet
     ? Math.min(4, maxYears)
     : maxYears
@@ -251,6 +276,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const capRestricted =
     !isTwoWay &&
     !isQualifyingOffer &&
+    !isSignAndTrade &&
     ((isOverSecondApron && !isMinimum) ||
       (isOverFirstApronBelowSecondApron && !isMinimum && !(exceptionType === 'tmle' && tmleAvailable)) ||
       (isOverCapBelowFirstApron &&
@@ -278,6 +304,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setExceptionType(null)
       setIsTwoWay(false)
       setIsQualifyingOffer(false)
+      setIsSignAndTrade(false)
       setTotalValue('')
       if (parseInt(years) > 5) setYears('5')
     }
@@ -291,6 +318,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setExceptionType(null)
       setIsTwoWay(false)
       setIsQualifyingOffer(false)
+      setIsSignAndTrade(false)
       setYears('1')
       setDistribution('flat')
     } else {
@@ -307,6 +335,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsMaxContract(false)
       setIsTwoWay(false)
       setIsQualifyingOffer(false)
+      setIsSignAndTrade(false)
       setYears(String(Math.min(EXCEPTION_MAX_YEARS[type], maxYears)))
       setDistribution('escalating')
     } else {
@@ -323,6 +352,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setExceptionType(null)
       setIsMaxContract(false)
       setIsQualifyingOffer(false)
+      setIsSignAndTrade(false)
       if (parseInt(years) > 2) setYears('2')
       setDistribution('flat')
     } else {
@@ -339,8 +369,26 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsMaxContract(false)
       setExceptionType(null)
       setIsTwoWay(false)
+      setIsSignAndTrade(false)
       setYears('1')
       setDistribution('flat')
+    } else {
+      setYears('3')
+      setDistribution('escalating')
+    }
+  }
+
+  const handleSignAndTradeToggle = (checked: boolean) => {
+    setIsSignAndTrade(checked)
+    setYearsError('')
+    if (checked) {
+      setIsMinimum(false)
+      setExceptionType(null)
+      setIsMaxContract(false)
+      setIsTwoWay(false)
+      setIsQualifyingOffer(false)
+      setYears(String(Math.min(3, maxYears)))
+      setDistribution('escalating')
     } else {
       setYears('3')
       setDistribution('escalating')
@@ -368,6 +416,16 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     if (isMaxContract && numValue > 5) {
       setYearsError('Maximum contracts can only be for up to 5 years')
       setYears('5')
+      return
+    }
+    if (isSignAndTrade && numValue < 3) {
+      setYearsError('Sign-and-trade contracts must run 3–4 years')
+      setYears(String(Math.min(3, maxYears)))
+      return
+    }
+    if (isSignAndTrade && numValue > 4) {
+      setYearsError('Sign-and-trade contracts must run 3–4 years')
+      setYears(String(Math.min(4, maxYears)))
       return
     }
     if (isOfferSheet && numValue > 4) {
@@ -475,6 +533,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     setIsMaxContract(false)
     setIsTwoWay(false)
     setIsQualifyingOffer(false)
+    setIsSignAndTrade(false)
     setYearsError('')
   }
 
@@ -489,22 +548,25 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     : 'offer-sheet'
 
   const handleSave = () => {
+    const type = isSignAndTrade ? 'trade' : isOnSelectedTeam ? 'extension' : 'free-agent'
     if (editingContract) {
       updateSavedContract({
         ...editingContract,
+        type,
         salary: salaries,
         isMinimum: isMinimum,
         exceptionType: exceptionType ?? undefined,
         isMaxContract: isMaxContract,
         contractType: isTwoWay ? 'two-way' : undefined,
         rfaPath,
+        isSignAndTrade: isSignAndTrade || undefined,
       })
     } else {
       addSavedContract({
         id: `fa-${player.id}-${Date.now()}`,
         playerId: player.id,
         playerName: player.name,
-        type: isOnSelectedTeam ? 'extension' : 'free-agent',
+        type,
         salary: salaries,
         createdAt: new Date(),
         isMinimum: isMinimum,
@@ -512,6 +574,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
         isMaxContract: isMaxContract,
         contractType: isTwoWay ? 'two-way' : undefined,
         rfaPath,
+        isSignAndTrade: isSignAndTrade || undefined,
       })
     }
 
@@ -532,6 +595,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
 
   const isValid = isQualifyingOffer
     ? totalValueNum > 0 && numYears === 1
+    : isSignAndTrade
+    ? totalValueNum > 0 && numYears >= 3 && numYears <= 4 && !signAndTradeBlocked
     : meetsOfferSheetTermBand &&
       (isTwoWay
         ? numYears > 0
@@ -562,22 +627,22 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
         <div className="space-y-4">
           {/* Cap restriction notices */}
           <div className="space-y-2">
-            {isOverSecondApron && (
+            {!isSignAndTrade && isOverSecondApron && (
               <p className="text-xs text-red-500">
                 Team is over the second apron. Only minimum contracts are available.
               </p>
             )}
-            {isOverFirstApronBelowSecondApron && (
+            {!isSignAndTrade && isOverFirstApronBelowSecondApron && (
               <p className="text-xs text-red-500">
                 Team is over the first apron. {tmleAvailable ? 'Minimum or Taxpayer MLE contracts are available.' : 'The Taxpayer MLE has already been used — only a minimum contract is available.'}
               </p>
             )}
-            {isOverCapBelowFirstApron && (ntmleAvailable || baeAvailable) && (
+            {!isSignAndTrade && isOverCapBelowFirstApron && (ntmleAvailable || baeAvailable) && (
               <p className="text-xs text-amber-500">
                 Team is over the salary cap. Minimum{ntmleAvailable ? ', Non-Taxpayer MLE' : ''}{baeAvailable ? ', or Bi-Annual Exception' : ''} contracts are available.
               </p>
             )}
-            {isOverCapBelowFirstApron && !ntmleAvailable && !baeAvailable && (
+            {!isSignAndTrade && isOverCapBelowFirstApron && !ntmleAvailable && !baeAvailable && (
               <p className="text-xs text-amber-500">
                 Team is over the salary cap and has already used its Mid-Level and Bi-Annual Exceptions for {effectiveStartingSeason}. Only a minimum contract is available.
               </p>
@@ -618,13 +683,20 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                     any offer sheet {player.name} signs elsewhere. Enter the QO amount manually.
                   </p>
                 )}
+
+                {isSignAndTrade && (
+                  <p className="text-xs text-muted-foreground w-full">
+                    His restricted status doesn&apos;t apply here — {player.team} re-signs him under their own Bird
+                    rights, then trades him, so there&apos;s no offer sheet or matching period.
+                  </p>
+                )}
               </div>
             )}
 
             {/* Contract type toggles */}
             <div className="flex items-center gap-4 flex-wrap">
               {/* Maximum Contract — shown when cap allows non-minimum contracts */}
-              {!isOverSecondApron && !isOverFirstApronBelowSecondApron && !(isOverCapBelowFirstApron) && rookieYear !== undefined && (
+              {!isSignAndTrade && !isOverSecondApron && !isOverFirstApronBelowSecondApron && !(isOverCapBelowFirstApron) && rookieYear !== undefined && (
                 <div className="flex items-center gap-2">
                   <Label htmlFor="max-contract-fa" className="text-xs font-medium cursor-pointer">
                     Maximum Contract
@@ -638,19 +710,21 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 </div>
               )}
 
-              <div className="flex items-center gap-2">
-                <Label htmlFor="minimum-contract-fa" className="text-xs font-medium cursor-pointer">
-                  Minimum Contract
-                </Label>
-                <Switch
-                  id="minimum-contract-fa"
-                  checked={isMinimum}
-                  onCheckedChange={handleMinimumToggle}
-                  className="data-[state=unchecked]:bg-gray-400"
-                />
-              </div>
+              {!isSignAndTrade && (
+                <div className="flex items-center gap-2">
+                  <Label htmlFor="minimum-contract-fa" className="text-xs font-medium cursor-pointer">
+                    Minimum Contract
+                  </Label>
+                  <Switch
+                    id="minimum-contract-fa"
+                    checked={isMinimum}
+                    onCheckedChange={handleMinimumToggle}
+                    className="data-[state=unchecked]:bg-gray-400"
+                  />
+                </div>
+              )}
 
-              {ntmleAvailable && (
+              {!isSignAndTrade && ntmleAvailable && (
                 <div className="flex items-center gap-2">
                   <Label htmlFor="ntmle-contract-fa" className="text-xs font-medium cursor-pointer">
                     Non-Taxpayer MLE
@@ -664,7 +738,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 </div>
               )}
 
-              {tmleAvailable && (
+              {!isSignAndTrade && tmleAvailable && (
                 <div className="flex items-center gap-2">
                   <Label htmlFor="tmle-contract-fa" className="text-xs font-medium cursor-pointer">
                     Taxpayer MLE
@@ -678,7 +752,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 </div>
               )}
 
-              {baeAvailable && (
+              {!isSignAndTrade && baeAvailable && (
                 <div className="flex items-center gap-2">
                   <Label htmlFor="bae-contract-fa" className="text-xs font-medium cursor-pointer">
                     Bi-Annual Exception
@@ -692,7 +766,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 </div>
               )}
 
-              {!isOfferSheet && (
+              {!isOfferSheet && !isSignAndTrade && (
                 <div className="flex items-center gap-2">
                   <Label htmlFor="two-way-contract-fa" className="text-xs font-medium cursor-pointer">
                     Two-Way Contract
@@ -705,6 +779,39 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                   />
                 </div>
               )}
+
+              {!isOnSelectedTeam && !isQualifyingOffer && (
+                signAndTradeBlocked ? (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="flex items-center gap-2 cursor-not-allowed">
+                        <Label htmlFor="sign-and-trade-fa" className="text-xs font-medium text-muted-foreground cursor-not-allowed">
+                          Sign-and-Trade
+                        </Label>
+                        <Switch
+                          id="sign-and-trade-fa"
+                          checked={isSignAndTrade}
+                          aria-disabled="true"
+                          className="cursor-not-allowed opacity-50 data-[state=unchecked]:bg-gray-400"
+                        />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent side="top">{signAndTradeBlockReason}</TooltipContent>
+                  </Tooltip>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <Label htmlFor="sign-and-trade-fa" className="text-xs font-medium cursor-pointer">
+                      Sign-and-Trade
+                    </Label>
+                    <Switch
+                      id="sign-and-trade-fa"
+                      checked={isSignAndTrade}
+                      onCheckedChange={handleSignAndTradeToggle}
+                      className="data-[state=unchecked]:bg-gray-400"
+                    />
+                  </div>
+                )
+              )}
             </div>
 
             {isTwoWay && (
@@ -712,6 +819,25 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 50% of the 0-YOS minimum, flat, 1–2 years. Excluded from Team Salary entirely and counts against the
                 team&apos;s 3 two-way slots{yoe !== undefined && yoe > 4 ? ' — note: players with more than 4 YOS are not eligible for a two-way deal' : ''}.
               </p>
+            )}
+
+            {isSignAndTrade && (
+              <>
+                <p className="text-xs text-muted-foreground">
+                  {player.name} re-signs with {player.team} under their Bird rights, then is immediately traded to{' '}
+                  {selectedTeamAbbr}. Must run 3–4 years with the first year fully guaranteed. Hard-caps{' '}
+                  {selectedTeamAbbr} at the first apron for the rest of the season — the deal can&apos;t go through if
+                  it leaves them above it. This modal only records the incoming contract; add the matching outgoing
+                  assets in Build Trade to complete the deal.
+                </p>
+                {signAndTradeApronWarning && (
+                  <p className="text-xs text-amber-500">
+                    {selectedTeamAbbr} is already over the first apron. A sign-and-trade can only go through if the
+                    outgoing assets in the matching trade bring them back below it — build that trade to confirm this
+                    works.
+                  </p>
+                )}
+              </>
             )}
 
             {exceptionType && (
@@ -722,7 +848,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
             )}
 
             {/* Max contract info line */}
-            {!isOverSecondApron && !isOverFirstApronBelowSecondApron && !isOverCapBelowFirstApron && yoe !== undefined && maxPct !== undefined && (
+            {(isSignAndTrade || (!isOverSecondApron && !isOverFirstApronBelowSecondApron && !isOverCapBelowFirstApron)) && yoe !== undefined && maxPct !== undefined && (
               <p className="text-xs text-muted-foreground">
                 {player.name} has {yoe} YOE — max contract is{' '}
                 <span className="font-medium">{(maxPct * 100).toFixed(0)}%</span> of the cap
@@ -742,7 +868,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
               <Input
                 id="years"
                 type="number"
-                min={isOfferSheet ? 2 : 1}
+                min={isSignAndTrade ? 3 : isOfferSheet ? 2 : 1}
                 max={maxYearsAllowed}
                 value={years}
                 onChange={(e) => handleYearsChange(e.target.value)}
