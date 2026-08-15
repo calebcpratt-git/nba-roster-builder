@@ -47,6 +47,8 @@ export interface SavedContract {
   contractType?: 'two-way'
   /** Restricted-free-agency path this contract represents. Absent = not RFA-related. */
   rfaPath?: 'qualifying-offer' | 'offer-sheet' | 'matched-offer-sheet'
+  /** Signed by the player's outgoing team via Bird rights, then immediately traded to the selected team — see SignFreeAgentModal's Sign-and-Trade toggle. Hard-caps the acquiring team at the first apron for the rest of the season; not enforced by trade-validation.ts — pair with a matching Build Trade entry to move the outgoing assets. */
+  isSignAndTrade?: boolean
 }
 
 export interface CapThreshold {

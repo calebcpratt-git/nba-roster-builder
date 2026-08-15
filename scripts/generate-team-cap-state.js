@@ -136,7 +136,7 @@ function generateTeamCapState(records, options = {}) {
   const newBlock = buildTeamCapStateBlock(records)
   const output = replaceGeneratedBlock(currentContent, newBlock)
   fs.writeFileSync(outputPath, output)
-  if (!options.skipSnapshotUpdate) saveSnapshot('team-cap-state', records)
+  saveSnapshot('team-cap-state', records)
   console.log(`Generated cap state for ${byTeamCount(records)} teams to ${outputPath}`)
   return result
 }

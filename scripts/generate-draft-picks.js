@@ -95,7 +95,7 @@ function generateDraftPicks(picks, options = {}) {
   const newBlock = buildDraftPicksBlock(picks)
   const output = replaceGeneratedBlock(currentContent, newBlock)
   fs.writeFileSync(outputPath, output)
-  if (!options.skipSnapshotUpdate) saveSnapshot('draft-picks', picks)
+  saveSnapshot('draft-picks', picks)
   console.log(`Generated ${picks.length} draft picks to ${outputPath}`)
   return result
 }
