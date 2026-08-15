@@ -450,9 +450,9 @@
   "team": "MIL"
  },
  "schrode01": {
-  "date": "2026-02-01",
+  "date": "2026-08-14",
   "method": "trade",
-  "team": "CLE"
+  "team": "CHO"
  },
  "berinjo01": {
   "date": "2025-07-07",
@@ -580,9 +580,9 @@
   "team": "OKC"
  },
  "manntr01": {
-  "date": "2025-07-13",
-  "method": "free-agent",
-  "team": "CHO"
+  "date": "2026-08-14",
+  "method": "trade",
+  "team": "CLE"
  },
  "joneshe01": {
   "date": "2025-07-14",
@@ -620,7 +620,7 @@
   "team": "ATL"
  },
  "bealbr01": {
-  "date": "2025-07-18",
+  "date": "2026-08-13",
   "method": "free-agent",
   "team": "LAC"
  },

@@ -1,0 +1,586 @@
+[
+ {
+  "name": "RayJ Dennis",
+  "bbrefId": "dennira01",
+  "team": "ATL",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Keshon Gilbert",
+  "bbrefId": "gilbeke01",
+  "team": "ATL",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jalen Wilson",
+  "bbrefId": "wilsoja03",
+  "team": "ATL",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Amari Williams",
+  "bbrefId": "william01",
+  "team": "BOS",
+  "position": "F/C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Dillon Mitchell",
+  "bbrefId": "mitchdi01",
+  "team": "BOS",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Chaney Johnson",
+  "bbrefId": "johnsch06",
+  "team": "BRK",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Tyler Bilodeau",
+  "bbrefId": "bilodty01",
+  "team": "BRK",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "PJ Hall",
+  "bbrefId": "hallpj01",
+  "team": "CHO",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Michael Ajayi",
+  "bbrefId": "ajayimi01",
+  "team": "CHO",
+  "position": "F",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Kylan Boswell",
+  "bbrefId": "bosweky01",
+  "team": "CHO",
+  "position": "G",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Tobe Awaka",
+  "bbrefId": "awakato01",
+  "team": "CHI",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jaylin Sellers",
+  "bbrefId": "selleja01",
+  "team": "CHI",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Tristan Enaruna",
+  "bbrefId": "enarutr01",
+  "team": "CLE",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Riley Minix",
+  "bbrefId": "minixri01",
+  "team": "CLE",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Ernest Udeh Jr.",
+  "bbrefId": "udehjer01",
+  "team": "CLE",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "John Poulakidas",
+  "bbrefId": "poulajo01",
+  "team": "DAL",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Tobi Lawal",
+  "bbrefId": "lawalto01",
+  "team": "DAL",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jett Howard",
+  "bbrefId": "howarje01",
+  "team": "DAL",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "KJ Simpson",
+  "bbrefId": "simpskj01",
+  "team": "DEN",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Isaac Jones",
+  "bbrefId": "jonesis01",
+  "team": "DET",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Ugonna Onyenso",
+  "bbrefId": "onyenug01",
+  "team": "DET",
+  "position": "C",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Elijah Harkless",
+  "bbrefId": "harklej01",
+  "team": "DET",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "LJ Cryer",
+  "bbrefId": "cryerlj01",
+  "team": "GSW",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Malevy Leons",
+  "bbrefId": "leonsma01",
+  "team": "GSW",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Tristen Newton",
+  "bbrefId": "newtotr01",
+  "team": "HOU",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Quadir Copeland",
+  "bbrefId": "copelqu01",
+  "team": "HOU",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Kobe Brown",
+  "bbrefId": "brownko01",
+  "team": "IND",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jalen Slawson",
+  "bbrefId": "slawsja01",
+  "team": "IND",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Nick Martinelli",
+  "bbrefId": "martini01",
+  "team": "LAC",
+  "position": "F",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Jamarion Sharp",
+  "bbrefId": "sharpja01",
+  "team": "LAC",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jalen Pickett",
+  "bbrefId": "pickeja02",
+  "team": "LAC",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Chris Manon",
+  "bbrefId": "manonch01",
+  "team": "LAL",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "AK Okereke",
+  "bbrefId": "okereak01",
+  "team": "LAL",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Arthur Kaluma",
+  "bbrefId": "kalumar01",
+  "team": "LAL",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Javon Small",
+  "bbrefId": "smallja01",
+  "team": "MEM",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jahmai Mashack",
+  "bbrefId": "mashaja01",
+  "team": "MEM",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Tre Donaldson",
+  "bbrefId": "donaltr01",
+  "team": "MIA",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Vladislav Goldin",
+  "bbrefId": "goldivl01",
+  "team": "MIA",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Cormac Ryan",
+  "bbrefId": "ryanco01",
+  "team": "MIL",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Kam Jones",
+  "bbrefId": "joneska03",
+  "team": "MIL",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Rocco Zikarsky",
+  "bbrefId": "zikarro01",
+  "team": "MIN",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Zyon Pullin",
+  "bbrefId": "pullizy01",
+  "team": "MIN",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Enrique Freeman",
+  "bbrefId": "freemen01",
+  "team": "MIN",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Hunter Dickinson",
+  "bbrefId": "dickihu01",
+  "team": "NOP",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jaron Pierre Jr.",
+  "bbrefId": "pierrja01",
+  "team": "NOP",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Brooks Barnhizer",
+  "bbrefId": "barnhbr01",
+  "team": "OKC",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Josh Dix",
+  "bbrefId": "dixjo01",
+  "team": "OKC",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Otega Oweh",
+  "bbrefId": "owehot01",
+  "team": "OKC",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Colin Castleton",
+  "bbrefId": "castlco01",
+  "team": "ORL",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Alex Morales",
+  "bbrefId": "moralal01",
+  "team": "ORL",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Izaiyah Nelson",
+  "bbrefId": "nelsoiz01",
+  "team": "ORL",
+  "position": "F/C",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Caleb Love",
+  "bbrefId": "loveca01",
+  "team": "PHI",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Rayan Rupert",
+  "bbrefId": "ruperra01",
+  "team": "PHI",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "CJ Huntley",
+  "bbrefId": "huntlcj01",
+  "team": "PHO",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Pat Spencer",
+  "bbrefId": "spencpa01",
+  "team": "PHO",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Koby Brea",
+  "bbrefId": "breako01",
+  "team": "PHO",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Chris Youngblood",
+  "bbrefId": "youngch01",
+  "team": "POR",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jayson Kent",
+  "bbrefId": "kentja01",
+  "team": "POR",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "John Tonje",
+  "bbrefId": "tonjejo01",
+  "team": "POR",
+  "position": "G",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Adam Flagler",
+  "bbrefId": "flaglad01",
+  "team": "SAC",
+  "position": "G",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Jonathan Mogbo",
+  "bbrefId": "mogbojo01",
+  "team": "SAC",
+  "position": "F",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Ja’Kobi Gillespie",
+  "bbrefId": "gilleja02",
+  "team": "SAS",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Maliq Brown",
+  "bbrefId": "brownma05",
+  "team": "SAS",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "David Jones Garcia",
+  "bbrefId": "jonesda06",
+  "team": "SAS",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Chucky Hepburn",
+  "bbrefId": "hepbuch01",
+  "team": "TOR",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jaden Bradley",
+  "bbrefId": "bradlja02",
+  "team": "TOR",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Trey Jemison",
+  "bbrefId": "jemistr01",
+  "team": "TOR",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Blake Hinson",
+  "bbrefId": "hinsobl01",
+  "team": "UTA",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Tamar Bates",
+  "bbrefId": "batesta01",
+  "team": "UTA",
+  "position": "G",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Trey Alexander",
+  "bbrefId": "alexatr01",
+  "team": "UTA",
+  "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Julian Reese",
+  "bbrefId": "reeseju01",
+  "team": "WAS",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Jamir Watkins",
+  "bbrefId": "watkija01",
+  "team": "WAS",
+  "position": "G/F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Felix Okpara",
+  "bbrefId": "okparfe01",
+  "team": "WAS",
+  "position": "C",
+  "twoYear": false,
+  "reported": false
+ }
+]

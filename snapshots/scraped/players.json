@@ -1526,6 +1526,27 @@
   }
  },
  {
+  "name": "Bradley Beal",
+  "team": "LAC",
+  "salary": {
+   "2026-27": 25004710,
+   "2027-28": 19383010,
+   "2028-29": 19383010,
+   "2029-30": 19383010
+  },
+  "options": {},
+  "bbrefId": "bealbr01",
+  "acquisition": {
+   "date": "2026-08-13",
+   "method": "free-agent"
+  },
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
+ },
+ {
   "name": "Ayo Dosunmu",
   "team": "MIN",
   "salary": {
@@ -1932,11 +1953,7 @@
    "2027-28": 15514400
   },
   "options": {},
-  "bbrefId": "schrode01",
-  "acquisition": {
-   "date": "2026-02-01",
-   "method": "trade"
-  }
+  "bbrefId": "schrode01"
  },
  {
   "name": "AJ Dybantsa",
@@ -3171,11 +3188,7 @@
   "options": {
    "2027-28": "Team"
   },
-  "bbrefId": "manntr01",
-  "acquisition": {
-   "date": "2025-07-13",
-   "method": "free-agent"
-  }
+  "bbrefId": "manntr01"
  },
  {
   "name": "Tre Jones",

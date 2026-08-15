@@ -1,34 +1,5 @@
 {
-  "added": [],
-  "removed": [
-    {
-      "name": "James Harden",
-      "team": "CLE",
-      "salary": {
-        "2026-27": 42317307
-      },
-      "options": {
-        "2026-27": "Player"
-      },
-      "acquisition": {
-        "date": "2026-02-04",
-        "method": "trade"
-      }
-    },
-    {
-      "name": "Jonathan Kuminga",
-      "team": "ATL",
-      "salary": {
-        "2026-27": 24300000
-      },
-      "options": {
-        "2026-27": "Team"
-      },
-      "acquisition": {
-        "date": "2026-02-05",
-        "method": "trade"
-      }
-    },
+  "added": [
     {
       "name": "Bradley Beal",
       "team": "LAC",
@@ -38,82 +9,20 @@
         "2028-29": 19383010,
         "2029-30": 19383010
       },
-      "options": {
-        "2026-27": "Player"
-      },
-      "acquisition": {
-        "date": "2025-07-18",
-        "method": "free-agent"
-      }
-    },
-    {
-      "name": "Nicolas Batum",
-      "team": "LAC",
-      "salary": {
-        "2026-27": 5881680
-      },
-      "options": {
-        "2026-27": "Team"
-      },
-      "acquisition": {
-        "date": "2025-07-06",
-        "method": "free-agent"
-      }
-    },
-    {
-      "name": "Trendon Watford",
-      "team": "PHI",
-      "salary": {
-        "2026-27": 2801346
-      },
-      "options": {
-        "2026-27": "Team"
-      },
-      "acquisition": {
-        "date": "2025-07-02",
-        "method": "free-agent"
-      }
-    },
-    {
-      "name": "Ethan Thompson",
-      "team": "IND",
-      "salary": {
-        "2026-27": 678882
-      },
       "options": {},
-      "contractType": "two-way"
+      "acquisition": {
+        "date": "2026-08-13",
+        "method": "free-agent"
+      },
+      "guarantees": {
+        "2026-27": {
+          "status": "non-guaranteed"
+        }
+      }
     }
   ],
+  "removed": [],
   "changed": [
-    {
-      "before": {
-        "name": "Haywood Highsmith",
-        "team": "PHO",
-        "salary": {
-          "2026-27": 3018158
-        },
-        "options": {},
-        "acquisition": {
-          "date": "2026-02-18",
-          "method": "free-agent"
-        }
-      },
-      "after": {
-        "name": "Haywood Highsmith",
-        "team": "PHO",
-        "salary": {
-          "2026-27": 1000000
-        },
-        "options": {},
-        "acquisition": {
-          "date": "2026-02-18",
-          "method": "free-agent"
-        }
-      },
-      "fields": [
-        "salary"
-      ]
-    },
     {
       "before": {
         "name": "Zach LaVine",
@@ -390,6 +299,33 @@
     },
     {
       "before": {
+        "name": "Dennis Schröder",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 14809200,
+          "2027-28": 15514400
+        },
+        "options": {},
+        "acquisition": {
+          "date": "2026-02-01",
+          "method": "trade"
+        }
+      },
+      "after": {
+        "name": "Dennis Schröder",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 14809200,
+          "2027-28": 15514400
+        },
+        "options": {}
+      },
+      "fields": [
+        "acquisition"
+      ]
+    },
+    {
+      "before": {
         "name": "Zaccharie Risacher",
         "team": "DAL",
         "salary": {
@@ -850,6 +786,37 @@
       },
       "fields": [
         "options"
+      ]
+    },
+    {
+      "before": {
+        "name": "Tre Mann",
+        "team": "CHO",
+        "salary": {
+          "2026-27": 8000000,
+          "2027-28": 8000000
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "acquisition": {
+          "date": "2025-07-13",
+          "method": "free-agent"
+        }
+      },
+      "after": {
+        "name": "Tre Mann",
+        "team": "CHO",
+        "salary": {
+          "2026-27": 8000000,
+          "2027-28": 8000000
+        },
+        "options": {
+          "2027-28": "Team"
+        }
+      },
+      "fields": [
+        "acquisition"
       ]
     },
     {

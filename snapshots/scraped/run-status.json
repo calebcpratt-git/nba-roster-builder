@@ -35,9 +35,7 @@
     "bbref_draft_2026": true,
     "bbref_draft_2025": true
   },
-  "rescuedSources": [
-    "realgm_current_free_agents"
-  ],
+  "rescuedSources": [],
   "unresolved": {
     "before": {
       "draft-year": 0,
@@ -48,21 +46,29 @@
     "after": {
       "draft-year": 0,
       "acquisition": 92,
-      "guarantees": 6,
+      "guarantees": 5,
       "signing": 10
     },
     "newUnresolved": 0,
     "newByCategory": {},
-    "newRecords": {}
+    "newRecords": {
+      "acquisition": [
+        {
+          "name": "Basheer Jihad",
+          "date": "2026-08-14",
+          "method": "free-agent"
+        }
+      ]
+    }
   },
-  "generatedAt": "2026-08-14T18:09:21.898Z",
+  "generatedAt": "2026-08-15T11:23:40.205Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -6 ~82 (of 524)",
+    "players: +1 -0 ~83 (of 524)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -2 ~4 (of 519)",
+    "contract-details: +0 -0 ~1 (of 519)",
     "team-cap-state: +0 -0 ~30 (of 150)",
-    "free-agents: +3 -2 ~0 (of 149)"
+    "free-agents: +3 -3 ~0 (of 149)"
   ],
   "clean": true
 }

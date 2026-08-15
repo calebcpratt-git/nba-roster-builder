@@ -48,12 +48,6 @@
     "birdRights": "early-bird"
   },
   {
-    "name": "Bradley Beal",
-    "priorTeam": "LAC",
-    "faType": "U",
-    "birdRights": "non-bird"
-  },
-  {
     "name": "MarJon Beauchamp",
     "priorTeam": "PHI",
     "faType": "U",
@@ -158,6 +152,12 @@
   {
     "name": "N'Faly Dante",
     "priorTeam": "ATL",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "J.D. Davison",
+    "priorTeam": "HOU",
     "faType": "U",
     "birdRights": null
   },
@@ -340,12 +340,6 @@
     "priorTeam": "MIN",
     "faType": "U",
     "birdRights": null
-  },
-  {
-    "name": "Yuki Kawamura",
-    "priorTeam": "CHI",
-    "faType": "U",
-    "birdRights": "non-bird"
   },
   {
     "name": "Trevor Keels",
@@ -552,8 +546,8 @@
     "birdRights": null
   },
   {
-    "name": "Taelon Peter",
-    "priorTeam": "IND",
+    "name": "Sean Pedulla",
+    "priorTeam": "LAC",
     "faType": "U",
     "birdRights": null
   },
@@ -724,6 +718,12 @@
     "priorTeam": "MIL",
     "faType": "U",
     "birdRights": null
+  },
+  {
+    "name": "Ethan Thompson",
+    "priorTeam": "IND",
+    "faType": "U",
+    "birdRights": "non-bird"
   },
   {
     "name": "Xavier Tillman, Sr.",

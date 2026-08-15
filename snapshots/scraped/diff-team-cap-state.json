@@ -4,219 +4,6 @@
   "changed": [
     {
       "before": {
-        "team": "LAC",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "TyTy Washington Jr.",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Sean Pedulla",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Keaton Wagler",
-            "amount": 9700000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Bennedict Mathurin",
-            "amount": 27600000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "John Collins",
-            "amount": 39900000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Ben Simmons",
-            "amount": 2500000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Rodney Hood",
-            "amount": 2500000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Patty Mills",
-            "amount": 2500000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Xavier Moon",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Norchad Omier",
-            "amount": 2200000,
-            "kind": "free-agent"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "LAC-kobe-brown-2026-02-05",
-            "amount": 2654880,
-            "expires": "2027-02-05",
-            "fromPlayer": "Kobe Brown"
-          },
-          {
-            "id": "LAC-chris-paul-2026-02-05",
-            "amount": 2296274,
-            "expires": "2027-02-05",
-            "fromPlayer": "Chris Paul"
-          },
-          {
-            "id": "LAC-ivica-zubac-2026-02-05",
-            "amount": 1314427,
-            "expires": "2027-02-05",
-            "fromPlayer": "Ivica Zubac"
-          },
-          {
-            "id": "LAC-john-collins-2026-07-08",
-            "amount": 15740741,
-            "expires": "2027-07-08",
-            "fromPlayer": "John Collins"
-          }
-        ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
-        },
-        "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [
-              {
-                "player": "Rui Hachimura",
-                "amount": 14000000
-              }
-            ],
-            "remaining": 1044000
-          },
-          "biAnnual": {
-            "signings": [],
-            "remaining": 5477000
-          },
-          "dpe": {
-            "player": "Bradley Beal",
-            "initial": 0,
-            "used": false,
-            "remaining": 0
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 0,
-          "availableToReceive": 6464000
-        },
-        "apronAddon": 0
-      },
-      "after": {
-        "team": "LAC",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "Sean Pedulla",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Bennedict Mathurin",
-            "amount": 27600000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
-          },
-          {
-            "label": "Norchad Omier",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "LAC-kobe-brown-2026-02-05",
-            "amount": 2654880,
-            "expires": "2027-02-05",
-            "fromPlayer": "Kobe Brown"
-          },
-          {
-            "id": "LAC-chris-paul-2026-02-05",
-            "amount": 2296274,
-            "expires": "2027-02-05",
-            "fromPlayer": "Chris Paul"
-          },
-          {
-            "id": "LAC-ivica-zubac-2026-02-05",
-            "amount": 1314427,
-            "expires": "2027-02-05",
-            "fromPlayer": "Ivica Zubac"
-          },
-          {
-            "id": "LAC-john-collins-2026-07-08",
-            "amount": 15740741,
-            "expires": "2027-07-08",
-            "fromPlayer": "John Collins"
-          }
-        ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
-        },
-        "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [
-              {
-                "player": "Rui Hachimura",
-                "amount": 14000000
-              }
-            ],
-            "remaining": 1044000
-          },
-          "biAnnual": {
-            "signings": [
-              {
-                "player": "Bradley Beal",
-                "amount": 6439024,
-                "date": "2026-08-13"
-              }
-            ],
-            "remaining": 0
-          },
-          "dpe": {
-            "player": "Bradley Beal",
-            "initial": 3219512,
-            "used": false,
-            "remaining": 3219512
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 0,
-          "availableToReceive": 6464000
-        },
-        "apronAddon": 0
-      },
-      "fields": [
-        "exceptionsUsed",
-        "capHolds"
-      ]
-    },
-    {
-      "before": {
         "team": "ATL",
         "season": "2026-27",
         "deadMoney": [
@@ -2271,6 +2058,224 @@
           "availableToReceive": 7964000
         },
         "apronAddon": 480000
+      },
+      "fields": [
+        "capHolds"
+      ]
+    },
+    {
+      "before": {
+        "team": "LAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "TyTy Washington Jr.",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Sean Pedulla",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Keaton Wagler",
+            "amount": 9700000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Bennedict Mathurin",
+            "amount": 27600000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "John Collins",
+            "amount": 39900000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Ben Simmons",
+            "amount": 2500000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Rodney Hood",
+            "amount": 2500000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Patty Mills",
+            "amount": 2500000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Xavier Moon",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Norchad Omier",
+            "amount": 2200000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "LAC-kobe-brown-2026-02-05",
+            "amount": 2654880,
+            "expires": "2027-02-05",
+            "fromPlayer": "Kobe Brown"
+          },
+          {
+            "id": "LAC-chris-paul-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Chris Paul"
+          },
+          {
+            "id": "LAC-ivica-zubac-2026-02-05",
+            "amount": 1314427,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ivica Zubac"
+          },
+          {
+            "id": "LAC-john-collins-2026-07-08",
+            "amount": 15740741,
+            "expires": "2027-07-08",
+            "fromPlayer": "John Collins"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Rui Hachimura",
+                "amount": 14000000
+              }
+            ],
+            "remaining": 1044000
+          },
+          "biAnnual": {
+            "signings": [
+              {
+                "player": "Bradley Beal",
+                "amount": 6439024,
+                "date": "2026-08-13"
+              }
+            ],
+            "remaining": 0
+          },
+          "dpe": {
+            "player": "Bradley Beal",
+            "initial": 3219512,
+            "used": false,
+            "remaining": 3219512
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 0,
+          "availableToReceive": 6464000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "LAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Sean Pedulla",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Bennedict Mathurin",
+            "amount": 27600000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          },
+          {
+            "label": "Norchad Omier",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "LAC-kobe-brown-2026-02-05",
+            "amount": 2654880,
+            "expires": "2027-02-05",
+            "fromPlayer": "Kobe Brown"
+          },
+          {
+            "id": "LAC-chris-paul-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Chris Paul"
+          },
+          {
+            "id": "LAC-ivica-zubac-2026-02-05",
+            "amount": 1314427,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ivica Zubac"
+          },
+          {
+            "id": "LAC-john-collins-2026-07-08",
+            "amount": 15740741,
+            "expires": "2027-07-08",
+            "fromPlayer": "John Collins"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Rui Hachimura (Jul 6)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Rui Hachimura",
+                "amount": 14000000
+              }
+            ],
+            "remaining": 1044000
+          },
+          "biAnnual": {
+            "signings": [
+              {
+                "player": "Bradley Beal",
+                "amount": 6439024,
+                "date": "2026-08-13"
+              }
+            ],
+            "remaining": 0
+          },
+          "dpe": {
+            "player": "Bradley Beal",
+            "initial": 3219512,
+            "used": false,
+            "remaining": 3219512
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 0,
+          "availableToReceive": 6464000
+        },
+        "apronAddon": 0
       },
       "fields": [
         "capHolds"
