@@ -27,6 +27,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Lonzo Ball', priorTeam: 'UTA', faType: 'unrestricted', position: 'SG' },
   { name: 'Dalano Banton', priorTeam: 'BOS', faType: 'unrestricted', position: 'PF' },
   { name: 'Nicolas Batum', priorTeam: 'LAC', faType: 'unrestricted', birdRights: 'early-bird', position: 'SG/SF' },
+  { name: 'Bradley Beal', priorTeam: 'LAC', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'MarJon Beauchamp', priorTeam: 'PHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
   { name: 'Jules Bernard', priorTeam: 'MIN', faType: 'unrestricted', position: 'SG' },
   { name: 'Bismack Biyombo', priorTeam: 'SAS', faType: 'unrestricted', birdRights: 'early-bird', position: 'PF/C' },

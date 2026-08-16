@@ -45,6 +45,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Trevon Scott",
+  "date": "2026-04-02",
+  "method": "free-agent"
+ },
+ {
   "name": "Matteo Spagnolo",
   "date": "2026-07-10",
   "method": "trade"
@@ -98,6 +103,16 @@
   "name": "Vsevolod Ishchenko",
   "date": "2026-06-23",
   "method": "draft"
+ },
+ {
+  "name": "Nicolas Claxton",
+  "date": "2026-06-22",
+  "method": "trade"
+ },
+ {
+  "name": "Mouhamadou Gueye",
+  "date": "2026-04-09",
+  "method": "free-agent"
  },
  {
   "name": "Rashaun Agee",
@@ -205,6 +220,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Bradley Beal",
+  "date": "2026-08-13",
+  "method": "free-agent"
+ },
+ {
   "name": "Fletcher Loyer",
   "date": "2026-06-25",
   "method": "free-agent"
@@ -298,6 +318,11 @@
   "name": "Trey Kaufman-Renn",
   "date": "2026-06-23",
   "method": "draft"
+ },
+ {
+  "name": "Mouhamadou Gueye",
+  "date": "2026-06-22",
+  "method": "trade"
  },
  {
   "name": "Chris Bell",
@@ -435,6 +460,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Hayden Gray",
+  "date": "2026-04-11",
+  "method": "free-agent"
+ },
+ {
   "name": "Bez Mbeng",
   "date": "2026-04-03",
   "method": "free-agent"
@@ -442,6 +472,21 @@
  {
   "name": "Kennedy Chandler",
   "date": "2026-04-01",
+  "method": "free-agent"
+ },
+ {
+  "name": "Bez Mbeng",
+  "date": "2026-03-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Kennedy Chandler",
+  "date": "2026-03-21",
+  "method": "free-agent"
+ },
+ {
+  "name": "Bez Mbeng",
+  "date": "2026-03-13",
   "method": "free-agent"
  },
  {

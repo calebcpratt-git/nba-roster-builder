@@ -1,5 +1,31 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Bradley Beal",
+        "tradeBonusPct": 15,
+        "signedUnder": "bi-annual",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          },
+          "2027-28": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Bradley Beal",
+        "tradeBonusPct": 15
+      },
+      "fields": [
+        "signedUnder",
+        "incentives"
+      ]
+    }
+  ]
 }
