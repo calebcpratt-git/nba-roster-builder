@@ -16,7 +16,7 @@ function tsLiteral(value) {
 }
 
 /**
- * @typedef {{ name: string, priorTeam: string, faType: 'U' | 'R', birdRights?: string }} FreeAgentRecord
+ * @typedef {{ name: string, position?: string, priorTeam: string, faType: 'U' | 'R', birdRights?: string }} FreeAgentRecord
  * @param {FreeAgentRecord[]} records
  */
 function buildFreeAgentsBlock(records) {
@@ -28,6 +28,7 @@ function buildFreeAgentsBlock(records) {
       `faType: ${tsLiteral(FA_TYPE_LABEL[r.faType] ?? 'unrestricted')}`,
     ]
     if (r.birdRights) parts.push(`birdRights: ${tsLiteral(r.birdRights)}`)
+    if (r.position) parts.push(`position: ${tsLiteral(r.position)}`)
     block += `  { ${parts.join(', ')} },\n`
   }
   block += `]\n${END_MARKER}`

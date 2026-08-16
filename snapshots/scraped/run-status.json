@@ -7,6 +7,7 @@
     "picks",
     "enrichment",
     "clauses",
+    "player-awards",
     "cap-state",
     "cap-hold-reconciliation",
     "salaryswish-league",
@@ -33,42 +34,77 @@
     "salaryswish_dpe": true,
     "salaryswish_sitemap": true,
     "bbref_draft_2026": true,
-    "bbref_draft_2025": true
+    "bbref_draft_2025": true,
+    "bbref_awards_2026": true,
+    "bbref_awards_2025": true,
+    "bbref_awards_2024": true,
+    "bbref_awards_2023": true,
+    "bbref_awards_2022": true
   },
-  "rescuedSources": [],
+  "rescuedSources": [
+    "bbref_awards_2022",
+    "bbref_awards_2023",
+    "bbref_awards_2024",
+    "bbref_awards_2025",
+    "bbref_awards_2026"
+  ],
   "unresolved": {
     "before": {
       "draft-year": 0,
       "acquisition": 92,
-      "guarantees": 6,
-      "signing": 10
+      "guarantees": 5,
+      "signing": 10,
+      "awards": 0
     },
     "after": {
       "draft-year": 0,
       "acquisition": 92,
       "guarantees": 5,
-      "signing": 10
+      "signing": 10,
+      "awards": 4
     },
-    "newUnresolved": 0,
-    "newByCategory": {},
+    "newUnresolved": 4,
+    "newByCategory": {
+      "awards": 4
+    },
     "newRecords": {
-      "acquisition": [
+      "awards": [
         {
-          "name": "Basheer Jihad",
-          "date": "2026-08-14",
-          "method": "free-agent"
+          "name": "Jalen Duren",
+          "bbrefId": "durenja01",
+          "season": "2025-26",
+          "award": "All-NBA-3"
+        },
+        {
+          "name": "James Harden",
+          "bbrefId": "hardeja01",
+          "season": "2024-25",
+          "award": "All-NBA-3"
+        },
+        {
+          "name": "DeMar DeRozan",
+          "bbrefId": "derozde01",
+          "season": "2021-22",
+          "award": "All-NBA-2"
+        },
+        {
+          "name": "Chris Paul",
+          "bbrefId": "paulch01",
+          "season": "2021-22",
+          "award": "All-NBA-3"
         }
       ]
     }
   },
-  "generatedAt": "2026-08-15T11:23:40.205Z",
+  "generatedAt": "2026-08-16T08:32:02.389Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~2 (of 524)",
+    "players: +0 -0 ~0 (of 525)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~1 (of 519)",
+    "contract-details: +0 -0 ~0 (of 519)",
     "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -1 ~0 (of 149)"
+    "free-agents: +0 -0 ~0 (of 149)",
+    "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true
 }
