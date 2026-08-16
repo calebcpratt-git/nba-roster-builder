@@ -1,5 +1,365 @@
 [
  {
+  "team": "ATL",
+  "player": "Christian Koloko",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
+  "player": "Jock Landale",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
+  "player": "Wesley Matthews",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
+  "player": "Trent Forrest",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
+  "player": "Dylan Windler",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
+  "player": "Kingston Flemings",
+  "amount": 7400000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
+  "player": "Zuby Ejiofor",
+  "amount": 3500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BOS",
+  "player": "Blake Griffin",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BOS",
+  "player": "Nikola Vucevic",
+  "amount": 32200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BOS",
+  "player": "John Tonje",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BOS",
+  "player": "Torrey Craig",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BOS",
+  "player": "Mfiondu Kabengele",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BOS",
+  "player": "Chris Cenac Jr.",
+  "amount": 3000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BRK",
+  "player": "Jalen Wilson",
+  "amount": 5400000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BRK",
+  "player": "Ziaire Williams",
+  "amount": 11900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BRK",
+  "player": "Joshua Jefferson",
+  "amount": 3000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BRK",
+  "player": "Nikola Milutinov",
+  "amount": 3200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BRK",
+  "player": "Mikel Brown Jr.",
+  "amount": 8800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHO",
+  "player": "Xavier Tillman Sr.",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHO",
+  "player": "Christian Anderson",
+  "amount": 4300000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHO",
+  "player": "Hannes Steinbach",
+  "amount": 5200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Talen Horton-Tucker",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Matt Thomas",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Yuki Kawamura",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Zach Collins",
+  "amount": 27100000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Collin Sexton",
+  "amount": 28800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Anfernee Simons",
+  "amount": 41517857,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Dailyn Swain",
+  "amount": 5000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
+  "player": "Caleb Wilson",
+  "amount": 10700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Raul Neto",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Chuma Okeke",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Keon Ellis",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Dean Wade",
+  "amount": 12600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Damian Jones",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Larry Nance Jr.",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Tristan Thompson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Rajon Rondo",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CLE",
+  "player": "Ed Davis",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Moussa Cisse",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Nicolo Melli",
+  "amount": 5100000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Theo Pinson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "McKinley Wright IV",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Moses Wright",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Greg Brown III",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Kai Jones",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Sergio de Larrea",
+  "amount": 3200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Morez Johnson Jr.",
+  "amount": 6800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Khris Middleton",
+  "amount": 52600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
+  "player": "Marvin Bagley III",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Tim Hardaway Jr.",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Bruce Brown Jr.",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Spencer Jones",
+  "amount": 2700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Richard Jefferson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Markus Howard",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "K.J. Simpson",
+  "amount": 4074252,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Tyus Jones",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Justin Holiday",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Vlatko Cancar",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "Troy Daniels",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
+  "player": "DeMarcus Cousins",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
   "team": "DEN",
   "player": "Russell Westbrook",
   "amount": 2500000,
@@ -7,10 +367,1054 @@
   "matchedPriorTeam": "SAC"
  },
  {
+  "team": "DET",
+  "player": "Ebuka Okorie",
+  "amount": 4500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DET",
+  "player": "Malik Beasley",
+  "amount": 7200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DET",
+  "player": "Javonte Green",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DET",
+  "player": "Wendell Moore Jr.",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DET",
+  "player": "Tobias Harris",
+  "amount": 40000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Quinten Post",
+  "amount": 2700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Draymond Green",
+  "amount": 20487805,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Gary Payton II",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Charles Bassey",
+  "amount": 2700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Pat Spencer",
+  "amount": 3400000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Jeenathan Williams",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Yaxel Lendeborg",
+  "amount": 6100000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Taran Armstrong",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Nico Mannion",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "David West",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Kevin Knox",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Andre Iguodala",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "JaMychal Green",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Nemanja Bjelica",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Andrew Bogut",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Anthony Lamb",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Usman Garuba",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Matt Barnes",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Jonas Jerebko",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "GSW",
+  "player": "Jerome Robinson",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "HOU",
+  "player": "Jae'Sean Tate",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "HOU",
+  "player": "Josh Okogie",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "HOU",
+  "player": "Tari Eason",
+  "amount": 17000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "HOU",
+  "player": "Isaiah Crawford",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "HOU",
+  "player": "Jack McVeigh",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "HOU",
+  "player": "Reggie Bullock",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "HOU",
+  "player": "Boban Marjanovic",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "IND",
+  "player": "Kobe Brown",
+  "amount": 4800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "IND",
+  "player": "James Johnson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "IND",
+  "player": "Jalen Slawson",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "IND",
+  "player": "Gabe York",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
+  "player": "TyTy Washington Jr.",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
+  "player": "Keaton Wagler",
+  "amount": 9700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
+  "player": "John Collins",
+  "amount": 39900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
+  "player": "Ben Simmons",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
+  "player": "Rodney Hood",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
+  "player": "Patty Mills",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
+  "player": "Xavier Moon",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Cameron Carr",
+  "amount": 3300000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Chris Manon",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Rui Hachimura",
+  "amount": 27400000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "LeBron James",
+  "amount": 59500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Luke Kennard",
+  "amount": 13200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Marcus Smart",
+  "amount": 6200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Jaxson Hayes",
+  "amount": 4500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Wayne Ellington",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Avery Bradley",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Jared Dudley",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Dwight Howard",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Dion Waiters",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Carmelo Anthony",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Markieff Morris",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MEM",
+  "player": "Karim Lopez",
+  "amount": 3700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MEM",
+  "player": "Cameron Boozer",
+  "amount": 11900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Vladislav Goldin",
+  "amount": 0,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Josh Christopher",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Nate Ament",
+  "amount": 5500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Dwyane Wade",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Jordan Mickey",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Udonis Haslem",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Alec Burks",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Simone Fontecchio",
+  "amount": 15800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Norman Powell",
+  "amount": 30700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIL",
+  "player": "Cameron Thomas",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIL",
+  "player": "Brayden Burries",
+  "amount": 6400000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIL",
+  "player": "Gary Trent Jr.",
+  "amount": 0,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIL",
+  "player": "Ousmane Dieng",
+  "amount": 20000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Austin Rivers",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Greg Monroe",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Nah'Shon Hyland",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Mike Conley",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Aaron Brooks",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Kyle Anderson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Enrique Freeman",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Jaylen Clark",
+  "amount": 3000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIN",
+  "player": "Evan Turner",
+  "amount": 27900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Keion Brooks Jr.",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "James Nunnally",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "DeAndre Jordan",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Hunter Dickinson",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Trey Alexander",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Willy Hernangomez",
+  "amount": 4600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Elfrid Payton",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Tony Snell",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Brandon Boston Jr.",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Gary Clark",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Jared Harper",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "Ariel Hukporti",
+  "amount": 2700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "Mitchell Robinson",
+  "amount": 24600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "Kevin McCullar Jr.",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "Jordan Clarkson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "P.J. Tucker",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "Jeremy Sochan",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "Trey Jemison",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
+  "player": "Petteri Koponen",
+  "amount": 3200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "OKC",
+  "player": "Alex Ducas",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "OKC",
+  "player": "Branden Carlson",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "OKC",
+  "player": "Brooks Barnhizer",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "OKC",
+  "player": "Bennett Stirtz",
+  "amount": 4700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "OKC",
+  "player": "Aday Mara",
+  "amount": 5800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "OKC",
+  "player": "Kenrich Williams",
+  "amount": 7200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ORL",
+  "player": "Jett Howard",
+  "amount": 7300000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ORL",
+  "player": "Colin Castleton",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ORL",
+  "player": "Moritz Wagner",
+  "amount": 9500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ORL",
+  "player": "Cory Joseph",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ORL",
+  "player": "Jevon Carter",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ORL",
+  "player": "Trevelin Queen",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHI",
+  "player": "Andre Drummond",
+  "amount": 6500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHI",
+  "player": "Kelly Oubre Jr.",
+  "amount": 15900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHI",
+  "player": "Lonnie Walker IV",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHI",
+  "player": "Quentin Grimes",
+  "amount": 16600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHI",
+  "player": "Jeff Dowtin",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHI",
+  "player": "Jalen Hood-Schifino",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHI",
+  "player": "Labaron Philon Jr.",
+  "amount": 3600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Thaddeus Young",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Terrence Ross",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Bol Bol",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Damion Lee",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Isaiah Thomas",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Saben Lee",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Koby Brea",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Udoka Azubuike",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Ish Wainright",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Gabriel Lundberg",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "PHO",
+  "player": "Koa Peat",
+  "amount": 2900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Robert Williams III",
+  "amount": 19900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Caleb Love",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Matisse Thybulle",
+  "amount": 21900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Rayan Rupert",
+  "amount": 3000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Rondae Hollis-Jefferson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Ben McLemore",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "T.J. Leaf",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Keljin Blevins",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "POR",
+  "player": "Ashton Hagans",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Daeqwon Plowden",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Patrick Baldwin Jr.",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Trey Lyles",
+  "amount": 15200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Jae Crowder",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "JaVale McGee",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Precious Achiuwa",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Mason Jones",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Jordan Ford",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
   "team": "SAC",
   "player": "Markelle Fultz",
   "amount": 2500000,
   "reason": "name-matched-different-team",
   "matchedPriorTeam": "TOR"
+ },
+ {
+  "team": "SAC",
+  "player": "Alex Karaban",
+  "amount": 2900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Darius Acuff Jr.",
+  "amount": 8000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAS",
+  "player": "Jordan McLaughlin",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAS",
+  "player": "Harrison Ingram",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAS",
+  "player": "David Jones",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAS",
+  "player": "Tarris Reed Jr.",
+  "amount": 3100000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAS",
+  "player": "Jayden Quaintance",
+  "amount": 3900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "TOR",
+  "player": "Alijah Martin",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "TOR",
+  "player": "Will Barton",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "TOR",
+  "player": "Jordan Nwora",
+  "amount": 5700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "TOR",
+  "player": "Allen Graves",
+  "amount": 4100000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "TOR",
+  "player": "Chucky Hepburn",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "UTA",
+  "player": "Elijah Harkless",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "UTA",
+  "player": "Walker Kessler",
+  "amount": 14600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "UTA",
+  "player": "Oscar Tshiebwe",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "UTA",
+  "player": "Darryn Peterson",
+  "amount": 13200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Ian Mahinmi",
+  "amount": 23200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Kendrick Nunn",
+  "amount": 6800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Tomas Satoransky",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Shabazz Napier",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Ty Lawson",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Ramon Sessions",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Johnathan Williams",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Cassius Winston",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "JT Thor",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "AJ Dybantsa",
+  "amount": 14800000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Trae Young",
+  "amount": 48709374,
+  "reason": "not-in-realgm-current-free-agents"
  }
 ]

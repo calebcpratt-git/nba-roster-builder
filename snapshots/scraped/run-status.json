@@ -4,7 +4,6 @@
     "two-way-contracts",
     "free-agent-reconciliation",
     "free-agent-pool",
-    "picks",
     "enrichment",
     "clauses",
     "player-awards",
@@ -15,12 +14,14 @@
     "cash-ledger",
     "apron-addon"
   ],
-  "staleSources": [],
+  "staleSources": [
+    "picks (fetch failed)"
+  ],
   "sourceFetches": {
     "bbref_contracts": true,
-    "realgm_future_drafts": true,
-    "realgm_free_agent_options": true,
-    "realgm_current_free_agents": true,
+    "realgm_future_drafts": false,
+    "realgm_free_agent_options": false,
+    "realgm_current_free_agents": false,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -41,70 +42,72 @@
     "bbref_awards_2023": true,
     "bbref_awards_2022": true
   },
-  "rescuedSources": [
-    "bbref_awards_2022",
-    "bbref_awards_2023",
-    "bbref_awards_2024",
-    "bbref_awards_2025",
-    "bbref_awards_2026"
-  ],
+  "pageGroups": {
+    "salaryswish-transactions": {
+      "total": 30,
+      "failed": []
+    },
+    "captracker-teams": {
+      "total": 30,
+      "failed": []
+    },
+    "salaryswish-players": {
+      "total": 10,
+      "failed": []
+    }
+  },
+  "rescuedSources": [],
   "unresolved": {
     "before": {
       "draft-year": 0,
       "acquisition": 92,
       "guarantees": 5,
       "signing": 10,
-      "awards": 0
+      "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 92,
-      "guarantees": 5,
+      "acquisition": 101,
+      "guarantees": 6,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 4,
+    "newUnresolved": 10,
     "newByCategory": {
-      "awards": 4
+      "acquisition": 9,
+      "guarantees": 1
     },
     "newRecords": {
-      "awards": [
+      "acquisition": [
         {
-          "name": "Jalen Duren",
-          "bbrefId": "durenja01",
-          "season": "2025-26",
-          "award": "All-NBA-3"
-        },
+          "name": "Bradley Beal",
+          "date": "2026-08-13",
+          "method": "free-agent"
+        }
+      ],
+      "guarantees": [
         {
-          "name": "James Harden",
-          "bbrefId": "hardeja01",
-          "season": "2024-25",
-          "award": "All-NBA-3"
-        },
-        {
-          "name": "DeMar DeRozan",
-          "bbrefId": "derozde01",
-          "season": "2021-22",
-          "award": "All-NBA-2"
-        },
-        {
-          "name": "Chris Paul",
-          "bbrefId": "paulch01",
-          "season": "2021-22",
-          "award": "All-NBA-3"
+          "player": "Bradley Beal",
+          "team": "Los Angeles Clippers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
         }
       ]
     }
   },
-  "generatedAt": "2026-08-16T08:32:02.389Z",
-  "warnings": [],
+  "generatedAt": "2026-08-16T20:26:58.862Z",
+  "warnings": [
+    "players: diff too large — 494 of 525 previous records changed (94.1%, threshold 30%) — proceeding because a large diff was explicitly accepted"
+  ],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 525)",
+    "players: +0 -1 ~493 (of 525)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 519)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -0 ~0 (of 149)",
+    "contract-details: +0 -0 ~1 (of 519)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +1 -0 ~0 (of 149)",
     "awards: +0 -0 ~0 (of 76)"
   ],
-  "clean": true
+  "clean": false
 }

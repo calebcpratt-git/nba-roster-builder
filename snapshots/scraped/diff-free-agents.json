@@ -1,5 +1,13 @@
 {
-  "added": [],
+  "added": [
+    {
+      "name": "Bradley Beal",
+      "position": "SG",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": "non-bird"
+    }
+  ],
   "removed": [],
   "changed": []
 }
