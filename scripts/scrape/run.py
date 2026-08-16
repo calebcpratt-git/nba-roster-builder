@@ -150,6 +150,14 @@ SOURCES = {
     **{f'bbref_awards_{y}': f'https://www.basketball-reference.com/awards/awards_{y}.html' for y in AWARDS_YEARS},
 }
 
+# Per-team/per-player sources that fetch many pages in their own loop
+# instead of going through SOURCES/fetch_all — the dashboard has no single
+# ok/failed signal for these from `source_fetches` alone, so each build
+# function that owns one of these loops records {total, failed: [labels]}
+# here. Untouched on a --rescue run (none of these loops are rescuable
+# individually), so main() carries the previous run's entries forward.
+PAGE_GROUPS = {}
+
 MIN_BYTES = 20_000        # smaller than this = a challenge/error page, not real content
 FETCH_TRIES = 5           # total attempts per source before giving up
 BACKOFF_BASE = 4          # seconds; doubles each retry (4, 8, 16, 32...) plus jitter
@@ -439,6 +447,8 @@ def build_players():
     if unresolved:
         os.makedirs(BBREF_PLAYERS_RAW, exist_ok=True)
         resolved_by_fallback = 0
+        bbref_player_fetch_failed = []
+        bbref_player_fetch_attempted = 0
         for c in unresolved:
             bbrefId = c.get('bbrefId')
             if not bbrefId:
@@ -450,9 +460,11 @@ def build_players():
                     still_unresolved.append(c)
                     continue
             else:
+                bbref_player_fetch_attempted += 1
                 url = bbref.PLAYER_URL.format(first=bbrefId[0], bbrefId=bbrefId)
                 if not bbref.fetch_page(url, path):
                     still_unresolved.append(c)
+                    bbref_player_fetch_failed.append(c['name'])
                     continue
                 time.sleep(1.0)
             year = bbref.parse_player_debut(path, CURRENT_SEASON_YEAR)
@@ -461,6 +473,11 @@ def build_players():
                 resolved_by_fallback += 1
             else:
                 still_unresolved.append(c)
+        if bbref_player_fetch_attempted:
+            PAGE_GROUPS['bbref-player-pages'] = {
+                'total': bbref_player_fetch_attempted,
+                'failed': sorted(bbref_player_fetch_failed),
+            }
         if resolved_by_fallback:
             print(f'  draft-year fallback (BBRef bio pages): resolved {resolved_by_fallback}, '
                   f'still unresolved {len(still_unresolved)}')
@@ -605,6 +622,10 @@ def build_enrichment():
 
     ss_offline = '--offline' in sys.argv
     ss_failed_teams = salaryswish.fetch_team_transactions(SS_TEAM_TRANSACTIONS_RAW, offline=ss_offline)
+    PAGE_GROUPS['salaryswish-transactions'] = {
+        'total': len(salaryswish.TEAM_SLUG_TO_ABBR),
+        'failed': sorted(salaryswish.TEAM_SLUG_TO_ABBR[s] for s in ss_failed_teams),
+    }
     if ss_failed_teams:
         print(f'  WARN {len(ss_failed_teams)} salaryswish team-transaction page(s) failed to fetch, '
               f'proceeding with the rest: {sorted(ss_failed_teams)}')
@@ -1001,6 +1022,7 @@ def build_free_agent_pool():
 
 def build_cap_state(offline=False):
     failed_teams = captracker.fetch_all(CAPTRACKER_RAW, offline=offline)
+    PAGE_GROUPS['captracker-teams'] = {'total': len(captracker.TEAM_SLUGS), 'failed': sorted(failed_teams)}
     if len(failed_teams) == len(captracker.TEAM_SLUGS):
         raise RuntimeError('every nbacaptracker team page failed to fetch')
     if failed_teams:
@@ -1238,6 +1260,7 @@ def build_signing_incentives(offline=False):
 
     new_cache = {}
     unresolved = []
+    fetch_failed = []
     fetched = reused = 0
     for p in players:
         key = _base(p['name'])
@@ -1258,6 +1281,7 @@ def build_signing_incentives(offline=False):
         else:
             if not salaryswish.fetch_page(salaryswish.PLAYER_URL.format(slug=slug), path):
                 unresolved.append({'name': p['name'], 'team': team, 'reason': 'fetch failed'})
+                fetch_failed.append(p['name'])
                 continue
             fetched += 1
             time.sleep(SS_FETCH_DELAY)
@@ -1273,6 +1297,7 @@ def build_signing_incentives(offline=False):
 
     json.dump(new_cache, open(SS_PLAYER_CACHE, 'w'), indent=1, ensure_ascii=False)
     json.dump(unresolved, open(os.path.join(OUT, 'unresolved-signing.json'), 'w'), indent=1, ensure_ascii=False)
+    PAGE_GROUPS['salaryswish-players'] = {'total': fetched + len(fetch_failed), 'failed': sorted(fetch_failed)}
     print(f'  signing/incentives: {reused} reused from cache, {fetched} freshly fetched, '
           f'{len(unresolved)} unresolved')
 
@@ -1628,15 +1653,22 @@ def main():
             (set(prev.get('rescuedSources') or []) | {n for n in rescue if source_fetches.get(n)})
             & {n for n, v in source_fetches.items() if v}
         )
+        # None of the per-team/per-player page-loop sources are individually
+        # rescuable (no runPyKey), so a rescue run never touches PAGE_GROUPS —
+        # carry the previous run's counts forward rather than reporting them
+        # as "no data".
+        page_groups = {**(prev.get('pageGroups') or {}), **PAGE_GROUPS}
     else:
         # A full scheduled run re-fetches everything itself, so nothing is
         # still running on a rescued value afterward.
         rescued_sources = []
+        page_groups = PAGE_GROUPS
 
     status = {
         'written': written,
         'staleSources': skipped,
         'sourceFetches': source_fetches,
+        'pageGroups': page_groups,
         'rescuedSources': rescued_sources,
         'unresolved': {
             'before': unresolved_before,

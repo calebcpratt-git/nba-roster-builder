@@ -9,12 +9,14 @@ import { readScrapeStatus, readSchemaChangeLog, readPendingScrapeRun, readLatest
 import { SOURCE_STYLES, sourceFamily, familyColor, FAMILY_LABELS, type SourceFamily } from '@/components/data-dashboard/source-styles'
 import { RefreshButton } from '@/components/data-dashboard/refresh-button'
 import { SourceFetchRow } from '@/components/data-dashboard/source-fetch-row'
+import { SourceGroupRow } from '@/components/data-dashboard/source-group-row'
 import { DataChatPanel } from '@/components/data-dashboard/chat-panel'
 import { SourceDataProvider } from '@/components/data-dashboard/source-context'
 import { SourceLink } from '@/components/data-dashboard/source-link'
 import { ErdCanvas } from '@/components/data-dashboard/erd-canvas'
 
 export const dynamic = 'force-dynamic'
+export const metadata = { title: 'Association GM - Data' }
 
 function timeAgo(iso: string | null): string {
   if (!iso) return 'unknown'
@@ -92,37 +94,41 @@ export default function DataSchemaDashboard() {
       rescued: status.rescuedSources.includes(s.runPyKey),
     }))
 
-  // Template sources (bbref-draft, bbref-awards, bbref-transactions, ...)
-  // have no single runPyKey — run.py fans them out into several dict keys
-  // (bbref_awards_2026, bbref_awards_2025, ...), one per year. Rather than
-  // drop them from this list entirely, expand each into one row per
-  // matching key actually present in the last run's sourceFetches — so a
-  // source like bbref-awards, which DOES go through the normal daily
-  // fetch_all/SOURCES path, still shows real per-year status here.
+  // Template sources (bbref-draft, bbref-awards, bbref-transactions,
+  // salaryswish-transactions, ...) have no single runPyKey. Two different
+  // shapes end up here:
+  //  - bbref-awards DOES go through run.py's normal daily fetch_all/SOURCES
+  //    path, just fanned out into several dict keys (bbref_awards_2026,
+  //    bbref_awards_2025, ...), one per year.
+  //  - salaryswish-transactions, salaryswish-players, captracker-teams, and
+  //    bbref-player-pages own their own per-team/per-player fetch loop
+  //    outside SOURCES entirely, and report {total, failed} to run-status.json's
+  //    pageGroups instead (see PAGE_GROUPS in run.py).
+  // Either way, roll it into ONE row per source — "scraped" if every page
+  // that loop touched this run came back clean, "failed (n)" with the
+  // specific pages behind a click if not.
   const templatePrefix = (id: string) => `${id.replace(/-/g, '_')}_`
   const templateSources = Object.values(DATA_SOURCES).filter((s) => s.isTemplate && !s.runPyKey)
-  const expandedTemplateRows = templateSources.flatMap((s) => {
+  const groupedTemplateRows = templateSources.map((s) => {
     const prefix = templatePrefix(s.id)
-    const keys = status.sourceFetches
+    const matchingKeys = status.sourceFetches
       ? Object.keys(status.sourceFetches).filter((k) => k.startsWith(prefix))
       : []
-    return keys.sort().map((key) => ({
-      id: s.id,
-      runPyKey: key,
-      keyLabel: key.slice(prefix.length),
-      ok: status.sourceFetches![key] !== false,
-      rescued: status.rescuedSources.includes(key),
-    }))
+    if (matchingKeys.length > 0) {
+      const failed = matchingKeys
+        .filter((k) => status.sourceFetches![k] === false)
+        .map((k) => k.slice(prefix.length))
+        .sort()
+      return { id: s.id, cadence: s.cadence, ok: failed.length === 0, total: matchingKeys.length, failed }
+    }
+    const pg = status.pageGroups?.[s.id]
+    if (pg) {
+      return { id: s.id, cadence: s.cadence, ok: pg.failed.length === 0, total: pg.total, failed: pg.failed }
+    }
+    return { id: s.id, cadence: s.cadence, ok: null as boolean | null, total: null as number | null, failed: [] as string[] }
   })
-  // A template source with zero matching keys (e.g. bbref-transactions,
-  // fetched only by the standalone backfill_acquisitions.py script, never
-  // through run.py's daily fetch_all/SOURCES loop) has no automated
-  // ok/failed signal at all — shown separately, without a rescue button
-  // that would have nothing real to rescue.
-  const manualOnlySources = templateSources.filter((s) => {
-    const prefix = templatePrefix(s.id)
-    return !(status.sourceFetches && Object.keys(status.sourceFetches).some((k) => k.startsWith(prefix)))
-  })
+  const dailyGroupRows = groupedTemplateRows.filter((s) => s.cadence === 'daily')
+  const manualOnlySources = groupedTemplateRows.filter((s) => s.cadence !== 'daily')
 
   const tiers = erdTiers()
   const edges = erdEdges()
@@ -384,11 +390,11 @@ export default function DataSchemaDashboard() {
                   <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                     Source fetches
                   </h3>
-                  {sourceFetchRows.length === 0 && expandedTemplateRows.length === 0 && manualOnlySources.length === 0 ? (
+                  {sourceFetchRows.length === 0 && dailyGroupRows.length === 0 && manualOnlySources.length === 0 ? (
                     <p className="text-xs text-muted-foreground">No source-fetch detail on disk for this run.</p>
                   ) : (
                     <ul className="space-y-1.5">
-                      {[...sourceFetchRows, ...expandedTemplateRows].map((s) => (
+                      {sourceFetchRows.map((s) => (
                         <SourceFetchRow
                           key={s.runPyKey}
                           id={s.id}
@@ -398,14 +404,13 @@ export default function DataSchemaDashboard() {
                           keyLabel={s.keyLabel}
                         />
                       ))}
+                      {dailyGroupRows.map((s) => (
+                        <SourceGroupRow key={s.id} id={s.id} ok={s.ok} total={s.total} failed={s.failed} />
+                      ))}
                       {manualOnlySources.map((s) => (
                         <li key={s.id} className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 text-xs">
                           <SourceLink sourceId={s.id} fullLabel />
-                          <span className="text-muted-foreground">
-                            {s.cadence === 'daily'
-                              ? 'runs daily via its own per-team/per-player fetch loop — no single fetch status'
-                              : 'manual — not part of the daily run'}
-                          </span>
+                          <span className="text-muted-foreground">manual — not part of the daily run</span>
                         </li>
                       ))}
                     </ul>

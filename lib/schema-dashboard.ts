@@ -35,6 +35,12 @@ export interface ScrapeStatus {
    *  fetched it successfully, false if every retry failed. Null on data
    *  from before this field existed. */
   sourceFetches: Record<string, boolean> | null
+  /** Per template source that fetches many pages in its own loop (per-team,
+   *  per-player) instead of one runPyKey URL — the count attempted this run
+   *  and the labels (team slug, player name, ...) of any that failed. Null
+   *  entries mean nothing in that loop was attempted this run (e.g. every
+   *  signing-incentives player was served from cache). */
+  pageGroups: Record<string, { total: number; failed: string[] }> | null
   /** runPyKeys currently green because a --rescue click fetched them, not
    *  this morning's scheduled run. Reset to empty by the next full run. */
   rescuedSources: string[]
@@ -128,6 +134,7 @@ export function readScrapeStatus(): ScrapeStatus {
       staleSources: [],
       warnings: [],
       sourceFetches: null,
+      pageGroups: null,
       rescuedSources: [],
       diffSummaries: [],
       diffs: [],
@@ -146,6 +153,7 @@ export function readScrapeStatus(): ScrapeStatus {
     staleSources: status.staleSources ?? [],
     warnings: status.warnings ?? [],
     sourceFetches: status.sourceFetches ?? null,
+    pageGroups: status.pageGroups ?? null,
     rescuedSources: status.rescuedSources ?? [],
     diffSummaries: status.diffSummaries ?? [],
     diffs: readDiffs(status.diffSummaries ?? []),

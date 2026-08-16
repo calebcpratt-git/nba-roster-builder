@@ -14,6 +14,12 @@ export function generateStaticParams() {
   return DATA_ENTITIES.map((e) => ({ entity: e.id }))
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ entity: string }> }) {
+  const { entity: entityId } = await params
+  const entity = getEntity(entityId)
+  return { title: entity ? `${entity.label} - Association GM - Data` : 'Association GM - Data' }
+}
+
 /** Flattens a field value to a single searchable, sortable cell string. */
 function cellValue(value: unknown): string | null {
   if (value === undefined || value === null) return null
