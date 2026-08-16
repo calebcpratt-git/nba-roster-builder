@@ -20,6 +20,7 @@ import { TEAM_CAP_STATE, type TeamCapSeason } from './team-cap-state'
 import { ENRICHED_PICKS, type DraftPick } from './draft-picks'
 import { FREE_AGENT_POOL, type FreeAgentPoolEntry } from './free-agents'
 import { PLAYER_ROOKIE_YEARS } from './rookie-years'
+import { PLAYER_AWARDS } from './awards'
 import { LEAGUE_CAP, type LeagueCapYear } from './league-cap'
 import { ROOKIE_SALARIES_2026 } from './rookie-salaries'
 import { SEASON_CALENDAR, type SeasonCalendar } from './season-calendar'
@@ -87,7 +88,16 @@ export const DATA_SOURCES: Record<string, DataSource> = {
     isTemplate: true,
     scraper: 'scripts/scrape/backfill_acquisitions.py',
     cadence: 'one-time',
-    note: 'Seeded acquisition history once. Retired as the daily source because a season\'s transactions page does not exist until weeks into that season — SalarySwish per-team transactions took over.',
+    note: 'The depth source for Player.acquisitionHistory — a season\'s page is only fully published once that season has closed, so it can never be the DAILY source (that\'s SalarySwish\'s job, for the in-progress season). Run manually/occasionally to extend how many past seasons of history are on file; re-running is safe, entries are merged and deduped rather than replaced.',
+  },
+  'bbref-awards': {
+    id: 'bbref-awards',
+    label: 'Basketball-Reference — season awards',
+    url: 'https://www.basketball-reference.com/awards/awards_{year}.html',
+    isTemplate: true,
+    scraper: 'scripts/scrape/bbref_awards.py',
+    cadence: 'daily',
+    note: 'Only the last 5 closed seasons (AWARDS_YEARS in run.py) are fetched — an in-progress season\'s winners aren\'t known until it ends, so there is no current-season page to add. Re-fetched daily like any other GROUPS source, but the underlying facts for a closed season never change.',
   },
   'realgm-future-drafts': {
     id: 'realgm-future-drafts',
@@ -325,8 +335,7 @@ const playerEntity: EntitySpec<RawPlayerData> = {
     { path: 'salary', type: 'Partial<Record<Season, number | null>>', description: 'Per-season salary in whole dollars.', sources: ['bbref-contracts'], get: (p) => p.salary },
     { path: 'options', type: 'Partial<Record<Season, "Team" | "Player" | null>>', description: 'Which seasons carry a team or player option. Stale same-season flags are corrected against RealGM\'s current-free-agents list.', sources: ['bbref-contracts', 'realgm-free-agent-options', 'realgm-current-free-agents'], get: (p) => p.options },
     { path: 'guarantees', type: 'Partial<Record<Season, SeasonGuarantee>>', description: 'Guarantee status, partial amount, and the date salary becomes fully guaranteed. An absent season means full.', sources: ['hr-guarantee-dates', 'hr-non-guaranteed'], get: (p) => p.guarantees },
-    { path: 'acquisition.date', type: 'string (ISO)', description: 'When the player most recently joined this team.', sources: ['salaryswish-transactions', 'bbref-transactions'], get: (p) => p.acquisition?.date },
-    { path: 'acquisition.method', type: "'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension'", description: 'How the player most recently arrived.', sources: ['salaryswish-transactions', 'bbref-transactions'], get: (p) => p.acquisition?.method },
+    { path: 'acquisitionHistory', type: 'AcquisitionRecord[]', description: 'Every known transaction that moved this player to a new team, ascending by date — the last 5 completed seasons (Basketball-Reference) plus the current season (SalarySwish). Needed to tell whether a trade to the player\'s current team fell within his first four seasons, one of the supermax (Designated Veteran) eligibility legs.', sources: ['bbref-transactions', 'salaryswish-transactions'], get: (p) => p.acquisitionHistory },
     { path: 'contractType', type: "'two-way' | undefined", description: 'Marks a two-way deal, which is excluded from Team Salary and counts against the 3-slot limit. The salary attached is the flat league-wide two-way figure, not a negotiated number.', sources: ['hr-two-way-tracker'], get: (p) => p.contractType },
   ],
 }
@@ -443,6 +452,7 @@ const freeAgentEntity: EntitySpec<FreeAgentPoolEntry> = {
   rows: () => FREE_AGENT_POOL,
   fields: [
     { path: 'name', type: 'string', description: 'Display name.', sources: ['realgm-current-free-agents'], get: (f) => f.name },
+    { path: 'position', type: 'string', description: 'Raw position abbreviation from RealGM (e.g. "PG", "SF-PF"). Undefined when the column was blank.', sources: ['realgm-current-free-agents'], get: (f) => f.position },
     { path: 'priorTeam', type: 'string', description: 'Team the player last played for.', sources: ['realgm-current-free-agents'], get: (f) => f.priorTeam },
     { path: 'faType', type: "'unrestricted' | 'restricted'", description: 'Whether the prior team can match an offer sheet.', sources: ['realgm-current-free-agents'], get: (f) => f.faType },
     { path: 'birdRights', type: "'non-bird' | 'early-bird' | 'full-bird'", description: 'Which Bird exception the prior team holds. Undefined means unmatched in RealGM\'s list, not "no Bird rights".', sources: ['realgm-current-free-agents'], get: (f) => f.birdRights },
@@ -466,6 +476,28 @@ const rookieYearEntity: EntitySpec<RookieYearRow> = {
   fields: [
     { path: 'name', type: 'string', description: 'Join key back to Player.name.', sources: ['bbref-contracts'], get: (r) => r.name },
     { path: 'rookieYear', type: 'number', description: 'Calendar year of the player\'s first NBA season.', sources: ['bbref-draft', 'bbref-player-pages'], get: (r) => r.rookieYear },
+  ],
+}
+
+// --- AwardRecord -----------------------------------------------------------
+
+type AwardHistoryRow = { name: string; season: string; award: string }
+
+const awardEntity: EntitySpec<AwardHistoryRow> = {
+  id: 'award',
+  label: 'Award',
+  file: 'lib/awards.ts',
+  description:
+    'MVP, DPOY, and All-NBA team selections for the last 5 completed seasons — the Higher Max Criteria a supermax (Designated Veteran) extension requires. MVP/DPOY are the outright winner only (rank 1 in the voting table), not every candidate on the ballot.',
+  relationships: ['Keyed by display name, same convention as ContractDetail and RookieYear.'],
+  primaryKey: ['name', 'season', 'award'],
+  foreignKeys: [{ field: 'name', toEntity: 'player', toField: 'name', label: 'name' }],
+  keyOf: (a) => `${a.name} ${a.season} ${a.award}`,
+  rows: () => Object.entries(PLAYER_AWARDS).flatMap(([name, awards]) => awards.map((a) => ({ name, ...a }))),
+  fields: [
+    { path: 'name', type: 'string', description: 'Join key back to Player.name.', sources: ['bbref-awards'], get: (a) => a.name },
+    { path: 'season', type: 'string (YYYY-YY)', description: 'Season the award covers. Not the app\'s Season type — reaches into past seasons outside the cap-sheet projection window.', sources: ['bbref-awards'], get: (a) => a.season },
+    { path: 'award', type: "'MVP' | 'DPOY' | 'All-NBA-1' | 'All-NBA-2' | 'All-NBA-3'", description: 'Which honor.', sources: ['bbref-awards'], get: (a) => a.award },
   ],
 }
 
@@ -608,6 +640,7 @@ export const DATA_ENTITIES: EntitySpec<any>[] = [
   draftPickEntity,
   freeAgentEntity,
   rookieYearEntity,
+  awardEntity,
   leagueCapEntity,
   capThresholdEntity,
   rookieSalaryEntity,

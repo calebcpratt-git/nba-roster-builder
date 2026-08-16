@@ -36,6 +36,8 @@ function unresolvedRecordLabel(category: string, record: Record<string, unknown>
       return `${record.player} (${record.team}) — ${record.status} guarantee, ${record.guaranteeDate}`
     case 'signing':
       return `${record.name} (${record.team}) — ${record.reason}`
+    case 'awards':
+      return `${record.name} — ${record.award}, ${record.season}`
     default:
       return Object.entries(record)
         .map(([k, v]) => `${k}: ${v}`)
@@ -85,9 +87,42 @@ export default function DataSchemaDashboard() {
     .map((s) => ({
       id: s.id,
       runPyKey: s.runPyKey,
+      keyLabel: undefined as string | undefined,
       ok: status.sourceFetches ? status.sourceFetches[s.runPyKey] !== false : null,
       rescued: status.rescuedSources.includes(s.runPyKey),
     }))
+
+  // Template sources (bbref-draft, bbref-awards, bbref-transactions, ...)
+  // have no single runPyKey — run.py fans them out into several dict keys
+  // (bbref_awards_2026, bbref_awards_2025, ...), one per year. Rather than
+  // drop them from this list entirely, expand each into one row per
+  // matching key actually present in the last run's sourceFetches — so a
+  // source like bbref-awards, which DOES go through the normal daily
+  // fetch_all/SOURCES path, still shows real per-year status here.
+  const templatePrefix = (id: string) => `${id.replace(/-/g, '_')}_`
+  const templateSources = Object.values(DATA_SOURCES).filter((s) => s.isTemplate && !s.runPyKey)
+  const expandedTemplateRows = templateSources.flatMap((s) => {
+    const prefix = templatePrefix(s.id)
+    const keys = status.sourceFetches
+      ? Object.keys(status.sourceFetches).filter((k) => k.startsWith(prefix))
+      : []
+    return keys.sort().map((key) => ({
+      id: s.id,
+      runPyKey: key,
+      keyLabel: key.slice(prefix.length),
+      ok: status.sourceFetches![key] !== false,
+      rescued: status.rescuedSources.includes(key),
+    }))
+  })
+  // A template source with zero matching keys (e.g. bbref-transactions,
+  // fetched only by the standalone backfill_acquisitions.py script, never
+  // through run.py's daily fetch_all/SOURCES loop) has no automated
+  // ok/failed signal at all — shown separately, without a rescue button
+  // that would have nothing real to rescue.
+  const manualOnlySources = templateSources.filter((s) => {
+    const prefix = templatePrefix(s.id)
+    return !(status.sourceFetches && Object.keys(status.sourceFetches).some((k) => k.startsWith(prefix)))
+  })
 
   const tiers = erdTiers()
   const edges = erdEdges()
@@ -349,12 +384,29 @@ export default function DataSchemaDashboard() {
                   <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                     Source fetches
                   </h3>
-                  {sourceFetchRows.length === 0 ? (
+                  {sourceFetchRows.length === 0 && expandedTemplateRows.length === 0 && manualOnlySources.length === 0 ? (
                     <p className="text-xs text-muted-foreground">No source-fetch detail on disk for this run.</p>
                   ) : (
                     <ul className="space-y-1.5">
-                      {sourceFetchRows.map((s) => (
-                        <SourceFetchRow key={s.id} id={s.id} runPyKey={s.runPyKey} ok={s.ok} rescued={s.rescued} />
+                      {[...sourceFetchRows, ...expandedTemplateRows].map((s) => (
+                        <SourceFetchRow
+                          key={s.runPyKey}
+                          id={s.id}
+                          runPyKey={s.runPyKey}
+                          ok={s.ok}
+                          rescued={s.rescued}
+                          keyLabel={s.keyLabel}
+                        />
+                      ))}
+                      {manualOnlySources.map((s) => (
+                        <li key={s.id} className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 text-xs">
+                          <SourceLink sourceId={s.id} fullLabel />
+                          <span className="text-muted-foreground">
+                            {s.cadence === 'daily'
+                              ? 'runs daily via its own per-team/per-player fetch loop — no single fetch status'
+                              : 'manual — not part of the daily run'}
+                          </span>
+                        </li>
                       ))}
                     </ul>
                   )}

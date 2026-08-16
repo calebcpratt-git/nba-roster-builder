@@ -78,6 +78,7 @@ export function useRosterTableData() {
           sortSalary: firstYearSalary,
           isMinimum: false,
           isTraded: false,
+          isSignAndTrade: trade.isSignAndTrade ?? false,
         }
       })
     ),

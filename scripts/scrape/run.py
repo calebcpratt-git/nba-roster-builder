@@ -64,7 +64,7 @@ search "hoopsrumors nba players with trade kickers 2026/27",
 import json, os, re, sys, time, random, unicodedata, urllib.request, urllib.error
 from datetime import date
 
-import bbref, realgm, hoopsrumors, captracker, salaryswish
+import bbref, bbref_awards, realgm, hoopsrumors, captracker, salaryswish
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 RAW = os.path.join(ROOT, 'snapshots', 'raw')
@@ -75,7 +75,8 @@ BBREF_PLAYERS_RAW = os.path.join(RAW, 'bbref_players')
 OUT = os.path.join(ROOT, 'snapshots', 'scraped')
 ROOKIE_YEARS_TS = os.path.join(ROOT, 'lib', 'rookie-years.ts')
 SS_PLAYER_CACHE = os.path.join(OUT, 'salaryswish-players.json')
-ACQUISITION_LEDGER = os.path.join(OUT, 'acquisition-ledger.json')
+ACQUISITION_LEDGER = os.path.join(OUT, 'acquisition-ledger.json')  # superseded by ACQUISITION_HISTORY_LEDGER — no longer written
+ACQUISITION_HISTORY_LEDGER = os.path.join(OUT, 'acquisition-history-ledger.json')
 SS_FETCH_DELAY = 1.2  # polite delay between per-player fetches — see salaryswish.py's module docstring
 
 UA = 'nba-roster-builder-pipeline/1.0 (personal project; +https://github.com/calebcpratt-git/nba-roster-builder)'
@@ -83,6 +84,13 @@ CURRENT_DRAFT_YEAR = 2026          # bump each June after the draft
 DRAFT_YEARS = [CURRENT_DRAFT_YEAR, CURRENT_DRAFT_YEAR - 1]
 CURRENT_SEASON_YEAR = 2026         # calendar year the current season starts — bump each July
 CURRENT_SEASON_LABEL = f'{CURRENT_SEASON_YEAR}-{str(CURRENT_SEASON_YEAR + 1)[-2:]}'  # e.g. '2026-27'
+
+# Last 5 CLOSED seasons' BBRef awards pages (award winners for an
+# in-progress season aren't known until it ends, so there's no "current
+# season" page to include here — unlike CURRENT_SEASON_YEAR itself, which
+# names the season already published as of last July, this only needs
+# bumping if the backfill depth should change).
+AWARDS_YEARS = [CURRENT_SEASON_YEAR - i for i in range(5)]
 
 # UPDATE THESE EACH SEASON — see the module docstring note above.
 HR_GUARANTEE_DATES_URL = 'https://www.hoopsrumors.com/2026/05/early-nba-salary-guarantee-dates-for-2026-27.html'
@@ -139,6 +147,7 @@ SOURCES = {
     'salaryswish_dpe': salaryswish.DPE_URL,
     'salaryswish_sitemap': salaryswish.SITEMAP_URL,
     **{f'bbref_draft_{y}': f'https://www.basketball-reference.com/draft/NBA_{y}.html' for y in DRAFT_YEARS},
+    **{f'bbref_awards_{y}': f'https://www.basketball-reference.com/awards/awards_{y}.html' for y in AWARDS_YEARS},
 }
 
 MIN_BYTES = 20_000        # smaller than this = a challenge/error page, not real content
@@ -290,6 +299,7 @@ UNRESOLVED_FILES = {
     'acquisition': 'unresolved-acquisition',
     'guarantees': 'unresolved-guarantees',
     'signing': 'unresolved-signing',
+    'awards': 'unresolved-awards',
 }
 
 
@@ -552,25 +562,32 @@ def build_picks():
 
 
 def build_enrichment():
-    """Merges acquisition (SalarySwish per-team transactions) and guarantees
-    (Hoops Rumors) onto players.json. Requires players.json to already exist
-    — either freshly written this run by build_players(), or last-good from
-    a previous run — since this only enriches existing player records, never
-    creates new ones. Unmatched entries are written to unresolved-*.json
-    rather than dropped or treated as a hard failure, matching the
-    unresolved-draft-year.json precedent already in this pipeline.
+    """Merges acquisition history (BBRef backfill + SalarySwish per-team
+    transactions daily) and guarantees (Hoops Rumors) onto players.json.
+    Requires players.json to already exist — either freshly written this run
+    by build_players(), or last-good from a previous run — since this only
+    enriches existing player records, never creates new ones. Unmatched
+    entries are written to unresolved-*.json rather than dropped or treated
+    as a hard failure, matching the unresolved-draft-year.json precedent
+    already in this pipeline.
 
-    Acquisition used to come from BBRef's season transactions page, with
-    RealGM's transactions log as a supplementary fix for the gap while
-    BBRef's new-season page didn't exist yet. Both were retired 2026-08-06
-    in favor of this single SalarySwish source, which covers everything they
-    did (signings, waivers, extensions) plus what neither did (trades,
-    drafts) — see salaryswish.py's module docstring on TEAM_SLUG_TO_ABBR.
-    Verified against real data before the retirement: this source correctly
-    resolved acquisitions BBRef/RealGM either missed entirely or (worse) got
-    actively wrong from a stale prior-season record — e.g. Deandre Ayton's
-    2026-07-08 trade to Washington, previously invisible behind a stale
-    2025-07-06 free-agent signing record.
+    Acquisition is a full history now, not a single most-recent record —
+    see backfill_acquisitions.py's module docstring for why: SalarySwish's
+    team pages only cover roughly the last few months (confirmed live
+    2026-08-07: the Suns' page only reaches back to 2026-03-24), so on their
+    own they can never answer "was this player traded to his current team
+    within his first four seasons." backfill_acquisitions.py seeds
+    ACQUISITION_HISTORY_LEDGER with several years of depth from BBRef's past
+    season-transactions pages (a manual, occasional script, not part of this
+    daily run); this function appends each day's freshest SalarySwish
+    matches on top of that seed and re-applies the full merged history onto
+    every matched player. History entries don't need to agree with the
+    player's CURRENT team field (from BBRef's contracts page, a separately
+    fetched source that can lag SalarySwish by a few days — confirmed live
+    2026-08-07 on Kentavious Caldwell-Pope's PHI signing showing up here
+    before BBRef's contracts page caught up) — a past transaction stays true
+    regardless of what the contracts page currently shows, so unlike the old
+    single-record design there's no team-match guard needed here.
 
     Fetch failure here (all 30 team pages) doesn't take down guarantees
     processing — it's not in the `enrichment` GROUPS entry's required
@@ -581,31 +598,10 @@ def build_enrichment():
     by_id = {p.get('bbrefId'): p for p in players if p.get('bbrefId')}
     by_name = {_base(p['name']): p for p in players}
 
-    # --- acquisition (SalarySwish per-team transactions, backed by a
-    # persisted ledger — see snapshots/scraped/acquisition-ledger.json) ---
-    # SalarySwish's team pages only cover roughly the last few months
-    # (confirmed live 2026-08-07: the Suns' page only reaches back to
-    # 2026-03-24), so a player whose last real acquisition predates that
-    # window has nothing to match here on any given day. Rebuilding
-    # `players` from scratch every run and only ever setting `acquisition`
-    # from *this run's* match (the pre-2026-08-07 behavior) silently blanked
-    # every such player instead of carrying forward what we already knew —
-    # this is what actually shipped in PR #49 and had to be corrected.
-    #
-    # The ledger fixes that: a persisted, git-committed store keyed by
-    # player, tagged with the team the event was for. Every run, a fresh
-    # SalarySwish match always overwrites the ledger (today's data is always
-    # at least as current as anything already stored). No match today ->
-    # fall back to the ledger, but ONLY if its stored team still matches the
-    # player's CURRENT team (from this run's fresh BBRef contracts fetch).
-    # That guard is the whole point: a ledger entry for a team the player
-    # has since left is exactly the stale-data failure BBRef's old
-    # season-transactions source had (see its docstring's Ayton example) —
-    # showing nothing is strictly better than showing a confidently wrong
-    # answer. scripts/scrape/backfill_acquisitions.py seeds the ledger for
-    # players with no history in SalarySwish's window at all; that's a
-    # manual, one-time/occasional script, not part of this daily run.
-    ledger = _load_json('acquisition-ledger', {})
+    # --- acquisition history (BBRef backfill for depth + SalarySwish daily
+    # for currency — see ACQUISITION_HISTORY_LEDGER and this function's
+    # docstring above) ---
+    ledger = _load_json('acquisition-history-ledger', {})
 
     ss_offline = '--offline' in sys.argv
     ss_failed_teams = salaryswish.fetch_team_transactions(SS_TEAM_TRANSACTIONS_RAW, offline=ss_offline)
@@ -620,75 +616,43 @@ def build_enrichment():
         print(f'  {len(frozen)} transaction(s) dropped as frozen (see FROZEN_TRANSACTIONS): '
               f'{[f["name"] for f in frozen]}')
     transactions = [t for t in transactions if (t['name'], t['date']) not in FROZEN_TRANSACTIONS]
+
     unresolved_acq = []
-    matched_acq = 0
-    stale_cleared = []
-    # A player can appear multiple times in a season's transaction log (waived
-    # then re-signed, etc.) — keep the most recent by date as the "current"
-    # acquisition, matching how the app treats acquisition as current-state.
-    latest_by_player = {}
+    added_acq = 0
+    deduped_acq = 0
     for t in transactions:
-        key = t.get('bbrefId') or _base(t['name'])
-        prev = latest_by_player.get(key)
-        if prev is None or (t['date'] or '') >= (prev['date'] or ''):
-            latest_by_player[key] = t
-    matched_today = set()
-    for source_key, t in latest_by_player.items():
+        if not t['date'] or not t.get('toTeams') or not t['toTeams'][0]:
+            continue
         target = by_id.get(t.get('bbrefId')) or by_name.get(_base(t['name']))
         if target is None:
             unresolved_acq.append({'name': t['name'], 'date': t['date'], 'method': t['method']})
             continue
-        # Key the ledger off the RESOLVED player's own identity, not
-        # whatever identifier this source record happened to carry.
-        # SalarySwish's daily transactions never carry a bbrefId at all
-        # (confirmed in salaryswish.py — always None), so without this a
-        # player ends up with two separate ledger entries: one bbrefId-keyed
-        # from the BBRef backfill, one name-keyed from today's SalarySwish
-        # match — same person, two keys, and the carry-forward loop below
-        # would treat the stale half as an unrelated "mismatch" forever.
+        # Key off the RESOLVED player's own identity, not whatever
+        # identifier this source record happened to carry — SalarySwish's
+        # daily transactions never carry a bbrefId at all (confirmed in
+        # salaryswish.py — always None), so without this a player ends up
+        # with two separate ledger entries: one bbrefId-keyed from the BBRef
+        # backfill, one name-keyed from today's SalarySwish match.
         key = target.get('bbrefId') or _base(target['name'])
-        if t['date']:
-            # SalarySwish's own per-team page IS the team this transaction is
-            # for (toTeams is always exactly [team_abbr] — see salaryswish.py's
-            # parse_team_transactions), so the LEDGER is always safe to
-            # overwrite with it. Applying it to the player record is a
-            # separate decision, though: `team` comes from BBRef's contracts
-            # page, a DIFFERENT daily-fetched source that can lag behind
-            # SalarySwish by days on the very same run (confirmed live,
-            # 2026-08-07: Kentavious Caldwell-Pope's SalarySwish page already
-            # showed his Aug 5 signing to PHI while BBRef's contracts page
-            # still had him under MEM at $21.6M) — showing team=MEM next to
-            # acquisition="signed Aug 5" reads as "re-signed with Memphis",
-            # which is false. Only surface it once both sources agree.
-            ledger[key] = {'date': t['date'], 'method': t['method'], 'team': t['toTeams'][0]}
-            if t['toTeams'][0] == target.get('team'):
-                target['acquisition'] = {'date': t['date'], 'method': t['method']}
-                matched_acq += 1
-            else:
-                stale_cleared.append({'name': target['name'], 'ledgerTeam': t['toTeams'][0],
-                                       'currentTeam': target.get('team'), 'date': t['date'],
-                                       'reason': 'bbref-contracts-lagging'})
-            matched_today.add(key)
-    # Carry forward from the ledger for anyone not matched this run, but only
-    # while the ledger's team still agrees with today's actual team.
-    for key, entry in ledger.items():
-        if key in matched_today:
-            continue
+        entry = {'date': t['date'], 'method': t['method'], 'team': t['toTeams'][0]}
+        history = ledger.setdefault(key, [])
+        if any(h['date'] == entry['date'] and h['method'] == entry['method'] and h['team'] == entry['team']
+               for h in history):
+            deduped_acq += 1
+        else:
+            history.append(entry)
+            added_acq += 1
+
+    # Apply every player's full history (backfilled + accumulated daily), not
+    # just today's matches — a player untouched today still keeps whatever
+    # history the ledger already has for them.
+    for key, history in ledger.items():
         target = by_id.get(key) or by_name.get(key)
         if target is None:
             continue
-        if entry.get('team') == target.get('team'):
-            target['acquisition'] = {'date': entry['date'], 'method': entry['method']}
-        else:
-            stale_cleared.append({'name': target['name'], 'ledgerTeam': entry.get('team'),
-                                   'currentTeam': target.get('team'), 'date': entry['date'],
-                                   'reason': 'no-new-match'})
-    json.dump(ledger, open(ACQUISITION_LEDGER, 'w'), indent=1, ensure_ascii=False)
-    if stale_cleared:
-        print(f'  {len(stale_cleared)} entr{"y" if len(stale_cleared)==1 else "ies"} '
-              f'team-mismatched — left blank, not shown:')
-        for s in stale_cleared:
-            print(f'    {s["name"]}  ledger={s["ledgerTeam"]}  current={s["currentTeam"]}  ({s["reason"]})')
+        target['acquisitionHistory'] = sorted(history, key=lambda h: h['date'])
+
+    json.dump(ledger, open(ACQUISITION_HISTORY_LEDGER, 'w'), indent=1, ensure_ascii=False)
 
     # --- guarantees (Hoops Rumors, two pages merged; exact-date page wins on conflict) ---
     exact = hoopsrumors.parse_guarantee_dates(os.path.join(RAW, 'hr_guarantee_dates.html'), CURRENT_SEASON_YEAR)
@@ -725,10 +689,47 @@ def build_enrichment():
     json.dump(transactions, open(os.path.join(OUT, 'transactions.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(unresolved_acq, open(os.path.join(OUT, 'unresolved-acquisition.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(unresolved_guar, open(os.path.join(OUT, 'unresolved-guarantees.json'), 'w'), indent=1, ensure_ascii=False)
-    print(f'  acquisition matched {matched_acq}/{len(latest_by_player)}   unresolved {len(unresolved_acq)}')
-    have_acq = sum(1 for p in players if p.get('acquisition'))
-    print(f'  acquisition coverage: {have_acq}/{len(players)} players ({len(players) - have_acq} blank)')
+    print(f'  acquisition history: {added_acq} new record(s) added today ({deduped_acq} already known)   unresolved {len(unresolved_acq)}')
+    have_acq = sum(1 for p in players if p.get('acquisitionHistory'))
+    print(f'  acquisition coverage: {have_acq}/{len(players)} players with history ({len(players) - have_acq} blank)')
     print(f'  guarantees matched {matched_guar}   unresolved {len(unresolved_guar)}')
+
+
+def build_player_awards():
+    """Basketball-Reference per-season awards pages (AWARDS_YEARS, the last
+    5 closed seasons — see that constant's declaration) -> MVP/DPOY/All-NBA
+    history, matched by name against players.json (same _base() normalizer
+    used for BBRef draft-class joins in build_players). Unmatched rows
+    (typically a retired player no longer on any current roster) go to
+    unresolved-awards.json rather than being silently dropped, matching the
+    unresolved-draft-year.json precedent already in this pipeline.
+
+    Award winners for a closed season are a fixed historical fact, so unlike
+    the daily acquisition/guarantee sources there's no "currency" concern
+    here — a fetch failure on any one year just keeps that day's run on the
+    prior committed awards.json until the next successful run, which costs
+    nothing since the underlying facts don't change."""
+    players = _load_json('players', None)
+    if players is None:
+        raise RuntimeError('players.json does not exist yet — run the players group first')
+    by_name = {_base(p['name']): p['name'] for p in players}
+
+    records = []
+    unresolved = []
+    for year in AWARDS_YEARS:
+        path = os.path.join(RAW, f'bbref_awards_{year}.html')
+        if not os.path.exists(path):
+            continue
+        for r in bbref_awards.parse_awards(path, year):
+            matched_name = by_name.get(_base(r['name']))
+            if matched_name is None:
+                unresolved.append(r)
+                continue
+            records.append({'name': matched_name, 'season': r['season'], 'award': r['award']})
+
+    json.dump(records, open(os.path.join(OUT, 'awards.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump(unresolved, open(os.path.join(OUT, 'unresolved-awards.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  awards records {len(records)}   unresolved {len(unresolved)}')
 
 
 def build_clauses():
@@ -982,8 +983,9 @@ def build_free_agent_pool():
     already accounts for them one way or another (signed with a salary, or
     corrected by build_free_agent_reconciliation), so re-adding a
     stale/wrong prior team from this pool would just contradict it.
-    {name, priorTeam, faType, birdRights} — same fields, kept as raw as the
-    parser returns them (faType 'U'/'R' interpreted downstream, not here)."""
+    {name, position, priorTeam, faType, birdRights} — same fields, kept as
+    raw as the parser returns them (faType 'U'/'R' interpreted downstream,
+    not here)."""
     players = _load_json('players', [])
     known_names = {_base(p['name']) for p in players}
 
@@ -1423,6 +1425,8 @@ GROUPS = [
     {'name': 'enrichment', 'sources': ['hr_guarantee_dates', 'hr_non_guaranteed'],
      'build': build_enrichment},
     {'name': 'clauses', 'sources': ['hr_trade_kickers', 'hr_veto_trades'], 'build': build_clauses},
+    {'name': 'player-awards', 'sources': [f'bbref_awards_{y}' for y in AWARDS_YEARS],
+     'build': build_player_awards},
 ]
 
 

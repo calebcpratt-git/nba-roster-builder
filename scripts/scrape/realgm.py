@@ -406,12 +406,12 @@ def _normalize_season(text):
 
 
 def parse_free_agent_options(path):
-    """-> [{name, team, season, optionType}]
+    """-> [{name, position, team, season, optionType}]
     Parses the free_agent_options table (Player / Pos / Current Team / Season
     / Option Type / ...). `season` is normalized to the 'YYYY-YY' label format
     already used elsewhere in the pipeline (matches CURRENT_SEASON_LABEL in
     run.py) so it can be directly compared to players.json's options dict
-    keys."""
+    keys. `position` is the raw Pos column value, None if blank."""
     soup = BeautifulSoup(open(path, encoding='ISO-8859-1', errors='replace').read(), 'html.parser')
     table = None
     for t in soup.find_all('table'):
@@ -430,13 +430,15 @@ def parse_free_agent_options(path):
         if len(tds) < 5:
             continue
         name = tds[0].get_text(strip=True)
+        position = tds[1].get_text(strip=True) or None
         team_name = tds[2].get_text(strip=True)
         season = _normalize_season(tds[3].get_text(strip=True))
         option_type = tds[4].get_text(strip=True)
         team = REALGM_NAME_TO_APP_ABBR.get(team_name)
         if not name or team is None or season is None or not option_type:
             continue
-        out.append({'name': name, 'team': team, 'season': season, 'optionType': option_type})
+        out.append({'name': name, 'position': position, 'team': team, 'season': season,
+                     'optionType': option_type})
     if not out:
         raise RuntimeError('free_agent_options parsed to zero rows — page layout changed')
     return out
@@ -448,14 +450,15 @@ _VETERAN_FA_STATUS_TO_BIRD_RIGHTS = {
 
 
 def parse_current_free_agents(path):
-    """-> [{name, priorTeam, faType, birdRights}]
-    Parses the current_free_agents table (Player / ... / FA Type / Veteran
-    FA Status / Prior NBA Team / ...). faType is the raw column value ('U'
-    unrestricted, 'R' restricted, etc.) — kept as-is, not interpreted here.
-    birdRights is mapped from the "Veteran FA Status" column ('Non-Bird' /
-    'Early Bird' / 'Bird') to the app's lowercase-hyphenated form; None when
-    the column reads 'N/A' (no NBA veteran service) or the column itself is
-    missing from an older page layout."""
+    """-> [{name, position, priorTeam, faType, birdRights}]
+    Parses the current_free_agents table (Player / Pos / ... / FA Type /
+    Veteran FA Status / Prior NBA Team / ...). faType is the raw column value
+    ('U' unrestricted, 'R' restricted, etc.) — kept as-is, not interpreted
+    here. birdRights is mapped from the "Veteran FA Status" column
+    ('Non-Bird' / 'Early Bird' / 'Bird') to the app's lowercase-hyphenated
+    form; None when the column reads 'N/A' (no NBA veteran service) or the
+    column itself is missing from an older page layout. position is the raw
+    Pos column value, None if blank or the column is missing."""
     soup = BeautifulSoup(open(path, encoding='ISO-8859-1', errors='replace').read(), 'html.parser')
     table = None
     for t in soup.find_all('table'):
@@ -472,6 +475,7 @@ def parse_current_free_agents(path):
     fa_type_idx = header.index('FA Type')
     prior_team_idx = header.index('Prior NBA Team')
     bird_idx = header.index('Veteran FA Status') if 'Veteran FA Status' in header else None
+    pos_idx = header.index('Pos') if 'Pos' in header else None
     out = []
     for tr in body.find_all('tr'):
         tds = tr.find_all('td')
@@ -486,7 +490,11 @@ def parse_current_free_agents(path):
         bird_rights = None
         if bird_idx is not None and len(tds) > bird_idx:
             bird_rights = _VETERAN_FA_STATUS_TO_BIRD_RIGHTS.get(tds[bird_idx].get_text(strip=True))
-        out.append({'name': name, 'priorTeam': prior_team, 'faType': fa_type, 'birdRights': bird_rights})
+        position = None
+        if pos_idx is not None and len(tds) > pos_idx:
+            position = tds[pos_idx].get_text(strip=True) or None
+        out.append({'name': name, 'position': position, 'priorTeam': prior_team, 'faType': fa_type,
+                     'birdRights': bird_rights})
     if not out:
         raise RuntimeError('current_free_agents parsed to zero rows — page layout changed')
     return out

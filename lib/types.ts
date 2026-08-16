@@ -6,6 +6,23 @@ export interface SeasonGuarantee {
   guaranteeDate?: string  // ISO 'YYYY-MM-DD' the salary becomes fully guaranteed
 }
 
+export type AcquisitionMethod = 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension'
+
+export interface AcquisitionRecord {
+  date: string // ISO 'YYYY-MM-DD'
+  method: AcquisitionMethod
+  team: string // team abbreviation the player joined via this transaction
+}
+
+export type AwardType = 'MVP' | 'DPOY' | 'All-NBA-1' | 'All-NBA-2' | 'All-NBA-3'
+
+export interface AwardRecord {
+  // Not `Season` — that union only covers the app's cap-sheet projection
+  // window (2026-27 onward); award history reaches into past seasons.
+  season: string // 'YYYY-YY', e.g. '2024-25'
+  award: AwardType
+}
+
 export interface Player {
   id: string
   name: string
@@ -15,7 +32,8 @@ export interface Player {
   isUserCreated?: boolean
   /** Absent season = assume 'full'. */
   guarantees?: Partial<Record<Season, SeasonGuarantee>>
-  acquisition?: { date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension' }
+  /** Ascending by date. Spans the last 5 completed seasons (Basketball-Reference) plus the current season (SalarySwish). */
+  acquisitionHistory?: AcquisitionRecord[]
   onPlayoffRoster?: boolean
   /** Flat league-wide two-way salary, not a real negotiated figure. Excluded from Team Salary — see getEffectiveSalary. */
   contractType?: 'two-way'
@@ -47,8 +65,6 @@ export interface SavedContract {
   contractType?: 'two-way'
   /** Restricted-free-agency path this contract represents. Absent = not RFA-related. */
   rfaPath?: 'qualifying-offer' | 'offer-sheet' | 'matched-offer-sheet'
-  /** Signed by the player's outgoing team via Bird rights, then immediately traded to the selected team — see SignFreeAgentModal's Sign-and-Trade toggle. Hard-caps the acquiring team at the first apron for the rest of the season; not enforced by trade-validation.ts — pair with a matching Build Trade entry to move the outgoing assets. */
-  isSignAndTrade?: boolean
 }
 
 export interface CapThreshold {

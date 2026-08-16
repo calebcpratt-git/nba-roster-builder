@@ -205,8 +205,6 @@ function buildMoves(sheet: CapSheet): MoveItem[] {
     const typeLabel =
       contract.type === 'extension'
         ? 'Extension'
-        : contract.isSignAndTrade
-        ? 'Sign-and-trade'
         : contract.type === 'trade'
         ? 'Trade contract'
         : 'Free agent signing'
@@ -235,7 +233,7 @@ function buildMoves(sheet: CapSheet): MoveItem[] {
     moves.push({
       key: `trade-${trade.id}`,
       kind: 'trade',
-      title: `Trade with ${teamName}`,
+      title: trade.isSignAndTrade ? `Sign-and-trade with ${teamName}` : `Trade with ${teamName}`,
       detail: [outDesc, inDesc].filter(Boolean).join(' · ') || 'No assets recorded',
     })
   })

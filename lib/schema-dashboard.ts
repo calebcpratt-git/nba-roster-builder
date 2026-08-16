@@ -82,6 +82,8 @@ const UNRESOLVED_MEANING: Record<string, string> = {
     'A guarantee date or non-guaranteed entry for someone not under contract on the BBRef contracts page.',
   signing:
     'These ARE rostered players — SalarySwish has no contract block on their player page yet (typically just-drafted rookies), so signedUnder and incentives stay empty for them. The one category here worth acting on.',
+  awards:
+    'An MVP/DPOY/All-NBA selection for someone with no row in player-data.ts — almost always a player who has since retired or left the league, since the awards window reaches back 5 seasons. Expected, not a defect.',
 }
 
 function readJson(file: string): any | null {

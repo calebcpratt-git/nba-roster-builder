@@ -80,6 +80,19 @@ function validatePlayers(records, errors, now = new Date()) {
     if (record.contractType !== undefined && record.contractType !== 'two-way') {
       errors.push(`players[${i}] (${record.name ?? 'unknown'}): contractType "${record.contractType}" must be 'two-way' or absent`)
     }
+
+    const VALID_ACQUISITION_METHODS = new Set(['draft', 'trade', 'free-agent', 'waiver', 'sign-and-trade', 'extension'])
+    ;(record.acquisitionHistory ?? []).forEach((a, j) => {
+      if (!VALID_ACQUISITION_METHODS.has(a.method)) {
+        errors.push(`players[${i}] (${record.name ?? 'unknown'}): acquisitionHistory[${j}].method "${a.method}" is not a recognized method`)
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(a.date ?? '')) {
+        errors.push(`players[${i}] (${record.name ?? 'unknown'}): acquisitionHistory[${j}].date "${a.date}" is not in 'YYYY-MM-DD' format`)
+      }
+      if (!a.team || !teamSet.has(a.team)) {
+        errors.push(`players[${i}] (${record.name ?? 'unknown'}): acquisitionHistory[${j}].team "${a.team}" is not in TEAM_ABBREVIATIONS`)
+      }
+    })
   })
 
   const floor = minRosterSize(now)
@@ -225,6 +238,22 @@ function validateTeamCapState(records, errors) {
   })
 }
 
+const VALID_AWARD_TYPES = new Set(['MVP', 'DPOY', 'All-NBA-1', 'All-NBA-2', 'All-NBA-3'])
+
+function validateAwards(records, errors) {
+  records.forEach((record, i) => {
+    if (!record.name || typeof record.name !== 'string' || !record.name.trim()) {
+      errors.push(`awards[${i}]: missing or empty "name"`)
+    }
+    if (!/^\d{4}-\d{2}$/.test(record.season ?? '')) {
+      errors.push(`awards[${i}] (${record.name ?? 'unknown'}): season "${record.season}" is not in 'YYYY-YY' format`)
+    }
+    if (!VALID_AWARD_TYPES.has(record.award)) {
+      errors.push(`awards[${i}] (${record.name ?? 'unknown'}): award "${record.award}" is not a recognized award type`)
+    }
+  })
+}
+
 // Best-effort natural key per kind — this data has no real unique id, so
 // identity is inferred from the fields that stay stable across a normal
 // update (name for players; the pick's origin/slot for draft picks).
@@ -234,6 +263,9 @@ function recordKey(kind, record) {
   }
   if (kind === 'team-cap-state') {
     return `${record.team}|${record.season}`
+  }
+  if (kind === 'awards') {
+    return `${record.name}|${record.season}|${record.award}`.toLowerCase()
   }
   return [record.teamOwner, record.year, record.round, record.teamFrom, record.pickNumber, record.pickPool]
     .map((v) => String(v))
@@ -359,7 +391,7 @@ function mergeDiffDetail(kind, earlier, later) {
 
 /**
  * @param {object} input
- * @param {'players' | 'draft-picks' | 'contract-details' | 'team-cap-state' | 'free-agents'} input.kind
+ * @param {'players' | 'draft-picks' | 'contract-details' | 'team-cap-state' | 'free-agents' | 'awards'} input.kind
  * @param {any[]} input.records         - the new records about to be written
  * @param {any[]} input.previousRecords - parsed from the CURRENT generated file, for diffing
  * @param {boolean} [input.allowLargeDiff] - opt in to a diff above the threshold.
@@ -390,6 +422,8 @@ function validateAndDiff({ kind, records, previousRecords, allowLargeDiff, now }
     validateTeamCapState(records, errors)
   } else if (kind === 'free-agents') {
     validateFreeAgents(records, errors)
+  } else if (kind === 'awards') {
+    validateAwards(records, errors)
   } else {
     throw new Error(`Unknown kind: ${kind}`)
   }
