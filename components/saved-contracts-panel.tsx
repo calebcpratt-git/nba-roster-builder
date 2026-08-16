@@ -59,14 +59,6 @@ export function SavedContractsPanelContent() {
                         Two-Way
                       </span>
                     )}
-                    {contract.isSignAndTrade && (
-                      <span
-                        className="text-[10px] font-normal text-chart-4 bg-chart-4/10 px-1 py-px rounded"
-                        title="Signed with his prior team under Bird rights, then traded here — hard-caps the team at the first apron for the rest of the season."
-                      >
-                        Sign-and-Trade
-                      </span>
-                    )}
                     {contract.rfaPath === 'qualifying-offer' && (
                       <span className="text-[10px] font-normal text-amber-600 bg-amber-500/10 px-1 py-px rounded">
                         QO

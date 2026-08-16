@@ -180,7 +180,9 @@ export function MobileRosterTable() {
                 )}
                 {(player.source === 'saved' || isTradeIncoming) && (
                   <span className="text-[8.5px] font-bold px-1 rounded border shrink-0 text-chart-2 border-chart-2">
-                    {isTradeIncoming ? 'TRADE' : 'type' in player && player.type === 'extension' ? 'EXT' : 'FA'}
+                    {isTradeIncoming
+                      ? ('isSignAndTrade' in player && player.isSignAndTrade ? 'S&T' : 'TRADE')
+                      : 'type' in player && player.type === 'extension' ? 'EXT' : 'FA'}
                   </span>
                 )}
                 {isReleased && (

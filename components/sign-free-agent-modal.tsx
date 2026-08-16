@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRoster } from '@/lib/roster-context'
 import { Player, SavedContract, Season, SEASONS } from '@/lib/types'
-import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
+import { formatCurrency, CAP_THRESHOLDS, TEAM_NAMES } from '@/lib/data'
 import {
   getPlayerRookieYear,
   getPlayerYOE,
@@ -14,8 +14,18 @@ import {
   DistributionType,
 } from '@/lib/contract-utils'
 import { getMinimumSalaryThreshold, LEAGUE_CAP } from '@/lib/league-cap'
-import { TEAM_CAP_STATE } from '@/lib/team-cap-state'
+import { TEAM_CAP_STATE, getTeamCapState } from '@/lib/team-cap-state'
 import { getUsedExceptions } from '@/components/signing-exceptions-panel'
+import {
+  TradeAsset,
+  TradeSideInput,
+  ValidateTradeInput,
+  validateTrade,
+  getOwnedFirstRoundYears,
+  parsePickIdMeta,
+  TRADE_EVAL_SEASON,
+  CURRENT_DRAFT_YEAR,
+} from '@/lib/trade-validation'
 import {
   Dialog,
   DialogContent,
@@ -36,7 +46,7 @@ import {
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { Trash2 } from 'lucide-react'
+import { Trash2, CheckCircle2, Plus, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface SignFreeAgentModalProps {
@@ -90,7 +100,22 @@ const EXCEPTION_LABELS: Record<ExceptionType, string> = {
 const EXCEPTION_MAX_YEARS: Record<ExceptionType, number> = { ntmle: 4, tmle: 2, bae: 2 }
 
 export function SignFreeAgentModal({ player, startingSeason, isOpen, editingContract, onClose }: SignFreeAgentModalProps) {
-  const { addSavedContract, updateSavedContract, setDeletedContractIds, selectedTeamAbbr, getTotalSalary, getTeamCapTotal, savedContracts, deletedContractIds } = useRoster()
+  const {
+    addSavedContract,
+    updateSavedContract,
+    addSavedTrade,
+    setDeletedContractIds,
+    selectedTeamAbbr,
+    getTotalSalary,
+    getTeamCapTotal,
+    getEffectiveSalary,
+    savedContracts,
+    deletedContractIds,
+    roster,
+    draftPickPlayers,
+    tradedRosterPlayerIds,
+    tradedPickIds,
+  } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -100,6 +125,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
   const [isTwoWay, setIsTwoWay] = useState(false)
   const [isQualifyingOffer, setIsQualifyingOffer] = useState(false)
   const [isSignAndTrade, setIsSignAndTrade] = useState(false)
+  const [selectedOutgoingRosterIds, setSelectedOutgoingRosterIds] = useState<Set<string>>(new Set())
+  const [selectedOutgoingPickIds, setSelectedOutgoingPickIds] = useState<Set<string>>(new Set())
   const [yearsError, setYearsError] = useState('')
 
   useEffect(() => {
@@ -115,7 +142,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsMaxContract(editingContract.isMaxContract ?? false)
       setIsTwoWay(editingContract.contractType === 'two-way')
       setIsQualifyingOffer(editingContract.rfaPath === 'qualifying-offer')
-      setIsSignAndTrade(editingContract.isSignAndTrade ?? false)
+      setIsSignAndTrade(false)
       setYearsError('')
     } else {
       setYears('3')
@@ -129,6 +156,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsSignAndTrade(false)
       setYearsError('')
     }
+    setSelectedOutgoingRosterIds(new Set())
+    setSelectedOutgoingPickIds(new Set())
   }, [isOpen, editingContract?.id, player, startingSeason])
 
   if (!player) return null
@@ -305,6 +334,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsTwoWay(false)
       setIsQualifyingOffer(false)
       setIsSignAndTrade(false)
+      setSelectedOutgoingRosterIds(new Set())
+      setSelectedOutgoingPickIds(new Set())
       setTotalValue('')
       if (parseInt(years) > 5) setYears('5')
     }
@@ -319,6 +350,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsTwoWay(false)
       setIsQualifyingOffer(false)
       setIsSignAndTrade(false)
+      setSelectedOutgoingRosterIds(new Set())
+      setSelectedOutgoingPickIds(new Set())
       setYears('1')
       setDistribution('flat')
     } else {
@@ -336,6 +369,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsTwoWay(false)
       setIsQualifyingOffer(false)
       setIsSignAndTrade(false)
+      setSelectedOutgoingRosterIds(new Set())
+      setSelectedOutgoingPickIds(new Set())
       setYears(String(Math.min(EXCEPTION_MAX_YEARS[type], maxYears)))
       setDistribution('escalating')
     } else {
@@ -353,6 +388,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setIsMaxContract(false)
       setIsQualifyingOffer(false)
       setIsSignAndTrade(false)
+      setSelectedOutgoingRosterIds(new Set())
+      setSelectedOutgoingPickIds(new Set())
       if (parseInt(years) > 2) setYears('2')
       setDistribution('flat')
     } else {
@@ -370,6 +407,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setExceptionType(null)
       setIsTwoWay(false)
       setIsSignAndTrade(false)
+      setSelectedOutgoingRosterIds(new Set())
+      setSelectedOutgoingPickIds(new Set())
       setYears('1')
       setDistribution('flat')
     } else {
@@ -392,7 +431,34 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     } else {
       setYears('3')
       setDistribution('escalating')
+      setSelectedOutgoingRosterIds(new Set())
+      setSelectedOutgoingPickIds(new Set())
     }
+  }
+
+  function toggleOutgoingRoster(id: string) {
+    setSelectedOutgoingRosterIds((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
+
+  function toggleOutgoingPick(id: string) {
+    setSelectedOutgoingPickIds((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
+
+  function getFirstYearSalary(p: { salary: Partial<Record<Season, number>> }) {
+    for (const season of SEASONS) {
+      if (p.salary[season]) return p.salary[season]!
+    }
+    return 0
   }
 
   const handleYearsChange = (value: string) => {
@@ -534,6 +600,8 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     setIsTwoWay(false)
     setIsQualifyingOffer(false)
     setIsSignAndTrade(false)
+    setSelectedOutgoingRosterIds(new Set())
+    setSelectedOutgoingPickIds(new Set())
     setYearsError('')
   }
 
@@ -547,8 +615,116 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     ? (editingContract?.rfaPath === 'matched-offer-sheet' ? 'matched-offer-sheet' : undefined)
     : 'offer-sheet'
 
+  // Outgoing side of a sign-and-trade — the newly signed contract is the sole
+  // incoming asset, so this only needs our own tradeable roster/picks, not
+  // TradeModal's full available/incoming machinery.
+  const availableOutgoingRoster = roster.filter(
+    (p) => !tradedRosterPlayerIds.has(p.id) && !selectedOutgoingRosterIds.has(p.id)
+  )
+  const availableOutgoingPicks = draftPickPlayers.filter(
+    (p) => !tradedPickIds.has(p.id) && !selectedOutgoingPickIds.has(p.id)
+  )
+  const selectedOutgoingRosterObjects = roster.filter((p) => selectedOutgoingRosterIds.has(p.id))
+  const selectedOutgoingPickObjects = draftPickPlayers.filter((p) => selectedOutgoingPickIds.has(p.id))
+
+  // Runs the same trade-rules validator TradeModal uses, so a sign-and-trade
+  // can't silently fail to save (roster-context's addSavedTrade refuses an
+  // invalid trade with only a console.warn) — surfacing the same
+  // errors/warnings here before the user hits Save.
+  const signAndTradeAnalysis = (() => {
+    if (!isSignAndTrade || signAndTradeBlocked) return null
+
+    const outgoingAssets: TradeAsset[] = [
+      ...selectedOutgoingRosterObjects.map((p) => ({
+        kind: 'player' as const,
+        id: p.id,
+        name: p.name,
+        salaryBySeason: Object.fromEntries(
+          SEASONS.map((s) => [s, getEffectiveSalary(p, s)] as const).filter(([, v]) => v > 0)
+        ) as Partial<Record<Season, number>>,
+      })),
+      ...selectedOutgoingPickObjects.map((p) => {
+        const { pickYear, pickRound } = parsePickIdMeta(p.id)
+        return { kind: 'pick' as const, id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
+      }),
+    ]
+    const incomingAsset: TradeAsset = {
+      kind: 'player',
+      id: `st-${player.id}`,
+      name: player.name,
+      salaryBySeason: salaries,
+    }
+
+    const allAssets = [...outgoingAssets, incomingAsset]
+    const seasonsFromEval = SEASONS.slice(SEASONS.indexOf(TRADE_EVAL_SEASON))
+    const season: Season =
+      seasonsFromEval.find((s) => allAssets.some((a) => (a.salaryBySeason[s] ?? 0) > 0)) ?? TRADE_EVAL_SEASON
+    const thresholds = CAP_THRESHOLDS[season]
+
+    const yourPreTradeTotal = getTotalSalary(season).capSpaceTotal
+    const theirPreTradeTotal = getTeamCapTotal(player.team, season).capSpaceTotal
+    const yourCapState = getTeamCapState(selectedTeamAbbr, TRADE_EVAL_SEASON)
+    const theirCapState = getTeamCapState(player.team, TRADE_EVAL_SEASON)
+
+    const yourSide: TradeSideInput = {
+      side: 'yours',
+      teamAbbr: selectedTeamAbbr,
+      teamName: TEAM_NAMES[selectedTeamAbbr] || selectedTeamAbbr,
+      preTradeTotal: yourPreTradeTotal,
+      approximate: false,
+      outgoing: outgoingAssets,
+      incoming: [incomingAsset],
+      heldTPEs: yourCapState?.heldTPEs ?? [],
+      cashOut: 0,
+      cashIn: 0,
+      cashLedger: yourCapState?.cashLedger,
+    }
+    const theirSide: TradeSideInput = {
+      side: 'theirs',
+      teamAbbr: player.team,
+      teamName: TEAM_NAMES[player.team] || player.team,
+      preTradeTotal: theirPreTradeTotal,
+      approximate: true,
+      outgoing: [incomingAsset],
+      incoming: outgoingAssets,
+      heldTPEs: theirCapState?.heldTPEs ?? [],
+      cashOut: 0,
+      cashIn: 0,
+      cashLedger: theirCapState?.cashLedger,
+    }
+
+    const validationInput: ValidateTradeInput = {
+      season,
+      thresholds,
+      currentDraftYear: CURRENT_DRAFT_YEAR,
+      sides: [yourSide, theirSide],
+      ownedFirstRoundYearsByTeam: {
+        [selectedTeamAbbr]: getOwnedFirstRoundYears(selectedTeamAbbr),
+        [player.team]: getOwnedFirstRoundYears(player.team),
+      },
+    }
+
+    return validateTrade(validationInput)
+  })()
+
   const handleSave = () => {
-    const type = isSignAndTrade ? 'trade' : isOnSelectedTeam ? 'extension' : 'free-agent'
+    if (isSignAndTrade) {
+      addSavedTrade({
+        id: `trade-st-${player.id}-${Date.now()}`,
+        tradeTeamAbbr: player.team,
+        createdAt: new Date(),
+        outgoingRosterPlayerIds: Array.from(selectedOutgoingRosterIds),
+        outgoingPickIds: Array.from(selectedOutgoingPickIds),
+        incomingPlayers: [{ playerId: `st-${player.id}-${Date.now()}`, playerName: player.name, salary: salaries, options: {} }],
+        incomingPicks: [],
+        isSignAndTrade: true,
+      })
+      resetForm()
+      onClose()
+      return
+    }
+
+    const type = isOnSelectedTeam ? 'extension' : 'free-agent'
     if (editingContract) {
       updateSavedContract({
         ...editingContract,
@@ -559,7 +735,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
         isMaxContract: isMaxContract,
         contractType: isTwoWay ? 'two-way' : undefined,
         rfaPath,
-        isSignAndTrade: isSignAndTrade || undefined,
       })
     } else {
       addSavedContract({
@@ -574,7 +749,6 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
         isMaxContract: isMaxContract,
         contractType: isTwoWay ? 'two-way' : undefined,
         rfaPath,
-        isSignAndTrade: isSignAndTrade || undefined,
       })
     }
 
@@ -593,10 +767,28 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
 
   const meetsOfferSheetTermBand = !isOfferSheet || (numYears >= 2 && numYears <= 4)
 
+  // The label of the restricted contract type the user has actually selected,
+  // once it satisfies the cap-imposed restriction below — used to swap the
+  // restriction notice from a warning to a confirmation.
+  const compliantContractLabel = isMinimum
+    ? 'Minimum contract'
+    : exceptionType === 'tmle' && tmleAvailable
+    ? 'Taxpayer MLE contract'
+    : exceptionType === 'ntmle' && ntmleAvailable
+    ? 'Non-Taxpayer MLE contract'
+    : exceptionType === 'bae' && baeAvailable
+    ? 'Bi-Annual Exception contract'
+    : null
+
   const isValid = isQualifyingOffer
     ? totalValueNum > 0 && numYears === 1
     : isSignAndTrade
-    ? totalValueNum > 0 && numYears >= 3 && numYears <= 4 && !signAndTradeBlocked
+    ? totalValueNum > 0 &&
+      numYears >= 3 &&
+      numYears <= 4 &&
+      !signAndTradeBlocked &&
+      (selectedOutgoingRosterIds.size > 0 || selectedOutgoingPickIds.size > 0) &&
+      (signAndTradeAnalysis?.isValid ?? false)
     : meetsOfferSheetTermBand &&
       (isTwoWay
         ? numYears > 0
@@ -628,24 +820,52 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
           {/* Cap restriction notices */}
           <div className="space-y-2">
             {!isSignAndTrade && isOverSecondApron && (
-              <p className="text-xs text-red-500">
-                Team is over the second apron. Only minimum contracts are available.
-              </p>
+              compliantContractLabel ? (
+                <p className="flex items-center gap-1.5 text-xs text-emerald-500">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+                  {compliantContractLabel} is valid — team is over the second apron.
+                </p>
+              ) : (
+                <p className="text-xs text-red-500">
+                  Team is over the second apron. Only minimum contracts are available.
+                </p>
+              )
             )}
             {!isSignAndTrade && isOverFirstApronBelowSecondApron && (
-              <p className="text-xs text-red-500">
-                Team is over the first apron. {tmleAvailable ? 'Minimum or Taxpayer MLE contracts are available.' : 'The Taxpayer MLE has already been used — only a minimum contract is available.'}
-              </p>
+              compliantContractLabel ? (
+                <p className="flex items-center gap-1.5 text-xs text-emerald-500">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+                  {compliantContractLabel} is valid — team is over the first apron.
+                </p>
+              ) : (
+                <p className="text-xs text-red-500">
+                  Team is over the first apron. {tmleAvailable ? 'Minimum or Taxpayer MLE contracts are available.' : 'The Taxpayer MLE has already been used — only a minimum contract is available.'}
+                </p>
+              )
             )}
             {!isSignAndTrade && isOverCapBelowFirstApron && (ntmleAvailable || baeAvailable) && (
-              <p className="text-xs text-amber-500">
-                Team is over the salary cap. Minimum{ntmleAvailable ? ', Non-Taxpayer MLE' : ''}{baeAvailable ? ', or Bi-Annual Exception' : ''} contracts are available.
-              </p>
+              compliantContractLabel ? (
+                <p className="flex items-center gap-1.5 text-xs text-emerald-500">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+                  {compliantContractLabel} is valid — team is over the salary cap.
+                </p>
+              ) : (
+                <p className="text-xs text-amber-500">
+                  Team is over the salary cap. Minimum{ntmleAvailable ? ', Non-Taxpayer MLE' : ''}{baeAvailable ? ', or Bi-Annual Exception' : ''} contracts are available.
+                </p>
+              )
             )}
             {!isSignAndTrade && isOverCapBelowFirstApron && !ntmleAvailable && !baeAvailable && (
-              <p className="text-xs text-amber-500">
-                Team is over the salary cap and has already used its Mid-Level and Bi-Annual Exceptions for {effectiveStartingSeason}. Only a minimum contract is available.
-              </p>
+              compliantContractLabel ? (
+                <p className="flex items-center gap-1.5 text-xs text-emerald-500">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+                  {compliantContractLabel} is valid — team is over the salary cap.
+                </p>
+              ) : (
+                <p className="text-xs text-amber-500">
+                  Team is over the salary cap and has already used its Mid-Level and Bi-Annual Exceptions for {effectiveStartingSeason}. Only a minimum contract is available.
+                </p>
+              )
             )}
 
             {/* Restricted free agency status, grouped with whatever it implies for this deal */}
@@ -780,7 +1000,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 </div>
               )}
 
-              {!isOnSelectedTeam && !isQualifyingOffer && (
+              {!isOnSelectedTeam && !isQualifyingOffer && !editingContract && (
                 signAndTradeBlocked ? (
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -825,17 +1045,98 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
               <>
                 <p className="text-xs text-muted-foreground">
                   {player.name} re-signs with {player.team} under their Bird rights, then is immediately traded to{' '}
-                  {selectedTeamAbbr}. Must run 3–4 years with the first year fully guaranteed. Hard-caps{' '}
-                  {selectedTeamAbbr} at the first apron for the rest of the season — the deal can&apos;t go through if
-                  it leaves them above it. This modal only records the incoming contract; add the matching outgoing
-                  assets in Build Trade to complete the deal.
+                  {selectedTeamAbbr}. Must run 3–4 years with the first year fully guaranteed, and hard-caps{' '}
+                  {selectedTeamAbbr} at the first apron for the rest of the season. Select what {selectedTeamAbbr}{' '}
+                  sends {player.team} below to complete the deal — this becomes a normal trade.
                 </p>
                 {signAndTradeApronWarning && (
                   <p className="text-xs text-amber-500">
-                    {selectedTeamAbbr} is already over the first apron. A sign-and-trade can only go through if the
-                    outgoing assets in the matching trade bring them back below it — build that trade to confirm this
-                    works.
+                    {selectedTeamAbbr} is already over the first apron — the outgoing assets below need to bring them
+                    back under it.
                   </p>
+                )}
+
+                <div className="rounded-md border border-border/60 overflow-hidden">
+                  <div className="px-2.5 py-1.5 bg-muted/40 border-b border-border/60">
+                    <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                      {selectedTeamAbbr} sends to {player.team}
+                    </span>
+                  </div>
+                  <div className="max-h-36 overflow-y-auto p-1.5 space-y-0.5">
+                    {selectedOutgoingRosterObjects.map((p) => (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => toggleOutgoingRoster(p.id)}
+                        className="w-full flex items-center justify-between px-1.5 py-1 rounded text-xs bg-primary/10 hover:bg-primary/15 transition-colors"
+                      >
+                        <span className="truncate">{p.name}</span>
+                        <span className="flex items-center gap-1 text-muted-foreground shrink-0 ml-1.5">
+                          <span className="font-mono tabular-nums">{formatCurrency(getFirstYearSalary(p))}</span>
+                          <X className="h-3 w-3" />
+                        </span>
+                      </button>
+                    ))}
+                    {selectedOutgoingPickObjects.map((p) => (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => toggleOutgoingPick(p.id)}
+                        className="w-full flex items-center justify-between px-1.5 py-1 rounded text-xs bg-primary/10 hover:bg-primary/15 transition-colors"
+                      >
+                        <span className="truncate">{p.name}</span>
+                        <X className="h-3 w-3 text-muted-foreground shrink-0 ml-1.5" />
+                      </button>
+                    ))}
+                    {availableOutgoingRoster.map((p) => (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => toggleOutgoingRoster(p.id)}
+                        className="w-full flex items-center justify-between px-1.5 py-1 rounded text-xs hover:bg-muted/60 transition-colors"
+                      >
+                        <span className="truncate">{p.name}</span>
+                        <span className="flex items-center gap-1 text-muted-foreground shrink-0 ml-1.5">
+                          <span className="font-mono tabular-nums">{formatCurrency(getFirstYearSalary(p))}</span>
+                          <Plus className="h-3 w-3" />
+                        </span>
+                      </button>
+                    ))}
+                    {availableOutgoingPicks.map((p) => (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => toggleOutgoingPick(p.id)}
+                        className="w-full flex items-center justify-between px-1.5 py-1 rounded text-xs hover:bg-muted/60 transition-colors"
+                      >
+                        <span className="truncate">{p.name}</span>
+                        <Plus className="h-3 w-3 text-muted-foreground shrink-0 ml-1.5" />
+                      </button>
+                    ))}
+                    {availableOutgoingRoster.length === 0 &&
+                      availableOutgoingPicks.length === 0 &&
+                      selectedOutgoingRosterObjects.length === 0 &&
+                      selectedOutgoingPickObjects.length === 0 && (
+                        <p className="text-xs text-muted-foreground px-1.5 py-1">No available assets</p>
+                      )}
+                  </div>
+                </div>
+
+                {signAndTradeAnalysis && signAndTradeAnalysis.errors.length > 0 && (
+                  <div className="rounded-md border border-destructive/50 bg-destructive/10 p-2 space-y-1">
+                    <p className="text-xs font-semibold text-destructive">Trade Invalid</p>
+                    {signAndTradeAnalysis.errors.map((e, i) => (
+                      <p key={i} className="text-xs text-destructive-foreground/90">{e.message}</p>
+                    ))}
+                  </div>
+                )}
+                {signAndTradeAnalysis && signAndTradeAnalysis.warnings.length > 0 && (
+                  <div className="rounded-md border border-amber-500/40 bg-amber-500/10 p-2 space-y-1">
+                    <p className="text-xs font-semibold text-amber-500">Heads up</p>
+                    {signAndTradeAnalysis.warnings.map((w, i) => (
+                      <p key={i} className="text-xs text-foreground/90">{w.message}</p>
+                    ))}
+                  </div>
                 )}
               </>
             )}
@@ -940,7 +1241,10 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
           {/* Preview */}
           {isValid && (
             <div className="bg-muted/30 rounded p-2.5">
-              <p className="text-xs font-medium mb-1.5">Contract Preview</p>
+              <p className="flex items-center gap-1.5 text-xs font-medium mb-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                Contract Preview
+              </p>
               <div className="space-y-1">
                 {contractSeasons.map((season) => (
                   <div key={season} className="flex justify-between text-xs">
@@ -973,7 +1277,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
             Cancel
           </Button>
           <Button onClick={handleSave} disabled={!isValid} className="flex-1 h-8 text-sm">
-            {editingContract ? 'Save Changes' : 'Save Contract'}
+            {editingContract ? 'Save Changes' : isSignAndTrade ? 'Save Trade' : 'Save Contract'}
           </Button>
         </div>
       </DialogContent>

@@ -61,6 +61,11 @@ export function TradesPanelContent({ onEditTrade }: { onEditTrade: (trade: Saved
               <span className="text-[12px] font-semibold text-foreground flex items-center gap-1.5 min-w-0">
                 <ArrowLeftRight className="h-3 w-3 shrink-0 text-muted-foreground" />
                 <span className="truncate">Trade with {teamName}</span>
+                {trade.isSignAndTrade && (
+                  <span className="text-[9px] font-normal text-chart-4 bg-chart-4/10 px-1 py-px rounded shrink-0">
+                    Sign-and-Trade
+                  </span>
+                )}
               </span>
               <div className="flex items-center gap-2 shrink-0">
                 <span className="text-[9px] font-semibold text-muted-foreground">{dateLabel}</span>
