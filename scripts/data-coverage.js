@@ -32,15 +32,18 @@ function report(title, rows) {
 {
   const text = read('player-data.ts')
   const totalPlayers = countOccurrences(text, /^\s*\{ name: "/gm)
-  const acquisition = countOccurrences(text, /acquisition: \{/g)
+  const acquisitionHistory = countOccurrences(text, /acquisitionHistory: \[/g)
   const guarantees = countOccurrences(text, /guarantees: \{/g)
+  let acqRecordCount = 0
   const acqMethods = {}
-  for (const m of text.matchAll(/acquisition: \{ date: '[^']+', method: '([^']+)'/g)) {
+  for (const m of text.matchAll(/\{ date: '[^']+', method: '([^']+)', team: '[^']+' \}/g)) {
+    acqRecordCount++
     acqMethods[m[1]] = (acqMethods[m[1]] || 0) + 1
   }
   report('lib/player-data.ts', [
     ['total players', totalPlayers],
-    ['acquisition populated', pct(acquisition, totalPlayers)],
+    ['acquisitionHistory populated', pct(acquisitionHistory, totalPlayers)],
+    ['  total history records', acqRecordCount],
     ['  by method', JSON.stringify(acqMethods)],
     ['guarantees populated', pct(guarantees, totalPlayers)],
   ])
@@ -123,6 +126,23 @@ function report(title, rows) {
     const text = fs.readFileSync(file, 'utf8')
     const picks = countOccurrences(text, /\{ teamOwner: /g)
     report('lib/draft-picks.ts', [['pick entries', picks]])
+  }
+}
+
+// --- awards.ts ---
+{
+  const file = path.join(LIB, 'awards.ts')
+  if (fs.existsSync(file)) {
+    const text = fs.readFileSync(file, 'utf8')
+    const players = countOccurrences(text, /^\s*"[^"]+": \[/gm)
+    const byAward = {}
+    for (const m of text.matchAll(/award: '([^']+)'/g)) {
+      byAward[m[1]] = (byAward[m[1]] || 0) + 1
+    }
+    report('lib/awards.ts', [
+      ['players with award history', players],
+      ['  by award type', JSON.stringify(byAward)],
+    ])
   }
 }
 

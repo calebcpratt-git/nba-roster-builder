@@ -45,7 +45,7 @@ const TEAM_NAMES = {
  *   salary: Record<string, number|null>,
  *   options: Record<string, 'Team'|'Player'|null>,
  *   guarantees?: Record<string, { status: 'full'|'partial'|'non-guaranteed', amount?: number, guaranteeDate?: string }>,
- *   acquisition?: { date: string, method: 'draft'|'trade'|'free-agent'|'waiver'|'sign-and-trade'|'extension' },
+ *   acquisitionHistory?: Array<{ date: string, method: 'draft'|'trade'|'free-agent'|'waiver'|'sign-and-trade'|'extension', team: string }>,
  *   contractType?: 'two-way'
  * }} PlayerRecord
  * @param {PlayerRecord[]} players
@@ -63,7 +63,8 @@ export interface RawPlayerData {
   salary: Partial<Record<Season, number | null>>
   options: Partial<Record<Season, OptionType>>
   guarantees?: Partial<Record<Season, SeasonGuarantee>>
-  acquisition?: { date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension' }
+  /** Ascending by date. Spans the last 5 completed seasons (Basketball-Reference) plus the current season (SalarySwish). */
+  acquisitionHistory?: Array<{ date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension'; team: string }>
   /** Flat league-wide two-way salary, not a real negotiated figure — see scripts/scrape/run.py's TWO_WAY_SALARY. */
   contractType?: 'two-way'
 }
@@ -96,8 +97,13 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [\n`
     }
 
     let acquisitionField = ''
-    if (player.acquisition?.date && player.acquisition?.method) {
-      acquisitionField = `, acquisition: { date: '${player.acquisition.date}', method: '${player.acquisition.method}' }`
+    const acquisitionEntries = (player.acquisitionHistory ?? []).filter((a) => a?.date && a?.method && a?.team)
+    if (acquisitionEntries.length > 0) {
+      const sorted = [...acquisitionEntries].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+      const serialized = sorted
+        .map((a) => `{ date: '${a.date}', method: '${a.method}', team: '${a.team}' }`)
+        .join(', ')
+      acquisitionField = `, acquisitionHistory: [${serialized}]`
     }
 
     const contractTypeField = player.contractType === 'two-way' ? `, contractType: 'two-way'` : ''

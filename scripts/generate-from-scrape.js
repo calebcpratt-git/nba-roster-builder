@@ -12,6 +12,7 @@ const { generateDraftPicks } = require('./generate-draft-picks')
 const { generateContractDetails } = require('./generate-contract-details')
 const { generateTeamCapState } = require('./generate-team-cap-state')
 const { generateFreeAgents } = require('./generate-free-agents')
+const { generateAwards } = require('./generate-awards')
 const { mergeDiffDetail } = require('./lib/validate-and-diff')
 
 const SCRAPED = path.join(__dirname, '../snapshots/scraped')
@@ -187,7 +188,10 @@ if (capState) diffResults.push(['team-cap-state', generateTeamCapState(capState,
 const freeAgentPool = readOptional('free-agents.json', 'free agent pool (currently-unsigned players)')
 if (freeAgentPool) diffResults.push(['free-agents', generateFreeAgents(freeAgentPool, genOptions)])
 
-for (const name of ['unresolved-acquisition.json', 'unresolved-guarantees.json', 'unresolved-signing.json']) {
+const awards = readOptional('awards.json', 'award history (MVP, DPOY, All-NBA)')
+if (awards) diffResults.push(['awards', generateAwards(awards, genOptions)])
+
+for (const name of ['unresolved-acquisition.json', 'unresolved-guarantees.json', 'unresolved-signing.json', 'unresolved-awards.json']) {
   const unresolvedExtra = readOptional(name, name)
   if (unresolvedExtra && unresolvedExtra.length) {
     console.log(`Note: ${unresolvedExtra.length} entries in ${name} could not be matched to a player.`)

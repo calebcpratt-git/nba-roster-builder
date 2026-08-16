@@ -1,0 +1,382 @@
+[
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "season": "2025-26",
+    "award": "MVP"
+  },
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "season": "2025-26",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Nikola Jokić",
+    "season": "2025-26",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Victor Wembanyama",
+    "season": "2025-26",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Luka Dončić",
+    "season": "2025-26",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Cade Cunningham",
+    "season": "2025-26",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Jaylen Brown",
+    "season": "2025-26",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Kawhi Leonard",
+    "season": "2025-26",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Donovan Mitchell",
+    "season": "2025-26",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Kevin Durant",
+    "season": "2025-26",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Jalen Brunson",
+    "season": "2025-26",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Tyrese Maxey",
+    "season": "2025-26",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Jamal Murray",
+    "season": "2025-26",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Jalen Johnson",
+    "season": "2025-26",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Chet Holmgren",
+    "season": "2025-26",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "season": "2024-25",
+    "award": "MVP"
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "season": "2024-25",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "season": "2024-25",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Nikola Jokić",
+    "season": "2024-25",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Jayson Tatum",
+    "season": "2024-25",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Donovan Mitchell",
+    "season": "2024-25",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Anthony Edwards",
+    "season": "2024-25",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "LeBron James",
+    "season": "2024-25",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Stephen Curry",
+    "season": "2024-25",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Evan Mobley",
+    "season": "2024-25",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Jalen Brunson",
+    "season": "2024-25",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Cade Cunningham",
+    "season": "2024-25",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Karl-Anthony Towns",
+    "season": "2024-25",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Tyrese Haliburton",
+    "season": "2024-25",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Jalen Williams",
+    "season": "2024-25",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Nikola Jokić",
+    "season": "2023-24",
+    "award": "MVP"
+  },
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "season": "2023-24",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Nikola Jokić",
+    "season": "2023-24",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Luka Dončić",
+    "season": "2023-24",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "season": "2023-24",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Jayson Tatum",
+    "season": "2023-24",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Jalen Brunson",
+    "season": "2023-24",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Anthony Edwards",
+    "season": "2023-24",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Kevin Durant",
+    "season": "2023-24",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Kawhi Leonard",
+    "season": "2023-24",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Anthony Davis",
+    "season": "2023-24",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "LeBron James",
+    "season": "2023-24",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Stephen Curry",
+    "season": "2023-24",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Domantas Sabonis",
+    "season": "2023-24",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Tyrese Haliburton",
+    "season": "2023-24",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Devin Booker",
+    "season": "2023-24",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Joel Embiid",
+    "season": "2022-23",
+    "award": "MVP"
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "season": "2022-23",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Jayson Tatum",
+    "season": "2022-23",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Joel Embiid",
+    "season": "2022-23",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Shai Gilgeous-Alexander",
+    "season": "2022-23",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Luka Dončić",
+    "season": "2022-23",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Nikola Jokić",
+    "season": "2022-23",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Donovan Mitchell",
+    "season": "2022-23",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Stephen Curry",
+    "season": "2022-23",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Jimmy Butler",
+    "season": "2022-23",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Jaylen Brown",
+    "season": "2022-23",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Domantas Sabonis",
+    "season": "2022-23",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "De'Aaron Fox",
+    "season": "2022-23",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Damian Lillard",
+    "season": "2022-23",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Julius Randle",
+    "season": "2022-23",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "LeBron James",
+    "season": "2022-23",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Nikola Jokić",
+    "season": "2021-22",
+    "award": "MVP"
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "season": "2021-22",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Luka Dončić",
+    "season": "2021-22",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Nikola Jokić",
+    "season": "2021-22",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Devin Booker",
+    "season": "2021-22",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Jayson Tatum",
+    "season": "2021-22",
+    "award": "All-NBA-1"
+  },
+  {
+    "name": "Joel Embiid",
+    "season": "2021-22",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Ja Morant",
+    "season": "2021-22",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Kevin Durant",
+    "season": "2021-22",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Stephen Curry",
+    "season": "2021-22",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "Karl-Anthony Towns",
+    "season": "2021-22",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "LeBron James",
+    "season": "2021-22",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Trae Young",
+    "season": "2021-22",
+    "award": "All-NBA-3"
+  },
+  {
+    "name": "Pascal Siakam",
+    "season": "2021-22",
+    "award": "All-NBA-3"
+  }
+]

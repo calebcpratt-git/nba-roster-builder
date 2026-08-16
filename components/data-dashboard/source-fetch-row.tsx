@@ -24,11 +24,16 @@ export function SourceFetchRow({
   runPyKey,
   ok,
   rescued,
+  keyLabel,
 }: {
   id: string
   runPyKey: string
   ok: boolean | null
   rescued: boolean
+  /** For a template source expanded into one row per underlying run.py key
+   *  (e.g. one per draft/awards/transactions year) — distinguishes rows that
+   *  otherwise share the same source label. */
+  keyLabel?: string
 }) {
   const router = useRouter()
   const [pending, startTransition] = useTransition()
@@ -58,7 +63,10 @@ export function SourceFetchRow({
 
   return (
     <li className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 text-xs">
-      <SourceLink sourceId={id} fullLabel />
+      <span className="inline-flex items-center gap-1.5">
+        <SourceLink sourceId={id} fullLabel />
+        {keyLabel && <span className="font-mono text-[11px] text-muted-foreground">({keyLabel})</span>}
+      </span>
       <div className="flex shrink-0 items-center gap-2">
         {ok === null ? (
           <span className="text-muted-foreground">no data</span>
