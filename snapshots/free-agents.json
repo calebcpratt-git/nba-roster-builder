@@ -56,13 +56,6 @@
     "birdRights": "early-bird"
   },
   {
-    "name": "Bradley Beal",
-    "position": "SG",
-    "priorTeam": "LAC",
-    "faType": "U",
-    "birdRights": "non-bird"
-  },
-  {
     "name": "MarJon Beauchamp",
     "position": "SF",
     "priorTeam": "PHI",
@@ -851,7 +844,7 @@
     "position": "SG",
     "priorTeam": "IND",
     "faType": "U",
-    "birdRights": "non-bird"
+    "birdRights": null
   },
   {
     "name": "Xavier Tillman, Sr.",
