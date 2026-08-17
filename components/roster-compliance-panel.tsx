@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
+import { incomingPlayersFor } from '@/lib/trade-model'
 import { SEASONS, Season } from '@/lib/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -20,7 +21,8 @@ export function RosterCompliancePanel() {
   const {
     roster,
     savedContracts,
-    savedTrades,
+    normalizedTrades,
+    selectedTeamAbbr,
     deletedContractIds,
     releasedRosterIds,
     tradedRosterPlayerIds,
@@ -61,7 +63,10 @@ export function RosterCompliancePanel() {
 
   const twoWaySignings = activeContracts.filter((c) => c.contractType === 'two-way')
   const standardSignings = activeContracts.filter((c) => c.contractType !== 'two-way')
-  const incomingTradePlayers = useMemo(() => savedTrades.flatMap((t) => t.incomingPlayers), [savedTrades])
+  const incomingTradePlayers = useMemo(
+    () => normalizedTrades.flatMap((t) => incomingPlayersFor(t, selectedTeamAbbr)),
+    [normalizedTrades, selectedTeamAbbr]
+  )
 
   const twoWayEntries = [
     ...twoWayRosterPlayers.map((p) => ({ id: p.id, playerName: p.name })),

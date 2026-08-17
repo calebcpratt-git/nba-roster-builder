@@ -1,8 +1,9 @@
-import { Player, SavedContract, SavedTrade, Season, SEASONS } from './types'
+import { Player, SavedContract, Season, SEASONS } from './types'
 import { CAP_THRESHOLDS } from './data'
 import { PLAYER_ROOKIE_YEARS } from './rookie-years'
 import { nameLookup } from './player-key'
 import { getFreeAgentPoolEntry } from './free-agents'
+import { NormalizedTrade, incomingPicksFor } from './trade-model'
 import type { DraftPickPlayer } from './draft-picks'
 
 export type DistributionType = 'flat' | 'escalating' | 'declining'
@@ -102,7 +103,8 @@ export function getDisplayedSeasons(
   savedContracts: SavedContract[],
   deletedContractIds: Set<string>,
   draftPickPlayers: DraftPickPlayer[],
-  savedTrades: SavedTrade[]
+  savedTrades: NormalizedTrade[],
+  teamAbbr: string
 ): Season[] {
   let maxSeasonIndex = 0
 
@@ -134,9 +136,9 @@ export function getDisplayedSeasons(
   })
 
   savedTrades.forEach((trade) => {
-    trade.incomingPicks.forEach((pick) => {
+    incomingPicksFor(trade, teamAbbr).forEach((pick) => {
       SEASONS.forEach((season, index) => {
-        if (pick.salary[season] && pick.salary[season]! > 0) {
+        if (pick.salary?.[season] && pick.salary[season]! > 0) {
           maxSeasonIndex = Math.max(maxSeasonIndex, index)
         }
       })

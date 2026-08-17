@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { useRoster } from '@/lib/roster-context'
+import { incomingPicksFor } from '@/lib/trade-model'
 import { useRosterTableData } from '@/hooks/use-roster-table-data'
 import { SEASONS, Season, Player, CapStatus, SavedContract } from '@/lib/types'
 import { formatCurrency, CAP_THRESHOLDS, getCapStatusColor, getTotalSalaryColor } from '@/lib/data'
@@ -570,7 +571,7 @@ export function RosterTable() {
     getReleaseDetail,
     releaseRosterPlayer,
     restoreRosterPlayer,
-    savedTrades,
+    normalizedTrades,
     tradedPickIds,
     selectedTeam,
     selectedTeamAbbr,
@@ -580,6 +581,11 @@ export function RosterTable() {
     renounceCapHold,
     restoreCapHold,
   } = useRoster()
+
+  const incomingTradePicks = useMemo(
+    () => normalizedTrades.flatMap((trade) => incomingPicksFor(trade, selectedTeamAbbr)),
+    [normalizedTrades, selectedTeamAbbr]
+  )
 
   const [extensionModal, setExtensionModal] = useState<{ player: Player | null; isOpen: boolean; startSeason?: Season }>({
     player: null,
@@ -1125,9 +1131,10 @@ export function RosterTable() {
                 ))}
                 
                 {/* Incoming trade picks */}
-                {savedTrades.flatMap((trade) => trade.incomingPicks).length > 0 &&
-                  savedTrades.flatMap((trade) =>
-                    trade.incomingPicks.map((pick) => (
+                {incomingTradePicks.length > 0 &&
+                  incomingTradePicks.map((rawPick) => {
+                    const pick = { ...rawPick, name: rawPick.name ?? rawPick.id, salary: rawPick.salary ?? {}, options: rawPick.options ?? {} }
+                    return (
                       <tr key={pick.id} className="border-b border-border/30 hover:bg-muted/20 transition-colors bg-chart-4/5">
                         <td className="sticky left-0 bg-chart-4/5 px-3 py-1.5">
                           <div className="flex items-center gap-1.5">
@@ -1186,8 +1193,8 @@ export function RosterTable() {
                           )
                         })}
                       </tr>
-                    ))
-                  )
+                    )
+                  })
                 }
               </tbody>
 
