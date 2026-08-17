@@ -10,6 +10,7 @@ import { SOURCE_STYLES, sourceFamily, familyColor, FAMILY_LABELS, type SourceFam
 import { RefreshButton } from '@/components/data-dashboard/refresh-button'
 import { SourceFetchRow } from '@/components/data-dashboard/source-fetch-row'
 import { SourceGroupRow } from '@/components/data-dashboard/source-group-row'
+import { SourceFamilyGroup } from '@/components/data-dashboard/source-family-group'
 import { DataChatPanel } from '@/components/data-dashboard/chat-panel'
 import { SourceDataProvider } from '@/components/data-dashboard/source-context'
 import { SourceLink } from '@/components/data-dashboard/source-link'
@@ -129,6 +130,26 @@ export default function DataSchemaDashboard() {
   })
   const dailyGroupRows = groupedTemplateRows.filter((s) => s.cadence === 'daily')
   const manualOnlySources = groupedTemplateRows.filter((s) => s.cadence !== 'daily')
+
+  // Collapse the flat "Source fetches" list into one row per website
+  // (Basketball-Reference, RealGM, Hoops Rumors, SalarySwish, nbacaptracker,
+  // ...) — expanding a row reveals the same per-source rows shown before.
+  const familyOrder: SourceFamily[] = ['bbref', 'realgm', 'hoops', 'captracker', 'swish', 'hand', 'none']
+  const familyBuckets = familyOrder
+    .map((family) => ({
+      family,
+      fetchRows: sourceFetchRows.filter((s) => sourceFamily(s.id) === family),
+      groupRows: dailyGroupRows.filter((s) => sourceFamily(s.id) === family),
+      manualRows: manualOnlySources.filter((s) => sourceFamily(s.id) === family),
+    }))
+    .filter((b) => b.fetchRows.length + b.groupRows.length + b.manualRows.length > 0)
+
+  function familyOk(b: (typeof familyBuckets)[number]): boolean | null {
+    const oks = [...b.fetchRows.map((s) => s.ok), ...b.groupRows.map((s) => s.ok)].filter(
+      (ok): ok is boolean => ok !== null,
+    )
+    return oks.length === 0 ? null : oks.every(Boolean)
+  }
 
   const tiers = erdTiers()
   const edges = erdEdges()
@@ -266,6 +287,41 @@ export default function DataSchemaDashboard() {
               <div className="grid gap-3 md:grid-cols-3">
                 <div className="rounded-lg border bg-card p-3">
                   <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                    Source fetches
+                  </h3>
+                  {familyBuckets.length === 0 ? (
+                    <p className="text-xs text-muted-foreground">No source-fetch detail on disk for this run.</p>
+                  ) : (
+                    <ul className="space-y-1.5">
+                      {familyBuckets.map((b) => (
+                        <SourceFamilyGroup key={b.family} family={b.family} label={FAMILY_LABELS[b.family]} ok={familyOk(b)}>
+                          {b.fetchRows.map((s) => (
+                            <SourceFetchRow
+                              key={s.runPyKey}
+                              id={s.id}
+                              runPyKey={s.runPyKey}
+                              ok={s.ok}
+                              rescued={s.rescued}
+                              keyLabel={s.keyLabel}
+                            />
+                          ))}
+                          {b.groupRows.map((s) => (
+                            <SourceGroupRow key={s.id} id={s.id} ok={s.ok} total={s.total} failed={s.failed} />
+                          ))}
+                          {b.manualRows.map((s) => (
+                            <li key={s.id} className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 text-xs">
+                              <SourceLink sourceId={s.id} fullLabel />
+                              <span className="text-muted-foreground">manual — not part of the daily run</span>
+                            </li>
+                          ))}
+                        </SourceFamilyGroup>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <div className="rounded-lg border bg-card p-3">
+                  <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                     Diff against yesterday
                   </h3>
                   {status.diffs.length === 0 ? (
@@ -382,37 +438,6 @@ export default function DataSchemaDashboard() {
                         </li>
                         )
                       })}
-                    </ul>
-                  )}
-                </div>
-
-                <div className="rounded-lg border bg-card p-3">
-                  <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-                    Source fetches
-                  </h3>
-                  {sourceFetchRows.length === 0 && dailyGroupRows.length === 0 && manualOnlySources.length === 0 ? (
-                    <p className="text-xs text-muted-foreground">No source-fetch detail on disk for this run.</p>
-                  ) : (
-                    <ul className="space-y-1.5">
-                      {sourceFetchRows.map((s) => (
-                        <SourceFetchRow
-                          key={s.runPyKey}
-                          id={s.id}
-                          runPyKey={s.runPyKey}
-                          ok={s.ok}
-                          rescued={s.rescued}
-                          keyLabel={s.keyLabel}
-                        />
-                      ))}
-                      {dailyGroupRows.map((s) => (
-                        <SourceGroupRow key={s.id} id={s.id} ok={s.ok} total={s.total} failed={s.failed} />
-                      ))}
-                      {manualOnlySources.map((s) => (
-                        <li key={s.id} className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 text-xs">
-                          <SourceLink sourceId={s.id} fullLabel />
-                          <span className="text-muted-foreground">manual — not part of the daily run</span>
-                        </li>
-                      ))}
                     </ul>
                   )}
                 </div>

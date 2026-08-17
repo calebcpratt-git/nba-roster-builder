@@ -2,43 +2,57 @@
 
 import { useState } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { SavedTrade, SEASONS } from '@/lib/types'
+import { SavedTrade, SEASONS, Season } from '@/lib/types'
+import { NormalizedTrade, incomingFor, outgoingFor, partnersOf } from '@/lib/trade-model'
 import { TEAM_NAMES, formatCurrency } from '@/lib/data'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowLeftRight, ChevronRight, Plus, Trash2 } from 'lucide-react'
 import { TradeModal } from './trade-modal'
 import { cn } from '@/lib/utils'
 
-// The trade's first affected season, and each side's total salary for just
+type SalaryMap = Partial<Record<Season, number>>
+
+// The trade's first affected season, and the selected team's totals for just
 // that season — mirrors the design's "Outgoing/Incoming (first season)" card.
-function getTradeFirstSeasonTotals(trade: SavedTrade, roster: { id: string; salary: Partial<Record<typeof SEASONS[number], number>> }[], draftPickPlayers: { id: string; salary: Partial<Record<typeof SEASONS[number], number>> }[]) {
-  const outgoingPlayers = trade.outgoingRosterPlayerIds
-    .map((id) => roster.find((p) => p.id === id))
-    .filter((p): p is NonNullable<typeof p> => !!p)
-  const outgoingPicks = trade.outgoingPickIds
-    .map((id) => draftPickPlayers.find((p) => p.id === id))
-    .filter((p): p is NonNullable<typeof p> => !!p)
+// Outgoing assets carry no snapshot of their own (they are resolved live), so
+// they are looked up against the live roster and pick lists here.
+function getTradeFirstSeasonTotals(
+  trade: NormalizedTrade,
+  teamAbbr: string,
+  roster: { id: string; salary: SalaryMap }[],
+  draftPickPlayers: { id: string; salary: SalaryMap }[]
+) {
+  const outgoing: SalaryMap[] = outgoingFor(trade, teamAbbr).map((m) => {
+    const live = roster.find((p) => p.id === m.id) ?? draftPickPlayers.find((p) => p.id === m.id)
+    return live?.salary ?? m.salary ?? {}
+  })
+  const incoming: SalaryMap[] = incomingFor(trade, teamAbbr).map((m) => m.salary ?? {})
 
   const firstSeasonIndex = SEASONS.findIndex((season) =>
-    outgoingPlayers.some((p) => p.salary[season]) ||
-    outgoingPicks.some((p) => p.salary[season]) ||
-    trade.incomingPlayers.some((p) => p.salary[season]) ||
-    trade.incomingPicks.some((p) => p.salary[season])
+    outgoing.some((s) => s[season]) || incoming.some((s) => s[season])
   )
   const season = SEASONS[firstSeasonIndex === -1 ? 0 : firstSeasonIndex]
 
-  const outgoingTotal =
-    outgoingPlayers.reduce((sum, p) => sum + (p.salary[season] || 0), 0) +
-    outgoingPicks.reduce((sum, p) => sum + (p.salary[season] || 0), 0)
-  const incomingTotal =
-    trade.incomingPlayers.reduce((sum, p) => sum + (p.salary[season] || 0), 0) +
-    trade.incomingPicks.reduce((sum, p) => sum + (p.salary[season] || 0), 0)
+  return {
+    season,
+    outgoingTotal: outgoing.reduce((sum, s) => sum + (s[season] || 0), 0),
+    incomingTotal: incoming.reduce((sum, s) => sum + (s[season] || 0), 0),
+  }
+}
 
-  return { season, outgoingTotal, incomingTotal }
+// "Trade with Boston" for a two-team deal; "3-team trade with BOS, LAL" once a
+// single partner name no longer describes the deal.
+function describeTradePartners(trade: NormalizedTrade, teamAbbr: string): string {
+  const partners = partnersOf(trade, teamAbbr)
+  if (partners.length <= 1) {
+    const only = partners[0]
+    return `Trade with ${only ? TEAM_NAMES[only] || only : 'no partner'}`
+  }
+  return `${trade.teams.length}-team trade with ${partners.join(', ')}`
 }
 
 export function TradesPanelContent({ onEditTrade }: { onEditTrade: (trade: SavedTrade) => void }) {
-  const { savedTrades, removeSavedTrade, roster, draftPickPlayers } = useRoster()
+  const { savedTrades, normalizedTrades, selectedTeamAbbr, removeSavedTrade, roster, draftPickPlayers } = useRoster()
 
   if (savedTrades.length === 0) {
     return <p className="text-sm text-muted-foreground text-center py-2">No trades yet</p>
@@ -46,21 +60,21 @@ export function TradesPanelContent({ onEditTrade }: { onEditTrade: (trade: Saved
 
   return (
     <>
-      {savedTrades.map((trade) => {
-        const teamName = TEAM_NAMES[trade.tradeTeamAbbr] || trade.tradeTeamAbbr
-        const { season, outgoingTotal, incomingTotal } = getTradeFirstSeasonTotals(trade, roster, draftPickPlayers)
+      {normalizedTrades.map((trade, index) => {
+        const label = describeTradePartners(trade, selectedTeamAbbr)
+        const { season, outgoingTotal, incomingTotal } = getTradeFirstSeasonTotals(trade, selectedTeamAbbr, roster, draftPickPlayers)
         const dateLabel = new Date(trade.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
 
         return (
           <div
             key={trade.id}
             className="rounded-[7px] border border-border overflow-hidden cursor-pointer hover:bg-accent/40 transition-colors"
-            onClick={() => onEditTrade(trade)}
+            onClick={() => onEditTrade(savedTrades[index])}
           >
             <div className="px-2.5 py-2 bg-accent flex items-center justify-between gap-2">
               <span className="text-[12px] font-semibold text-foreground flex items-center gap-1.5 min-w-0">
                 <ArrowLeftRight className="h-3 w-3 shrink-0 text-muted-foreground" />
-                <span className="truncate">Trade with {teamName}</span>
+                <span className="truncate">{label}</span>
                 {trade.isSignAndTrade && (
                   <span className="text-[9px] font-normal text-chart-4 bg-chart-4/10 px-1 py-px rounded shrink-0">
                     Sign-and-Trade

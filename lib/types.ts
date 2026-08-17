@@ -99,10 +99,51 @@ export const SEASONS: Season[] = ['2026-27', '2027-28', '2028-29', '2029-30', '2
 
 export type CapStatus = 'Below Cap' | 'Over Cap' | 'Luxury Tax' | '1st Apron' | '2nd Apron'
 
+// One asset changing hands, from one team to another. A trade is just a bag of
+// these — which is what lets a deal involve three or more teams, including legs
+// between two partners that never touch the user's own team (required by the
+// CBA's touch rule, see checkTouchRule in trade-validation.ts).
+//
+// The snapshot fields are optional because an asset that still lives in the
+// sending team's scraped data is re-resolved live on every read, so a daily
+// scrape's salary correction flows through instead of being frozen at the
+// moment the trade was built. Only assets with no live source — custom picks
+// invented in the trade modal, and cash — depend on the snapshot. See
+// resolveMovement in lib/trade-model.ts.
+export interface TradeMovement {
+  kind: 'player' | 'pick' | 'cash'
+  /** Team abbreviation the asset leaves. */
+  from: string
+  /** Team abbreviation the asset arrives at. */
+  to: string
+  id: string
+  name?: string
+  salary?: Partial<Record<Season, number>>
+  options?: Partial<Record<Season, 'Player' | 'Team'>>
+  /** Pick legs only. Stored rather than parsed from `id`, because a custom pick invented in the trade modal has no `draft-{year}-{round}` id to parse. */
+  pickYear?: number
+  pickRound?: 1 | 2
+  /** Cash legs only — dollars moving from `from` to `to`. */
+  amount?: number
+  /** Held trade exception (TEAM_CAP_STATE heldTPEs id) of the *receiving* team, absorbing this player instead of matched outgoing salary. */
+  heldTpeId?: string
+}
+
 export interface SavedTrade {
   id: string
-  tradeTeamAbbr: string
   createdAt: Date
+
+  /** Every participant, the authoring team first. Length 2 = classic two-team trade. */
+  teams?: string[]
+  movements?: TradeMovement[]
+
+  // ---- Legacy two-team fields ----
+  // Written alongside `teams`/`movements` as the authoring team's own view of
+  // the deal, so a sheet saved by this build still renders in a previously
+  // deployed bundle. `movements` is the source of truth whenever it is present;
+  // these are only read to upgrade sheets saved before multi-team trades
+  // existed (see normalizeTrade).
+  tradeTeamAbbr: string
   outgoingRosterPlayerIds: string[]
   outgoingPickIds: string[]
   incomingPlayers: Array<{

@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useRoster } from '@/lib/roster-context'
+import { incomingPicksFor } from '@/lib/trade-model'
 import { useRosterTableData } from '@/hooks/use-roster-table-data'
 import { SEASONS, Season, Player, SavedContract } from '@/lib/types'
 import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
@@ -101,10 +102,16 @@ export function MobileRosterTable() {
     releasedRosterIds,
     releaseRosterPlayer,
     restoreRosterPlayer,
-    savedTrades,
+    normalizedTrades,
+    selectedTeamAbbr,
     tradedPickIds,
     selectedTeam,
   } = useRoster()
+
+  const incomingTradePicks = useMemo(
+    () => normalizedTrades.flatMap((trade) => incomingPicksFor(trade, selectedTeamAbbr)),
+    [normalizedTrades, selectedTeamAbbr]
+  )
 
   const { displayedSeasons, allPlayers, projections } = useRosterTableData()
 
@@ -361,15 +368,15 @@ export function MobileRosterTable() {
         })}
 
         {/* Incoming trade picks */}
-        {savedTrades.flatMap((trade) => trade.incomingPicks).map((pick) => (
+        {incomingTradePicks.map((pick) => (
           <div key={pick.id} className="flex">
             <NameCell className="bg-chart-4/5">
-              <span className="text-[11px] font-medium text-muted-foreground truncate">{pick.name}</span>
+              <span className="text-[11px] font-medium text-muted-foreground truncate">{pick.name ?? pick.id}</span>
               <span className="text-[8.5px] font-bold px-1 rounded border shrink-0 text-chart-4 border-chart-4">TRADE</span>
             </NameCell>
             {displayedSeasons.map((season, index) => {
-              const salary = pick.salary[season] || 0
-              const optionType = pick.options[season]
+              const salary = pick.salary?.[season] || 0
+              const optionType = pick.options?.[season]
               const hasOption = !!optionType
               const optionExercised = hasOption ? (isOptionExercised(pick.id, season, optionType) ?? true) : true
               const isLast = index === displayedSeasons.length - 1
@@ -385,7 +392,7 @@ export function MobileRosterTable() {
                       season={season}
                       salary={salary}
                       isSaved={false}
-                      player={{ id: pick.id, name: pick.name, team: '', salary: pick.salary, options: pick.options }}
+                      player={{ id: pick.id, name: pick.name ?? pick.id, team: '', salary: pick.salary ?? {}, options: pick.options ?? {} }}
                       isFirstEmpty={false}
                       onExtend={() => {}}
                       isOptionExercisedFn={(id, s, t) => isOptionExercised(id, s, t) ?? true}

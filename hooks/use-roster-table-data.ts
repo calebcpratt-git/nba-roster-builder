@@ -3,6 +3,7 @@ import { useRoster } from '@/lib/roster-context'
 import { SEASONS, Season } from '@/lib/types'
 import { CAP_THRESHOLDS, getCapSpaceStatus, getApronStatus } from '@/lib/data'
 import { getDisplayedSeasons } from '@/lib/contract-utils'
+import { incomingPlayersFor } from '@/lib/trade-model'
 import { getTeamCapState } from '@/lib/team-cap-state'
 
 // Shared row/season derivation used by both the desktop and mobile roster
@@ -15,14 +16,14 @@ export function useRosterTableData() {
     getTotalSalary,
     deletedContractIds,
     draftPickPlayers,
-    savedTrades,
+    normalizedTrades,
     tradedRosterPlayerIds,
     selectedTeamAbbr,
   } = useRoster()
 
   const displayedSeasons = useMemo(
-    () => getDisplayedSeasons(roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades),
-    [roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades]
+    () => getDisplayedSeasons(roster, savedContracts, deletedContractIds, draftPickPlayers, normalizedTrades, selectedTeamAbbr),
+    [roster, savedContracts, deletedContractIds, draftPickPlayers, normalizedTrades, selectedTeamAbbr]
   )
 
   const allPlayers = useMemo(() => [
@@ -59,19 +60,21 @@ export function useRosterTableData() {
           rfaPath: c.rfaPath,
         }
       }),
-    // Incoming trade players
-    ...savedTrades.flatMap((trade) =>
-      trade.incomingPlayers.map((p) => {
+    // Incoming trade players — `team` is the team the player is coming *from*,
+    // which in a multi-team deal is not necessarily the primary partner.
+    ...normalizedTrades.flatMap((trade) =>
+      incomingPlayersFor(trade, selectedTeamAbbr).map((p) => {
+        const salary = p.salary ?? {}
         const firstYearSalary = SEASONS.reduce<number>((first, season) => {
-          if (first === 0 && p.salary[season]) return p.salary[season]!
+          if (first === 0 && salary[season]) return salary[season]!
           return first
         }, 0)
         return {
-          id: `${trade.id}-player-${p.playerId}`,
-          name: p.playerName,
-          team: trade.tradeTeamAbbr,
-          salary: p.salary,
-          options: p.options,
+          id: `${trade.id}-player-${p.id}`,
+          name: p.name ?? p.id,
+          team: p.from,
+          salary,
+          options: p.options ?? {},
           isUserCreated: true,
           source: 'trade-incoming' as const,
           type: 'trade' as const,
@@ -82,7 +85,7 @@ export function useRosterTableData() {
         }
       })
     ),
-  ].sort((a, b) => b.sortSalary - a.sortSalary), [roster, savedContracts, deletedContractIds, savedTrades, tradedRosterPlayerIds, getEffectiveSalary])
+  ].sort((a, b) => b.sortSalary - a.sortSalary), [roster, savedContracts, deletedContractIds, normalizedTrades, selectedTeamAbbr, tradedRosterPlayerIds, getEffectiveSalary])
 
   const projections = useMemo(() => displayedSeasons.map((season) => {
     const { current, saved, capSpaceTotal, apronTotal } = getTotalSalary(season)

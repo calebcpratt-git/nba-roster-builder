@@ -4,6 +4,7 @@
     "two-way-contracts",
     "free-agent-reconciliation",
     "free-agent-pool",
+    "picks",
     "enrichment",
     "clauses",
     "player-awards",
@@ -14,14 +15,12 @@
     "cash-ledger",
     "apron-addon"
   ],
-  "staleSources": [
-    "picks (fetch failed)"
-  ],
+  "staleSources": [],
   "sourceFetches": {
     "bbref_contracts": true,
-    "realgm_future_drafts": false,
-    "realgm_free_agent_options": false,
-    "realgm_current_free_agents": false,
+    "realgm_future_drafts": true,
+    "realgm_free_agent_options": true,
+    "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -56,58 +55,39 @@
       "failed": []
     }
   },
-  "rescuedSources": [],
+  "rescuedSources": [
+    "realgm_current_free_agents",
+    "realgm_free_agent_options",
+    "realgm_future_drafts"
+  ],
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 92,
+      "acquisition": 100,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 101,
-      "guarantees": 6,
+      "acquisition": 100,
+      "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 10,
-    "newByCategory": {
-      "acquisition": 9,
-      "guarantees": 1
-    },
-    "newRecords": {
-      "acquisition": [
-        {
-          "name": "Bradley Beal",
-          "date": "2026-08-13",
-          "method": "free-agent"
-        }
-      ],
-      "guarantees": [
-        {
-          "player": "Bradley Beal",
-          "team": "Los Angeles Clippers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": false
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-08-16T20:26:58.862Z",
-  "warnings": [
-    "players: diff too large — 494 of 525 previous records changed (94.1%, threshold 30%) — proceeding because a large diff was explicitly accepted"
-  ],
+  "generatedAt": "2026-08-16T21:44:33.971Z",
+  "warnings": [],
   "diffSummaries": [
-    "players: +0 -1 ~493 (of 525)",
+    "players: +0 -0 ~493 (of 524)",
     "draft-picks: +0 -0 ~0 (of 521)",
     "contract-details: +0 -0 ~1 (of 519)",
     "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +1 -0 ~0 (of 149)",
+    "free-agents: +0 -0 ~0 (of 150)",
     "awards: +0 -0 ~0 (of 76)"
   ],
-  "clean": false
+  "clean": true
 }

@@ -63,13 +63,6 @@
   "birdRights": "early-bird"
  },
  {
-  "name": "Bradley Beal",
-  "position": "SG",
-  "priorTeam": "LAC",
-  "faType": "U",
-  "birdRights": "non-bird"
- },
- {
   "name": "MarJon Beauchamp",
   "position": "SF",
   "priorTeam": "PHI",
@@ -339,6 +332,13 @@
   "name": "Nigel Hayes-Davis",
   "position": "SF",
   "priorTeam": "MIL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Haywood Highsmith",
+  "position": "SF",
+  "priorTeam": "PHO",
   "faType": "U",
   "birdRights": null
  },

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, createContext, useContext, ReactNode, useMemo, useCallback, useEffect } from 'react'
-import { Player, SavedContract, SavedTrade, Season, SEASONS, CapSheet, CapSheetSnapshot, CapSheetSummary, SeasonGuarantee, ReleaseDetail } from './types'
+import { Player, SavedContract, SavedTrade, TradeMovement, CapThreshold, Season, SEASONS, CapSheet, CapSheetSnapshot, CapSheetSummary, SeasonGuarantee, ReleaseDetail } from './types'
 import { getTeamRoster, TEAMS, CAP_THRESHOLDS, getCapStatus, findPlayerHomeTeam } from './data'
 import { getDraftPickPlayers, applyPickNumberOverrides, DraftPickPlayer } from './draft-picks'
 import { getPlayerRookieYear, getPlayerYOE, getDisplayedSeasons } from './contract-utils'
@@ -11,12 +11,24 @@ import { getCurrentSeason, guaranteeLockDate, SEASON_CALENDAR } from './season-c
 import {
   TradeAsset,
   TradeSideInput,
+  TradeValidationResult,
   validateTrade,
   getOwnedFirstRoundYears,
   parsePickIdMeta,
   TRADE_EVAL_SEASON,
   CURRENT_DRAFT_YEAR,
 } from './trade-validation'
+import {
+  NormalizedTrade,
+  normalizeTrade,
+  incomingFor,
+  incomingPicksFor,
+  incomingPlayersFor,
+  outgoingFor,
+  cashInFor,
+  cashOutFor,
+  firstSalarySeason,
+} from './trade-model'
 
 // schema doc §1 — a player's years of service, for the per-YOS minimum-salary
 // lookup in league-cap.ts. Approximated against TRADE_EVAL_SEASON since a
@@ -217,6 +229,15 @@ interface RosterContextType extends RosterState {
   setReleaseDetail: (playerId: string, detail: ReleaseDetail) => void
   restoreRosterPlayer: (playerId: string) => void
   savedTrades: SavedTrade[]
+  /** The selected team's saved trades in canonical form — what every consumer should read. */
+  normalizedTrades: NormalizedTrade[]
+  /** Resolves a draft trade into per-participant sides plus the validator's verdict. Shared by the trade modal and the save-time guard so they can't disagree. */
+  analyzeTrade: (trade: NormalizedTrade) => {
+    sides: TradeSideInput[]
+    season: Season
+    thresholds: CapThreshold[]
+    validation: TradeValidationResult
+  }
   addSavedTrade: (trade: SavedTrade) => void
   removeSavedTrade: (id: string) => void
   updateSavedTrade: (trade: SavedTrade) => void
@@ -307,50 +328,70 @@ export function RosterProvider({ children }: { children: ReactNode }) {
   // Get saved trades for the current team
   const savedTrades = savedTradesByTeam[selectedTeamAbbr] || []
 
+  // Everything downstream reads trades through this canonical shape, so a
+  // two-team deal and a five-team deal take the same code path — see
+  // lib/trade-model.ts.
+  const normalizedTrades = useMemo(
+    () => savedTrades.map((t) => normalizeTrade(t, selectedTeamAbbr)),
+    [savedTrades, selectedTeamAbbr]
+  )
+
   const tradedRosterPlayerIds = useMemo(() => {
     const ids = new Set<string>()
-    savedTrades.forEach((t) => t.outgoingRosterPlayerIds.forEach((id) => ids.add(id)))
+    normalizedTrades.forEach((t) =>
+      outgoingFor(t, selectedTeamAbbr).forEach((m) => { if (m.kind === 'player') ids.add(m.id) })
+    )
     return ids
-  }, [savedTrades])
+  }, [normalizedTrades, selectedTeamAbbr])
 
   const tradedPickIds = useMemo(() => {
     const ids = new Set<string>()
-    savedTrades.forEach((t) => t.outgoingPickIds.forEach((id) => ids.add(id)))
+    normalizedTrades.forEach((t) =>
+      outgoingFor(t, selectedTeamAbbr).forEach((m) => { if (m.kind === 'pick') ids.add(m.id) })
+    )
     return ids
-  }, [savedTrades])
+  }, [normalizedTrades, selectedTeamAbbr])
 
-  // Defense-in-depth: re-run the same validator the trade modal uses before
-  // ever committing a trade to state, so an invalid trade can't be saved even
-  // if the UI's gating were somehow bypassed. The modal is the primary UX —
-  // this only guards the data layer and no-ops (with a console warning) on
-  // a hard violation rather than throwing.
-  function resolveOutgoingAssets(trade: SavedTrade): TradeAsset[] {
-    const assets: TradeAsset[] = []
-    trade.outgoingRosterPlayerIds.forEach((id) => {
-      const player = roster.find((p) => p.id === id)
-      if (player) {
+  // Turns one movement into the validator's asset shape. Live data wins over
+  // the movement's snapshot wherever the asset still exists in the sending
+  // team's scraped roster/picks, so a daily scrape's salary correction reaches
+  // trades that were saved days ago. The snapshot is the fallback for assets
+  // with no live source — custom picks invented in the trade modal, and
+  // players whose row has since left the data.
+  function resolveMovementAsset(movement: TradeMovement): TradeAsset | null {
+    if (movement.kind === 'cash') return null
+    const isOwnTeam = movement.from === selectedTeamAbbr
+
+    if (movement.kind === 'player') {
+      const livePlayer = (isOwnTeam ? roster : getTeamRoster(movement.from)).find((p) => p.id === movement.id)
+      if (livePlayer) {
         const salaryBySeason: Partial<Record<Season, number>> = {}
         SEASONS.forEach((s) => {
-          const v = getEffectiveSalary(player, s)
+          const v = getEffectiveSalary(livePlayer, s)
           if (v > 0) salaryBySeason[s] = v
         })
-        const detail = getContractDetail(player.name)
-        assets.push({
+        const detail = getContractDetail(livePlayer.name)
+        return {
           kind: 'player',
-          id: player.id,
-          name: player.name,
+          id: livePlayer.id,
+          name: livePlayer.name,
           salaryBySeason,
-          yearsOfService: yearsOfServiceFor(player.name),
-          guaranteedBySeason: guaranteedBySeasonFor(player, getEffectiveSalary),
+          yearsOfService: yearsOfServiceFor(livePlayer.name),
+          guaranteedBySeason: guaranteedBySeasonFor(livePlayer, getEffectiveSalary),
           tradeBonusPct: detail?.tradeBonusPct,
           noTradeClause: detail?.noTradeClause,
-        })
-        return
+          heldTpeId: movement.heldTpeId,
+        }
       }
-      const contract = savedContracts.find((c) => c.id === id && !deletedContractIds.has(c.id))
+
+      // A free-agent contract signed in this app and then flipped — those only
+      // ever live in the signing team's own saved-contracts bucket.
+      const contract = (savedContractsByTeam[movement.from] || []).find(
+        (c) => c.id === movement.id && !deletedContractIds.has(c.id)
+      )
       if (contract) {
         const detail = getContractDetail(contract.playerName)
-        assets.push({
+        return {
           kind: 'player',
           id: contract.id,
           name: contract.playerName,
@@ -359,96 +400,131 @@ export function RosterProvider({ children }: { children: ReactNode }) {
           yearsOfService: yearsOfServiceFor(contract.playerName),
           tradeBonusPct: detail?.tradeBonusPct,
           noTradeClause: detail?.noTradeClause,
-        })
+          heldTpeId: movement.heldTpeId,
+        }
       }
-    })
-    trade.outgoingPickIds.forEach((id) => {
-      const pick = draftPickPlayers.find((p) => p.id === id)
-      if (pick) {
-        const { pickYear, pickRound } = parsePickIdMeta(id)
-        assets.push({ kind: 'pick', id: pick.id, name: pick.name, salaryBySeason: pick.salary, pickYear, pickRound, pick: pick.draftPick })
-      }
-    })
-    return assets
-  }
 
-  function resolveIncomingAssets(trade: SavedTrade): TradeAsset[] {
-    const players: TradeAsset[] = trade.incomingPlayers.map((p) => {
-      const detail = getContractDetail(p.playerName)
+      if (!movement.salary) return null
+      const detail = getContractDetail(movement.name ?? '')
       return {
         kind: 'player',
-        id: p.playerId,
-        name: p.playerName,
-        salaryBySeason: p.salary,
-        yearsOfService: yearsOfServiceFor(p.playerName),
+        id: movement.id,
+        name: movement.name ?? movement.id,
+        salaryBySeason: movement.salary,
+        yearsOfService: yearsOfServiceFor(movement.name ?? ''),
         tradeBonusPct: detail?.tradeBonusPct,
         noTradeClause: detail?.noTradeClause,
-        heldTpeId: p.heldTpeId,
+        heldTpeId: movement.heldTpeId,
       }
-    })
-    const picks: TradeAsset[] = trade.incomingPicks.map((p) => {
-      const { pickYear, pickRound } = parsePickIdMeta(p.id)
-      return { kind: 'pick', id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
-    })
-    return [...players, ...picks]
+    }
+
+    const parsed = parsePickIdMeta(movement.id)
+    const pickYear = movement.pickYear ?? parsed.pickYear
+    const pickRound = movement.pickRound ?? parsed.pickRound
+    const livePicks = isOwnTeam
+      ? draftPickPlayers
+      : applyPickNumberOverrides(getDraftPickPlayers(movement.from), pickNumberOverrides)
+    const livePick = livePicks.find((p) => p.id === movement.id)
+    if (livePick) {
+      return {
+        kind: 'pick',
+        id: livePick.id,
+        name: livePick.name,
+        salaryBySeason: livePick.salary,
+        pickYear,
+        pickRound,
+        pick: livePick.draftPick,
+      }
+    }
+    return {
+      kind: 'pick',
+      id: movement.id,
+      name: movement.name ?? movement.id,
+      salaryBySeason: movement.salary ?? {},
+      pickYear,
+      pickRound,
+    }
   }
 
-  function isTradeValid(trade: SavedTrade): boolean {
-    const yourOutgoing = resolveOutgoingAssets(trade)
-    const yourIncoming = resolveIncomingAssets(trade)
+  // Builds one TradeSideInput per participant. Each side's outgoing/incoming is
+  // its aggregate across the whole deal rather than a per-partner tally, which
+  // is how the CBA evaluates a multi-team trade: each team's side stands or
+  // falls on its own. A single resolved asset object is shared between the
+  // sending team's outgoing list and the receiving team's incoming list.
+  function analyzeTrade(trade: NormalizedTrade): {
+    sides: TradeSideInput[]
+    season: Season
+    thresholds: CapThreshold[]
+    validation: TradeValidationResult
+  } {
+    const byTeam = new Map<string, { outgoing: TradeAsset[]; incoming: TradeAsset[] }>()
+    trade.teams.forEach((t) => byTeam.set(t, { outgoing: [], incoming: [] }))
+
+    trade.movements.forEach((movement) => {
+      const asset = resolveMovementAsset(movement)
+      if (!asset) return
+      // The sender's copy carries the destination (the touch rule needs it);
+      // the receiver's copy doesn't, since every other check works off each
+      // side's aggregate in/out.
+      byTeam.get(movement.from)?.outgoing.push({ ...asset, toTeam: movement.to })
+      byTeam.get(movement.to)?.incoming.push(asset)
+    })
 
     // Eval season = earliest season at/after TRADE_EVAL_SEASON any traded
-    // player asset carries salary in — see the matching comment in trade-modal.tsx.
-    const allPlayerAssets = [...yourOutgoing, ...yourIncoming].filter((a) => a.kind === 'player')
-    const seasonsFromEval = SEASONS.slice(SEASONS.indexOf(TRADE_EVAL_SEASON))
-    const season: Season =
-      seasonsFromEval.find((s) => allPlayerAssets.some((a) => (a.salaryBySeason[s] ?? 0) > 0)) ?? TRADE_EVAL_SEASON
+    // player asset carries salary in (the app isn't date-aware, so real
+    // trade-date matching is out of scope).
+    const playerSalaries = Array.from(byTeam.values())
+      .flatMap((s) => [...s.outgoing, ...s.incoming])
+      .filter((a) => a.kind === 'player')
+      .map((a) => a.salaryBySeason)
+    const season = firstSalarySeason(playerSalaries, SEASONS, TRADE_EVAL_SEASON)
     const thresholds = CAP_THRESHOLDS[season]
 
-    const yourPreTradeTotal = getTotalSalary(season).capSpaceTotal
-    const theirPreTradeTotal = getTeamCapTotal(trade.tradeTeamAbbr, season).capSpaceTotal
-    const yourCapState = getTeamCapState(selectedTeamAbbr, TRADE_EVAL_SEASON)
-    const theirCapState = getTeamCapState(trade.tradeTeamAbbr, TRADE_EVAL_SEASON)
+    const sides: TradeSideInput[] = trade.teams.map((teamAbbr) => {
+      const isOwnTeam = teamAbbr === selectedTeamAbbr
+      const capState = getTeamCapState(teamAbbr, TRADE_EVAL_SEASON)
+      const resolved = byTeam.get(teamAbbr) ?? { outgoing: [], incoming: [] }
+      return {
+        side: isOwnTeam ? 'yours' : 'theirs',
+        teamAbbr,
+        teamName: TEAMS[teamAbbr]?.name ?? teamAbbr,
+        preTradeTotal: isOwnTeam
+          ? getTotalSalary(season).capSpaceTotal
+          : getTeamCapTotal(teamAbbr, season).capSpaceTotal,
+        approximate: !isOwnTeam,
+        outgoing: resolved.outgoing,
+        incoming: resolved.incoming,
+        heldTPEs: capState?.heldTPEs ?? [],
+        cashOut: cashOutFor(trade, teamAbbr),
+        cashIn: cashInFor(trade, teamAbbr),
+        cashLedger: capState?.cashLedger,
+      }
+    })
 
-    const yourSide: TradeSideInput = {
-      side: 'yours',
-      teamAbbr: selectedTeamAbbr,
-      teamName: TEAMS[selectedTeamAbbr]?.name ?? selectedTeamAbbr,
-      preTradeTotal: yourPreTradeTotal,
-      approximate: false,
-      outgoing: yourOutgoing,
-      incoming: yourIncoming,
-      heldTPEs: yourCapState?.heldTPEs ?? [],
-      cashOut: trade.cashToPartner,
-      cashIn: trade.cashFromPartner,
-      cashLedger: yourCapState?.cashLedger,
-    }
-    const theirSide: TradeSideInput = {
-      side: 'theirs',
-      teamAbbr: trade.tradeTeamAbbr,
-      teamName: TEAMS[trade.tradeTeamAbbr]?.name ?? trade.tradeTeamAbbr,
-      preTradeTotal: theirPreTradeTotal,
-      approximate: true,
-      outgoing: yourIncoming,
-      incoming: yourOutgoing,
-      heldTPEs: theirCapState?.heldTPEs ?? [],
-      cashOut: trade.cashFromPartner,
-      cashIn: trade.cashToPartner,
-      cashLedger: theirCapState?.cashLedger,
-    }
+    const ownedFirstRoundYearsByTeam: Record<string, number[]> = {}
+    trade.teams.forEach((t) => { ownedFirstRoundYearsByTeam[t] = getOwnedFirstRoundYears(t) })
 
     const validation = validateTrade({
       season,
       thresholds,
       currentDraftYear: CURRENT_DRAFT_YEAR,
-      sides: [yourSide, theirSide],
-      ownedFirstRoundYearsByTeam: {
-        [selectedTeamAbbr]: getOwnedFirstRoundYears(selectedTeamAbbr),
-        [trade.tradeTeamAbbr]: getOwnedFirstRoundYears(trade.tradeTeamAbbr),
-      },
+      sides,
+      ownedFirstRoundYearsByTeam,
+      cashLegs: trade.movements
+        .filter((m) => m.kind === 'cash' && (m.amount ?? 0) > 0)
+        .map((m) => ({ from: m.from, to: m.to, amount: m.amount ?? 0 })),
     })
 
-    return validation.isValid
+    return { sides, season, thresholds, validation }
+  }
+
+  // Defense-in-depth: re-run the same validator the trade modal uses before
+  // ever committing a trade to state, so an invalid trade can't be saved even
+  // if the UI's gating were somehow bypassed. The modal is the primary UX —
+  // this only guards the data layer and no-ops (with a console warning) on
+  // a hard violation rather than throwing.
+  function isTradeValid(trade: SavedTrade): boolean {
+    return analyzeTrade(normalizeTrade(trade, selectedTeamAbbr)).validation.isValid
   }
 
   const addSavedTrade = useCallback((trade: SavedTrade) => {
@@ -726,11 +802,11 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     const draftSalary = draftPickPlayers
       .filter((pick) => !tradedPickIds.has(pick.id))
       .reduce((sum, pick) => sum + (pick.salary[season] || 0), 0)
-    const tradeIncomingPlayerSalary = savedTrades.reduce((sum, trade) => {
-      return sum + trade.incomingPlayers.reduce((s, p) => s + (p.salary[season] || 0), 0)
+    const tradeIncomingPlayerSalary = normalizedTrades.reduce((sum, trade) => {
+      return sum + incomingPlayersFor(trade, selectedTeamAbbr).reduce((s, p) => s + (p.salary?.[season] || 0), 0)
     }, 0)
-    const tradeIncomingPickSalary = savedTrades.reduce((sum, trade) => {
-      return sum + trade.incomingPicks.reduce((s, p) => s + (p.salary[season] || 0), 0)
+    const tradeIncomingPickSalary = normalizedTrades.reduce((sum, trade) => {
+      return sum + incomingPicksFor(trade, selectedTeamAbbr).reduce((s, p) => s + (p.salary?.[season] || 0), 0)
     }, 0)
 
     const base = currentSalary + savedSalary + draftSalary + tradeIncomingPlayerSalary + tradeIncomingPickSalary
@@ -765,13 +841,15 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       ? draftPickPlayers
       : applyPickNumberOverrides(getDraftPickPlayers(teamAbbr), pickNumberOverrides)
     const teamSavedContracts = savedContractsByTeam[teamAbbr] || []
-    const teamSavedTrades = savedTradesByTeam[teamAbbr] || []
+    const teamSavedTrades = (savedTradesByTeam[teamAbbr] || []).map((t) => normalizeTrade(t, teamAbbr))
 
     const teamTradedRosterIds = new Set<string>()
     const teamTradedPickIds = new Set<string>()
     teamSavedTrades.forEach((t) => {
-      t.outgoingRosterPlayerIds.forEach((id) => teamTradedRosterIds.add(id))
-      t.outgoingPickIds.forEach((id) => teamTradedPickIds.add(id))
+      outgoingFor(t, teamAbbr).forEach((m) => {
+        if (m.kind === 'player') teamTradedRosterIds.add(m.id)
+        else teamTradedPickIds.add(m.id)
+      })
     })
 
     const currentSalary = teamRoster
@@ -784,9 +862,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       .filter((pick) => !teamTradedPickIds.has(pick.id))
       .reduce((sum, pick) => sum + (pick.salary[season] || 0), 0)
     const tradeIncomingSalary = teamSavedTrades.reduce((sum, trade) => {
-      const players = trade.incomingPlayers.reduce((s, p) => s + (p.salary[season] || 0), 0)
-      const picks = trade.incomingPicks.reduce((s, p) => s + (p.salary[season] || 0), 0)
-      return sum + players + picks
+      return sum + incomingFor(trade, teamAbbr).reduce((s, m) => s + (m.salary?.[season] || 0), 0)
     }, 0)
 
     const base = currentSalary + savedSalary + draftSalary + tradeIncomingSalary
@@ -833,7 +909,7 @@ export function RosterProvider({ children }: { children: ReactNode }) {
       renouncedCapHoldKeys: Array.from(renouncedCapHolds),
     }
 
-    const seasons = getDisplayedSeasons(roster, savedContracts, deletedContractIds, draftPickPlayers, savedTrades)
+    const seasons = getDisplayedSeasons(roster, savedContracts, deletedContractIds, draftPickPlayers, normalizedTrades, selectedTeamAbbr)
     const summary: CapSheetSummary = {
       seasons: seasons.map((season) => {
         const total = getTotalSalary(season).capSpaceTotal
@@ -951,6 +1027,8 @@ export function RosterProvider({ children }: { children: ReactNode }) {
         setReleaseDetail,
         restoreRosterPlayer,
         savedTrades,
+        normalizedTrades,
+        analyzeTrade,
         addSavedTrade,
         removeSavedTrade,
         updateSavedTrade,

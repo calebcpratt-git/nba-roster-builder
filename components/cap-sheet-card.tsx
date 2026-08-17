@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { CapSheet, CapStatus, Season, SEASONS } from '@/lib/types'
 import { TEAMS, TEAM_NAMES, CAP_THRESHOLDS, formatCurrency, getTeamRoster } from '@/lib/data'
 import { getDraftPickPlayers, applyPickNumberOverrides } from '@/lib/draft-picks'
+import { normalizeTrade, partnersOf, incomingFor, outgoingFor } from '@/lib/trade-model'
 import { Badge } from '@/components/ui/badge'
 import {
   AlertDialog,
@@ -218,11 +219,18 @@ function buildMoves(sheet: CapSheet): MoveItem[] {
     })
   })
 
-  snapshot.savedTrades.forEach((trade) => {
-    const teamName = TEAM_NAMES[trade.tradeTeamAbbr] || trade.tradeTeamAbbr
-    const outCount = trade.outgoingRosterPlayerIds.length + trade.outgoingPickIds.length
-    const inNames = trade.incomingPlayers.map((p) => p.playerName)
-    const inPickCount = trade.incomingPicks.length
+  snapshot.savedTrades.forEach((saved) => {
+    const trade = normalizeTrade(saved, sheet.teamAbbr)
+    const partners = partnersOf(trade, sheet.teamAbbr)
+    const label =
+      partners.length <= 1
+        ? TEAM_NAMES[partners[0]] || partners[0] || 'no partner'
+        : `${trade.teams.length} teams (${partners.join(', ')})`
+
+    const outCount = outgoingFor(trade, sheet.teamAbbr).length
+    const incoming = incomingFor(trade, sheet.teamAbbr)
+    const inNames = incoming.filter((m) => m.kind === 'player').map((m) => m.name ?? m.id)
+    const inPickCount = incoming.filter((m) => m.kind === 'pick').length
 
     const outDesc = outCount > 0 ? `${outCount} asset${outCount !== 1 ? 's' : ''} sent` : null
     const inParts = [...inNames, inPickCount > 0 ? `${inPickCount} pick${inPickCount !== 1 ? 's' : ''}` : null].filter(
@@ -233,7 +241,7 @@ function buildMoves(sheet: CapSheet): MoveItem[] {
     moves.push({
       key: `trade-${trade.id}`,
       kind: 'trade',
-      title: trade.isSignAndTrade ? `Sign-and-trade with ${teamName}` : `Trade with ${teamName}`,
+      title: trade.isSignAndTrade ? `Sign-and-trade with ${label}` : `Trade with ${label}`,
       detail: [outDesc, inDesc].filter(Boolean).join(' · ') || 'No assets recorded',
     })
   })

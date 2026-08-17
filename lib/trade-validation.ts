@@ -28,6 +28,15 @@ export interface TradeAsset {
   /** Set on an incoming player being absorbed via one of this side's `heldTPEs` instead of
    *  outgoing salary — the id must match an entry in TradeSideInput.heldTPEs. */
   heldTpeId?: string
+  /** Destination team, on the *sending* side's copy of the asset. Only the touch rule needs it — every other check works off each side's aggregate in/out. */
+  toTeam?: string
+}
+
+/** Cash moving between two participants. Trade-level rather than per-side, because the touch rule cares which pair a payment connects. */
+export interface TradeCashLeg {
+  from: string
+  to: string
+  amount: number
 }
 
 export interface TradeSideInput {
@@ -52,14 +61,18 @@ export interface ValidateTradeInput {
   season: Season
   thresholds: CapThreshold[]
   currentDraftYear: number
-  sides: [TradeSideInput, TradeSideInput]
+  /** One entry per participating team. Two for a classic trade, three or more for a multi-team deal. */
+  sides: TradeSideInput[]
   ownedFirstRoundYearsByTeam: Record<string, number[]>
+  cashLegs?: TradeCashLeg[]
 }
 
 export interface TradeViolation {
   code: string
   severity: TradeSeverity
   side: TradeTeamSide
+  /** Which team the finding belongs to. `side` only distinguishes yours/theirs, which stops being enough once a deal has more than one partner. */
+  teamAbbr?: string
   message: string
   assetNames?: string[]
   whyUncertain?: string
@@ -100,7 +113,7 @@ export function parsePickIdMeta(id: string): { pickYear?: number; pickRound?: 1 
 export const PARTNER_FINDINGS_ARE_WARNINGS = false
 
 export const FIDELITY_NOTE =
-  "Not checked: Bird rights, base-year compensation & poison-pill contracts, sign-and-trades, full pick-conveyance logic for protections/swaps (only consulted to soften Stepien-rule warnings), the moratorium & trade-deadline timing, the two-month re-aggregation rule, and the touch rule (this tool only builds two-team trades). No-trade clauses and trade bonuses/kickers are checked, but only for the small set of players with that data populated in CONTRACT_DETAILS. Cash in trades and held trade exceptions are now checked against each team's live SalarySwish-sourced ledger, when available. Cap and apron figures are approximations for planning, not a substitute for a live trade machine. The partner team's salary includes their roster, saved contracts, and saved trades in this app — trades built from another team's perspective aren't visible here."
+  "Not checked: Bird rights, base-year compensation & poison-pill contracts, sign-and-trades, full pick-conveyance logic for protections/swaps, the moratorium & trade-deadline timing, and the two-month re-aggregation rule. Pick conditions are only consulted to soften Stepien-rule and touch-rule findings, never resolved — a protected pick is treated as not conveying for the touch rule and flagged rather than judged. No-trade clauses and trade bonuses/kickers are checked, but only for the small set of players with that data populated in CONTRACT_DETAILS. Cash in trades and held trade exceptions are checked against each team's live SalarySwish-sourced ledger, when available. Cap and apron figures are approximations for planning, not a substitute for a live trade machine. Partner-team salary includes their roster, saved contracts, and saved trades in this app — trades built from another team's perspective aren't visible here."
 
 // ---------------------------------------------------------------------------
 // small helpers
@@ -611,6 +624,111 @@ function checkNoTradeClause(side: TradeSideInput): TradeViolation[] {
 }
 
 // ---------------------------------------------------------------------------
+// Rule 10 — the touch rule (three-or-more-team trades)
+//
+// Every team in a 3+ team deal must send or receive a tradeable asset with at
+// least two other teams. A pure hub-and-spoke deal — where two partners each
+// trade only with the team building it — is illegal for exactly this reason,
+// which is why the model carries partner-to-partner legs at all.
+//
+// Conservative on pick conveyance, the same way checkStepien is: a pick whose
+// obligation can be extinguished doesn't count as a touch, but nothing here
+// resolves whether a given protection would actually trigger. So a team whose
+// only second touch is a protected/swap pick gets a warning naming that pick
+// rather than a hard error either way.
+// ---------------------------------------------------------------------------
+
+// Cash counts as a touch in a 3+ team deal only at $1.1M or more (the
+// two-team floor is a far lower $110K).
+const MULTI_TEAM_CASH_TOUCH_MINIMUM = 1_100_000
+
+function checkTouchRule(input: ValidateTradeInput): TradeViolation[] {
+  if (input.sides.length < 3) return []
+
+  const certain = new Map<string, Set<string>>()
+  const optimistic = new Map<string, Set<string>>()
+  input.sides.forEach((s) => {
+    certain.set(s.teamAbbr, new Set())
+    optimistic.set(s.teamAbbr, new Set())
+  })
+
+  const record = (map: Map<string, Set<string>>, a: string, b: string) => {
+    if (a === b) return
+    map.get(a)?.add(b)
+    map.get(b)?.add(a)
+  }
+
+  // Conditional picks, kept aside so a team rescued only by one can be told
+  // exactly which pick its compliance depends on.
+  const conditionalTouches: Array<{ from: string; to: string; asset: TradeAsset }> = []
+
+  for (const side of input.sides) {
+    for (const asset of side.outgoing) {
+      if (!asset.toTeam) continue
+      const isConditionalPick = asset.kind === 'pick' && !!(asset.pick?.protections || asset.pick?.swapOption)
+      if (isConditionalPick) {
+        conditionalTouches.push({ from: side.teamAbbr, to: asset.toTeam, asset })
+        record(optimistic, side.teamAbbr, asset.toTeam)
+        continue
+      }
+      record(certain, side.teamAbbr, asset.toTeam)
+      record(optimistic, side.teamAbbr, asset.toTeam)
+    }
+  }
+
+  for (const leg of input.cashLegs ?? []) {
+    if (leg.amount < MULTI_TEAM_CASH_TOUCH_MINIMUM) continue
+    record(certain, leg.from, leg.to)
+    record(optimistic, leg.from, leg.to)
+  }
+
+  const violations: TradeViolation[] = []
+  const teamCount = input.sides.length
+
+  for (const side of input.sides) {
+    const certainCount = certain.get(side.teamAbbr)?.size ?? 0
+    if (certainCount >= 2) continue
+
+    const partnerList = Array.from(certain.get(side.teamAbbr) ?? [])
+    const touchDescription =
+      partnerList.length === 0
+        ? `doesn't exchange a qualifying asset with anyone`
+        : `only exchanges assets with ${joinNames(partnerList)}`
+    const fix = `Add a player, an unprotected pick, or at least ${formatCurrency(MULTI_TEAM_CASH_TOUCH_MINIMUM)} in cash between ${side.teamName} and a team it isn't already dealing with.`
+
+    const optimisticCount = optimistic.get(side.teamAbbr)?.size ?? 0
+    const rescuer = conditionalTouches.find((c) => c.from === side.teamAbbr || c.to === side.teamAbbr)
+
+    if (optimisticCount >= 2 && rescuer?.asset.pick) {
+      const conditionText = rescuer.asset.pick.protections
+        ? `protections (${rescuer.asset.pick.protections})`
+        : `a swap condition (${rescuer.asset.pick.swapOption})`
+      violations.push({
+        code: 'TOUCH_RULE',
+        severity: 'warning',
+        side: side.side,
+        teamAbbr: side.teamAbbr,
+        assetNames: [rescuer.asset.name],
+        message: `In a ${teamCount}-team trade every team must exchange a tradeable asset with at least two others. ${side.teamName} ${touchDescription} plus ${rescuer.asset.name} — but that pick carries ${conditionText} this tool doesn't evaluate, and a pick that can be extinguished doesn't count as a touch.`,
+        whyUncertain: `${rescuer.asset.name} carries ${conditionText}, so it may never convey — in which case it was never a touch and this trade is illegal as built.`,
+        neededInfo: `Whether ${rescuer.asset.name} conveys despite its ${rescuer.asset.pick.protections ? 'protections' : 'swap condition'}. If it does, ${side.teamName} touches two teams and the deal is fine.`,
+      })
+      continue
+    }
+
+    violations.push({
+      code: 'TOUCH_RULE',
+      severity: severityFor(side),
+      side: side.side,
+      teamAbbr: side.teamAbbr,
+      message: `In a ${teamCount}-team trade every team must send or receive a tradeable asset with at least two other teams. ${side.teamName} ${touchDescription}. ${fix}`,
+    })
+  }
+
+  return violations
+}
+
+// ---------------------------------------------------------------------------
 // entry point
 // ---------------------------------------------------------------------------
 
@@ -626,16 +744,24 @@ export function validateTrade(input: ValidateTradeInput): TradeValidationResult 
   }
 
   for (const side of input.sides) {
-    collect(checkSalaryMatching(side, input))
-    collect(checkAggregation(side, input))
-    collect(checkHardCapWarnings(side, input))
-    collect(checkSevenYearWindow(side, input))
-    collect(checkStepien(side, input))
-    collect(checkNoTradeClause(side))
-    collect(checkHeldTpeUsage(side, input))
-    collect(checkCashInTrade(side, input))
-    collect(checkRosterSpots(side))
+    // Every per-side check reports against that side's aggregate in/out across
+    // the whole deal, which is how the CBA evaluates a multi-team trade — each
+    // team's side stands or falls on its own rather than pair by pair.
+    const sideViolations = [
+      ...checkSalaryMatching(side, input),
+      ...checkAggregation(side, input),
+      ...checkHardCapWarnings(side, input),
+      ...checkSevenYearWindow(side, input),
+      ...checkStepien(side, input),
+      ...checkNoTradeClause(side),
+      ...checkHeldTpeUsage(side, input),
+      ...checkCashInTrade(side, input),
+      ...checkRosterSpots(side),
+    ]
+    collect(sideViolations.map((v) => ({ ...v, teamAbbr: v.teamAbbr ?? side.teamAbbr })))
   }
+
+  collect(checkTouchRule(input))
 
   return { errors, warnings, isValid: errors.length === 0 }
 }

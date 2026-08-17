@@ -2,22 +2,17 @@
 
 import { useState, useMemo, useEffect } from 'react'
 import { useRoster } from '@/lib/roster-context'
-import { Season, SEASONS, SavedTrade } from '@/lib/types'
-import { getTeamRoster, ALL_TEAMS, TEAM_NAMES, formatCurrency, CAP_THRESHOLDS, getCapStatus, getCapStatusColor } from '@/lib/data'
+import { Season, SEASONS, SavedTrade, TradeMovement } from '@/lib/types'
+import { NormalizedTrade, normalizeTrade, toSavedTrade } from '@/lib/trade-model'
+import { getTeamRoster, ALL_TEAMS, TEAM_NAMES, formatCurrency, getCapStatus, getCapStatusColor } from '@/lib/data'
 import { getDraftPickPlayers, DraftPick } from '@/lib/draft-picks'
 import { DraftPickHoverContent } from '@/components/draft-pick-hover'
 import { getScaledRookieSalary, SECOND_ROUND_SALARY_BY_SEASON } from '@/lib/rookie-salaries'
 import { getTeamCapState } from '@/lib/team-cap-state'
 import {
-  TradeAsset,
-  TradeSideInput,
-  ValidateTradeInput,
-  validateTrade,
   getPostTradeTotal,
-  getOwnedFirstRoundYears,
   parsePickIdMeta,
   TRADE_EVAL_SEASON,
-  CURRENT_DRAFT_YEAR,
   FIDELITY_NOTE,
 } from '@/lib/trade-validation'
 import {
@@ -44,21 +39,14 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { cn } from '@/lib/utils'
 import { Plus, X, Check } from 'lucide-react'
 
+// The CBA doesn't cap participants, but past five the columns stop being
+// readable and real deals essentially never go further.
+const MAX_TEAMS = 5
+
 interface TradeModalProps {
   isOpen: boolean
   onClose: () => void
   editingTrade?: SavedTrade
-}
-
-interface PendingIncomingPick {
-  id: string
-  name: string
-  fromTeam: string
-  year: number
-  round: 'First Round' | 'Second Round'
-  pickNumber: number
-  salary: Partial<Record<Season, number>>
-  options: Partial<Record<Season, 'Player' | 'Team'>>
 }
 
 function computePickSalary(
@@ -89,9 +77,9 @@ function computePickSalary(
   return { salary, options }
 }
 
-function getFirstYearSalary(player: { salary: Partial<Record<Season, number>> }) {
+function getFirstYearSalary(salary: Partial<Record<Season, number>>) {
   for (const season of SEASONS) {
-    if (player.salary[season]) return player.salary[season]!
+    if (salary[season]) return salary[season]!
   }
   return 0
 }
@@ -210,7 +198,9 @@ function AvailableRow({
   )
 }
 
-// Chip in the "in trade" tray — clicking removes from trade
+// Chip in the "sending" tray — carries the destination picker that makes
+// partner-to-partner legs expressible, plus (for a player landing on a team
+// with a usable exception) the held-TPE picker.
 function TradeChip({
   label,
   sub,
@@ -218,6 +208,9 @@ function TradeChip({
   options,
   draftPick,
   onRemove,
+  destinations,
+  destination,
+  onDestinationChange,
   tpeOptions,
   tpeValue,
   onTpeChange,
@@ -228,7 +221,9 @@ function TradeChip({
   options?: Partial<Record<Season, 'Player' | 'Team'>>
   draftPick?: DraftPick
   onRemove: () => void
-  /** When provided (a player-kind chip with at least one usable held TPE), renders a TPE picker. */
+  destinations: string[]
+  destination: string
+  onDestinationChange: (to: string) => void
   tpeOptions?: { id: string; label: string }[]
   tpeValue?: string
   onTpeChange?: (tpeId: string) => void
@@ -242,25 +237,40 @@ function TradeChip({
           <button
             onClick={onRemove}
             className="text-muted-foreground hover:text-destructive transition-colors"
+            aria-label={`Remove ${label} from trade`}
           >
             <X className="h-3 w-3" />
           </button>
         </div>
       </div>
-      {tpeOptions && tpeOptions.length > 0 && (
-        <div className="px-2 pb-1">
+      <div className="px-2 pb-1 space-y-1">
+        <div className="flex items-center gap-1">
+          <span className="text-[9px] uppercase tracking-wide text-muted-foreground/70 shrink-0">to</span>
+          <select
+            value={destination}
+            onChange={(e) => onDestinationChange(e.target.value)}
+            className="flex-1 h-5 text-[10px] bg-background border border-border/60 rounded px-1"
+            aria-label={`Destination team for ${label}`}
+          >
+            {destinations.map((t) => (
+              <option key={t} value={t}>{TEAM_NAMES[t] || t}</option>
+            ))}
+          </select>
+        </div>
+        {tpeOptions && tpeOptions.length > 0 && (
           <select
             value={tpeValue ?? ''}
             onChange={(e) => onTpeChange?.(e.target.value)}
             className="w-full h-5 text-[10px] bg-background border border-border/60 rounded px-1 text-muted-foreground"
+            aria-label={`Trade exception absorbing ${label}`}
           >
             <option value="">Match with salary (no TPE)</option>
             {tpeOptions.map((t) => (
               <option key={t.id} value={t.id}>{t.label}</option>
             ))}
           </select>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
@@ -280,683 +290,581 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
     selectedTeamAbbr,
     addSavedTrade,
     updateSavedTrade,
+    analyzeTrade,
     tradedRosterPlayerIds,
     tradedPickIds,
     savedContracts,
     deletedContractIds,
     getEffectiveSalary,
-    getTotalSalary,
-    getTeamCapTotal,
   } = useRoster()
 
-  const [tradeTeamAbbr, setTradeTeamAbbr] = useState<string>('')
-  const [selectedOutgoingRosterIds, setSelectedOutgoingRosterIds] = useState<Set<string>>(new Set())
-  const [selectedOutgoingPickIds, setSelectedOutgoingPickIds] = useState<Set<string>>(new Set())
-  const [selectedIncomingPlayerIds, setSelectedIncomingPlayerIds] = useState<Set<string>>(new Set())
-  const [selectedIncomingPickIds, setSelectedIncomingPickIds] = useState<Set<string>>(new Set())
-  const [incomingCustomPicks, setIncomingCustomPicks] = useState<PendingIncomingPick[]>([])
-  const [incomingTpeUse, setIncomingTpeUse] = useState<Record<string, string>>({})
-  const [cashToPartner, setCashToPartner] = useState('')
-  const [cashFromPartner, setCashFromPartner] = useState('')
+  const [teams, setTeams] = useState<string[]>([selectedTeamAbbr])
+  const [movements, setMovements] = useState<TradeMovement[]>([])
+  const [addTeamValue, setAddTeamValue] = useState('')
 
-  const [addPickYear, setAddPickYear] = useState('2027')
-  const [addPickRound, setAddPickRound] = useState<'First Round' | 'Second Round'>('First Round')
-  const [addPickNumber, setAddPickNumber] = useState('16')
+  const [pickDraft, setPickDraft] = useState<{ year: string; round: 'First Round' | 'Second Round'; number: string }>({
+    year: '2027',
+    round: 'First Round',
+    number: '16',
+  })
 
   useEffect(() => {
-    if (isOpen && editingTrade) {
-      setTradeTeamAbbr(editingTrade.tradeTeamAbbr)
-      setSelectedOutgoingRosterIds(new Set(editingTrade.outgoingRosterPlayerIds))
-      setSelectedOutgoingPickIds(new Set(editingTrade.outgoingPickIds))
-      setSelectedIncomingPlayerIds(new Set(editingTrade.incomingPlayers.map((p) => p.playerId)))
-      setSelectedIncomingPickIds(new Set())
-      setIncomingTpeUse(
-        Object.fromEntries(
-          editingTrade.incomingPlayers.filter((p) => p.heldTpeId).map((p) => [p.playerId, p.heldTpeId!])
-        )
-      )
-      setCashToPartner(editingTrade.cashToPartner ? String(editingTrade.cashToPartner) : '')
-      setCashFromPartner(editingTrade.cashFromPartner ? String(editingTrade.cashFromPartner) : '')
-      setIncomingCustomPicks(
-        editingTrade.incomingPicks.map((p) => ({
+    if (!isOpen) return
+    if (editingTrade) {
+      const normalized = normalizeTrade(editingTrade, selectedTeamAbbr)
+      setTeams(normalized.teams)
+      setMovements(normalized.movements)
+    } else {
+      setTeams([selectedTeamAbbr])
+      setMovements([])
+    }
+  }, [isOpen, editingTrade?.id, selectedTeamAbbr])
+
+  const partners = teams.filter((t) => t !== selectedTeamAbbr)
+  const availableTeams = ALL_TEAMS.filter((t) => !teams.includes(t))
+
+  // Player.id is only unique within one team's roster — it's `player-${idx}`
+  // per getTeamRoster call, not global (see lib/data.ts). The old two-team
+  // modal never hit this because "your side" and "their side" lived in
+  // separate state variables; a 3+ team deal merges every team's assets into
+  // one flat `movements` array, so two different teams' players can share an
+  // id (e.g. both happen to be roster index 4). Every dedup/lookup/removal
+  // below is therefore keyed on the (team, id) pair, never id alone — pick and
+  // custom-asset ids already embed their team, but treating them the same way
+  // costs nothing and removes the asymmetry as a place for this bug to return.
+  function assetKey(from: string, id: string): string {
+    return `${from}::${id}`
+  }
+
+  // In edit mode, the trade being edited shouldn't count its own assets as
+  // "already traded away" by some other saved trade.
+  const editingOwnAssetIds = useMemo(() => {
+    if (!editingTrade) return new Set<string>()
+    const normalized = normalizeTrade(editingTrade, selectedTeamAbbr)
+    return new Set(normalized.movements.filter((m) => m.from === selectedTeamAbbr).map((m) => m.id))
+  }, [editingTrade?.id, selectedTeamAbbr])
+
+  const inTradeKeys = useMemo(() => new Set(movements.map((m) => assetKey(m.from, m.id))), [movements])
+
+  function assetsAvailableFor(teamAbbr: string): {
+    players: Array<{ id: string; name: string; salary: Partial<Record<Season, number>>; options?: Partial<Record<Season, 'Player' | 'Team'>> }>
+    picks: Array<{ id: string; name: string; salary: Partial<Record<Season, number>>; options: Partial<Record<Season, 'Player' | 'Team'>>; draftPick?: DraftPick }>
+  } {
+    const isOwn = teamAbbr === selectedTeamAbbr
+
+    if (isOwn) {
+      const rosterPlayers = roster
+        .filter((p) => (!tradedRosterPlayerIds.has(p.id) || editingOwnAssetIds.has(p.id)) && !inTradeKeys.has(assetKey(teamAbbr, p.id)))
+        .map((p) => ({
           id: p.id,
           name: p.name,
-          fromTeam: p.fromTeam,
-          year: 2027,
-          round: 'First Round' as const,
-          pickNumber: 16,
-          salary: p.salary,
+          salary: Object.fromEntries(
+            SEASONS.map((s) => [s, getEffectiveSalary(p, s)] as const).filter(([, v]) => v > 0)
+          ) as Partial<Record<Season, number>>,
           options: p.options,
         }))
-      )
-    }
-  }, [isOpen, editingTrade?.id])
-
-  const tradeTeamRoster = useMemo(() => (tradeTeamAbbr ? getTeamRoster(tradeTeamAbbr) : []), [tradeTeamAbbr])
-  const tradeTeamPicks = useMemo(() => (tradeTeamAbbr ? getDraftPickPlayers(tradeTeamAbbr) : []), [tradeTeamAbbr])
-
-  // Held TPEs and cash room are only tracked for the current league year.
-  const yourCapState = getTeamCapState(selectedTeamAbbr, TRADE_EVAL_SEASON)
-  const theirCapState = tradeTeamAbbr ? getTeamCapState(tradeTeamAbbr, TRADE_EVAL_SEASON) : undefined
-  const yourHeldTPEs = yourCapState?.heldTPEs ?? []
-  const usedTpeIds = new Set(Object.values(incomingTpeUse).filter(Boolean))
-
-  const availableTeams = ALL_TEAMS.filter((t) => t !== selectedTeamAbbr)
-
-  // In edit mode, don't count the trade being edited as "already traded"
-  const editingOutgoingRosterIds = useMemo(() => new Set(editingTrade?.outgoingRosterPlayerIds ?? []), [editingTrade?.id])
-  const editingOutgoingPickIds = useMemo(() => new Set(editingTrade?.outgoingPickIds ?? []), [editingTrade?.id])
-
-  // Your assets — exclude already-traded and already-selected
-  const availableOutgoingRoster = roster.filter(
-    (p) =>
-      (!tradedRosterPlayerIds.has(p.id) || editingOutgoingRosterIds.has(p.id)) &&
-      !selectedOutgoingRosterIds.has(p.id)
-  )
-  const availableOutgoingFAContracts = savedContracts.filter(
-    (c) => c.type === 'free-agent' && !deletedContractIds.has(c.id) && !selectedOutgoingRosterIds.has(c.id)
-  )
-  const availableOutgoingPicks = draftPickPlayers.filter(
-    (p) =>
-      (!tradedPickIds.has(p.id) || editingOutgoingPickIds.has(p.id)) &&
-      !selectedOutgoingPickIds.has(p.id)
-  )
-
-  // Their assets — exclude already-selected
-  const availableIncomingPlayers = tradeTeamRoster.filter((p) => !selectedIncomingPlayerIds.has(p.id))
-  const availableIncomingPicks = tradeTeamPicks.filter((p) => !selectedIncomingPickIds.has(p.id))
-
-  // Resolve full objects for "in trade" tray
-  const selectedOutgoingRosterObjects = roster.filter((p) => selectedOutgoingRosterIds.has(p.id))
-  const selectedOutgoingFAObjects = savedContracts.filter((c) => selectedOutgoingRosterIds.has(c.id))
-  const selectedOutgoingPickObjects = draftPickPlayers.filter((p) => selectedOutgoingPickIds.has(p.id))
-  const selectedIncomingPlayerObjects = tradeTeamRoster.filter((p) => selectedIncomingPlayerIds.has(p.id))
-  const selectedIncomingPickObjects = tradeTeamPicks.filter((p) => selectedIncomingPickIds.has(p.id))
-
-  // Assemble validation input from the current trays and run the pure
-  // trade-rules validator. Both sides are evaluated independently; even
-  // though the partner's numbers are estimates, its findings are still
-  // hard errors, not downgraded (see PARTNER_FINDINGS_ARE_WARNINGS in
-  // lib/trade-validation.ts).
-  const tradeAnalysis = useMemo(() => {
-    if (!tradeTeamAbbr) return null
-
-    const yourOutgoing: TradeAsset[] = [
-      ...selectedOutgoingRosterObjects.map((p) => ({
-        kind: 'player' as const,
-        id: p.id,
-        name: p.name,
-        salaryBySeason: Object.fromEntries(
-          SEASONS.map((s) => [s, getEffectiveSalary(p, s)] as const).filter(([, v]) => v > 0)
-        ) as Partial<Record<Season, number>>,
-      })),
-      ...selectedOutgoingFAObjects.map((c) => ({
-        kind: 'player' as const,
-        id: c.id,
-        name: c.playerName,
-        salaryBySeason: c.salary,
-        isMinimum: c.isMinimum,
-      })),
-      ...selectedOutgoingPickObjects.map((p) => {
-        const { pickYear, pickRound } = parsePickIdMeta(p.id)
-        return { kind: 'pick' as const, id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
-      }),
-    ]
-
-    const yourIncoming: TradeAsset[] = [
-      ...selectedIncomingPlayerObjects.map((p) => ({
-        kind: 'player' as const,
-        id: p.id,
-        name: p.name,
-        salaryBySeason: p.salary,
-        heldTpeId: incomingTpeUse[p.id] || undefined,
-      })),
-      ...selectedIncomingPickObjects.map((p) => {
-        const { pickYear, pickRound } = parsePickIdMeta(p.id)
-        return { kind: 'pick' as const, id: p.id, name: p.name, salaryBySeason: p.salary, pickYear, pickRound }
-      }),
-      ...incomingCustomPicks.map((p) => ({
-        kind: 'pick' as const,
-        id: p.id,
-        name: p.name,
-        salaryBySeason: p.salary,
-        pickYear: p.year,
-        pickRound: (p.round === 'First Round' ? 1 : 2) as 1 | 2,
-      })),
-    ]
-
-    // Eval season = earliest season at/after TRADE_EVAL_SEASON any traded
-    // player asset carries salary in (the app isn't date-aware, so real
-    // trade-date matching is out of scope).
-    const allPlayerAssets = [...yourOutgoing, ...yourIncoming].filter((a) => a.kind === 'player')
-    const seasonsFromEval = SEASONS.slice(SEASONS.indexOf(TRADE_EVAL_SEASON))
-    const season: Season =
-      seasonsFromEval.find((s) => allPlayerAssets.some((a) => (a.salaryBySeason[s] ?? 0) > 0)) ?? TRADE_EVAL_SEASON
-    const thresholds = CAP_THRESHOLDS[season]
-
-    const yourPreTradeTotal = getTotalSalary(season).capSpaceTotal
-    // Partner total includes whatever contracts/trades have already been
-    // built for them in this app (getTeamCapTotal reads their own saved
-    // contracts + saved trades), not just their starting roster. Trades built
-    // from another team's perspective, and real-world moves outside this app,
-    // still aren't visible here — see the "(est.)" tooltip.
-    const theirPreTradeTotal = getTeamCapTotal(tradeTeamAbbr, season).capSpaceTotal
-
-    const cashOut = parseFloat(cashToPartner) || 0
-    const cashIn = parseFloat(cashFromPartner) || 0
-
-    const yourSide: TradeSideInput = {
-      side: 'yours',
-      teamAbbr: selectedTeamAbbr,
-      teamName: TEAM_NAMES[selectedTeamAbbr] || selectedTeamAbbr,
-      preTradeTotal: yourPreTradeTotal,
-      approximate: false,
-      outgoing: yourOutgoing,
-      incoming: yourIncoming,
-      heldTPEs: yourHeldTPEs,
-      cashOut,
-      cashIn,
-      cashLedger: yourCapState?.cashLedger,
-    }
-    const theirSide: TradeSideInput = {
-      side: 'theirs',
-      teamAbbr: tradeTeamAbbr,
-      teamName: TEAM_NAMES[tradeTeamAbbr] || tradeTeamAbbr,
-      preTradeTotal: theirPreTradeTotal,
-      approximate: true,
-      outgoing: yourIncoming,
-      incoming: yourOutgoing,
-      heldTPEs: theirCapState?.heldTPEs ?? [],
-      cashOut: cashIn,
-      cashIn: cashOut,
-      cashLedger: theirCapState?.cashLedger,
-    }
-
-    const validationInput: ValidateTradeInput = {
-      season,
-      thresholds,
-      currentDraftYear: CURRENT_DRAFT_YEAR,
-      sides: [yourSide, theirSide],
-      ownedFirstRoundYearsByTeam: {
-        [selectedTeamAbbr]: getOwnedFirstRoundYears(selectedTeamAbbr),
-        [tradeTeamAbbr]: getOwnedFirstRoundYears(tradeTeamAbbr),
-      },
-    }
-
-    const validation = validateTrade(validationInput)
-
-    const buildPreviewRow = (side: TradeSideInput) => {
-      const postTotal = getPostTradeTotal(side, season, thresholds)
-      return {
-        teamAbbr: side.teamAbbr,
-        teamName: side.teamName,
-        approximate: side.approximate,
-        preTotal: side.preTradeTotal,
-        postTotal,
-        delta: postTotal - side.preTradeTotal,
-        preStatus: getCapStatus(side.preTradeTotal, thresholds),
-        postStatus: getCapStatus(postTotal, thresholds),
-      }
+      const faContracts = savedContracts
+        .filter((c) => c.type === 'free-agent' && !deletedContractIds.has(c.id) && !inTradeKeys.has(assetKey(teamAbbr, c.id)))
+        .map((c) => ({ id: c.id, name: c.playerName, salary: c.salary }))
+      const picks = draftPickPlayers
+        .filter((p) => (!tradedPickIds.has(p.id) || editingOwnAssetIds.has(p.id)) && !inTradeKeys.has(assetKey(teamAbbr, p.id)))
+        .map((p) => ({ id: p.id, name: p.name, salary: p.salary, options: p.options, draftPick: p.draftPick }))
+      return { players: [...rosterPlayers, ...faContracts], picks }
     }
 
     return {
-      validation,
-      yourPreview: buildPreviewRow(yourSide),
-      theirPreview: buildPreviewRow(theirSide),
+      players: getTeamRoster(teamAbbr)
+        .filter((p) => !inTradeKeys.has(assetKey(teamAbbr, p.id)))
+        .map((p) => ({ id: p.id, name: p.name, salary: p.salary, options: p.options })),
+      picks: getDraftPickPlayers(teamAbbr)
+        .filter((p) => !inTradeKeys.has(assetKey(teamAbbr, p.id)))
+        .map((p) => ({ id: p.id, name: p.name, salary: p.salary, options: p.options, draftPick: p.draftPick })),
     }
-  }, [
-    tradeTeamAbbr,
-    selectedTeamAbbr,
-    selectedOutgoingRosterObjects,
-    selectedOutgoingFAObjects,
-    selectedOutgoingPickObjects,
-    selectedIncomingPlayerObjects,
-    selectedIncomingPickObjects,
-    incomingCustomPicks,
-    incomingTpeUse,
-    cashToPartner,
-    cashFromPartner,
-    yourHeldTPEs,
-    yourCapState,
-    theirCapState,
-    getEffectiveSalary,
-    getTotalSalary,
-    getTeamCapTotal,
-  ])
+  }
 
-  function addOutgoingRoster(id: string) {
-    setSelectedOutgoingRosterIds((prev) => new Set(prev).add(id))
+  // Where a newly added asset goes by default: the next participant after the
+  // sender, so a two-team deal needs no picking at all.
+  function defaultDestination(from: string): string {
+    return teams.find((t) => t !== from) ?? from
   }
-  function removeOutgoingRoster(id: string) {
-    setSelectedOutgoingRosterIds((prev) => { const s = new Set(prev); s.delete(id); return s })
+
+  // Hard guard against a self-trade: defaultDestination has nowhere to send an
+  // asset when its team is the only participant yet, and would otherwise fall
+  // back to sending it to itself — which then shows up as both sent and
+  // received by the same team, netting to $0 and masking the bug entirely.
+  function addMovement(movement: TradeMovement) {
+    if (movement.from === movement.to) return
+    setMovements((prev) => [...prev, movement])
   }
-  function addOutgoingPick(id: string) {
-    setSelectedOutgoingPickIds((prev) => new Set(prev).add(id))
+
+  // Scoped by (from, id), not id alone — see assetKey above. A bare id match
+  // would remove every team's colliding asset at once, not just the one the
+  // user clicked.
+  function removeMovement(from: string, id: string) {
+    setMovements((prev) => prev.filter((m) => !(m.from === from && m.id === id)))
   }
-  function removeOutgoingPick(id: string) {
-    setSelectedOutgoingPickIds((prev) => { const s = new Set(prev); s.delete(id); return s })
+
+  function updateMovement(from: string, id: string, patch: Partial<TradeMovement>) {
+    setMovements((prev) => prev.map((m) => (m.from === from && m.id === id ? { ...m, ...patch } : m)))
   }
-  function addIncomingPlayer(id: string) {
-    setSelectedIncomingPlayerIds((prev) => new Set(prev).add(id))
+
+  function addTeam(abbr: string) {
+    if (!abbr || teams.includes(abbr) || teams.length >= MAX_TEAMS) return
+    setTeams((prev) => [...prev, abbr])
+    setAddTeamValue('')
   }
-  function removeIncomingPlayer(id: string) {
-    setSelectedIncomingPlayerIds((prev) => { const s = new Set(prev); s.delete(id); return s })
-    setIncomingTpeUse((prev) => { const { [id]: _removed, ...rest } = prev; return rest })
+
+  function removeTeam(abbr: string) {
+    setTeams((prev) => prev.filter((t) => t !== abbr))
+    setMovements((prev) => prev.filter((m) => m.from !== abbr && m.to !== abbr))
   }
-  function setIncomingPlayerTpe(id: string, tpeId: string) {
-    setIncomingTpeUse((prev) => {
-      if (!tpeId) { const { [id]: _removed, ...rest } = prev; return rest }
-      return { ...prev, [id]: tpeId }
+
+  function addCustomPick(from: string) {
+    const year = parseInt(pickDraft.year)
+    const pickNumber = parseInt(pickDraft.number)
+    const { salary, options } = computePickSalary(year, pickDraft.round, pickNumber)
+    const roundLabel = pickDraft.round === 'First Round' ? '1st' : '2nd'
+    addMovement({
+      kind: 'pick',
+      from,
+      to: defaultDestination(from),
+      id: `trade-custom-pick-${from}-${year}-${pickDraft.round}-${Date.now()}`,
+      name: `${year} ${roundLabel}${pickDraft.round === 'First Round' ? ` (#${pickNumber})` : ''} (from ${from})`,
+      salary,
+      options,
+      pickYear: year,
+      pickRound: pickDraft.round === 'First Round' ? 1 : 2,
     })
   }
-  function addIncomingPick(id: string) {
-    setSelectedIncomingPickIds((prev) => new Set(prev).add(id))
-  }
-  function removeIncomingPick(id: string) {
-    setSelectedIncomingPickIds((prev) => { const s = new Set(prev); s.delete(id); return s })
-  }
-  function addCustomIncomingPick() {
-    const year = parseInt(addPickYear)
-    const pickNum = parseInt(addPickNumber)
-    const { salary, options } = computePickSalary(year, addPickRound, pickNum)
-    const round = addPickRound === 'First Round' ? '1st' : '2nd'
-    const id = `trade-incoming-pick-${tradeTeamAbbr}-${year}-${addPickRound}-${Date.now()}`
-    const name = `${year} - ${round}${addPickRound === 'First Round' ? ` (#${pickNum})` : ''} (from ${tradeTeamAbbr})`
-    setIncomingCustomPicks((prev) => [...prev, { id, name, fromTeam: tradeTeamAbbr, year, round: addPickRound, pickNumber: pickNum, salary, options }])
-  }
-  function removeCustomPick(id: string) {
-    setIncomingCustomPicks((prev) => prev.filter((p) => p.id !== id))
+
+  function addCashLeg(from: string) {
+    addMovement({
+      kind: 'cash',
+      from,
+      to: defaultDestination(from),
+      id: `trade-cash-${from}-${Date.now()}`,
+      name: 'Cash',
+      amount: 0,
+    })
   }
 
+  // The draft trade in canonical form, fed to the same analyzer the save-time
+  // guard uses so the modal and the data layer can never disagree.
+  const draftTrade: NormalizedTrade = useMemo(
+    () => ({
+      id: editingTrade?.id ?? 'draft',
+      createdAt: editingTrade?.createdAt ?? new Date(),
+      teams,
+      movements,
+      isSignAndTrade: editingTrade?.isSignAndTrade,
+    }),
+    [editingTrade?.id, editingTrade?.createdAt, editingTrade?.isSignAndTrade, teams, movements]
+  )
+
+  const analysis = useMemo(
+    () => (partners.length > 0 ? analyzeTrade(draftTrade) : null),
+    // analyzeTrade closes over live roster state and is re-created each render,
+    // matching how the rest of this provider's helpers behave.
+    [draftTrade, partners.length] // eslint-disable-line react-hooks/exhaustive-deps
+  )
+
   function handleSave() {
-    const incomingPlayers = selectedIncomingPlayerObjects.map((p) => ({
-      playerId: p.id,
-      playerName: p.name,
-      salary: p.salary,
-      options: p.options,
-      heldTpeId: incomingTpeUse[p.id] || undefined,
-    }))
-    const cashOut = parseFloat(cashToPartner) || 0
-    const cashIn = parseFloat(cashFromPartner) || 0
-    const incomingPicksFromTeam = selectedIncomingPickObjects.map((p) => ({
-      id: `trade-in-${p.id}-${Date.now()}`,
-      name: `${p.name} (from ${tradeTeamAbbr})`,
-      fromTeam: tradeTeamAbbr,
-      salary: p.salary,
-      options: p.options,
-    }))
-    const incomingPicks = [
-      ...incomingPicksFromTeam,
-      ...incomingCustomPicks.map((p) => ({ id: p.id, name: p.name, fromTeam: p.fromTeam, salary: p.salary, options: p.options })),
-    ]
-    if (editingTrade) {
-      updateSavedTrade({
-        ...editingTrade,
-        tradeTeamAbbr,
-        outgoingRosterPlayerIds: Array.from(selectedOutgoingRosterIds),
-        outgoingPickIds: Array.from(selectedOutgoingPickIds),
-        incomingPlayers,
-        incomingPicks,
-        cashToPartner: cashOut || undefined,
-        cashFromPartner: cashIn || undefined,
-      })
-    } else {
-      addSavedTrade({
-        id: `trade-${Date.now()}`,
-        tradeTeamAbbr,
-        createdAt: new Date(),
-        outgoingRosterPlayerIds: Array.from(selectedOutgoingRosterIds),
-        outgoingPickIds: Array.from(selectedOutgoingPickIds),
-        incomingPlayers,
-        incomingPicks,
-        cashToPartner: cashOut || undefined,
-        cashFromPartner: cashIn || undefined,
-      })
-    }
+    const saved = toSavedTrade(
+      {
+        id: editingTrade?.id ?? `trade-${Date.now()}`,
+        createdAt: editingTrade?.createdAt ?? new Date(),
+        teams,
+        movements,
+        isSignAndTrade: editingTrade?.isSignAndTrade,
+      },
+      selectedTeamAbbr
+    )
+    if (editingTrade) updateSavedTrade(saved)
+    else addSavedTrade(saved)
     handleClose()
   }
 
   function handleClose() {
-    setTradeTeamAbbr('')
-    setSelectedOutgoingRosterIds(new Set())
-    setSelectedOutgoingPickIds(new Set())
-    setSelectedIncomingPlayerIds(new Set())
-    setSelectedIncomingPickIds(new Set())
-    setIncomingCustomPicks([])
-    setIncomingTpeUse({})
-    setCashToPartner('')
-    setCashFromPartner('')
-    setAddPickYear('2027')
-    setAddPickRound('First Round')
-    setAddPickNumber('16')
+    setTeams([selectedTeamAbbr])
+    setMovements([])
+    setAddTeamValue('')
+    setPickDraft({ year: '2027', round: 'First Round', number: '16' })
     onClose()
   }
 
-  const canSave =
-    !!tradeTeamAbbr &&
-    (selectedOutgoingRosterIds.size > 0 ||
-      selectedOutgoingPickIds.size > 0 ||
-      selectedIncomingPlayerIds.size > 0 ||
-      selectedIncomingPickIds.size > 0 ||
-      incomingCustomPicks.length > 0)
+  const canSave = partners.length > 0 && movements.length > 0
 
-  const outgoingInTradeCount = selectedOutgoingRosterIds.size + selectedOutgoingPickIds.size
-  const incomingInTradeCount = selectedIncomingPlayerIds.size + selectedIncomingPickIds.size + incomingCustomPicks.length
+  // Resolves a pick's protection/swap detail for the hover card. Deliberately
+  // not the "available" list, which excludes anything already in the tray —
+  // exactly the picks this needs to describe.
+  function draftPickFor(teamAbbr: string, pickId: string): DraftPick | undefined {
+    const source = teamAbbr === selectedTeamAbbr ? draftPickPlayers : getDraftPickPlayers(teamAbbr)
+    return source.find((p) => p.id === pickId)?.draftPick
+  }
 
-  return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden">
-        <div className="px-5 pt-5 pb-3">
-          <DialogHeader className="mb-3">
-            <DialogTitle>{editingTrade ? 'Edit Trade' : 'Build Trade'}</DialogTitle>
-            <DialogDescription className="sr-only">Select assets to trade with a partner team.</DialogDescription>
-          </DialogHeader>
+  // A plain function rather than a nested component: a component declared
+  // inside the render body is a new type on every render, so React would
+  // unmount and remount each column — dropping focus mid-keystroke in the cash
+  // input.
+  function renderTeamColumn(teamAbbr: string) {
+    const isOwn = teamAbbr === selectedTeamAbbr
+    const { players, picks } = assetsAvailableFor(teamAbbr)
+    const sending = movements.filter((m) => m.from === teamAbbr)
+    const receiving = movements.filter((m) => m.to === teamAbbr)
+    const destinations = teams.filter((t) => t !== teamAbbr)
+    const usedTpeIds = new Set(movements.map((m) => m.heldTpeId).filter(Boolean) as string[])
 
-          {/* Team selector */}
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium whitespace-nowrap">Trade with:</span>
-            <Select value={tradeTeamAbbr} onValueChange={setTradeTeamAbbr}>
-              <SelectTrigger className="flex-1 h-8 text-sm">
-                <SelectValue placeholder="Select a team..." />
-              </SelectTrigger>
-              <SelectContent>
-                {availableTeams.map((abbr) => (
-                  <SelectItem key={abbr} value={abbr} className="text-sm">
-                    {TEAM_NAMES[abbr] || abbr} ({abbr})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+    return (
+      <div
+        key={teamAbbr}
+        // One full-width column per swipe on a phone; fixed-width side-by-side
+        // columns once there's room to compare them.
+        className="flex flex-col border-r border-border last:border-r-0 shrink-0 grow-0 snap-start basis-full sm:basis-[264px] sm:min-w-[264px]"
+      >
+        <div className="px-3 py-2 bg-muted/30 border-b border-border flex items-center justify-between gap-1">
+          <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground truncate">
+            {isOwn ? 'Your Side' : `${teamAbbr}`}
+          </span>
+          {!isOwn && (
+            <button
+              onClick={() => removeTeam(teamAbbr)}
+              className="text-muted-foreground/60 hover:text-destructive transition-colors shrink-0"
+              aria-label={`Remove ${teamAbbr} from trade`}
+            >
+              <X className="h-3 w-3" />
+            </button>
+          )}
         </div>
 
-        {/* Two columns */}
-        <div className="grid grid-cols-2 gap-0 border-t border-border">
-
-          {/* ── YOUR SIDE ── */}
-          <div className="border-r border-border flex flex-col">
-            <div className="px-3 py-2 bg-muted/30 border-b border-border">
-              <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Your Side</span>
-            </div>
-
-            {/* Available */}
-            <SectionLabel>Available — click to add</SectionLabel>
-            <div className="h-44 overflow-y-auto p-1.5 space-y-0.5">
-              {availableOutgoingRoster.length === 0 && availableOutgoingFAContracts.length === 0 && availableOutgoingPicks.length === 0 ? (
-                <p className="text-xs text-muted-foreground px-2 py-2">All assets added to trade</p>
-              ) : (
-                <>
-                  {availableOutgoingRoster.map((p) => (
-                    <AvailableRow key={p.id} label={p.name} sub={formatCurrency(getFirstYearSalary(p))} salary={p.salary} options={p.options} onClick={() => addOutgoingRoster(p.id)} />
-                  ))}
-                  {availableOutgoingFAContracts.map((c) => (
-                    <AvailableRow key={c.id} label={c.playerName} sub={formatCurrency(getFirstYearSalary(c))} salary={c.salary} onClick={() => addOutgoingRoster(c.id)} />
-                  ))}
-                  {availableOutgoingPicks.length > 0 && (
-                    <div className="pt-1">
-                      <p className="text-[10px] text-muted-foreground/60 px-2 pb-0.5 uppercase tracking-wide">Picks</p>
-                      {availableOutgoingPicks.map((p) => (
-                        <AvailableRow key={p.id} label={p.name} draftPick={p.draftPick} onClick={() => addOutgoingPick(p.id)} />
-                      ))}
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-
-            {/* In Trade */}
-            <SectionLabel>
-              In trade{outgoingInTradeCount > 0 ? ` · ${outgoingInTradeCount}` : ''}
-            </SectionLabel>
-            <div className="h-32 overflow-y-auto p-1.5 space-y-1">
-              {outgoingInTradeCount === 0 ? (
-                <p className="text-xs text-muted-foreground px-2 py-2">No assets selected yet</p>
-              ) : (
-                <>
-                  {selectedOutgoingRosterObjects.map((p) => (
-                    <TradeChip key={p.id} label={p.name} sub={formatCurrency(getFirstYearSalary(p))} salary={p.salary} options={p.options} onRemove={() => removeOutgoingRoster(p.id)} />
-                  ))}
-                  {selectedOutgoingFAObjects.map((c) => (
-                    <TradeChip key={c.id} label={c.playerName} sub={formatCurrency(getFirstYearSalary(c))} salary={c.salary} onRemove={() => removeOutgoingRoster(c.id)} />
-                  ))}
-                  {selectedOutgoingPickObjects.map((p) => (
-                    <TradeChip key={p.id} label={p.name} draftPick={p.draftPick} onRemove={() => removeOutgoingPick(p.id)} />
-                  ))}
-                </>
-              )}
-            </div>
-          </div>
-
-          {/* ── THEIR SIDE ── */}
-          <div className="flex flex-col">
-            <div className="px-3 py-2 bg-muted/30 border-b border-border">
-              <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {tradeTeamAbbr ? `${tradeTeamAbbr} Side` : 'Their Side'}
-              </span>
-            </div>
-
-            {/* Available */}
-            <SectionLabel>Available — click to add</SectionLabel>
-            <div className="h-44 overflow-y-auto p-1.5 space-y-0.5">
-              {!tradeTeamAbbr ? (
-                <p className="text-xs text-muted-foreground px-2 py-2">Select a team above</p>
-              ) : availableIncomingPlayers.length === 0 && availableIncomingPicks.length === 0 ? (
-                <p className="text-xs text-muted-foreground px-2 py-2">All assets added to trade</p>
-              ) : (
-                <>
-                  {availableIncomingPlayers.map((p) => (
-                    <AvailableRow key={p.id} label={p.name} sub={formatCurrency(getFirstYearSalary(p))} salary={p.salary} options={p.options} onClick={() => addIncomingPlayer(p.id)} />
-                  ))}
-                  {availableIncomingPicks.length > 0 && (
-                    <div className="pt-1">
-                      <p className="text-[10px] text-muted-foreground/60 px-2 pb-0.5 uppercase tracking-wide">Picks</p>
-                      {availableIncomingPicks.map((p) => (
-                        <AvailableRow key={p.id} label={p.name} draftPick={p.draftPick} onClick={() => addIncomingPick(p.id)} />
-                      ))}
-                    </div>
-                  )}
-                </>
-              )}
-              {/* Custom pick adder — always visible when a team is selected */}
-              {tradeTeamAbbr && (
-                <div className="pt-2 px-1 border-t border-border/40 mt-1">
-                  <p className="text-[10px] text-muted-foreground/70 mb-1 px-1">Add custom pick</p>
-                  <div className="flex items-center gap-1">
-                    <Select value={addPickYear} onValueChange={setAddPickYear}>
-                      <SelectTrigger className="h-6 text-[11px] w-[68px] px-1.5">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {[2026, 2027, 2028, 2029, 2030, 2031, 2032].map((y) => (
-                          <SelectItem key={y} value={String(y)} className="text-xs">{y}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <Select value={addPickRound} onValueChange={(v) => setAddPickRound(v as 'First Round' | 'Second Round')}>
-                      <SelectTrigger className="h-6 text-[11px] w-[52px] px-1.5">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="First Round" className="text-xs">1st</SelectItem>
-                        <SelectItem value="Second Round" className="text-xs">2nd</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    {addPickRound === 'First Round' && (
-                      <Select value={addPickNumber} onValueChange={setAddPickNumber}>
-                        <SelectTrigger className="h-6 text-[11px] w-[52px] px-1.5">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {Array.from({ length: 30 }, (_, i) => i + 1).map((n) => (
-                            <SelectItem key={n} value={String(n)} className="text-xs">#{n}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    )}
-                    <Button size="sm" variant="outline" className="h-6 w-6 p-0 shrink-0" onClick={addCustomIncomingPick}>
-                      <Plus className="h-3 w-3" />
-                    </Button>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* In Trade */}
-            <SectionLabel>
-              In trade{incomingInTradeCount > 0 ? ` · ${incomingInTradeCount}` : ''}
-            </SectionLabel>
-            <div className="h-32 overflow-y-auto p-1.5 space-y-1">
-              {incomingInTradeCount === 0 ? (
-                <p className="text-xs text-muted-foreground px-2 py-2">No assets selected yet</p>
-              ) : (
-                <>
-                  {selectedIncomingPlayerObjects.map((p) => {
-                    const eligibleTPEs = yourHeldTPEs.filter(
-                      (t) => (t.id === incomingTpeUse[p.id] || !usedTpeIds.has(t.id)) && getFirstYearSalary(p) <= t.amount + 100_000
-                    )
+        <SectionLabel>Available — click to add</SectionLabel>
+        <div className="h-40 overflow-y-auto p-1.5 space-y-0.5">
+          {destinations.length === 0 ? (
+            <p className="text-xs text-muted-foreground px-2 py-2">Add a partner team above before adding assets.</p>
+          ) : players.length === 0 && picks.length === 0 ? (
+            <p className="text-xs text-muted-foreground px-2 py-2">All assets added to trade</p>
+          ) : (
+            <>
+              {players.map((p) => (
+                <AvailableRow
+                  key={p.id}
+                  label={p.name}
+                  sub={formatCurrency(getFirstYearSalary(p.salary))}
+                  salary={p.salary}
+                  options={p.options}
+                  onClick={() =>
+                    addMovement({
+                      kind: 'player',
+                      from: teamAbbr,
+                      to: defaultDestination(teamAbbr),
+                      id: p.id,
+                      name: p.name,
+                      salary: p.salary,
+                      options: p.options ?? {},
+                    })
+                  }
+                />
+              ))}
+              {picks.length > 0 && (
+                <div className="pt-1">
+                  <p className="text-[10px] text-muted-foreground/60 px-2 pb-0.5 uppercase tracking-wide">Picks</p>
+                  {picks.map((p) => {
+                    const { pickYear, pickRound } = parsePickIdMeta(p.id)
                     return (
-                      <TradeChip
+                      <AvailableRow
                         key={p.id}
                         label={p.name}
-                        sub={formatCurrency(getFirstYearSalary(p))}
-                        salary={p.salary}
-                        options={p.options}
-                        onRemove={() => removeIncomingPlayer(p.id)}
-                        tpeOptions={eligibleTPEs.map((t) => ({
-                          id: t.id,
-                          label: `TPE ${formatCurrency(t.amount)} (${t.fromPlayer ?? 'prior trade'})`,
-                        }))}
-                        tpeValue={incomingTpeUse[p.id] ?? ''}
-                        onTpeChange={(tpeId) => setIncomingPlayerTpe(p.id, tpeId)}
+                        draftPick={p.draftPick}
+                        onClick={() =>
+                          addMovement({
+                            kind: 'pick',
+                            from: teamAbbr,
+                            to: defaultDestination(teamAbbr),
+                            id: p.id,
+                            name: p.name,
+                            salary: p.salary,
+                            options: p.options,
+                            pickYear,
+                            pickRound,
+                          })
+                        }
                       />
                     )
                   })}
-                  {selectedIncomingPickObjects.map((p) => (
-                    <TradeChip key={p.id} label={p.name} draftPick={p.draftPick} onRemove={() => removeIncomingPick(p.id)} />
-                  ))}
-                  {incomingCustomPicks.map((p) => (
-                    <TradeChip
-                      key={p.id}
-                      label={p.name}
-                      draftPick={{
-                        teamOwner: TEAM_NAMES[p.fromTeam] ?? p.fromTeam,
-                        year: p.year,
-                        round: p.round,
-                        teamFrom: null,
-                        swapOwner: null,
-                        swapOption: null,
-                        protections: null,
-                        pickNumber: p.pickNumber,
-                        pickPool: null,
-                        rank: null,
-                      }}
-                      onRemove={() => removeCustomPick(p.id)}
-                    />
-                  ))}
-                </>
+                </div>
               )}
+            </>
+          )}
+
+          <div className="pt-2 px-1 border-t border-border/40 mt-1 space-y-1">
+            <p className="text-[10px] text-muted-foreground/70 px-1">Add custom pick</p>
+            <div className="flex items-center gap-1">
+              <Select value={pickDraft.year} onValueChange={(v) => setPickDraft((p) => ({ ...p, year: v }))}>
+                <SelectTrigger className="h-6 text-[11px] w-[62px] px-1.5"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {[2026, 2027, 2028, 2029, 2030, 2031, 2032].map((y) => (
+                    <SelectItem key={y} value={String(y)} className="text-xs">{y}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={pickDraft.round} onValueChange={(v) => setPickDraft((p) => ({ ...p, round: v as 'First Round' | 'Second Round' }))}>
+                <SelectTrigger className="h-6 text-[11px] w-[48px] px-1.5"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="First Round" className="text-xs">1st</SelectItem>
+                  <SelectItem value="Second Round" className="text-xs">2nd</SelectItem>
+                </SelectContent>
+              </Select>
+              {pickDraft.round === 'First Round' && (
+                <Select value={pickDraft.number} onValueChange={(v) => setPickDraft((p) => ({ ...p, number: v }))}>
+                  <SelectTrigger className="h-6 text-[11px] w-[48px] px-1.5"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    {Array.from({ length: 30 }, (_, i) => i + 1).map((n) => (
+                      <SelectItem key={n} value={String(n)} className="text-xs">#{n}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
+              <Button
+                size="sm"
+                variant="outline"
+                className="h-6 w-6 p-0 shrink-0"
+                onClick={() => addCustomPick(teamAbbr)}
+                disabled={destinations.length === 0}
+                aria-label={`Add custom pick from ${teamAbbr}`}
+              >
+                <Plus className="h-3 w-3" />
+              </Button>
             </div>
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-6 w-full text-[10px]"
+              onClick={() => addCashLeg(teamAbbr)}
+              disabled={destinations.length === 0}
+            >
+              <Plus className="h-3 w-3 mr-1" /> Send cash
+            </Button>
           </div>
         </div>
 
-        {/* Cash in trade */}
-        {tradeTeamAbbr && (
-          <div className="flex items-center gap-4 px-5 py-2.5 border-t border-border bg-muted/10 text-xs">
-            <span className="font-semibold uppercase tracking-wide text-muted-foreground text-[10px] shrink-0">Cash</span>
-            <label className="flex items-center gap-1.5">
-              You send
-              <input
-                type="number"
-                min="0"
-                step="1000"
-                placeholder="0"
-                value={cashToPartner}
-                onChange={(e) => setCashToPartner(e.target.value)}
-                className="w-24 h-6 px-1.5 rounded border border-border/60 bg-background text-xs font-mono"
-              />
-            </label>
-            <label className="flex items-center gap-1.5">
-              You receive
-              <input
-                type="number"
-                min="0"
-                step="1000"
-                placeholder="0"
-                value={cashFromPartner}
-                onChange={(e) => setCashFromPartner(e.target.value)}
-                className="w-24 h-6 px-1.5 rounded border border-border/60 bg-background text-xs font-mono"
-              />
-            </label>
-            {yourCapState?.cashLedger && (
-              <span className="text-[10px] text-muted-foreground/70 ml-auto">
-                {TEAM_NAMES[selectedTeamAbbr]} room: {formatCurrency(yourCapState.cashLedger.availableToSend)} to send / {formatCurrency(yourCapState.cashLedger.availableToReceive)} to receive
+        <SectionLabel>Sending{sending.length > 0 ? ` · ${sending.length}` : ''}</SectionLabel>
+        <div className="h-36 overflow-y-auto p-1.5 space-y-1">
+          {sending.length === 0 ? (
+            <p className="text-xs text-muted-foreground px-2 py-2">No assets selected yet</p>
+          ) : (
+            sending.map((m) => {
+              if (m.kind === 'cash') {
+                return (
+                  <div key={assetKey(m.from, m.id)} className="rounded bg-muted/50 border border-border/60 px-2 py-1 space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-medium">Cash</span>
+                      <button onClick={() => removeMovement(m.from, m.id)} className="text-muted-foreground hover:text-destructive" aria-label="Remove cash from trade">
+                        <X className="h-3 w-3" />
+                      </button>
+                    </div>
+                    <input
+                      type="number"
+                      min="0"
+                      step="100000"
+                      placeholder="0"
+                      value={m.amount || ''}
+                      onChange={(e) => updateMovement(m.from, m.id, { amount: parseFloat(e.target.value) || 0 })}
+                      className="w-full h-5 px-1 rounded border border-border/60 bg-background text-[10px] font-mono"
+                      aria-label="Cash amount"
+                    />
+                    <div className="flex items-center gap-1">
+                      <span className="text-[9px] uppercase tracking-wide text-muted-foreground/70 shrink-0">to</span>
+                      <select
+                        value={m.to}
+                        onChange={(e) => updateMovement(m.from, m.id, { to: e.target.value })}
+                        className="flex-1 h-5 text-[10px] bg-background border border-border/60 rounded px-1"
+                        aria-label="Cash destination team"
+                      >
+                        {destinations.map((t) => (
+                          <option key={t} value={t}>{TEAM_NAMES[t] || t}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                )
+              }
+
+              // A TPE belongs to the team *receiving* the player.
+              const receivingCapState = getTeamCapState(m.to, TRADE_EVAL_SEASON)
+              const salaryIn = getFirstYearSalary(m.salary ?? {})
+              const eligibleTPEs =
+                m.kind === 'player'
+                  ? (receivingCapState?.heldTPEs ?? []).filter(
+                      (t) => (t.id === m.heldTpeId || !usedTpeIds.has(t.id)) && salaryIn <= t.amount + 100_000
+                    )
+                  : []
+
+              return (
+                <TradeChip
+                  key={assetKey(m.from, m.id)}
+                  label={m.name ?? m.id}
+                  sub={m.kind === 'player' ? formatCurrency(salaryIn) : undefined}
+                  salary={m.salary}
+                  options={m.options}
+                  draftPick={m.kind === 'pick' ? draftPickFor(teamAbbr, m.id) : undefined}
+                  onRemove={() => removeMovement(m.from, m.id)}
+                  destinations={destinations}
+                  destination={m.to}
+                  onDestinationChange={(to) => updateMovement(m.from, m.id, { to })}
+                  tpeOptions={eligibleTPEs.map((t) => ({
+                    id: t.id,
+                    label: `${m.to} TPE ${formatCurrency(t.amount)} (${t.fromPlayer ?? 'prior trade'})`,
+                  }))}
+                  tpeValue={m.heldTpeId ?? ''}
+                  onTpeChange={(tpeId) => updateMovement(m.from, m.id, { heldTpeId: tpeId || undefined })}
+                />
+              )
+            })
+          )}
+        </div>
+
+        <SectionLabel>Receiving{receiving.length > 0 ? ` · ${receiving.length}` : ''}</SectionLabel>
+        <div className="h-24 overflow-y-auto p-1.5 space-y-0.5">
+          {receiving.length === 0 ? (
+            <p className="text-xs text-muted-foreground px-2 py-1.5">Nothing incoming</p>
+          ) : (
+            receiving.map((m) => (
+              <div key={assetKey(m.from, m.id)} className="flex items-center justify-between px-2 py-1 text-xs rounded bg-muted/30">
+                <span className="truncate font-medium">
+                  {m.kind === 'cash' ? `Cash ${formatCurrency(m.amount ?? 0)}` : m.name ?? m.id}
+                </span>
+                <span className="text-[9px] text-muted-foreground shrink-0 ml-1.5">from {m.from}</span>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <Dialog open={isOpen} onOpenChange={handleClose}>
+      {/* Columns plus three trays per team overflow a laptop viewport, so the
+          dialog caps its height and scrolls its body with the team picker and
+          the save controls pinned. */}
+      <DialogContent className="max-w-5xl p-0 gap-0 overflow-hidden max-h-[90vh] flex flex-col">
+        <div className="px-5 pt-5 pb-3 shrink-0">
+          <DialogHeader className="mb-3">
+            <DialogTitle>{editingTrade ? 'Edit Trade' : 'Build Trade'}</DialogTitle>
+            <DialogDescription className="sr-only">
+              Select assets to trade between two or more teams.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-sm font-medium whitespace-nowrap">Teams:</span>
+            <span className="text-xs font-semibold px-2 py-1 rounded bg-primary/10 text-primary">
+              {selectedTeamAbbr}
+            </span>
+            {partners.map((abbr) => (
+              <span key={abbr} className="text-xs font-medium px-2 py-1 rounded bg-muted flex items-center gap-1">
+                {abbr}
+                <button onClick={() => removeTeam(abbr)} className="text-muted-foreground hover:text-destructive" aria-label={`Remove ${abbr}`}>
+                  <X className="h-3 w-3" />
+                </button>
               </span>
+            ))}
+            {teams.length < MAX_TEAMS && (
+              <Select value={addTeamValue} onValueChange={addTeam}>
+                <SelectTrigger className="h-7 text-xs w-[180px]">
+                  <SelectValue placeholder={partners.length === 0 ? 'Select a team...' : 'Add a team...'} />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableTeams.map((abbr) => (
+                    <SelectItem key={abbr} value={abbr} className="text-sm">
+                      {TEAM_NAMES[abbr] || abbr} ({abbr})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             )}
           </div>
-        )}
+        </div>
 
-        {/* Validation */}
-        {tradeAnalysis && (
-          <div className="border-t border-border px-5 py-3 space-y-2.5 max-h-64 overflow-y-auto">
-            {/* After this trade — cap status preview */}
+        <div className="flex-1 min-h-0 overflow-y-auto">
+        {/* One column per participant, scrolling sideways past three teams */}
+        <div className="border-t border-border overflow-x-auto snap-x snap-mandatory">
+          <div className="flex">{teams.map((abbr) => renderTeamColumn(abbr))}</div>
+        </div>
+
+        {analysis && (
+          <div className="border-t border-border px-5 py-3 space-y-2.5">
             <div className="space-y-1">
               <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">After this trade</p>
-              {[tradeAnalysis.yourPreview, tradeAnalysis.theirPreview].map((row) => (
-                <div key={row.teamAbbr} className="flex items-center justify-between gap-2 text-xs">
-                  <span className="font-medium truncate flex items-center gap-1">
-                    {row.teamName}
-                    {row.approximate && (
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <span className="text-muted-foreground font-normal cursor-default underline decoration-dotted underline-offset-2">
-                            (est.)
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent side="top">
-                          Based on {row.teamName}&apos;s current roster plus any contracts and trades already built for them in this app — trades built from another team&apos;s perspective, and real-world moves outside this app, aren&apos;t visible here.
-                        </TooltipContent>
-                      </Tooltip>
-                    )}
-                  </span>
-                  <div className="flex items-center gap-1.5 font-mono tabular-nums shrink-0">
-                    <span className="text-muted-foreground">{formatCurrency(row.preTotal)}</span>
-                    <span className="text-muted-foreground">→</span>
-                    <span className={row.preStatus !== row.postStatus ? 'font-bold' : ''}>{formatCurrency(row.postTotal)}</span>
-                    <span className={cn('text-[10px]', row.delta > 0 ? 'text-red-600' : row.delta < 0 ? 'text-emerald-600' : 'text-muted-foreground')}>
-                      ({row.delta >= 0 ? '+' : '-'}
-                      {formatCurrency(Math.abs(row.delta))})
+              {analysis.sides.map((side) => {
+                const postTotal = getPostTradeTotal(side, analysis.season, analysis.thresholds)
+                const delta = postTotal - side.preTradeTotal
+                const preStatus = getCapStatus(side.preTradeTotal, analysis.thresholds)
+                const postStatus = getCapStatus(postTotal, analysis.thresholds)
+                return (
+                  <div key={side.teamAbbr} className="flex items-center justify-between gap-2 text-xs">
+                    <span className="font-medium truncate flex items-center gap-1">
+                      {side.teamName}
+                      {side.approximate && (
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span className="text-muted-foreground font-normal cursor-default underline decoration-dotted underline-offset-2">
+                              (est.)
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent side="top">
+                            Based on {side.teamName}&apos;s current roster plus any contracts and trades already built for them in this app — trades built from another team&apos;s perspective, and real-world moves outside this app, aren&apos;t visible here.
+                          </TooltipContent>
+                        </Tooltip>
+                      )}
                     </span>
-                    <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded', getCapStatusColor(row.preStatus))}>{row.preStatus}</span>
-                    {row.preStatus !== row.postStatus && (
-                      <>
-                        <span className="text-muted-foreground">→</span>
-                        <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded ring-1 ring-current', getCapStatusColor(row.postStatus))}>
-                          {row.postStatus}
-                        </span>
-                      </>
-                    )}
+                    <div className="flex items-center gap-1.5 font-mono tabular-nums shrink-0">
+                      <span className="text-muted-foreground">{formatCurrency(side.preTradeTotal)}</span>
+                      <span className="text-muted-foreground">→</span>
+                      <span className={preStatus !== postStatus ? 'font-bold' : ''}>{formatCurrency(postTotal)}</span>
+                      <span className={cn('text-[10px]', delta > 0 ? 'text-red-600' : delta < 0 ? 'text-emerald-600' : 'text-muted-foreground')}>
+                        ({delta >= 0 ? '+' : '-'}
+                        {formatCurrency(Math.abs(delta))})
+                      </span>
+                      <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded', getCapStatusColor(preStatus))}>{preStatus}</span>
+                      {preStatus !== postStatus && (
+                        <>
+                          <span className="text-muted-foreground">→</span>
+                          <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded ring-1 ring-current', getCapStatusColor(postStatus))}>
+                            {postStatus}
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
-            {/* Trade Invalid */}
-            {tradeAnalysis.validation.errors.length > 0 && (
+            {analysis.validation.errors.length > 0 && (
               <div className="rounded-md border border-destructive/50 bg-destructive/10 p-2.5 space-y-1">
                 <p className="text-xs font-semibold text-destructive">Trade Invalid</p>
-                {tradeAnalysis.validation.errors.map((e, i) => (
-                  <p key={i} className="text-xs text-destructive-foreground/90">{e.message}</p>
+                {analysis.validation.errors.map((e, i) => (
+                  <p key={i} className="text-xs text-destructive-foreground/90">
+                    {teams.length > 2 && e.teamAbbr && (
+                      <span className="font-semibold">{e.teamAbbr}: </span>
+                    )}
+                    {e.message}
+                  </p>
                 ))}
               </div>
             )}
 
-            {/* Heads up (warnings) */}
-            {tradeAnalysis.validation.warnings.length > 0 && (
+            {analysis.validation.warnings.length > 0 && (
               <div className="rounded-md border border-amber-500/40 bg-amber-500/10 p-2.5 space-y-2">
                 <p className="text-xs font-semibold text-amber-500">Heads up</p>
-                {tradeAnalysis.validation.warnings.map((w, i) => (
+                {analysis.validation.warnings.map((w, i) => (
                   <div key={i} className="space-y-0.5">
-                    <p className="text-xs text-foreground/90">{w.message}</p>
+                    <p className="text-xs text-foreground/90">
+                      {teams.length > 2 && w.teamAbbr && (
+                        <span className="font-semibold">{w.teamAbbr}: </span>
+                      )}
+                      {w.message}
+                    </p>
                     {w.whyUncertain && (
                       <p className="text-[11px] text-muted-foreground pl-2">
                         <span className="font-medium">Why this is uncertain:</span> {w.whyUncertain}
@@ -972,7 +880,7 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
               </div>
             )}
 
-            {tradeAnalysis.validation.errors.length === 0 && tradeAnalysis.validation.warnings.length === 0 && (
+            {analysis.validation.errors.length === 0 && analysis.validation.warnings.length === 0 && (
               <div className="flex items-center gap-1.5 text-xs text-emerald-500">
                 <Check className="h-3.5 w-3.5" />
                 No rule violations detected
@@ -982,17 +890,17 @@ export function TradeModal({ isOpen, onClose, editingTrade }: TradeModalProps) {
             <p className="text-[10px] text-muted-foreground/70 leading-relaxed">{FIDELITY_NOTE}</p>
           </div>
         )}
+        </div>
 
-        {/* Footer */}
-        <div className="flex gap-2 px-5 py-3 border-t border-border">
+        <div className="flex gap-2 px-5 py-3 border-t border-border shrink-0">
           <Button variant="outline" onClick={handleClose} className="flex-1 h-8 text-sm">
             Cancel
           </Button>
           <Button
             onClick={handleSave}
-            disabled={!canSave || (tradeAnalysis ? !tradeAnalysis.validation.isValid : false)}
+            disabled={!canSave || (analysis ? !analysis.validation.isValid : false)}
             className="flex-1 h-8 text-sm"
-            title={tradeAnalysis && !tradeAnalysis.validation.isValid ? 'Resolve the issues in Trade Invalid to save.' : undefined}
+            title={analysis && !analysis.validation.isValid ? 'Resolve the issues in Trade Invalid to save.' : undefined}
           >
             {editingTrade ? 'Save Changes' : 'Save Trade'}
           </Button>
