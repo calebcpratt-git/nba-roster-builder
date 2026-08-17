@@ -41,69 +41,52 @@
     "bbref_awards_2023": true,
     "bbref_awards_2022": true
   },
+  "pageGroups": {
+    "salaryswish-transactions": {
+      "total": 30,
+      "failed": []
+    },
+    "captracker-teams": {
+      "total": 30,
+      "failed": []
+    },
+    "salaryswish-players": {
+      "total": 10,
+      "failed": []
+    }
+  },
   "rescuedSources": [
-    "bbref_awards_2022",
-    "bbref_awards_2023",
-    "bbref_awards_2024",
-    "bbref_awards_2025",
-    "bbref_awards_2026"
+    "realgm_current_free_agents",
+    "realgm_free_agent_options",
+    "realgm_future_drafts"
   ],
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 92,
+      "acquisition": 100,
       "guarantees": 5,
       "signing": 10,
-      "awards": 0
+      "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 92,
+      "acquisition": 100,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 4,
-    "newByCategory": {
-      "awards": 4
-    },
-    "newRecords": {
-      "awards": [
-        {
-          "name": "Jalen Duren",
-          "bbrefId": "durenja01",
-          "season": "2025-26",
-          "award": "All-NBA-3"
-        },
-        {
-          "name": "James Harden",
-          "bbrefId": "hardeja01",
-          "season": "2024-25",
-          "award": "All-NBA-3"
-        },
-        {
-          "name": "DeMar DeRozan",
-          "bbrefId": "derozde01",
-          "season": "2021-22",
-          "award": "All-NBA-2"
-        },
-        {
-          "name": "Chris Paul",
-          "bbrefId": "paulch01",
-          "season": "2021-22",
-          "award": "All-NBA-3"
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-08-16T08:32:02.389Z",
+  "generatedAt": "2026-08-16T21:44:33.971Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 525)",
+    "players: +0 -0 ~493 (of 524)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 519)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -0 ~0 (of 149)",
+    "contract-details: +0 -0 ~1 (of 519)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +0 -0 ~0 (of 150)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true

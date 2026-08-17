@@ -3858,14 +3858,6 @@
     "taxLine": 201000000,
     "firstApron": 209000000,
     "secondApron": 222000000,
-    "heldTPEs": [
-      {
-        "id": "MIA-haywood-highsmith-2025-08-15",
-        "amount": 5616000,
-        "expires": "2026-08-15",
-        "fromPlayer": "Haywood Highsmith"
-      }
-    ],
     "hardCapped": {
       "apron": 1,
       "trigger": "TP-MLE Exceeded: Tim Hardaway Jr. (Jul 6)"
