@@ -56,6 +56,13 @@
     "birdRights": "early-bird"
   },
   {
+    "name": "Bradley Beal",
+    "position": "SG",
+    "priorTeam": "LAC",
+    "faType": "U",
+    "birdRights": "non-bird"
+  },
+  {
     "name": "MarJon Beauchamp",
     "position": "SF",
     "priorTeam": "PHI",
