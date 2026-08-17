@@ -1,0 +1,25 @@
+{
+  "projectId": "4f996ac1-4a40-413b-bf6a-d5de37c2e3af",
+  "shape": "package",
+  "pkg": "association-gm-ui",
+  "globalName": "AssociationGMUI",
+  "srcDir": "components/ui",
+  "tsconfig": "tsconfig.json",
+  "cssEntry": ".ds-sync/compiled-tailwind.css",
+  "buildCmd": "npx @tailwindcss/cli@4.2.0 -i app/globals.css -o .ds-sync/compiled-tailwind.css",
+  "extraFonts": [".design-sync/assets/geist/fonts.css"],
+  "componentSrcMap": {
+    "Toaster": null
+  },
+  "readmeHeader": ".design-sync/conventions.md",
+  "overrides": {
+    "Dialog": { "cardMode": "single", "viewport": "480x420" },
+    "AlertDialog": { "cardMode": "single", "viewport": "480x360" },
+    "Sheet": { "cardMode": "single", "viewport": "460x520" },
+    "Popover": { "cardMode": "single", "viewport": "420x320" },
+    "HoverCard": { "cardMode": "single", "viewport": "420x260" },
+    "Select": { "cardMode": "single", "viewport": "360x320" },
+    "Tooltip": { "cardMode": "single", "viewport": "360x160" },
+    "Toast": { "cardMode": "single", "primaryStory": "TradeAccepted" }
+  }
+}

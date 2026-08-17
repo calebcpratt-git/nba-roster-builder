@@ -20,3 +20,12 @@ snapshots/raw/
 # Local output of scripts/check-schema-drift.js — the /data dashboard reads it
 # to show when drift was last checked, which is per-machine, not shared state.
 snapshots/schema-drift.json
+
+# design-sync (Claude Design) — staged converter scripts, build output, and
+# machine-local verification state. .design-sync/config.json, NOTES.md,
+# conventions.md, previews/, and assets/ ARE committed.
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
