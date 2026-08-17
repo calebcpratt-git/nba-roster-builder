@@ -25,7 +25,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "OG Anunoby": { tradeBonusPct: 15, signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "LaMelo Ball": { tradeBonusPct: 15, signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Nicolas Batum": { tradeBonusPct: 15 },
-  "Bradley Beal": { tradeBonusPct: 15, signedUnder: 'bi-annual', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
+  "Bradley Beal": { tradeBonusPct: 15 },
   "Devin Booker": { tradeBonusPct: 10, signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Jalen Brunson": { tradeBonusPct: 15, signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Clint Capela": { tradeBonusPct: 5, signedUnder: 'rookie-scale' },

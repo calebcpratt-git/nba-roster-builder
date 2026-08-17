@@ -2365,44 +2365,6 @@
     ]
   },
   {
-    "name": "Bradley Beal",
-    "team": "LAC",
-    "salary": {
-      "2026-27": 25004710,
-      "2027-28": 19383010,
-      "2028-29": 19383010,
-      "2029-30": 19383010
-    },
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2022-07-06",
-        "method": "free-agent",
-        "team": "WAS"
-      },
-      {
-        "date": "2023-06-23",
-        "method": "trade",
-        "team": "PHO"
-      },
-      {
-        "date": "2025-07-18",
-        "method": "free-agent",
-        "team": "LAC"
-      },
-      {
-        "date": "2026-08-13",
-        "method": "free-agent",
-        "team": "LAC"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
-  },
-  {
     "name": "Ayo Dosunmu",
     "team": "MIN",
     "salary": {
