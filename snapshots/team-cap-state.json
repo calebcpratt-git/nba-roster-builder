@@ -7097,17 +7097,13 @@
       }
     ],
     "exceptionsUsed": {
-      "nonTaxpayerMLE": {
-        "signings": [],
-        "remaining": 585003
-      },
       "taxpayerMLE": {
         "signings": [],
         "remaining": 6064000
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 585003
+        "remaining": 0
       }
     },
     "cashLedger": {

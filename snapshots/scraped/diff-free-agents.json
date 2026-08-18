@@ -1,33 +1,5 @@
 {
   "added": [],
-  "removed": [
-    {
-      "name": "Bradley Beal",
-      "position": "SG",
-      "priorTeam": "LAC",
-      "faType": "U",
-      "birdRights": "non-bird"
-    }
-  ],
-  "changed": [
-    {
-      "before": {
-        "name": "Ethan Thompson",
-        "position": "SG",
-        "priorTeam": "IND",
-        "faType": "U",
-        "birdRights": "non-bird"
-      },
-      "after": {
-        "name": "Ethan Thompson",
-        "position": "SG",
-        "priorTeam": "IND",
-        "faType": "U",
-        "birdRights": null
-      },
-      "fields": [
-        "birdRights"
-      ]
-    }
-  ]
+  "removed": [],
+  "changed": []
 }
