@@ -1,44 +1,96 @@
 {
-  "added": [
-    {
-      "name": "Bradley Beal",
-      "team": "LAC",
-      "salary": {
-        "2026-27": 25004710,
-        "2027-28": 19383010,
-        "2028-29": 19383010,
-        "2029-30": 19383010
-      },
-      "options": {},
-      "acquisitionHistory": [
-        {
-          "date": "2022-07-06",
-          "method": "free-agent",
-          "team": "WAS"
-        },
-        {
-          "date": "2023-06-23",
-          "method": "trade",
-          "team": "PHO"
-        },
-        {
-          "date": "2025-07-18",
-          "method": "free-agent",
-          "team": "LAC"
-        },
-        {
-          "date": "2026-08-13",
-          "method": "free-agent",
-          "team": "LAC"
-        }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "non-guaranteed"
-        }
-      }
-    }
-  ],
+  "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Haywood Highsmith",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 1000000
+        },
+        "options": {},
+        "acquisitionHistory": [
+          {
+            "date": "2021-12-30",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-15",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-26",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-03-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2024-07-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2026-02-18",
+            "method": "free-agent",
+            "team": "PHO"
+          }
+        ]
+      },
+      "after": {
+        "name": "Haywood Highsmith",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 1000000
+        },
+        "options": {},
+        "acquisitionHistory": [
+          {
+            "date": "2021-12-30",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-15",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-26",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-03-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2024-07-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2026-02-18",
+            "method": "free-agent",
+            "team": "PHO"
+          },
+          {
+            "date": "2026-08-17",
+            "method": "free-agent",
+            "team": "PHO"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    }
+  ]
 }

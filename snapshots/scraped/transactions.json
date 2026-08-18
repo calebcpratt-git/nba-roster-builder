@@ -2013,6 +2013,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Sean Pedulla",
+  "date": "2026-08-17",
+  "dateRaw": "Aug 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "HOU"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Julian Phillips",
   "date": "2026-07-25",
   "dateRaw": "Jul 25, 2026",
@@ -2165,6 +2178,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Braden Smith",
+  "date": "2026-08-17",
+  "dateRaw": "Aug 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "IND"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {
@@ -3524,6 +3550,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Trendon Watford",
+  "date": "2026-08-17",
+  "dateRaw": "Aug 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Caleb Houstan",
   "date": "2026-08-03",
   "dateRaw": "Aug 3, 2026",
@@ -4262,6 +4301,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Haywood Highsmith",
+  "date": "2026-08-17",
+  "dateRaw": "Aug 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Dillon Brooks",
   "date": "2026-08-08",
   "dateRaw": "Aug 8, 2026",
@@ -4888,6 +4940,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Malachi Smith",
+  "date": "2026-08-17",
+  "dateRaw": "Aug 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {

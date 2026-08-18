@@ -1,5 +1,117 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "team": "TOR",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Garrett Temple",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          },
+          {
+            "label": "A.J. Lawson",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Tyreke Key",
+            "amount": 2400000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "TOR-ochai-agbaji-2026-02-05",
+            "amount": 6383525,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ochai Agbaji"
+          }
+        ],
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 585003
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 585003
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 6598209
+      },
+      "after": {
+        "team": "TOR",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Garrett Temple",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          },
+          {
+            "label": "A.J. Lawson",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Tyreke Key",
+            "amount": 2400000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "TOR-ochai-agbaji-2026-02-05",
+            "amount": 6383525,
+            "expires": "2027-02-05",
+            "fromPlayer": "Ochai Agbaji"
+          }
+        ],
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 6598209
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    }
+  ]
 }
