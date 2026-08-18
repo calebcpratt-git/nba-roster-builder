@@ -148,7 +148,7 @@ export function SignFreeAgentsPanelContent({
         </div>
 
         {/* Scrollable List */}
-        <div className="space-y-2 h-[312px] max-h-[312px] overflow-y-auto pr-2">
+        <div className="space-y-2 h-[312px] max-h-[312px] overflow-y-auto pr-2 pb-2">
           {filteredFreeAgents.length > 0 ? (
             filteredFreeAgents.map((player, index) => {
               const isAlreadySigned = isPlayerAlreadySigned(player)
@@ -234,7 +234,7 @@ export function SignFreeAgentsPanel() {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="overflow-hidden">
-            <CardContent className="space-y-4 pt-4">
+            <CardContent className="space-y-4 pt-4 pb-4">
               <SignFreeAgentsPanelContent selectedYear={selectedYear} onSelectedYearChange={setSelectedYear} />
             </CardContent>
           </div>

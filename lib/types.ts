@@ -161,7 +161,10 @@ export interface SavedTrade {
     salary: Partial<Record<Season, number>>
     options: Partial<Record<Season, 'Player' | 'Team'>>
   }>
-  /** UI toggle — sign-and-trade hard-cap + 3-4yr / 1st-yr-guaranteed rule. Not yet enforced — see schema doc §6. */
+  /** Set when this trade was created via the sign-and-trade flow in sign-free-agent-modal.tsx, which
+   *  enforces the MLE-used/seller-apron blocks and 3-4yr length rule at creation time. Re-editing the
+   *  saved trade through TradeModal does not re-apply those sign-and-trade-specific checks — only the
+   *  ordinary validateTrade() rules run on save from there. */
   isSignAndTrade?: boolean
   /** Cash your side sends to the trade partner. */
   cashToPartner?: number

@@ -1,0 +1,21 @@
+/* Self-hosted Geist family, sourced from the official "geist" npm package
+   (Vercel, SIL OFL). The app loads these via next/font/google at build time,
+   which only materializes local font files inside a real `next build` — this
+   ships the same font bytes through a source the design-sync bundle can see
+   without running one. */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('./Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('./GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
