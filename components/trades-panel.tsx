@@ -179,7 +179,7 @@ export function TradesPanel() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="overflow-hidden">
-              <CardContent className="space-y-2.5 pt-3">
+              <CardContent className="space-y-2.5 pt-3 pb-3.5">
                 <TradesPanelContent onEditTrade={handleOpenEdit} />
               </CardContent>
             </div>
