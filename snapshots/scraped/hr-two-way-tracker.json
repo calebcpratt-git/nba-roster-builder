@@ -208,6 +208,14 @@
   "reported": false
  },
  {
+  "name": "Sean Pedulla",
+  "bbrefId": "pedulse01",
+  "team": "HOU",
+  "position": "G",
+  "twoYear": true,
+  "reported": false
+ },
+ {
   "name": "Kobe Brown",
   "bbrefId": "brownko01",
   "team": "IND",
@@ -220,6 +228,14 @@
   "bbrefId": "slawsja01",
   "team": "IND",
   "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Braden Smith",
+  "bbrefId": "smithbr01",
+  "team": "IND",
+  "position": "G",
   "twoYear": false,
   "reported": false
  },
@@ -344,18 +360,18 @@
   "reported": false
  },
  {
-  "name": "Hunter Dickinson",
-  "bbrefId": "dickihu01",
-  "team": "NOP",
-  "position": "C",
-  "twoYear": false,
-  "reported": false
- },
- {
   "name": "Jaron Pierre Jr.",
   "bbrefId": "pierrja01",
   "team": "NOP",
   "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Malik Dia",
+  "bbrefId": null,
+  "team": "NOP",
+  "position": "F",
   "twoYear": false,
   "reported": false
  },

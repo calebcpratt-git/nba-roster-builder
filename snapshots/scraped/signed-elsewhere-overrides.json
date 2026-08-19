@@ -1,1 +1,11 @@
-[]
+[
+ {
+  "name": "Trendon Watford",
+  "oldTeam": "PHI",
+  "newTeam": "NOP",
+  "oldSalary": 2801346,
+  "season": "2026-27",
+  "txnDate": "2026-08-17",
+  "txnMethod": "free-agent"
+ }
+]

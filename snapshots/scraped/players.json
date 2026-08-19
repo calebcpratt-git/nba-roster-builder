@@ -2465,12 +2465,14 @@
   "name": "Bradley Beal",
   "team": "LAC",
   "salary": {
-   "2026-27": 25004710,
-   "2027-28": 19383010,
+   "2026-27": 25807810,
+   "2027-28": 26129050,
    "2028-29": 19383010,
    "2029-30": 19383010
   },
-  "options": {},
+  "options": {
+   "2027-28": "Player"
+  },
   "bbrefId": "bealbr01",
   "acquisitionHistory": [
    {
@@ -2496,7 +2498,9 @@
   ],
   "guarantees": {
    "2026-27": {
-    "status": "non-guaranteed"
+    "status": "partial",
+    "amount": 3212400,
+    "guaranteeDate": "2026-08-18"
    }
   }
  },
@@ -5844,7 +5848,7 @@
   ]
  },
  {
-  "name": "Egor Dёmin",
+  "name": "Egor Dëmin",
   "team": "BRK",
   "salary": {
    "2026-27": 7233720,
@@ -9826,6 +9830,27 @@
   ]
  },
  {
+  "name": "Trendon Watford",
+  "team": "NOP",
+  "salary": {},
+  "options": {},
+  "bbrefId": "watfotr01",
+  "acquisitionHistory": [
+   {
+    "date": "2026-08-17",
+    "method": "free-agent",
+    "team": "NOP"
+   }
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "partial",
+    "amount": 500000,
+    "guaranteeDate": "2026-12-30"
+   }
+  }
+ },
+ {
   "name": "Ryan Dunn",
   "team": "PHO",
   "salary": {
@@ -11796,6 +11821,11 @@
     "team": "CHI"
    },
    {
+    "date": "2026-08-08",
+    "method": "free-agent",
+    "team": "LAC"
+   },
+   {
     "date": "2026-08-09",
     "method": "free-agent",
     "team": "LAC"
@@ -12171,6 +12201,11 @@
    },
    {
     "date": "2026-08-05",
+    "method": "free-agent",
+    "team": "LAC"
+   },
+   {
+    "date": "2026-08-12",
     "method": "free-agent",
     "team": "LAC"
    }
@@ -13352,7 +13387,12 @@
     "method": "free-agent",
     "team": "PHO"
    }
-  ]
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
  },
  {
   "name": "E.J. Liddell",
@@ -14197,6 +14237,23 @@
   ]
  },
  {
+  "name": "Sean Pedulla",
+  "team": "HOU",
+  "salary": {
+   "2026-27": 678882
+  },
+  "options": {},
+  "bbrefId": "pedulse01",
+  "contractType": "two-way",
+  "acquisitionHistory": [
+   {
+    "date": "2026-08-17",
+    "method": "free-agent",
+    "team": "HOU"
+   }
+  ]
+ },
+ {
   "name": "Kobe Brown",
   "team": "IND",
   "salary": {
@@ -14255,6 +14312,28 @@
    },
    {
     "date": "2026-07-22",
+    "method": "free-agent",
+    "team": "IND"
+   }
+  ]
+ },
+ {
+  "name": "Braden Smith",
+  "team": "IND",
+  "salary": {
+   "2026-27": 678882
+  },
+  "options": {},
+  "bbrefId": "smithbr01",
+  "contractType": "two-way",
+  "acquisitionHistory": [
+   {
+    "date": "2026-06-23",
+    "method": "draft",
+    "team": "CHI"
+   },
+   {
+    "date": "2026-08-17",
     "method": "free-agent",
     "team": "IND"
    }
@@ -14636,28 +14715,6 @@
   ]
  },
  {
-  "name": "Hunter Dickinson",
-  "team": "NOP",
-  "salary": {
-   "2026-27": 678882
-  },
-  "options": {},
-  "bbrefId": "dickihu01",
-  "contractType": "two-way",
-  "acquisitionHistory": [
-   {
-    "date": "2025-07-03",
-    "method": "free-agent",
-    "team": "NOP"
-   },
-   {
-    "date": "2026-06-26",
-    "method": "free-agent",
-    "team": "NOP"
-   }
-  ]
- },
- {
   "name": "Jaron Pierre Jr.",
   "team": "NOP",
   "salary": {
@@ -14689,6 +14746,22 @@
    },
    {
     "date": "2026-07-23",
+    "method": "free-agent",
+    "team": "NOP"
+   }
+  ]
+ },
+ {
+  "name": "Malik Dia",
+  "team": "NOP",
+  "salary": {
+   "2026-27": 678882
+  },
+  "options": {},
+  "contractType": "two-way",
+  "acquisitionHistory": [
+   {
+    "date": "2026-08-18",
     "method": "free-agent",
     "team": "NOP"
    }
