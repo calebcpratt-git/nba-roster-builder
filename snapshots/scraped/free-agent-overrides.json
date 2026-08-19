@@ -25,5 +25,14 @@
   "faType": "U",
   "source": "realgm_current_free_agents",
   "corroborated": false
+ },
+ {
+  "name": "Trendon Watford",
+  "team": "PHI",
+  "season": "2026-27",
+  "optionType": "Team",
+  "faType": "U",
+  "source": "realgm_current_free_agents",
+  "corroborated": false
  }
 ]

@@ -98,36 +98,44 @@ export default function DataSchemaDashboard() {
   // Template sources (bbref-draft, bbref-awards, bbref-transactions,
   // salaryswish-transactions, ...) have no single runPyKey. Two different
   // shapes end up here:
-  //  - bbref-awards DOES go through run.py's normal daily fetch_all/SOURCES
-  //    path, just fanned out into several dict keys (bbref_awards_2026,
-  //    bbref_awards_2025, ...), one per year.
+  //  - bbref-awards and bbref-draft DO go through run.py's normal daily
+  //    fetch_all/SOURCES path, just fanned out into several fixed dict keys
+  //    (bbref_awards_2026, bbref_awards_2025, ...), one per year — each key
+  //    is individually tracked and individually rescuable, so these expand
+  //    into one SourceFetchRow per year (same as any single-URL source)
+  //    rather than a single collapsed group row.
   //  - salaryswish-transactions, salaryswish-players, captracker-teams, and
   //    bbref-player-pages own their own per-team/per-player fetch loop
   //    outside SOURCES entirely, and report {total, failed} to run-status.json's
-  //    pageGroups instead (see PAGE_GROUPS in run.py).
-  // Either way, roll it into ONE row per source — "scraped" if every page
-  // that loop touched this run came back clean, "failed (n)" with the
-  // specific pages behind a click if not.
+  //    pageGroups instead (see PAGE_GROUPS in run.py) — there's no single
+  //    run.py key behind any one page in that loop, so these stay collapsed
+  //    into one "scraped" / "failed (n)" row with no per-page rescue.
   const templatePrefix = (id: string) => `${id.replace(/-/g, '_')}_`
   const templateSources = Object.values(DATA_SOURCES).filter((s) => s.isTemplate && !s.runPyKey)
-  const groupedTemplateRows = templateSources.map((s) => {
+  const expandedTemplateRows = templateSources.flatMap((s) => {
     const prefix = templatePrefix(s.id)
     const matchingKeys = status.sourceFetches
       ? Object.keys(status.sourceFetches).filter((k) => k.startsWith(prefix))
       : []
-    if (matchingKeys.length > 0) {
-      const failed = matchingKeys
-        .filter((k) => status.sourceFetches![k] === false)
-        .map((k) => k.slice(prefix.length))
-        .sort()
-      return { id: s.id, cadence: s.cadence, ok: failed.length === 0, total: matchingKeys.length, failed }
-    }
-    const pg = status.pageGroups?.[s.id]
-    if (pg) {
-      return { id: s.id, cadence: s.cadence, ok: pg.failed.length === 0, total: pg.total, failed: pg.failed }
-    }
-    return { id: s.id, cadence: s.cadence, ok: null as boolean | null, total: null as number | null, failed: [] as string[] }
+    return matchingKeys
+      .sort()
+      .map((k) => ({
+        id: s.id,
+        runPyKey: k,
+        keyLabel: k.slice(prefix.length) as string | undefined,
+        ok: status.sourceFetches![k] !== false,
+        rescued: status.rescuedSources.includes(k),
+      }))
   })
+  const groupedTemplateRows = templateSources
+    .filter((s) => !status.sourceFetches || !Object.keys(status.sourceFetches).some((k) => k.startsWith(templatePrefix(s.id))))
+    .map((s) => {
+      const pg = status.pageGroups?.[s.id]
+      if (pg) {
+        return { id: s.id, cadence: s.cadence, ok: pg.failed.length === 0, total: pg.total, failed: pg.failed }
+      }
+      return { id: s.id, cadence: s.cadence, ok: null as boolean | null, total: null as number | null, failed: [] as string[] }
+    })
   const dailyGroupRows = groupedTemplateRows.filter((s) => s.cadence === 'daily')
   const manualOnlySources = groupedTemplateRows.filter((s) => s.cadence !== 'daily')
 
@@ -135,10 +143,11 @@ export default function DataSchemaDashboard() {
   // (Basketball-Reference, RealGM, Hoops Rumors, SalarySwish, nbacaptracker,
   // ...) — expanding a row reveals the same per-source rows shown before.
   const familyOrder: SourceFamily[] = ['bbref', 'realgm', 'hoops', 'captracker', 'swish', 'hand', 'none']
+  const allFetchRows = [...sourceFetchRows, ...expandedTemplateRows]
   const familyBuckets = familyOrder
     .map((family) => ({
       family,
-      fetchRows: sourceFetchRows.filter((s) => sourceFamily(s.id) === family),
+      fetchRows: allFetchRows.filter((s) => sourceFamily(s.id) === family),
       groupRows: dailyGroupRows.filter((s) => sourceFamily(s.id) === family),
       manualRows: manualOnlySources.filter((s) => sourceFamily(s.id) === family),
     }))

@@ -676,8 +676,13 @@ def build_enrichment():
     json.dump(ledger, open(ACQUISITION_HISTORY_LEDGER, 'w'), indent=1, ensure_ascii=False)
 
     # --- guarantees (Hoops Rumors, two pages merged; exact-date page wins on conflict) ---
-    exact = hoopsrumors.parse_guarantee_dates(os.path.join(RAW, 'hr_guarantee_dates.html'), CURRENT_SEASON_YEAR)
-    team_wide = hoopsrumors.parse_non_guaranteed_by_team(os.path.join(RAW, 'hr_non_guaranteed.html'))
+    # _cached_source() rather than a direct parse: this function must be safe
+    # to call even when hr_guarantee_dates/hr_non_guaranteed weren't fetched
+    # today (see the 'enrichment' override in main(), below) — falling back
+    # to the last committed parse instead of crashing on a missing raw file.
+    exact = _cached_source('hr_guarantee_dates', 'hr-guarantee-dates',
+                            lambda p: hoopsrumors.parse_guarantee_dates(p, CURRENT_SEASON_YEAR))
+    team_wide = _cached_source('hr_non_guaranteed', 'hr-non-guaranteed', hoopsrumors.parse_non_guaranteed_by_team)
     season_label = CURRENT_SEASON_LABEL
     VALID_GUARANTEE_STATUS = {'full', 'partial', 'non-guaranteed'}
     unresolved_guar = []
@@ -1482,7 +1487,7 @@ def main():
 
     for group in GROUPS:
         ok = not (set(group['sources']) & failed)
-        if group['name'] in ('two-way-contracts', 'free-agent-reconciliation', 'free-agent-pool'):
+        if group['name'] in ('two-way-contracts', 'free-agent-reconciliation', 'free-agent-pool', 'enrichment'):
             # _cached_source() falls back to the last committed cache of
             # this group's page(s) when today's fetch fails, so none of these
             # need to skip on a fetch failure anymore — only an actual
@@ -1491,7 +1496,18 @@ def main():
             # fetch would silently drop every two-way player it created
             # (most of them have no BBRef contracts-page row at all — see
             # build_two_way_contracts) the moment build_players rebuilds
-            # players.json fresh next.
+            # players.json fresh next. enrichment has the same exposure: it's
+            # the only step that re-merges acquisitionHistory (from
+            # ACQUISITION_HISTORY_LEDGER, always available regardless of
+            # today's fetches) and guarantees onto players.json, so skipping
+            # it whenever hr_guarantee_dates/hr_non_guaranteed weren't fetched
+            # today — e.g. a --rescue scoped to an unrelated source, run after
+            # build_players' bbref sources happened to already be fetched
+            # today — silently stripped those fields from every player.
+            # Confirmed live 2026-08-18: exactly this sequence (a bbref_draft
+            # rescue after an earlier bbref_contracts rescue that same day)
+            # wiped acquisitionHistory from all 525 players and tripped
+            # generate-from-scrape.js's diff-too-large guard.
             ok = True
         if not ok:
             skipped.append(f'{group["name"]} (fetch failed)')

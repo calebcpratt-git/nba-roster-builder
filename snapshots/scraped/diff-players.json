@@ -19,79 +19,6 @@
           "team": "BRK"
         }
       ]
-    },
-    {
-      "name": "Trendon Watford",
-      "team": "NOP",
-      "salary": {},
-      "options": {},
-      "acquisitionHistory": [
-        {
-          "date": "2026-08-17",
-          "method": "free-agent",
-          "team": "NOP"
-        }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "partial",
-          "amount": 500000,
-          "guaranteeDate": "2026-12-30"
-        }
-      }
-    },
-    {
-      "name": "Sean Pedulla",
-      "team": "HOU",
-      "salary": {
-        "2026-27": 678882
-      },
-      "options": {},
-      "contractType": "two-way",
-      "acquisitionHistory": [
-        {
-          "date": "2026-08-17",
-          "method": "free-agent",
-          "team": "HOU"
-        }
-      ]
-    },
-    {
-      "name": "Braden Smith",
-      "team": "IND",
-      "salary": {
-        "2026-27": 678882
-      },
-      "options": {},
-      "contractType": "two-way",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "CHI"
-        },
-        {
-          "date": "2026-08-17",
-          "method": "free-agent",
-          "team": "IND"
-        }
-      ]
-    },
-    {
-      "name": "Malik Dia",
-      "team": "NOP",
-      "salary": {
-        "2026-27": 678882
-      },
-      "options": {},
-      "contractType": "two-way",
-      "acquisitionHistory": [
-        {
-          "date": "2026-08-18",
-          "method": "free-agent",
-          "team": "NOP"
-        }
-      ]
     }
   ],
   "removed": [
@@ -114,30 +41,99 @@
           "team": "BRK"
         }
       ]
-    },
-    {
-      "name": "Hunter Dickinson",
-      "team": "NOP",
-      "salary": {
-        "2026-27": 678882
-      },
-      "options": {},
-      "contractType": "two-way",
-      "acquisitionHistory": [
-        {
-          "date": "2025-07-03",
-          "method": "free-agent",
-          "team": "NOP"
-        },
-        {
-          "date": "2026-06-26",
-          "method": "free-agent",
-          "team": "NOP"
-        }
-      ]
     }
   ],
   "changed": [
+    {
+      "before": {
+        "name": "Haywood Highsmith",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 1000000
+        },
+        "options": {},
+        "acquisitionHistory": [
+          {
+            "date": "2021-12-30",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-15",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-26",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-03-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2024-07-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2026-02-18",
+            "method": "free-agent",
+            "team": "PHO"
+          }
+        ]
+      },
+      "after": {
+        "name": "Haywood Highsmith",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 1000000
+        },
+        "options": {},
+        "acquisitionHistory": [
+          {
+            "date": "2021-12-30",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-15",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-02-26",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2022-03-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2024-07-08",
+            "method": "free-agent",
+            "team": "MIA"
+          },
+          {
+            "date": "2026-02-18",
+            "method": "free-agent",
+            "team": "PHO"
+          },
+          {
+            "date": "2026-08-17",
+            "method": "free-agent",
+            "team": "PHO"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
     {
       "before": {
         "name": "Bradley Beal",
@@ -213,268 +209,13 @@
         ],
         "guarantees": {
           "2026-27": {
-            "status": "partial",
-            "amount": 3212400,
-            "guaranteeDate": "2026-08-18"
+            "status": "non-guaranteed"
           }
         }
       },
       "fields": [
         "salary",
-        "options",
-        "guarantees"
-      ]
-    },
-    {
-      "before": {
-        "name": "Yuki Kawamura",
-        "team": "LAC",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2024-09-06",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2024-10-19",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2025-07-19",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-01-06",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-08-09",
-            "method": "free-agent",
-            "team": "LAC"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "after": {
-        "name": "Yuki Kawamura",
-        "team": "LAC",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2024-09-06",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2024-10-19",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2025-07-19",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-01-06",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-08-08",
-            "method": "free-agent",
-            "team": "LAC"
-          },
-          {
-            "date": "2026-08-09",
-            "method": "free-agent",
-            "team": "LAC"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "acquisitionHistory"
-      ]
-    },
-    {
-      "before": {
-        "name": "Jalen Pickett",
-        "team": "LAC",
-        "salary": {
-          "2026-27": 678882
-        },
-        "options": {},
-        "contractType": "two-way",
-        "acquisitionHistory": [
-          {
-            "date": "2023-06-23",
-            "method": "trade",
-            "team": "DEN"
-          },
-          {
-            "date": "2023-07-06",
-            "method": "free-agent",
-            "team": "DEN"
-          },
-          {
-            "date": "2026-08-05",
-            "method": "free-agent",
-            "team": "LAC"
-          }
-        ]
-      },
-      "after": {
-        "name": "Jalen Pickett",
-        "team": "LAC",
-        "salary": {
-          "2026-27": 678882
-        },
-        "options": {},
-        "contractType": "two-way",
-        "acquisitionHistory": [
-          {
-            "date": "2023-06-23",
-            "method": "trade",
-            "team": "DEN"
-          },
-          {
-            "date": "2023-07-06",
-            "method": "free-agent",
-            "team": "DEN"
-          },
-          {
-            "date": "2026-08-05",
-            "method": "free-agent",
-            "team": "LAC"
-          },
-          {
-            "date": "2026-08-12",
-            "method": "free-agent",
-            "team": "LAC"
-          }
-        ]
-      },
-      "fields": [
-        "acquisitionHistory"
-      ]
-    },
-    {
-      "before": {
-        "name": "Haywood Highsmith",
-        "team": "PHO",
-        "salary": {
-          "2026-27": 1000000
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2021-12-30",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-15",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-26",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-03-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2024-07-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2026-02-18",
-            "method": "free-agent",
-            "team": "PHO"
-          },
-          {
-            "date": "2026-08-17",
-            "method": "free-agent",
-            "team": "PHO"
-          }
-        ]
-      },
-      "after": {
-        "name": "Haywood Highsmith",
-        "team": "PHO",
-        "salary": {
-          "2026-27": 1000000
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2021-12-30",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-15",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-26",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-03-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2024-07-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2026-02-18",
-            "method": "free-agent",
-            "team": "PHO"
-          },
-          {
-            "date": "2026-08-17",
-            "method": "free-agent",
-            "team": "PHO"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "guarantees"
+        "options"
       ]
     }
   ]
