@@ -3415,7 +3415,7 @@
   }
  },
  {
-  "name": "Egor Dёmin",
+  "name": "Egor Dëmin",
   "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
@@ -5206,6 +5206,16 @@
   }
  },
  {
+  "name": "Trendon Watford",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Ryan Dunn",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -6793,6 +6803,19 @@
   }
  },
  {
+  "name": "Sean Pedulla",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Kobe Brown",
   "incentives": {
    "2026-27": {
@@ -6803,6 +6826,15 @@
  },
  {
   "name": "Jalen Slawson",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Braden Smith",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -6941,7 +6973,7 @@
   }
  },
  {
-  "name": "Hunter Dickinson",
+  "name": "Malik Dia",
   "incentives": {
    "2026-27": {
     "likely": 0,
