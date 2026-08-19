@@ -69,6 +69,7 @@ export const DATA_SOURCES: Record<string, DataSource> = {
     id: 'bbref-draft',
     label: 'Basketball-Reference — draft class',
     url: 'https://www.basketball-reference.com/draft/NBA_2026.html',
+    isTemplate: true,
     scraper: 'scripts/scrape/bbref.py',
     cadence: 'daily',
     note: 'run.py builds these keys from CURRENT_DRAFT_YEAR (the current draft year and the one before it), so there is no fixed SOURCES key to pin — bump the URL here when CURRENT_DRAFT_YEAR moves.',

@@ -1,11 +1,13 @@
 {
   "written": [
+    "players",
     "two-way-contracts",
     "free-agent-reconciliation",
     "free-agent-pool",
     "picks",
     "enrichment",
     "clauses",
+    "player-awards",
     "cap-state",
     "cap-hold-reconciliation",
     "salaryswish-league",
@@ -13,12 +15,9 @@
     "cash-ledger",
     "apron-addon"
   ],
-  "staleSources": [
-    "players (fetch failed)",
-    "player-awards (fetch failed)"
-  ],
+  "staleSources": [],
   "sourceFetches": {
-    "bbref_contracts": false,
+    "bbref_contracts": true,
     "realgm_future_drafts": true,
     "realgm_free_agent_options": true,
     "realgm_current_free_agents": true,
@@ -34,13 +33,13 @@
     "salaryswish_bae": true,
     "salaryswish_dpe": true,
     "salaryswish_sitemap": true,
-    "bbref_draft_2026": false,
-    "bbref_draft_2025": false,
-    "bbref_awards_2026": false,
-    "bbref_awards_2025": false,
-    "bbref_awards_2024": false,
-    "bbref_awards_2023": false,
-    "bbref_awards_2022": false
+    "bbref_draft_2026": true,
+    "bbref_draft_2025": true,
+    "bbref_awards_2026": true,
+    "bbref_awards_2025": true,
+    "bbref_awards_2024": true,
+    "bbref_awards_2023": true,
+    "bbref_awards_2022": true
   },
   "pageGroups": {
     "salaryswish-transactions": {
@@ -56,11 +55,20 @@
       "failed": []
     }
   },
-  "rescuedSources": [],
+  "rescuedSources": [
+    "bbref_awards_2022",
+    "bbref_awards_2023",
+    "bbref_awards_2024",
+    "bbref_awards_2025",
+    "bbref_awards_2026",
+    "bbref_contracts",
+    "bbref_draft_2025",
+    "bbref_draft_2026"
+  ],
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 100,
+      "acquisition": 104,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
@@ -72,34 +80,19 @@
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 4,
-    "newByCategory": {
-      "acquisition": 4
-    },
-    "newRecords": {
-      "acquisition": [
-        {
-          "name": "Sean Pedulla",
-          "date": "2026-08-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Trendon Watford",
-          "date": "2026-08-17",
-          "method": "free-agent"
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-08-18T11:38:01.720Z",
+  "generatedAt": "2026-08-18T16:34:57.115Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~1 (of 525)",
+    "players: +1 -1 ~2 (of 525)",
     "draft-picks: +0 -0 ~0 (of 521)",
     "contract-details: +0 -0 ~0 (of 519)",
     "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~0 (of 149)",
+    "free-agents: +0 -0 ~1 (of 149)",
     "awards: +0 -0 ~0 (of 76)"
   ],
-  "clean": false
+  "clean": true
 }

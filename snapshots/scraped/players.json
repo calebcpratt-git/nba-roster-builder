@@ -2465,12 +2465,14 @@
   "name": "Bradley Beal",
   "team": "LAC",
   "salary": {
-   "2026-27": 25004710,
-   "2027-28": 19383010,
+   "2026-27": 25807810,
+   "2027-28": 26129050,
    "2028-29": 19383010,
    "2029-30": 19383010
   },
-  "options": {},
+  "options": {
+   "2027-28": "Player"
+  },
   "bbrefId": "bealbr01",
   "acquisitionHistory": [
    {
@@ -5844,7 +5846,7 @@
   ]
  },
  {
-  "name": "Egor Dёmin",
+  "name": "Egor Dëmin",
   "team": "BRK",
   "salary": {
    "2026-27": 7233720,

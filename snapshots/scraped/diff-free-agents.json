@@ -1,5 +1,25 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Ethan Thompson",
+        "position": "SG",
+        "priorTeam": "IND",
+        "faType": "U",
+        "birdRights": null
+      },
+      "after": {
+        "name": "Ethan Thompson",
+        "position": "SG",
+        "priorTeam": "IND",
+        "faType": "U",
+        "birdRights": "non-bird"
+      },
+      "fields": [
+        "birdRights"
+      ]
+    }
+  ]
 }

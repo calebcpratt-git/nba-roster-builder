@@ -1,6 +1,48 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "Egor Dëmin",
+      "team": "BRK",
+      "salary": {
+        "2026-27": 7233720,
+        "2027-28": 7578240,
+        "2028-29": 9639522
+      },
+      "options": {
+        "2027-28": "Team",
+        "2028-29": "Team"
+      },
+      "acquisitionHistory": [
+        {
+          "date": "2025-07-03",
+          "method": "free-agent",
+          "team": "BRK"
+        }
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "name": "Egor Dёmin",
+      "team": "BRK",
+      "salary": {
+        "2026-27": 7233720,
+        "2027-28": 7578240,
+        "2028-29": 9639522
+      },
+      "options": {
+        "2027-28": "Team",
+        "2028-29": "Team"
+      },
+      "acquisitionHistory": [
+        {
+          "date": "2025-07-03",
+          "method": "free-agent",
+          "team": "BRK"
+        }
+      ]
+    }
+  ],
   "changed": [
     {
       "before": {
@@ -90,6 +132,90 @@
       },
       "fields": [
         "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Bradley Beal",
+        "team": "LAC",
+        "salary": {
+          "2026-27": 25004710,
+          "2027-28": 19383010,
+          "2028-29": 19383010,
+          "2029-30": 19383010
+        },
+        "options": {},
+        "acquisitionHistory": [
+          {
+            "date": "2022-07-06",
+            "method": "free-agent",
+            "team": "WAS"
+          },
+          {
+            "date": "2023-06-23",
+            "method": "trade",
+            "team": "PHO"
+          },
+          {
+            "date": "2025-07-18",
+            "method": "free-agent",
+            "team": "LAC"
+          },
+          {
+            "date": "2026-08-13",
+            "method": "free-agent",
+            "team": "LAC"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "after": {
+        "name": "Bradley Beal",
+        "team": "LAC",
+        "salary": {
+          "2026-27": 25807810,
+          "2027-28": 26129050,
+          "2028-29": 19383010,
+          "2029-30": 19383010
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "acquisitionHistory": [
+          {
+            "date": "2022-07-06",
+            "method": "free-agent",
+            "team": "WAS"
+          },
+          {
+            "date": "2023-06-23",
+            "method": "trade",
+            "team": "PHO"
+          },
+          {
+            "date": "2025-07-18",
+            "method": "free-agent",
+            "team": "LAC"
+          },
+          {
+            "date": "2026-08-13",
+            "method": "free-agent",
+            "team": "LAC"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "fields": [
+        "salary",
+        "options"
       ]
     }
   ]

@@ -139,7 +139,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Garrett Temple', priorTeam: 'TOR', faType: 'unrestricted', birdRights: 'full-bird', position: 'SG' },
   { name: 'Dalen Terry', priorTeam: 'PHI', faType: 'unrestricted', position: 'SF' },
   { name: 'Cam Thomas', priorTeam: 'MIL', faType: 'unrestricted', position: 'PG' },
-  { name: 'Ethan Thompson', priorTeam: 'IND', faType: 'unrestricted', position: 'SG' },
+  { name: 'Ethan Thompson', priorTeam: 'IND', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Xavier Tillman, Sr.', priorTeam: 'CHO', faType: 'unrestricted', birdRights: 'full-bird', position: 'PF' },
   { name: 'Drew Timme', priorTeam: 'LAL', faType: 'unrestricted', birdRights: 'non-bird', position: 'PF' },
   { name: 'Alex Toohey', priorTeam: 'GSW', faType: 'unrestricted', position: 'PF' },

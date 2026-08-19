@@ -1,0 +1,302 @@
+[
+ {
+  "player": "Buddy Hield",
+  "team": "Hawks",
+  "guaranteeDate": "2026-06-28",
+  "status": "partial",
+  "partialAmount": 3000000,
+  "fullAmount": 9658536,
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($3,000,000) increases to full guarantee ($9,658,536). ( ✅ )"
+ },
+ {
+  "player": "Jonathan Isaac",
+  "team": "Magic",
+  "guaranteeDate": "2026-06-28",
+  "status": "partial",
+  "partialAmount": 8000000,
+  "fullAmount": 14500000,
+  "guaranteeTriggered": false,
+  "raw": "Partial guarantee ($8,000,000) increases to full guarantee ($14,500,000). ( ❌ )"
+ },
+ {
+  "player": "Dru Smith",
+  "team": "Heat",
+  "guaranteeDate": "2026-06-28",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2584539,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,584,539) becomes fully guaranteed. ( ✅ )"
+ },
+ {
+  "player": "Bronny James",
+  "team": "Lakers",
+  "guaranteeDate": "2026-06-29",
+  "status": "partial",
+  "partialAmount": 1258873,
+  "fullAmount": 2296271,
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($1,258,873) increases to full guarantee ($2,296,271). ( ✅ )"
+ },
+ {
+  "player": "Jamison Battle",
+  "team": "Raptors",
+  "guaranteeDate": "2026-06-30",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2296271,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed. (✅)"
+ },
+ {
+  "player": "Kris Dunn",
+  "team": "Clippers",
+  "guaranteeDate": "2026-06-30",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 5684800,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($5,684,800) becomes fully guaranteed. ( ✅ )"
+ },
+ {
+  "player": "Kyle Filipowski",
+  "team": "Jazz",
+  "guaranteeDate": "2026-06-30",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 3000000,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($3,000,000) becomes fully guaranteed. (✅)"
+ },
+ {
+  "player": "Kam Jones",
+  "team": "Bulls",
+  "guaranteeDate": "2026-06-30",
+  "status": "partial",
+  "partialAmount": 1075459,
+  "fullAmount": 2150917,
+  "guaranteeTriggered": false,
+  "raw": "Partial guarantee ($1,075,459) increases to full guarantee ($2,150,917). ( ❌ )"
+ },
+ {
+  "player": "Leonard Miller",
+  "team": "Bulls",
+  "guaranteeDate": "2026-06-30",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2406205,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,406,205) becomes fully guaranteed. ( ✅ )"
+ },
+ {
+  "player": "Ajay Mitchell",
+  "team": "Thunder",
+  "guaranteeDate": "2026-06-30",
+  "status": "partial",
+  "partialAmount": 1500000,
+  "fullAmount": 2850000,
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($1,500,000) increases to full guarantee ($2,850,000). (✅)"
+ },
+ {
+  "player": "Svi Mykhailiuk",
+  "team": "Jazz",
+  "guaranteeDate": "2026-06-30",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 3850000,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($3,850,000) becomes fully guaranteed. (✅)"
+ },
+ {
+  "player": "Pete Nance",
+  "team": "Bucks",
+  "guaranteeDate": "2026-07-04",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2497812,
+  "guaranteeTriggered": false,
+  "raw": "Non-guaranteed salary ($2,497,812) becomes fully guaranteed. ( ❌ )"
+ },
+ {
+  "player": "Adem Bona",
+  "team": "Sixers",
+  "guaranteeDate": "2026-07-07",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2296271,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed. ( ✅ )"
+ },
+ {
+  "player": "Kristaps Porzingis",
+  "team": "Warriors",
+  "guaranteeDate": "2026-07-07",
+  "status": "partial",
+  "partialAmount": 3000000,
+  "fullAmount": 20000000,
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($3,000,000) increases to full guarantee ($20,000,000). (✅)"
+ },
+ {
+  "player": "Jonas Valanciunas",
+  "team": "Nuggets",
+  "guaranteeDate": "2026-07-08",
+  "status": "partial",
+  "partialAmount": 2000000,
+  "fullAmount": 10000000,
+  "guaranteeTriggered": false,
+  "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
+ },
+ {
+  "player": "Mo Bamba",
+  "team": "Jazz",
+  "guaranteeDate": "2026-07-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 3506659,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($3,506,659) becomes partially guaranteed ($250,000). (✅)"
+ },
+ {
+  "player": "Sidy Cissoko",
+  "team": "Trail Blazers",
+  "guaranteeDate": "2026-07-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2497812,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,497,812) becomes fully guaranteed. (✅)"
+ },
+ {
+  "player": "Quenton Jackson",
+  "team": "Pacers",
+  "guaranteeDate": "2026-07-15",
+  "status": "partial",
+  "partialAmount": 250000,
+  "fullAmount": 2584539,
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,584,539). ( ✅ )"
+ },
+ {
+  "player": "Jordan Walsh",
+  "team": "Celtics",
+  "guaranteeDate": "2026-07-20",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2406205,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,406,205) becomes fully guaranteed. (✅)"
+ },
+ {
+  "player": "Vit Krejci",
+  "team": "Trail Blazers",
+  "guaranteeDate": "2026-08-01",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2667944,
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,667,944) becomes partially guaranteed ($250,000). ( ✅ )"
+ },
+ {
+  "player": "Moussa Cisse",
+  "team": "Mavericks",
+  "guaranteeDate": "2026-09-01",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2185116,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,185,116) becomes partially guaranteed ($1,092,558)."
+ },
+ {
+  "player": "Moussa Cisse",
+  "team": "Mavericks",
+  "guaranteeDate": "2026-10-01",
+  "status": "partial",
+  "partialAmount": 1092558,
+  "fullAmount": 2185116,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($1,092,558) increases to full guarantee ($2,185,116)."
+ },
+ {
+  "player": "Cam Christie",
+  "team": "Clippers",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2296271,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed."
+ },
+ {
+  "player": "Pete Nance",
+  "team": "Bucks",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2537526,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,537,526) becomes fully guaranteed."
+ },
+ {
+  "player": "Mo Bamba",
+  "team": "Jazz",
+  "guaranteeDate": "2026-10-15",
+  "status": "partial",
+  "partialAmount": 250000,
+  "fullAmount": 500000,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($250,000) increases to $500,000."
+ },
+ {
+  "player": "Isaiah Crawford",
+  "team": "Rockets",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2449421,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,449,421) becomes partially guaranteed ($1,154,325)."
+ },
+ {
+  "player": "Jaylen Wells",
+  "team": "Grizzlies",
+  "guaranteeDate": "2026-10-15",
+  "status": "partial",
+  "partialAmount": 300000,
+  "fullAmount": 2296271,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($300,000) increases to full guarantee ($2,296,271)."
+ },
+ {
+  "player": "Vit Krejci",
+  "team": "Trail Blazers",
+  "guaranteeDate": "2026-10-15",
+  "status": "partial",
+  "partialAmount": 250000,
+  "fullAmount": 2667944,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,667,944)."
+ },
+ {
+  "player": "Pelle Larsson",
+  "team": "Heat",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2296271,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed."
+ },
+ {
+  "player": "Mario Hezonja",
+  "team": "Cavaliers",
+  "guaranteeDate": "2026-11-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2845883,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,845,883) becomes fully guaranteed."
+ }
+]
