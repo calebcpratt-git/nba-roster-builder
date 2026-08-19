@@ -3210,11 +3210,6 @@
   "deadMoney": [],
   "capHolds": [
    {
-    "label": "Sean Pedulla",
-    "amount": 2200000,
-    "kind": "free-agent"
-   },
-   {
     "label": "Bennedict Mathurin",
     "amount": 27600000,
     "kind": "free-agent",
@@ -3272,20 +3267,14 @@
     "remaining": 1044000
    },
    "biAnnual": {
-    "signings": [
-     {
-      "player": "Bradley Beal",
-      "amount": 6439024,
-      "date": "2026-08-13"
-     }
-    ],
-    "remaining": 0
+    "signings": [],
+    "remaining": 5477000
    },
    "dpe": {
     "player": "Bradley Beal",
-    "initial": 3219512,
+    "initial": 3212400,
     "used": false,
-    "remaining": 3219512
+    "remaining": 3212400
    }
   },
   "cashLedger": {
@@ -4659,6 +4648,12 @@
   "season": "2026-27",
   "deadMoney": [],
   "capHolds": [
+   {
+    "label": "Hunter Dickinson",
+    "amount": 2200000,
+    "kind": "free-agent",
+    "birdRights": "non-bird"
+   },
    {
     "label": "Josh Oduro",
     "amount": 2200000,

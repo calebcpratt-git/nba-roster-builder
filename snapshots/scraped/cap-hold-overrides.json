@@ -590,6 +590,12 @@
  },
  {
   "team": "LAC",
+  "player": "Sean Pedulla",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
   "player": "Keaton Wagler",
   "amount": 9700000,
   "reason": "not-in-realgm-current-free-agents"
@@ -868,12 +874,6 @@
   "team": "NOP",
   "player": "DeAndre Jordan",
   "amount": 2500000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "NOP",
-  "player": "Hunter Dickinson",
-  "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {

@@ -1,5 +1,93 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "Egor Dëmin",
+      "signedUnder": "rookie-scale",
+      "incentives": {
+        "2026-27": {
+          "likely": 100000,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2028-29": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Trendon Watford",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Sean Pedulla",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Braden Smith",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Malik Dia",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
+  "removed": [
+    {
+      "name": "Egor Dёmin",
+      "signedUnder": "rookie-scale",
+      "incentives": {
+        "2026-27": {
+          "likely": 100000,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2028-29": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Hunter Dickinson",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
   "changed": []
 }

@@ -217,7 +217,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Cason Wallace": 2023,
   "Kingston Flemings": 2026,
   "Dereck Lively II": 2023,
-  "Egor Dёmin": 2025,
+  "Egor Dëmin": 2025,
   "Gradey Dick": 2023,
   "Clint Capela": 2014,
   "Jordan Hawkins": 2023,

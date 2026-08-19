@@ -42,5 +42,13 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
+ },
+ {
+  "player": "Malachi Smith",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  }
 ]

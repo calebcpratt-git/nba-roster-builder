@@ -3337,7 +3337,7 @@
    }
   }
  },
- "egor dmin": {
+ "egor demin": {
   "team": "BRK",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -5168,6 +5168,16 @@
    }
   }
  },
+ "trendon watford": {
+  "team": "NOP",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "ryan dunn": {
   "team": "PHO",
   "signedUnder": "rookie-scale",
@@ -6812,6 +6822,20 @@
    }
   }
  },
+ "sean pedulla": {
+  "team": "HOU",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "kobe brown": {
   "team": "IND",
   "signedUnder": null,
@@ -6823,6 +6847,16 @@
   }
  },
  "jalen slawson": {
+  "team": "IND",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "braden smith": {
   "team": "IND",
   "signedUnder": null,
   "incentives": {
@@ -6976,7 +7010,7 @@
    }
   }
  },
- "hunter dickinson": {
+ "malik dia": {
   "team": "NOP",
   "signedUnder": null,
   "incentives": {

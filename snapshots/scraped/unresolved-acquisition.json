@@ -95,11 +95,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Braden Smith",
-  "date": "2026-06-23",
-  "method": "draft"
- },
- {
   "name": "Vsevolod Ishchenko",
   "date": "2026-06-23",
   "method": "draft"
@@ -190,11 +185,6 @@
   "method": "draft"
  },
  {
-  "name": "Sean Pedulla",
-  "date": "2026-08-17",
-  "method": "free-agent"
- },
- {
   "name": "Jack Kayil",
   "date": "2026-06-23",
   "method": "draft"
@@ -202,11 +192,6 @@
  {
   "name": "JD Davison",
   "date": "2026-04-07",
-  "method": "free-agent"
- },
- {
-  "name": "Braden Smith",
-  "date": "2026-08-17",
   "method": "free-agent"
  },
  {
@@ -330,8 +315,8 @@
   "method": "trade"
  },
  {
-  "name": "Trendon Watford",
-  "date": "2026-08-17",
+  "name": "Hunter Dickinson",
+  "date": "2026-06-26",
   "method": "free-agent"
  },
  {
