@@ -1,5 +1,55 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "teamOwner": "Denver Nuggets",
+      "year": 2031,
+      "round": "First Round",
+      "teamFrom": "Cleveland Cavaliers",
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    },
+    {
+      "teamOwner": "Denver Nuggets",
+      "year": 2032,
+      "round": "Second Round",
+      "teamFrom": "Sacramento Kings",
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    }
+  ],
+  "removed": [
+    {
+      "teamOwner": "Cleveland Cavaliers",
+      "year": 2031,
+      "round": "First Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    },
+    {
+      "teamOwner": "Cleveland Cavaliers",
+      "year": 2032,
+      "round": "Second Round",
+      "teamFrom": "Sacramento Kings",
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    }
+  ],
   "changed": []
 }

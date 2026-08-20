@@ -40,11 +40,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Malachi Smith",
-  "date": "2026-04-04",
-  "method": "free-agent"
- },
- {
   "name": "Trevon Scott",
   "date": "2026-04-02",
   "method": "free-agent"
@@ -108,6 +103,16 @@
   "name": "Mouhamadou Gueye",
   "date": "2026-04-09",
   "method": "free-agent"
+ },
+ {
+  "name": "Peyton Watson",
+  "date": "2026-08-19",
+  "method": "free-agent"
+ },
+ {
+  "name": "Peyton Watson",
+  "date": "2026-08-14",
+  "method": "trade"
  },
  {
   "name": "Rashaun Agee",
@@ -427,11 +432,6 @@
  {
   "name": "David Jones",
   "date": "2026-07-22",
-  "method": "free-agent"
- },
- {
-  "name": "Malachi Smith",
-  "date": "2026-08-17",
   "method": "free-agent"
  },
  {

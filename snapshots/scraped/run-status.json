@@ -42,6 +42,10 @@
     "bbref_awards_2022": true
   },
   "pageGroups": {
+    "bbref-player-pages": {
+      "total": 1,
+      "failed": []
+    },
     "salaryswish-transactions": {
       "total": 30,
       "failed": []
@@ -51,47 +55,51 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 11,
       "failed": []
     }
   },
-  "rescuedSources": [
-    "bbref_awards_2022",
-    "bbref_awards_2023",
-    "bbref_awards_2024",
-    "bbref_awards_2025",
-    "bbref_awards_2026",
-    "bbref_contracts",
-    "bbref_draft_2025",
-    "bbref_draft_2026"
-  ],
+  "rescuedSources": [],
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 104,
-      "guarantees": 5,
+      "acquisition": 101,
+      "guarantees": 6,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 104,
+      "acquisition": 101,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
     "newUnresolved": 0,
     "newByCategory": {},
-    "newRecords": {}
+    "newRecords": {
+      "acquisition": [
+        {
+          "name": "Peyton Watson",
+          "date": "2026-08-19",
+          "method": "free-agent"
+        },
+        {
+          "name": "Peyton Watson",
+          "date": "2026-08-14",
+          "method": "trade"
+        }
+      ]
+    }
   },
-  "generatedAt": "2026-08-18T16:34:57.115Z",
+  "generatedAt": "2026-08-20T11:30:39.277Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -1 ~2 (of 525)",
-    "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 519)",
+    "players: +1 -0 ~6 (of 528)",
+    "draft-picks: +2 -2 ~0 (of 521)",
+    "contract-details: +1 -0 ~0 (of 522)",
     "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~1 (of 149)",
+    "free-agents: +0 -0 ~1 (of 147)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true

@@ -8,14 +8,14 @@
         "position": "SG",
         "priorTeam": "IND",
         "faType": "U",
-        "birdRights": null
+        "birdRights": "non-bird"
       },
       "after": {
         "name": "Ethan Thompson",
         "position": "SG",
         "priorTeam": "IND",
         "faType": "U",
-        "birdRights": "non-bird"
+        "birdRights": null
       },
       "fields": [
         "birdRights"
