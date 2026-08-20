@@ -1129,7 +1129,20 @@
  },
  {
   "bbrefId": null,
-  "name": "Tre Mann",
+  "name": "Peyton Watson",
+  "date": "2026-08-19",
+  "dateRaw": "Aug 19, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Peyton Watson",
   "date": "2026-08-14",
   "dateRaw": "Aug 14, 2026",
   "method": "trade",
@@ -1137,9 +1150,24 @@
    "CLE"
   ],
   "fromTeams": [
-   "CHA"
+   "DEN"
   ],
-  "text": "Traded from CHA",
+  "text": "Traded from DEN",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Cam Whitmore",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [
+   "WAS"
+  ],
+  "text": "Traded from WAS",
   "flags": []
  },
  {
@@ -1477,6 +1505,21 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Julian Reese",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [
+   "WAS"
+  ],
+  "text": "Traded from WAS",
   "flags": []
  },
  {
@@ -2295,6 +2338,21 @@
   ],
   "fromTeams": [],
   "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Max Strus",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [
+   "CLE"
+  ],
+  "text": "Traded from CLE",
   "flags": []
  },
  {
@@ -5369,6 +5427,21 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Tre Mann",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "WAS"
+  ],
+  "fromTeams": [
+   "CLE"
+  ],
+  "text": "Traded from CLE",
   "flags": []
  },
  {

@@ -128,14 +128,6 @@
   "exhibit10": true
  },
  {
-  "player": "Bradley Beal",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
   "player": "Cam Christie",
   "team": "Los Angeles Clippers",
   "fullAmount": null,
@@ -200,6 +192,14 @@
   "exhibit10": false
  },
  {
+  "player": "Trendon Watford",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": 250000,
+  "status": "partial",
+  "exhibit10": false
+ },
+ {
   "player": "Kobe Bufkin",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -256,6 +256,14 @@
   "exhibit10": false
  },
  {
+  "player": "Haywood Highsmith",
+  "team": "Phoenix Suns",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Vit Krejci",
   "team": "Portland Trail Blazers",
   "fullAmount": null,
@@ -297,6 +305,14 @@
  },
  {
   "player": "Andre Jackson Jr.",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Malachi Smith",
   "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,

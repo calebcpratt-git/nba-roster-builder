@@ -5168,16 +5168,6 @@
    }
   }
  },
- "trendon watford": {
-  "team": "NOP",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "ryan dunn": {
   "team": "PHO",
   "signedUnder": "rookie-scale",
@@ -5746,6 +5736,26 @@
    }
   }
  },
+ "haywood highsmith": {
+  "team": "PHO",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "trendon watford": {
+  "team": "NOP",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "yuki kawamura": {
   "team": "LAC",
   "signedUnder": "minimum",
@@ -6102,6 +6112,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "malachi smith": {
+  "team": "TOR",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6507,16 +6527,6 @@
  },
  "milos uzan": {
   "team": "BOS",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "haywood highsmith": {
-  "team": "PHO",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
