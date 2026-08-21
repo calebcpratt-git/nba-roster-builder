@@ -19,7 +19,7 @@
   "sourceFetches": {
     "bbref_contracts": true,
     "realgm_future_drafts": true,
-    "realgm_free_agent_options": true,
+    "realgm_free_agent_options": false,
     "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
@@ -42,10 +42,6 @@
     "bbref_awards_2022": true
   },
   "pageGroups": {
-    "bbref-player-pages": {
-      "total": 1,
-      "failed": []
-    },
     "salaryswish-transactions": {
       "total": 30,
       "failed": []
@@ -64,42 +60,44 @@
     "before": {
       "draft-year": 0,
       "acquisition": 101,
-      "guarantees": 6,
+      "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 101,
+      "acquisition": 103,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 0,
-    "newByCategory": {},
+    "newUnresolved": 2,
+    "newByCategory": {
+      "acquisition": 2
+    },
     "newRecords": {
       "acquisition": [
         {
-          "name": "Peyton Watson",
-          "date": "2026-08-19",
+          "name": "James Harden",
+          "date": "2026-08-20",
           "method": "free-agent"
         },
         {
-          "name": "Peyton Watson",
+          "name": "Ismael Kamagate",
           "date": "2026-08-14",
           "method": "trade"
         }
       ]
     }
   },
-  "generatedAt": "2026-08-20T11:30:39.277Z",
+  "generatedAt": "2026-08-21T11:30:37.213Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~6 (of 528)",
-    "draft-picks: +2 -2 ~0 (of 521)",
-    "contract-details: +1 -0 ~0 (of 522)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~1 (of 147)",
+    "players: +0 -0 ~1 (of 529)",
+    "draft-picks: +4 -4 ~0 (of 521)",
+    "contract-details: +0 -0 ~0 (of 523)",
+    "team-cap-state: +0 -0 ~3 (of 150)",
+    "free-agents: +0 -1 ~1 (of 147)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true

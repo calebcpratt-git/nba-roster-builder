@@ -412,7 +412,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Craig Porter Jr.": 2023,
   "Leonard Miller": 2023,
   "Mouhamed Gueye": 2023,
-  "Jalen Pickett": 2023,
   "Jamal Shead": 2024,
   "Tyler Kolek": 2024,
   "Karlo Matković": 2022,
@@ -428,6 +427,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "JaVale McGee": 2008,
   "Alijah Martin": 2025,
   "Moussa Cisse": 2025,
+  "Malachi Smith": 2025,
   "Taelon Peter": 2025,
   "Rasheer Fleming": 2025,
   "Maxime Raynaud": 2025,
@@ -457,5 +457,4 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Mamadi Diakite": 2020,
   "Ricky Rubio": 2009,
   "Didi Louzada": 2019,
-  "Malachi Smith": 2025,
 }

@@ -1129,6 +1129,19 @@
  },
  {
   "bbrefId": null,
+  "name": "James Harden",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Peyton Watson",
   "date": "2026-08-19",
   "dateRaw": "Aug 19, 2026",
@@ -1138,6 +1151,21 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Ismael Kamagate",
+  "date": "2026-08-14",
+  "dateRaw": "Aug 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [
+   "LAC"
+  ],
+  "text": "Traded from LAC",
   "flags": []
  },
  {

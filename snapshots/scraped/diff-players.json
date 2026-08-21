@@ -1,226 +1,9 @@
 {
-  "added": [
-    {
-      "name": "Malachi Smith",
-      "team": "TOR",
-      "salary": {
-        "2026-27": 2185116
-      },
-      "options": {},
-      "acquisitionHistory": [
-        {
-          "date": "2026-04-04",
-          "method": "free-agent",
-          "team": "BRK"
-        },
-        {
-          "date": "2026-08-17",
-          "method": "free-agent",
-          "team": "TOR"
-        }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "non-guaranteed"
-        }
-      }
-    }
-  ],
+  "added": [],
   "removed": [],
   "changed": [
     {
       "before": {
-        "name": "Max Strus",
-        "team": "CLE",
-        "salary": {
-          "2026-27": 16660836
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2021-08-06",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2023-07-06",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2023-07-06",
-            "method": "trade",
-            "team": "CLE"
-          }
-        ]
-      },
-      "after": {
-        "name": "Max Strus",
-        "team": "CLE",
-        "salary": {
-          "2026-27": 16660836
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2021-08-06",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2023-07-06",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2023-07-06",
-            "method": "trade",
-            "team": "CLE"
-          },
-          {
-            "date": "2026-08-14",
-            "method": "trade",
-            "team": "LAC"
-          }
-        ]
-      },
-      "fields": [
-        "acquisitionHistory"
-      ]
-    },
-    {
-      "before": {
-        "name": "Tre Mann",
-        "team": "CHO",
-        "salary": {
-          "2026-27": 8000000,
-          "2027-28": 8000000
-        },
-        "options": {
-          "2027-28": "Team"
-        },
-        "acquisitionHistory": [
-          {
-            "date": "2021-08-07",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-11-07",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-11-14",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-11-24",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-12-18",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2025-07-13",
-            "method": "free-agent",
-            "team": "CHO"
-          },
-          {
-            "date": "2026-08-14",
-            "method": "trade",
-            "team": "CLE"
-          }
-        ]
-      },
-      "after": {
-        "name": "Tre Mann",
-        "team": "CHO",
-        "salary": {
-          "2026-27": 8000000,
-          "2027-28": 8000000
-        },
-        "options": {
-          "2027-28": "Team"
-        },
-        "acquisitionHistory": [
-          {
-            "date": "2021-08-07",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-11-07",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-11-14",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-11-24",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2021-12-18",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2025-07-13",
-            "method": "free-agent",
-            "team": "CHO"
-          },
-          {
-            "date": "2026-08-14",
-            "method": "trade",
-            "team": "CLE"
-          },
-          {
-            "date": "2026-08-14",
-            "method": "trade",
-            "team": "WAS"
-          }
-        ]
-      },
-      "fields": [
-        "acquisitionHistory"
-      ]
-    },
-    {
-      "before": {
-        "name": "Cam Whitmore",
-        "team": "WAS",
-        "salary": {
-          "2026-27": 5458310
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2023-02-09",
-            "method": "trade",
-            "team": "HOU"
-          },
-          {
-            "date": "2023-07-03",
-            "method": "free-agent",
-            "team": "HOU"
-          },
-          {
-            "date": "2025-07-06",
-            "method": "trade",
-            "team": "WAS"
-          }
-        ]
-      },
-      "after": {
         "name": "Cam Whitmore",
         "team": "WAS",
         "salary": {
@@ -250,212 +33,37 @@
           }
         ]
       },
-      "fields": [
-        "acquisitionHistory"
-      ]
-    },
-    {
-      "before": {
-        "name": "Haywood Highsmith",
-        "team": "PHO",
-        "salary": {
-          "2026-27": 1000000
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2021-12-30",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-15",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-26",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-03-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2024-07-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2026-02-18",
-            "method": "free-agent",
-            "team": "PHO"
-          },
-          {
-            "date": "2026-08-17",
-            "method": "free-agent",
-            "team": "PHO"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
       "after": {
-        "name": "Haywood Highsmith",
-        "team": "PHO",
-        "salary": {
-          "2026-27": 3449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2021-12-30",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-15",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-02-26",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2022-03-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2024-07-08",
-            "method": "free-agent",
-            "team": "MIA"
-          },
-          {
-            "date": "2026-02-18",
-            "method": "free-agent",
-            "team": "PHO"
-          },
-          {
-            "date": "2026-08-17",
-            "method": "free-agent",
-            "team": "PHO"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "salary"
-      ]
-    },
-    {
-      "before": {
-        "name": "Trendon Watford",
-        "team": "NOP",
+        "name": "Cam Whitmore",
+        "team": "CLE",
         "salary": {},
         "options": {},
         "acquisitionHistory": [
           {
-            "date": "2026-08-17",
-            "method": "free-agent",
-            "team": "NOP"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "partial",
-            "amount": 500000,
-            "guaranteeDate": "2026-12-30"
-          }
-        }
-      },
-      "after": {
-        "name": "Trendon Watford",
-        "team": "NOP",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2026-08-17",
-            "method": "free-agent",
-            "team": "NOP"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "partial",
-            "amount": 500000,
-            "guaranteeDate": "2026-12-30"
-          }
-        }
-      },
-      "fields": [
-        "salary"
-      ]
-    },
-    {
-      "before": {
-        "name": "Julian Reese",
-        "team": "WAS",
-        "salary": {
-          "2026-27": 678882
-        },
-        "options": {},
-        "contractType": "two-way",
-        "acquisitionHistory": [
-          {
-            "date": "2025-10-16",
-            "method": "free-agent",
-            "team": "TOR"
+            "date": "2023-02-09",
+            "method": "trade",
+            "team": "HOU"
           },
           {
-            "date": "2026-02-28",
+            "date": "2023-07-03",
             "method": "free-agent",
-            "team": "WAS"
-          }
-        ]
-      },
-      "after": {
-        "name": "Julian Reese",
-        "team": "WAS",
-        "salary": {
-          "2026-27": 678882
-        },
-        "options": {},
-        "contractType": "two-way",
-        "acquisitionHistory": [
-          {
-            "date": "2025-10-16",
-            "method": "free-agent",
-            "team": "TOR"
+            "team": "HOU"
           },
           {
-            "date": "2026-02-28",
-            "method": "free-agent",
+            "date": "2025-07-06",
+            "method": "trade",
             "team": "WAS"
           },
           {
             "date": "2026-08-14",
             "method": "trade",
-            "team": "DEN"
+            "team": "CLE"
           }
         ]
       },
       "fields": [
-        "acquisitionHistory"
+        "team",
+        "salary"
       ]
     }
   ]

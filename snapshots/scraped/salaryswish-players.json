@@ -3905,7 +3905,7 @@
   }
  },
  "cam whitmore": {
-  "team": "WAS",
+  "team": "CLE",
   "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
@@ -5914,16 +5914,6 @@
    }
   }
  },
- "jalen pickett": {
-  "team": "LAC",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "jamal shead": {
   "team": "TOR",
   "signedUnder": "rookie-scale",
@@ -6891,6 +6881,16 @@
   }
  },
  "jamarion sharp": {
+  "team": "LAC",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "jalen pickett": {
   "team": "LAC",
   "signedUnder": null,
   "incentives": {

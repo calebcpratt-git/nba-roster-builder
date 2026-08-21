@@ -5934,15 +5934,6 @@
     }
   },
   {
-    "name": "Jalen Pickett",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Jamal Shead",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -6867,6 +6858,15 @@
   },
   {
     "name": "Jamarion Sharp",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Jalen Pickett",
     "incentives": {
       "2026-27": {
         "likely": 0,

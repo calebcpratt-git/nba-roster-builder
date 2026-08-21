@@ -200,7 +200,7 @@
     "position": "C",
     "priorTeam": "NOP",
     "faType": "U",
-    "birdRights": "non-bird"
+    "birdRights": null
   },
   {
     "name": "Nikola Djurisic",
@@ -922,13 +922,6 @@
     "priorTeam": "SAS",
     "faType": "U",
     "birdRights": "non-bird"
-  },
-  {
-    "name": "Peyton Watson",
-    "position": "SG",
-    "priorTeam": "DEN",
-    "faType": "R",
-    "birdRights": "full-bird"
   },
   {
     "name": "Blake Wesley",
