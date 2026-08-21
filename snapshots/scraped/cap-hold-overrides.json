@@ -355,6 +355,12 @@
  },
  {
   "team": "DEN",
+  "player": "Peyton Watson",
+  "amount": 13100000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
   "player": "DeMarcus Cousins",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"

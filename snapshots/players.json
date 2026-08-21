@@ -6858,10 +6858,8 @@
   },
   {
     "name": "Cam Whitmore",
-    "team": "WAS",
-    "salary": {
-      "2026-27": 5458310
-    },
+    "team": "CLE",
+    "salary": {},
     "options": {},
     "acquisitionHistory": [
       {
@@ -11839,37 +11837,6 @@
     }
   },
   {
-    "name": "Jalen Pickett",
-    "team": "LAC",
-    "salary": {
-      "2026-27": 678882
-    },
-    "options": {},
-    "contractType": "two-way",
-    "acquisitionHistory": [
-      {
-        "date": "2023-06-23",
-        "method": "trade",
-        "team": "DEN"
-      },
-      {
-        "date": "2023-07-06",
-        "method": "free-agent",
-        "team": "DEN"
-      },
-      {
-        "date": "2026-08-05",
-        "method": "free-agent",
-        "team": "LAC"
-      },
-      {
-        "date": "2026-08-12",
-        "method": "free-agent",
-        "team": "LAC"
-      }
-    ]
-  },
-  {
     "name": "Jamal Shead",
     "team": "TOR",
     "salary": {
@@ -13949,6 +13916,37 @@
       },
       {
         "date": "2026-08-06",
+        "method": "free-agent",
+        "team": "LAC"
+      }
+    ]
+  },
+  {
+    "name": "Jalen Pickett",
+    "team": "LAC",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2023-06-23",
+        "method": "trade",
+        "team": "DEN"
+      },
+      {
+        "date": "2023-07-06",
+        "method": "free-agent",
+        "team": "DEN"
+      },
+      {
+        "date": "2026-08-05",
+        "method": "free-agent",
+        "team": "LAC"
+      },
+      {
+        "date": "2026-08-12",
         "method": "free-agent",
         "team": "LAC"
       }
