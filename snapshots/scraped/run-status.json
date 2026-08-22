@@ -4,7 +4,6 @@
     "two-way-contracts",
     "free-agent-reconciliation",
     "free-agent-pool",
-    "picks",
     "enrichment",
     "clauses",
     "player-awards",
@@ -15,12 +14,14 @@
     "cash-ledger",
     "apron-addon"
   ],
-  "staleSources": [],
+  "staleSources": [
+    "picks (fetch failed)"
+  ],
   "sourceFetches": {
     "bbref_contracts": true,
-    "realgm_future_drafts": true,
+    "realgm_future_drafts": false,
     "realgm_free_agent_options": false,
-    "realgm_current_free_agents": true,
+    "realgm_current_free_agents": false,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -42,6 +43,10 @@
     "bbref_awards_2022": true
   },
   "pageGroups": {
+    "bbref-player-pages": {
+      "total": 1,
+      "failed": []
+    },
     "salaryswish-transactions": {
       "total": 30,
       "failed": []
@@ -51,7 +56,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 15,
       "failed": []
     }
   },
@@ -59,46 +64,31 @@
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 101,
+      "acquisition": 103,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 103,
+      "acquisition": 101,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 2,
-    "newByCategory": {
-      "acquisition": 2
-    },
-    "newRecords": {
-      "acquisition": [
-        {
-          "name": "James Harden",
-          "date": "2026-08-20",
-          "method": "free-agent"
-        },
-        {
-          "name": "Ismael Kamagate",
-          "date": "2026-08-14",
-          "method": "trade"
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-08-21T11:30:37.213Z",
+  "generatedAt": "2026-08-22T11:27:55.518Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~1 (of 529)",
-    "draft-picks: +4 -4 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 523)",
-    "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +0 -1 ~1 (of 147)",
+    "players: +1 -0 ~5 (of 529)",
+    "draft-picks: +0 -0 ~0 (of 521)",
+    "contract-details: +1 -0 ~0 (of 523)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +0 -0 ~0 (of 146)",
     "awards: +0 -0 ~0 (of 76)"
   ],
-  "clean": true
+  "clean": false
 }

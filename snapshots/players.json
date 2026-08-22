@@ -2086,6 +2086,31 @@
     ]
   },
   {
+    "name": "Peyton Watson",
+    "team": "CLE",
+    "salary": {
+      "2026-27": 20465116,
+      "2027-28": 21488372,
+      "2028-29": 22511628,
+      "2029-30": 23534884
+    },
+    "options": {
+      "2029-30": "Player"
+    },
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-14",
+        "method": "trade",
+        "team": "CLE"
+      },
+      {
+        "date": "2026-08-19",
+        "method": "free-agent",
+        "team": "CLE"
+      }
+    ]
+  },
+  {
     "name": "Kyle Kuzma",
     "team": "MIL",
     "salary": {
@@ -2792,7 +2817,7 @@
   },
   {
     "name": "Max Strus",
-    "team": "CLE",
+    "team": "LAC",
     "salary": {
       "2026-27": 16660836
     },
@@ -3119,7 +3144,7 @@
   },
   {
     "name": "Dennis Schröder",
-    "team": "CLE",
+    "team": "CHO",
     "salary": {
       "2026-27": 14809200,
       "2027-28": 15514400
@@ -5333,33 +5358,8 @@
     }
   },
   {
-    "name": "Harrison Barnes",
-    "team": "SAS",
-    "salary": {
-      "2026-27": 8000000
-    },
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2023-06-29",
-        "method": "extension",
-        "team": "SAC"
-      },
-      {
-        "date": "2024-07-08",
-        "method": "trade",
-        "team": "SAS"
-      },
-      {
-        "date": "2026-07-08",
-        "method": "free-agent",
-        "team": "SAS"
-      }
-    ]
-  },
-  {
     "name": "Tre Mann",
-    "team": "CHO",
+    "team": "WAS",
     "salary": {
       "2026-27": 8000000,
       "2027-28": 8000000
@@ -5407,6 +5407,31 @@
         "date": "2026-08-14",
         "method": "trade",
         "team": "WAS"
+      }
+    ]
+  },
+  {
+    "name": "Harrison Barnes",
+    "team": "SAS",
+    "salary": {
+      "2026-27": 8000000
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2023-06-29",
+        "method": "extension",
+        "team": "SAC"
+      },
+      {
+        "date": "2024-07-08",
+        "method": "trade",
+        "team": "SAS"
+      },
+      {
+        "date": "2026-07-08",
+        "method": "free-agent",
+        "team": "SAS"
       }
     ]
   },
@@ -6859,7 +6884,9 @@
   {
     "name": "Cam Whitmore",
     "team": "CLE",
-    "salary": {},
+    "salary": {
+      "2026-27": 5458310
+    },
     "options": {},
     "acquisitionHistory": [
       {
@@ -13579,6 +13606,32 @@
     ]
   },
   {
+    "name": "Julian Reese",
+    "team": "DEN",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2025-10-16",
+        "method": "free-agent",
+        "team": "TOR"
+      },
+      {
+        "date": "2026-02-28",
+        "method": "free-agent",
+        "team": "WAS"
+      },
+      {
+        "date": "2026-08-14",
+        "method": "trade",
+        "team": "DEN"
+      }
+    ]
+  },
+  {
     "name": "Isaac Jones",
     "team": "DET",
     "salary": {
@@ -15035,32 +15088,6 @@
         "date": "2026-07-07",
         "method": "free-agent",
         "team": "UTA"
-      }
-    ]
-  },
-  {
-    "name": "Julian Reese",
-    "team": "WAS",
-    "salary": {
-      "2026-27": 678882
-    },
-    "options": {},
-    "contractType": "two-way",
-    "acquisitionHistory": [
-      {
-        "date": "2025-10-16",
-        "method": "free-agent",
-        "team": "TOR"
-      },
-      {
-        "date": "2026-02-28",
-        "method": "free-agent",
-        "team": "WAS"
-      },
-      {
-        "date": "2026-08-14",
-        "method": "trade",
-        "team": "DEN"
       }
     ]
   },

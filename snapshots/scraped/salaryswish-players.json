@@ -1465,6 +1465,28 @@
    }
   }
  },
+ "peyton watson": {
+  "team": "CLE",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "kyle kuzma": {
   "team": "MIL",
   "signedUnder": "bird",
@@ -1826,7 +1848,7 @@
   }
  },
  "max strus": {
-  "team": "CLE",
+  "team": "LAC",
   "signedUnder": "bird",
   "incentives": {
    "2026-27": {
@@ -2012,7 +2034,7 @@
   }
  },
  "dennis schroder": {
-  "team": "CLE",
+  "team": "CHO",
   "signedUnder": "bird",
   "incentives": {
    "2026-27": {
@@ -3163,18 +3185,8 @@
    }
   }
  },
- "harrison barnes": {
-  "team": "SAS",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "tre mann": {
-  "team": "CHO",
+  "team": "WAS",
   "signedUnder": "bird",
   "incentives": {
    "2026-27": {
@@ -3182,6 +3194,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "harrison barnes": {
+  "team": "SAS",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6748,6 +6770,16 @@
    }
   }
  },
+ "julian reese": {
+  "team": "DEN",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "isaac jones": {
   "team": "DET",
   "signedUnder": null,
@@ -7282,16 +7314,6 @@
  },
  "trey alexander": {
   "team": "UTA",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "julian reese": {
-  "team": "WAS",
   "signedUnder": null,
   "incentives": {
    "2026-27": {
