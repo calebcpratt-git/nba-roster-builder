@@ -283,6 +283,11 @@
         "deadMoney": [],
         "capHolds": [
           {
+            "label": "Hunter Dickinson",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
             "label": "Josh Oduro",
             "amount": 2200000,
             "kind": "free-agent",
@@ -319,131 +324,6 @@
       },
       "fields": [
         "capHolds"
-      ]
-    },
-    {
-      "before": {
-        "team": "WAS",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "Anthony Gill",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
-          },
-          {
-            "label": "Sharife Cooper",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "WAS-jaden-hardy-2026-07-08",
-            "amount": 6000000,
-            "expires": "2027-07-08",
-            "fromPlayer": "Jaden Hardy"
-          },
-          {
-            "id": "WAS-dangelo-russell-2026-07-08",
-            "amount": 5969250,
-            "expires": "2027-07-08",
-            "fromPlayer": "D'Angelo Russell"
-          }
-        ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "Past-Season TPE: Jul 8 trade Jul 8 trade"
-        },
-        "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 15044000
-          },
-          "taxpayerMLE": {
-            "signings": [],
-            "remaining": 0
-          },
-          "biAnnual": {
-            "signings": [],
-            "remaining": 5477000
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
-        },
-        "apronAddon": 0
-      },
-      "after": {
-        "team": "WAS",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "Anthony Gill",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
-          },
-          {
-            "label": "Sharife Cooper",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "WAS-jaden-hardy-2026-07-08",
-            "amount": 6000000,
-            "expires": "2027-07-08",
-            "fromPlayer": "Jaden Hardy"
-          },
-          {
-            "id": "WAS-dangelo-russell-2026-07-08",
-            "amount": 5969250,
-            "expires": "2027-07-08",
-            "fromPlayer": "D'Angelo Russell"
-          }
-        ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "Past-Season TPE: Jul 8 trade Jul 8 trade"
-        },
-        "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 14277968
-          },
-          "taxpayerMLE": {
-            "signings": [],
-            "remaining": 0
-          },
-          "biAnnual": {
-            "signings": [],
-            "remaining": 5477000
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
-        },
-        "apronAddon": 0
-      },
-      "fields": [
-        "exceptionsUsed"
       ]
     }
   ]

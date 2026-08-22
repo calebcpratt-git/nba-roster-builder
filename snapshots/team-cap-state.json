@@ -4639,6 +4639,11 @@
     "deadMoney": [],
     "capHolds": [
       {
+        "label": "Hunter Dickinson",
+        "amount": 2200000,
+        "kind": "free-agent"
+      },
+      {
         "label": "Josh Oduro",
         "amount": 2200000,
         "kind": "free-agent",

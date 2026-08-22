@@ -19,7 +19,7 @@
   "sourceFetches": {
     "bbref_contracts": true,
     "realgm_future_drafts": true,
-    "realgm_free_agent_options": true,
+    "realgm_free_agent_options": false,
     "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
@@ -55,36 +55,49 @@
       "failed": []
     }
   },
-  "rescuedSources": [
-    "realgm_free_agent_options"
-  ],
+  "rescuedSources": [],
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 103,
+      "acquisition": 101,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 102,
+      "acquisition": 103,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 0,
-    "newByCategory": {},
-    "newRecords": {}
+    "newUnresolved": 2,
+    "newByCategory": {
+      "acquisition": 2
+    },
+    "newRecords": {
+      "acquisition": [
+        {
+          "name": "James Harden",
+          "date": "2026-08-20",
+          "method": "free-agent"
+        },
+        {
+          "name": "Ismael Kamagate",
+          "date": "2026-08-14",
+          "method": "trade"
+        }
+      ]
+    }
   },
-  "generatedAt": "2026-08-21T16:33:06.833Z",
+  "generatedAt": "2026-08-21T11:30:37.213Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -0 ~6 (of 528)",
-    "draft-picks: +6 -6 ~0 (of 521)",
-    "contract-details: +1 -0 ~0 (of 522)",
-    "team-cap-state: +0 -0 ~4 (of 150)",
-    "free-agents: +0 -2 ~0 (of 147)",
+    "players: +0 -0 ~1 (of 529)",
+    "draft-picks: +4 -4 ~0 (of 521)",
+    "contract-details: +0 -0 ~0 (of 523)",
+    "team-cap-state: +0 -0 ~3 (of 150)",
+    "free-agents: +0 -1 ~1 (of 147)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true

@@ -7,14 +7,27 @@
       "priorTeam": "DEN",
       "faType": "R",
       "birdRights": "full-bird"
-    },
-    {
-      "name": "Hunter Dickinson",
-      "position": "C",
-      "priorTeam": "NOP",
-      "faType": "U",
-      "birdRights": "non-bird"
     }
   ],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Hunter Dickinson",
+        "position": "C",
+        "priorTeam": "NOP",
+        "faType": "U",
+        "birdRights": "non-bird"
+      },
+      "after": {
+        "name": "Hunter Dickinson",
+        "position": "C",
+        "priorTeam": "NOP",
+        "faType": "U",
+        "birdRights": null
+      },
+      "fields": [
+        "birdRights"
+      ]
+    }
+  ]
 }

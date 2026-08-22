@@ -200,6 +200,16 @@
   "raw": "Non-guaranteed salary ($2,667,944) becomes partially guaranteed ($250,000). ( ✅ )"
  },
  {
+  "player": "Bradley Beal",
+  "team": "Clippers",
+  "guaranteeDate": "2026-08-18",
+  "status": "partial",
+  "partialAmount": 3212400,
+  "fullAmount": 6424800,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($3,212,400) increases to full guarantee ($6,424,800)."
+ },
+ {
   "player": "Moussa Cisse",
   "team": "Mavericks",
   "guaranteeDate": "2026-09-01",
@@ -290,6 +300,16 @@
   "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed."
  },
  {
+  "player": "Trendon Watford",
+  "team": "Pelicans",
+  "guaranteeDate": "2026-10-15",
+  "status": "partial",
+  "partialAmount": 250000,
+  "fullAmount": 500000,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($250,000) increases to $500,000."
+ },
+ {
   "player": "Mario Hezonja",
   "team": "Cavaliers",
   "guaranteeDate": "2026-11-15",
@@ -298,5 +318,15 @@
   "fullAmount": 2845883,
   "guaranteeTriggered": null,
   "raw": "Non-guaranteed salary ($2,845,883) becomes fully guaranteed."
+ },
+ {
+  "player": "Trendon Watford",
+  "team": "Pelicans",
+  "guaranteeDate": "2026-12-30",
+  "status": "partial",
+  "partialAmount": 500000,
+  "fullAmount": 2845883,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($500,000) increases to full guarantee ($2,845,883)."
  }
 ]
