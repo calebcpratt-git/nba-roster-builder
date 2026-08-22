@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ExternalLink, X } from 'lucide-react'
 import { useSourceData } from './source-context'
 import { sourceFamily, familyColor } from './source-styles'
+import type { FieldSourceRelation } from '@/lib/data-schema'
 
 /** A field's source, rendered as its label — click it to see every field it
  *  populates and open the source page itself. */
@@ -128,11 +129,30 @@ export function SourceLink({ sourceId, fullLabel }: { sourceId: string; fullLabe
   )
 }
 
+const RELATION_STYLE: Record<FieldSourceRelation['kind'], { connector: string; tag: string; title: string }> = {
+  override: { connector: '→', tag: 'overrides', title: 'Later sources overwrite or drop what an earlier one wrote.' },
+  fallback: { connector: '⇢', tag: 'fallback', title: 'First source is authoritative; later ones only fill in what it left unresolved.' },
+  combine: { connector: '+', tag: 'combined', title: 'Every source is merged into the same value.' },
+  compose: { connector: '·', tag: 'composed', title: 'Each source owns a different, non-overlapping part of the value.' },
+}
+
 /** A field's full source list — "calculated" when the value is computed
  *  app-side rather than read from a page, "no source" when it's neither
  *  sourced nor derived (an open pipeline gap), otherwise a SourceLink per
- *  source, dot-separated. */
-export function SourceBadges({ sources, derived }: { sources: string[]; derived?: string }) {
+ *  source. With more than one source, `relation` says whether later sources
+ *  override earlier ones, only fall back to them, merge with them, or each
+ *  own a disjoint slice — rendered as the connector between them, plus a
+ *  labeled tag so the relationship reads at a glance instead of just being a
+ *  flat, order-only list. */
+export function SourceBadges({
+  sources,
+  derived,
+  relation,
+}: {
+  sources: string[]
+  derived?: string
+  relation?: FieldSourceRelation
+}) {
   if (sources.length === 0) {
     return (
       <span className="text-[11px] italic text-muted-foreground" title={derived}>
@@ -140,14 +160,30 @@ export function SourceBadges({ sources, derived }: { sources: string[]; derived?
       </span>
     )
   }
+  const style = sources.length > 1 && relation ? RELATION_STYLE[relation.kind] : null
   return (
     <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-0.5">
       {sources.map((id, i) => (
         <span key={id} className="inline-flex items-center gap-2">
-          {i > 0 && <span className="text-muted-foreground">·</span>}
+          {i > 0 && (
+            <span
+              className={style ? 'font-semibold text-primary' : 'text-muted-foreground'}
+              title={style?.title}
+            >
+              {style?.connector ?? '·'}
+            </span>
+          )}
           <SourceLink sourceId={id} />
         </span>
       ))}
+      {style && (
+        <span
+          className="rounded-full border border-primary/30 bg-primary/5 px-1.5 py-px text-[9px] font-semibold uppercase tracking-wide text-primary"
+          title={relation!.note}
+        >
+          {style.tag}
+        </span>
+      )}
     </span>
   )
 }
