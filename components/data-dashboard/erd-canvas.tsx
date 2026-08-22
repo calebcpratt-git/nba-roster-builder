@@ -4,11 +4,13 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { KeyRound } from 'lucide-react'
 import { SourceBadges } from './source-link'
+import type { FieldSourceRelation } from '@/lib/data-schema'
 
 export interface ErdField {
   path: string
   type: string
   sources: string[]
+  sourceRelation?: FieldSourceRelation
   derived?: string
   populated: number
   total: number
@@ -101,7 +103,7 @@ function EntityCard({
                 </span>
               </div>
               <div className="mt-0.5 flex items-center justify-between gap-2 pl-4">
-                <SourceBadges sources={field.sources} derived={field.derived} />
+                <SourceBadges sources={field.sources} derived={field.derived} relation={field.sourceRelation} />
                 <span className="shrink-0 text-[10px] tabular-nums text-muted-foreground">
                   {field.total === 0 ? '—' : `${field.populated}/${field.total}`}
                 </span>

@@ -15120,5 +15120,26 @@
         "team": "WAS"
       }
     ]
+  },
+  {
+    "name": "Hunter Dickinson",
+    "team": "NOP",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2025-07-03",
+        "method": "free-agent",
+        "team": "NOP"
+      },
+      {
+        "date": "2026-06-26",
+        "method": "free-agent",
+        "team": "NOP"
+      }
+    ]
   }
 ]

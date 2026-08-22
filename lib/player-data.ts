@@ -545,6 +545,7 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [
   { name: "Julian Reese", team: 'WAS', salary: { '2026-27': 678882 }, options: {  }, acquisitionHistory: [{ date: '2025-10-16', method: 'free-agent', team: 'TOR' }, { date: '2026-02-28', method: 'free-agent', team: 'WAS' }, { date: '2026-08-14', method: 'trade', team: 'DEN' }], contractType: 'two-way' },
   { name: "Jamir Watkins", team: 'WAS', salary: { '2026-27': 678882 }, options: {  }, acquisitionHistory: [{ date: '2025-02-02', method: 'trade', team: 'DAL' }, { date: '2025-06-25', method: 'trade', team: 'WAS' }, { date: '2025-07-06', method: 'free-agent', team: 'WAS' }, { date: '2026-07-01', method: 'free-agent', team: 'WAS' }], contractType: 'two-way' },
   { name: "Felix Okpara", team: 'WAS', salary: { '2026-27': 678882 }, options: {  }, acquisitionHistory: [{ date: '2026-06-23', method: 'draft', team: 'ORL' }, { date: '2026-06-24', method: 'trade', team: 'WAS' }, { date: '2026-07-07', method: 'free-agent', team: 'WAS' }], contractType: 'two-way' },
+  { name: "Hunter Dickinson", team: 'NOP', salary: { '2026-27': 678882 }, options: {  }, acquisitionHistory: [{ date: '2025-07-03', method: 'free-agent', team: 'NOP' }, { date: '2026-06-26', method: 'free-agent', team: 'NOP' }], contractType: 'two-way' },
 ]
 
 // Team name mappings

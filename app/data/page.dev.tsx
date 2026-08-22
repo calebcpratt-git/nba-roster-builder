@@ -3,7 +3,7 @@
 // route does not exist in the deployed app.
 
 import { AlertTriangle, CheckCircle2 } from 'lucide-react'
-import { DATA_SOURCES, getEntity, erdEdges, erdTiers } from '@/lib/data-schema'
+import { DATA_SOURCES, getEntity, erdEdges, erdTiers, OVERRIDE_PIPELINE } from '@/lib/data-schema'
 import { allEntityCoverage, fieldsBySource } from '@/lib/schema-coverage'
 import { readScrapeStatus, readSchemaChangeLog, readPendingScrapeRun, readLatestWorkflowRun } from '@/lib/schema-dashboard'
 import { SOURCE_STYLES, sourceFamily, familyColor, FAMILY_LABELS, type SourceFamily } from '@/components/data-dashboard/source-styles'
@@ -15,6 +15,7 @@ import { DataChatPanel } from '@/components/data-dashboard/chat-panel'
 import { SourceDataProvider } from '@/components/data-dashboard/source-context'
 import { SourceLink } from '@/components/data-dashboard/source-link'
 import { ErdCanvas } from '@/components/data-dashboard/erd-canvas'
+import { OverridePipeline } from '@/components/data-dashboard/override-pipeline'
 
 export const dynamic = 'force-dynamic'
 export const metadata = { title: 'Association GM - Data' }
@@ -173,6 +174,7 @@ export default function DataSchemaDashboard() {
       path: f.path,
       type: f.type,
       sources: f.sources,
+      sourceRelation: f.sourceRelation,
       derived: f.derived,
       populated: f.populated,
       total: f.total,
@@ -477,7 +479,12 @@ export default function DataSchemaDashboard() {
           <p className="mb-3 max-w-2xl text-xs text-muted-foreground">
             Every entity and field in the schema, connected by the identifying fields that join them — a foreign key
             points at the field it references. Click a field&rsquo;s source name to see everything that page
-            populates and open it.
+            populates and open it. Where a field lists more than one source, the connector between them and the
+            small tag say how those sources combine — <span className="font-semibold text-primary">→ overrides</span>{' '}
+            (a later source corrects or drops an earlier one), <span className="font-semibold text-primary">⇢ fallback</span>{' '}
+            (later sources only fill in what the first left unresolved), <span className="font-semibold text-primary">+ combined</span>{' '}
+            (merged into one value, with a stated tiebreak), or <span className="font-semibold text-primary">· composed</span>{' '}
+            (each source owns its own slice, none conflict).
           </p>
 
           <div className="mb-4 flex flex-wrap gap-3">
@@ -490,6 +497,18 @@ export default function DataSchemaDashboard() {
           </div>
 
           <ErdCanvas entities={erdEntities} edges={edges} />
+
+          <div className="mt-8">
+            <h3 className="mb-1.5 text-sm font-bold uppercase tracking-wide">Override &amp; correction pipeline</h3>
+            <p className="mb-3 max-w-2xl text-xs text-muted-foreground">
+              The per-field source lists above say <em>what</em> feeds a field; this is the <em>order</em> the daily
+              scrape actually runs in, and what each step does to rows an earlier step already wrote —
+              scripts/scrape/run.py, top to bottom. A step can seed brand-new rows, correct specific fields on rows
+              that already exist, reconcile (cross-check and possibly drop or flag) rows against another source,
+              merge in fields nothing before it touched, or derive a value app-side from a step just before it.
+            </p>
+            <OverridePipeline stages={OVERRIDE_PIPELINE} entityLabels={Object.fromEntries(coverage.map((c) => [c.id, c.label]))} />
+          </div>
         </section>
 
         <footer className="mt-10 border-t pt-4 text-xs text-muted-foreground">

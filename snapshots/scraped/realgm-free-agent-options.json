@@ -1157,7 +1157,7 @@
  {
   "name": "Tre Mann",
   "position": "SG",
-  "team": "CHO",
+  "team": "WAS",
   "season": "2027-28",
   "optionType": "Team"
  },
@@ -2041,6 +2041,13 @@
   "position": "SG",
   "team": "LAC",
   "season": "2027-28",
+  "optionType": "Player"
+ },
+ {
+  "name": "Peyton Watson",
+  "position": "SG",
+  "team": "CLE",
+  "season": "2029-30",
   "optionType": "Player"
  }
 ]
