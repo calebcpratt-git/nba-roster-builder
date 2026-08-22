@@ -1,5 +1,28 @@
 {
-  "added": [],
+  "added": [
+    {
+      "name": "Peyton Watson",
+      "signedUnder": "bird",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2028-29": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2029-30": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
   "removed": [],
   "changed": []
 }

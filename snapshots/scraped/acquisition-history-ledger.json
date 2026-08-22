@@ -9411,5 +9411,17 @@
    "method": "free-agent",
    "team": "TOR"
   }
+ ],
+ "watsope01": [
+  {
+   "date": "2026-08-19",
+   "method": "free-agent",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "CLE"
+  }
  ]
 }

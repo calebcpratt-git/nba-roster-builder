@@ -1648,6 +1648,28 @@
   }
  },
  {
+  "name": "Peyton Watson",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Kyle Kuzma",
   "signedUnder": "bird",
   "incentives": {
@@ -3241,16 +3263,6 @@
   }
  },
  {
-  "name": "Harrison Barnes",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Tre Mann",
   "signedUnder": "bird",
   "incentives": {
@@ -3259,6 +3271,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Harrison Barnes",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6737,6 +6759,15 @@
   }
  },
  {
+  "name": "Julian Reese",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Isaac Jones",
   "incentives": {
    "2026-27": {
@@ -7220,15 +7251,6 @@
  },
  {
   "name": "Trey Alexander",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
-  "name": "Julian Reese",
   "incentives": {
    "2026-27": {
     "likely": 0,

@@ -152,6 +152,14 @@
   "reported": false
  },
  {
+  "name": "Julian Reese",
+  "bbrefId": "reeseju01",
+  "team": "DEN",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
   "name": "Isaac Jones",
   "bbrefId": "jonesis01",
   "team": "DET",
@@ -572,14 +580,6 @@
   "bbrefId": "alexatr01",
   "team": "UTA",
   "position": "G",
-  "twoYear": false,
-  "reported": false
- },
- {
-  "name": "Julian Reese",
-  "bbrefId": "reeseju01",
-  "team": "WAS",
-  "position": "F",
   "twoYear": false,
   "reported": false
  },
