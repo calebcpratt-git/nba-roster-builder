@@ -5206,16 +5206,6 @@
   }
  },
  {
-  "name": "Trendon Watford",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Ryan Dunn",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -5768,6 +5758,26 @@
   }
  },
  {
+  "name": "Haywood Highsmith",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Trendon Watford",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Yuki Kawamura",
   "signedUnder": "minimum",
   "incentives": {
@@ -5916,15 +5926,6 @@
  {
   "name": "Mouhamed Gueye",
   "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
-  "name": "Jalen Pickett",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -6118,6 +6119,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Malachi Smith",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6531,16 +6542,6 @@
   }
  },
  {
-  "name": "Haywood Highsmith",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "E.J. Liddell"
  },
  {
@@ -6857,6 +6858,15 @@
  },
  {
   "name": "Jamarion Sharp",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Jalen Pickett",
   "incentives": {
    "2026-27": {
     "likely": 0,

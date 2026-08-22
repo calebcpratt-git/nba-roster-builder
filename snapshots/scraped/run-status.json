@@ -51,31 +51,24 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [
-    "bbref_awards_2022",
-    "bbref_awards_2023",
-    "bbref_awards_2024",
-    "bbref_awards_2025",
-    "bbref_awards_2026",
-    "bbref_contracts",
-    "bbref_draft_2025",
-    "bbref_draft_2026"
+    "realgm_free_agent_options"
   ],
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 104,
+      "acquisition": 103,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 104,
+      "acquisition": 102,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
@@ -84,14 +77,14 @@
     "newByCategory": {},
     "newRecords": {}
   },
-  "generatedAt": "2026-08-18T16:34:57.115Z",
+  "generatedAt": "2026-08-21T16:33:06.833Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -1 ~2 (of 525)",
-    "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 519)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~1 (of 149)",
+    "players: +2 -0 ~6 (of 528)",
+    "draft-picks: +6 -6 ~0 (of 521)",
+    "contract-details: +1 -0 ~0 (of 522)",
+    "team-cap-state: +0 -0 ~4 (of 150)",
+    "free-agents: +0 -2 ~0 (of 147)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true

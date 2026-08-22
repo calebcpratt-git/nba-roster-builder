@@ -3905,7 +3905,7 @@
   }
  },
  "cam whitmore": {
-  "team": "WAS",
+  "team": "CLE",
   "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
@@ -5168,16 +5168,6 @@
    }
   }
  },
- "trendon watford": {
-  "team": "NOP",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "ryan dunn": {
   "team": "PHO",
   "signedUnder": "rookie-scale",
@@ -5746,6 +5736,26 @@
    }
   }
  },
+ "haywood highsmith": {
+  "team": "PHO",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "trendon watford": {
+  "team": "NOP",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "yuki kawamura": {
   "team": "LAC",
   "signedUnder": "minimum",
@@ -5897,16 +5907,6 @@
  "mouhamed gueye": {
   "team": "ATL",
   "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "jalen pickett": {
-  "team": "LAC",
-  "signedUnder": null,
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -6102,6 +6102,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "malachi smith": {
+  "team": "TOR",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6515,16 +6525,6 @@
    }
   }
  },
- "haywood highsmith": {
-  "team": "PHO",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "ej liddell": {
   "team": "PHO",
   "signedUnder": null,
@@ -6881,6 +6881,16 @@
   }
  },
  "jamarion sharp": {
+  "team": "LAC",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "jalen pickett": {
   "team": "LAC",
   "signedUnder": null,
   "incentives": {

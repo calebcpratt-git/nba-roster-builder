@@ -2812,6 +2812,11 @@
         "date": "2023-07-06",
         "method": "trade",
         "team": "CLE"
+      },
+      {
+        "date": "2026-08-14",
+        "method": "trade",
+        "team": "LAC"
       }
     ]
   },
@@ -5397,6 +5402,11 @@
         "date": "2026-08-14",
         "method": "trade",
         "team": "CLE"
+      },
+      {
+        "date": "2026-08-14",
+        "method": "trade",
+        "team": "WAS"
       }
     ]
   },
@@ -6848,10 +6858,8 @@
   },
   {
     "name": "Cam Whitmore",
-    "team": "WAS",
-    "salary": {
-      "2026-27": 5458310
-    },
+    "team": "CLE",
+    "salary": {},
     "options": {},
     "acquisitionHistory": [
       {
@@ -6868,6 +6876,11 @@
         "date": "2025-07-06",
         "method": "trade",
         "team": "WAS"
+      },
+      {
+        "date": "2026-08-14",
+        "method": "trade",
+        "team": "CLE"
       }
     ]
   },
@@ -9486,26 +9499,6 @@
     ]
   },
   {
-    "name": "Trendon Watford",
-    "team": "NOP",
-    "salary": {},
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2026-08-17",
-        "method": "free-agent",
-        "team": "NOP"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "partial",
-        "amount": 500000,
-        "guaranteeDate": "2026-12-30"
-      }
-    }
-  },
-  {
     "name": "Ryan Dunn",
     "team": "PHO",
     "salary": {
@@ -11397,6 +11390,78 @@
     ]
   },
   {
+    "name": "Haywood Highsmith",
+    "team": "PHO",
+    "salary": {
+      "2026-27": 3449421
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2021-12-30",
+        "method": "free-agent",
+        "team": "MIA"
+      },
+      {
+        "date": "2022-02-15",
+        "method": "free-agent",
+        "team": "MIA"
+      },
+      {
+        "date": "2022-02-26",
+        "method": "free-agent",
+        "team": "MIA"
+      },
+      {
+        "date": "2022-03-08",
+        "method": "free-agent",
+        "team": "MIA"
+      },
+      {
+        "date": "2024-07-08",
+        "method": "free-agent",
+        "team": "MIA"
+      },
+      {
+        "date": "2026-02-18",
+        "method": "free-agent",
+        "team": "PHO"
+      },
+      {
+        "date": "2026-08-17",
+        "method": "free-agent",
+        "team": "PHO"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
+    "name": "Trendon Watford",
+    "team": "NOP",
+    "salary": {
+      "2026-27": 2449421
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-17",
+        "method": "free-agent",
+        "team": "NOP"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "partial",
+        "amount": 500000,
+        "guaranteeDate": "2026-12-30"
+      }
+    }
+  },
+  {
     "name": "Yuki Kawamura",
     "team": "LAC",
     "salary": {
@@ -11770,37 +11835,6 @@
         "status": "non-guaranteed"
       }
     }
-  },
-  {
-    "name": "Jalen Pickett",
-    "team": "LAC",
-    "salary": {
-      "2026-27": 678882
-    },
-    "options": {},
-    "contractType": "two-way",
-    "acquisitionHistory": [
-      {
-        "date": "2023-06-23",
-        "method": "trade",
-        "team": "DEN"
-      },
-      {
-        "date": "2023-07-06",
-        "method": "free-agent",
-        "team": "DEN"
-      },
-      {
-        "date": "2026-08-05",
-        "method": "free-agent",
-        "team": "LAC"
-      },
-      {
-        "date": "2026-08-12",
-        "method": "free-agent",
-        "team": "LAC"
-      }
-    ]
   },
   {
     "name": "Jamal Shead",
@@ -12218,6 +12252,31 @@
         "status": "partial",
         "amount": 1092558,
         "guaranteeDate": "2026-10-01"
+      }
+    }
+  },
+  {
+    "name": "Malachi Smith",
+    "team": "TOR",
+    "salary": {
+      "2026-27": 2185116
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-04-04",
+        "method": "free-agent",
+        "team": "BRK"
+      },
+      {
+        "date": "2026-08-17",
+        "method": "free-agent",
+        "team": "TOR"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
       }
     }
   },
@@ -12887,56 +12946,6 @@
         "date": "2026-07-14",
         "method": "free-agent",
         "team": "BOS"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
-  },
-  {
-    "name": "Haywood Highsmith",
-    "team": "PHO",
-    "salary": {
-      "2026-27": 1000000
-    },
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2021-12-30",
-        "method": "free-agent",
-        "team": "MIA"
-      },
-      {
-        "date": "2022-02-15",
-        "method": "free-agent",
-        "team": "MIA"
-      },
-      {
-        "date": "2022-02-26",
-        "method": "free-agent",
-        "team": "MIA"
-      },
-      {
-        "date": "2022-03-08",
-        "method": "free-agent",
-        "team": "MIA"
-      },
-      {
-        "date": "2024-07-08",
-        "method": "free-agent",
-        "team": "MIA"
-      },
-      {
-        "date": "2026-02-18",
-        "method": "free-agent",
-        "team": "PHO"
-      },
-      {
-        "date": "2026-08-17",
-        "method": "free-agent",
-        "team": "PHO"
       }
     ],
     "guarantees": {
@@ -13907,6 +13916,37 @@
       },
       {
         "date": "2026-08-06",
+        "method": "free-agent",
+        "team": "LAC"
+      }
+    ]
+  },
+  {
+    "name": "Jalen Pickett",
+    "team": "LAC",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2023-06-23",
+        "method": "trade",
+        "team": "DEN"
+      },
+      {
+        "date": "2023-07-06",
+        "method": "free-agent",
+        "team": "DEN"
+      },
+      {
+        "date": "2026-08-05",
+        "method": "free-agent",
+        "team": "LAC"
+      },
+      {
+        "date": "2026-08-12",
         "method": "free-agent",
         "team": "LAC"
       }
@@ -15016,6 +15056,11 @@
         "date": "2026-02-28",
         "method": "free-agent",
         "team": "WAS"
+      },
+      {
+        "date": "2026-08-14",
+        "method": "trade",
+        "team": "DEN"
       }
     ]
   },
@@ -15073,6 +15118,27 @@
         "date": "2026-07-07",
         "method": "free-agent",
         "team": "WAS"
+      }
+    ]
+  },
+  {
+    "name": "Hunter Dickinson",
+    "team": "NOP",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2025-07-03",
+        "method": "free-agent",
+        "team": "NOP"
+      },
+      {
+        "date": "2026-06-26",
+        "method": "free-agent",
+        "team": "NOP"
       }
     ]
   }

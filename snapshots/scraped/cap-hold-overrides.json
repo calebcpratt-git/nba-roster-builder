@@ -7,6 +7,12 @@
   "matchedPriorTeam": "SAC"
  },
  {
+  "team": "NOP",
+  "player": "Hunter Dickinson",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
   "team": "SAC",
   "player": "Markelle Fultz",
   "amount": 2500000,

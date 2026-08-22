@@ -816,6 +816,11 @@
    "date": "2025-07-06",
    "method": "trade",
    "team": "WAS"
+  },
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "CLE"
   }
  ],
  "mccolcj01": [
@@ -2400,6 +2405,11 @@
    "date": "2026-08-14",
    "method": "trade",
    "team": "CLE"
+  },
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "WAS"
   }
  ],
  "joneshe01": [
@@ -4401,6 +4411,11 @@
    "date": "2026-02-28",
    "method": "free-agent",
    "team": "WAS"
+  },
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "DEN"
   }
  ],
  "sharpja01": [
@@ -7946,6 +7961,11 @@
    "date": "2023-07-06",
    "method": "trade",
    "team": "CLE"
+  },
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "LAC"
   }
  ],
  "ballla01": [
@@ -9378,6 +9398,18 @@
    "date": "2026-08-17",
    "method": "free-agent",
    "team": "NOP"
+  }
+ ],
+ "smithma02": [
+  {
+   "date": "2026-04-04",
+   "method": "free-agent",
+   "team": "BRK"
+  },
+  {
+   "date": "2026-08-17",
+   "method": "free-agent",
+   "team": "TOR"
   }
  ]
 }

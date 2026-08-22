@@ -47,7 +47,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'N\'Faly Dante', priorTeam: 'ATL', faType: 'unrestricted', position: 'C' },
   { name: 'J.D. Davison', priorTeam: 'HOU', faType: 'unrestricted', position: 'PG' },
   { name: 'DeMar DeRozan', priorTeam: 'SAC', faType: 'unrestricted', position: 'SG/SF' },
-  { name: 'Hunter Dickinson', priorTeam: 'NOP', faType: 'unrestricted', birdRights: 'non-bird', position: 'C' },
   { name: 'Nikola Djurisic', priorTeam: 'ATL', faType: 'unrestricted', position: 'SG' },
   { name: 'Jalen Duren', priorTeam: 'DET', faType: 'restricted', birdRights: 'full-bird', position: 'C' },
   { name: 'Jesse Edwards', priorTeam: 'MIN', faType: 'unrestricted', position: 'C' },

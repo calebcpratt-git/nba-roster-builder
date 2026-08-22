@@ -1142,17 +1142,13 @@
    }
   ],
   "exceptionsUsed": {
-   "nonTaxpayerMLE": {
-    "signings": [],
-    "remaining": 15044000
-   },
    "taxpayerMLE": {
     "signings": [],
-    "remaining": 0
+    "remaining": 6064000
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 5477000
+    "remaining": 0
    }
   },
   "cashLedger": {
@@ -1667,12 +1663,6 @@
     "amount": 2200000,
     "kind": "free-agent",
     "birdRights": "non-bird"
-   },
-   {
-    "label": "Peyton Watson",
-    "amount": 13100000,
-    "kind": "free-agent",
-    "birdRights": "full-bird"
    },
    {
     "label": "Russell Westbrook",
@@ -4648,12 +4638,6 @@
   "season": "2026-27",
   "deadMoney": [],
   "capHolds": [
-   {
-    "label": "Hunter Dickinson",
-    "amount": 2200000,
-    "kind": "free-agent",
-    "birdRights": "non-bird"
-   },
    {
     "label": "Josh Oduro",
     "amount": 2200000,
@@ -7657,7 +7641,7 @@
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
-    "remaining": 15044000
+    "remaining": 14277968
    },
    "taxpayerMLE": {
     "signings": [],

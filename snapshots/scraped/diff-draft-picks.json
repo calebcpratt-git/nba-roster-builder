@@ -1,5 +1,151 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "teamOwner": "Golden State Warriors",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Golden State Warriors, Phoenix Suns, Philadelphia Sixers, Washington Wizards",
+      "rank": "More favorable of GOS and PHX to PHL then other to WAS [PHL may convey to WAS] (via WAS)"
+    },
+    {
+      "teamOwner": "Phoenix Suns",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Phoenix Suns, Golden State Warriors, Philadelphia Sixers, Washington Wizards",
+      "rank": "More favorable of PHX and GOS to PHL then other to WAS [PHL may convey to WAS] (via WAS);"
+    },
+    {
+      "teamOwner": "Washington Wizards",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Golden State Warriors, Phoenix Suns",
+      "rank": "Less favorable of GOS and PHX;"
+    },
+    {
+      "teamOwner": "Washington Wizards",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Philadelphia Sixers, Los Angeles Clippers, Golden State Warriors, Phoenix Suns, Washington Wizards, Oklahoma City Thunder, Houston Rockets, Indiana Pacers, Miami Heat, Detroit Pistons",
+      "rank": "Second most favorable of (i) PHL (via LAC), (ii) more favorable of GOS and PHX (via WAS to LAC) and (iii) most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC to LAC; via IND and MIA to OKC to LAC)"
+    },
+    {
+      "teamOwner": "Denver Nuggets",
+      "year": 2031,
+      "round": "First Round",
+      "teamFrom": "Cleveland Cavaliers",
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    },
+    {
+      "teamOwner": "Denver Nuggets",
+      "year": 2032,
+      "round": "Second Round",
+      "teamFrom": "Sacramento Kings",
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    }
+  ],
+  "removed": [
+    {
+      "teamOwner": "Golden State Warriors",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Golden State Warriors, Phoenix Suns, Philadelphia Sixers, Washington Wizards, Los Angeles Clippers",
+      "rank": "More favorable of GOS and PHX to PHL then other to WAS [PHL may convey to LAC] (via WAS)"
+    },
+    {
+      "teamOwner": "Los Angeles Clippers",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Philadelphia Sixers, Golden State Warriors, Phoenix Suns, Washington Wizards, Oklahoma City Thunder, Houston Rockets, Indiana Pacers, Miami Heat, Detroit Pistons",
+      "rank": "Second most favorable of (i) PHL, (ii) more favorable of GOS and PHX (via WAS) and (iii) most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via IND and MIA to OKC)"
+    },
+    {
+      "teamOwner": "Phoenix Suns",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Phoenix Suns, Golden State Warriors, Philadelphia Sixers, Washington Wizards, Los Angeles Clippers",
+      "rank": "More favorable of PHX and GOS to PHL then other to WAS [PHL may convey to LAC] (via WAS);"
+    },
+    {
+      "teamOwner": "Washington Wizards",
+      "year": 2027,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": "Golden State Warriors, Phoenix Suns",
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    },
+    {
+      "teamOwner": "Cleveland Cavaliers",
+      "year": 2031,
+      "round": "First Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    },
+    {
+      "teamOwner": "Cleveland Cavaliers",
+      "year": 2032,
+      "round": "Second Round",
+      "teamFrom": "Sacramento Kings",
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": null,
+      "rank": null
+    }
+  ],
   "changed": []
 }
