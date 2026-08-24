@@ -204,8 +204,8 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Kelly Oubre Jr.": 2015,
   "Darius Acuff Jr.": 2026,
   "Jonathan Isaac": 2017,
-  "Harrison Barnes": 2012,
   "Tre Mann": 2021,
+  "Harrison Barnes": 2012,
   "Tre Jones": 2020,
   "Jeremiah Fears": 2025,
   "Taylor Hendricks": 2023,
@@ -457,4 +457,5 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Mamadi Diakite": 2020,
   "Ricky Rubio": 2009,
   "Didi Louzada": 2019,
+  "Peyton Watson": 2022,
 }
