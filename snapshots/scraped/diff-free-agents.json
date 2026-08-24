@@ -1,33 +1,5 @@
 {
   "added": [],
-  "removed": [
-    {
-      "name": "Peyton Watson",
-      "position": "SG",
-      "priorTeam": "DEN",
-      "faType": "R",
-      "birdRights": "full-bird"
-    }
-  ],
-  "changed": [
-    {
-      "before": {
-        "name": "Hunter Dickinson",
-        "position": "C",
-        "priorTeam": "NOP",
-        "faType": "U",
-        "birdRights": "non-bird"
-      },
-      "after": {
-        "name": "Hunter Dickinson",
-        "position": "C",
-        "priorTeam": "NOP",
-        "faType": "U",
-        "birdRights": null
-      },
-      "fields": [
-        "birdRights"
-      ]
-    }
-  ]
+  "removed": [],
+  "changed": []
 }

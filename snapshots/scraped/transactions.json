@@ -653,8 +653,8 @@
  {
   "bbrefId": null,
   "name": "Dennis Schroder",
-  "date": "2026-08-14",
-  "dateRaw": "Aug 14, 2026",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
   "method": "trade",
   "toTeams": [
    "CHO"
@@ -1143,36 +1143,8 @@
  {
   "bbrefId": null,
   "name": "Peyton Watson",
-  "date": "2026-08-19",
-  "dateRaw": "Aug 19, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "CLE"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Ismael Kamagate",
-  "date": "2026-08-14",
-  "dateRaw": "Aug 14, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CLE"
-  ],
-  "fromTeams": [
-   "LAC"
-  ],
-  "text": "Traded from LAC",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Peyton Watson",
-  "date": "2026-08-14",
-  "dateRaw": "Aug 14, 2026",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
   "method": "trade",
   "toTeams": [
    "CLE"
@@ -1185,9 +1157,24 @@
  },
  {
   "bbrefId": null,
+  "name": "Ismael Kamagate",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
+  "method": "trade",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [
+   "LAC"
+  ],
+  "text": "Traded from LAC",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Cam Whitmore",
-  "date": "2026-08-14",
-  "dateRaw": "Aug 14, 2026",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
   "method": "trade",
   "toTeams": [
    "CLE"
@@ -1537,9 +1524,35 @@
  },
  {
   "bbrefId": null,
+  "name": "DeMar DeRozan",
+  "date": "2026-08-21",
+  "dateRaw": "Aug 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Peyton Watson",
+  "date": "2026-08-19",
+  "dateRaw": "Aug 19, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Julian Reese",
-  "date": "2026-08-14",
-  "dateRaw": "Aug 14, 2026",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
   "method": "trade",
   "toTeams": [
    "DEN"
@@ -2371,8 +2384,8 @@
  {
   "bbrefId": null,
   "name": "Max Strus",
-  "date": "2026-08-14",
-  "dateRaw": "Aug 14, 2026",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
   "method": "trade",
   "toTeams": [
    "LAC"
@@ -3090,6 +3103,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Klay Thompson",
+  "date": "2026-08-23",
+  "dateRaw": "Aug 23, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -5460,16 +5486,16 @@
  {
   "bbrefId": null,
   "name": "Tre Mann",
-  "date": "2026-08-14",
-  "dateRaw": "Aug 14, 2026",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
   "method": "trade",
   "toTeams": [
    "WAS"
   ],
   "fromTeams": [
-   "CLE"
+   "CHA"
   ],
-  "text": "Traded from CLE",
+  "text": "Traded from CHA",
   "flags": []
  },
  {
