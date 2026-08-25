@@ -89,6 +89,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Norman Powell": 2015,
   "CJ McCollum": 2013,
   "Josh Hart": 2017,
+  "Peyton Watson": 2022,
   "Kyle Kuzma": 2017,
   "Ivica Zubac": 2016,
   "Malik Monk": 2017,
@@ -457,5 +458,4 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Mamadi Diakite": 2020,
   "Ricky Rubio": 2009,
   "Didi Louzada": 2019,
-  "Peyton Watson": 2022,
 }

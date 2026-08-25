@@ -1538,8 +1538,8 @@
  {
   "bbrefId": null,
   "name": "Peyton Watson",
-  "date": "2026-08-19",
-  "dateRaw": "Aug 19, 2026",
+  "date": "2026-08-20",
+  "dateRaw": "Aug 20, 2026",
   "method": "free-agent",
   "toTeams": [
    "DEN"
@@ -3670,7 +3670,7 @@
    "NOP"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -3735,7 +3735,7 @@
    "NOP"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
