@@ -42,10 +42,6 @@
     "bbref_awards_2022": true
   },
   "pageGroups": {
-    "bbref-player-pages": {
-      "total": 1,
-      "failed": []
-    },
     "salaryswish-transactions": {
       "total": 30,
       "failed": []
@@ -55,7 +51,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 15,
+      "total": 10,
       "failed": []
     }
   },
@@ -63,7 +59,7 @@
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 103,
+      "acquisition": 102,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
@@ -77,23 +73,15 @@
     },
     "newUnresolved": 0,
     "newByCategory": {},
-    "newRecords": {
-      "acquisition": [
-        {
-          "name": "DeMar DeRozan",
-          "date": "2026-08-21",
-          "method": "free-agent"
-        }
-      ]
-    }
+    "newRecords": {}
   },
-  "generatedAt": "2026-08-24T11:32:32.968Z",
+  "generatedAt": "2026-08-25T11:32:03.743Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~6 (of 529)",
+    "players: +0 -0 ~1 (of 530)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +1 -0 ~0 (of 523)",
-    "team-cap-state: +0 -0 ~5 (of 150)",
+    "contract-details: +0 -0 ~0 (of 524)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
     "free-agents: +0 -0 ~0 (of 146)",
     "awards: +0 -0 ~0 (of 76)"
   ],

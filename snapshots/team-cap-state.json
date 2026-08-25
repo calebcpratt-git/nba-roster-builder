@@ -1436,7 +1436,7 @@
             "amount": 3000000
           }
         ],
-        "remaining": 9804321
+        "remaining": 12044000
       },
       "biAnnual": {
         "signings": [],
@@ -3878,18 +3878,18 @@
         "signings": [
           {
             "player": "Klay Thompson",
-            "amount": 5609756
+            "amount": 5600000
           },
           {
             "player": "Tim Hardaway Jr.",
             "amount": 6065000
           }
         ],
-        "remaining": 1179502
+        "remaining": 1189258
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 1179502
+        "remaining": 1189258
       }
     },
     "cashLedger": {

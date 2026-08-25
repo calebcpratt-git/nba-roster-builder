@@ -2195,6 +2195,11 @@
     "date": "2026-08-20",
     "method": "trade",
     "team": "CLE"
+   },
+   {
+    "date": "2026-08-20",
+    "method": "free-agent",
+    "team": "DEN"
    }
   ]
  },
@@ -14884,6 +14889,7 @@
    "2026-27": 678882
   },
   "options": {},
+  "bbrefId": "diama01",
   "contractType": "two-way",
   "acquisitionHistory": [
    {

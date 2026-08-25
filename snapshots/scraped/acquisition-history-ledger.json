@@ -9452,6 +9452,18 @@
    "date": "2026-08-19",
    "method": "free-agent",
    "team": "DEN"
+  },
+  {
+   "date": "2026-08-20",
+   "method": "free-agent",
+   "team": "DEN"
+  }
+ ],
+ "diama01": [
+  {
+   "date": "2026-08-18",
+   "method": "free-agent",
+   "team": "NOP"
   }
  ]
 }
