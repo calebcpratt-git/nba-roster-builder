@@ -1941,6 +1941,45 @@
  },
  {
   "bbrefId": null,
+  "name": "Brandon Williams",
+  "date": "2026-08-25",
+  "dateRaw": "Aug 25, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "GSW"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Georges Niang",
+  "date": "2026-08-25",
+  "dateRaw": "Aug 25, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "GSW"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Deivon Smith",
+  "date": "2026-08-24",
+  "dateRaw": "Aug 24, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "GSW"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Gary Payton II",
   "date": "2026-08-01",
   "dateRaw": "Aug 1, 2026",
