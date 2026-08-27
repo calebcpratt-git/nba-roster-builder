@@ -6780,6 +6780,16 @@
    }
   }
  },
+ "bryce hopkins": {
+  "team": "DEN",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "isaac jones": {
   "team": "DET",
   "signedUnder": null,
@@ -6834,16 +6844,6 @@
    }
   }
  },
- "tristen newton": {
-  "team": "HOU",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "quadir copeland": {
   "team": "HOU",
   "signedUnder": null,
@@ -6863,6 +6863,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "rafael castro": {
+  "team": "HOU",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

@@ -4383,12 +4383,13 @@
   },
   "exceptionsUsed": {
    "taxpayerMLE": {
-    "signings": [],
-    "remaining": 6064000
-   },
-   "biAnnual": {
-    "signings": [],
-    "remaining": 0
+    "signings": [
+     {
+      "player": "Jonathan Kuminga",
+      "amount": 6341463
+     }
+    ],
+    "remaining": null
    }
   },
   "cashLedger": {
@@ -4699,9 +4700,14 @@
    }
   ],
   "exceptionsUsed": {
-   "taxpayerMLE": {
-    "signings": [],
-    "remaining": 6064000
+   "nonTaxpayerMLE": {
+    "signings": [
+     {
+      "player": "Bennedict Mathurin",
+      "amount": 7804878
+     }
+    ],
+    "remaining": null
    },
    "biAnnual": {
     "signings": [],
@@ -5613,10 +5619,6 @@
    }
   ],
   "exceptionsUsed": {
-   "taxpayerMLE": {
-    "signings": [],
-    "remaining": 6064000
-   },
    "biAnnual": {
     "signings": [],
     "remaining": 0

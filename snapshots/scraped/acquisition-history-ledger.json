@@ -9465,5 +9465,24 @@
    "method": "free-agent",
    "team": "NOP"
   }
+ ],
+ "hopkibr01": [
+  {
+   "date": "2026-08-26",
+   "method": "free-agent",
+   "team": "DEN"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "DEN"
+  }
+ ],
+ "rafael castro": [
+  {
+   "date": "2026-08-26",
+   "method": "free-agent",
+   "team": "HOU"
+  }
  ]
 }

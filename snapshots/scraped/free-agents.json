@@ -581,6 +581,13 @@
   "birdRights": null
  },
  {
+  "name": "Tristen Newton",
+  "position": "SG",
+  "priorTeam": "HOU",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
   "name": "Georges Niang",
   "position": "SF",
   "priorTeam": "MEM",

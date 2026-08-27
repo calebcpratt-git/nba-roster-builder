@@ -1524,6 +1524,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Bryce Hopkins",
+  "date": "2026-08-26",
+  "dateRaw": "Aug 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "DeMar DeRozan",
   "date": "2026-08-21",
   "dateRaw": "Aug 21, 2026",
@@ -1682,7 +1695,7 @@
  },
  {
   "bbrefId": null,
-  "name": "Tarris Reed Jr.",
+  "name": "Bryce Hopkins",
   "date": "2026-06-23",
   "dateRaw": "Jun 23, 2026",
   "method": "draft",
@@ -1695,7 +1708,7 @@
  },
  {
   "bbrefId": null,
-  "name": "Bryce Hopkins",
+  "name": "Tarris Reed Jr.",
   "date": "2026-06-23",
   "dateRaw": "Jun 23, 2026",
   "method": "draft",
@@ -2132,6 +2145,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Rafael Castro",
+  "date": "2026-08-26",
+  "dateRaw": "Aug 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "HOU"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -3466,19 +3492,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Rafael Castro",
-  "date": "2026-06-24",
-  "dateRaw": "Jun 24, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "MIL"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Brayden Burries",
   "date": "2026-06-23",
   "dateRaw": "Jun 23, 2026",
@@ -3548,6 +3561,19 @@
    "MIA"
   ],
   "text": "Traded from MIA",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jonathan Kuminga",
+  "date": "2026-08-26",
+  "dateRaw": "Aug 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -3697,6 +3723,19 @@
    "CHI"
   ],
   "text": "Traded from CHI",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Bennedict Mathurin",
+  "date": "2026-08-26",
+  "dateRaw": "Aug 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -3853,19 +3892,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Bryce McGowens",
-  "date": "2026-02-20",
-  "dateRaw": "Feb 20, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "NOP"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -4199,6 +4225,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Malaki Branham",
+  "date": "2026-08-26",
+  "dateRaw": "Aug 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ORL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {

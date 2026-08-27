@@ -1,5 +1,289 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "team": "MIN",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Joe Ingles",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "MIN-mike-conley-2026-02-03",
+            "amount": 10774038,
+            "expires": "2027-02-03",
+            "fromPlayer": "Mike Conley"
+          },
+          {
+            "id": "MIN-rob-dillingham-2026-02-05",
+            "amount": 6576120,
+            "expires": "2027-02-05",
+            "fromPlayer": "Rob Dillingham"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Jul 10 trade"
+        },
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 2114000
+        },
+        "apronAddon": 1750000
+      },
+      "after": {
+        "team": "MIN",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Joe Ingles",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "MIN-mike-conley-2026-02-03",
+            "amount": 10774038,
+            "expires": "2027-02-03",
+            "fromPlayer": "Mike Conley"
+          },
+          {
+            "id": "MIN-rob-dillingham-2026-02-05",
+            "amount": 6576120,
+            "expires": "2027-02-05",
+            "fromPlayer": "Rob Dillingham"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Jul 10 trade"
+        },
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [
+              {
+                "player": "Jonathan Kuminga",
+                "amount": 6341463
+              }
+            ],
+            "remaining": null
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 2114000
+        },
+        "apronAddon": 1750000
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "NOP",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Hunter Dickinson",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Josh Oduro",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "NOP-jose-alvarado-2026-02-05",
+            "amount": 4500000,
+            "expires": "2027-02-05",
+            "fromPlayer": "Jose Alvarado"
+          }
+        ],
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7575000
+        },
+        "apronAddon": 6918801
+      },
+      "after": {
+        "team": "NOP",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Hunter Dickinson",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Josh Oduro",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "NOP-jose-alvarado-2026-02-05",
+            "amount": 4500000,
+            "expires": "2027-02-05",
+            "fromPlayer": "Jose Alvarado"
+          }
+        ],
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Bennedict Mathurin",
+                "amount": 7804878
+              }
+            ],
+            "remaining": null
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7575000
+        },
+        "apronAddon": 6918801
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "ORL",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Jonathan Isaac",
+            "amount": 8000000
+          }
+        ],
+        "capHolds": [],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "ORL-tyus-jones-2026-02-04",
+            "amount": 7000000,
+            "expires": "2027-02-04",
+            "fromPlayer": "Tyus Jones"
+          }
+        ],
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 6604000
+        },
+        "apronAddon": 1733910
+      },
+      "after": {
+        "team": "ORL",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Jonathan Isaac",
+            "amount": 8000000
+          }
+        ],
+        "capHolds": [],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "ORL-tyus-jones-2026-02-04",
+            "amount": 7000000,
+            "expires": "2027-02-04",
+            "fromPlayer": "Tyus Jones"
+          }
+        ],
+        "exceptionsUsed": {
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 6604000
+        },
+        "apronAddon": 1733910
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    }
+  ]
 }

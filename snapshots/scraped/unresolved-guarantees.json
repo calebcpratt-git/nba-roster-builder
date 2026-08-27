@@ -20,6 +20,16 @@
   "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,584,539). ( ✅ )"
  },
  {
+  "player": "Brandon Williams",
+  "team": "Warriors",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2625627,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,625,627) becomes partially guaranteed ($1,400,000)."
+ },
+ {
   "player": "Mouhamadou Gueye",
   "team": "Charlotte Hornets",
   "fullAmount": null,
@@ -28,8 +38,32 @@
   "exhibit10": false
  },
  {
+  "player": "Georges Niang",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": 1838009,
+  "status": "partial",
+  "exhibit10": false
+ },
+ {
+  "player": "Brandon Williams",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Taj Gibson",
   "team": "Memphis Grizzlies",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Nick Richards",
+  "team": "Miami Heat",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

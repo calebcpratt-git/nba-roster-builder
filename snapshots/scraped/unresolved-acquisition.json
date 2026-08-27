@@ -155,11 +155,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Bryce Hopkins",
-  "date": "2026-06-23",
-  "method": "draft"
- },
- {
   "name": "Basheer Jihad",
   "date": "2026-08-14",
   "method": "free-agent"
@@ -320,8 +315,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Rafael Castro",
-  "date": "2026-06-24",
+  "name": "Jonathan Kuminga",
+  "date": "2026-08-26",
   "method": "free-agent"
  },
  {
@@ -338,6 +333,11 @@
   "name": "Mouhamadou Gueye",
   "date": "2026-06-22",
   "method": "trade"
+ },
+ {
+  "name": "Bennedict Mathurin",
+  "date": "2026-08-26",
+  "method": "free-agent"
  },
  {
   "name": "Hunter Dickinson",
@@ -392,6 +392,11 @@
  {
   "name": "Nate Johnson",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Malaki Branham",
+  "date": "2026-08-26",
   "method": "free-agent"
  },
  {

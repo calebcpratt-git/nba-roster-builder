@@ -51,7 +51,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 12,
       "failed": []
     }
   },
@@ -59,50 +59,87 @@
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 102,
+      "acquisition": 105,
       "guarantees": 5,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 105,
-      "guarantees": 5,
+      "acquisition": 106,
+      "guarantees": 9,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 3,
+    "newUnresolved": 5,
     "newByCategory": {
-      "acquisition": 3
+      "acquisition": 1,
+      "guarantees": 4
     },
     "newRecords": {
       "acquisition": [
         {
-          "name": "Brandon Williams",
-          "date": "2026-08-25",
+          "name": "Jonathan Kuminga",
+          "date": "2026-08-26",
           "method": "free-agent"
         },
         {
-          "name": "Georges Niang",
-          "date": "2026-08-25",
+          "name": "Bennedict Mathurin",
+          "date": "2026-08-26",
           "method": "free-agent"
         },
         {
-          "name": "Deivon Smith",
-          "date": "2026-08-24",
+          "name": "Malaki Branham",
+          "date": "2026-08-26",
           "method": "free-agent"
+        }
+      ],
+      "guarantees": [
+        {
+          "player": "Brandon Williams",
+          "team": "Warriors",
+          "guaranteeDate": "2026-10-15",
+          "status": "non-guaranteed",
+          "partialAmount": 0,
+          "fullAmount": 2625627,
+          "guaranteeTriggered": null,
+          "raw": "Non-guaranteed salary ($2,625,627) becomes partially guaranteed ($1,400,000)."
+        },
+        {
+          "player": "Georges Niang",
+          "team": "Golden State Warriors",
+          "fullAmount": null,
+          "partialAmount": 1838009,
+          "status": "partial",
+          "exhibit10": false
+        },
+        {
+          "player": "Brandon Williams",
+          "team": "Golden State Warriors",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "Nick Richards",
+          "team": "Miami Heat",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
         }
       ]
     }
   },
-  "generatedAt": "2026-08-26T11:34:09.414Z",
+  "generatedAt": "2026-08-27T20:59:12.356Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 530)",
+    "players: +2 -1 ~0 (of 530)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 524)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -0 ~0 (of 146)",
+    "contract-details: +2 -1 ~0 (of 524)",
+    "team-cap-state: +0 -0 ~3 (of 150)",
+    "free-agents: +1 -0 ~0 (of 146)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true
