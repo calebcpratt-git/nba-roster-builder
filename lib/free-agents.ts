@@ -102,6 +102,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Wendell Moore, Jr.', priorTeam: 'DET', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Eli N\'Diaye', priorTeam: 'ATL', faType: 'unrestricted', position: 'PF' },
   { name: 'Grant Nelson', priorTeam: 'BRK', faType: 'unrestricted', position: 'PF' },
+  { name: 'Tristen Newton', priorTeam: 'HOU', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Georges Niang', priorTeam: 'MEM', faType: 'unrestricted', position: 'SF' },
   { name: 'Miles Norris', priorTeam: 'BOS', faType: 'unrestricted', position: 'SF' },
   { name: 'Josh Oduro', priorTeam: 'NOP', faType: 'unrestricted', birdRights: 'early-bird', position: 'C' },

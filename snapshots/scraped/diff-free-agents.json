@@ -1,5 +1,13 @@
 {
-  "added": [],
+  "added": [
+    {
+      "name": "Tristen Newton",
+      "position": "SG",
+      "priorTeam": "HOU",
+      "faType": "U",
+      "birdRights": "non-bird"
+    }
+  ],
   "removed": [],
   "changed": []
 }

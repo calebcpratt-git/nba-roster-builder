@@ -1,5 +1,75 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "Bryce Hopkins",
+      "team": "DEN",
+      "salary": {
+        "2026-27": 678882
+      },
+      "options": {},
+      "contractType": "two-way",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "DEN"
+        },
+        {
+          "date": "2026-08-26",
+          "method": "free-agent",
+          "team": "DEN"
+        }
+      ]
+    },
+    {
+      "name": "Rafael Castro",
+      "team": "HOU",
+      "salary": {
+        "2026-27": 678882
+      },
+      "options": {},
+      "contractType": "two-way",
+      "acquisitionHistory": [
+        {
+          "date": "2026-08-26",
+          "method": "free-agent",
+          "team": "HOU"
+        }
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "name": "Tristen Newton",
+      "team": "HOU",
+      "salary": {
+        "2026-27": 678882
+      },
+      "options": {},
+      "contractType": "two-way",
+      "acquisitionHistory": [
+        {
+          "date": "2024-07-27",
+          "method": "free-agent",
+          "team": "IND"
+        },
+        {
+          "date": "2025-01-03",
+          "method": "waiver",
+          "team": "MIN"
+        },
+        {
+          "date": "2025-09-15",
+          "method": "free-agent",
+          "team": "MIN"
+        },
+        {
+          "date": "2026-01-03",
+          "method": "free-agent",
+          "team": "HOU"
+        }
+      ]
+    }
+  ],
   "changed": []
 }

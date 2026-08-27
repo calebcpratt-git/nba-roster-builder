@@ -88,11 +88,27 @@
   "exhibit10": false
  },
  {
+  "player": "Georges Niang",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": 1838009,
+  "status": "partial",
+  "exhibit10": false
+ },
+ {
   "player": "Charles Bassey",
   "team": "Golden State Warriors",
   "fullAmount": null,
   "partialAmount": 1400000,
   "status": "partial",
+  "exhibit10": false
+ },
+ {
+  "player": "Brandon Williams",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
   "exhibit10": false
  },
  {
@@ -169,6 +185,14 @@
  },
  {
   "player": "Pelle Larsson",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Nick Richards",
   "team": "Miami Heat",
   "fullAmount": null,
   "partialAmount": null,

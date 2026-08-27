@@ -160,6 +160,14 @@
   "reported": false
  },
  {
+  "name": "Bryce Hopkins",
+  "bbrefId": "hopkibr01",
+  "team": "DEN",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
   "name": "Isaac Jones",
   "bbrefId": "jonesis01",
   "team": "DET",
@@ -200,14 +208,6 @@
   "reported": false
  },
  {
-  "name": "Tristen Newton",
-  "bbrefId": "newtotr01",
-  "team": "HOU",
-  "position": "G",
-  "twoYear": false,
-  "reported": false
- },
- {
   "name": "Quadir Copeland",
   "bbrefId": "copelqu01",
   "team": "HOU",
@@ -220,6 +220,14 @@
   "bbrefId": "pedulse01",
   "team": "HOU",
   "position": "G",
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Rafael Castro",
+  "bbrefId": null,
+  "team": "HOU",
+  "position": "C",
   "twoYear": true,
   "reported": false
  },
