@@ -1386,12 +1386,6 @@
     "amount": 7600000,
     "kind": "free-agent",
     "birdRights": "full-bird"
-   },
-   {
-    "label": "Brandon Williams",
-    "amount": 2500000,
-    "kind": "free-agent",
-    "birdRights": "full-bird"
    }
   ],
   "salaryCap": 165000000,
@@ -3885,11 +3879,11 @@
       "amount": 6065000
      }
     ],
-    "remaining": 1189258
+    "remaining": null
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 1189258
+    "remaining": 0
    }
   },
   "cashLedger": {

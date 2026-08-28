@@ -371,13 +371,6 @@
     "birdRights": null
   },
   {
-    "name": "Keshad Johnson",
-    "position": "SF",
-    "priorTeam": "MIA",
-    "faType": "U",
-    "birdRights": "early-bird"
-  },
-  {
     "name": "Colby Jones",
     "position": "SG",
     "priorTeam": "DET",
@@ -586,13 +579,6 @@
     "priorTeam": "HOU",
     "faType": "U",
     "birdRights": "non-bird"
-  },
-  {
-    "name": "Georges Niang",
-    "position": "SF",
-    "priorTeam": "MEM",
-    "faType": "U",
-    "birdRights": null
   },
   {
     "name": "Miles Norris",
@@ -957,13 +943,6 @@
     "priorTeam": "WAS",
     "faType": "U",
     "birdRights": null
-  },
-  {
-    "name": "Brandon Williams",
-    "position": "PG",
-    "priorTeam": "DAL",
-    "faType": "U",
-    "birdRights": "full-bird"
   },
   {
     "name": "Nate Williams, Jr.",

@@ -54,6 +54,14 @@
   "exhibit10": false
  },
  {
+  "player": "Dalen Terry",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Taj Gibson",
   "team": "Memphis Grizzlies",
   "fullAmount": null,
@@ -68,6 +76,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "J’Vonne Hadley",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Duke Miles",

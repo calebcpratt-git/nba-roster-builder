@@ -1955,8 +1955,8 @@
  {
   "bbrefId": null,
   "name": "Brandon Williams",
-  "date": "2026-08-25",
-  "dateRaw": "Aug 25, 2026",
+  "date": "2026-08-26",
+  "dateRaw": "Aug 26, 2026",
   "method": "free-agent",
   "toTeams": [
    "GSW"
@@ -3168,6 +3168,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Nick Richards",
+  "date": "2026-08-27",
+  "dateRaw": "Aug 27, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {

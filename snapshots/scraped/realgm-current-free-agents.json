@@ -602,13 +602,6 @@
   "birdRights": "non-bird"
  },
  {
-  "name": "Georges Niang",
-  "position": "SF",
-  "priorTeam": "MEM",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Miles Norris",
   "position": "SF",
   "priorTeam": "BOS",
@@ -971,13 +964,6 @@
   "priorTeam": "WAS",
   "faType": "U",
   "birdRights": null
- },
- {
-  "name": "Brandon Williams",
-  "position": "PG",
-  "priorTeam": "DAL",
-  "faType": "U",
-  "birdRights": "full-bird"
  },
  {
   "name": "Nate Williams, Jr.",
