@@ -294,6 +294,12 @@
   "reason": "not-in-realgm-current-free-agents"
  },
  {
+  "team": "DAL",
+  "player": "Brandon Williams",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
   "team": "DEN",
   "player": "Tim Hardaway Jr.",
   "amount": 2500000,

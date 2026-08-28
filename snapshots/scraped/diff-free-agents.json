@@ -1,13 +1,27 @@
 {
-  "added": [
+  "added": [],
+  "removed": [
     {
-      "name": "Tristen Newton",
-      "position": "SG",
-      "priorTeam": "HOU",
+      "name": "Keshad Johnson",
+      "position": "SF",
+      "priorTeam": "MIA",
       "faType": "U",
-      "birdRights": "non-bird"
+      "birdRights": "early-bird"
+    },
+    {
+      "name": "Georges Niang",
+      "position": "SF",
+      "priorTeam": "MEM",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Brandon Williams",
+      "position": "PG",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": "full-bird"
     }
   ],
-  "removed": [],
   "changed": []
 }

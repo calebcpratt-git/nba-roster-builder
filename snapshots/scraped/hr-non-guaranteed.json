@@ -112,6 +112,14 @@
   "exhibit10": false
  },
  {
+  "player": "Dalen Terry",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Jae’Sean Tate",
   "team": "Houston Rockets",
   "fullAmount": null,
@@ -198,6 +206,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "J’Vonne Hadley",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Pete Nance",

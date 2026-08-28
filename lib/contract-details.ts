@@ -510,6 +510,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Jahmai Mashack": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Tre Donaldson": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Vladislav Goldin": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
+  "Keshad Johnson": { signedUnder: 'minimum' },
   "Cormac Ryan": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Kam Jones": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Rocco Zikarsky": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },

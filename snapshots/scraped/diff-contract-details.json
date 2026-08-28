@@ -1,34 +1,10 @@
 {
   "added": [
     {
-      "name": "Bryce Hopkins",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Rafael Castro",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
+      "name": "Keshad Johnson",
+      "signedUnder": "minimum"
     }
   ],
-  "removed": [
-    {
-      "name": "Tristen Newton",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    }
-  ],
+  "removed": [],
   "changed": []
 }
