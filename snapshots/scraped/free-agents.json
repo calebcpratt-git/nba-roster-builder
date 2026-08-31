@@ -514,8 +514,8 @@
   "name": "Bennedict Mathurin",
   "position": "G-F",
   "priorTeam": "LAC",
-  "faType": "R",
-  "birdRights": "full-bird"
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Bez Mbeng",
@@ -578,7 +578,7 @@
   "position": "SG",
   "priorTeam": "HOU",
   "faType": "U",
-  "birdRights": "non-bird"
+  "birdRights": null
  },
  {
   "name": "Miles Norris",
@@ -665,18 +665,18 @@
   "birdRights": null
  },
  {
+  "name": "Julian Reese",
+  "position": "PF",
+  "priorTeam": "DEN",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
   "name": "Antonio Reeves",
   "position": "SG",
   "priorTeam": "CHO",
   "faType": "U",
   "birdRights": "non-bird"
- },
- {
-  "name": "Nick Richards",
-  "position": "C",
-  "priorTeam": "CHI",
-  "faType": "U",
-  "birdRights": null
  },
  {
   "name": "Kadary Richmond",
@@ -812,13 +812,6 @@
   "birdRights": "full-bird"
  },
  {
-  "name": "Dalen Terry",
-  "position": "SF",
-  "priorTeam": "PHI",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Cam Thomas",
   "position": "PG",
   "priorTeam": "MIL",
@@ -934,6 +927,13 @@
   "name": "Dariq Whitehead",
   "position": "G-F",
   "priorTeam": "MEM",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Cam Whitmore",
+  "position": "SF",
+  "priorTeam": "CLE",
   "faType": "U",
   "birdRights": null
  },

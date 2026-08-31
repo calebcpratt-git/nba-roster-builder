@@ -115,6 +115,11 @@
   "method": "trade"
  },
  {
+  "name": "Cam Whitmore",
+  "date": "2026-08-20",
+  "method": "trade"
+ },
+ {
   "name": "Rashaun Agee",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -128,6 +133,11 @@
   "name": "DeMar DeRozan",
   "date": "2026-08-21",
   "method": "free-agent"
+ },
+ {
+  "name": "Julian Reese",
+  "date": "2026-08-20",
+  "method": "trade"
  },
  {
   "name": "Lonnie Walker IV",
@@ -172,16 +182,6 @@
  {
   "name": "Jaden Henley",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Brandon Williams",
-  "date": "2026-08-26",
-  "method": "free-agent"
- },
- {
-  "name": "Georges Niang",
-  "date": "2026-08-25",
   "method": "free-agent"
  },
  {

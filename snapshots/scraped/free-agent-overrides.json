@@ -25,5 +25,14 @@
   "faType": "U",
   "source": "realgm_current_free_agents",
   "corroborated": false
+ },
+ {
+  "name": "Cam Whitmore",
+  "team": "CLE",
+  "season": "2026-27",
+  "optionType": "Team",
+  "faType": "U",
+  "source": "realgm_current_free_agents",
+  "corroborated": false
  }
 ]

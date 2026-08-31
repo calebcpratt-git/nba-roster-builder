@@ -133,6 +133,12 @@
  },
  {
   "team": "CHI",
+  "player": "Nick Richards",
+  "amount": 9500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHI",
   "player": "Matt Thomas",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"
@@ -736,6 +742,12 @@
   "team": "MEM",
   "player": "Cameron Boozer",
   "amount": 11900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "MIA",
+  "player": "Keshad Johnson",
+  "amount": 2700000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {

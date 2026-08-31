@@ -458,4 +458,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Mamadi Diakite": 2020,
   "Ricky Rubio": 2009,
   "Didi Louzada": 2019,
+  "Georges Niang": 2016,
+  "Brandon Williams": 2021,
 }

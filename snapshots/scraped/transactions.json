@@ -3172,6 +3172,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Keshad Johnson",
+  "date": "2026-08-27",
+  "dateRaw": "Aug 27, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Nick Richards",
   "date": "2026-08-27",
   "dateRaw": "Aug 27, 2026",
@@ -3578,6 +3591,36 @@
  },
  {
   "bbrefId": null,
+  "name": "Cody Williams",
+  "date": "2026-08-29",
+  "dateRaw": "Aug 29, 2026",
+  "method": "trade",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [
+   "UTA"
+  ],
+  "text": "Traded from UTA",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "John Konchar",
+  "date": "2026-08-29",
+  "dateRaw": "Aug 29, 2026",
+  "method": "trade",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [
+   "UTA"
+  ],
+  "text": "Traded from UTA",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jonathan Kuminga",
   "date": "2026-08-26",
   "dateRaw": "Aug 26, 2026",
@@ -3630,6 +3673,21 @@
  },
  {
   "bbrefId": null,
+  "name": "Josh Green",
+  "date": "2026-07-10",
+  "dateRaw": "Jul 10, 2026",
+  "method": "trade",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [
+   "CHA"
+  ],
+  "text": "Traded from CHA",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Ayo Dosunmu",
   "date": "2026-07-10",
   "dateRaw": "Jul 10, 2026",
@@ -3665,21 +3723,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Josh Green",
-  "date": "2026-07-10",
-  "dateRaw": "Jul 10, 2026",
-  "method": "trade",
-  "toTeams": [
-   "MIN"
-  ],
-  "fromTeams": [
-   "CHA"
-  ],
-  "text": "Traded from CHA",
   "flags": []
  },
  {
@@ -5338,6 +5381,21 @@
   ],
   "fromTeams": [],
   "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Josh Green",
+  "date": "2026-08-29",
+  "dateRaw": "Aug 29, 2026",
+  "method": "trade",
+  "toTeams": [
+   "UTA"
+  ],
+  "fromTeams": [
+   "MIN"
+  ],
+  "text": "Traded from MIN",
   "flags": []
  },
  {

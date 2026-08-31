@@ -893,11 +893,6 @@
     "birdRights": "non-bird"
    },
    {
-    "label": "Nick Richards",
-    "amount": 9500000,
-    "kind": "free-agent"
-   },
-   {
     "label": "Guerschon Yabusele",
     "amount": 6600000,
     "kind": "free-agent"
@@ -1152,13 +1147,17 @@
    "trigger": "Trade Salary Acquired: Aug 20 trade"
   },
   "exceptionsUsed": {
+   "nonTaxpayerMLE": {
+    "signings": [],
+    "remaining": 1207654
+   },
    "taxpayerMLE": {
     "signings": [],
     "remaining": 6064000
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 0
+    "remaining": 1207654
    },
    "tradeExceptionsUsed": [
     {
@@ -3220,8 +3219,7 @@
    {
     "label": "Bennedict Mathurin",
     "amount": 27600000,
-    "kind": "free-agent",
-    "birdRights": "full-bird"
+    "kind": "free-agent"
    },
    {
     "label": "Norchad Omier",
@@ -3851,12 +3849,6 @@
     "amount": 2200000,
     "kind": "free-agent",
     "birdRights": "non-bird"
-   },
-   {
-    "label": "Keshad Johnson",
-    "amount": 2700000,
-    "kind": "free-agent",
-    "birdRights": "early-bird"
    }
   ],
   "salaryCap": 165000000,
@@ -4377,13 +4369,12 @@
   },
   "exceptionsUsed": {
    "taxpayerMLE": {
-    "signings": [
-     {
-      "player": "Jonathan Kuminga",
-      "amount": 6341463
-     }
-    ],
-    "remaining": null
+    "signings": [],
+    "remaining": 6064000
+   },
+   "biAnnual": {
+    "signings": [],
+    "remaining": 0
    }
   },
   "cashLedger": {
