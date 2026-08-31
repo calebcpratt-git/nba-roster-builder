@@ -1,27 +1,75 @@
 {
-  "added": [],
-  "removed": [
+  "added": [
     {
-      "name": "Keshad Johnson",
-      "position": "SF",
-      "priorTeam": "MIA",
+      "name": "Julian Reese",
+      "position": "PF",
+      "priorTeam": "DEN",
       "faType": "U",
-      "birdRights": "early-bird"
+      "birdRights": "non-bird"
     },
     {
-      "name": "Georges Niang",
+      "name": "Cam Whitmore",
       "position": "SF",
-      "priorTeam": "MEM",
+      "priorTeam": "CLE",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
+      "name": "Nick Richards",
+      "position": "C",
+      "priorTeam": "CHI",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Brandon Williams",
-      "position": "PG",
-      "priorTeam": "DAL",
+      "name": "Dalen Terry",
+      "position": "SF",
+      "priorTeam": "PHI",
       "faType": "U",
-      "birdRights": "full-bird"
+      "birdRights": null
     }
   ],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Bennedict Mathurin",
+        "position": "G-F",
+        "priorTeam": "LAC",
+        "faType": "R",
+        "birdRights": "full-bird"
+      },
+      "after": {
+        "name": "Bennedict Mathurin",
+        "position": "G-F",
+        "priorTeam": "LAC",
+        "faType": "U",
+        "birdRights": null
+      },
+      "fields": [
+        "faType",
+        "birdRights"
+      ]
+    },
+    {
+      "before": {
+        "name": "Tristen Newton",
+        "position": "SG",
+        "priorTeam": "HOU",
+        "faType": "U",
+        "birdRights": "non-bird"
+      },
+      "after": {
+        "name": "Tristen Newton",
+        "position": "SG",
+        "priorTeam": "HOU",
+        "faType": "U",
+        "birdRights": null
+      },
+      "fields": [
+        "birdRights"
+      ]
+    }
+  ]
 }

@@ -3982,16 +3982,6 @@
     "signedUnder": "non-taxpayer-mle"
   },
   {
-    "name": "Cam Whitmore",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Nikola Topić",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -5810,6 +5800,26 @@
     }
   },
   {
+    "name": "Georges Niang",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Brandon Williams",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Cam Spencer",
     "signedUnder": "cap-room",
     "incentives": {
@@ -6751,15 +6761,6 @@
   },
   {
     "name": "KJ Simpson",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Julian Reese",
     "incentives": {
       "2026-27": {
         "likely": 0,

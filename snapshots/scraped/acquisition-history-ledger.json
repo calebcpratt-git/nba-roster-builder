@@ -5786,6 +5786,11 @@
    "date": "2024-07-02",
    "method": "free-agent",
    "team": "UTA"
+  },
+  {
+   "date": "2026-08-29",
+   "method": "trade",
+   "team": "MIN"
   }
  ],
  "dunnry01": [
@@ -5999,6 +6004,11 @@
    "date": "2026-07-10",
    "method": "trade",
    "team": "MIN"
+  },
+  {
+   "date": "2026-08-29",
+   "method": "trade",
+   "team": "UTA"
   }
  ],
  "marshna01": [
@@ -8806,6 +8816,11 @@
    "date": "2022-07-07",
    "method": "extension",
    "team": "MEM"
+  },
+  {
+   "date": "2026-08-29",
+   "method": "trade",
+   "team": "MIN"
   }
  ],
  "jokicni01": [
@@ -9483,6 +9498,27 @@
    "date": "2026-08-26",
    "method": "free-agent",
    "team": "HOU"
+  }
+ ],
+ "willibr03": [
+  {
+   "date": "2026-08-26",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "niangge01": [
+  {
+   "date": "2026-08-25",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "johnske10": [
+  {
+   "date": "2026-08-27",
+   "method": "free-agent",
+   "team": "MIA"
   }
  ]
 }

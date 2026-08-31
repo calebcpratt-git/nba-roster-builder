@@ -24,6 +24,14 @@
   "via": "acquisition-ledger"
  },
  {
+  "name": "Klay Thompson",
+  "kept": "DAL",
+  "dropped": [
+   "MIA"
+  ],
+  "via": "acquisition-ledger"
+ },
+ {
   "name": "Olivier-Maxence Prosper",
   "kept": "MEM",
   "dropped": [

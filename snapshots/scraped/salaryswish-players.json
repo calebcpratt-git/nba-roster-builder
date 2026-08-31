@@ -3926,16 +3926,6 @@
    }
   }
  },
- "cam whitmore": {
-  "team": "CLE",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "nikola topic": {
   "team": "OKC",
   "signedUnder": "rookie-scale",
@@ -5788,6 +5778,26 @@
    }
   }
  },
+ "georges niang": {
+  "team": "GSW",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "brandon williams": {
+  "team": "GSW",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "cam spencer": {
   "team": "MEM",
   "signedUnder": "cap-room",
@@ -6761,16 +6771,6 @@
   }
  },
  "kj simpson": {
-  "team": "DEN",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "julian reese": {
   "team": "DEN",
   "signedUnder": null,
   "incentives": {

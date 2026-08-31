@@ -1,10 +1,46 @@
 {
   "added": [
     {
-      "name": "Keshad Johnson",
-      "signedUnder": "minimum"
+      "name": "Georges Niang",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Brandon Williams",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Cam Whitmore",
+      "signedUnder": "rookie-scale",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Julian Reese",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
   "changed": []
 }

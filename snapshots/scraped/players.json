@@ -2757,9 +2757,12 @@
   "name": "Klay Thompson",
   "team": "DAL",
   "salary": {
-   "2026-27": 17460317
+   "2026-27": 23060317,
+   "2027-28": 5880000
   },
-  "options": {},
+  "options": {
+   "2027-28": "Player"
+  },
   "bbrefId": "thompkl01",
   "acquisitionHistory": [
    {
@@ -3389,6 +3392,11 @@
     "date": "2026-07-10",
     "method": "trade",
     "team": "MIN"
+   },
+   {
+    "date": "2026-08-29",
+    "method": "trade",
+    "team": "UTA"
    }
   ]
  },
@@ -6302,6 +6310,11 @@
     "date": "2022-07-07",
     "method": "extension",
     "team": "MEM"
+   },
+   {
+    "date": "2026-08-29",
+    "method": "trade",
+    "team": "MIN"
    }
   ]
  },
@@ -6421,6 +6434,11 @@
     "date": "2024-07-02",
     "method": "free-agent",
     "team": "UTA"
+   },
+   {
+    "date": "2026-08-29",
+    "method": "trade",
+    "team": "MIN"
    }
   ]
  },
@@ -7160,42 +7178,6 @@
     "date": "2026-07-31",
     "method": "free-agent",
     "team": "GSW"
-   }
-  ]
- },
- {
-  "name": "Cam Whitmore",
-  "team": "CLE",
-  "salary": {
-   "2026-27": 5458310
-  },
-  "options": {},
-  "bbrefId": "whitmca01",
-  "acquisitionHistory": [
-   {
-    "date": "2023-02-09",
-    "method": "trade",
-    "team": "HOU"
-   },
-   {
-    "date": "2023-07-03",
-    "method": "free-agent",
-    "team": "HOU"
-   },
-   {
-    "date": "2025-07-06",
-    "method": "trade",
-    "team": "WAS"
-   },
-   {
-    "date": "2026-08-14",
-    "method": "trade",
-    "team": "CLE"
-   },
-   {
-    "date": "2026-08-20",
-    "method": "trade",
-    "team": "CLE"
    }
   ]
  },
@@ -11962,6 +11944,50 @@
   }
  },
  {
+  "name": "Georges Niang",
+  "team": "GSW",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "bbrefId": "niangge01",
+  "acquisitionHistory": [
+   {
+    "date": "2026-08-25",
+    "method": "free-agent",
+    "team": "GSW"
+   }
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "partial",
+    "amount": 1838009
+   }
+  }
+ },
+ {
+  "name": "Brandon Williams",
+  "team": "GSW",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "bbrefId": "willibr03",
+  "acquisitionHistory": [
+   {
+    "date": "2026-08-26",
+    "method": "free-agent",
+    "team": "GSW"
+   }
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed",
+    "guaranteeDate": "2026-10-15"
+   }
+  }
+ },
+ {
   "name": "Cam Spencer",
   "team": "MEM",
   "salary": {
@@ -14110,38 +14136,6 @@
   ]
  },
  {
-  "name": "Julian Reese",
-  "team": "DEN",
-  "salary": {
-   "2026-27": 678882
-  },
-  "options": {},
-  "bbrefId": "reeseju01",
-  "contractType": "two-way",
-  "acquisitionHistory": [
-   {
-    "date": "2025-10-16",
-    "method": "free-agent",
-    "team": "TOR"
-   },
-   {
-    "date": "2026-02-28",
-    "method": "free-agent",
-    "team": "WAS"
-   },
-   {
-    "date": "2026-08-14",
-    "method": "trade",
-    "team": "DEN"
-   },
-   {
-    "date": "2026-08-20",
-    "method": "trade",
-    "team": "DEN"
-   }
-  ]
- },
- {
   "name": "Bryce Hopkins",
   "team": "DEN",
   "salary": {
@@ -14697,7 +14691,14 @@
   },
   "options": {},
   "bbrefId": "johnske10",
-  "contractType": "two-way"
+  "contractType": "two-way",
+  "acquisitionHistory": [
+   {
+    "date": "2026-08-27",
+    "method": "free-agent",
+    "team": "MIA"
+   }
+  ]
  },
  {
   "name": "Cormac Ryan",
