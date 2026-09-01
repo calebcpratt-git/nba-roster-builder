@@ -3239,7 +3239,7 @@
   },
   {
     "name": "Josh Green",
-    "team": "MIN",
+    "team": "UTA",
     "salary": {
       "2026-27": 14679012
     },
@@ -6067,26 +6067,6 @@
     ]
   },
   {
-    "name": "John Konchar",
-    "team": "UTA",
-    "salary": {
-      "2026-27": 6165000
-    },
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2022-07-07",
-        "method": "extension",
-        "team": "MEM"
-      },
-      {
-        "date": "2026-08-29",
-        "method": "trade",
-        "team": "MIN"
-      }
-    ]
-  },
-  {
     "name": "Yaxel Lendeborg",
     "team": "GSW",
     "salary": {
@@ -6185,7 +6165,7 @@
   },
   {
     "name": "Cody Williams",
-    "team": "UTA",
+    "team": "MIN",
     "salary": {
       "2026-27": 6015600,
       "2027-28": 7669890
@@ -10932,6 +10912,26 @@
     }
   },
   {
+    "name": "Nick Richards",
+    "team": "MIA",
+    "salary": {
+      "2026-27": 2449421
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-27",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
     "name": "Simone Fontecchio",
     "team": "MIA",
     "salary": {
@@ -12684,6 +12684,28 @@
     }
   },
   {
+    "name": "John Konchar",
+    "team": "MIN",
+    "salary": {
+      "2026-27": 2055000,
+      "2027-28": 2055000,
+      "2028-29": 2055000
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2022-07-07",
+        "method": "extension",
+        "team": "MEM"
+      },
+      {
+        "date": "2026-08-29",
+        "method": "trade",
+        "team": "MIN"
+      }
+    ]
+  },
+  {
     "name": "Baba Miller",
     "team": "LAC",
     "salary": {
@@ -12988,6 +13010,51 @@
         "date": "2026-07-09",
         "method": "free-agent",
         "team": "TOR"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
+    "name": "J'Vonne Hadley",
+    "team": "MIA",
+    "salary": {
+      "2026-27": 1357763
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-27",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
+    "name": "Dalen Terry",
+    "team": "GSW",
+    "salary": {
+      "2026-27": 1357763
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-04-10",
+        "method": "free-agent",
+        "team": "PHI"
+      },
+      {
+        "date": "2026-08-31",
+        "method": "free-agent",
+        "team": "GSW"
       }
     ],
     "guarantees": {

@@ -3604,16 +3604,6 @@
   }
  },
  {
-  "name": "John Konchar",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Yaxel Lendeborg",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -5640,6 +5630,16 @@
   }
  },
  {
+  "name": "Nick Richards",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Simone Fontecchio",
   "signedUnder": "minimum",
   "incentives": {
@@ -6354,6 +6354,16 @@
   }
  },
  {
+  "name": "John Konchar",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Baba Miller",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -6545,6 +6555,26 @@
  },
  {
   "name": "Nate Bittle",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "J'Vonne Hadley",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Dalen Terry",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {

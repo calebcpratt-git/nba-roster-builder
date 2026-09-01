@@ -441,6 +441,13 @@
   "birdRights": null
  },
  {
+  "name": "John Konchar",
+  "position": "SG",
+  "priorTeam": "MIN",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Jonathan Kuminga",
   "position": "SF",
   "priorTeam": "ATL",
@@ -683,7 +690,7 @@
   "position": "PF",
   "priorTeam": "DEN",
   "faType": "U",
-  "birdRights": "non-bird"
+  "birdRights": null
  },
  {
   "name": "Antonio Reeves",
