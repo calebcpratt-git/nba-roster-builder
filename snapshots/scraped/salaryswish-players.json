@@ -2070,7 +2070,7 @@
   }
  },
  "josh green": {
-  "team": "MIN",
+  "team": "UTA",
   "signedUnder": "bird",
   "incentives": {
    "2026-27": {
@@ -3546,16 +3546,6 @@
    }
   }
  },
- "john konchar": {
-  "team": "UTA",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "yaxel lendeborg": {
   "team": "GSW",
   "signedUnder": "rookie-scale",
@@ -3607,7 +3597,7 @@
   }
  },
  "cody williams": {
-  "team": "UTA",
+  "team": "MIN",
   "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
@@ -5608,6 +5598,16 @@
    }
   }
  },
+ "nick richards": {
+  "team": "MIA",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "simone fontecchio": {
   "team": "MIA",
   "signedUnder": "minimum",
@@ -6337,6 +6337,16 @@
    }
   }
  },
+ "john konchar": {
+  "team": "MIN",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "baba miller": {
   "team": "LAC",
   "signedUnder": "rookie-scale",
@@ -6529,6 +6539,26 @@
  },
  "nate bittle": {
   "team": "TOR",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "jvonne hadley": {
+  "team": "MIA",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "dalen terry": {
+  "team": "GSW",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {

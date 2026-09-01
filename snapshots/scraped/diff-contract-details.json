@@ -1,7 +1,7 @@
 {
   "added": [
     {
-      "name": "Georges Niang",
+      "name": "Nick Richards",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -11,7 +11,17 @@
       }
     },
     {
-      "name": "Brandon Williams",
+      "name": "J'Vonne Hadley",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Dalen Terry",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -21,26 +31,6 @@
       }
     }
   ],
-  "removed": [
-    {
-      "name": "Cam Whitmore",
-      "signedUnder": "rookie-scale",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Julian Reese",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    }
-  ],
+  "removed": [],
   "changed": []
 }

@@ -32,12 +32,12 @@
   "exhibit10": false
  },
  {
-  "player": "Mouhamadou Gueye",
+  "player": "Josiah Allick",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
   "player": "Mario Hezonja",
@@ -369,6 +369,14 @@
  },
  {
   "player": "Harrison Ingram",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Matthew Murrell",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

@@ -45,6 +45,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Josiah Allick",
+  "date": "2026-08-31",
+  "method": "free-agent"
+ },
+ {
   "name": "Matteo Spagnolo",
   "date": "2026-07-10",
   "method": "trade"
@@ -295,16 +300,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Nick Richards",
-  "date": "2026-08-27",
-  "method": "free-agent"
- },
- {
-  "name": "J'Vonne Hadley",
-  "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
   "name": "Keyshawn Hall",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -412,11 +407,6 @@
  {
   "name": "Duke Miles",
   "date": "2026-07-07",
-  "method": "free-agent"
- },
- {
-  "name": "Dalen Terry",
-  "date": "2026-04-10",
   "method": "free-agent"
  },
  {

@@ -43,7 +43,7 @@
   },
   "pageGroups": {
     "bbref-player-pages": {
-      "total": 2,
+      "total": 3,
       "failed": []
     },
     "salaryswish-transactions": {
@@ -55,7 +55,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 12,
+      "total": 16,
       "failed": []
     }
   },
@@ -64,14 +64,14 @@
     "before": {
       "draft-year": 0,
       "acquisition": 107,
-      "guarantees": 11,
+      "guarantees": 8,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 107,
-      "guarantees": 8,
+      "acquisition": 105,
+      "guarantees": 6,
       "signing": 10,
       "awards": 4
     },
@@ -80,26 +80,39 @@
     "newRecords": {
       "acquisition": [
         {
-          "name": "Cam Whitmore",
-          "date": "2026-08-20",
-          "method": "trade"
+          "name": "Josiah Allick",
+          "date": "2026-08-31",
+          "method": "free-agent"
+        }
+      ],
+      "guarantees": [
+        {
+          "player": "Josiah Allick",
+          "team": "Charlotte Hornets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
         },
         {
-          "name": "Julian Reese",
-          "date": "2026-08-20",
-          "method": "trade"
+          "player": "Matthew Murrell",
+          "team": "Utah Jazz",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
         }
       ]
     }
   },
-  "generatedAt": "2026-08-31T17:59:35.515Z",
+  "generatedAt": "2026-09-01T15:27:43.554Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -2 ~5 (of 532)",
+    "players: +3 -0 ~3 (of 532)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +2 -2 ~0 (of 526)",
-    "team-cap-state: +0 -0 ~5 (of 150)",
-    "free-agents: +2 -2 ~2 (of 144)",
+    "contract-details: +3 -0 ~0 (of 526)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
+    "free-agents: +0 -0 ~1 (of 144)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true

@@ -4361,6 +4361,12 @@
         "amount": 6576120,
         "expires": "2027-02-05",
         "fromPlayer": "Rob Dillingham"
+      },
+      {
+        "id": "MIN-josh-green-2026-08-29",
+        "amount": 2498412,
+        "expires": "2027-08-29",
+        "fromPlayer": "Josh Green"
       }
     ],
     "hardCapped": {
@@ -4369,11 +4375,12 @@
     },
     "exceptionsUsed": {
       "taxpayerMLE": {
-        "signings": [],
-        "remaining": 6064000
-      },
-      "biAnnual": {
-        "signings": [],
+        "signings": [
+          {
+            "player": "Jonathan Kuminga",
+            "amount": 6064000
+          }
+        ],
         "remaining": 0
       }
     },
@@ -7340,6 +7347,10 @@
         "fromPlayer": "Walker Kessler"
       }
     ],
+    "hardCapped": {
+      "apron": 1,
+      "trigger": "Trade Salary Acquired: Aug 29 trade"
+    },
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [
