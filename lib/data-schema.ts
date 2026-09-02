@@ -265,6 +265,26 @@ export const DATA_SOURCES: Record<string, DataSource> = {
 // Entities
 // ---------------------------------------------------------------------------
 
+/**
+ * How a field's `sources` array (when it has more than one entry) actually
+ * combine into the final value — the thing the ERD's flat, order-only list
+ * can't say on its own. Mirrors the real precedence in scripts/scrape/run.py:
+ *   - 'override'  sources run in array order; a later source can overwrite or
+ *                 drop what an earlier one wrote (e.g. RealGM correcting a
+ *                 stale BBRef option flag).
+ *   - 'fallback'  the first source is authoritative; later ones are only
+ *                 consulted for whatever the first source left unresolved.
+ *   - 'combine'   every source's value is merged into the same field, with a
+ *                 stated tiebreak rule when both cover the same record.
+ *   - 'compose'   each source owns a disjoint sub-field of the same object —
+ *                 none of them override or conflict with another.
+ */
+export interface FieldSourceRelation {
+  kind: 'override' | 'fallback' | 'combine' | 'compose'
+  /** Plain-language statement of the precedence/merge rule, sources in the same order as `sources`. */
+  note: string
+}
+
 export interface FieldSpec<Row> {
   /** Dotted path as it appears on the row, e.g. 'acquisition.method'. */
   path: string
@@ -272,6 +292,8 @@ export interface FieldSpec<Row> {
   description: string
   /** DATA_SOURCES ids. An empty array means no source has been identified. */
   sources: string[]
+  /** How multiple `sources` resolve into one value. Required once `sources.length > 1`; see FieldSourceRelation. */
+  sourceRelation?: FieldSourceRelation
   /** Set when the value is computed app-side rather than read from a page. */
   derived?: string
   /**
@@ -332,11 +354,11 @@ const playerEntity: EntitySpec<RawPlayerData> = {
   rows: () => RAW_PLAYER_DATA,
   fields: [
     { path: 'name', type: 'string', description: 'Display name, and the join key to ContractDetail and PLAYER_ROOKIE_YEARS.', sources: ['bbref-contracts'], get: (p) => p.name },
-    { path: 'team', type: 'string', description: 'Current team abbreviation.', sources: ['bbref-contracts', 'salaryswish-transactions'], get: (p) => p.team },
+    { path: 'team', type: 'string', description: 'Current team abbreviation.', sources: ['bbref-contracts', 'hr-two-way-tracker', 'salaryswish-transactions'], sourceRelation: { kind: 'override', note: 'bbref-contracts seeds it; hr-two-way-tracker overwrites it for a two-way signing BBRef hasn\'t caught up to yet; a SalarySwish transaction overwrites it again if the player signed elsewhere fast enough to drop off RealGM\'s free-agent list before BBRef updated.' }, get: (p) => p.team },
     { path: 'salary', type: 'Partial<Record<Season, number | null>>', description: 'Per-season salary in whole dollars.', sources: ['bbref-contracts'], get: (p) => p.salary },
-    { path: 'options', type: 'Partial<Record<Season, "Team" | "Player" | null>>', description: 'Which seasons carry a team or player option. Stale same-season flags are corrected against RealGM\'s current-free-agents list.', sources: ['bbref-contracts', 'realgm-free-agent-options', 'realgm-current-free-agents'], get: (p) => p.options },
-    { path: 'guarantees', type: 'Partial<Record<Season, SeasonGuarantee>>', description: 'Guarantee status, partial amount, and the date salary becomes fully guaranteed. An absent season means full.', sources: ['hr-guarantee-dates', 'hr-non-guaranteed'], get: (p) => p.guarantees },
-    { path: 'acquisitionHistory', type: 'AcquisitionRecord[]', description: 'Every known transaction that moved this player to a new team, ascending by date — the last 5 completed seasons (Basketball-Reference) plus the current season (SalarySwish). Needed to tell whether a trade to the player\'s current team fell within his first four seasons, one of the supermax (Designated Veteran) eligibility legs.', sources: ['bbref-transactions', 'salaryswish-transactions'], get: (p) => p.acquisitionHistory },
+    { path: 'options', type: 'Partial<Record<Season, "Team" | "Player" | null>>', description: 'Which seasons carry a team or player option. Stale same-season flags are corrected against RealGM\'s current-free-agents list.', sources: ['bbref-contracts', 'realgm-free-agent-options', 'realgm-current-free-agents'], sourceRelation: { kind: 'override', note: 'bbref-contracts seeds the flag; realgm-free-agent-options only corroborates it (never required); realgm-current-free-agents makes the final call — drops the player\'s row entirely if the option was declined and they\'re still unsigned, or clears the flag if it was exercised or they re-signed in place.' }, get: (p) => p.options },
+    { path: 'guarantees', type: 'Partial<Record<Season, SeasonGuarantee>>', description: 'Guarantee status, partial amount, and the date salary becomes fully guaranteed. An absent season means full.', sources: ['hr-guarantee-dates', 'hr-non-guaranteed'], sourceRelation: { kind: 'combine', note: 'Both Hoops Rumors pages are merged for the same season; hr-guarantee-dates\' exact ISO date wins over hr-non-guaranteed\'s coarser team-wide record when a player is on both.' }, get: (p) => p.guarantees },
+    { path: 'acquisitionHistory', type: 'AcquisitionRecord[]', description: 'Every known transaction that moved this player to a new team, ascending by date — the last 5 completed seasons (Basketball-Reference) plus the current season (SalarySwish). Needed to tell whether a trade to the player\'s current team fell within his first four seasons, one of the supermax (Designated Veteran) eligibility legs.', sources: ['bbref-transactions', 'salaryswish-transactions'], sourceRelation: { kind: 'combine', note: 'bbref-transactions seeds years of historical depth once, by hand; salaryswish-transactions appends each day\'s freshest matches on top — nothing is ever overwritten, only accumulated onto the same ledger.' }, get: (p) => p.acquisitionHistory },
     { path: 'contractType', type: "'two-way' | undefined", description: 'Marks a two-way deal, which is excluded from Team Salary and counts against the 3-slot limit. The salary attached is the flat league-wide two-way figure, not a negotiated number.', sources: ['hr-two-way-tracker'], get: (p) => p.contractType },
   ],
 }
@@ -391,12 +413,12 @@ const teamCapStateEntity: EntitySpec<TeamCapStateRow> = {
     { path: 'team', type: 'string', description: 'Team abbreviation.', sources: ['captracker-teams'], get: (t) => t.team },
     { path: 'season', type: 'Season', description: 'League year this row describes.', sources: ['captracker-teams'], get: (t) => t.season },
     { path: 'deadMoney', type: 'DeadMoney[]', description: 'Waived and stretched cap hits still on the books.', sources: ['captracker-teams'], get: (t) => t.deadMoney },
-    { path: 'capHolds', type: 'CapHold[]', description: 'Offseason free-agent, draft-pick, and empty-roster holds. Free-agent holds are reconciled against RealGM because CapTracker projects them forward without knowing who already re-signed or retired.', sources: ['captracker-teams', 'realgm-current-free-agents'], get: (t) => t.capHolds },
+    { path: 'capHolds', type: 'CapHold[]', description: 'Offseason free-agent, draft-pick, and empty-roster holds. Free-agent holds are reconciled against RealGM because CapTracker projects them forward without knowing who already re-signed or retired.', sources: ['captracker-teams', 'realgm-current-free-agents'], sourceRelation: { kind: 'override', note: 'captracker-teams seeds every hold; realgm-current-free-agents then removes or flags any free-agent-kind hold for a player who no longer matches an active free agent on that team, and stamps birdRights onto the ones it confirms.' }, get: (t) => t.capHolds },
     { path: 'heldTPEs', type: 'HeldTPE[]', description: 'Traded-player exceptions on hand and available to absorb incoming salary.', sources: ['salaryswish-trade-exceptions'], get: (t) => t.heldTPEs },
     { path: 'apronAddon', type: 'number', description: 'The gap between raw cap hit and Apron Team Salary. A close lower bound, not the exact league figure — smaller cap-hold and rookie-minimum true-ups are not sourced anywhere.', sources: ['salaryswish-players'], derived: 'Summed app-side from each roster player\'s scraped unlikely incentives.', get: (t) => t.apronAddon },
     { path: 'hardCapped', type: 'HardCapStatus', description: 'Already hard-capped this league year, and at which apron. Current season only.', sources: ['salaryswish-hard-cap'], get: (t) => t.hardCapped },
     { path: 'cashLedger', type: 'CashLedger', description: 'Remaining room under the 5.15%-of-cap cash-in-trade limit. Send and receive are tracked separately and do not net. Current season only.', sources: ['hr-cash-in-trade'], get: (t) => t.cashLedger },
-    { path: 'exceptionsUsed', type: 'ExceptionsUsed', description: 'MLE / BAE / DPE / TPE usage, read straight from SalarySwish\'s own live-computed trackers rather than re-derived app-side. Current season only.', sources: ['salaryswish-mle', 'salaryswish-bae', 'salaryswish-dpe', 'salaryswish-trade-exceptions'], get: (t) => t.exceptionsUsed },
+    { path: 'exceptionsUsed', type: 'ExceptionsUsed', description: 'MLE / BAE / DPE / TPE usage, read straight from SalarySwish\'s own live-computed trackers rather than re-derived app-side. Current season only.', sources: ['salaryswish-mle', 'salaryswish-bae', 'salaryswish-dpe', 'salaryswish-trade-exceptions'], sourceRelation: { kind: 'compose', note: 'Each tracker owns its own disjoint sub-key — nonTaxpayerMLE/taxpayerMLE/roomMLE, biAnnual, dpe, tradeExceptionsUsed — so none of them override or conflict with another; a team can have all four at once.' }, get: (t) => t.exceptionsUsed },
   ],
 }
 
@@ -476,7 +498,7 @@ const rookieYearEntity: EntitySpec<RookieYearRow> = {
   rows: () => Object.entries(PLAYER_ROOKIE_YEARS).map(([name, rookieYear]) => ({ name, rookieYear })),
   fields: [
     { path: 'name', type: 'string', description: 'Join key back to Player.name.', sources: ['bbref-contracts'], get: (r) => r.name },
-    { path: 'rookieYear', type: 'number', description: 'Calendar year of the player\'s first NBA season.', sources: ['bbref-draft', 'bbref-player-pages'], get: (r) => r.rookieYear },
+    { path: 'rookieYear', type: 'number', description: 'Calendar year of the player\'s first NBA season.', sources: ['bbref-draft', 'bbref-player-pages'], sourceRelation: { kind: 'fallback', note: 'bbref-draft\'s class pages are authoritative; bbref-player-pages\' bio page is only checked for the stragglers a draft-class page didn\'t resolve, and never overwrites a value bbref-draft already supplied.' }, get: (r) => r.rookieYear },
   ],
 }
 
@@ -708,3 +730,119 @@ export function erdTiers(): Record<string, number> {
   for (const entity of DATA_ENTITIES) depth(entity.id, new Set())
   return tiers
 }
+
+// ---------------------------------------------------------------------------
+// Override pipeline — the run order scripts/scrape/run.py actually executes
+// its build_*() steps in, and what each one does to data an earlier step
+// already wrote. This is the other half of "where did this value come from"
+// that per-field `sources` can't show on its own: a field's source list is a
+// flat, unordered set of attributions, but a value on disk is frequently the
+// product of several of those sources running in a specific sequence, each
+// one correcting, dropping, or merging onto what the last one left behind.
+// Hand-maintained for the same reason DATA_SOURCES and FieldSpec.sources are:
+// nothing about step order or override behavior is recoverable from the
+// generated data itself, only from reading the pipeline's own code — see
+// run.py's module docstring and GROUPS list, which this mirrors.
+// ---------------------------------------------------------------------------
+
+export interface OverridePipelineStage {
+  id: string
+  label: string
+  /**
+   * 'seed' rebuilds an entity from scratch every run (nothing upstream to
+   * conflict with yet); 'correct' overwrites specific fields on rows a seed
+   * step already created; 'reconcile' cross-checks existing rows against
+   * another source and can drop or flag them, not just overwrite a field;
+   * 'merge' adds fields a prior step never touched; 'derive' computes a
+   * field app-side from a step that already ran, with no fetch of its own.
+   */
+  kind: 'seed' | 'correct' | 'reconcile' | 'merge' | 'derive'
+  /** DATA_ENTITIES id this stage writes to. */
+  entity: string
+  /** Field paths on that entity this stage writes or corrects. */
+  fields: string[]
+  /** DATA_SOURCES ids this stage reads. Empty for a pure 'derive' step. */
+  sources: string[]
+  /** One or two sentences: what this stage does and, for correct/reconcile, what it's fixing. */
+  summary: string
+}
+
+/**
+ * In run.py's actual execution order (its GROUPS list, then the cap-state
+ * steps that follow it) — the sequence a stage's position in this array
+ * encodes is itself part of what it means: 'correct'/'reconcile' stages only
+ * make sense relative to the 'seed' stage earlier in the list that they
+ * overwrite or drop rows from.
+ */
+export const OVERRIDE_PIPELINE: OverridePipelineStage[] = [
+  {
+    id: 'players-seed', label: 'BBRef contracts', kind: 'seed', entity: 'player',
+    fields: ['name', 'team', 'salary', 'options'], sources: ['bbref-contracts'],
+    summary: 'Rebuilt from scratch every run — the base row for every player Basketball-Reference currently shows under contract.',
+  },
+  {
+    id: 'two-way-correct', label: 'Two-way tracker', kind: 'correct', entity: 'player',
+    fields: ['team', 'contractType', 'salary'], sources: ['hr-two-way-tracker'],
+    summary: 'Overwrites team and stamps contractType/salary for a two-way signing BBRef hasn\'t caught up to yet; creates a minimal new row when BBRef never had one at all (the common case for two-way slots).',
+  },
+  {
+    id: 'fa-reconcile', label: 'Free-agent reconciliation', kind: 'reconcile', entity: 'player',
+    fields: ['team', 'salary', 'options'], sources: ['realgm-free-agent-options', 'realgm-current-free-agents', 'salaryswish-transactions'],
+    summary: 'Clears a stale current-season option flag once BBRef\'s decision window has passed. Drops the row entirely if RealGM still lists the player as an unsigned free agent of that team (an unexercised option leaves no valid contract at all); corrects team + drops salary/options if a SalarySwish transaction shows they already signed elsewhere.',
+  },
+  {
+    id: 'fa-pool', label: 'Free-agent pool', kind: 'seed', entity: 'free-agent',
+    fields: ['name', 'position', 'priorTeam', 'faType', 'birdRights'], sources: ['realgm-current-free-agents'],
+    summary: 'Every unsigned player from the same RealGM page who still has NO players.json row after the reconciliation above — i.e. free agents never on a current contract at all.',
+  },
+  {
+    id: 'picks-seed', label: 'Draft picks', kind: 'seed', entity: 'draft-pick',
+    fields: ['teamOwner', 'year', 'round', 'teamFrom', 'swapOwner', 'protections', 'swapOption'], sources: ['realgm-future-drafts'],
+    summary: 'Rebuilt from scratch every run from RealGM\'s future-drafts listing.',
+  },
+  {
+    id: 'enrichment-merge', label: 'Acquisition history + guarantees', kind: 'merge', entity: 'player',
+    fields: ['acquisitionHistory', 'guarantees'], sources: ['bbref-transactions', 'salaryswish-transactions', 'hr-guarantee-dates', 'hr-non-guaranteed'],
+    summary: 'Appends today\'s SalarySwish transaction matches onto the BBRef-seeded acquisition ledger (accumulated, never overwritten). Merges Hoops Rumors\' two guarantee pages onto the same season, exact-date records winning over the team-wide page\'s coarser ones on conflict.',
+  },
+  {
+    id: 'clauses-seed', label: 'Trade clauses', kind: 'seed', entity: 'contract-detail',
+    fields: ['tradeBonusPct', 'noTradeClause'], sources: ['hr-trade-kickers', 'hr-veto-trades'],
+    summary: 'Rebuilds contract-details.json\'s base rows from Hoops Rumors\' kicker and veto-trade posts.',
+  },
+  {
+    id: 'awards-seed', label: 'Season awards', kind: 'seed', entity: 'award',
+    fields: ['award', 'season'], sources: ['bbref-awards'],
+    summary: 'MVP/DPOY/All-NBA winners for the last 5 closed seasons — fixed historical fact, re-fetched daily but never corrected against anything else.',
+  },
+  {
+    id: 'cap-state-seed', label: 'Team cap state', kind: 'seed', entity: 'team-cap-state',
+    fields: ['deadMoney', 'capHolds'], sources: ['captracker-teams'],
+    summary: 'Rebuilt from scratch every run from nbacaptracker.com\'s 30 team pages.',
+  },
+  {
+    id: 'cap-hold-reconcile', label: 'Cap-hold reconciliation', kind: 'reconcile', entity: 'team-cap-state',
+    fields: ['capHolds'], sources: ['realgm-current-free-agents'],
+    summary: 'Removes or flags a free-agent-kind cap hold CapTracker projected forward for a player who no longer matches an active free agent on that team (already re-signed, retired, or signed elsewhere) — same staleness problem as free-agent reconciliation above, applied to cap holds. Stamps birdRights onto the holds it confirms.',
+  },
+  {
+    id: 'swish-league-merge', label: 'SalarySwish league trackers', kind: 'merge', entity: 'team-cap-state',
+    fields: ['heldTPEs', 'hardCapped', 'exceptionsUsed'], sources: ['salaryswish-trade-exceptions', 'salaryswish-hard-cap', 'salaryswish-mle', 'salaryswish-bae', 'salaryswish-dpe'],
+    summary: 'Held TPEs, hard-cap status, and MLE/BAE/DPE/TPE usage — all "right now" facts merged onto the current season\'s row only, never onto a projected future season.',
+  },
+  {
+    id: 'signing-incentives-merge', label: 'Signing incentives', kind: 'merge', entity: 'contract-detail',
+    fields: ['signedUnder', 'incentives'], sources: ['salaryswish-players'],
+    summary: 'Per-player SalarySwish pages (~475, cached between runs) merged onto the contract-detail rows the clauses stage seeded.',
+  },
+  {
+    id: 'cash-ledger-merge', label: 'Cash-in-trade ledger', kind: 'merge', entity: 'team-cap-state',
+    fields: ['cashLedger'], sources: ['hr-cash-in-trade'],
+    summary: 'Remaining room under the cash-in-trade limit, merged onto the current season\'s row.',
+  },
+  {
+    id: 'apron-addon-derive', label: 'Apron add-on', kind: 'derive', entity: 'team-cap-state',
+    fields: ['apronAddon'], sources: [],
+    summary: 'Summed app-side from every roster player\'s unlikely incentives, written by the signing-incentives stage just before this one — no fetch of its own.',
+  },
+]

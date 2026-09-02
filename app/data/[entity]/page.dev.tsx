@@ -165,7 +165,7 @@ export default async function EntityDetail({ params }: { params: Promise<{ entit
                       </div>
                     </td>
                     <td className="px-3 py-2">
-                      <SourceBadges sources={field.sources} derived={field.derived} />
+                      <SourceBadges sources={field.sources} derived={field.derived} relation={field.sourceRelation} />
                       {field.derived && (
                         <p className="mt-1 text-[11px] italic text-muted-foreground">{field.derived}</p>
                       )}

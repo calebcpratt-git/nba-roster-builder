@@ -5,7 +5,7 @@
 // populated shows up immediately without anyone editing a description — the
 // same principle scripts/data-coverage.js follows for its terminal report.
 
-import { DATA_ENTITIES, type EntitySpec, type FieldSpec } from './data-schema'
+import { DATA_ENTITIES, type EntitySpec, type FieldSpec, type FieldSourceRelation } from './data-schema'
 
 /**
  * Whether a scraped value counts as present. Empty arrays and objects are
@@ -26,6 +26,7 @@ export interface FieldCoverage {
   type: string
   description: string
   sources: string[]
+  sourceRelation?: FieldSourceRelation
   derived?: string
   expectedEmpty?: string
   populated: number
@@ -81,6 +82,7 @@ export function fieldCoverage<Row>(entity: EntitySpec<Row>, field: FieldSpec<Row
     type: field.type,
     description: field.description,
     sources: field.sources,
+    sourceRelation: field.sourceRelation,
     derived: field.derived,
     expectedEmpty: field.expectedEmpty,
     populated,
