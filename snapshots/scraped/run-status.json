@@ -19,7 +19,7 @@
   "sourceFetches": {
     "bbref_contracts": true,
     "realgm_future_drafts": true,
-    "realgm_free_agent_options": false,
+    "realgm_free_agent_options": true,
     "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
@@ -51,7 +51,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 10,
       "failed": []
     }
   },
@@ -59,45 +59,90 @@
   "unresolved": {
     "before": {
       "draft-year": 0,
-      "acquisition": 101,
-      "guarantees": 5,
+      "acquisition": 105,
+      "guarantees": 6,
       "signing": 10,
       "awards": 4
     },
     "after": {
       "draft-year": 0,
-      "acquisition": 103,
-      "guarantees": 5,
+      "acquisition": 109,
+      "guarantees": 9,
       "signing": 10,
       "awards": 4
     },
-    "newUnresolved": 2,
+    "newUnresolved": 7,
     "newByCategory": {
-      "acquisition": 2
+      "acquisition": 4,
+      "guarantees": 3
     },
     "newRecords": {
       "acquisition": [
         {
-          "name": "James Harden",
-          "date": "2026-08-20",
+          "name": "Trey Townsend",
+          "date": "2026-09-01",
           "method": "free-agent"
         },
         {
-          "name": "Ismael Kamagate",
-          "date": "2026-08-14",
-          "method": "trade"
+          "name": "Saint Thomas",
+          "date": "2026-09-02",
+          "method": "free-agent"
+        },
+        {
+          "name": "Jameer Nelson Jr",
+          "date": "2026-09-02",
+          "method": "free-agent"
+        },
+        {
+          "name": "Tacko Fall",
+          "date": "2026-09-02",
+          "method": "free-agent"
+        }
+      ],
+      "guarantees": [
+        {
+          "player": "Trey Townsend",
+          "team": "Charlotte Hornets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Tacko Fall",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Jameer Nelson Jr.",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Saint Thomas",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
         }
       ]
     }
   },
-  "generatedAt": "2026-08-21T11:30:37.213Z",
+  "generatedAt": "2026-09-02T15:03:48.594Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~1 (of 529)",
-    "draft-picks: +4 -4 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 523)",
-    "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +0 -1 ~1 (of 147)",
+    "players: +0 -0 ~1 (of 535)",
+    "draft-picks: +0 -0 ~0 (of 521)",
+    "contract-details: +0 -0 ~0 (of 529)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +0 -0 ~0 (of 144)",
     "awards: +0 -0 ~0 (of 76)"
   ],
   "clean": true

@@ -45,6 +45,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Trey Townsend",
+  "date": "2026-09-01",
+  "method": "free-agent"
+ },
+ {
+  "name": "Josiah Allick",
+  "date": "2026-08-31",
+  "method": "free-agent"
+ },
+ {
   "name": "Matteo Spagnolo",
   "date": "2026-07-10",
   "method": "trade"
@@ -110,18 +120,13 @@
   "method": "free-agent"
  },
  {
-  "name": "Peyton Watson",
-  "date": "2026-08-19",
-  "method": "free-agent"
- },
- {
   "name": "Ismael Kamagate",
-  "date": "2026-08-14",
+  "date": "2026-08-20",
   "method": "trade"
  },
  {
-  "name": "Peyton Watson",
-  "date": "2026-08-14",
+  "name": "Cam Whitmore",
+  "date": "2026-08-20",
   "method": "trade"
  },
  {
@@ -133,6 +138,16 @@
   "name": "Xaivian Lee",
   "date": "2026-06-24",
   "method": "free-agent"
+ },
+ {
+  "name": "DeMar DeRozan",
+  "date": "2026-08-21",
+  "method": "free-agent"
+ },
+ {
+  "name": "Julian Reese",
+  "date": "2026-08-20",
+  "method": "trade"
  },
  {
   "name": "Lonnie Walker IV",
@@ -160,11 +175,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Bryce Hopkins",
-  "date": "2026-06-23",
-  "method": "draft"
- },
- {
   "name": "Basheer Jihad",
   "date": "2026-08-14",
   "method": "free-agent"
@@ -182,6 +192,11 @@
  {
   "name": "Jaden Henley",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Deivon Smith",
+  "date": "2026-08-24",
   "method": "free-agent"
  },
  {
@@ -290,11 +305,6 @@
   "method": "free-agent"
  },
  {
-  "name": "J'Vonne Hadley",
-  "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
   "name": "Keyshawn Hall",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -310,8 +320,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Rafael Castro",
-  "date": "2026-06-24",
+  "name": "Jonathan Kuminga",
+  "date": "2026-08-26",
   "method": "free-agent"
  },
  {
@@ -328,6 +338,16 @@
   "name": "Mouhamadou Gueye",
   "date": "2026-06-22",
   "method": "trade"
+ },
+ {
+  "name": "Bennedict Mathurin",
+  "date": "2026-08-26",
+  "method": "free-agent"
+ },
+ {
+  "name": "Hunter Dickinson",
+  "date": "2026-06-26",
+  "method": "free-agent"
  },
  {
   "name": "Chris Bell",
@@ -380,18 +400,33 @@
   "method": "free-agent"
  },
  {
+  "name": "Malaki Branham",
+  "date": "2026-08-26",
+  "method": "free-agent"
+ },
+ {
   "name": "Malik Reneau",
   "date": "2026-06-24",
   "method": "free-agent"
  },
  {
-  "name": "Duke Miles",
-  "date": "2026-07-07",
+  "name": "Saint Thomas",
+  "date": "2026-09-02",
   "method": "free-agent"
  },
  {
-  "name": "Dalen Terry",
-  "date": "2026-04-10",
+  "name": "Jameer Nelson Jr",
+  "date": "2026-09-02",
+  "method": "free-agent"
+ },
+ {
+  "name": "Tacko Fall",
+  "date": "2026-09-02",
+  "method": "free-agent"
+ },
+ {
+  "name": "Duke Miles",
+  "date": "2026-07-07",
   "method": "free-agent"
  },
  {

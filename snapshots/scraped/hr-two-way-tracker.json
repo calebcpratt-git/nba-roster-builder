@@ -152,6 +152,14 @@
   "reported": false
  },
  {
+  "name": "Bryce Hopkins",
+  "bbrefId": "hopkibr01",
+  "team": "DEN",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
   "name": "Isaac Jones",
   "bbrefId": "jonesis01",
   "team": "DET",
@@ -192,19 +200,27 @@
   "reported": false
  },
  {
-  "name": "Tristen Newton",
-  "bbrefId": "newtotr01",
+  "name": "Quadir Copeland",
+  "bbrefId": "copelqu01",
   "team": "HOU",
   "position": "G",
   "twoYear": false,
   "reported": false
  },
  {
-  "name": "Quadir Copeland",
-  "bbrefId": "copelqu01",
+  "name": "Sean Pedulla",
+  "bbrefId": "pedulse01",
   "team": "HOU",
   "position": "G",
-  "twoYear": false,
+  "twoYear": true,
+  "reported": false
+ },
+ {
+  "name": "Rafael Castro",
+  "bbrefId": null,
+  "team": "HOU",
+  "position": "C",
+  "twoYear": true,
   "reported": false
  },
  {
@@ -220,6 +236,14 @@
   "bbrefId": "slawsja01",
   "team": "IND",
   "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Braden Smith",
+  "bbrefId": "smithbr01",
+  "team": "IND",
+  "position": "G",
   "twoYear": false,
   "reported": false
  },
@@ -304,6 +328,14 @@
   "reported": false
  },
  {
+  "name": "Keshad Johnson",
+  "bbrefId": "johnske10",
+  "team": "MIA",
+  "position": "F",
+  "twoYear": false,
+  "reported": false
+ },
+ {
   "name": "Cormac Ryan",
   "bbrefId": "ryanco01",
   "team": "MIL",
@@ -344,18 +376,18 @@
   "reported": false
  },
  {
-  "name": "Hunter Dickinson",
-  "bbrefId": "dickihu01",
-  "team": "NOP",
-  "position": "C",
-  "twoYear": false,
-  "reported": false
- },
- {
   "name": "Jaron Pierre Jr.",
   "bbrefId": "pierrja01",
   "team": "NOP",
   "position": "G",
+  "twoYear": false,
+  "reported": false
+ },
+ {
+  "name": "Malik Dia",
+  "bbrefId": "diama01",
+  "team": "NOP",
+  "position": "F",
   "twoYear": false,
   "reported": false
  },
@@ -556,14 +588,6 @@
   "bbrefId": "alexatr01",
   "team": "UTA",
   "position": "G",
-  "twoYear": false,
-  "reported": false
- },
- {
-  "name": "Julian Reese",
-  "bbrefId": "reeseju01",
-  "team": "WAS",
-  "position": "F",
   "twoYear": false,
   "reported": false
  },

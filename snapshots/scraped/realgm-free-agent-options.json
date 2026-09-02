@@ -128,7 +128,7 @@
  {
   "name": "Cody Williams",
   "position": "PF",
-  "team": "UTA",
+  "team": "MIN",
   "season": "2027-28",
   "optionType": "Team"
  },
@@ -2048,6 +2048,13 @@
   "position": "SG",
   "team": "CLE",
   "season": "2029-30",
+  "optionType": "Player"
+ },
+ {
+  "name": "Klay Thompson",
+  "position": "SG",
+  "team": "MIA",
+  "season": "2027-28",
   "optionType": "Player"
  }
 ]

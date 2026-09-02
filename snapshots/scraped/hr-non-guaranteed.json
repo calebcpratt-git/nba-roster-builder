@@ -32,12 +32,12 @@
   "exhibit10": false
  },
  {
-  "player": "Mouhamadou Gueye",
+  "player": "Trey Townsend",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
   "player": "Mario Hezonja",
@@ -88,12 +88,36 @@
   "exhibit10": false
  },
  {
+  "player": "Georges Niang",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": 1838009,
+  "status": "partial",
+  "exhibit10": false
+ },
+ {
   "player": "Charles Bassey",
   "team": "Golden State Warriors",
   "fullAmount": null,
   "partialAmount": 1400000,
   "status": "partial",
   "exhibit10": false
+ },
+ {
+  "player": "Brandon Williams",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Dalen Terry",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Jae’Sean Tate",
@@ -176,6 +200,22 @@
   "exhibit10": false
  },
  {
+  "player": "Nick Richards",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "J’Vonne Hadley",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Pete Nance",
   "team": "Milwaukee Bucks",
   "fullAmount": null,
@@ -240,7 +280,31 @@
   "exhibit10": false
  },
  {
+  "player": "Tacko Fall",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Duke Miles",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jameer Nelson Jr.",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Saint Thomas",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
   "partialAmount": null,
@@ -329,6 +393,14 @@
  },
  {
   "player": "Harrison Ingram",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Matthew Murrell",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

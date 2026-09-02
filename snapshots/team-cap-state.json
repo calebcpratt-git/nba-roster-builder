@@ -893,11 +893,6 @@
         "birdRights": "non-bird"
       },
       {
-        "label": "Nick Richards",
-        "amount": 9500000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Guerschon Yabusele",
         "amount": 6600000,
         "kind": "free-agent"
@@ -1124,7 +1119,7 @@
     "heldTPEs": [
       {
         "id": "CLE-deandre-hunter-2026-02-01",
-        "amount": 6897984,
+        "amount": 1439674,
         "expires": "2027-02-01",
         "fromPlayer": "De'Andre Hunter"
       },
@@ -1139,17 +1134,39 @@
         "amount": 10000000,
         "expires": "2027-02-05",
         "fromPlayer": "Lonzo Ball"
+      },
+      {
+        "id": "CLE-max-strus-2026-08-20",
+        "amount": 16660836,
+        "expires": "2027-08-20",
+        "fromPlayer": "Max Strus"
       }
     ],
+    "hardCapped": {
+      "apron": 1,
+      "trigger": "Trade Salary Acquired: Aug 20 trade"
+    },
     "exceptionsUsed": {
+      "nonTaxpayerMLE": {
+        "signings": [],
+        "remaining": 1207654
+      },
       "taxpayerMLE": {
         "signings": [],
         "remaining": 6064000
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 0
-      }
+        "remaining": 1207654
+      },
+      "tradeExceptionsUsed": [
+        {
+          "tpeFromPlayer": "De'Andre Hunter",
+          "usedByPlayer": "Cam Whitmore",
+          "amount": 5458310,
+          "date": "2026-08-20"
+        }
+      ]
     },
     "cashLedger": {
       "availableToSend": 7964000,
@@ -1368,12 +1385,6 @@
         "amount": 7600000,
         "kind": "free-agent",
         "birdRights": "full-bird"
-      },
-      {
-        "label": "Brandon Williams",
-        "amount": 2500000,
-        "kind": "free-agent",
-        "birdRights": "full-bird"
       }
     ],
     "salaryCap": 165000000,
@@ -1418,7 +1429,7 @@
             "amount": 3000000
           }
         ],
-        "remaining": 9804321
+        "remaining": 12044000
       },
       "biAnnual": {
         "signings": [],
@@ -1680,6 +1691,12 @@
         "amount": 2221677,
         "expires": "2027-02-05",
         "fromPlayer": "Hunter Tyson"
+      },
+      {
+        "id": "DEN-peyton-watson-2026-08-20",
+        "amount": 10232558,
+        "expires": "2027-08-20",
+        "fromPlayer": "Peyton Watson"
       }
     ],
     "exceptionsUsed": {
@@ -3202,8 +3219,7 @@
       {
         "label": "Bennedict Mathurin",
         "amount": 27600000,
-        "kind": "free-agent",
-        "birdRights": "full-bird"
+        "kind": "free-agent"
       },
       {
         "label": "Norchad Omier",
@@ -3237,7 +3253,7 @@
       },
       {
         "id": "LAC-john-collins-2026-07-08",
-        "amount": 15740741,
+        "amount": 0,
         "expires": "2027-07-08",
         "fromPlayer": "John Collins"
       }
@@ -3265,7 +3281,15 @@
         "initial": 3212400,
         "used": false,
         "remaining": 3212400
-      }
+      },
+      "tradeExceptionsUsed": [
+        {
+          "tpeFromPlayer": "John Collins",
+          "usedByPlayer": "Max Strus",
+          "amount": 15740741,
+          "date": "2026-08-20"
+        }
+      ]
     },
     "cashLedger": {
       "availableToSend": 0,
@@ -3825,12 +3849,6 @@
         "amount": 2200000,
         "kind": "free-agent",
         "birdRights": "non-bird"
-      },
-      {
-        "label": "Keshad Johnson",
-        "amount": 2700000,
-        "kind": "free-agent",
-        "birdRights": "early-bird"
       }
     ],
     "salaryCap": 165000000,
@@ -3845,15 +3863,19 @@
       "nonTaxpayerMLE": {
         "signings": [
           {
+            "player": "Klay Thompson",
+            "amount": 5600000
+          },
+          {
             "player": "Tim Hardaway Jr.",
             "amount": 6065000
           }
         ],
-        "remaining": 6789258
+        "remaining": null
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 5477000
+        "remaining": 0
       }
     },
     "cashLedger": {
@@ -4339,6 +4361,12 @@
         "amount": 6576120,
         "expires": "2027-02-05",
         "fromPlayer": "Rob Dillingham"
+      },
+      {
+        "id": "MIN-josh-green-2026-08-29",
+        "amount": 2498412,
+        "expires": "2027-08-29",
+        "fromPlayer": "Josh Green"
       }
     ],
     "hardCapped": {
@@ -4347,11 +4375,12 @@
     },
     "exceptionsUsed": {
       "taxpayerMLE": {
-        "signings": [],
-        "remaining": 6064000
-      },
-      "biAnnual": {
-        "signings": [],
+        "signings": [
+          {
+            "player": "Jonathan Kuminga",
+            "amount": 6064000
+          }
+        ],
         "remaining": 0
       }
     },
@@ -4663,9 +4692,14 @@
       }
     ],
     "exceptionsUsed": {
-      "taxpayerMLE": {
-        "signings": [],
-        "remaining": 6064000
+      "nonTaxpayerMLE": {
+        "signings": [
+          {
+            "player": "Bennedict Mathurin",
+            "amount": 7804878
+          }
+        ],
+        "remaining": null
       },
       "biAnnual": {
         "signings": [],
@@ -5577,10 +5611,6 @@
       }
     ],
     "exceptionsUsed": {
-      "taxpayerMLE": {
-        "signings": [],
-        "remaining": 6064000
-      },
       "biAnnual": {
         "signings": [],
         "remaining": 0
@@ -5883,7 +5913,7 @@
             "amount": 9000000
           }
         ],
-        "remaining": 44000
+        "remaining": null
       },
       "biAnnual": {
         "signings": [
@@ -5893,7 +5923,7 @@
             "date": "2026-07-06"
           }
         ],
-        "remaining": 470766
+        "remaining": 0
       }
     },
     "cashLedger": {
@@ -7317,6 +7347,10 @@
         "fromPlayer": "Walker Kessler"
       }
     ],
+    "hardCapped": {
+      "apron": 1,
+      "trigger": "Trade Salary Acquired: Aug 29 trade"
+    },
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [
@@ -7641,7 +7675,7 @@
     ],
     "hardCapped": {
       "apron": 1,
-      "trigger": "Past-Season TPE: Jul 8 trade Jul 8 trade"
+      "trigger": "Trade Salary Acquired: Aug 20 trade"
     },
     "exceptionsUsed": {
       "nonTaxpayerMLE": {

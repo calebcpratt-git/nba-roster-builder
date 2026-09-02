@@ -206,8 +206,8 @@
   "status": "partial",
   "partialAmount": 3212400,
   "fullAmount": 6424800,
-  "guaranteeTriggered": null,
-  "raw": "Partial guarantee ($3,212,400) increases to full guarantee ($6,424,800)."
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($3,212,400) increases to full guarantee ($6,424,800). (✅)"
  },
  {
   "player": "Moussa Cisse",
@@ -270,6 +270,16 @@
   "raw": "Non-guaranteed salary ($2,449,421) becomes partially guaranteed ($1,154,325)."
  },
  {
+  "player": "Nick Richards",
+  "team": "Heat",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 3066143,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($3,066,143) becomes fully guaranteed."
+ },
+ {
   "player": "Jaylen Wells",
   "team": "Grizzlies",
   "guaranteeDate": "2026-10-15",
@@ -278,6 +288,16 @@
   "fullAmount": 2296271,
   "guaranteeTriggered": null,
   "raw": "Partial guarantee ($300,000) increases to full guarantee ($2,296,271)."
+ },
+ {
+  "player": "Brandon Williams",
+  "team": "Warriors",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 2625627,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($2,625,627) becomes partially guaranteed ($1,400,000)."
  },
  {
   "player": "Vit Krejci",

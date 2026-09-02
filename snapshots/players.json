@@ -2086,6 +2086,36 @@
     ]
   },
   {
+    "name": "Peyton Watson",
+    "team": "CLE",
+    "salary": {
+      "2026-27": 20465116,
+      "2027-28": 21488372,
+      "2028-29": 22511628,
+      "2029-30": 23534884
+    },
+    "options": {
+      "2029-30": "Player"
+    },
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-19",
+        "method": "free-agent",
+        "team": "DEN"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "trade",
+        "team": "CLE"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "free-agent",
+        "team": "DEN"
+      }
+    ]
+  },
+  {
     "name": "Kyle Kuzma",
     "team": "MIL",
     "salary": {
@@ -2620,9 +2650,12 @@
     "name": "Klay Thompson",
     "team": "DAL",
     "salary": {
-      "2026-27": 17460317
+      "2026-27": 23060317,
+      "2027-28": 5880000
     },
-    "options": {},
+    "options": {
+      "2027-28": "Player"
+    },
     "acquisitionHistory": [
       {
         "date": "2024-07-06",
@@ -2633,6 +2666,11 @@
         "date": "2024-07-06",
         "method": "trade",
         "team": "DAL"
+      },
+      {
+        "date": "2026-08-23",
+        "method": "free-agent",
+        "team": "MIA"
       }
     ]
   },
@@ -2792,7 +2830,7 @@
   },
   {
     "name": "Max Strus",
-    "team": "CLE",
+    "team": "LAC",
     "salary": {
       "2026-27": 16660836
     },
@@ -2815,6 +2853,11 @@
       },
       {
         "date": "2026-08-14",
+        "method": "trade",
+        "team": "LAC"
+      },
+      {
+        "date": "2026-08-20",
         "method": "trade",
         "team": "LAC"
       }
@@ -3119,7 +3162,7 @@
   },
   {
     "name": "Dennis Schröder",
-    "team": "CLE",
+    "team": "CHO",
     "salary": {
       "2026-27": 14809200,
       "2027-28": 15514400
@@ -3160,6 +3203,11 @@
         "date": "2026-08-14",
         "method": "trade",
         "team": "CHO"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "trade",
+        "team": "CHO"
       }
     ]
   },
@@ -3191,7 +3239,7 @@
   },
   {
     "name": "Josh Green",
-    "team": "MIN",
+    "team": "UTA",
     "salary": {
       "2026-27": 14679012
     },
@@ -3216,6 +3264,11 @@
         "date": "2026-07-10",
         "method": "trade",
         "team": "MIN"
+      },
+      {
+        "date": "2026-08-29",
+        "method": "trade",
+        "team": "UTA"
       }
     ]
   },
@@ -5333,33 +5386,8 @@
     }
   },
   {
-    "name": "Harrison Barnes",
-    "team": "SAS",
-    "salary": {
-      "2026-27": 8000000
-    },
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2023-06-29",
-        "method": "extension",
-        "team": "SAC"
-      },
-      {
-        "date": "2024-07-08",
-        "method": "trade",
-        "team": "SAS"
-      },
-      {
-        "date": "2026-07-08",
-        "method": "free-agent",
-        "team": "SAS"
-      }
-    ]
-  },
-  {
     "name": "Tre Mann",
-    "team": "CHO",
+    "team": "WAS",
     "salary": {
       "2026-27": 8000000,
       "2027-28": 8000000
@@ -5407,6 +5435,36 @@
         "date": "2026-08-14",
         "method": "trade",
         "team": "WAS"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "trade",
+        "team": "WAS"
+      }
+    ]
+  },
+  {
+    "name": "Harrison Barnes",
+    "team": "SAS",
+    "salary": {
+      "2026-27": 8000000
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2023-06-29",
+        "method": "extension",
+        "team": "SAC"
+      },
+      {
+        "date": "2024-07-08",
+        "method": "trade",
+        "team": "SAS"
+      },
+      {
+        "date": "2026-07-08",
+        "method": "free-agent",
+        "team": "SAS"
       }
     ]
   },
@@ -6009,21 +6067,6 @@
     ]
   },
   {
-    "name": "John Konchar",
-    "team": "UTA",
-    "salary": {
-      "2026-27": 6165000
-    },
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2022-07-07",
-        "method": "extension",
-        "team": "MEM"
-      }
-    ]
-  },
-  {
     "name": "Yaxel Lendeborg",
     "team": "GSW",
     "salary": {
@@ -6122,7 +6165,7 @@
   },
   {
     "name": "Cody Williams",
-    "team": "UTA",
+    "team": "MIN",
     "salary": {
       "2026-27": 6015600,
       "2027-28": 7669890
@@ -6135,6 +6178,11 @@
         "date": "2024-07-02",
         "method": "free-agent",
         "team": "UTA"
+      },
+      {
+        "date": "2026-08-29",
+        "method": "trade",
+        "team": "MIN"
       }
     ]
   },
@@ -6853,34 +6901,6 @@
         "date": "2026-07-31",
         "method": "free-agent",
         "team": "GSW"
-      }
-    ]
-  },
-  {
-    "name": "Cam Whitmore",
-    "team": "CLE",
-    "salary": {},
-    "options": {},
-    "acquisitionHistory": [
-      {
-        "date": "2023-02-09",
-        "method": "trade",
-        "team": "HOU"
-      },
-      {
-        "date": "2023-07-03",
-        "method": "free-agent",
-        "team": "HOU"
-      },
-      {
-        "date": "2025-07-06",
-        "method": "trade",
-        "team": "WAS"
-      },
-      {
-        "date": "2026-08-14",
-        "method": "trade",
-        "team": "CLE"
       }
     ]
   },
@@ -10892,6 +10912,27 @@
     }
   },
   {
+    "name": "Nick Richards",
+    "team": "MIA",
+    "salary": {
+      "2026-27": 2449421
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-27",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed",
+        "guaranteeDate": "2026-10-15"
+      }
+    }
+  },
+  {
     "name": "Simone Fontecchio",
     "team": "MIA",
     "salary": {
@@ -11503,6 +11544,48 @@
     "guarantees": {
       "2026-27": {
         "status": "non-guaranteed"
+      }
+    }
+  },
+  {
+    "name": "Georges Niang",
+    "team": "GSW",
+    "salary": {
+      "2026-27": 2449421
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-25",
+        "method": "free-agent",
+        "team": "GSW"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "partial",
+        "amount": 1838009
+      }
+    }
+  },
+  {
+    "name": "Brandon Williams",
+    "team": "GSW",
+    "salary": {
+      "2026-27": 2449421
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-26",
+        "method": "free-agent",
+        "team": "GSW"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed",
+        "guaranteeDate": "2026-10-15"
       }
     }
   },
@@ -12602,6 +12685,28 @@
     }
   },
   {
+    "name": "John Konchar",
+    "team": "MIN",
+    "salary": {
+      "2026-27": 2055000,
+      "2027-28": 2055000,
+      "2028-29": 2055000
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2022-07-07",
+        "method": "extension",
+        "team": "MEM"
+      },
+      {
+        "date": "2026-08-29",
+        "method": "trade",
+        "team": "MIN"
+      }
+    ]
+  },
+  {
     "name": "Baba Miller",
     "team": "LAC",
     "salary": {
@@ -12906,6 +13011,51 @@
         "date": "2026-07-09",
         "method": "free-agent",
         "team": "TOR"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
+    "name": "J'Vonne Hadley",
+    "team": "MIA",
+    "salary": {
+      "2026-27": 1357763
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-27",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
+    "name": "Dalen Terry",
+    "team": "GSW",
+    "salary": {
+      "2026-27": 1357763
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-04-10",
+        "method": "free-agent",
+        "team": "PHI"
+      },
+      {
+        "date": "2026-08-31",
+        "method": "free-agent",
+        "team": "GSW"
       }
     ],
     "guarantees": {
@@ -13579,6 +13729,27 @@
     ]
   },
   {
+    "name": "Bryce Hopkins",
+    "team": "DEN",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2026-06-23",
+        "method": "draft",
+        "team": "DEN"
+      },
+      {
+        "date": "2026-08-26",
+        "method": "free-agent",
+        "team": "DEN"
+      }
+    ]
+  },
+  {
     "name": "Isaac Jones",
     "team": "DET",
     "salary": {
@@ -13719,37 +13890,6 @@
     ]
   },
   {
-    "name": "Tristen Newton",
-    "team": "HOU",
-    "salary": {
-      "2026-27": 678882
-    },
-    "options": {},
-    "contractType": "two-way",
-    "acquisitionHistory": [
-      {
-        "date": "2024-07-27",
-        "method": "free-agent",
-        "team": "IND"
-      },
-      {
-        "date": "2025-01-03",
-        "method": "waiver",
-        "team": "MIN"
-      },
-      {
-        "date": "2025-09-15",
-        "method": "free-agent",
-        "team": "MIN"
-      },
-      {
-        "date": "2026-01-03",
-        "method": "free-agent",
-        "team": "HOU"
-      }
-    ]
-  },
-  {
     "name": "Quadir Copeland",
     "team": "HOU",
     "salary": {
@@ -13776,6 +13916,22 @@
     "acquisitionHistory": [
       {
         "date": "2026-08-17",
+        "method": "free-agent",
+        "team": "HOU"
+      }
+    ]
+  },
+  {
+    "name": "Rafael Castro",
+    "team": "HOU",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-26",
         "method": "free-agent",
         "team": "HOU"
       }
@@ -14094,6 +14250,22 @@
       },
       {
         "date": "2026-06-26",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ]
+  },
+  {
+    "name": "Keshad Johnson",
+    "team": "MIA",
+    "salary": {
+      "2026-27": 678882
+    },
+    "options": {},
+    "contractType": "two-way",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-27",
         "method": "free-agent",
         "team": "MIA"
       }
@@ -15035,32 +15207,6 @@
         "date": "2026-07-07",
         "method": "free-agent",
         "team": "UTA"
-      }
-    ]
-  },
-  {
-    "name": "Julian Reese",
-    "team": "WAS",
-    "salary": {
-      "2026-27": 678882
-    },
-    "options": {},
-    "contractType": "two-way",
-    "acquisitionHistory": [
-      {
-        "date": "2025-10-16",
-        "method": "free-agent",
-        "team": "TOR"
-      },
-      {
-        "date": "2026-02-28",
-        "method": "free-agent",
-        "team": "WAS"
-      },
-      {
-        "date": "2026-08-14",
-        "method": "trade",
-        "team": "DEN"
       }
     ]
   },
