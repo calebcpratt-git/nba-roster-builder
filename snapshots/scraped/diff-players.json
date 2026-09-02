@@ -1,245 +1,51 @@
 {
-  "added": [
-    {
-      "name": "Nick Richards",
-      "team": "MIA",
-      "salary": {
-        "2026-27": 2449421
-      },
-      "options": {},
-      "acquisitionHistory": [
-        {
-          "date": "2026-08-27",
-          "method": "free-agent",
-          "team": "MIA"
-        }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "non-guaranteed"
-        }
-      }
-    },
-    {
-      "name": "J'Vonne Hadley",
-      "team": "MIA",
-      "salary": {
-        "2026-27": 1357763
-      },
-      "options": {},
-      "acquisitionHistory": [
-        {
-          "date": "2026-08-27",
-          "method": "free-agent",
-          "team": "MIA"
-        }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "non-guaranteed"
-        }
-      }
-    },
-    {
-      "name": "Dalen Terry",
-      "team": "GSW",
-      "salary": {
-        "2026-27": 1357763
-      },
-      "options": {},
-      "acquisitionHistory": [
-        {
-          "date": "2026-04-10",
-          "method": "free-agent",
-          "team": "PHI"
-        },
-        {
-          "date": "2026-08-31",
-          "method": "free-agent",
-          "team": "GSW"
-        }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "non-guaranteed"
-        }
-      }
-    }
-  ],
+  "added": [],
   "removed": [],
   "changed": [
     {
       "before": {
-        "name": "Josh Green",
-        "team": "MIN",
+        "name": "Nick Richards",
+        "team": "MIA",
         "salary": {
-          "2026-27": 14679012
+          "2026-27": 2449421
         },
         "options": {},
         "acquisitionHistory": [
           {
-            "date": "2021-11-14",
+            "date": "2026-08-27",
             "method": "free-agent",
-            "team": "DAL"
-          },
-          {
-            "date": "2023-10-23",
-            "method": "extension",
-            "team": "DAL"
-          },
-          {
-            "date": "2024-07-06",
-            "method": "trade",
-            "team": "CHO"
-          },
-          {
-            "date": "2026-07-10",
-            "method": "trade",
-            "team": "MIN"
-          },
-          {
-            "date": "2026-08-29",
-            "method": "trade",
-            "team": "UTA"
+            "team": "MIA"
           }
-        ]
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
       },
       "after": {
-        "name": "Josh Green",
-        "team": "UTA",
+        "name": "Nick Richards",
+        "team": "MIA",
         "salary": {
-          "2026-27": 14679012
+          "2026-27": 2449421
         },
         "options": {},
         "acquisitionHistory": [
           {
-            "date": "2021-11-14",
+            "date": "2026-08-27",
             "method": "free-agent",
-            "team": "DAL"
-          },
-          {
-            "date": "2023-10-23",
-            "method": "extension",
-            "team": "DAL"
-          },
-          {
-            "date": "2024-07-06",
-            "method": "trade",
-            "team": "CHO"
-          },
-          {
-            "date": "2026-07-10",
-            "method": "trade",
-            "team": "MIN"
-          },
-          {
-            "date": "2026-08-29",
-            "method": "trade",
-            "team": "UTA"
+            "team": "MIA"
           }
-        ]
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed",
+            "guaranteeDate": "2026-10-15"
+          }
+        }
       },
       "fields": [
-        "team"
-      ]
-    },
-    {
-      "before": {
-        "name": "Cody Williams",
-        "team": "UTA",
-        "salary": {
-          "2026-27": 6015600,
-          "2027-28": 7669890
-        },
-        "options": {
-          "2027-28": "Team"
-        },
-        "acquisitionHistory": [
-          {
-            "date": "2024-07-02",
-            "method": "free-agent",
-            "team": "UTA"
-          },
-          {
-            "date": "2026-08-29",
-            "method": "trade",
-            "team": "MIN"
-          }
-        ]
-      },
-      "after": {
-        "name": "Cody Williams",
-        "team": "MIN",
-        "salary": {
-          "2026-27": 6015600,
-          "2027-28": 7669890
-        },
-        "options": {
-          "2027-28": "Team"
-        },
-        "acquisitionHistory": [
-          {
-            "date": "2024-07-02",
-            "method": "free-agent",
-            "team": "UTA"
-          },
-          {
-            "date": "2026-08-29",
-            "method": "trade",
-            "team": "MIN"
-          }
-        ]
-      },
-      "fields": [
-        "team"
-      ]
-    },
-    {
-      "before": {
-        "name": "John Konchar",
-        "team": "UTA",
-        "salary": {
-          "2026-27": 6165000
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2022-07-07",
-            "method": "extension",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-08-29",
-            "method": "trade",
-            "team": "MIN"
-          }
-        ]
-      },
-      "after": {
-        "name": "John Konchar",
-        "team": "MIN",
-        "salary": {
-          "2026-27": 2055000,
-          "2027-28": 2055000,
-          "2028-29": 2055000
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2022-07-07",
-            "method": "extension",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-08-29",
-            "method": "trade",
-            "team": "MIN"
-          }
-        ]
-      },
-      "fields": [
-        "team",
-        "salary"
+        "guarantees"
       ]
     }
   ]

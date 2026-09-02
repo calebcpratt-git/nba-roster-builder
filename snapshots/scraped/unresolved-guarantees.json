@@ -20,7 +20,7 @@
   "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,584,539). ( ✅ )"
  },
  {
-  "player": "Josiah Allick",
+  "player": "Trey Townsend",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -36,7 +36,31 @@
   "exhibit10": false
  },
  {
+  "player": "Tacko Fall",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Duke Miles",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jameer Nelson Jr.",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Saint Thomas",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
   "partialAmount": null,

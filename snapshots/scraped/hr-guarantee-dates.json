@@ -270,6 +270,16 @@
   "raw": "Non-guaranteed salary ($2,449,421) becomes partially guaranteed ($1,154,325)."
  },
  {
+  "player": "Nick Richards",
+  "team": "Heat",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 3066143,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($3,066,143) becomes fully guaranteed."
+ },
+ {
   "player": "Jaylen Wells",
   "team": "Grizzlies",
   "guaranteeDate": "2026-10-15",

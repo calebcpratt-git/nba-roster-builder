@@ -652,6 +652,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Trey Townsend",
+  "date": "2026-09-01",
+  "dateRaw": "Sep 1, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Josiah Allick",
   "date": "2026-08-31",
   "dateRaw": "Aug 31, 2026",
@@ -4421,6 +4434,45 @@
   "method": "free-agent",
   "toTeams": [
    "ORL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Saint Thomas",
+  "date": "2026-09-02",
+  "dateRaw": "Sep 2, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jameer Nelson Jr",
+  "date": "2026-09-02",
+  "dateRaw": "Sep 2, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Tacko Fall",
+  "date": "2026-09-02",
+  "dateRaw": "Sep 2, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHI"
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",

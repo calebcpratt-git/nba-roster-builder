@@ -5913,7 +5913,7 @@
             "amount": 9000000
           }
         ],
-        "remaining": 44000
+        "remaining": null
       },
       "biAnnual": {
         "signings": [
@@ -5923,7 +5923,7 @@
             "date": "2026-07-06"
           }
         ],
-        "remaining": 470766
+        "remaining": 0
       }
     },
     "cashLedger": {

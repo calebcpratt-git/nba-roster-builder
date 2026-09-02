@@ -1,25 +1,5 @@
 {
   "added": [],
   "removed": [],
-  "changed": [
-    {
-      "before": {
-        "name": "Julian Reese",
-        "position": "PF",
-        "priorTeam": "DEN",
-        "faType": "U",
-        "birdRights": "non-bird"
-      },
-      "after": {
-        "name": "Julian Reese",
-        "position": "PF",
-        "priorTeam": "DEN",
-        "faType": "U",
-        "birdRights": null
-      },
-      "fields": [
-        "birdRights"
-      ]
-    }
-  ]
+  "changed": []
 }

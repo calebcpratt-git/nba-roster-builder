@@ -11307,7 +11307,8 @@
   ],
   "guarantees": {
    "2026-27": {
-    "status": "non-guaranteed"
+    "status": "non-guaranteed",
+    "guaranteeDate": "2026-10-15"
    }
   }
  },
