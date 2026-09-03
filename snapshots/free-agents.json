@@ -196,6 +196,13 @@
     "birdRights": null
   },
   {
+    "name": "Hunter Dickinson",
+    "position": "C",
+    "priorTeam": "NOP",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Nikola Djurisic",
     "position": "SG",
     "priorTeam": "ATL",
@@ -420,6 +427,13 @@
     "birdRights": null
   },
   {
+    "name": "John Konchar",
+    "position": "SG",
+    "priorTeam": "MIN",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Skal Labissiere",
     "position": "F-C",
     "priorTeam": "WAS",
@@ -553,6 +567,13 @@
     "birdRights": null
   },
   {
+    "name": "Tristen Newton",
+    "position": "SG",
+    "priorTeam": "HOU",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Miles Norris",
     "position": "SF",
     "priorTeam": "BOS",
@@ -633,6 +654,13 @@
     "name": "Duop Reath",
     "position": "C",
     "priorTeam": "ATL",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Julian Reese",
+    "position": "PF",
+    "priorTeam": "DEN",
     "faType": "U",
     "birdRights": null
   },
@@ -742,13 +770,6 @@
     "birdRights": null
   },
   {
-    "name": "Malachi Smith",
-    "position": "SG",
-    "priorTeam": "BRK",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Tyler Smith",
     "position": "PF",
     "priorTeam": "DAL",
@@ -784,13 +805,6 @@
     "birdRights": "full-bird"
   },
   {
-    "name": "Dalen Terry",
-    "position": "SF",
-    "priorTeam": "PHI",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Cam Thomas",
     "position": "PG",
     "priorTeam": "MIL",
@@ -802,7 +816,7 @@
     "position": "SG",
     "priorTeam": "IND",
     "faType": "U",
-    "birdRights": "non-bird"
+    "birdRights": null
   },
   {
     "name": "Xavier Tillman, Sr.",
@@ -906,6 +920,13 @@
     "name": "Dariq Whitehead",
     "position": "G-F",
     "priorTeam": "MEM",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Cam Whitmore",
+    "position": "SF",
+    "priorTeam": "CLE",
     "faType": "U",
     "birdRights": null
   },

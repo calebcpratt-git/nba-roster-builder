@@ -10,11 +10,6 @@
   "reason": "no matching contract block on page"
  },
  {
-  "name": "Khalifa Diop",
-  "team": "CLE",
-  "reason": "no offline snapshot"
- },
- {
   "name": "Morez Johnson Jr.",
   "team": "DAL",
   "reason": "no matching contract block on page"
@@ -23,36 +18,6 @@
   "name": "Sergio de Larrea",
   "team": "DAL",
   "reason": "no matching contract block on page"
- },
- {
-  "name": "DeMar DeRozan",
-  "team": "DEN",
-  "reason": "no offline snapshot"
- },
- {
-  "name": "Alpha Diallo",
-  "team": "DEN",
-  "reason": "no offline snapshot"
- },
- {
-  "name": "Quenton Jackson",
-  "team": "IND",
-  "reason": "no offline snapshot"
- },
- {
-  "name": "Taj Gibson",
-  "team": "MEM",
-  "reason": "no offline snapshot"
- },
- {
-  "name": "Carson Cooper",
-  "team": "MEM",
-  "reason": "no offline snapshot"
- },
- {
-  "name": "Bennedict Mathurin",
-  "team": "NOP",
-  "reason": "no offline snapshot"
  },
  {
   "name": "Jaron Pierre Jr.",
@@ -80,18 +45,8 @@
   "reason": "no matching contract block on page"
  },
  {
-  "name": "Dylan Cardwell",
-  "team": "SAC",
-  "reason": "no offline snapshot"
- },
- {
   "name": "David Jones Garcia",
   "team": "SAS",
   "reason": "no matching contract block on page"
- },
- {
-  "name": "Tristan Vukcevic",
-  "team": "WAS",
-  "reason": "no offline snapshot"
  }
 ]

@@ -9815,6 +9815,11 @@
    "date": "2026-08-14",
    "method": "trade",
    "team": "CHO"
+  },
+  {
+   "date": "2026-08-20",
+   "method": "trade",
+   "team": "CHO"
   }
  ],
  "kylan boswell": [
@@ -9988,6 +9993,16 @@
    "date": "2026-08-14",
    "method": "trade",
    "team": "CLE"
+  },
+  {
+   "date": "2026-08-20",
+   "method": "trade",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-08-20",
+   "method": "free-agent",
+   "team": "DEN"
   }
  ],
  "mario hezonja": [
@@ -10222,6 +10237,11 @@
   {
    "date": "2026-06-23",
    "method": "draft",
+   "team": "DEN"
+  },
+  {
+   "date": "2026-08-26",
+   "method": "free-agent",
    "team": "DEN"
   }
  ],
@@ -10483,6 +10503,11 @@
  "max strus": [
   {
    "date": "2026-08-14",
+   "method": "trade",
+   "team": "LAC"
+  },
+  {
+   "date": "2026-08-20",
    "method": "trade",
    "team": "LAC"
   }
@@ -10954,6 +10979,11 @@
    "date": "2026-07-10",
    "method": "trade",
    "team": "MIN"
+  },
+  {
+   "date": "2026-08-29",
+   "method": "trade",
+   "team": "UTA"
   }
  ],
  "lamelo ball": [
@@ -11551,6 +11581,11 @@
    "date": "2026-08-14",
    "method": "trade",
    "team": "WAS"
+  },
+  {
+   "date": "2026-08-20",
+   "method": "trade",
+   "team": "WAS"
   }
  ],
  "trae young": [
@@ -11584,6 +11619,83 @@
    "date": "2026-07-01",
    "method": "free-agent",
    "team": "WAS"
+  }
+ ],
+ "khalifa diop": [
+  {
+   "date": "2026-09-02",
+   "method": "free-agent",
+   "team": "CLE"
+  }
+ ],
+ "demar derozan": [
+  {
+   "date": "2026-08-21",
+   "method": "free-agent",
+   "team": "DEN"
+  }
+ ],
+ "brandon williams": [
+  {
+   "date": "2026-08-26",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "georges niang": [
+  {
+   "date": "2026-08-25",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "amen thompson": [
+  {
+   "date": "2026-09-03",
+   "method": "extension",
+   "team": "HOU"
+  }
+ ],
+ "keshad johnson": [
+  {
+   "date": "2026-08-27",
+   "method": "free-agent",
+   "team": "MIA"
+  }
+ ],
+ "nick richards": [
+  {
+   "date": "2026-08-27",
+   "method": "free-agent",
+   "team": "MIA"
+  }
+ ],
+ "klay thompson": [
+  {
+   "date": "2026-08-23",
+   "method": "free-agent",
+   "team": "MIA"
+  }
+ ],
+ "cody williams": [
+  {
+   "date": "2026-08-29",
+   "method": "trade",
+   "team": "MIN"
+  }
+ ],
+ "jonathan kuminga": [
+  {
+   "date": "2026-08-26",
+   "method": "free-agent",
+   "team": "MIN"
+  }
+ ],
+ "bennedict mathurin": [
+  {
+   "date": "2026-08-26",
+   "method": "free-agent",
+   "team": "NOP"
   }
  ]
 }

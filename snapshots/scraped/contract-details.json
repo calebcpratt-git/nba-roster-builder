@@ -1877,6 +1877,28 @@
   }
  },
  {
+  "name": "Khalifa Diop",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Meleek Thomas",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -2221,6 +2243,16 @@
   }
  },
  {
+  "name": "DeMar DeRozan",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "DaRon Holmes",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -2271,6 +2303,16 @@
     "unlikely": 0
    },
    "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Alpha Diallo",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -3086,6 +3128,19 @@
   }
  },
  {
+  "name": "Quenton Jackson",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Larry Nance Jr.",
   "signedUnder": "minimum",
   "incentives": {
@@ -3775,6 +3830,16 @@
   }
  },
  {
+  "name": "Taj Gibson",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Karim López",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -3869,6 +3934,15 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Carson Cooper",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -4624,6 +4698,20 @@
     "unlikely": 0
    }
   }
+ },
+ {
+  "name": "Bennedict Mathurin",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  },
+  "signedUnder": "non-taxpayer-mle"
  },
  {
   "name": "Jordan Hawkins",
@@ -6195,6 +6283,23 @@
   }
  },
  {
+  "name": "Dylan Cardwell",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Emanuel Sharp",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -7114,6 +7219,19 @@
  {
   "name": "Kyshawn George",
   "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Tristan Vukcevic",
   "incentives": {
    "2026-27": {
     "likely": 0,

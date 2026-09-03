@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 0,
+      "total": 19,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 63,
-      "acquisition": 110,
-      "guarantees": 13,
-      "signing": 19,
-      "awards": 2,
-      "name-bridge": 82,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 62,
       "acquisition": 110,
       "guarantees": 13,
@@ -74,86 +65,210 @@
       "name-bridge": 71,
       "no-current-salary": 1
     },
-    "newUnresolved": 0,
-    "newByCategory": {},
+    "after": {
+      "draft-year": 62,
+      "acquisition": 120,
+      "guarantees": 19,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 82,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 27,
+    "newByCategory": {
+      "acquisition": 10,
+      "guarantees": 6,
+      "name-bridge": 11
+    },
     "newRecords": {
-      "signing": [
+      "acquisition": [
         {
-          "name": "Christian Anderson Jr.",
-          "team": "CHO",
-          "reason": "no matching contract block on page"
+          "name": "Kyle Mangas",
+          "date": "2026-09-02",
+          "method": "free-agent"
         },
         {
-          "name": "Morez Johnson Jr.",
-          "team": "DAL",
-          "reason": "no matching contract block on page"
+          "name": "Trey Townsend",
+          "date": "2026-09-01",
+          "method": "free-agent"
         },
         {
-          "name": "Jaron Pierre Jr.",
-          "team": "NOP",
-          "reason": "no matching contract block on page"
+          "name": "Josiah Allick",
+          "date": "2026-08-31",
+          "method": "free-agent"
         },
         {
-          "name": "Labaron Philon Jr.",
-          "team": "PHI",
-          "reason": "no matching contract block on page"
+          "name": "Deivon Smith",
+          "date": "2026-08-24",
+          "method": "free-agent"
         },
         {
-          "name": "Yang Hansen",
-          "team": "POR",
-          "reason": "no matching contract block on page"
+          "name": "John Konchar",
+          "date": "2026-08-29",
+          "method": "trade"
         },
         {
-          "name": "Darius Acuff Jr.",
-          "team": "SAC",
-          "reason": "no matching contract block on page"
+          "name": "Malaki Branham",
+          "date": "2026-08-26",
+          "method": "free-agent"
+        },
+        {
+          "name": "Saint Thomas",
+          "date": "2026-09-02",
+          "method": "free-agent"
+        },
+        {
+          "name": "Jameer Nelson Jr",
+          "date": "2026-09-02",
+          "method": "free-agent"
+        },
+        {
+          "name": "Tacko Fall",
+          "date": "2026-09-02",
+          "method": "free-agent"
+        },
+        {
+          "name": "Matthew Murrell",
+          "date": "2026-08-31",
+          "method": "free-agent"
+        }
+      ],
+      "guarantees": [
+        {
+          "player": "Kyle Mangas",
+          "team": "Charlotte Hornets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Dalen Terry",
+          "team": "Golden State Warriors",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "J’Vonne Hadley",
+          "team": "Miami Heat",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Tacko Fall",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Jameer Nelson Jr.",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Saint Thomas",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Malachi Smith",
+          "team": "Toronto Raptors",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
         }
       ],
       "name-bridge": [
         {
-          "name": "Alpha Diallo"
+          "name": "Christian Koloko"
         },
         {
-          "name": "Bennedict Mathurin"
+          "name": "Cole Anthony"
         },
         {
-          "name": "Carson Cooper"
+          "name": "Dalen Terry"
         },
         {
-          "name": "DeMar DeRozan"
+          "name": "Didi Louzada"
         },
         {
-          "name": "Dylan Cardwell"
+          "name": "E.J. Liddell"
         },
         {
-          "name": "James Harden"
+          "name": "Harrison Ingram"
         },
         {
-          "name": "Jonathan Kuminga"
+          "name": "J'Vonne Hadley"
         },
         {
-          "name": "Khalifa Diop"
+          "name": "JaVale McGee"
         },
         {
-          "name": "Quenton Jackson"
+          "name": "John Konchar"
         },
         {
-          "name": "Taj Gibson"
+          "name": "Julian Phillips"
         },
         {
-          "name": "Tristan Vukcevic"
+          "name": "Kobe Bufkin"
+        },
+        {
+          "name": "Malachi Smith"
+        },
+        {
+          "name": "Mamadi Diakite"
+        },
+        {
+          "name": "Milos Uzan"
+        },
+        {
+          "name": "Nassir Little"
+        },
+        {
+          "name": "Nate Bittle"
+        },
+        {
+          "name": "Oscar Tshiebwe"
+        },
+        {
+          "name": "Ricky Rubio"
+        },
+        {
+          "name": "Taelon Peter"
+        },
+        {
+          "name": "Tucker DeVries"
+        },
+        {
+          "name": "Vasilije Micić"
+        },
+        {
+          "name": "Yuki Kawamura"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-03T16:16:18.482Z",
+  "generatedAt": "2026-09-03T16:47:50.059Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +6 -6 ~0 (of 523)",
-    "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 506)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -0 ~0 (of 140)",
+    "players: +0 -0 ~20 (of 523)",
+    "draft-picks: +12 -11 ~0 (of 521)",
+    "contract-details: +9 -0 ~0 (of 506)",
+    "team-cap-state: +0 -0 ~13 (of 150)",
+    "free-agents: +5 -2 ~1 (of 140)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

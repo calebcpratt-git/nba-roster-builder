@@ -1891,6 +1891,11 @@
         "date": "2026-08-14",
         "method": "trade",
         "team": "CHO"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "trade",
+        "team": "CHO"
       }
     ]
   },
@@ -3030,6 +3035,16 @@
         "date": "2026-08-19",
         "method": "free-agent",
         "team": "CLE"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "trade",
+        "team": "CLE"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "free-agent",
+        "team": "DEN"
       }
     ]
   },
@@ -3251,7 +3266,14 @@
       "2029-30": 0
     },
     "optionExercised": {},
-    "acquiredMethod": "Draft"
+    "acquiredMethod": "Draft",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-02",
+        "method": "free-agent",
+        "team": "CLE"
+      }
+    ]
   },
   {
     "name": "Meleek Thomas",
@@ -4192,7 +4214,14 @@
       "2026-27": 0
     },
     "optionExercised": {},
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-21",
+        "method": "free-agent",
+        "team": "DEN"
+      }
+    ]
   },
   {
     "name": "DaRon Holmes",
@@ -4370,6 +4399,11 @@
       {
         "date": "2026-06-23",
         "method": "draft",
+        "team": "DEN"
+      },
+      {
+        "date": "2026-08-26",
+        "method": "free-agent",
         "team": "DEN"
       }
     ]
@@ -5298,7 +5332,20 @@
       "2026-27": 0
     },
     "optionExercised": {},
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-25",
+        "method": "free-agent",
+        "team": "GSW"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "partial",
+        "amount": 1838009
+      }
+    }
   },
   {
     "name": "Gary Payton II",
@@ -5343,7 +5390,20 @@
       "2026-27": 0
     },
     "optionExercised": {},
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-26",
+        "method": "free-agent",
+        "team": "GSW"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed",
+        "guaranteeDate": "2026-10-15"
+      }
+    }
   },
   {
     "name": "Will Richard",
@@ -5586,22 +5646,49 @@
     "name": "Amen Thompson",
     "team": "HOU",
     "salary": {
-      "2026-27": 12258609
+      "2026-27": 12258609,
+      "2027-28": 35862069,
+      "2028-29": 38731034,
+      "2029-30": 41600000,
+      "2030-31": 44468966,
+      "2031-32": 47337931
     },
     "options": {},
     "cashSalary": {
-      "2026-27": 12258609
+      "2026-27": 12258609,
+      "2027-28": 35862069,
+      "2028-29": 38731034,
+      "2029-30": 41600000,
+      "2030-31": 44468966,
+      "2031-32": 47337931
     },
     "guaranteed": {
-      "2026-27": 12258609
+      "2026-27": 12258609,
+      "2027-28": 35862069,
+      "2028-29": 38731034,
+      "2029-30": 41600000,
+      "2030-31": 44468966,
+      "2031-32": 47337931
     },
     "likelyIncentives": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0,
+      "2028-29": 0,
+      "2029-30": 0,
+      "2030-31": 0,
+      "2031-32": 0
     },
     "optionExercised": {
       "2026-27": true
     },
-    "acquiredMethod": "Draft"
+    "acquiredMethod": "Draft",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-03",
+        "method": "extension",
+        "team": "HOU"
+      }
+    ]
   },
   {
     "name": "Reed Sheppard",
@@ -6466,6 +6553,11 @@
         "date": "2026-08-14",
         "method": "trade",
         "team": "LAC"
+      },
+      {
+        "date": "2026-08-20",
+        "method": "trade",
+        "team": "LAC"
       }
     ]
   },
@@ -6906,7 +6998,9 @@
     ],
     "guarantees": {
       "2026-27": {
-        "status": "non-guaranteed"
+        "status": "partial",
+        "amount": 3212400,
+        "guaranteeDate": "2026-08-18"
       }
     }
   },
@@ -8520,7 +8614,14 @@
     "optionExercised": {
       "2027-28": false
     },
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-23",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ]
   },
   {
     "name": "Dru Smith",
@@ -8598,7 +8699,20 @@
       "2026-27": 0
     },
     "optionExercised": {},
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-27",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed",
+        "guaranteeDate": "2026-10-15"
+      }
+    }
   },
   {
     "name": "Pelle Larsson",
@@ -8771,7 +8885,14 @@
     },
     "optionExercised": {},
     "contractType": "two-way",
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-27",
+        "method": "free-agent",
+        "team": "MIA"
+      }
+    ]
   },
   {
     "name": "Tyler Herro",
@@ -9603,7 +9724,14 @@
     "optionExercised": {
       "2027-28": false
     },
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-26",
+        "method": "free-agent",
+        "team": "MIN"
+      }
+    ]
   },
   {
     "name": "Cody Williams",
@@ -9631,7 +9759,14 @@
       "2026-27": true,
       "2027-28": false
     },
-    "acquiredMethod": "Trade"
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-29",
+        "method": "trade",
+        "team": "MIN"
+      }
+    ]
   },
   {
     "name": "Joan Beringer",
@@ -10082,7 +10217,14 @@
     "optionExercised": {
       "2027-28": false
     },
-    "acquiredMethod": "Signed"
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-26",
+        "method": "free-agent",
+        "team": "NOP"
+      }
+    ]
   },
   {
     "name": "Jordan Hawkins",
@@ -10304,7 +10446,14 @@
         "method": "free-agent",
         "team": "NOP"
       }
-    ]
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "partial",
+        "amount": 500000,
+        "guaranteeDate": "2026-12-30"
+      }
+    }
   },
   {
     "name": "Karlo Matković",
@@ -12781,7 +12930,12 @@
         "method": "free-agent",
         "team": "PHO"
       }
-    ]
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
   },
   {
     "name": "Oso Ighodaro",
@@ -15034,6 +15188,11 @@
         "date": "2026-07-10",
         "method": "trade",
         "team": "MIN"
+      },
+      {
+        "date": "2026-08-29",
+        "method": "trade",
+        "team": "UTA"
       }
     ]
   },
@@ -15729,6 +15888,11 @@
     "acquisitionHistory": [
       {
         "date": "2026-08-14",
+        "method": "trade",
+        "team": "WAS"
+      },
+      {
+        "date": "2026-08-20",
         "method": "trade",
         "team": "WAS"
       }

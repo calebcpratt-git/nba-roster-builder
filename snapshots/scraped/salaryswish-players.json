@@ -1473,6 +1473,28 @@
    }
   }
  },
+ "khalifa diop": {
+  "team": "CLE",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "meleek thomas": {
   "team": "CLE",
   "signedUnder": "rookie-scale",
@@ -1865,6 +1887,16 @@
    }
   }
  },
+ "demar derozan": {
+  "team": "DEN",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "daron holmes": {
   "team": "DEN",
   "signedUnder": "rookie-scale",
@@ -1916,6 +1948,16 @@
     "unlikely": 0
    },
    "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "alpha diallo": {
+  "team": "DEN",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -2784,6 +2826,20 @@
    }
   }
  },
+ "quenton jackson": {
+  "team": "IND",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "larry nance": {
   "team": "IND",
   "signedUnder": "minimum",
@@ -3574,6 +3630,16 @@
    }
   }
  },
+ "taj gibson": {
+  "team": "MEM",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "karim lopez": {
   "team": "MEM",
   "signedUnder": "rookie-scale",
@@ -3671,6 +3737,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "carson cooper": {
+  "team": "MEM",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -4524,6 +4600,20 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "bennedict mathurin": {
+  "team": "NOP",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6217,6 +6307,24 @@
    }
   }
  },
+ "dylan cardwell": {
+  "team": "SAC",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "emanuel sharp": {
   "team": "SAC",
   "signedUnder": "rookie-scale",
@@ -7172,6 +7280,20 @@
  "kyshawn george": {
   "team": "WAS",
   "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "tristan vukcevic": {
+  "team": "WAS",
+  "signedUnder": null,
   "incentives": {
    "2026-27": {
     "likely": 0,

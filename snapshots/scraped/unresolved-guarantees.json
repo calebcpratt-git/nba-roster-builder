@@ -26,12 +26,20 @@
   "exhibit10": true
  },
  {
-  "player": "Mouhamadou Gueye",
+  "player": "Kyle Mangas",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
+ },
+ {
+  "player": "Dalen Terry",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Julian Phillips",
@@ -58,6 +66,14 @@
   "exhibit10": true
  },
  {
+  "player": "J’Vonne Hadley",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Kobe Bufkin",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -74,7 +90,31 @@
   "exhibit10": false
  },
  {
+  "player": "Tacko Fall",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Duke Miles",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jameer Nelson Jr.",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Saint Thomas",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
   "partialAmount": null,
@@ -91,6 +131,14 @@
  },
  {
   "player": "Nate Bittle",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Malachi Smith",
   "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,

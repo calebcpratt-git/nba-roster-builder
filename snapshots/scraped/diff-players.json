@@ -1,529 +1,1353 @@
 {
-  "added": [
+  "added": [],
+  "removed": [],
+  "changed": [
     {
-      "name": "Christian Anderson Jr.",
-      "team": "CHO",
-      "salary": {
-        "2026-27": 4257480,
-        "2027-28": 4470000,
-        "2028-29": 4683120,
-        "2029-30": 7202639
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 4257480,
-        "2027-28": 4470000,
-        "2028-29": 4683120,
-        "2029-30": 7202639
-      },
-      "guaranteed": {
-        "2026-27": 4257480,
-        "2027-28": 4470000,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "CHO"
+      "before": {
+        "name": "Dennis Schröder",
+        "team": "CHO",
+        "salary": {
+          "2026-27": 14809200,
+          "2027-28": 15514400
         },
-        {
-          "date": "2026-07-06",
-          "method": "free-agent",
-          "team": "CHO"
-        }
+        "options": {},
+        "cashSalary": {
+          "2026-27": 14809200,
+          "2027-28": 15514400
+        },
+        "guaranteed": {
+          "2026-27": 14809200,
+          "2027-28": 4350000
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "CHO"
+          }
+        ]
+      },
+      "after": {
+        "name": "Dennis Schröder",
+        "team": "CHO",
+        "salary": {
+          "2026-27": 14809200,
+          "2027-28": 15514400
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 14809200,
+          "2027-28": 15514400
+        },
+        "guaranteed": {
+          "2026-27": 14809200,
+          "2027-28": 4350000
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "CHO"
+          },
+          {
+            "date": "2026-08-20",
+            "method": "trade",
+            "team": "CHO"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
       ]
     },
     {
-      "name": "Morez Johnson Jr.",
-      "team": "DAL",
-      "salary": {
-        "2026-27": 6754800,
-        "2027-28": 7093080,
-        "2028-29": 7430640,
-        "2029-30": 9466635
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 6754800,
-        "2027-28": 7093080,
-        "2028-29": 7430640,
-        "2029-30": 9466635
-      },
-      "guaranteed": {
-        "2026-27": 6754800,
-        "2027-28": 7093080,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "DAL"
+      "before": {
+        "name": "Peyton Watson",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 20465116,
+          "2027-28": 21488372,
+          "2028-29": 22511628,
+          "2029-30": 23534884
         },
-        {
-          "date": "2026-07-02",
-          "method": "free-agent",
-          "team": "DAL"
-        }
+        "options": {
+          "2029-30": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 20465116,
+          "2027-28": 21488372,
+          "2028-29": 22511628,
+          "2029-30": 23534884
+        },
+        "guaranteed": {
+          "2026-27": 20465116,
+          "2027-28": 21488372,
+          "2028-29": 22511628,
+          "2029-30": 23534884
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {
+          "2029-30": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "CLE"
+          },
+          {
+            "date": "2026-08-19",
+            "method": "free-agent",
+            "team": "CLE"
+          }
+        ]
+      },
+      "after": {
+        "name": "Peyton Watson",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 20465116,
+          "2027-28": 21488372,
+          "2028-29": 22511628,
+          "2029-30": 23534884
+        },
+        "options": {
+          "2029-30": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 20465116,
+          "2027-28": 21488372,
+          "2028-29": 22511628,
+          "2029-30": 23534884
+        },
+        "guaranteed": {
+          "2026-27": 20465116,
+          "2027-28": 21488372,
+          "2028-29": 22511628,
+          "2029-30": 23534884
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {
+          "2029-30": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "CLE"
+          },
+          {
+            "date": "2026-08-19",
+            "method": "free-agent",
+            "team": "CLE"
+          },
+          {
+            "date": "2026-08-20",
+            "method": "trade",
+            "team": "CLE"
+          },
+          {
+            "date": "2026-08-20",
+            "method": "free-agent",
+            "team": "DEN"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
       ]
     },
     {
-      "name": "Jaron Pierre Jr.",
-      "team": "NOP",
-      "salary": {
-        "2026-27": 0
-      },
-      "options": {},
-      "cashSalary": {
-        "2026-27": 678882
-      },
-      "guaranteed": {
-        "2026-27": 91000
-      },
-      "likelyIncentives": {
-        "2026-27": 0
-      },
-      "optionExercised": {},
-      "contractType": "two-way",
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "NOP"
+      "before": {
+        "name": "Khalifa Diop",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 1360000,
+          "2027-28": 2232321,
+          "2028-29": 2397679,
+          "2029-30": 3270000
         },
-        {
-          "date": "2026-07-23",
-          "method": "free-agent",
-          "team": "NOP"
-        }
+        "options": {},
+        "cashSalary": {
+          "2026-27": 1360000,
+          "2027-28": 2232321,
+          "2028-29": 2397679,
+          "2029-30": 3270000
+        },
+        "guaranteed": {
+          "2026-27": 1360000,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Draft"
+      },
+      "after": {
+        "name": "Khalifa Diop",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 1360000,
+          "2027-28": 2232321,
+          "2028-29": 2397679,
+          "2029-30": 3270000
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 1360000,
+          "2027-28": 2232321,
+          "2028-29": 2397679,
+          "2029-30": 3270000
+        },
+        "guaranteed": {
+          "2026-27": 1360000,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-02",
+            "method": "free-agent",
+            "team": "CLE"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
       ]
     },
     {
-      "name": "Labaron Philon Jr.",
-      "team": "PHI",
-      "salary": {
-        "2026-27": 3597120,
-        "2027-28": 3776760,
-        "2028-29": 3956760,
-        "2029-30": 6508870
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 3597120,
-        "2027-28": 3776760,
-        "2028-29": 3956760,
-        "2029-30": 6508870
-      },
-      "guaranteed": {
-        "2026-27": 3497120,
-        "2027-28": 3676760,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 100000,
-        "2027-28": 100000,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "PHI"
+      "before": {
+        "name": "DeMar DeRozan",
+        "team": "DEN",
+        "salary": {
+          "2026-27": 3876528
         },
-        {
-          "date": "2026-07-03",
-          "method": "free-agent",
-          "team": "PHI"
-        }
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3876528
+        },
+        "guaranteed": {
+          "2026-27": 3876528
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "DeMar DeRozan",
+        "team": "DEN",
+        "salary": {
+          "2026-27": 3876528
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3876528
+        },
+        "guaranteed": {
+          "2026-27": 3876528
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-21",
+            "method": "free-agent",
+            "team": "DEN"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
       ]
     },
     {
-      "name": "Yang Hansen",
-      "team": "POR",
-      "salary": {
-        "2026-27": 4643520,
-        "2027-28": 4864920,
-        "2028-29": 7462787
+      "before": {
+        "name": "Bryce Hopkins",
+        "team": "DEN",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 678882
+        },
+        "guaranteed": {
+          "2026-27": 91000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-06-23",
+            "method": "draft",
+            "team": "DEN"
+          }
+        ]
       },
-      "options": {
-        "2027-28": "Team",
-        "2028-29": "Team"
+      "after": {
+        "name": "Bryce Hopkins",
+        "team": "DEN",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 678882
+        },
+        "guaranteed": {
+          "2026-27": 91000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-06-23",
+            "method": "draft",
+            "team": "DEN"
+          },
+          {
+            "date": "2026-08-26",
+            "method": "free-agent",
+            "team": "DEN"
+          }
+        ]
       },
-      "cashSalary": {
-        "2026-27": 4593520,
-        "2027-28": 4864920,
-        "2028-29": 7462787
-      },
-      "guaranteed": {
-        "2026-27": 4593520,
-        "2027-28": 0,
-        "2028-29": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 50000,
-        "2027-28": 0,
-        "2028-29": 0
-      },
-      "optionExercised": {
-        "2027-28": false,
-        "2028-29": false
-      },
-      "acquiredMethod": "Draft"
+      "fields": [
+        "acquisitionHistory"
+      ]
     },
     {
-      "name": "Darius Acuff Jr.",
-      "team": "SAC",
-      "salary": {
-        "2026-27": 8021640,
-        "2027-28": 8422920,
-        "2028-29": 8823600,
-        "2029-30": 11205972
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 7921640,
-        "2027-28": 8322920,
-        "2028-29": 8823600,
-        "2029-30": 11205972
-      },
-      "guaranteed": {
-        "2026-27": 7921640,
-        "2027-28": 8322920,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 100000,
-        "2027-28": 100000,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "SAC"
+      "before": {
+        "name": "Georges Niang",
+        "team": "GSW",
+        "salary": {
+          "2026-27": 2449421
         },
-        {
-          "date": "2026-07-01",
-          "method": "free-agent",
-          "team": "SAC"
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3876528
+        },
+        "guaranteed": {
+          "2026-27": 1838009
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "Georges Niang",
+        "team": "GSW",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3876528
+        },
+        "guaranteed": {
+          "2026-27": 1838009
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-25",
+            "method": "free-agent",
+            "team": "GSW"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "partial",
+            "amount": 1838009
+          }
         }
+      },
+      "fields": [
+        "acquisitionHistory",
+        "guarantees"
+      ]
+    },
+    {
+      "before": {
+        "name": "Brandon Williams",
+        "team": "GSW",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2625627
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "Brandon Williams",
+        "team": "GSW",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2625627
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-26",
+            "method": "free-agent",
+            "team": "GSW"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed",
+            "guaranteeDate": "2026-10-15"
+          }
+        }
+      },
+      "fields": [
+        "acquisitionHistory",
+        "guarantees"
+      ]
+    },
+    {
+      "before": {
+        "name": "Amen Thompson",
+        "team": "HOU",
+        "salary": {
+          "2026-27": 12258609
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 12258609
+        },
+        "guaranteed": {
+          "2026-27": 12258609
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {
+          "2026-27": true
+        },
+        "acquiredMethod": "Draft"
+      },
+      "after": {
+        "name": "Amen Thompson",
+        "team": "HOU",
+        "salary": {
+          "2026-27": 12258609,
+          "2027-28": 35862069,
+          "2028-29": 38731034,
+          "2029-30": 41600000,
+          "2030-31": 44468966,
+          "2031-32": 47337931
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 12258609,
+          "2027-28": 35862069,
+          "2028-29": 38731034,
+          "2029-30": 41600000,
+          "2030-31": 44468966,
+          "2031-32": 47337931
+        },
+        "guaranteed": {
+          "2026-27": 12258609,
+          "2027-28": 35862069,
+          "2028-29": 38731034,
+          "2029-30": 41600000,
+          "2030-31": 44468966,
+          "2031-32": 47337931
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0,
+          "2030-31": 0,
+          "2031-32": 0
+        },
+        "optionExercised": {
+          "2026-27": true
+        },
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-03",
+            "method": "extension",
+            "team": "HOU"
+          }
+        ]
+      },
+      "fields": [
+        "salary",
+        "cashSalary",
+        "guaranteed",
+        "likelyIncentives",
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Max Strus",
+        "team": "LAC",
+        "salary": {
+          "2026-27": 16660836
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 16660836
+        },
+        "guaranteed": {
+          "2026-27": 16660836
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "LAC"
+          }
+        ]
+      },
+      "after": {
+        "name": "Max Strus",
+        "team": "LAC",
+        "salary": {
+          "2026-27": 16660836
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 16660836
+        },
+        "guaranteed": {
+          "2026-27": 16660836
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "LAC"
+          },
+          {
+            "date": "2026-08-20",
+            "method": "trade",
+            "team": "LAC"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Bradley Beal",
+        "team": "LAC",
+        "salary": {
+          "2026-27": 6424800,
+          "2027-28": 6746040
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 6424800,
+          "2027-28": 6746040
+        },
+        "guaranteed": {
+          "2026-27": 6424800,
+          "2027-28": 3373020
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-13",
+            "method": "free-agent",
+            "team": "LAC"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "after": {
+        "name": "Bradley Beal",
+        "team": "LAC",
+        "salary": {
+          "2026-27": 6424800,
+          "2027-28": 6746040
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 6424800,
+          "2027-28": 6746040
+        },
+        "guaranteed": {
+          "2026-27": 6424800,
+          "2027-28": 3373020
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-13",
+            "method": "free-agent",
+            "team": "LAC"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "partial",
+            "amount": 3212400,
+            "guaranteeDate": "2026-08-18"
+          }
+        }
+      },
+      "fields": [
+        "guarantees"
+      ]
+    },
+    {
+      "before": {
+        "name": "Klay Thompson",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 5600000,
+          "2027-28": 5880000
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 5600000,
+          "2027-28": 5880000
+        },
+        "guaranteed": {
+          "2026-27": 5600000,
+          "2027-28": 5880000
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "Klay Thompson",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 5600000,
+          "2027-28": 5880000
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 5600000,
+          "2027-28": 5880000
+        },
+        "guaranteed": {
+          "2026-27": 5600000,
+          "2027-28": 5880000
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-23",
+            "method": "free-agent",
+            "team": "MIA"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Nick Richards",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3066143
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "Nick Richards",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3066143
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-27",
+            "method": "free-agent",
+            "team": "MIA"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed",
+            "guaranteeDate": "2026-10-15"
+          }
+        }
+      },
+      "fields": [
+        "acquisitionHistory",
+        "guarantees"
+      ]
+    },
+    {
+      "before": {
+        "name": "Keshad Johnson",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 678882
+        },
+        "guaranteed": {
+          "2026-27": 91000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "Keshad Johnson",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 678882
+        },
+        "guaranteed": {
+          "2026-27": 91000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-27",
+            "method": "free-agent",
+            "team": "MIA"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Jonathan Kuminga",
+        "team": "MIN",
+        "salary": {
+          "2026-27": 6064000,
+          "2027-28": 6367200
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 6064000,
+          "2027-28": 6367200
+        },
+        "guaranteed": {
+          "2026-27": 6064000,
+          "2027-28": 6367200
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "Jonathan Kuminga",
+        "team": "MIN",
+        "salary": {
+          "2026-27": 6064000,
+          "2027-28": 6367200
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 6064000,
+          "2027-28": 6367200
+        },
+        "guaranteed": {
+          "2026-27": 6064000,
+          "2027-28": 6367200
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-26",
+            "method": "free-agent",
+            "team": "MIN"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Cody Williams",
+        "team": "MIN",
+        "salary": {
+          "2026-27": 6015600,
+          "2027-28": 7669890
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 6015600,
+          "2027-28": 7669890
+        },
+        "guaranteed": {
+          "2026-27": 6015600,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade"
+      },
+      "after": {
+        "name": "Cody Williams",
+        "team": "MIN",
+        "salary": {
+          "2026-27": 6015600,
+          "2027-28": 7669890
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 6015600,
+          "2027-28": 7669890
+        },
+        "guaranteed": {
+          "2026-27": 6015600,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-29",
+            "method": "trade",
+            "team": "MIN"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Bennedict Mathurin",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 7804878,
+          "2027-28": 8195122
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 7804878,
+          "2027-28": 8195122
+        },
+        "guaranteed": {
+          "2026-27": 7804878,
+          "2027-28": 8195122
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed"
+      },
+      "after": {
+        "name": "Bennedict Mathurin",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 7804878,
+          "2027-28": 8195122
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 7804878,
+          "2027-28": 8195122
+        },
+        "guaranteed": {
+          "2026-27": 7804878,
+          "2027-28": 8195122
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-26",
+            "method": "free-agent",
+            "team": "NOP"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Trendon Watford",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2845883
+        },
+        "guaranteed": {
+          "2026-27": 250000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-17",
+            "method": "free-agent",
+            "team": "NOP"
+          }
+        ]
+      },
+      "after": {
+        "name": "Trendon Watford",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2845883
+        },
+        "guaranteed": {
+          "2026-27": 250000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-17",
+            "method": "free-agent",
+            "team": "NOP"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "partial",
+            "amount": 500000,
+            "guaranteeDate": "2026-12-30"
+          }
+        }
+      },
+      "fields": [
+        "guarantees"
+      ]
+    },
+    {
+      "before": {
+        "name": "Haywood Highsmith",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3066143
+        },
+        "guaranteed": {
+          "2026-27": 3066143
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-17",
+            "method": "free-agent",
+            "team": "PHO"
+          }
+        ]
+      },
+      "after": {
+        "name": "Haywood Highsmith",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3066143
+        },
+        "guaranteed": {
+          "2026-27": 3066143
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-17",
+            "method": "free-agent",
+            "team": "PHO"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "fields": [
+        "guarantees"
+      ]
+    },
+    {
+      "before": {
+        "name": "Josh Green",
+        "team": "UTA",
+        "salary": {
+          "2026-27": 14679012
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 14679012
+        },
+        "guaranteed": {
+          "2026-27": 14679012
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-07-10",
+            "method": "trade",
+            "team": "MIN"
+          }
+        ]
+      },
+      "after": {
+        "name": "Josh Green",
+        "team": "UTA",
+        "salary": {
+          "2026-27": 14679012
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 14679012
+        },
+        "guaranteed": {
+          "2026-27": 14679012
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-07-10",
+            "method": "trade",
+            "team": "MIN"
+          },
+          {
+            "date": "2026-08-29",
+            "method": "trade",
+            "team": "UTA"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Tre Mann",
+        "team": "WAS",
+        "salary": {
+          "2026-27": 8000000,
+          "2027-28": 8000000
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 8000000,
+          "2027-28": 8000000
+        },
+        "guaranteed": {
+          "2026-27": 8000000,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "WAS"
+          }
+        ]
+      },
+      "after": {
+        "name": "Tre Mann",
+        "team": "WAS",
+        "salary": {
+          "2026-27": 8000000,
+          "2027-28": 8000000
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 8000000,
+          "2027-28": 8000000
+        },
+        "guaranteed": {
+          "2026-27": 8000000,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-08-14",
+            "method": "trade",
+            "team": "WAS"
+          },
+          {
+            "date": "2026-08-20",
+            "method": "trade",
+            "team": "WAS"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
       ]
     }
-  ],
-  "removed": [
-    {
-      "name": "Christian Anderson",
-      "team": "CHO",
-      "salary": {
-        "2026-27": 4257480,
-        "2027-28": 4470000,
-        "2028-29": 4683120,
-        "2029-30": 7202639
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 4257480,
-        "2027-28": 4470000,
-        "2028-29": 4683120,
-        "2029-30": 7202639
-      },
-      "guaranteed": {
-        "2026-27": 4257480,
-        "2027-28": 4470000,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "CHO"
-        },
-        {
-          "date": "2026-07-06",
-          "method": "free-agent",
-          "team": "CHO"
-        }
-      ]
-    },
-    {
-      "name": "Morez Johnson",
-      "team": "DAL",
-      "salary": {
-        "2026-27": 6754800,
-        "2027-28": 7093080,
-        "2028-29": 7430640,
-        "2029-30": 9466635
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 6754800,
-        "2027-28": 7093080,
-        "2028-29": 7430640,
-        "2029-30": 9466635
-      },
-      "guaranteed": {
-        "2026-27": 6754800,
-        "2027-28": 7093080,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "DAL"
-        },
-        {
-          "date": "2026-07-02",
-          "method": "free-agent",
-          "team": "DAL"
-        }
-      ]
-    },
-    {
-      "name": "Jaron Pierre",
-      "team": "NOP",
-      "salary": {
-        "2026-27": 0
-      },
-      "options": {},
-      "cashSalary": {
-        "2026-27": 678882
-      },
-      "guaranteed": {
-        "2026-27": 91000
-      },
-      "likelyIncentives": {
-        "2026-27": 0
-      },
-      "optionExercised": {},
-      "contractType": "two-way",
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "NOP"
-        },
-        {
-          "date": "2026-07-23",
-          "method": "free-agent",
-          "team": "NOP"
-        }
-      ]
-    },
-    {
-      "name": "Labaron Philon",
-      "team": "PHI",
-      "salary": {
-        "2026-27": 3597120,
-        "2027-28": 3776760,
-        "2028-29": 3956760,
-        "2029-30": 6508870
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 3597120,
-        "2027-28": 3776760,
-        "2028-29": 3956760,
-        "2029-30": 6508870
-      },
-      "guaranteed": {
-        "2026-27": 3497120,
-        "2027-28": 3676760,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 100000,
-        "2027-28": 100000,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "PHI"
-        },
-        {
-          "date": "2026-07-03",
-          "method": "free-agent",
-          "team": "PHI"
-        }
-      ]
-    },
-    {
-      "name": "Hansen Yang",
-      "team": "POR",
-      "salary": {
-        "2026-27": 4643520,
-        "2027-28": 4864920,
-        "2028-29": 7462787
-      },
-      "options": {
-        "2027-28": "Team",
-        "2028-29": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 4593520,
-        "2027-28": 4864920,
-        "2028-29": 7462787
-      },
-      "guaranteed": {
-        "2026-27": 4593520,
-        "2027-28": 0,
-        "2028-29": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 50000,
-        "2027-28": 0,
-        "2028-29": 0
-      },
-      "optionExercised": {
-        "2027-28": false,
-        "2028-29": false
-      },
-      "acquiredMethod": "Draft"
-    },
-    {
-      "name": "Darius Acuff",
-      "team": "SAC",
-      "salary": {
-        "2026-27": 8021640,
-        "2027-28": 8422920,
-        "2028-29": 8823600,
-        "2029-30": 11205972
-      },
-      "options": {
-        "2028-29": "Team",
-        "2029-30": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 7921640,
-        "2027-28": 8322920,
-        "2028-29": 8823600,
-        "2029-30": 11205972
-      },
-      "guaranteed": {
-        "2026-27": 7921640,
-        "2027-28": 8322920,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 100000,
-        "2027-28": 100000,
-        "2028-29": 0,
-        "2029-30": 0
-      },
-      "optionExercised": {
-        "2028-29": false,
-        "2029-30": false
-      },
-      "acquiredMethod": "Draft",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-23",
-          "method": "draft",
-          "team": "SAC"
-        },
-        {
-          "date": "2026-07-01",
-          "method": "free-agent",
-          "team": "SAC"
-        }
-      ]
-    }
-  ],
-  "changed": []
+  ]
 }

@@ -60,6 +60,21 @@
   "method": "free-agent"
  },
  {
+  "name": "Kyle Mangas",
+  "date": "2026-09-02",
+  "method": "free-agent"
+ },
+ {
+  "name": "Trey Townsend",
+  "date": "2026-09-01",
+  "method": "free-agent"
+ },
+ {
+  "name": "Josiah Allick",
+  "date": "2026-08-31",
+  "method": "free-agent"
+ },
+ {
   "name": "Matteo Spagnolo",
   "date": "2026-07-10",
   "method": "trade"
@@ -121,12 +136,12 @@
  },
  {
   "name": "Ismael Kamagate",
-  "date": "2026-08-14",
+  "date": "2026-08-20",
   "method": "trade"
  },
  {
   "name": "Cam Whitmore",
-  "date": "2026-08-14",
+  "date": "2026-08-20",
   "method": "trade"
  },
  {
@@ -141,7 +156,7 @@
  },
  {
   "name": "Julian Reese",
-  "date": "2026-08-14",
+  "date": "2026-08-20",
   "method": "trade"
  },
  {
@@ -182,6 +197,16 @@
  {
   "name": "Jaden Henley",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Dalen Terry",
+  "date": "2026-08-31",
+  "method": "free-agent"
+ },
+ {
+  "name": "Deivon Smith",
+  "date": "2026-08-24",
   "method": "free-agent"
  },
  {
@@ -301,7 +326,7 @@
  },
  {
   "name": "J'Vonne Hadley",
-  "date": "2026-06-24",
+  "date": "2026-08-27",
   "method": "free-agent"
  },
  {
@@ -318,6 +343,11 @@
   "name": "Jahmir Young",
   "date": "2026-04-11",
   "method": "free-agent"
+ },
+ {
+  "name": "John Konchar",
+  "date": "2026-08-29",
+  "method": "trade"
  },
  {
   "name": "Nah'Shon Bones Hyland",
@@ -400,8 +430,28 @@
   "method": "free-agent"
  },
  {
+  "name": "Malaki Branham",
+  "date": "2026-08-26",
+  "method": "free-agent"
+ },
+ {
   "name": "Malik Reneau",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Saint Thomas",
+  "date": "2026-09-02",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jameer Nelson Jr",
+  "date": "2026-09-02",
+  "method": "free-agent"
+ },
+ {
+  "name": "Tacko Fall",
+  "date": "2026-09-02",
   "method": "free-agent"
  },
  {
@@ -490,6 +540,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Matthew Murrell",
+  "date": "2026-08-31",
+  "method": "free-agent"
+ },
+ {
   "name": "Harrison Ingram",
   "date": "2026-07-25",
   "method": "free-agent"
@@ -527,11 +582,6 @@
  {
   "name": "Kennedy Chandler",
   "date": "2026-03-21",
-  "method": "free-agent"
- },
- {
-  "name": "Bez Mbeng",
-  "date": "2026-03-13",
   "method": "free-agent"
  },
  {
