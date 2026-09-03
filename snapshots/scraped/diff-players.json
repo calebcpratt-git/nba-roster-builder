@@ -1,52 +1,43 @@
 {
-  "added": [],
-  "removed": [],
-  "changed": [
+  "added": [
     {
-      "before": {
-        "name": "Nick Richards",
-        "team": "MIA",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2026-08-27",
-            "method": "free-agent",
-            "team": "MIA"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
+      "name": "Matthew Murrell",
+      "team": "UTA",
+      "salary": {
+        "2026-27": 1357763
       },
-      "after": {
-        "name": "Nick Richards",
-        "team": "MIA",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2026-08-27",
-            "method": "free-agent",
-            "team": "MIA"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed",
-            "guaranteeDate": "2026-10-15"
-          }
+      "options": {},
+      "acquisitionHistory": [
+        {
+          "date": "2026-08-31",
+          "method": "free-agent",
+          "team": "UTA"
         }
-      },
-      "fields": [
-        "guarantees"
       ]
     }
-  ]
+  ],
+  "removed": [
+    {
+      "name": "Hunter Dickinson",
+      "team": "NOP",
+      "salary": {
+        "2026-27": 678882
+      },
+      "options": {},
+      "contractType": "two-way",
+      "acquisitionHistory": [
+        {
+          "date": "2025-07-03",
+          "method": "free-agent",
+          "team": "NOP"
+        },
+        {
+          "date": "2026-06-26",
+          "method": "free-agent",
+          "team": "NOP"
+        }
+      ]
+    }
+  ],
+  "changed": []
 }

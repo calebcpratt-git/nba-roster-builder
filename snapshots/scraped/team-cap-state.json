@@ -1147,17 +1147,13 @@
    "trigger": "Trade Salary Acquired: Aug 20 trade"
   },
   "exceptionsUsed": {
-   "nonTaxpayerMLE": {
-    "signings": [],
-    "remaining": 1207654
-   },
    "taxpayerMLE": {
     "signings": [],
     "remaining": 6064000
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 1207654
+    "remaining": 0
    },
    "tradeExceptionsUsed": [
     {

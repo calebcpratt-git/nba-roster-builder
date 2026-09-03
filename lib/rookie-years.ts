@@ -463,4 +463,5 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Mamadi Diakite": 2020,
   "Ricky Rubio": 2009,
   "Didi Louzada": 2019,
+  "Matthew Murrell": 2026,
 }

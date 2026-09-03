@@ -4,21 +4,20 @@
   "changed": [
     {
       "before": {
-        "team": "PHI",
+        "team": "CLE",
         "season": "2026-27",
-        "deadMoney": [],
+        "deadMoney": [
+          {
+            "player": "Ricky Rubio",
+            "amount": 424672
+          }
+        ],
         "capHolds": [
           {
-            "label": "MarJon Beauchamp",
-            "amount": 2500000,
+            "label": "Olivier Sarr",
+            "amount": 2200000,
             "kind": "free-agent",
             "birdRights": "non-bird"
-          },
-          {
-            "label": "Kyle Lowry",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
           }
         ],
         "salaryCap": 165000000,
@@ -27,75 +26,77 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "PHI-jared-mccain-2026-02-04",
-            "amount": 4221360,
+            "id": "CLE-deandre-hunter-2026-02-01",
+            "amount": 1439674,
+            "expires": "2027-02-01",
+            "fromPlayer": "De'Andre Hunter"
+          },
+          {
+            "id": "CLE-darius-garland-2026-02-04",
+            "amount": 263397,
             "expires": "2027-02-04",
-            "fromPlayer": "Jared McCain"
+            "fromPlayer": "Darius Garland"
           },
           {
-            "id": "PHI-eric-gordon-2026-02-05",
-            "amount": 2296274,
+            "id": "CLE-lonzo-ball-2026-02-05",
+            "amount": 10000000,
             "expires": "2027-02-05",
-            "fromPlayer": "Eric Gordon"
+            "fromPlayer": "Lonzo Ball"
           },
           {
-            "id": "PHI-johni-broome-2026-07-28",
-            "amount": 2150917,
-            "expires": "2027-07-28",
-            "fromPlayer": "Johni Broome"
+            "id": "CLE-max-strus-2026-08-20",
+            "amount": 16660836,
+            "expires": "2027-08-20",
+            "fromPlayer": "Max Strus"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "TP-MLE Exceeded: Dean Wade (Jul 6)"
+          "trigger": "Trade Salary Acquired: Aug 20 trade"
         },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
-            "signings": [
-              {
-                "player": "Anfernee Simons",
-                "amount": 6000000
-              },
-              {
-                "player": "Dean Wade",
-                "amount": 9000000
-              }
-            ],
-            "remaining": 44000
+            "signings": [],
+            "remaining": 1207654
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
           },
           "biAnnual": {
-            "signings": [
-              {
-                "player": "Ariel Hukporti",
-                "amount": 3400000,
-                "date": "2026-07-06"
-              }
-            ],
-            "remaining": 470766
-          }
+            "signings": [],
+            "remaining": 1207654
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "De'Andre Hunter",
+              "usedByPlayer": "Cam Whitmore",
+              "amount": 5458310,
+              "date": "2026-08-20"
+            }
+          ]
         },
         "cashLedger": {
           "availableToSend": 7964000,
-          "availableToReceive": 7964000
+          "availableToReceive": 7854000
         },
         "apronAddon": 0
       },
       "after": {
-        "team": "PHI",
+        "team": "CLE",
         "season": "2026-27",
-        "deadMoney": [],
+        "deadMoney": [
+          {
+            "player": "Ricky Rubio",
+            "amount": 424672
+          }
+        ],
         "capHolds": [
           {
-            "label": "MarJon Beauchamp",
-            "amount": 2500000,
+            "label": "Olivier Sarr",
+            "amount": 2200000,
             "kind": "free-agent",
             "birdRights": "non-bird"
-          },
-          {
-            "label": "Kyle Lowry",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
           }
         ],
         "salaryCap": 165000000,
@@ -104,56 +105,55 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "PHI-jared-mccain-2026-02-04",
-            "amount": 4221360,
+            "id": "CLE-deandre-hunter-2026-02-01",
+            "amount": 1439674,
+            "expires": "2027-02-01",
+            "fromPlayer": "De'Andre Hunter"
+          },
+          {
+            "id": "CLE-darius-garland-2026-02-04",
+            "amount": 263397,
             "expires": "2027-02-04",
-            "fromPlayer": "Jared McCain"
+            "fromPlayer": "Darius Garland"
           },
           {
-            "id": "PHI-eric-gordon-2026-02-05",
-            "amount": 2296274,
+            "id": "CLE-lonzo-ball-2026-02-05",
+            "amount": 10000000,
             "expires": "2027-02-05",
-            "fromPlayer": "Eric Gordon"
+            "fromPlayer": "Lonzo Ball"
           },
           {
-            "id": "PHI-johni-broome-2026-07-28",
-            "amount": 2150917,
-            "expires": "2027-07-28",
-            "fromPlayer": "Johni Broome"
+            "id": "CLE-max-strus-2026-08-20",
+            "amount": 16660836,
+            "expires": "2027-08-20",
+            "fromPlayer": "Max Strus"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "TP-MLE Exceeded: Dean Wade (Jul 6)"
+          "trigger": "Trade Salary Acquired: Aug 20 trade"
         },
         "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [
-              {
-                "player": "Anfernee Simons",
-                "amount": 6000000
-              },
-              {
-                "player": "Dean Wade",
-                "amount": 9000000
-              }
-            ],
-            "remaining": null
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
           },
           "biAnnual": {
-            "signings": [
-              {
-                "player": "Ariel Hukporti",
-                "amount": 3400000,
-                "date": "2026-07-06"
-              }
-            ],
+            "signings": [],
             "remaining": 0
-          }
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "De'Andre Hunter",
+              "usedByPlayer": "Cam Whitmore",
+              "amount": 5458310,
+              "date": "2026-08-20"
+            }
+          ]
         },
         "cashLedger": {
           "availableToSend": 7964000,
-          "availableToReceive": 7964000
+          "availableToReceive": 7854000
         },
         "apronAddon": 0
       },

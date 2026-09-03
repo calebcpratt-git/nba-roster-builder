@@ -45,6 +45,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Kyle Mangas",
+  "date": "2026-09-02",
+  "method": "free-agent"
+ },
+ {
   "name": "Trey Townsend",
   "date": "2026-09-01",
   "method": "free-agent"
@@ -112,6 +117,11 @@
  {
   "name": "Mouhamadou Gueye",
   "date": "2026-04-09",
+  "method": "free-agent"
+ },
+ {
+  "name": "Khalifa Diop",
+  "date": "2026-09-02",
   "method": "free-agent"
  },
  {
@@ -522,11 +532,6 @@
  {
   "name": "Kennedy Chandler",
   "date": "2026-03-21",
-  "method": "free-agent"
- },
- {
-  "name": "Bez Mbeng",
-  "date": "2026-03-13",
   "method": "free-agent"
  },
  {

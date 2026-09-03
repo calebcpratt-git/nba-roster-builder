@@ -32,7 +32,7 @@
   "exhibit10": false
  },
  {
-  "player": "Trey Townsend",
+  "player": "Kyle Mangas",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -393,14 +393,6 @@
  },
  {
   "player": "Harrison Ingram",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Matthew Murrell",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

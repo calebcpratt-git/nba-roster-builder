@@ -466,6 +466,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Henri Veesaar": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Bruce Thornton": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Trevon Brazile": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
+  "Matthew Murrell": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Nate Bittle": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "J'Vonne Hadley": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Dalen Terry": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },

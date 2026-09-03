@@ -13000,6 +13000,21 @@
     ]
   },
   {
+    "name": "Matthew Murrell",
+    "team": "UTA",
+    "salary": {
+      "2026-27": 1357763
+    },
+    "options": {},
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-31",
+        "method": "free-agent",
+        "team": "UTA"
+      }
+    ]
+  },
+  {
     "name": "Nate Bittle",
     "team": "TOR",
     "salary": {
@@ -15264,27 +15279,6 @@
         "date": "2026-07-07",
         "method": "free-agent",
         "team": "WAS"
-      }
-    ]
-  },
-  {
-    "name": "Hunter Dickinson",
-    "team": "NOP",
-    "salary": {
-      "2026-27": 678882
-    },
-    "options": {},
-    "contractType": "two-way",
-    "acquisitionHistory": [
-      {
-        "date": "2025-07-03",
-        "method": "free-agent",
-        "team": "NOP"
-      },
-      {
-        "date": "2026-06-26",
-        "method": "free-agent",
-        "team": "NOP"
       }
     ]
   }
