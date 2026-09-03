@@ -652,6 +652,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Kyle Mangas",
+  "date": "2026-09-02",
+  "dateRaw": "Sep 2, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Trey Townsend",
   "date": "2026-09-01",
   "dateRaw": "Sep 1, 2026",
@@ -1151,6 +1164,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Khalifa Diop",
+  "date": "2026-09-02",
+  "dateRaw": "Sep 2, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {
@@ -2184,6 +2210,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Amen Thompson",
+  "date": "2026-09-03",
+  "dateRaw": "Sep 3, 2026",
+  "method": "extension",
+  "toTeams": [
+   "HOU"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Scale Extension",
   "flags": []
  },
  {
@@ -5463,6 +5502,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Matthew Murrell",
+  "date": "2026-08-31",
+  "dateRaw": "Aug 31, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "UTA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Josh Green",
   "date": "2026-08-29",
   "dateRaw": "Aug 29, 2026",
@@ -5689,19 +5741,6 @@
   "name": "Kennedy Chandler",
   "date": "2026-03-21",
   "dateRaw": "Mar 21, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "UTA"
-  ],
-  "fromTeams": [],
-  "text": "Signed to 10-Day Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Bez Mbeng",
-  "date": "2026-03-13",
-  "dateRaw": "Mar 13, 2026",
   "method": "free-agent",
   "toTeams": [
    "UTA"

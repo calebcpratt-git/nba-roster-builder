@@ -189,6 +189,20 @@ def _soup(path):
     return BeautifulSoup(open(path, encoding='utf-8', errors='replace').read(), 'html.parser')
 
 
+def _soup_lxml(path):
+    """Like _soup(), but with the lxml parser instead of html.parser.
+
+    Required for the /teams/{slug} roster pages (Phase 1 of the BBRef
+    contracts-page migration): html.parser silently truncates those tables
+    mid-row with no exception raised — confirmed live, Cleveland's Active
+    table came back as 4 rows under html.parser and 16 under lxml. Every
+    other page this module parses (trade-exception, hard-cap-tracker,
+    transactions, player pages) is validated against html.parser and stays
+    on _soup() — don't switch them over on the strength of one page type's
+    bug."""
+    return BeautifulSoup(open(path, encoding='utf-8', errors='replace').read(), 'lxml')
+
+
 def parse_trade_exceptions(path):
     """/trade-exception -> [{team, fromPlayer, amount, expires (ISO), id}]
     `amount` is the REMAINING balance (not the original exception size) —
@@ -505,6 +519,256 @@ def parse_all_team_transactions(raw_dir, slugs=None):
         if not os.path.exists(path):
             continue
         out.extend(parse_team_transactions(path, TEAM_SLUG_TO_ABBR[slug]))
+    return out
+
+
+# ---------------------------------------------------------------------------
+# /teams/{slug} roster pages — replacing BBRef's contracts page (2026-09
+# migration) as the source of Player.name/team/salary/options. Verified live
+# against all 30 teams:
+#
+# - Each roster page is a stack of independent <table
+#   class="sw_teamProfileRosterSection__table ...">, one per section (Active,
+#   Training Camp and Exhibit 10, Minors/G-League, Disabled, Inactive,
+#   Waivers, Buyout, 1st/2nd Rd Picks, RFAs, UFAs, FA Cap Hold — not every
+#   team has every section). Each table's first <th> carries BOTH the
+#   section label and its declared "(rows - $total)" — e.g.
+#   "Active (15 - $220,838,431)" — followed by fixed headers Status |
+#   Acquired | Age | Pos | Terms | then one column per season.
+#
+# - html.parser MUST NOT be used on these pages: confirmed live, Cleveland's
+#   Active table (14 declared rows) parses to 3 rows under html.parser and
+#   14 under lxml, with no exception raised either way — silent data loss.
+#   Root cause, also confirmed live: the section header's first <th> is
+#   closed with a stray </td> instead of </th> (a real bug in SalarySwish's
+#   markup), which html.parser's stricter tree-builder mis-nests badly
+#   enough to eat rows; lxml's parser recovers correctly. See _soup_lxml().
+#
+# - A season cell holds 2 or 4 <span>s (cap_hit always; guaranteed/
+#   base_salary/incentive present on contract rows, absent on hold/dead-
+#   money rows that are pinned at a single figure) OR, on a to-be-decided
+#   option year, a <div class="team_option_tag"> ('T'/'P', with an added
+#   "accepted" class + a "Team/Player Option Accepted" title on an exercised
+#   option — confirmed live on a CURRENT-season row) wrapping a
+#   <div class="team_option_tag_bord"> that holds the same 2-4 spans OR,
+#   after a player's last contracted season, a
+#   <div class="sw_playerProfile__freeAgentTag_tag">UFA|RFA</div>. A cell
+#   with none of these is simply empty (no data for that season).
+#
+# - The declared section total is the SUM of the section's cap_hit values in
+#   the FIRST season column only, not any other season and not the other
+#   three slots — confirmed by reproducing Golden State's Active total
+#   ($220,838,431) exactly, and by RFA/UFA/pick sections declaring "$0"
+#   despite later-column cap_hit values, because held-rights rows carry
+#   their cap hold in a later season column, not the first. This makes the
+#   header a genuine second reconciliation signal alongside the row count.
+#
+# - Player-column text is "Last, First" (suffix stays glued to the surname:
+#   "Jackson Jr., Jaren"), EXCEPT one confirmed live outlier that renders it
+#   as "Last, Suffix, First" ("Wrightsell, Jr., Latrell") — a real data
+#   inconsistency on SalarySwish's side, not a formatting rule. _flip_name()
+#   handles both by treating the LAST comma-separated segment as the first
+#   name and joining everything before it as the surname, rather than
+#   special-casing the suffix. A pick-holder row's player cell also carries
+#   a trailing "(Nth pick YYYY)" link, stripped by reading only the first
+#   <a>'s text rather than the whole cell.
+TEAM_ROSTER_URL = 'https://salaryswish.com/teams/{slug}'
+ROSTER_TABLE_CLASS = 'sw_teamProfileRosterSection__table'
+_ROSTER_META_COLS = 5  # Status, Acquired, Age, Pos, Terms — between the player column and the season columns
+_SECTION_HEADER_RE = re.compile(r'^(?P<section>.*?)\s*\((?P<count>\d+)\s*-\s*(?P<total>-?\$[\d,]+)\)$')
+
+
+def fetch_team_rosters(raw_dir, offline=False):
+    """Fetches all 30 /teams/{slug} roster pages into raw_dir. Returns the
+    set of slugs that failed (never raises for a single team) — same shape
+    as fetch_team_transactions, so a failed team just falls back to that
+    team's last-good snapshot rather than aborting the whole source."""
+    os.makedirs(raw_dir, exist_ok=True)
+    failed = set()
+    for slug in TEAM_SLUG_TO_ABBR:
+        path = os.path.join(raw_dir, f'{slug}.html')
+        if offline:
+            if not os.path.exists(path):
+                failed.add(slug)
+            continue
+        if not fetch_page(TEAM_ROSTER_URL.format(slug=slug), path):
+            failed.add(slug)
+        time.sleep(1.0)
+    return failed
+
+
+def _flip_name(raw):
+    """'Last, First' -> 'First Last', suffix-safe — see the module-comment
+    above for the confirmed-live 'Last, Suffix, First' outlier this also
+    has to handle. Splitting on every ', ' and treating the final segment
+    as the first name works for both shapes without a suffix special case."""
+    parts = [p.strip() for p in raw.split(',') if p.strip()]
+    if len(parts) < 2:
+        return raw.strip()
+    first_name = parts[-1]
+    surname = ' '.join(parts[:-1])
+    return f'{first_name} {surname}'
+
+
+def _roster_money(text):
+    t = text.replace('$', '').replace(',', '').strip()
+    if not t:
+        return None
+    neg = t.startswith('-')
+    digits = t[1:] if neg else t
+    if not digits.isdigit():
+        return None
+    return -int(digits) if neg else int(digits)
+
+
+def _parse_season_cell(td):
+    """-> dict of whatever this cell actually carries: some subset of
+    {capHit, guaranteed, cash, likelyIncentive, option ('Team'/'Player'),
+    optionAccepted (bool, only set alongside 'option'), faYear ('UFA'/'RFA')}.
+    An empty cell (no data for that season) yields {}."""
+    fa = td.find(class_='sw_playerProfile__freeAgentTag_tag')
+    if fa is not None:
+        return {'faYear': fa.get_text(strip=True)}
+    bare = td.get_text(strip=True)
+    if bare in ('UFA', 'RFA'):
+        return {'faYear': bare}
+
+    out = {}
+    opt_div = td.find('div', class_='team_option_tag')
+    if opt_div is not None:
+        opt_text = opt_div.get_text(strip=True)
+        out['option'] = 'Player' if opt_text == 'P' else 'Team'
+        out['optionAccepted'] = 'accepted' in (opt_div.get('class') or [])
+    container = td.find('div', class_='team_option_tag_bord') or td
+
+    cap_hit = container.find('span', class_='cap_hit')
+    guaranteed = container.find('span', class_='guaranteed')
+    cash = container.find('span', class_='base_salary')
+    incentive = container.find('span', class_='incentive')
+    if cap_hit is not None:
+        out['capHit'] = _roster_money(cap_hit.get_text(strip=True))
+    if guaranteed is not None:
+        out['guaranteed'] = _roster_money(guaranteed.get_text(strip=True))
+    if cash is not None:
+        out['cash'] = _roster_money(cash.get_text(strip=True))
+    if incentive is not None:
+        out['likelyIncentive'] = _roster_money(incentive.get_text(strip=True))
+    return out
+
+
+def parse_team_roster(path, team_abbr):
+    """/teams/{slug} -> [{name, team, section, status, acquiredMethod,
+    terms, salary, cashSalary, guaranteed, likelyIncentives, options,
+    optionsAccepted, faYear}, ...] — one row per player/pick/hold line
+    across every section on the page (callers filter to the sections they
+    want; see run.py's build_players for the roster-vs-hold split).
+
+    salary/cashSalary/guaranteed/likelyIncentives/options/optionsAccepted
+    are all {season: value} dicts, sparse — a season with no data for that
+    slot (e.g. no guaranteed-amount span on a hold row) just has no key for
+    that season, per the season-cell shapes confirmed live (see the
+    module-level comment above parse_team_roster's neighbors). optionsAccepted
+    only has entries for seasons that are actually options.
+
+    Hard-fails (raises RuntimeError) rather than returning a partial result
+    when a section's declared row count or declared season-1 cap-hit total
+    disagrees with what was actually parsed — see the module comment: this
+    is the guard against html.parser's silent mid-table truncation on these
+    specific pages. A raise here should be rare and means the page layout
+    changed, not that a fetch glitched."""
+    soup = _soup_lxml(path)
+    tables = soup.find_all('table', class_=ROSTER_TABLE_CLASS)
+    if not tables:
+        raise RuntimeError(f'no roster tables found for {team_abbr} — page layout changed')
+
+    out = []
+    for table in tables:
+        ths = table.find('thead').find_all('th')
+        header_match = _SECTION_HEADER_RE.match(ths[0].get_text(' ', strip=True))
+        if header_match is None:
+            raise RuntimeError(f'unparseable section header for {team_abbr}: {ths[0].get_text(" ", strip=True)!r}')
+        section = header_match.group('section')
+        declared_count = int(header_match.group('count'))
+        declared_total = _roster_money(header_match.group('total'))
+        season_labels = [th.get_text(strip=True) for th in ths[1 + _ROSTER_META_COLS:]]
+
+        section_rows = []
+        first_season_total = 0
+        for tr in table.find('tbody').find_all('tr'):
+            tds = tr.find_all('td', recursive=False)
+            if len(tds) < 1 + _ROSTER_META_COLS:
+                continue
+            name_link = tds[0].find('a')
+            raw_name = name_link.get_text(strip=True) if name_link is not None else tds[0].get_text(strip=True)
+            if not raw_name:
+                continue
+            status = tds[1].get_text(strip=True) or None
+            acquired = tds[2].get_text(strip=True) or None
+            terms = tds[5].get_text(strip=True) or None
+
+            row = {
+                'name': _flip_name(raw_name),
+                'team': team_abbr,
+                'section': section,
+                'status': status,
+                'acquiredMethod': acquired,
+                'terms': terms,
+                'salary': {},
+                'cashSalary': {},
+                'guaranteed': {},
+                'likelyIncentives': {},
+                'options': {},
+                'optionsAccepted': {},
+                'faYear': None,
+            }
+            for season, td in zip(season_labels, tds[1 + _ROSTER_META_COLS:]):
+                cell = _parse_season_cell(td)
+                if 'capHit' in cell and cell['capHit'] is not None:
+                    row['salary'][season] = cell['capHit']
+                if 'guaranteed' in cell and cell['guaranteed'] is not None:
+                    row['guaranteed'][season] = cell['guaranteed']
+                if 'cash' in cell and cell['cash'] is not None:
+                    row['cashSalary'][season] = cell['cash']
+                if 'likelyIncentive' in cell and cell['likelyIncentive'] is not None:
+                    row['likelyIncentives'][season] = cell['likelyIncentive']
+                if 'option' in cell:
+                    row['options'][season] = cell['option']
+                    row['optionsAccepted'][season] = cell['optionAccepted']
+                if cell.get('faYear'):
+                    row['faYear'] = cell['faYear']
+            if season_labels:
+                first_season_total += row['salary'].get(season_labels[0], 0)
+            section_rows.append(row)
+
+        if len(section_rows) != declared_count:
+            raise RuntimeError(
+                f'{team_abbr} {section!r}: declared {declared_count} row(s), parsed {len(section_rows)} — '
+                'page layout changed or html.parser truncated the table')
+        if declared_total is not None and first_season_total != declared_total:
+            raise RuntimeError(
+                f'{team_abbr} {section!r}: declared season-1 total ${declared_total:,}, '
+                f'summed ${first_season_total:,} — page layout changed')
+        out.extend(section_rows)
+
+    if not out:
+        raise RuntimeError(f'roster parsed to zero rows for {team_abbr} — page layout changed')
+    return out
+
+
+def parse_all_team_rosters(raw_dir, slugs=None):
+    """Aggregates parse_team_roster() across every team whose raw HTML
+    exists in raw_dir. A team missing its file (fetch failed this run) is
+    silently skipped — mirrors parse_all_team_transactions; raises only if
+    zero teams parsed at all."""
+    slugs = slugs or list(TEAM_SLUG_TO_ABBR)
+    out = []
+    for slug in slugs:
+        path = os.path.join(raw_dir, f'{slug}.html')
+        if not os.path.exists(path):
+            continue
+        out.extend(parse_team_roster(path, TEAM_SLUG_TO_ABBR[slug]))
+    if not out:
+        raise RuntimeError('parsed zero teams from any roster snapshot')
     return out
 
 

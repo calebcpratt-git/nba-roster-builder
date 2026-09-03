@@ -10,17 +10,23 @@
   "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
  },
  {
-  "player": "Quenton Jackson",
-  "team": "Pacers",
-  "guaranteeDate": "2026-07-15",
-  "status": "partial",
-  "partialAmount": 250000,
-  "fullAmount": 2584539,
-  "guaranteeTriggered": true,
-  "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,584,539). ( ✅ )"
+  "player": "Tucker DeVries",
+  "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
-  "player": "Trey Townsend",
+  "player": "Milos Uzan",
+  "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Kyle Mangas",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -28,8 +34,56 @@
   "exhibit10": true
  },
  {
-  "player": "Taj Gibson",
-  "team": "Memphis Grizzlies",
+  "player": "Dalen Terry",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Julian Phillips",
+  "team": "Houston Rockets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Oscar Tshiebwe",
+  "team": "Houston Rockets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Yuki Kawamura",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "J’Vonne Hadley",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Kobe Bufkin",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Christian Koloko",
+  "team": "New Orleans Pelicans",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -68,7 +122,31 @@
   "exhibit10": true
  },
  {
-  "player": "Matthew Murrell",
+  "player": "Taelon Peter",
+  "team": "San Antonio Spurs",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Nate Bittle",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Malachi Smith",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Harrison Ingram",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

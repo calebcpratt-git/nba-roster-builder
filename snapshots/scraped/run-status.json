@@ -1,8 +1,6 @@
 {
   "written": [
     "players",
-    "two-way-contracts",
-    "free-agent-reconciliation",
     "free-agent-pool",
     "picks",
     "enrichment",
@@ -17,16 +15,13 @@
   ],
   "staleSources": [],
   "sourceFetches": {
-    "bbref_contracts": true,
     "realgm_future_drafts": true,
-    "realgm_free_agent_options": true,
     "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
     "hr_veto_trades": true,
     "hr_cash_in_trade": true,
-    "hr_two_way_tracker": true,
     "salaryswish_trade_exceptions": true,
     "salaryswish_hard_cap": true,
     "salaryswish_mle": true,
@@ -42,6 +37,10 @@
     "bbref_awards_2022": true
   },
   "pageGroups": {
+    "salaryswish-rosters": {
+      "total": 30,
+      "failed": []
+    },
     "salaryswish-transactions": {
       "total": 30,
       "failed": []
@@ -51,36 +50,66 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 19,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 0,
-      "acquisition": 105,
-      "guarantees": 6,
-      "signing": 10,
-      "awards": 4
+      "draft-year": 62,
+      "acquisition": 110,
+      "guarantees": 13,
+      "signing": 19,
+      "awards": 2,
+      "name-bridge": 71,
+      "no-current-salary": 1
     },
     "after": {
-      "draft-year": 0,
-      "acquisition": 109,
-      "guarantees": 9,
+      "draft-year": 62,
+      "acquisition": 120,
+      "guarantees": 19,
       "signing": 10,
-      "awards": 4
+      "awards": 2,
+      "name-bridge": 82,
+      "no-current-salary": 1
     },
-    "newUnresolved": 7,
+    "newUnresolved": 27,
     "newByCategory": {
-      "acquisition": 4,
-      "guarantees": 3
+      "acquisition": 10,
+      "guarantees": 6,
+      "name-bridge": 11
     },
     "newRecords": {
       "acquisition": [
         {
+          "name": "Kyle Mangas",
+          "date": "2026-09-02",
+          "method": "free-agent"
+        },
+        {
           "name": "Trey Townsend",
           "date": "2026-09-01",
+          "method": "free-agent"
+        },
+        {
+          "name": "Josiah Allick",
+          "date": "2026-08-31",
+          "method": "free-agent"
+        },
+        {
+          "name": "Deivon Smith",
+          "date": "2026-08-24",
+          "method": "free-agent"
+        },
+        {
+          "name": "John Konchar",
+          "date": "2026-08-29",
+          "method": "trade"
+        },
+        {
+          "name": "Malaki Branham",
+          "date": "2026-08-26",
           "method": "free-agent"
         },
         {
@@ -97,12 +126,33 @@
           "name": "Tacko Fall",
           "date": "2026-09-02",
           "method": "free-agent"
+        },
+        {
+          "name": "Matthew Murrell",
+          "date": "2026-08-31",
+          "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Trey Townsend",
+          "player": "Kyle Mangas",
           "team": "Charlotte Hornets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Dalen Terry",
+          "team": "Golden State Warriors",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "J’Vonne Hadley",
+          "team": "Miami Heat",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -131,19 +181,95 @@
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
+        },
+        {
+          "player": "Malachi Smith",
+          "team": "Toronto Raptors",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        }
+      ],
+      "name-bridge": [
+        {
+          "name": "Christian Koloko"
+        },
+        {
+          "name": "Cole Anthony"
+        },
+        {
+          "name": "Dalen Terry"
+        },
+        {
+          "name": "Didi Louzada"
+        },
+        {
+          "name": "E.J. Liddell"
+        },
+        {
+          "name": "Harrison Ingram"
+        },
+        {
+          "name": "J'Vonne Hadley"
+        },
+        {
+          "name": "JaVale McGee"
+        },
+        {
+          "name": "John Konchar"
+        },
+        {
+          "name": "Julian Phillips"
+        },
+        {
+          "name": "Kobe Bufkin"
+        },
+        {
+          "name": "Malachi Smith"
+        },
+        {
+          "name": "Mamadi Diakite"
+        },
+        {
+          "name": "Milos Uzan"
+        },
+        {
+          "name": "Nassir Little"
+        },
+        {
+          "name": "Nate Bittle"
+        },
+        {
+          "name": "Oscar Tshiebwe"
+        },
+        {
+          "name": "Ricky Rubio"
+        },
+        {
+          "name": "Taelon Peter"
+        },
+        {
+          "name": "Tucker DeVries"
+        },
+        {
+          "name": "Vasilije Micić"
+        },
+        {
+          "name": "Yuki Kawamura"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-02T15:03:48.594Z",
+  "generatedAt": "2026-09-03T16:47:50.059Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~1 (of 535)",
-    "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 529)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~0 (of 144)",
-    "awards: +0 -0 ~0 (of 76)"
+    "players: +0 -0 ~20 (of 523)",
+    "draft-picks: +12 -11 ~0 (of 521)",
+    "contract-details: +9 -0 ~0 (of 506)",
+    "team-cap-state: +0 -0 ~13 (of 150)",
+    "free-agents: +5 -2 ~1 (of 140)",
+    "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true
 }

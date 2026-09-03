@@ -159,12 +159,7 @@ function writeRunStatus(diffResults) {
   console.log(`\nrun-status: clean=${clean}` + (clean ? '' : ` (staleSources=${staleSources.length}, newUnresolved=${newUnresolved}, warnings=${warnings.length})`))
 }
 
-// bbrefId rides along in the scraped file purely as a Python-side join key
-// for enrichment (see run.py's build_players) — it isn't part of the app's
-// Player model, so it's stripped here rather than let it leak into
-// player-data.ts or (worse) the diff snapshot, where it would show up as a
-// spurious 100%-churn field change the first time this runs.
-const players = read('players.json').map(({ bbrefId, ...rest }) => rest)
+const players = read('players.json')
 const picks = read('draft-picks.json')
 const rookieYears = read('rookie-years.json')
 

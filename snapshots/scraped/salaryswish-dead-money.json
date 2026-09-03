@@ -1,0 +1,441 @@
+[
+ {
+  "name": "N'Faly Dante",
+  "team": "ATL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2411090
+  },
+  "cashSalary": {
+   "2026-27": 2411090
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Kam Jones",
+  "team": "CHI",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 1075459
+  },
+  "cashSalary": {
+   "2026-27": 1075459
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Ricky Rubio",
+  "team": "CLE",
+  "section": "Buyout",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 424672
+  },
+  "cashSalary": {
+   "2026-27": 424672
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "JaVale McGee",
+  "team": "DAL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2208856,
+   "2027-28": 2208856
+  },
+  "cashSalary": {
+   "2026-27": 2208856,
+   "2027-28": 2208856
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Olivier-Maxence Prosper",
+  "team": "DAL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 1002360,
+   "2027-28": 1002360
+  },
+  "cashSalary": {
+   "2026-27": 1002360,
+   "2027-28": 1002360
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Klay Thompson",
+  "team": "DAL",
+  "section": "Buyout",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 7660317
+  },
+  "cashSalary": {
+   "2026-27": 7660317
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Jonas Valanciunas",
+  "team": "DEN",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2000000
+  },
+  "cashSalary": {
+   "2026-27": 2000000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Cam Whitmore",
+  "team": "HOU",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 1819437,
+   "2027-28": 1819437,
+   "2028-29": 1819437
+  },
+  "cashSalary": {
+   "2026-27": 1819437,
+   "2027-28": 1819437,
+   "2028-29": 1819437
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Mamadi Diakite",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 464050
+  },
+  "cashSalary": {
+   "2026-27": 464050
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Kentavious Caldwell-Pope",
+  "team": "MEM",
+  "section": "Buyout",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 17744971
+  },
+  "cashSalary": {
+   "2026-27": 17744971
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Cole Anthony",
+  "team": "MEM",
+  "section": "Buyout",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 3700000,
+   "2027-28": 3700000
+  },
+  "cashSalary": {
+   "2026-27": 3700000,
+   "2027-28": 3700000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Damian Lillard",
+  "team": "MIL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 21311053,
+   "2027-28": 21311053,
+   "2028-29": 21311053,
+   "2029-30": 21311053
+  },
+  "cashSalary": {
+   "2026-27": 21311053,
+   "2027-28": 21311053,
+   "2028-29": 21311053,
+   "2029-30": 21311053
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Vasilije Micić",
+  "team": "MIL",
+  "section": "Buyout",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 666667,
+   "2027-28": 666667
+  },
+  "cashSalary": {
+   "2026-27": 666667,
+   "2027-28": 666667
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "John Konchar",
+  "team": "MIN",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2055000,
+   "2027-28": 2055000,
+   "2028-29": 2055000
+  },
+  "cashSalary": {
+   "2026-27": 2055000,
+   "2027-28": 2055000,
+   "2028-29": 2055000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Jonathan Isaac",
+  "team": "ORL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 8000000
+  },
+  "cashSalary": {
+   "2026-27": 8000000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Nassir Little",
+  "team": "PHO",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 3107143,
+   "2027-28": 3107143,
+   "2028-29": 3107143,
+   "2029-30": 3107143,
+   "2030-31": 3107143
+  },
+  "cashSalary": {
+   "2026-27": 3107143,
+   "2027-28": 3107143,
+   "2028-29": 3107143,
+   "2029-30": 3107143,
+   "2030-31": 3107143
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Haywood Highsmith",
+  "team": "PHO",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 1000000
+  },
+  "cashSalary": {
+   "2026-27": 1000000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "E.J. Liddell",
+  "team": "PHO",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 706898
+  },
+  "cashSalary": {
+   "2026-27": 706898
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Bradley Beal",
+  "team": "PHO",
+  "section": "Buyout",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 19383010,
+   "2027-28": 19383010,
+   "2028-29": 19383010,
+   "2029-30": 19383010
+  },
+  "cashSalary": {
+   "2026-27": 19383010,
+   "2027-28": 19383010,
+   "2028-29": 19383010,
+   "2029-30": 19383010
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Didi Louzada",
+  "team": "POR",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 268032,
+   "2027-28": 268031,
+   "2028-29": 268031
+  },
+  "cashSalary": {
+   "2026-27": 268032,
+   "2027-28": 268031,
+   "2028-29": 268031
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "DeMar DeRozan",
+  "team": "SAC",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 10000000
+  },
+  "cashSalary": {
+   "2026-27": 10000000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ }
+]

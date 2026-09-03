@@ -394,56 +394,6 @@ REALGM_NAME_TO_APP_ABBR = {name: REALGM_CODE_TO_APP_ABBR[code] for code, name in
 # directly (not SAN/UTH) — extend rather than replace the code map above.
 _PRIOR_TEAM_TO_APP_ABBR = {**REALGM_CODE_TO_APP_ABBR, 'SAS': 'SAS', 'UTA': 'UTA'}
 
-_SEASON_RANGE = re.compile(r'^(\d{4})-(\d{4})$')
-
-
-def _normalize_season(text):
-    """'2027-2028' -> '2027-28', matching CURRENT_SEASON_LABEL's format."""
-    m = _SEASON_RANGE.match(text.strip())
-    if not m:
-        return None
-    return f'{m.group(1)}-{m.group(2)[-2:]}'
-
-
-def parse_free_agent_options(path):
-    """-> [{name, position, team, season, optionType}]
-    Parses the free_agent_options table (Player / Pos / Current Team / Season
-    / Option Type / ...). `season` is normalized to the 'YYYY-YY' label format
-    already used elsewhere in the pipeline (matches CURRENT_SEASON_LABEL in
-    run.py) so it can be directly compared to players.json's options dict
-    keys. `position` is the raw Pos column value, None if blank."""
-    soup = BeautifulSoup(open(path, encoding='ISO-8859-1', errors='replace').read(), 'html.parser')
-    table = None
-    for t in soup.find_all('table'):
-        header_cells = [c.get_text(strip=True) for c in t.find_all(['th', 'td'])[:5]]
-        if header_cells[:3] == ['Player', 'Pos', 'Current Team']:
-            table = t
-            break
-    if table is None:
-        raise RuntimeError('free_agent_options table not found — page layout changed')
-    body = table.find('tbody')
-    if body is None:
-        raise RuntimeError('free_agent_options table has no tbody — page layout changed')
-    out = []
-    for tr in body.find_all('tr'):
-        tds = tr.find_all('td')
-        if len(tds) < 5:
-            continue
-        name = tds[0].get_text(strip=True)
-        position = tds[1].get_text(strip=True) or None
-        team_name = tds[2].get_text(strip=True)
-        season = _normalize_season(tds[3].get_text(strip=True))
-        option_type = tds[4].get_text(strip=True)
-        team = REALGM_NAME_TO_APP_ABBR.get(team_name)
-        if not name or team is None or season is None or not option_type:
-            continue
-        out.append({'name': name, 'position': position, 'team': team, 'season': season,
-                     'optionType': option_type})
-    if not out:
-        raise RuntimeError('free_agent_options parsed to zero rows — page layout changed')
-    return out
-
-
 _VETERAN_FA_STATUS_TO_BIRD_RIGHTS = {
     'Non-Bird': 'non-bird', 'Early Bird': 'early-bird', 'Bird': 'full-bird',
 }

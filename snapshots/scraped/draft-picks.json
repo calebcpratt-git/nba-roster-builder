@@ -2510,6 +2510,18 @@
  {
   "teamOwner": "Indiana Pacers",
   "year": 2029,
+  "round": "First Round",
+  "teamFrom": null,
+  "swapOwner": null,
+  "swapOption": null,
+  "protections": null,
+  "pickNumber": null,
+  "pickPool": "Los Angeles Clippers",
+  "rank": "Forfeited by LAC: To LAC"
+ },
+ {
+  "teamOwner": "Indiana Pacers",
+  "year": 2029,
   "round": "Second Round",
   "teamFrom": null,
   "swapOwner": null,
@@ -2691,13 +2703,13 @@
   "teamOwner": "Los Angeles Clippers",
   "year": 2029,
   "round": "First Round",
-  "teamFrom": "Indiana Pacers",
+  "teamFrom": null,
   "swapOwner": null,
   "swapOption": null,
   "protections": null,
   "pickNumber": null,
-  "pickPool": null,
-  "rank": null
+  "pickPool": "Los Angeles Clippers, Indiana Pacers",
+  "rank": "Forfeited by LAC: IND"
  },
  {
   "teamOwner": "Los Angeles Clippers",
@@ -2708,8 +2720,8 @@
   "swapOption": null,
   "protections": null,
   "pickNumber": null,
-  "pickPool": null,
-  "rank": null
+  "pickPool": "",
+  "rank": "Forfeited"
  },
  {
   "teamOwner": "Los Angeles Clippers",
@@ -2732,8 +2744,8 @@
   "swapOption": null,
   "protections": null,
   "pickNumber": null,
-  "pickPool": null,
-  "rank": null
+  "pickPool": "",
+  "rank": "Forfeited;"
  },
  {
   "teamOwner": "Los Angeles Clippers",
@@ -2768,8 +2780,8 @@
   "swapOption": null,
   "protections": null,
   "pickNumber": null,
-  "pickPool": null,
-  "rank": null
+  "pickPool": "",
+  "rank": "Forfeited"
  },
  {
   "teamOwner": "Los Angeles Clippers",
@@ -2792,8 +2804,8 @@
   "swapOption": null,
   "protections": null,
   "pickNumber": null,
-  "pickPool": null,
-  "rank": null
+  "pickPool": "",
+  "rank": "Forfeited;"
  },
  {
   "teamOwner": "Los Angeles Clippers",

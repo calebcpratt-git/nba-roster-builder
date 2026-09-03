@@ -36,6 +36,7 @@ export const PLAYER_AWARDS: Record<string, AwardRecord[]> = {
   "Karl-Anthony Towns": [{ season: '2021-22', award: 'All-NBA-3' }, { season: '2024-25', award: 'All-NBA-3' }],
   "Tyrese Haliburton": [{ season: '2023-24', award: 'All-NBA-3' }, { season: '2024-25', award: 'All-NBA-3' }],
   "Jalen Williams": [{ season: '2024-25', award: 'All-NBA-3' }],
+  "James Harden": [{ season: '2024-25', award: 'All-NBA-3' }],
   "Anthony Davis": [{ season: '2023-24', award: 'All-NBA-2' }],
   "Domantas Sabonis": [{ season: '2022-23', award: 'All-NBA-3' }, { season: '2023-24', award: 'All-NBA-3' }],
   "Devin Booker": [{ season: '2021-22', award: 'All-NBA-1' }, { season: '2023-24', award: 'All-NBA-3' }],
@@ -45,6 +46,7 @@ export const PLAYER_AWARDS: Record<string, AwardRecord[]> = {
   "Damian Lillard": [{ season: '2022-23', award: 'All-NBA-3' }],
   "Julius Randle": [{ season: '2022-23', award: 'All-NBA-3' }],
   "Ja Morant": [{ season: '2021-22', award: 'All-NBA-2' }],
+  "DeMar DeRozan": [{ season: '2021-22', award: 'All-NBA-2' }],
   "Trae Young": [{ season: '2021-22', award: 'All-NBA-3' }],
   "Pascal Siakam": [{ season: '2021-22', award: 'All-NBA-3' }],
 }
