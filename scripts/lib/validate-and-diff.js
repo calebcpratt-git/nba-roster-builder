@@ -62,11 +62,19 @@ function validatePlayers(records, errors, now = new Date()) {
       countByTeam.set(record.team, (countByTeam.get(record.team) ?? 0) + 1)
     }
 
+    // $0 is a legitimate cap hit, not just for two-way contracts (whose
+    // salary counts as cash, not a cap charge) but also confirmed live on
+    // at least one Inactive-list rookie (Dillon Mitchell) whose deal isn't
+    // yet counting against the cap at all. getEffectiveSalary treats a $0
+    // salary as zero cap impact regardless, so accepting it here doesn't
+    // risk a scraper bug slipping through unnoticed — a genuinely broken
+    // scrape shows up as a missing/negative/absurd value instead, which the
+    // checks below still catch.
     const salary = record.salary ?? {}
     for (const [season, value] of Object.entries(salary)) {
       if (value === null || value === undefined) continue
-      if (typeof value !== 'number' || !Number.isFinite(value) || value <= 0 || value > SALARY_CEILING) {
-        errors.push(`players[${i}] (${record.name ?? 'unknown'}): salary.${season} = ${value} is not null or a positive number under $${SALARY_CEILING}`)
+      if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > SALARY_CEILING) {
+        errors.push(`players[${i}] (${record.name ?? 'unknown'}): salary.${season} = ${value} is not null or a non-negative number under $${SALARY_CEILING}`)
       }
     }
 

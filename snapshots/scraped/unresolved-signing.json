@@ -5,28 +5,18 @@
   "reason": "no matching contract block on page"
  },
  {
-  "name": "Darius Acuff Jr.",
-  "team": "SAC",
-  "reason": "no matching contract block on page"
- },
- {
-  "name": "Morez Johnson Jr.",
-  "team": "DAL",
-  "reason": "no matching contract block on page"
- },
- {
-  "name": "Yang Hansen",
-  "team": "POR",
-  "reason": "no matching contract block on page"
- },
- {
   "name": "Christian Anderson Jr.",
   "team": "CHO",
   "reason": "no matching contract block on page"
  },
  {
-  "name": "Labaron Philon Jr.",
-  "team": "PHI",
+  "name": "Khalifa Diop",
+  "team": "CLE",
+  "reason": "no offline snapshot"
+ },
+ {
+  "name": "Morez Johnson Jr.",
+  "team": "DAL",
   "reason": "no matching contract block on page"
  },
  {
@@ -35,9 +25,34 @@
   "reason": "no matching contract block on page"
  },
  {
-  "name": "Alex Karaban",
-  "team": "SAC",
-  "reason": "no matching contract block on page"
+  "name": "DeMar DeRozan",
+  "team": "DEN",
+  "reason": "no offline snapshot"
+ },
+ {
+  "name": "Alpha Diallo",
+  "team": "DEN",
+  "reason": "no offline snapshot"
+ },
+ {
+  "name": "Quenton Jackson",
+  "team": "IND",
+  "reason": "no offline snapshot"
+ },
+ {
+  "name": "Taj Gibson",
+  "team": "MEM",
+  "reason": "no offline snapshot"
+ },
+ {
+  "name": "Carson Cooper",
+  "team": "MEM",
+  "reason": "no offline snapshot"
+ },
+ {
+  "name": "Bennedict Mathurin",
+  "team": "NOP",
+  "reason": "no offline snapshot"
  },
  {
   "name": "Jaron Pierre Jr.",
@@ -45,8 +60,38 @@
   "reason": "no matching contract block on page"
  },
  {
+  "name": "Labaron Philon Jr.",
+  "team": "PHI",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Yang Hansen",
+  "team": "POR",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Darius Acuff Jr.",
+  "team": "SAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Alex Karaban",
+  "team": "SAC",
+  "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Dylan Cardwell",
+  "team": "SAC",
+  "reason": "no offline snapshot"
+ },
+ {
   "name": "David Jones Garcia",
   "team": "SAS",
   "reason": "no matching contract block on page"
+ },
+ {
+  "name": "Tristan Vukcevic",
+  "team": "WAS",
+  "reason": "no offline snapshot"
  }
 ]

@@ -85,11 +85,15 @@ const UNRESOLVED_MEANING: Record<string, string> = {
   acquisition:
     'A transaction reported for someone with no row in player-data.ts: summer-league and Exhibit-10 signings, undrafted rookies, waived players. Enrichment only fills in existing players, never creates them.',
   guarantees:
-    'A guarantee date or non-guaranteed entry for someone not under contract on the BBRef contracts page.',
+    'A guarantee date or non-guaranteed entry for someone not currently on a SalarySwish team roster page.',
   signing:
     'These ARE rostered players — SalarySwish has no contract block on their player page yet (typically just-drafted rookies), so signedUnder and incentives stay empty for them. The one category here worth acting on.',
   awards:
     'An MVP/DPOY/All-NBA selection for someone with no row in player-data.ts — almost always a player who has since retired or left the league, since the awards window reaches back 5 seasons. Expected, not a defect.',
+  'name-bridge':
+    'A SalarySwish roster name that didn\'t squash-match, alias-match, or sitemap-match any name already in player-data.ts (see scripts/scrape/name_bridge.py) — mostly genuinely new players (rookies, camp invites, a free agent who just re-signed) with no prior canonical name to match against, occasionally a legal-vs-common-name pair worth adding to NAME_ALIASES. Not a defect by itself; only worth a look if the same real, already-known name keeps reappearing here run after run.',
+  'no-current-salary':
+    'A player SalarySwish still lists on a team\'s Active/Minors/Disabled/Inactive section, but with no confirmed current-season cap figure — an RFA/UFA tag sits in that cell instead, because their next deal isn\'t finalized (e.g. Jalen Duren, DET, confirmed live 2026-09). Dropped from player-data.ts rather than kept with an empty salary, specifically so free-agents.json (sourced from RealGM) can correctly pick them up as a free agent instead of them silently vanishing from both files at once.',
 }
 
 function readJson(file: string): any | null {

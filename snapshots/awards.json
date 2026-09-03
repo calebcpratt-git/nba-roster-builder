@@ -150,6 +150,11 @@
     "award": "All-NBA-3"
   },
   {
+    "name": "James Harden",
+    "season": "2024-25",
+    "award": "All-NBA-3"
+  },
+  {
     "name": "Nikola Jokić",
     "season": "2023-24",
     "award": "MVP"
@@ -356,6 +361,11 @@
   },
   {
     "name": "Stephen Curry",
+    "season": "2021-22",
+    "award": "All-NBA-2"
+  },
+  {
+    "name": "DeMar DeRozan",
     "season": "2021-22",
     "award": "All-NBA-2"
   },

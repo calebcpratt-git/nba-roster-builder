@@ -105,8 +105,8 @@ export default function DataSchemaDashboard() {
   //    is individually tracked and individually rescuable, so these expand
   //    into one SourceFetchRow per year (same as any single-URL source)
   //    rather than a single collapsed group row.
-  //  - salaryswish-transactions, salaryswish-players, captracker-teams, and
-  //    bbref-player-pages own their own per-team/per-player fetch loop
+  //  - salaryswish-rosters, salaryswish-transactions, salaryswish-players,
+  //    and captracker-teams own their own per-team/per-player fetch loop
   //    outside SOURCES entirely, and report {total, failed} to run-status.json's
   //    pageGroups instead (see PAGE_GROUPS in run.py) — there's no single
   //    run.py key behind any one page in that loop, so these stay collapsed

@@ -44,6 +44,11 @@ const TEAM_NAMES = {
  *   name: string, team: string,
  *   salary: Record<string, number|null>,
  *   options: Record<string, 'Team'|'Player'|null>,
+ *   cashSalary?: Record<string, number>,
+ *   guaranteed?: Record<string, number>,
+ *   likelyIncentives?: Record<string, number>,
+ *   optionExercised?: Record<string, boolean>,
+ *   acquiredMethod?: 'Signed'|'Draft'|'Trade'|'Waivers claim',
  *   guarantees?: Record<string, { status: 'full'|'partial'|'non-guaranteed', amount?: number, guaranteeDate?: string }>,
  *   acquisitionHistory?: Array<{ date: string, method: 'draft'|'trade'|'free-agent'|'waiver'|'sign-and-trade'|'extension', team: string }>,
  *   contractType?: 'two-way'
@@ -60,12 +65,23 @@ export type OptionType = 'Team' | 'Player' | null
 export interface RawPlayerData {
   name: string
   team: string
+  /** Cap hit — includes likely incentives; pinned to the league minimum cap charge on minimum contracts. Source of truth for Team Salary. */
   salary: Partial<Record<Season, number | null>>
   options: Partial<Record<Season, OptionType>>
+  /** Actual cash salary — diverges from \`salary\` (cap hit) only on minimum and two-way deals. Not used in any cap math today. */
+  cashSalary?: Partial<Record<Season, number>>
+  /** The dollar amount actually guaranteed that season — a different concept from \`guarantees\` below (HR's full/partial/non-guaranteed status). $0 on an unexercised option year, the full cap-hit amount on an exercised one. Not used in any cap math today. */
+  guaranteed?: Partial<Record<Season, number>>
+  /** Included in \`salary\` already; broken out here for display. Not used in any cap math today. */
+  likelyIncentives?: Partial<Record<Season, number>>
+  /** Whether an option flag (see \`options\`) was actually exercised, sourced directly from SalarySwish's own accepted/pending flag on that option — not inferred. Every current-season option is dropped from \`options\` once exercised (see scripts/scrape/run.py's build_players), so this is currently the only place that fact is recorded; a future UI could read it instead of the options toggle. Not consumed anywhere yet. */
+  optionExercised?: Partial<Record<Season, boolean>>
+  /** How this player joined their CURRENT team, per SalarySwish's roster page. Not the same as \`acquisitionHistory\` below (a full multi-season log) — this is just the single most recent move. */
+  acquiredMethod?: 'Signed' | 'Draft' | 'Trade' | 'Waivers claim'
   guarantees?: Partial<Record<Season, SeasonGuarantee>>
   /** Ascending by date. Spans the last 5 completed seasons (Basketball-Reference) plus the current season (SalarySwish). */
   acquisitionHistory?: Array<{ date: string; method: 'draft' | 'trade' | 'free-agent' | 'waiver' | 'sign-and-trade' | 'extension'; team: string }>
-  /** Flat league-wide two-way salary, not a real negotiated figure — see scripts/scrape/run.py's TWO_WAY_SALARY. */
+  /** Two-way contract — excluded from Team Salary and counts against the 3-slot limit. */
   contractType?: 'two-way'
 }
 
@@ -81,6 +97,25 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [\n`
       .filter(([, v]) => v !== null && v !== undefined)
       .map(([k, v]) => `'${k}': '${v}'`)
       .join(', ')
+
+    const numberDictField = (key, values) => {
+      const entries = Object.entries(values ?? {})
+        .filter(([, v]) => v !== null && v !== undefined)
+        .map(([k, v]) => `'${k}': ${v}`)
+        .join(', ')
+      return entries ? `, ${key}: { ${entries} }` : ''
+    }
+    const cashSalaryField = numberDictField('cashSalary', player.cashSalary)
+    const guaranteedField = numberDictField('guaranteed', player.guaranteed)
+    const likelyIncentivesField = numberDictField('likelyIncentives', player.likelyIncentives)
+
+    const optionExercisedEntries = Object.entries(player.optionExercised ?? {})
+      .filter(([, v]) => v !== null && v !== undefined)
+      .map(([k, v]) => `'${k}': ${v}`)
+      .join(', ')
+    const optionExercisedField = optionExercisedEntries ? `, optionExercised: { ${optionExercisedEntries} }` : ''
+
+    const acquiredMethodField = player.acquiredMethod ? `, acquiredMethod: '${player.acquiredMethod}'` : ''
 
     let guaranteesField = ''
     const guaranteeEntries = Object.entries(player.guarantees ?? {}).filter(([, v]) => v != null)
@@ -108,7 +143,7 @@ export const RAW_PLAYER_DATA: RawPlayerData[] = [\n`
 
     const contractTypeField = player.contractType === 'two-way' ? `, contractType: 'two-way'` : ''
 
-    output += `  { name: ${JSON.stringify(player.name)}, team: '${player.team}', salary: { ${salaryEntries} }, options: { ${optionEntries} }${guaranteesField}${acquisitionField}${contractTypeField} },\n`
+    output += `  { name: ${JSON.stringify(player.name)}, team: '${player.team}', salary: { ${salaryEntries} }, options: { ${optionEntries} }${cashSalaryField}${guaranteedField}${likelyIncentivesField}${optionExercisedField}${acquiredMethodField}${guaranteesField}${acquisitionField}${contractTypeField} },\n`
   }
 
   const teamNamesEntries = Object.entries(TEAM_NAMES)

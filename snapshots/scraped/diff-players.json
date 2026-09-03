@@ -1,52 +1,529 @@
 {
-  "added": [],
-  "removed": [],
-  "changed": [
+  "added": [
     {
-      "before": {
-        "name": "Nick Richards",
-        "team": "MIA",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2026-08-27",
-            "method": "free-agent",
-            "team": "MIA"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
+      "name": "Christian Anderson Jr.",
+      "team": "CHO",
+      "salary": {
+        "2026-27": 4257480,
+        "2027-28": 4470000,
+        "2028-29": 4683120,
+        "2029-30": 7202639
       },
-      "after": {
-        "name": "Nick Richards",
-        "team": "MIA",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "acquisitionHistory": [
-          {
-            "date": "2026-08-27",
-            "method": "free-agent",
-            "team": "MIA"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed",
-            "guaranteeDate": "2026-10-15"
-          }
-        }
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
       },
-      "fields": [
-        "guarantees"
+      "cashSalary": {
+        "2026-27": 4257480,
+        "2027-28": 4470000,
+        "2028-29": 4683120,
+        "2029-30": 7202639
+      },
+      "guaranteed": {
+        "2026-27": 4257480,
+        "2027-28": 4470000,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "CHO"
+        },
+        {
+          "date": "2026-07-06",
+          "method": "free-agent",
+          "team": "CHO"
+        }
+      ]
+    },
+    {
+      "name": "Morez Johnson Jr.",
+      "team": "DAL",
+      "salary": {
+        "2026-27": 6754800,
+        "2027-28": 7093080,
+        "2028-29": 7430640,
+        "2029-30": 9466635
+      },
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 6754800,
+        "2027-28": 7093080,
+        "2028-29": 7430640,
+        "2029-30": 9466635
+      },
+      "guaranteed": {
+        "2026-27": 6754800,
+        "2027-28": 7093080,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "DAL"
+        },
+        {
+          "date": "2026-07-02",
+          "method": "free-agent",
+          "team": "DAL"
+        }
+      ]
+    },
+    {
+      "name": "Jaron Pierre Jr.",
+      "team": "NOP",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 678882
+      },
+      "guaranteed": {
+        "2026-27": 91000
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "NOP"
+        },
+        {
+          "date": "2026-07-23",
+          "method": "free-agent",
+          "team": "NOP"
+        }
+      ]
+    },
+    {
+      "name": "Labaron Philon Jr.",
+      "team": "PHI",
+      "salary": {
+        "2026-27": 3597120,
+        "2027-28": 3776760,
+        "2028-29": 3956760,
+        "2029-30": 6508870
+      },
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 3597120,
+        "2027-28": 3776760,
+        "2028-29": 3956760,
+        "2029-30": 6508870
+      },
+      "guaranteed": {
+        "2026-27": 3497120,
+        "2027-28": 3676760,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 100000,
+        "2027-28": 100000,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "PHI"
+        },
+        {
+          "date": "2026-07-03",
+          "method": "free-agent",
+          "team": "PHI"
+        }
+      ]
+    },
+    {
+      "name": "Yang Hansen",
+      "team": "POR",
+      "salary": {
+        "2026-27": 4643520,
+        "2027-28": 4864920,
+        "2028-29": 7462787
+      },
+      "options": {
+        "2027-28": "Team",
+        "2028-29": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 4593520,
+        "2027-28": 4864920,
+        "2028-29": 7462787
+      },
+      "guaranteed": {
+        "2026-27": 4593520,
+        "2027-28": 0,
+        "2028-29": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 50000,
+        "2027-28": 0,
+        "2028-29": 0
+      },
+      "optionExercised": {
+        "2027-28": false,
+        "2028-29": false
+      },
+      "acquiredMethod": "Draft"
+    },
+    {
+      "name": "Darius Acuff Jr.",
+      "team": "SAC",
+      "salary": {
+        "2026-27": 8021640,
+        "2027-28": 8422920,
+        "2028-29": 8823600,
+        "2029-30": 11205972
+      },
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 7921640,
+        "2027-28": 8322920,
+        "2028-29": 8823600,
+        "2029-30": 11205972
+      },
+      "guaranteed": {
+        "2026-27": 7921640,
+        "2027-28": 8322920,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 100000,
+        "2027-28": 100000,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "SAC"
+        },
+        {
+          "date": "2026-07-01",
+          "method": "free-agent",
+          "team": "SAC"
+        }
       ]
     }
-  ]
+  ],
+  "removed": [
+    {
+      "name": "Christian Anderson",
+      "team": "CHO",
+      "salary": {
+        "2026-27": 4257480,
+        "2027-28": 4470000,
+        "2028-29": 4683120,
+        "2029-30": 7202639
+      },
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 4257480,
+        "2027-28": 4470000,
+        "2028-29": 4683120,
+        "2029-30": 7202639
+      },
+      "guaranteed": {
+        "2026-27": 4257480,
+        "2027-28": 4470000,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "CHO"
+        },
+        {
+          "date": "2026-07-06",
+          "method": "free-agent",
+          "team": "CHO"
+        }
+      ]
+    },
+    {
+      "name": "Morez Johnson",
+      "team": "DAL",
+      "salary": {
+        "2026-27": 6754800,
+        "2027-28": 7093080,
+        "2028-29": 7430640,
+        "2029-30": 9466635
+      },
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 6754800,
+        "2027-28": 7093080,
+        "2028-29": 7430640,
+        "2029-30": 9466635
+      },
+      "guaranteed": {
+        "2026-27": 6754800,
+        "2027-28": 7093080,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "DAL"
+        },
+        {
+          "date": "2026-07-02",
+          "method": "free-agent",
+          "team": "DAL"
+        }
+      ]
+    },
+    {
+      "name": "Jaron Pierre",
+      "team": "NOP",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 678882
+      },
+      "guaranteed": {
+        "2026-27": 91000
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "NOP"
+        },
+        {
+          "date": "2026-07-23",
+          "method": "free-agent",
+          "team": "NOP"
+        }
+      ]
+    },
+    {
+      "name": "Labaron Philon",
+      "team": "PHI",
+      "salary": {
+        "2026-27": 3597120,
+        "2027-28": 3776760,
+        "2028-29": 3956760,
+        "2029-30": 6508870
+      },
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 3597120,
+        "2027-28": 3776760,
+        "2028-29": 3956760,
+        "2029-30": 6508870
+      },
+      "guaranteed": {
+        "2026-27": 3497120,
+        "2027-28": 3676760,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 100000,
+        "2027-28": 100000,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "PHI"
+        },
+        {
+          "date": "2026-07-03",
+          "method": "free-agent",
+          "team": "PHI"
+        }
+      ]
+    },
+    {
+      "name": "Hansen Yang",
+      "team": "POR",
+      "salary": {
+        "2026-27": 4643520,
+        "2027-28": 4864920,
+        "2028-29": 7462787
+      },
+      "options": {
+        "2027-28": "Team",
+        "2028-29": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 4593520,
+        "2027-28": 4864920,
+        "2028-29": 7462787
+      },
+      "guaranteed": {
+        "2026-27": 4593520,
+        "2027-28": 0,
+        "2028-29": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 50000,
+        "2027-28": 0,
+        "2028-29": 0
+      },
+      "optionExercised": {
+        "2027-28": false,
+        "2028-29": false
+      },
+      "acquiredMethod": "Draft"
+    },
+    {
+      "name": "Darius Acuff",
+      "team": "SAC",
+      "salary": {
+        "2026-27": 8021640,
+        "2027-28": 8422920,
+        "2028-29": 8823600,
+        "2029-30": 11205972
+      },
+      "options": {
+        "2028-29": "Team",
+        "2029-30": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 7921640,
+        "2027-28": 8322920,
+        "2028-29": 8823600,
+        "2029-30": 11205972
+      },
+      "guaranteed": {
+        "2026-27": 7921640,
+        "2027-28": 8322920,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 100000,
+        "2027-28": 100000,
+        "2028-29": 0,
+        "2029-30": 0
+      },
+      "optionExercised": {
+        "2028-29": false,
+        "2029-30": false
+      },
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "SAC"
+        },
+        {
+          "date": "2026-07-01",
+          "method": "free-agent",
+          "team": "SAC"
+        }
+      ]
+    }
+  ],
+  "changed": []
 }

@@ -24,16 +24,8 @@ Resilience:
   exits non-zero if every group is unreachable.
 
 Groups (each independent — a failure in one never blocks the others):
-  players             BBRef contracts + draft classes             -> players.json, rookie-years.json, unresolved-draft-year.json
-  two-way-contracts   Hoops Rumors two-way tracker                -> merged onto players.json (team, contractType, salary; creates a new row if none exists)
-                      (falls back to hr-two-way-tracker.json, a last-good copy committed to
-                       snapshots/scraped/, on a fetch failure — see _cached_source — rather than
-                       skipping and dropping every two-way row it previously created)
-  free-agent-reconciliation  RealGM free-agent-options +          -> corrects stale CURRENT_SEASON_LABEL option
-                      current-free-agents pages                      flags directly on players.json (no new file)
-                      (falls back to realgm-free-agent-options.json / realgm-current-free-agents.json,
-                       last-good copies committed to snapshots/scraped/, on a fetch failure — see
-                       _cached_source — rather than skipping and letting stale flags reappear)
+  players             SalarySwish team rosters (30 pages) +        -> players.json, rookie-years.json, unresolved-draft-year.json,
+                      BBRef draft classes                             camp-invites.json, salaryswish-dead-money.json
   free-agent-pool     RealGM current-free-agents                  -> free-agents.json (currently-unsigned players not in players.json)
                       (same fallback as above)
   picks               RealGM future drafts                        -> draft-picks.json
@@ -64,18 +56,18 @@ search "hoopsrumors nba players with trade kickers 2026/27",
 import json, os, re, sys, time, random, unicodedata, urllib.request, urllib.error
 from datetime import date
 
-import bbref, bbref_awards, realgm, hoopsrumors, captracker, salaryswish
+import bbref, bbref_awards, realgm, hoopsrumors, captracker, salaryswish, name_bridge
+from name_bridge import _base  # moved here from this module so name_bridge itself can use it without a circular import — see name_bridge.py
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 RAW = os.path.join(ROOT, 'snapshots', 'raw')
 CAPTRACKER_RAW = os.path.join(RAW, 'nbacaptracker')
 SS_TEAM_TRANSACTIONS_RAW = os.path.join(RAW, 'salaryswish_transactions')
+SS_TEAM_ROSTERS_RAW = os.path.join(RAW, 'salaryswish_rosters')
 SALARYSWISH_PLAYERS_RAW = os.path.join(RAW, 'salaryswish_players')
-BBREF_PLAYERS_RAW = os.path.join(RAW, 'bbref_players')
 OUT = os.path.join(ROOT, 'snapshots', 'scraped')
 ROOKIE_YEARS_TS = os.path.join(ROOT, 'lib', 'rookie-years.ts')
 SS_PLAYER_CACHE = os.path.join(OUT, 'salaryswish-players.json')
-ACQUISITION_LEDGER = os.path.join(OUT, 'acquisition-ledger.json')  # superseded by ACQUISITION_HISTORY_LEDGER — no longer written
 ACQUISITION_HISTORY_LEDGER = os.path.join(OUT, 'acquisition-history-ledger.json')
 SS_FETCH_DELAY = 1.2  # polite delay between per-player fetches — see salaryswish.py's module docstring
 
@@ -98,29 +90,14 @@ HR_NON_GUARANTEED_URL = 'https://www.hoopsrumors.com/2026/07/2026-27-non-guarant
 HR_TRADE_KICKERS_URL = 'https://www.hoopsrumors.com/2025/08/nba-players-with-trade-kickers-in-2025-26.html'   # STALE — 2026/27 not yet published as of last update
 HR_VETO_TRADES_URL = 'https://www.hoopsrumors.com/2025/07/nba-players-who-can-veto-trades-in-2025-26.html'    # STALE — 2026/27 not yet published as of last update
 HR_CASH_IN_TRADE_URL = 'https://www.hoopsrumors.com/2025/08/cash-sent-received-in-nba-trades-for-2025-26.html'  # STALE — 2026/27 not yet published as of last update
-# Evergreen post HR keeps updated in place all season (confirmed live: an
-# "Updated 8-7-26" stamp near the top) — unlike the three above, this one
-# does NOT need a yearly URL bump.
-HR_TWO_WAY_TRACKER_URL = 'https://www.hoopsrumors.com/2026/07/2026-27-nba-two-way-contract-tracker.html'
-
-# Flat, league-wide two-way salary per season — not individually negotiated,
-# so unlike every other salary figure in this pipeline there's no per-player
-# number to source. HR's tracker states the current season's figure in its
-# own intro; spot-check there when bumping the season.
-TWO_WAY_SALARY = {
-    '2026-27': 678_882,
-}
-
 # Trades SalarySwish (or another source) has reported but that have NOT
 # actually been executed — e.g. agreed-to-in-principle deals later put on
 # hold. Every transaction matching (name, date) here is dropped before it
-# ever reaches acquisition matching or build_free_agent_reconciliation's
-# team-mismatch logic, so the player(s) involved keep showing on their real,
-# current team with their real salary instead of being moved (and, for
-# build_free_agent_reconciliation specifically, having that season's salary
-# wiped — see its docstring's 'signed elsewhere' branch) to a team they
-# haven't actually joined. Remove an entry here once the trade is confirmed
-# executed (or confirmed dead) so this stops silently overriding fresh data.
+# ever reaches acquisition matching in build_enrichment, so the player(s)
+# involved keep showing on their real, current team with their real salary
+# instead of being moved to a team they haven't actually joined. Remove an
+# entry here once the trade is confirmed executed (or confirmed dead) so
+# this stops silently overriding fresh data.
 FROZEN_TRANSACTIONS = {
     # Kawhi Leonard (LAC) / Brandon Ingram + Gradey Dick (TOR) — reported
     # 2026-06-30, put on hold before closing; confirmed frozen as of 2026-08-10.
@@ -130,16 +107,13 @@ FROZEN_TRANSACTIONS = {
 }
 
 SOURCES = {
-    'bbref_contracts': 'https://www.basketball-reference.com/contracts/players.html',
     'realgm_future_drafts': 'https://basketball.realgm.com/nba/draft/future_drafts/team',
-    'realgm_free_agent_options': 'https://basketball.realgm.com/nba/free_agent_options',
     'realgm_current_free_agents': 'https://basketball.realgm.com/nba/current_free_agents',
     'hr_guarantee_dates': HR_GUARANTEE_DATES_URL,
     'hr_non_guaranteed': HR_NON_GUARANTEED_URL,
     'hr_trade_kickers': HR_TRADE_KICKERS_URL,
     'hr_veto_trades': HR_VETO_TRADES_URL,
     'hr_cash_in_trade': HR_CASH_IN_TRADE_URL,
-    'hr_two_way_tracker': HR_TWO_WAY_TRACKER_URL,
     'salaryswish_trade_exceptions': salaryswish.TRADE_EXCEPTION_URL,
     'salaryswish_hard_cap': salaryswish.HARD_CAP_URL,
     'salaryswish_mle': salaryswish.MLE_URL,
@@ -210,20 +184,21 @@ def fetch_all(offline=False, rescue=None, rescue_strict=False):
     GitHub Actions run (the runner's copy is discarded when the job ends), so
     a local file there could be leftover from some unrelated earlier local
     run and arbitrarily stale. Confirmed live 2026-08-13: a rescue reused a
-    6-day-old local bbref_contracts.html for the 'players' group, silently
-    reverting ~180 lines of since-committed roster changes it had no way of
-    knowing about.
+    6-day-old local bbref_contracts.html for the 'players' group (BBRef's
+    contracts page, since retired — see build_players), silently reverting
+    ~180 lines of since-committed roster changes it had no way of knowing
+    about.
 
     The one exception: a raw file last written earlier *today* (by an
     earlier rescue this same session) is reused rather than marked
-    unavailable. That's what lets a multi-source group — e.g.
-    free-agent-reconciliation, which needs both realgm_free_agent_options
-    and realgm_current_free_agents — complete once every source it needs has
-    been fetched today, even across separate rescue clicks, without forcing
-    every rescue to re-list every source the group depends on. Anything
-    older than today still gets marked unavailable, so main()'s existing
-    skip-and-keep-last-good-output logic still protects every group whose
-    sources haven't actually been refreshed today."""
+    unavailable. That's what lets a multi-source group — e.g. enrichment,
+    which needs both hr_guarantee_dates and hr_non_guaranteed — complete
+    once every source it needs has been fetched today, even across separate
+    rescue clicks, without forcing every rescue to re-list every source the
+    group depends on. Anything older than today still gets marked
+    unavailable, so main()'s existing skip-and-keep-last-good-output logic
+    still protects every group whose sources haven't actually been
+    refreshed today."""
     rescue = rescue or set()
     os.makedirs(RAW, exist_ok=True)
     failed = set()
@@ -259,10 +234,10 @@ def _cached_source(name, cache_name, parse_fn):
     committed cache_name.json — the last successfully-parsed copy of that
     same page. snapshots/raw/ is gitignored and discarded at the end of
     every CI run, so a failed fetch used to leave nothing to fall back to:
-    the group depending on it was skipped outright, and build_players'
-    always-fresh-from-BBRef rebuild re-admitted whatever stale state (or, for
-    build_two_way_contracts, dropped whatever rows) a PRIOR successful run
-    had already corrected/created. Confirmed live 2026-08-14: a single failed
+    the group depending on it was skipped outright, silently regressing
+    whatever a PRIOR successful run had already merged onto players.json or
+    team-cap-state.json. Confirmed live 2026-08-14 on the (since-retired)
+    free-agent-option-reconciliation step: a single failed
     realgm_current_free_agents fetch let 81 already-resolved option flags
     reappear in players.json, all clearing again at once the next day the
     fetch succeeded — a misleadingly large one-day diff instead of steady
@@ -280,12 +255,6 @@ def _cached_source(name, cache_name, parse_fn):
     cached = _load_json(cache_name, [])
     print(f'  {name} fetch failed — reusing {len(cached)} cached record(s) from the last successful fetch')
     return cached
-
-
-def _base(name):
-    n = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode()
-    n = n.lower().replace('.', '').replace("'", '').replace('-', ' ')
-    return re.sub(r'\s+', ' ', re.sub(r'\b(jr|sr|ii|iii|iv)\b', '', n)).strip()
 
 
 def existing_rookie_years():
@@ -308,6 +277,8 @@ UNRESOLVED_FILES = {
     'guarantees': 'unresolved-guarantees',
     'signing': 'unresolved-signing',
     'awards': 'unresolved-awards',
+    'name-bridge': 'name-bridge-unmatched',
+    'no-current-salary': 'unresolved-no-current-salary',
 }
 
 
@@ -347,226 +318,182 @@ def new_unresolved_records(before, after):
     return result
 
 
-def resolve_duplicate_bbrefIds(contracts):
-    """bbref.parse_contracts() now preserves BOTH rows when the same player
-    appears under two different teams (see its docstring — confirmed live
-    2026-08-07: Lillard/Beal/Prosper each had a stale row and a correct one,
-    the old id-only dedup silently kept whichever came first). Resolve each
-    such pair here, cross-referenced against the acquisition ledger — an
-    independent, already-corroborated source for "which team is this
-    player actually on" — rather than guessing from row order. Falls back
-    to keeping the first row (the old behavior) when the ledger has nothing
-    for that player either; those are logged, not silently guessed."""
-    ledger = _load_json('acquisition-ledger', {})
-    by_bbrefId = {}
-    for c in contracts:
-        bbrefId = c.get('bbrefId')
-        if bbrefId is not None:
-            by_bbrefId.setdefault(bbrefId, []).append(c)
+ROSTER_SECTIONS = {'Active', 'Minors/G-League', 'Disabled', 'Inactive'}
 
-    resolved, unresolved = [], []
-    out = []
-    seen_ids = set()
-    for c in contracts:
-        bbrefId = c.get('bbrefId')
-        if bbrefId is None:
-            out.append(c)
-            continue
-        if bbrefId in seen_ids:
-            continue
-        seen_ids.add(bbrefId)
-        dupes = by_bbrefId[bbrefId]
-        if len(dupes) == 1:
-            out.append(dupes[0])
-            continue
-        ledger_team = ledger.get(bbrefId, {}).get('team')
-        match = next((d for d in dupes if d['team'] == ledger_team), None)
-        if match is not None:
-            out.append(match)
-            resolved.append({'name': match['name'], 'kept': match['team'],
-                              'dropped': [d['team'] for d in dupes if d is not match],
-                              'via': 'acquisition-ledger'})
-        else:
-            out.append(dupes[0])
-            unresolved.append({'name': dupes[0]['name'],
-                                'teams': [d['team'] for d in dupes],
-                                'kept': dupes[0]['team']})
-    if resolved:
-        print(f'  {len(resolved)} duplicate contract row(s) resolved via acquisition ledger:')
-        for r in resolved:
-            print(f'    {r["name"]}  kept {r["kept"]}, dropped {r["dropped"]}')
-    if unresolved:
-        print(f'  {len(unresolved)} duplicate contract row(s) UNRESOLVED — no ledger match, kept first seen:')
-        for u in unresolved:
-            print(f'    {u["name"]}  {u["teams"]} -> kept {u["kept"]}')
-    json.dump(resolved + unresolved, open(os.path.join(OUT, 'duplicate-contracts.json'), 'w'),
-              indent=1, ensure_ascii=False)
-    return out
+
+def _canonical_name_index():
+    """{squash(name): name} built from the PREVIOUS run's already-committed
+    players.json — the same "last-good persisted state is the canonical
+    record" pattern existing_rookie_years() already uses for rookie years
+    (reads lib/rookie-years.ts) and _cached_source() uses for a failed
+    fetch. This is what lets a name already established under BBRef's old
+    display form (e.g. "Alex Sarr") stay that way once SalarySwish becomes
+    the source, instead of every player's display name flipping to
+    whatever SalarySwish happens to render today — see name_bridge.py's
+    module docstring for the canonical-name policy this implements."""
+    previous_players = _load_json('players', [])
+    return name_bridge.build_canonical_index(p['name'] for p in previous_players)
 
 
 def build_players():
-    """Parse the Basketball Reference half and write its three scraped files."""
+    """Fetches and parses all 30 SalarySwish /teams/{slug} roster pages and
+    writes players.json, rookie-years.json, and unresolved-draft-year.json —
+    same three output files build_players has always written, so every
+    downstream generator/consumer is untouched, even though the source
+    underneath (SalarySwish roster pages, not BBRef's contracts page) is
+    entirely new as of the 2026-09 migration. See salaryswish.py's
+    parse_team_roster for the page structure this reads.
+
+    Only the Active / Minors-G-League / Disabled / Inactive sections become
+    players.json rows (ROSTER_SECTIONS) — these are the sections that
+    represent real, currently-rostered cap occupancy. Training Camp and
+    Exhibit 10 invites are non-guaranteed camp deals that don't count
+    against the cap; they're written to snapshots/scraped/camp-invites.json
+    instead so they're visible rather than silently dropped. Waivers and
+    Buyout rows are dead money, written to
+    snapshots/scraped/salaryswish-dead-money.json — NOT merged into
+    players.json; this overlaps captracker's existing deadMoneyPlayers
+    (team-cap-state.json), and reconciling the two is a deliberate
+    follow-up, not part of this change (see the migration plan's "out of
+    scope" list). UFA/RFA/FA-Cap-Hold/pick-hold sections are dropped
+    entirely here — the free-agent pool and cap holds still come from
+    RealGM/nbacaptracker exactly as before; SalarySwish's own versions of
+    those are a separate, later change."""
     offline = '--offline' in sys.argv  # same flag main() reads; not worth threading through GROUPS' build() signature
-    contracts = bbref.parse_contracts(os.path.join(RAW, 'bbref_contracts.html'))
-    contracts = resolve_duplicate_bbrefIds(contracts)
+    canonical_index = _canonical_name_index()
+
+    failed_teams = salaryswish.fetch_team_rosters(SS_TEAM_ROSTERS_RAW, offline=offline)
+    PAGE_GROUPS['salaryswish-rosters'] = {
+        'total': len(salaryswish.TEAM_SLUG_TO_ABBR),
+        'failed': sorted(salaryswish.TEAM_SLUG_TO_ABBR[s] for s in failed_teams),
+    }
+    if len(failed_teams) == len(salaryswish.TEAM_SLUG_TO_ABBR):
+        raise RuntimeError('every salaryswish roster page failed to fetch')
+    if failed_teams:
+        print(f'  WARN {len(failed_teams)} salaryswish roster page(s) failed to fetch, '
+              f'proceeding with the rest: {sorted(failed_teams)}')
+    rows = salaryswish.parse_all_team_rosters(SS_TEAM_ROSTERS_RAW)
+
+    sitemap_path = os.path.join(RAW, 'salaryswish_sitemap.html')
+    slug_by_squash = {}
+    if os.path.exists(sitemap_path):
+        try:
+            slug_by_squash = salaryswish.parse_sitemap_slugs(sitemap_path)
+        except RuntimeError as e:
+            print(f'  WARNING  salaryswish sitemap unusable ({e}) — name-bridge tier 3 disabled this run')
+
+    KEPT_SECTIONS = ROSTER_SECTIONS | {'Waivers', 'Buyout', 'Training Camp and Exhibit 10'}
+    unmatched_names = []
+    no_current_salary = []
+    players, camp_invites, dead_money = [], [], []
+    for row in rows:
+        if row['section'] not in KEPT_SECTIONS:
+            # UFA/RFA/FA-Cap-Hold/pick holds — not roster occupancy (see
+            # docstring), and skipped before name-bridge matching too: most
+            # are retired/international draft-rights names with no
+            # canonical form to match against, which would otherwise flood
+            # name-bridge-unmatched.json with noise.
+            continue
+
+        canonical, _tier = name_bridge.match_name(row['name'], canonical_index, slug_by_squash)
+        if canonical is None:
+            unmatched_names.append(row['name'])
+        name = canonical or row['name']
+
+        if row['section'] in ('Waivers', 'Buyout'):
+            dead_money.append({**row, 'name': name})
+            continue
+        if row['section'] == 'Training Camp and Exhibit 10':
+            camp_invites.append({**row, 'name': name})
+            continue
+
+        if CURRENT_SEASON_LABEL not in row['salary']:
+            # A roster-section row with no confirmed CURRENT-season cap
+            # figure isn't actually under contract right now — SalarySwish
+            # still lists them under their old team's Active section (that's
+            # where they were last rostered) but shows an RFA/UFA tag in the
+            # season-1 cell instead of a dollar figure, because their next
+            # deal isn't finalized. Confirmed live: Jalen Duren (DET) — an
+            # empty players.json row for him would silently hide him from
+            # build_free_agent_pool too, since that function only adds a
+            # RealGM free agent who has NO players.json row at all. Skipping
+            # him here (instead of adding a $0/empty row) is what lets
+            # build_free_agent_pool's RealGM-sourced check correctly pick
+            # him up as a free agent instead.
+            no_current_salary.append({'name': name, 'team': row['team'], 'section': row['section']})
+            continue
+
+        current_option = row['options'].get(CURRENT_SEASON_LABEL)
+        options = dict(row['options'])
+        if current_option and row['optionsAccepted'].get(CURRENT_SEASON_LABEL):
+            # SalarySwish flags the decision directly (a CSS class + a
+            # "Team/Player Option Accepted (date)" title on the option div)
+            # once an option is exercised — CURRENT_SEASON_LABEL only ever
+            # names a season after that season's option deadlines have
+            # already passed, so a still-present, still-accepted option
+            # flag here is stale: the decision is made, there's nothing left
+            # for a user to toggle. A DECLINED option doesn't show up as an
+            # option cell at all (the player just isn't on this roster
+            # section anymore), so there is currently no live "pending"
+            # case for THIS season — confirmed live across all 30 teams,
+            # 2026-09-02: every current-season option was already accepted.
+            options.pop(CURRENT_SEASON_LABEL, None)
+
+        player = {
+            'name': name,
+            'team': row['team'],
+            'salary': row['salary'],
+            'options': options,
+            'cashSalary': row['cashSalary'],
+            'guaranteed': row['guaranteed'],
+            'likelyIncentives': row['likelyIncentives'],
+            # Per-season, ALL seasons (not just current) — the direct
+            # SalarySwish "accepted" signal used above, not a guarantee/
+            # cap-hit heuristic. Nothing consumes this yet; it exists so a
+            # future UI can show "team option, exercised" as a fact instead
+            # of a live toggle, at which point the CURRENT_SEASON_LABEL
+            # popping above can be retired in favor of just reading this.
+            'optionExercised': row['optionsAccepted'],
+        }
+        if row['terms'] == 'Two-Way' or row['section'] == 'Minors/G-League':
+            player['contractType'] = 'two-way'
+        if row['acquiredMethod']:
+            player['acquiredMethod'] = row['acquiredMethod']
+        players.append(player)
+
+    name_bridge.write_unmatched_report(unmatched_names)
+    if unmatched_names:
+        print(f'  name-bridge: {len(unmatched_names)} SalarySwish name(s) had no canonical match '
+              f'(new players are expected here; see name-bridge-unmatched.json)')
+
     draft = []
     for y in DRAFT_YEARS:
         draft += bbref.parse_draft(os.path.join(RAW, f'bbref_draft_{y}.html'), y)
-    print(f'  contracts {len(contracts)}   draftees {len(draft)}')
-
-    by_id = {d['bbrefId']: d['draftYear'] for d in draft if d['bbrefId']}
     by_name = {_base(d['name']): d['draftYear'] for d in draft}
     known = existing_rookie_years()
 
-    players, rookie_years, unresolved = [], {}, []
-    for c in contracts:
-        # bbrefId rides along in this intermediate file only, to give
-        # build_enrichment an exact join key across a possibly-separate run —
-        # generate-from-scrape.js strips it before it reaches player-data.ts
-        # or the diff snapshot, since it isn't part of the app's Player model.
-        players.append({'name': c['name'], 'team': c['team'],
-                        'salary': c['salary'], 'options': c['options'],
-                        'bbrefId': c['bbrefId']})
-        year = by_id.get(c['bbrefId']) or by_name.get(_base(c['name'])) or known.get(_base(c['name']))
+    rookie_years, unresolved = {}, []
+    for p in players:
+        year = by_name.get(_base(p['name'])) or known.get(_base(p['name']))
         if year:
-            rookie_years[c['name']] = year
+            rookie_years[p['name']] = year
         else:
-            unresolved.append(c)
-
-    # Fallback for whatever the draft-class join still couldn't place:
-    # DRAFT_YEARS only covers the last two draft classes (see its
-    # definition), so anyone drafted earlier — or genuinely undrafted — is
-    # invisible to that join no matter how many runs go by. Their own BBRef
-    # bio page states rookie year directly (NBA Debut date, or "Experience:
-    # Rookie" pre-debut), so fetch just this small residual list — one
-    # fetch per still-unresolved player, not the whole roster — and resolve
-    # from there. Once resolved, existing_rookie_years() makes it permanent
-    # (lib/rookie-years.ts is consulted as `known` on every future run), so
-    # this fallback only ever pays for genuinely new stragglers.
-    still_unresolved = []
-    if unresolved:
-        os.makedirs(BBREF_PLAYERS_RAW, exist_ok=True)
-        resolved_by_fallback = 0
-        bbref_player_fetch_failed = []
-        bbref_player_fetch_attempted = 0
-        for c in unresolved:
-            bbrefId = c.get('bbrefId')
-            if not bbrefId:
-                still_unresolved.append(c)
-                continue
-            path = os.path.join(BBREF_PLAYERS_RAW, f'{bbrefId}.html')
-            if offline:
-                if not os.path.exists(path):
-                    still_unresolved.append(c)
-                    continue
-            else:
-                bbref_player_fetch_attempted += 1
-                url = bbref.PLAYER_URL.format(first=bbrefId[0], bbrefId=bbrefId)
-                if not bbref.fetch_page(url, path):
-                    still_unresolved.append(c)
-                    bbref_player_fetch_failed.append(c['name'])
-                    continue
-                time.sleep(1.0)
-            year = bbref.parse_player_debut(path, CURRENT_SEASON_YEAR)
-            if year:
-                rookie_years[c['name']] = year
-                resolved_by_fallback += 1
-            else:
-                still_unresolved.append(c)
-        if bbref_player_fetch_attempted:
-            PAGE_GROUPS['bbref-player-pages'] = {
-                'total': bbref_player_fetch_attempted,
-                'failed': sorted(bbref_player_fetch_failed),
-            }
-        if resolved_by_fallback:
-            print(f'  draft-year fallback (BBRef bio pages): resolved {resolved_by_fallback}, '
-                  f'still unresolved {len(still_unresolved)}')
-    unresolved = [{'name': c['name'], 'team': c['team']} for c in still_unresolved]
+            unresolved.append({'name': p['name'], 'team': p['team']})
 
     json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(rookie_years, open(os.path.join(OUT, 'rookie-years.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(unresolved, open(os.path.join(OUT, 'unresolved-draft-year.json'), 'w'), indent=1, ensure_ascii=False)
-    print(f'  players {len(players)}   draft years {len(rookie_years)}   unresolved {len(unresolved)}')
+    json.dump(camp_invites, open(os.path.join(OUT, 'camp-invites.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump(dead_money, open(os.path.join(OUT, 'salaryswish-dead-money.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump(no_current_salary, open(os.path.join(OUT, 'unresolved-no-current-salary.json'), 'w'), indent=1, ensure_ascii=False)
+    print(f'  players {len(players)}   draft years {len(rookie_years)}   unresolved {len(unresolved)}   '
+          f'camp invites {len(camp_invites)}   dead money {len(dead_money)}   '
+          f'no-current-salary {len(no_current_salary)}')
     if unresolved:
         print('  (unresolved draft years are undrafted players — expected, not an error)')
-
-
-def build_two_way_contracts():
-    """Merges Hoops Rumors' two-way contract tracker onto players.json:
-    corrects `team` and stamps `contractType: 'two-way'` + the flat two-way
-    salary (TWO_WAY_SALARY) onto the matched row. Runs right after
-    build_players and before build_free_agent_reconciliation specifically so
-    a corrected team is what that reconciliation (and build_free_agent_pool
-    after it) sees — a two-way signing BBRef hasn't caught up to yet is
-    exactly the kind of staleness that made Jalen Pickett briefly look like
-    a Denver free agent who'd declined his option, when he'd actually
-    already agreed to a two-way deal with the Clippers.
-
-    Two-way salary isn't individually negotiated (one flat league-wide
-    number per season) — there's no real per-player figure to source beyond
-    that constant, so stamping it on is the correct figure, not an estimate.
-    This is also what stops the free-agent panel's "empty salary = still a
-    free agent" heuristic from misreading an already-signed two-way player:
-    once salary[CURRENT_SEASON_LABEL] is populated, that heuristic no longer
-    fires for them. getEffectiveSalary (lib/roster-context.tsx) then
-    excludes contractType='two-way' rows from Team Salary the same way it
-    already does for two-way SavedContracts, so populating a real number
-    here doesn't leak into cap totals.
-
-    Matches primarily by bbrefId (exact); falls back to name only for a
-    tracker entry with no bbrefId link. A tracker entry naming a player with
-    NO players.json row at all — the common case: most two-way slots go to
-    rookies/first-timers who've never had a BBRef contracts-page row —
-    gets a brand-new minimal row created here (name, team, contractType,
-    the flat salary, bbrefId as the join key for future runs), rather than
-    being left invisible. This is a deliberate, narrow exception to the
-    'never invent a row' boundary build_free_agent_reconciliation and
-    build_free_agent_pool hold to: those two only ever correct/reference
-    players BBRef already knows about, but a two-way slot is real roster
-    occupancy this pipeline otherwise has no other way to represent at all.
-    Confirmed live 2026-08-10: 73 of 74 tracker entries had no players.json
-    row (e.g. Rockets two-way signees Tristen Newton, Quadir Copeland) —
-    leaving them merely logged and invisible, as this function used to,
-    defeated the point of sourcing this tracker in the first place."""
-    players = _load_json('players', None)
-    if players is None:
-        raise RuntimeError('players.json does not exist yet — run the players group first')
-    by_id = {p.get('bbrefId'): p for p in players if p.get('bbrefId')}
-    by_name = {_base(p['name']): p for p in players}
-
-    tracker = _cached_source('hr_two_way_tracker', 'hr-two-way-tracker', hoopsrumors.parse_two_way_tracker)
-    salary = TWO_WAY_SALARY.get(CURRENT_SEASON_LABEL)
-
-    matched = 0
-    created = 0
-    team_corrected = []
-    for entry in tracker:
-        target = (by_id.get(entry['bbrefId']) if entry['bbrefId'] else None) or by_name.get(_base(entry['name']))
-        if target is None:
-            target = {'name': entry['name'], 'team': entry['team'], 'salary': {}, 'options': {}}
-            if entry['bbrefId']:
-                target['bbrefId'] = entry['bbrefId']
-            players.append(target)
-            if entry['bbrefId']:
-                by_id[entry['bbrefId']] = target
-            by_name[_base(entry['name'])] = target
-            created += 1
-        elif target.get('team') != entry['team']:
-            team_corrected.append({'name': target['name'], 'oldTeam': target.get('team'),
-                                    'newTeam': entry['team'], 'reported': entry['reported']})
-            target['team'] = entry['team']
-        target['contractType'] = 'two-way'
-        if salary is not None:
-            target.setdefault('salary', {})[CURRENT_SEASON_LABEL] = salary
-        matched += 1
-
-    json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
-    print(f'  two-way tracker: {matched}/{len(tracker)} matched   {created} new players.json row(s) created')
-    if team_corrected:
-        print(f'  {len(team_corrected)} team correction(s):')
-        for c in team_corrected:
-            note = '  (reported, not yet official)' if c['reported'] else ''
-            print(f'    {c["name"]}  {c["oldTeam"]} -> {c["newTeam"]}{note}')
+    if no_current_salary:
+        print('  (no-current-salary rows are dropped from players.json — expect them to show up '
+              'in free-agents.json via RealGM instead)')
 
 
 def build_picks():
@@ -782,233 +709,21 @@ def build_clauses():
           f'{sum(1 for r in records if r.get("noTradeClause"))} explicit NTC)')
 
 
-def build_free_agent_reconciliation():
-    """Corrects stale CURRENT_SEASON_LABEL option flags on BBRef's contracts
-    page (build_players' source). CURRENT_SEASON_LABEL only ever names a
-    season after that season's option deadlines (~June 30) have already
-    passed — the label itself doesn't bump to a season until July — so ANY
-    player still carrying a Player or Team option flag for that season has
-    already had the decision made one way or another; BBRef just hasn't
-    caught up yet. RealGM's free_agent_options page confirms this indirectly:
-    it only ever lists option years for seasons further out, because a
-    same-season entry would mean a decision RealGM itself considers already
-    resolved. Requires players.json to already exist (build_players runs
-    first, same dependency pattern build_enrichment follows).
-
-    Three resolutions now (was two before 2026-08-07):
-      - declined, still unsigned: player shows up on RealGM's
-        current_free_agents page with a matching prior team -> drop the
-        player's row from `players` entirely, not just that season's salary
-        + options. An unexercised option is the last year of the deal, so
-        there's no valid contract left at all, on ANY team, for a season
-        or any that follow — leaving a stripped-but-present row here was
-        the bug behind Beal/Batum/Harden/Kuminga/Watford repeatedly
-        showing up rostered with no contract (or someone else's stale
-        contract, per resolve_duplicate_bbrefIds): build_free_agent_pool
-        (next in GROUPS) only adds players who have NO players.json row,
-        so a merely-stripped row silently excluded them from the free-agent
-        pool forever instead of surfacing them there. Removing the row here
-        is what lets build_free_agent_pool pick them up correctly.
-      - declined, already signed elsewhere: player does NOT show up on
-        current_free_agents (so at first glance looks "resolved in place"),
-        but transactions.json — SalarySwish acquisition data, read straight
-        off disk here rather than requiring build_enrichment to run first
-        THIS execution (build_players always rebuilds `players` fresh from
-        raw BBRef every run, which would just reset any same-run fix before
-        this function's own correction could stick — reading yesterday's
-        already-persisted transactions.json sidesteps that entirely, same
-        "it'll catch up within a day" tradeoff the acquisition ledger
-        already makes) — has a signing/trade record for them dated after
-        their option decision, to a DIFFERENT team than BBRef's contracts
-        page still shows. Confirmed live 2026-08-07: Kentavious
-        Caldwell-Pope's Team option showed as "still on Memphis" because
-        he'd already re-signed with Philadelphia fast enough to drop off
-        RealGM's free-agent list before this ran — the old two-way logic
-        misread that absence as "exercised in place" and kept his stale
-        $21.6M Memphis salary. -> remove the stale salary + options, and
-        correct `team` to match the transaction (the one field this
-        function never used to touch at all).
-      - resolved in place (exercised, or re-signed with the SAME team and
-        just not reflected as a new option-free row yet): neither of the
-        above -> BBRef's salary figure is presumably still correct, so only
-        the stale options flag is cleared, salary and team are kept.
-
-    free_agent_options (who had a pending option, of what type) is
-    cross-referenced only for extra confidence in the logged record — it is
-    never a requirement, since an unsigned free agent with a prior-team match
-    is already strong enough evidence on its own."""
-    players = _load_json('players', None)
-    if players is None:
-        raise RuntimeError('players.json does not exist yet — run the players group first')
-
-    options = _cached_source('realgm_free_agent_options', 'realgm-free-agent-options',
-                              realgm.parse_free_agent_options)
-    free_agents = _cached_source('realgm_current_free_agents', 'realgm-current-free-agents',
-                                  realgm.parse_current_free_agents)
-
-    fa_by_name = {}
-    for fa in free_agents:
-        fa_by_name[_base(fa['name'])] = fa
-    options_by_name_season = {}
-    for o in options:
-        options_by_name_season.setdefault((_base(o['name']), o['season']), []).append(o)
-
-    # Most-recent-by-date SalarySwish transaction per player, written by
-    # build_enrichment (which GROUPS now runs before this function).
-    transactions = _load_json('transactions', [])
-    latest_txn = {}
-    for t in transactions:
-        key = t.get('bbrefId') or _base(t['name'])
-        prev = latest_txn.get(key)
-        if prev is None or (t['date'] or '') >= (prev['date'] or ''):
-            latest_txn[key] = t
-
-    checked = 0
-    declined_overrides = []
-    signed_elsewhere = []
-    resolved_in_place = []
-    kept_players = []
-    for p in players:
-        season_option = p.get('options', {}).get(CURRENT_SEASON_LABEL)
-        if season_option not in ('Player', 'Team'):
-            kept_players.append(p)
-            continue
-        checked += 1
-
-        matched_options = [o for o in options_by_name_season.get((_base(p['name']), CURRENT_SEASON_LABEL), [])
-                            if o['team'] == p['team']]
-        corroborated = bool(matched_options)
-
-        fa = fa_by_name.get(_base(p['name']))
-        txn = latest_txn.get(p.get('bbrefId')) or latest_txn.get(_base(p['name']))
-        txn_team = txn['toTeams'][0] if txn and len(txn.get('toTeams', [])) == 1 else None
-
-        if fa is not None and fa['priorTeam'] == p['team']:
-            # declined and still unsigned — the whole row is dropped (not
-            # just this season's salary/options): an unexercised option is
-            # the last year of the deal, so there's no valid contract left
-            # on any team, this season or later. Dropping the row is also
-            # what lets build_free_agent_pool (next in GROUPS) add them to
-            # the free-agent pool instead of skipping them as "already
-            # accounted for".
-            record = {'name': p['name'], 'team': p['team'], 'season': CURRENT_SEASON_LABEL,
-                       'optionType': season_option, 'faType': fa['faType'],
-                       'source': 'realgm_current_free_agents', 'corroborated': corroborated}
-            if corroborated:
-                record['matchedOptionType'] = matched_options[0]['optionType']
-            declined_overrides.append(record)
-        elif txn_team is not None and txn_team != p['team']:
-            # not on RealGM's free-agent list, but a real transaction moved
-            # them to a DIFFERENT team than BBRef still shows — they signed
-            # elsewhere fast enough to drop off that list, not "in place".
-            old_team, old_salary = p['team'], p.get('salary', {}).get(CURRENT_SEASON_LABEL)
-            p['team'] = txn_team
-            p.get('salary', {}).pop(CURRENT_SEASON_LABEL, None)
-            p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
-            signed_elsewhere.append({'name': p['name'], 'oldTeam': old_team, 'newTeam': txn_team,
-                                      'oldSalary': old_salary, 'season': CURRENT_SEASON_LABEL,
-                                      'txnDate': txn['date'], 'txnMethod': txn['method']})
-            kept_players.append(p)
-        else:
-            # not an unsigned free agent under this team — treat as resolved
-            # in place (exercised / already re-signed with the SAME team);
-            # the flag is stale, the salary figure and team are not
-            p.get('options', {}).pop(CURRENT_SEASON_LABEL, None)
-            resolved_in_place.append({'name': p['name'], 'team': p['team'], 'season': CURRENT_SEASON_LABEL,
-                                       'optionType': season_option, 'corroborated': corroborated})
-            kept_players.append(p)
-
-    players = kept_players
-
-    if declined_overrides:
-        print(f'  {len(declined_overrides)} player(s) declined their option and are still unsigned — '
-              f'dropped from the roster entirely (now eligible for the free-agent pool):')
-        for o in declined_overrides:
-            print(f'    {o["name"]}  (was {o["team"]})')
-
-    if signed_elsewhere:
-        print(f'  {len(signed_elsewhere)} player(s) signed elsewhere before dropping off '
-              f'the free-agent list — team + salary corrected:')
-        for s in signed_elsewhere:
-            print(f'    {s["name"]}  {s["oldTeam"]} -> {s["newTeam"]}  (was ${s["oldSalary"]})')
-
-    json.dump(players, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
-    json.dump(declined_overrides, open(os.path.join(OUT, 'free-agent-overrides.json'), 'w'),
-              indent=1, ensure_ascii=False)
-    json.dump(signed_elsewhere, open(os.path.join(OUT, 'signed-elsewhere-overrides.json'), 'w'),
-              indent=1, ensure_ascii=False)
-    json.dump(resolved_in_place, open(os.path.join(OUT, 'exercised-options.json'), 'w'),
-              indent=1, ensure_ascii=False)
-    print(f'  stale {CURRENT_SEASON_LABEL} options checked: {checked}   '
-          f'declined/unsigned: {len(declined_overrides)}   signed-elsewhere: {len(signed_elsewhere)}   '
-          f'resolved-in-place (flag cleared): {len(resolved_in_place)}')
-    for o in declined_overrides:
-        print(f'    DECLINED  {o["name"]} ({o["team"]}, {o["season"]}) — corroborated={o["corroborated"]}')
-
-
-def apply_persisted_free_agent_overrides():
-    """Fallback for when build_free_agent_reconciliation can't run this cycle
-    (RealGM fetch/parse failure): build_players always rebuilds `players`
-    fresh from raw BBRef every run, which re-adds rows for players BBRef
-    hasn't caught up on yet — including ones a PRIOR successful run already
-    identified as declined-and-still-unsigned or signed-elsewhere, and wrote
-    to free-agent-overrides.json / signed-elsewhere-overrides.json. GROUPS'
-    "skip, keep last-good output" framing doesn't hold for this group: it has
-    no output file of its own, it mutates players.json that build_players
-    (an independent, earlier group) already overwrote THIS run. Skipping it
-    silently un-does the drop/correction from every prior run instead of
-    preserving it. Confirmed live 2026-08-13: Harden/Kuminga/Beal/Batum/
-    Watford reappeared rostered on their old teams this way, despite already
-    being recorded in free-agent-overrides.json from the last successful
-    reconciliation. Reapplying those persisted files (left untouched by the
-    skip) closes that gap without needing a live RealGM fetch."""
-    players = _load_json('players', [])
-    if not players:
-        return
-
-    declined = _load_json('free-agent-overrides', [])
-    drop_keys = {(_base(o['name']), o['team']) for o in declined}
-    kept = [p for p in players if (_base(p['name']), p['team']) not in drop_keys]
-    dropped = len(players) - len(kept)
-
-    signed_elsewhere = _load_json('signed-elsewhere-overrides', [])
-    by_name = {_base(o['name']): o for o in signed_elsewhere}
-    corrected = 0
-    for p in kept:
-        o = by_name.get(_base(p['name']))
-        if o and p['team'] == o['oldTeam']:
-            p['team'] = o['newTeam']
-            p.get('salary', {}).pop(o['season'], None)
-            p.get('options', {}).pop(o['season'], None)
-            corrected += 1
-
-    if not dropped and not corrected:
-        return
-    json.dump(kept, open(os.path.join(OUT, 'players.json'), 'w'), indent=1, ensure_ascii=False)
-    print(f'  reapplied persisted free-agent overrides: {dropped} dropped, {corrected} team-corrected')
-    for o in declined:
-        if (_base(o['name']), o['team']) in drop_keys:
-            print(f'    DROPPED  {o["name"]}  (was {o["team"]})')
-
-
 def build_free_agent_pool():
     """Writes the full list of currently-unsigned free agents, sourced from
-    the same RealGM current_free_agents page build_free_agent_reconciliation
-    reads. Different job, same source: that function only patches stale
-    entries on players who already have a row in players.json (from BBRef);
-    this one covers the players who have NO row there at all, because no
-    team currently employs them — e.g. Lonzo Ball, Ochai Agbaji. Confirmed
-    2026-08-07: only 8 of 152 current free agents had any players.json row.
+    RealGM's current_free_agents page. Covers the players who have NO row
+    in players.json at all, because no team currently employs them — e.g.
+    Lonzo Ball, Ochai Agbaji. Confirmed 2026-08-07: only 8 of 152 current
+    free agents had any players.json row.
 
     RealGM's own page can lag a real signing by days (confirmed live
     2026-08-10: Jalen Pickett still listed as a Denver free agent here
     several days after signing a two-way deal with the Clippers — a real
-    transaction players.json/build_players already has via BBRef+the
-    acquisition ledger). Anyone who already has a players.json row is
+    transaction players.json/build_players already has via SalarySwish's
+    acquisition data). Anyone who already has a players.json row is
     excluded here even if RealGM still lists them: that row means the app
-    already accounts for them one way or another (signed with a salary, or
-    corrected by build_free_agent_reconciliation), so re-adding a
-    stale/wrong prior team from this pool would just contradict it.
+    already accounts for them one way or another, so re-adding a stale/wrong
+    prior team from this pool would just contradict it.
     {name, position, priorTeam, faType, birdRights} — same fields, kept as
     raw as the parser returns them (faType 'U'/'R' interpreted downstream,
     not here)."""
@@ -1067,8 +782,9 @@ def build_cap_hold_reconciliation():
     CURRENT_SEASON_LABEL entries against RealGM's current_free_agents page.
     nbacaptracker projects holds forward without distinguishing "still an
     active free agent" from "retired, or signed and not yet reflected" —
-    this is the same class of staleness build_free_agent_reconciliation
-    already corrects for option flags, applied to capHolds instead.
+    this is the same class of staleness build_players' options handling
+    corrects for option flags (see its docstring), applied to capHolds
+    instead.
 
     Team-match guard on priorTeam, same anti-false-positive pattern as the
     option reconciliation: a name match alone isn't enough, since a name
@@ -1443,12 +1159,11 @@ def build_apron_addon():
 # place, and never blocks the others. The run only fails hard if every group
 # fails.
 GROUPS = [
-    {'name': 'players', 'sources': ['bbref_contracts', *[f'bbref_draft_{y}' for y in DRAFT_YEARS]],
+    # players' roster pages (salaryswish-rosters) fetch in their own loop —
+    # see build_players — so the only fetch_all-covered SOURCES this group's
+    # ok/skip check depends on are the draft-class pages.
+    {'name': 'players', 'sources': [*[f'bbref_draft_{y}' for y in DRAFT_YEARS]],
      'build': build_players},
-    {'name': 'two-way-contracts', 'sources': ['hr_two_way_tracker'], 'build': build_two_way_contracts},
-    {'name': 'free-agent-reconciliation',
-     'sources': ['realgm_free_agent_options', 'realgm_current_free_agents'],
-     'build': build_free_agent_reconciliation},
     {'name': 'free-agent-pool', 'sources': ['realgm_current_free_agents'],
      'build': build_free_agent_pool},
     {'name': 'picks', 'sources': ['realgm_future_drafts'], 'build': build_picks},
@@ -1487,33 +1202,25 @@ def main():
 
     for group in GROUPS:
         ok = not (set(group['sources']) & failed)
-        if group['name'] in ('two-way-contracts', 'free-agent-reconciliation', 'free-agent-pool', 'enrichment'):
+        if group['name'] in ('free-agent-pool', 'enrichment'):
             # _cached_source() falls back to the last committed cache of
-            # this group's page(s) when today's fetch fails, so none of these
-            # need to skip on a fetch failure anymore — only an actual
-            # build() exception (below) still counts as a failure. Without
-            # this, two-way-contracts skipping on a failed hr_two_way_tracker
-            # fetch would silently drop every two-way player it created
-            # (most of them have no BBRef contracts-page row at all — see
-            # build_two_way_contracts) the moment build_players rebuilds
-            # players.json fresh next. enrichment has the same exposure: it's
-            # the only step that re-merges acquisitionHistory (from
-            # ACQUISITION_HISTORY_LEDGER, always available regardless of
-            # today's fetches) and guarantees onto players.json, so skipping
-            # it whenever hr_guarantee_dates/hr_non_guaranteed weren't fetched
-            # today — e.g. a --rescue scoped to an unrelated source, run after
-            # build_players' bbref sources happened to already be fetched
-            # today — silently stripped those fields from every player.
-            # Confirmed live 2026-08-18: exactly this sequence (a bbref_draft
-            # rescue after an earlier bbref_contracts rescue that same day)
+            # this group's page(s) when today's fetch fails, so neither of
+            # these needs to skip on a fetch failure anymore — only an
+            # actual build() exception (below) still counts as a failure.
+            # enrichment is the only step that re-merges acquisitionHistory
+            # (from ACQUISITION_HISTORY_LEDGER, always available regardless
+            # of today's fetches) and guarantees onto players.json, so
+            # skipping it whenever hr_guarantee_dates/hr_non_guaranteed
+            # weren't fetched today — e.g. a --rescue scoped to an unrelated
+            # source, run after build_players' own sources happened to
+            # already be fetched today — silently stripped those fields from
+            # every player. Confirmed live 2026-08-18: exactly this sequence
             # wiped acquisitionHistory from all 525 players and tripped
             # generate-from-scrape.js's diff-too-large guard.
             ok = True
         if not ok:
             skipped.append(f'{group["name"]} (fetch failed)')
             print(f'  SKIP {group["name"]} — fetch failed; keeping last-good output')
-            if group['name'] == 'free-agent-reconciliation':
-                apply_persisted_free_agent_overrides()
             continue
         try:
             group['build']()
@@ -1521,8 +1228,6 @@ def main():
         except Exception as e:
             skipped.append(f'{group["name"]} (parse failed: {e})')
             print(f'  SKIP {group["name"]} — parse error: {e}\n       keeping last-good output')
-            if group['name'] == 'free-agent-reconciliation':
-                apply_persisted_free_agent_overrides()
 
     print('cap-state (nbacaptracker, separate multi-page source with its own fetch loop):')
     if rescue:
@@ -1539,8 +1244,8 @@ def main():
     print('cap-hold reconciliation (RealGM current free agents — merges onto team-cap-state.json):')
     # _cached_source() inside build_cap_hold_reconciliation() falls back to
     # the last committed cache when today's fetch fails, so — like
-    # free-agent-reconciliation/free-agent-pool above — this no longer
-    # needs to skip on a fetch failure, only on an actual build exception.
+    # free-agent-pool above — this no longer needs to skip on a fetch
+    # failure, only on an actual build exception.
     try:
         build_cap_hold_reconciliation()
         written.append('cap-hold-reconciliation')

@@ -32,12 +32,12 @@
   "exhibit10": false
  },
  {
-  "player": "Trey Townsend",
+  "player": "Mouhamadou Gueye",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": true
+  "exhibit10": false
  },
  {
   "player": "Mario Hezonja",
@@ -88,36 +88,12 @@
   "exhibit10": false
  },
  {
-  "player": "Georges Niang",
-  "team": "Golden State Warriors",
-  "fullAmount": null,
-  "partialAmount": 1838009,
-  "status": "partial",
-  "exhibit10": false
- },
- {
   "player": "Charles Bassey",
   "team": "Golden State Warriors",
   "fullAmount": null,
   "partialAmount": 1400000,
   "status": "partial",
   "exhibit10": false
- },
- {
-  "player": "Brandon Williams",
-  "team": "Golden State Warriors",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "Dalen Terry",
-  "team": "Golden State Warriors",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Jae’Sean Tate",
@@ -150,6 +126,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
+ },
+ {
+  "player": "Bradley Beal",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
  },
  {
   "player": "Cam Christie",
@@ -200,22 +184,6 @@
   "exhibit10": false
  },
  {
-  "player": "Nick Richards",
-  "team": "Miami Heat",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "J’Vonne Hadley",
-  "team": "Miami Heat",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Pete Nance",
   "team": "Milwaukee Bucks",
   "fullAmount": null,
@@ -228,14 +196,6 @@
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": 1500000,
-  "status": "partial",
-  "exhibit10": false
- },
- {
-  "player": "Trendon Watford",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": 250000,
   "status": "partial",
   "exhibit10": false
  },
@@ -280,14 +240,6 @@
   "exhibit10": false
  },
  {
-  "player": "Tacko Fall",
-  "team": "Philadelphia 76ers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Duke Miles",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
@@ -296,31 +248,7 @@
   "exhibit10": true
  },
  {
-  "player": "Jameer Nelson Jr.",
-  "team": "Philadelphia 76ers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Saint Thomas",
-  "team": "Philadelphia 76ers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jamaree Bouyea",
-  "team": "Phoenix Suns",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "Haywood Highsmith",
   "team": "Phoenix Suns",
   "fullAmount": null,
   "partialAmount": null,
@@ -376,14 +304,6 @@
   "exhibit10": true
  },
  {
-  "player": "Malachi Smith",
-  "team": "Toronto Raptors",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Mo Bamba",
   "team": "Utah Jazz",
   "fullAmount": null,
@@ -393,14 +313,6 @@
  },
  {
   "player": "Harrison Ingram",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Matthew Murrell",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

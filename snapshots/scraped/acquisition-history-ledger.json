@@ -9498,6 +9498,11 @@
    "date": "2026-08-26",
    "method": "free-agent",
    "team": "HOU"
+  },
+  {
+   "date": "2026-06-24",
+   "method": "free-agent",
+   "team": "MIL"
   }
  ],
  "willibr03": [
@@ -9545,6 +9550,2040 @@
    "date": "2026-08-27",
    "method": "free-agent",
    "team": "MIA"
+  }
+ ],
+ "jalen wilson": [
+  {
+   "date": "2026-07-22",
+   "method": "free-agent",
+   "team": "ATL"
+  }
+ ],
+ "ryan nembhard": [
+  {
+   "date": "2026-07-19",
+   "method": "trade",
+   "team": "ATL"
+  }
+ ],
+ "luguentz dort": [
+  {
+   "date": "2026-07-19",
+   "method": "trade",
+   "team": "ATL"
+  }
+ ],
+ "jock landale": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "ATL"
+  }
+ ],
+ "kingston flemings": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "ATL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "ATL"
+  }
+ ],
+ "henri veesaar": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "ATL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "LAC"
+  }
+ ],
+ "zuby ejiofor": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "ATL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "ATL"
+  }
+ ],
+ "devin carter": [
+  {
+   "date": "2026-06-30",
+   "method": "trade",
+   "team": "ATL"
+  }
+ ],
+ "cj mccollum": [
+  {
+   "date": "2026-06-22",
+   "method": "extension",
+   "team": "ATL"
+  }
+ ],
+ "aaron wiggins": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "ATL"
+  }
+ ],
+ "dillon mitchell": [
+  {
+   "date": "2026-08-05",
+   "method": "free-agent",
+   "team": "BOS"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "BOS"
+  }
+ ],
+ "jordan walsh": [
+  {
+   "date": "2026-07-23",
+   "method": "extension",
+   "team": "BOS"
+  }
+ ],
+ "neemias queta": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "BOS"
+  }
+ ],
+ "mitchell robinson": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "BOS"
+  }
+ ],
+ "mike conley": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "BOS"
+  }
+ ],
+ "ron harper": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "BOS"
+  },
+  {
+   "date": "2026-04-04",
+   "method": "free-agent",
+   "team": "BOS"
+  }
+ ],
+ "chris cenac": [
+  {
+   "date": "2026-07-04",
+   "method": "free-agent",
+   "team": "BOS"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "BOS"
+  }
+ ],
+ "paul george": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "BOS"
+  }
+ ],
+ "amari williams": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "BOS"
+  }
+ ],
+ "moritz wagner": [
+  {
+   "date": "2026-07-31",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "joshua jefferson": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "BRK"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "MIN"
+  }
+ ],
+ "keon ellis": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "dayron sharpe": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "BRK"
+  }
+ ],
+ "josh minott": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "mikel brown": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "BRK"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "BRK"
+  }
+ ],
+ "tyler bilodeau": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "BRK"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "BRK"
+  }
+ ],
+ "chaney johnson": [
+  {
+   "date": "2026-06-29",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "julius randle": [
+  {
+   "date": "2026-07-10",
+   "method": "trade",
+   "team": "BRK"
+  },
+  {
+   "date": "2026-06-22",
+   "method": "trade",
+   "team": "BRK"
+  }
+ ],
+ "isaiah evans": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "BRK"
+  },
+  {
+   "date": "2026-07-13",
+   "method": "free-agent",
+   "team": "MIN"
+  }
+ ],
+ "dennis schroder": [
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "CHO"
+  }
+ ],
+ "kylan boswell": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "CHO"
+  }
+ ],
+ "christian anderson": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "CHO"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "CHO"
+  }
+ ],
+ "hannes steinbach": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "CHO"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "CHO"
+  }
+ ],
+ "michael ajayi": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "CHO"
+  }
+ ],
+ "coby white": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "CHO"
+  }
+ ],
+ "dorian finney smith": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "CHO"
+  },
+  {
+   "date": "2026-07-03",
+   "method": "trade",
+   "team": "CHO"
+  }
+ ],
+ "royce oneale": [
+  {
+   "date": "2026-07-13",
+   "method": "trade",
+   "team": "CHO"
+  }
+ ],
+ "grayson allen": [
+  {
+   "date": "2026-07-13",
+   "method": "trade",
+   "team": "CHO"
+  }
+ ],
+ "naz reid": [
+  {
+   "date": "2026-07-10",
+   "method": "trade",
+   "team": "CHO"
+  }
+ ],
+ "norman powell": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "CHI"
+  }
+ ],
+ "dailyn swain": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "CHI"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "CHI"
+  }
+ ],
+ "caleb wilson": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "CHI"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "CHI"
+  }
+ ],
+ "tobe awaka": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "CHI"
+  }
+ ],
+ "zach collins": [
+  {
+   "date": "2026-06-30",
+   "method": "extension",
+   "team": "CHI"
+  }
+ ],
+ "jaylin sellers": [
+  {
+   "date": "2026-06-24",
+   "method": "free-agent",
+   "team": "CHI"
+  }
+ ],
+ "kam jones": [
+  {
+   "date": "2026-06-24",
+   "method": "trade",
+   "team": "CHI"
+  },
+  {
+   "date": "2026-07-04",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "braden smith": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "CHI"
+  },
+  {
+   "date": "2026-08-17",
+   "method": "free-agent",
+   "team": "IND"
+  }
+ ],
+ "james harden": [
+  {
+   "date": "2026-08-20",
+   "method": "free-agent",
+   "team": "CLE"
+  }
+ ],
+ "peyton watson": [
+  {
+   "date": "2026-08-19",
+   "method": "free-agent",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "CLE"
+  }
+ ],
+ "mario hezonja": [
+  {
+   "date": "2026-07-31",
+   "method": "free-agent",
+   "team": "CLE"
+  }
+ ],
+ "thomas bryant": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "CLE"
+  }
+ ],
+ "donovan mitchell": [
+  {
+   "date": "2026-07-07",
+   "method": "extension",
+   "team": "CLE"
+  }
+ ],
+ "meleek thomas": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "SAC"
+  }
+ ],
+ "ernest udeh": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "CLE"
+  }
+ ],
+ "alex karaban": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "SAC"
+  }
+ ],
+ "naji marshall": [
+  {
+   "date": "2026-08-02",
+   "method": "extension",
+   "team": "DAL"
+  }
+ ],
+ "jett howard": [
+  {
+   "date": "2026-07-20",
+   "method": "free-agent",
+   "team": "DAL"
+  }
+ ],
+ "zaccharie risacher": [
+  {
+   "date": "2026-07-19",
+   "method": "trade",
+   "team": "DAL"
+  }
+ ],
+ "moussa cisse": [
+  {
+   "date": "2026-07-18",
+   "method": "free-agent",
+   "team": "DAL"
+  }
+ ],
+ "tarik biberovic": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-07-01",
+   "method": "trade",
+   "team": "DAL"
+  }
+ ],
+ "santi aldama": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-07-01",
+   "method": "trade",
+   "team": "DAL"
+  }
+ ],
+ "marcus sasser": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "DAL"
+  }
+ ],
+ "khris middleton": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "WAS"
+  }
+ ],
+ "sergio de larrea": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "LAL"
+  }
+ ],
+ "tobi lawal": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "DAL"
+  }
+ ],
+ "morez johnson": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "DAL"
+  }
+ ],
+ "koa peat": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "DAL"
+  },
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "spencer jones": [
+  {
+   "date": "2026-07-25",
+   "method": "free-agent",
+   "team": "DEN"
+  }
+ ],
+ "tyus jones": [
+  {
+   "date": "2026-07-14",
+   "method": "free-agent",
+   "team": "DEN"
+  }
+ ],
+ "marvin bagley": [
+  {
+   "date": "2026-07-14",
+   "method": "free-agent",
+   "team": "DEN"
+  }
+ ],
+ "alpha diallo": [
+  {
+   "date": "2026-07-12",
+   "method": "free-agent",
+   "team": "DEN"
+  }
+ ],
+ "trevon brazile": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "DEN"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "SAS"
+  }
+ ],
+ "tarris reed": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "DEN"
+  },
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "SAS"
+  }
+ ],
+ "bryce hopkins": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "DEN"
+  }
+ ],
+ "kevin huerter": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "DET"
+  }
+ ],
+ "elijah harkless": [
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "DET"
+  }
+ ],
+ "javonte green": [
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "DET"
+  }
+ ],
+ "taurean prince": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "DET"
+  },
+  {
+   "date": "2026-07-07",
+   "method": "trade",
+   "team": "DET"
+  }
+ ],
+ "gary harris": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "DET"
+  },
+  {
+   "date": "2026-07-07",
+   "method": "trade",
+   "team": "DET"
+  }
+ ],
+ "john collins": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "DET"
+  },
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "ebuka okorie": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "DET"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "OKC"
+  }
+ ],
+ "ugonna onyenso": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "DET"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "HOU"
+  }
+ ],
+ "isaiah joe": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "DET"
+  }
+ ],
+ "karim lopez": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "DET"
+  },
+  {
+   "date": "2026-07-29",
+   "method": "free-agent",
+   "team": "MEM"
+  }
+ ],
+ "tolu smith": [
+  {
+   "date": "2026-04-07",
+   "method": "free-agent",
+   "team": "DET"
+  }
+ ],
+ "gary payton": [
+  {
+   "date": "2026-08-01",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "deanthony melton": [
+  {
+   "date": "2026-07-31",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "draymond green": [
+  {
+   "date": "2026-07-29",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "charles bassey": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "GSW"
+  },
+  {
+   "date": "2026-04-05",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "al horford": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "GSW"
+  }
+ ],
+ "yaxel lendeborg": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "GSW"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "GSW"
+  }
+ ],
+ "kristaps porzingis": [
+  {
+   "date": "2026-06-30",
+   "method": "extension",
+   "team": "GSW"
+  }
+ ],
+ "sean pedulla": [
+  {
+   "date": "2026-08-17",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "jaesean tate": [
+  {
+   "date": "2026-07-23",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "isaiah crawford": [
+  {
+   "date": "2026-07-22",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "marcus smart": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "tari eason": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "bogdan bogdanovic": [
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "bruce thornton": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "HOU"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "NYK"
+  }
+ ],
+ "quadir copeland": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "jalen slawson": [
+  {
+   "date": "2026-07-22",
+   "method": "free-agent",
+   "team": "IND"
+  }
+ ],
+ "kobe brown": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "IND"
+  }
+ ],
+ "larry nance": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "IND"
+  }
+ ],
+ "kelly oubre": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "IND"
+  }
+ ],
+ "max strus": [
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "LAC"
+  }
+ ],
+ "bradley beal": [
+  {
+   "date": "2026-08-13",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "jalen pickett": [
+  {
+   "date": "2026-08-12",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "jamarion sharp": [
+  {
+   "date": "2026-08-06",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "johni broome": [
+  {
+   "date": "2026-07-28",
+   "method": "trade",
+   "team": "LAC"
+  }
+ ],
+ "baba miller": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "LAC"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "LAC"
+  }
+ ],
+ "jordan miller": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "kobe sanders": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "rui hachimura": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "keaton wagler": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "LAC"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "LAC"
+  }
+ ],
+ "nick martinelli": [
+  {
+   "date": "2026-06-30",
+   "method": "free-agent",
+   "team": "LAC"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "NYK"
+  }
+ ],
+ "matisse thybulle": [
+  {
+   "date": "2026-07-27",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "arthur kaluma": [
+  {
+   "date": "2026-07-21",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "ziaire williams": [
+  {
+   "date": "2026-07-19",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "kevon looney": [
+  {
+   "date": "2026-07-12",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "austin reaves": [
+  {
+   "date": "2026-07-12",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "collin sexton": [
+  {
+   "date": "2026-07-11",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "walker kessler": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "LAL"
+  },
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "sandro mamukelashvili": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "quentin grimes": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "chris manon": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "jaden hardy": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "LAL"
+  }
+ ],
+ "ak okereke": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "LAL"
+  }
+ ],
+ "cameron carr": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "LAL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "NYK"
+  }
+ ],
+ "cameron boozer": [
+  {
+   "date": "2026-07-13",
+   "method": "free-agent",
+   "team": "MEM"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "MEM"
+  }
+ ],
+ "quinten post": [
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "MEM"
+  }
+ ],
+ "dangelo russell": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "isaiah stewart": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "MEM"
+  },
+  {
+   "date": "2026-06-24",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "aj johnson": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "MEM"
+  },
+  {
+   "date": "2026-07-01",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "kris murray": [
+  {
+   "date": "2026-06-29",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "jerami grant": [
+  {
+   "date": "2026-06-29",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "carson cooper": [
+  {
+   "date": "2026-06-24",
+   "method": "free-agent",
+   "team": "MEM"
+  }
+ ],
+ "bennett stirtz": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "MEM"
+  },
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "OKC"
+  }
+ ],
+ "tim hardaway": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "MIA"
+  }
+ ],
+ "andrew wiggins": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "MIA"
+  }
+ ],
+ "tre donaldson": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "MIA"
+  }
+ ],
+ "simone fontecchio": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "MIA"
+  }
+ ],
+ "ryan conwell": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "MIA"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "OKC"
+  }
+ ],
+ "vladislav goldin": [
+  {
+   "date": "2026-06-26",
+   "method": "free-agent",
+   "team": "MIA"
+  }
+ ],
+ "otega oweh": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "MIA"
+  },
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "OKC"
+  }
+ ],
+ "nate ament": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "MIA"
+  },
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "bobby portis": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "MIA"
+  }
+ ],
+ "giannis antetokounmpo": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "MIA"
+  }
+ ],
+ "gary trent": [
+  {
+   "date": "2026-07-15",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "ousmane dieng": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "pete nance": [
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "caris levert": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "MIL"
+  },
+  {
+   "date": "2026-07-07",
+   "method": "trade",
+   "team": "MIL"
+  }
+ ],
+ "brayden burries": [
+  {
+   "date": "2026-07-05",
+   "method": "free-agent",
+   "team": "MIL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "MIL"
+  }
+ ],
+ "bogoljub markovic": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "kasparas jakucionis": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "MIL"
+  }
+ ],
+ "jaime jaquez": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "MIL"
+  }
+ ],
+ "tyler herro": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "MIL"
+  }
+ ],
+ "kelel ware": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "MIL"
+  }
+ ],
+ "trey lyles": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "MIN"
+  }
+ ],
+ "jaylen clark": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "MIN"
+  }
+ ],
+ "ayo dosunmu": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "MIN"
+  }
+ ],
+ "enrique freeman": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "MIN"
+  }
+ ],
+ "josh green": [
+  {
+   "date": "2026-07-10",
+   "method": "trade",
+   "team": "MIN"
+  }
+ ],
+ "lamelo ball": [
+  {
+   "date": "2026-07-10",
+   "method": "trade",
+   "team": "MIN"
+  }
+ ],
+ "trendon watford": [
+  {
+   "date": "2026-08-17",
+   "method": "free-agent",
+   "team": "NOP"
+  }
+ ],
+ "caleb houstan": [
+  {
+   "date": "2026-08-03",
+   "method": "free-agent",
+   "team": "NOP"
+  }
+ ],
+ "jaron pierre": [
+  {
+   "date": "2026-07-23",
+   "method": "free-agent",
+   "team": "NOP"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "NOP"
+  }
+ ],
+ "deandre jordan": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "NOP"
+  }
+ ],
+ "bryce mcgowens": [
+  {
+   "date": "2026-02-20",
+   "method": "free-agent",
+   "team": "NOP"
+  }
+ ],
+ "jordan clarkson": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "mohamed diawara": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "andre drummond": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "landry shamet": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "jose alvarado": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "NYK"
+  }
+ ],
+ "kenrich williams": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "OKC"
+  }
+ ],
+ "isaiah hartenstein": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "OKC"
+  }
+ ],
+ "aday mara": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "OKC"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "OKC"
+  }
+ ],
+ "josh dix": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "OKC"
+  }
+ ],
+ "brooks barnhizer": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "OKC"
+  }
+ ],
+ "nikola vucevic": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "ORL"
+  }
+ ],
+ "jonathan isaac": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "ORL"
+  }
+ ],
+ "colin castleton": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "ORL"
+  }
+ ],
+ "izaiyah nelson": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "ORL"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "WAS"
+  }
+ ],
+ "jevon carter": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "ORL"
+  }
+ ],
+ "felix okpara": [
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "ORL"
+  },
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "WAS"
+  }
+ ],
+ "jamal cain": [
+  {
+   "date": "2026-03-20",
+   "method": "free-agent",
+   "team": "ORL"
+  }
+ ],
+ "kentavious caldwell pope": [
+  {
+   "date": "2026-08-05",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "lebron james": [
+  {
+   "date": "2026-07-26",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "rayan rupert": [
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "anfernee simons": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "ariel hukporti": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "dean wade": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "labaron philon": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "PHI"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "PHI"
+  }
+ ],
+ "caleb love": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "jaylen brown": [
+  {
+   "date": "2026-07-06",
+   "method": "trade",
+   "team": "PHI"
+  }
+ ],
+ "haywood highsmith": [
+  {
+   "date": "2026-08-17",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "dillon brooks": [
+  {
+   "date": "2026-08-08",
+   "method": "extension",
+   "team": "PHO"
+  }
+ ],
+ "luke kennard": [
+  {
+   "date": "2026-07-14",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "mark williams": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "collin gillespie": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "jordan goodwin": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "koby brea": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "pat spencer": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "miles bridges": [
+  {
+   "date": "2026-07-13",
+   "method": "trade",
+   "team": "PHO"
+  }
+ ],
+ "jeremy sochan": [
+  {
+   "date": "2026-08-02",
+   "method": "free-agent",
+   "team": "POR"
+  }
+ ],
+ "john tonje": [
+  {
+   "date": "2026-07-24",
+   "method": "free-agent",
+   "team": "POR"
+  }
+ ],
+ "micah potter": [
+  {
+   "date": "2026-07-10",
+   "method": "waiver",
+   "team": "POR"
+  }
+ ],
+ "branden carlson": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "POR"
+  }
+ ],
+ "robert williams": [
+  {
+   "date": "2026-06-30",
+   "method": "extension",
+   "team": "POR"
+  }
+ ],
+ "ja morant": [
+  {
+   "date": "2026-06-29",
+   "method": "trade",
+   "team": "POR"
+  }
+ ],
+ "precious achiuwa": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "SAC"
+  }
+ ],
+ "daeqwon plowden": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "SAC"
+  }
+ ],
+ "jonathan mogbo": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "SAC"
+  }
+ ],
+ "darius acuff": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "SAC"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "SAC"
+  }
+ ],
+ "adam flagler": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "SAC"
+  }
+ ],
+ "emanuel sharp": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "SAC"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "SAC"
+  }
+ ],
+ "jordan mclaughlin": [
+  {
+   "date": "2026-07-13",
+   "method": "free-agent",
+   "team": "SAS"
+  }
+ ],
+ "victor wembanyama": [
+  {
+   "date": "2026-07-10",
+   "method": "extension",
+   "team": "SAS"
+  }
+ ],
+ "harrison barnes": [
+  {
+   "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "SAS"
+  }
+ ],
+ "tobias harris": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "SAS"
+  }
+ ],
+ "jayden quaintance": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "SAS"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "SAS"
+  }
+ ],
+ "maliq brown": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "SAS"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "SAS"
+  }
+ ],
+ "jakobi gillespie": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "SAS"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "SAS"
+  }
+ ],
+ "julian champagnie": [
+  {
+   "date": "2026-06-29",
+   "method": "extension",
+   "team": "SAS"
+  }
+ ],
+ "andre jackson": [
+  {
+   "date": "2026-08-04",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "trey jemison": [
+  {
+   "date": "2026-08-04",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "kyle anderson": [
+  {
+   "date": "2026-07-06",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "jaden bradley": [
+  {
+   "date": "2026-07-04",
+   "method": "free-agent",
+   "team": "TOR"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "TOR"
+  }
+ ],
+ "alijah martin": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "allen graves": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "TOR"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "TOR"
+  }
+ ],
+ "chucky hepburn": [
+  {
+   "date": "2026-06-25",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "mo bamba": [
+  {
+   "date": "2026-07-10",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "jusuf nurkic": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "josh okogie": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "jaxson hayes": [
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "trey alexander": [
+  {
+   "date": "2026-07-07",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "tamar bates": [
+  {
+   "date": "2026-07-03",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "darryn peterson": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "UTA"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "UTA"
+  }
+ ],
+ "tre mann": [
+  {
+   "date": "2026-08-14",
+   "method": "trade",
+   "team": "WAS"
+  }
+ ],
+ "trae young": [
+  {
+   "date": "2026-07-06",
+   "method": "extension",
+   "team": "WAS"
+  }
+ ],
+ "deandre ayton": [
+  {
+   "date": "2026-07-08",
+   "method": "trade",
+   "team": "WAS"
+  }
+ ],
+ "aj dybantsa": [
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "WAS"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "WAS"
+  }
+ ],
+ "jamir watkins": [
+  {
+   "date": "2026-07-01",
+   "method": "free-agent",
+   "team": "WAS"
   }
  ]
 }

@@ -57,13 +57,14 @@ export interface DataSource {
 }
 
 export const DATA_SOURCES: Record<string, DataSource> = {
-  'bbref-contracts': {
-    id: 'bbref-contracts',
-    label: 'Basketball-Reference — contracts',
-    url: 'https://www.basketball-reference.com/contracts/players.html',
-    runPyKey: 'bbref_contracts',
-    scraper: 'scripts/scrape/bbref.py',
+  'salaryswish-rosters': {
+    id: 'salaryswish-rosters',
+    label: 'SalarySwish — team rosters',
+    url: 'https://salaryswish.com/teams/warriors',
+    isTemplate: true,
+    scraper: 'scripts/scrape/salaryswish.py',
     cadence: 'daily',
+    note: '30 team pages, fetched in their own loop (PAGE_GROUPS key salaryswish-rosters). Supplies name, team, per-season cap hit, cash salary, guaranteed amount, likely incentives, option flags, acquisition method, and contract terms. Replaced the BBRef contracts page (retired 2026-09), which required override passes for duplicate rows, two-way contracts, and stale option flags — SalarySwish\'s own tables carry all of that natively (two-way is a native roster section; option accept/decline is a flag on the page itself, not inferred).',
   },
   'bbref-draft': {
     id: 'bbref-draft',
@@ -73,14 +74,6 @@ export const DATA_SOURCES: Record<string, DataSource> = {
     scraper: 'scripts/scrape/bbref.py',
     cadence: 'daily',
     note: 'run.py builds these keys from CURRENT_DRAFT_YEAR (the current draft year and the one before it), so there is no fixed SOURCES key to pin — bump the URL here when CURRENT_DRAFT_YEAR moves.',
-  },
-  'bbref-player-pages': {
-    id: 'bbref-player-pages',
-    label: 'Basketball-Reference — player pages',
-    url: 'https://www.basketball-reference.com/players/{first}/{bbrefId}.html',
-    isTemplate: true,
-    scraper: 'scripts/scrape/bbref.py',
-    cadence: 'daily',
   },
   'bbref-transactions': {
     id: 'bbref-transactions',
@@ -105,14 +98,6 @@ export const DATA_SOURCES: Record<string, DataSource> = {
     label: 'RealGM — future drafts',
     url: 'https://basketball.realgm.com/nba/draft/future_drafts/team',
     runPyKey: 'realgm_future_drafts',
-    scraper: 'scripts/scrape/realgm.py',
-    cadence: 'daily',
-  },
-  'realgm-free-agent-options': {
-    id: 'realgm-free-agent-options',
-    label: 'RealGM — free agent options',
-    url: 'https://basketball.realgm.com/nba/free_agent_options',
-    runPyKey: 'realgm_free_agent_options',
     scraper: 'scripts/scrape/realgm.py',
     cadence: 'daily',
   },
@@ -166,15 +151,6 @@ export const DATA_SOURCES: Record<string, DataSource> = {
     scraper: 'scripts/scrape/hoopsrumors.py',
     cadence: 'annual-post',
     note: 'Still the 2025/26 post — the 2026/27 version had not been published as of the last pipeline update.',
-  },
-  'hr-two-way-tracker': {
-    id: 'hr-two-way-tracker',
-    label: 'Hoops Rumors — two-way contract tracker',
-    url: 'https://www.hoopsrumors.com/2026/07/2026-27-nba-two-way-contract-tracker.html',
-    runPyKey: 'hr_two_way_tracker',
-    scraper: 'scripts/scrape/hoopsrumors.py',
-    cadence: 'daily',
-    note: 'Evergreen — Hoops Rumors updates this post in place all season, so unlike the other HR posts it needs no yearly URL bump.',
   },
   'salaryswish-transactions': {
     id: 'salaryswish-transactions',
@@ -353,13 +329,18 @@ const playerEntity: EntitySpec<RawPlayerData> = {
   keyOf: (p) => p.name,
   rows: () => RAW_PLAYER_DATA,
   fields: [
-    { path: 'name', type: 'string', description: 'Display name, and the join key to ContractDetail and PLAYER_ROOKIE_YEARS.', sources: ['bbref-contracts'], get: (p) => p.name },
-    { path: 'team', type: 'string', description: 'Current team abbreviation.', sources: ['bbref-contracts', 'hr-two-way-tracker', 'salaryswish-transactions'], sourceRelation: { kind: 'override', note: 'bbref-contracts seeds it; hr-two-way-tracker overwrites it for a two-way signing BBRef hasn\'t caught up to yet; a SalarySwish transaction overwrites it again if the player signed elsewhere fast enough to drop off RealGM\'s free-agent list before BBRef updated.' }, get: (p) => p.team },
-    { path: 'salary', type: 'Partial<Record<Season, number | null>>', description: 'Per-season salary in whole dollars.', sources: ['bbref-contracts'], get: (p) => p.salary },
-    { path: 'options', type: 'Partial<Record<Season, "Team" | "Player" | null>>', description: 'Which seasons carry a team or player option. Stale same-season flags are corrected against RealGM\'s current-free-agents list.', sources: ['bbref-contracts', 'realgm-free-agent-options', 'realgm-current-free-agents'], sourceRelation: { kind: 'override', note: 'bbref-contracts seeds the flag; realgm-free-agent-options only corroborates it (never required); realgm-current-free-agents makes the final call — drops the player\'s row entirely if the option was declined and they\'re still unsigned, or clears the flag if it was exercised or they re-signed in place.' }, get: (p) => p.options },
+    { path: 'name', type: 'string', description: 'Display name, and the join key to ContractDetail and PLAYER_ROOKIE_YEARS.', sources: ['salaryswish-rosters'], get: (p) => p.name },
+    { path: 'team', type: 'string', description: 'Current team abbreviation.', sources: ['salaryswish-rosters', 'salaryswish-transactions'], sourceRelation: { kind: 'override', note: 'salaryswish-rosters seeds it fresh every run; a same-day salaryswish-transactions record can be used to cross-check the acquisition method (see acquiredMethod) but does not itself override team.' }, get: (p) => p.team },
+    { path: 'salary', type: 'Partial<Record<Season, number | null>>', description: 'Per-season cap hit in whole dollars — includes likely incentives, pinned to the league minimum cap charge on minimum contracts. $0 on a two-way contract (cash counts, not cap) and on rare non-cap-counting roster spots.', sources: ['salaryswish-rosters'], get: (p) => p.salary },
+    { path: 'cashSalary', type: 'Partial<Record<Season, number>>', description: 'Actual cash salary — diverges from `salary` (cap hit) only on minimum and two-way deals. Not used in any cap math today; carried for future display.', sources: ['salaryswish-rosters'], get: (p) => p.cashSalary },
+    { path: 'guaranteed', type: 'Partial<Record<Season, number>>', description: 'Dollar amount actually guaranteed that season — a different concept from `guarantees` below (HR\'s status classification). $0 on an unexercised/undecided option year, the full cap-hit amount on an exercised one. Not used in any cap math today.', sources: ['salaryswish-rosters'], get: (p) => p.guaranteed },
+    { path: 'likelyIncentives', type: 'Partial<Record<Season, number>>', description: 'Likely-incentive dollars, already included in `salary` — broken out here for display. Not used in any cap math today.', sources: ['salaryswish-rosters'], get: (p) => p.likelyIncentives },
+    { path: 'options', type: 'Partial<Record<Season, "Team" | "Player" | null>>', description: 'Which seasons carry a team or player option. A current-season option is dropped from here entirely once SalarySwish\'s own page marks it exercised (see optionExercised) — the CBA\'s option deadline has always already passed by the time this label names "current," so a still-present current-season flag would just be a stale, wrongly-decidable UI toggle.', sources: ['salaryswish-rosters'], get: (p) => p.options },
+    { path: 'optionExercised', type: 'Partial<Record<Season, boolean>>', description: 'Whether an option (see `options`) was exercised, read directly off SalarySwish\'s own accepted/pending flag on that option — not inferred from guarantee/cap-hit figures. Populated for every option season, including the current one after its flag is removed from `options`. Not consumed by any UI yet.', sources: ['salaryswish-rosters'], get: (p) => p.optionExercised },
+    { path: 'acquiredMethod', type: "'Signed' | 'Draft' | 'Trade' | 'Waivers claim' | undefined", description: 'How this player joined their CURRENT team, per SalarySwish\'s roster page — the single most recent move, not a history (see acquisitionHistory for that).', sources: ['salaryswish-rosters'], get: (p) => p.acquiredMethod },
     { path: 'guarantees', type: 'Partial<Record<Season, SeasonGuarantee>>', description: 'Guarantee status, partial amount, and the date salary becomes fully guaranteed. An absent season means full.', sources: ['hr-guarantee-dates', 'hr-non-guaranteed'], sourceRelation: { kind: 'combine', note: 'Both Hoops Rumors pages are merged for the same season; hr-guarantee-dates\' exact ISO date wins over hr-non-guaranteed\'s coarser team-wide record when a player is on both.' }, get: (p) => p.guarantees },
     { path: 'acquisitionHistory', type: 'AcquisitionRecord[]', description: 'Every known transaction that moved this player to a new team, ascending by date — the last 5 completed seasons (Basketball-Reference) plus the current season (SalarySwish). Needed to tell whether a trade to the player\'s current team fell within his first four seasons, one of the supermax (Designated Veteran) eligibility legs.', sources: ['bbref-transactions', 'salaryswish-transactions'], sourceRelation: { kind: 'combine', note: 'bbref-transactions seeds years of historical depth once, by hand; salaryswish-transactions appends each day\'s freshest matches on top — nothing is ever overwritten, only accumulated onto the same ledger.' }, get: (p) => p.acquisitionHistory },
-    { path: 'contractType', type: "'two-way' | undefined", description: 'Marks a two-way deal, which is excluded from Team Salary and counts against the 3-slot limit. The salary attached is the flat league-wide two-way figure, not a negotiated number.', sources: ['hr-two-way-tracker'], get: (p) => p.contractType },
+    { path: 'contractType', type: "'two-way' | undefined", description: 'Marks a two-way deal, which is excluded from Team Salary and counts against the 3-slot limit. Two-way is now a native SalarySwish roster section (Minors/G-League) rather than a separately-tracked correction.', sources: ['salaryswish-rosters'], get: (p) => p.contractType },
   ],
 }
 
@@ -497,8 +478,8 @@ const rookieYearEntity: EntitySpec<RookieYearRow> = {
   keyOf: (r) => r.name,
   rows: () => Object.entries(PLAYER_ROOKIE_YEARS).map(([name, rookieYear]) => ({ name, rookieYear })),
   fields: [
-    { path: 'name', type: 'string', description: 'Join key back to Player.name.', sources: ['bbref-contracts'], get: (r) => r.name },
-    { path: 'rookieYear', type: 'number', description: 'Calendar year of the player\'s first NBA season.', sources: ['bbref-draft', 'bbref-player-pages'], sourceRelation: { kind: 'fallback', note: 'bbref-draft\'s class pages are authoritative; bbref-player-pages\' bio page is only checked for the stragglers a draft-class page didn\'t resolve, and never overwrites a value bbref-draft already supplied.' }, get: (r) => r.rookieYear },
+    { path: 'name', type: 'string', description: 'Join key back to Player.name.', sources: ['salaryswish-rosters'], get: (r) => r.name },
+    { path: 'rookieYear', type: 'number', description: 'Calendar year of the player\'s first NBA season, joined from BBRef\'s draft-class pages by normalized name. DRAFT_YEARS only covers the current and prior draft class, so anyone drafted earlier falls back to whatever lib/rookie-years.ts already has on file (existing_rookie_years() in run.py) — once resolved, a name stays resolved permanently. A genuinely new, undrafted, or older player this hasn\'t caught up to yet is left out (see unresolved-draft-year.json), not guessed.', sources: ['bbref-draft'], get: (r) => r.rookieYear },
   ],
 }
 
@@ -776,19 +757,9 @@ export interface OverridePipelineStage {
  */
 export const OVERRIDE_PIPELINE: OverridePipelineStage[] = [
   {
-    id: 'players-seed', label: 'BBRef contracts', kind: 'seed', entity: 'player',
-    fields: ['name', 'team', 'salary', 'options'], sources: ['bbref-contracts'],
-    summary: 'Rebuilt from scratch every run — the base row for every player Basketball-Reference currently shows under contract.',
-  },
-  {
-    id: 'two-way-correct', label: 'Two-way tracker', kind: 'correct', entity: 'player',
-    fields: ['team', 'contractType', 'salary'], sources: ['hr-two-way-tracker'],
-    summary: 'Overwrites team and stamps contractType/salary for a two-way signing BBRef hasn\'t caught up to yet; creates a minimal new row when BBRef never had one at all (the common case for two-way slots).',
-  },
-  {
-    id: 'fa-reconcile', label: 'Free-agent reconciliation', kind: 'reconcile', entity: 'player',
-    fields: ['team', 'salary', 'options'], sources: ['realgm-free-agent-options', 'realgm-current-free-agents', 'salaryswish-transactions'],
-    summary: 'Clears a stale current-season option flag once BBRef\'s decision window has passed. Drops the row entirely if RealGM still lists the player as an unsigned free agent of that team (an unexercised option leaves no valid contract at all); corrects team + drops salary/options if a SalarySwish transaction shows they already signed elsewhere.',
+    id: 'players-seed', label: 'SalarySwish rosters', kind: 'seed', entity: 'player',
+    fields: ['name', 'team', 'salary', 'options', 'cashSalary', 'guaranteed', 'likelyIncentives', 'optionExercised', 'acquiredMethod', 'contractType'], sources: ['salaryswish-rosters'],
+    summary: 'Rebuilt from scratch every run from the Active/Minors-G-League/Disabled/Inactive sections of all 30 team pages — two-way is a native section (Minors/G-League) and a current-season option is dropped from `options` the moment SalarySwish\'s own page marks it exercised, so there is no longer a separate correction/reconciliation pass over this data.',
   },
   {
     id: 'fa-pool', label: 'Free-agent pool', kind: 'seed', entity: 'free-agent',

@@ -1,8 +1,6 @@
 {
   "written": [
     "players",
-    "two-way-contracts",
-    "free-agent-reconciliation",
     "free-agent-pool",
     "picks",
     "enrichment",
@@ -17,16 +15,13 @@
   ],
   "staleSources": [],
   "sourceFetches": {
-    "bbref_contracts": true,
     "realgm_future_drafts": true,
-    "realgm_free_agent_options": true,
     "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
     "hr_veto_trades": true,
     "hr_cash_in_trade": true,
-    "hr_two_way_tracker": true,
     "salaryswish_trade_exceptions": true,
     "salaryswish_hard_cap": true,
     "salaryswish_mle": true,
@@ -42,6 +37,10 @@
     "bbref_awards_2022": true
   },
   "pageGroups": {
+    "salaryswish-rosters": {
+      "total": 30,
+      "failed": []
+    },
     "salaryswish-transactions": {
       "total": 30,
       "failed": []
@@ -51,99 +50,111 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 0,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 0,
-      "acquisition": 105,
-      "guarantees": 6,
-      "signing": 10,
-      "awards": 4
+      "draft-year": 63,
+      "acquisition": 110,
+      "guarantees": 13,
+      "signing": 19,
+      "awards": 2,
+      "name-bridge": 82,
+      "no-current-salary": 1
     },
     "after": {
-      "draft-year": 0,
-      "acquisition": 109,
-      "guarantees": 9,
-      "signing": 10,
-      "awards": 4
+      "draft-year": 62,
+      "acquisition": 110,
+      "guarantees": 13,
+      "signing": 19,
+      "awards": 2,
+      "name-bridge": 71,
+      "no-current-salary": 1
     },
-    "newUnresolved": 7,
-    "newByCategory": {
-      "acquisition": 4,
-      "guarantees": 3
-    },
+    "newUnresolved": 0,
+    "newByCategory": {},
     "newRecords": {
-      "acquisition": [
+      "signing": [
         {
-          "name": "Trey Townsend",
-          "date": "2026-09-01",
-          "method": "free-agent"
+          "name": "Christian Anderson Jr.",
+          "team": "CHO",
+          "reason": "no matching contract block on page"
         },
         {
-          "name": "Saint Thomas",
-          "date": "2026-09-02",
-          "method": "free-agent"
+          "name": "Morez Johnson Jr.",
+          "team": "DAL",
+          "reason": "no matching contract block on page"
         },
         {
-          "name": "Jameer Nelson Jr",
-          "date": "2026-09-02",
-          "method": "free-agent"
+          "name": "Jaron Pierre Jr.",
+          "team": "NOP",
+          "reason": "no matching contract block on page"
         },
         {
-          "name": "Tacko Fall",
-          "date": "2026-09-02",
-          "method": "free-agent"
+          "name": "Labaron Philon Jr.",
+          "team": "PHI",
+          "reason": "no matching contract block on page"
+        },
+        {
+          "name": "Yang Hansen",
+          "team": "POR",
+          "reason": "no matching contract block on page"
+        },
+        {
+          "name": "Darius Acuff Jr.",
+          "team": "SAC",
+          "reason": "no matching contract block on page"
         }
       ],
-      "guarantees": [
+      "name-bridge": [
         {
-          "player": "Trey Townsend",
-          "team": "Charlotte Hornets",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
+          "name": "Alpha Diallo"
         },
         {
-          "player": "Tacko Fall",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
+          "name": "Bennedict Mathurin"
         },
         {
-          "player": "Jameer Nelson Jr.",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
+          "name": "Carson Cooper"
         },
         {
-          "player": "Saint Thomas",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
+          "name": "DeMar DeRozan"
+        },
+        {
+          "name": "Dylan Cardwell"
+        },
+        {
+          "name": "James Harden"
+        },
+        {
+          "name": "Jonathan Kuminga"
+        },
+        {
+          "name": "Khalifa Diop"
+        },
+        {
+          "name": "Quenton Jackson"
+        },
+        {
+          "name": "Taj Gibson"
+        },
+        {
+          "name": "Tristan Vukcevic"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-02T15:03:48.594Z",
+  "generatedAt": "2026-09-03T16:16:18.482Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~1 (of 535)",
+    "players: +6 -6 ~0 (of 523)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 529)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~0 (of 144)",
-    "awards: +0 -0 ~0 (of 76)"
+    "contract-details: +0 -0 ~0 (of 506)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +0 -0 ~0 (of 140)",
+    "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true
 }

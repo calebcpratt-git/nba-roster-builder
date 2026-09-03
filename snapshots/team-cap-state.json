@@ -893,6 +893,11 @@
         "birdRights": "non-bird"
       },
       {
+        "label": "Nick Richards",
+        "amount": 9500000,
+        "kind": "free-agent"
+      },
+      {
         "label": "Guerschon Yabusele",
         "amount": 6600000,
         "kind": "free-agent"
@@ -1119,7 +1124,7 @@
     "heldTPEs": [
       {
         "id": "CLE-deandre-hunter-2026-02-01",
-        "amount": 1439674,
+        "amount": 6897984,
         "expires": "2027-02-01",
         "fromPlayer": "De'Andre Hunter"
       },
@@ -1134,39 +1139,21 @@
         "amount": 10000000,
         "expires": "2027-02-05",
         "fromPlayer": "Lonzo Ball"
-      },
-      {
-        "id": "CLE-max-strus-2026-08-20",
-        "amount": 16660836,
-        "expires": "2027-08-20",
-        "fromPlayer": "Max Strus"
       }
     ],
-    "hardCapped": {
-      "apron": 1,
-      "trigger": "Trade Salary Acquired: Aug 20 trade"
-    },
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 1207654
+        "remaining": 15044000
       },
       "taxpayerMLE": {
         "signings": [],
-        "remaining": 6064000
+        "remaining": 0
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 1207654
-      },
-      "tradeExceptionsUsed": [
-        {
-          "tpeFromPlayer": "De'Andre Hunter",
-          "usedByPlayer": "Cam Whitmore",
-          "amount": 5458310,
-          "date": "2026-08-20"
-        }
-      ]
+        "remaining": 5477000
+      }
     },
     "cashLedger": {
       "availableToSend": 7964000,
@@ -1385,6 +1372,12 @@
         "amount": 7600000,
         "kind": "free-agent",
         "birdRights": "full-bird"
+      },
+      {
+        "label": "Brandon Williams",
+        "amount": 2500000,
+        "kind": "free-agent",
+        "birdRights": "full-bird"
       }
     ],
     "salaryCap": 165000000,
@@ -1429,7 +1422,7 @@
             "amount": 3000000
           }
         ],
-        "remaining": 12044000
+        "remaining": 9804321
       },
       "biAnnual": {
         "signings": [],
@@ -1676,6 +1669,12 @@
         "birdRights": "non-bird"
       },
       {
+        "label": "Peyton Watson",
+        "amount": 13100000,
+        "kind": "free-agent",
+        "birdRights": "full-bird"
+      },
+      {
         "label": "Russell Westbrook",
         "amount": 2500000,
         "kind": "free-agent"
@@ -1691,12 +1690,6 @@
         "amount": 2221677,
         "expires": "2027-02-05",
         "fromPlayer": "Hunter Tyson"
-      },
-      {
-        "id": "DEN-peyton-watson-2026-08-20",
-        "amount": 10232558,
-        "expires": "2027-08-20",
-        "fromPlayer": "Peyton Watson"
       }
     ],
     "exceptionsUsed": {
@@ -3217,9 +3210,15 @@
     "deadMoney": [],
     "capHolds": [
       {
+        "label": "Sean Pedulla",
+        "amount": 2200000,
+        "kind": "free-agent"
+      },
+      {
         "label": "Bennedict Mathurin",
         "amount": 27600000,
-        "kind": "free-agent"
+        "kind": "free-agent",
+        "birdRights": "full-bird"
       },
       {
         "label": "Norchad Omier",
@@ -3253,7 +3252,7 @@
       },
       {
         "id": "LAC-john-collins-2026-07-08",
-        "amount": 0,
+        "amount": 15740741,
         "expires": "2027-07-08",
         "fromPlayer": "John Collins"
       }
@@ -3273,23 +3272,21 @@
         "remaining": 1044000
       },
       "biAnnual": {
-        "signings": [],
-        "remaining": 5477000
+        "signings": [
+          {
+            "player": "Bradley Beal",
+            "amount": 6439024,
+            "date": "2026-08-13"
+          }
+        ],
+        "remaining": 0
       },
       "dpe": {
         "player": "Bradley Beal",
-        "initial": 3212400,
+        "initial": 3219512,
         "used": false,
-        "remaining": 3212400
-      },
-      "tradeExceptionsUsed": [
-        {
-          "tpeFromPlayer": "John Collins",
-          "usedByPlayer": "Max Strus",
-          "amount": 15740741,
-          "date": "2026-08-20"
-        }
-      ]
+        "remaining": 3219512
+      }
     },
     "cashLedger": {
       "availableToSend": 0,
@@ -3691,7 +3688,7 @@
       "availableToSend": 7964000,
       "availableToReceive": 7964000
     },
-    "apronAddon": 2850000
+    "apronAddon": 2350000
   },
   {
     "team": "MEM",
@@ -3849,6 +3846,12 @@
         "amount": 2200000,
         "kind": "free-agent",
         "birdRights": "non-bird"
+      },
+      {
+        "label": "Keshad Johnson",
+        "amount": 2700000,
+        "kind": "free-agent",
+        "birdRights": "early-bird"
       }
     ],
     "salaryCap": 165000000,
@@ -3863,19 +3866,15 @@
       "nonTaxpayerMLE": {
         "signings": [
           {
-            "player": "Klay Thompson",
-            "amount": 5600000
-          },
-          {
             "player": "Tim Hardaway Jr.",
             "amount": 6065000
           }
         ],
-        "remaining": null
+        "remaining": 6789258
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 0
+        "remaining": 5477000
       }
     },
     "cashLedger": {
@@ -4361,12 +4360,6 @@
         "amount": 6576120,
         "expires": "2027-02-05",
         "fromPlayer": "Rob Dillingham"
-      },
-      {
-        "id": "MIN-josh-green-2026-08-29",
-        "amount": 2498412,
-        "expires": "2027-08-29",
-        "fromPlayer": "Josh Green"
       }
     ],
     "hardCapped": {
@@ -4375,12 +4368,11 @@
     },
     "exceptionsUsed": {
       "taxpayerMLE": {
-        "signings": [
-          {
-            "player": "Jonathan Kuminga",
-            "amount": 6064000
-          }
-        ],
+        "signings": [],
+        "remaining": 6064000
+      },
+      "biAnnual": {
+        "signings": [],
         "remaining": 0
       }
     },
@@ -4668,11 +4660,6 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Hunter Dickinson",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
-      {
         "label": "Josh Oduro",
         "amount": 2200000,
         "kind": "free-agent",
@@ -4692,14 +4679,9 @@
       }
     ],
     "exceptionsUsed": {
-      "nonTaxpayerMLE": {
-        "signings": [
-          {
-            "player": "Bennedict Mathurin",
-            "amount": 7804878
-          }
-        ],
-        "remaining": null
+      "taxpayerMLE": {
+        "signings": [],
+        "remaining": 6064000
       },
       "biAnnual": {
         "signings": [],
@@ -5611,6 +5593,10 @@
       }
     ],
     "exceptionsUsed": {
+      "taxpayerMLE": {
+        "signings": [],
+        "remaining": 6064000
+      },
       "biAnnual": {
         "signings": [],
         "remaining": 0
@@ -5913,7 +5899,7 @@
             "amount": 9000000
           }
         ],
-        "remaining": null
+        "remaining": 44000
       },
       "biAnnual": {
         "signings": [
@@ -5923,7 +5909,7 @@
             "date": "2026-07-06"
           }
         ],
-        "remaining": 0
+        "remaining": 470766
       }
     },
     "cashLedger": {
@@ -7111,13 +7097,17 @@
       }
     ],
     "exceptionsUsed": {
+      "nonTaxpayerMLE": {
+        "signings": [],
+        "remaining": 585003
+      },
       "taxpayerMLE": {
         "signings": [],
         "remaining": 6064000
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 0
+        "remaining": 585003
       }
     },
     "cashLedger": {
@@ -7347,10 +7337,6 @@
         "fromPlayer": "Walker Kessler"
       }
     ],
-    "hardCapped": {
-      "apron": 1,
-      "trigger": "Trade Salary Acquired: Aug 29 trade"
-    },
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [
@@ -7675,12 +7661,12 @@
     ],
     "hardCapped": {
       "apron": 1,
-      "trigger": "Trade Salary Acquired: Aug 20 trade"
+      "trigger": "Past-Season TPE: Jul 8 trade Jul 8 trade"
     },
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 14277968
+        "remaining": 15044000
       },
       "taxpayerMLE": {
         "signings": [],

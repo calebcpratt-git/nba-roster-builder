@@ -1,54 +1,17 @@
-"""Basketball Reference: player contracts and draft classes."""
-import os
-import time
-import random
-import urllib.request
-import urllib.error
+"""Basketball Reference: draft classes, season transactions, and awards.
+(The player-contracts page — salary/team/options — and the per-player bio-page
+draft-year fallback were both retired in the 2026-09 migration to
+SalarySwish's /teams/{slug} rosters; see salaryswish.py's parse_team_roster
+and run.py's build_players.)"""
 from bs4 import BeautifulSoup
 from datetime import datetime
 import re
 
-SEASON_COL = {'y1': '2026-27', 'y2': '2027-28', 'y3': '2028-29',
-              'y4': '2029-30', 'y5': '2030-31', 'y6': '2031-32'}
-OPTION_CLASS = {'salary-tm': 'Team', 'salary-pl': 'Player'}
-
 UA = 'nba-roster-builder-pipeline/1.0 (personal project; +https://github.com/calebcpratt-git/nba-roster-builder)'
-PLAYER_URL = 'https://www.basketball-reference.com/players/{first}/{bbrefId}.html'
-MIN_BYTES = 5_000
-FETCH_TRIES = 3
-BACKOFF_BASE = 3
-
-
-def fetch_page(url, path):
-    """Single-URL fetch with retry, mirrors salaryswish.py's fetch_page."""
-    for attempt in range(1, FETCH_TRIES + 1):
-        try:
-            req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9'})
-            with urllib.request.urlopen(req, timeout=60) as r:
-                data = r.read()
-            if len(data) < MIN_BYTES:
-                raise RuntimeError(f'suspiciously small response ({len(data)} bytes)')
-            open(path, 'wb').write(data)
-            return True
-        except (urllib.error.HTTPError, urllib.error.URLError, RuntimeError) as e:
-            reason = getattr(e, 'code', None) or getattr(e, 'reason', None) or e
-            if attempt < FETCH_TRIES:
-                time.sleep(BACKOFF_BASE * (2 ** (attempt - 1)) + random.uniform(0, 1))
-            else:
-                print(f'    FAILED  {url}  ({reason})')
-    return False
 
 
 def _soup(path):
     return BeautifulSoup(open(path, encoding='utf-8', errors='replace').read(), 'html.parser')
-
-
-def _money(td):
-    csk = td.get('csk')
-    if csk not in (None, ''):
-        return int(float(csk))
-    txt = td.get_text(strip=True).replace('$', '').replace(',', '')
-    return int(txt) if txt else None
 
 
 def _player_id(cell):
@@ -57,103 +20,6 @@ def _player_id(cell):
         return pid
     a = cell.find('a', href=re.compile(r'/players/'))
     return a['href'].rsplit('/', 1)[-1].replace('.html', '') if a else None
-
-
-def parse_contracts(path):
-    """-> [{name, bbrefId, team, salary{season:int}, options{season:'Team'|'Player'}, remainingGuaranteed}]"""
-    table = _soup(path).find('table', id='player-contracts')
-    if table is None:
-        raise RuntimeError('player-contracts table not found — page layout changed')
-    out = []
-    seen = set()
-    for tr in table.find('tbody').find_all('tr'):
-        if 'thead' in (tr.get('class') or []):
-            continue
-        cells = {c.get('data-stat'): c for c in tr.find_all(['th', 'td'])}
-        if 'player' not in cells or 'team_id' not in cells:
-            continue
-        name = cells['player'].get_text(strip=True)
-        team = cells['team_id'].get_text(strip=True)
-        if not name or not team:
-            continue
-        # BBRef's contracts table occasionally repeats a player's row —
-        # sometimes verbatim (confirmed live for De'Anthony Melton, same
-        # team both times), but NOT always: confirmed live 2026-08-07,
-        # Damian Lillard/Bradley Beal/Olivier-Maxence Prosper each have two
-        # rows under DIFFERENT teams with different remain_gtd figures — a
-        # real split BBRef hasn't consolidated, not a copy-paste artifact.
-        # Deduping on id-alone (the old behavior) silently kept whichever
-        # row happened to come first and discarded the other with no
-        # record it ever existed — for Lillard that meant keeping the
-        # stale MIL row and losing the correct POR one. Deduping on
-        # (id, team) instead only collapses TRUE verbatim repeats; a real
-        # team split comes through as two distinct rows for
-        # build_players() to resolve deliberately, cross-referenced
-        # against other sources — see resolve_duplicate_bbrefIds() in
-        # run.py.
-        dedupe_key = (_player_id(cells['player']), team) if _player_id(cells['player']) else (name, team)
-        if dedupe_key in seen:
-            continue
-        seen.add(dedupe_key)
-        salary, options = {}, {}
-        for col, season in SEASON_COL.items():
-            td = cells.get(col)
-            if td is None:
-                continue
-            v = _money(td)
-            if v is None:
-                continue
-            salary[season] = v
-            for cls in (td.get('class') or []):
-                if cls in OPTION_CLASS:
-                    options[season] = OPTION_CLASS[cls]
-        out.append({
-            'name': name,
-            'bbrefId': _player_id(cells['player']),
-            'team': team,
-            'salary': salary,
-            'options': options,
-            'remainingGuaranteed': _money(cells['remain_gtd']) if 'remain_gtd' in cells else None,
-        })
-    if not out:
-        raise RuntimeError('contracts table parsed to zero rows — page layout changed')
-    return out
-
-
-def parse_player_debut(path, current_season_year):
-    """Individual /players/{x}/{bbrefId}.html bio -> rookie season (the
-    calendar year the season STARTS, matching parse_draft's draftYear).
-    Fallback source for players parse_draft can't place: draft-class pages
-    only cover CURRENT_DRAFT_YEAR and the year before (see run.py), so
-    anyone drafted earlier, or genuinely undrafted, is invisible to that
-    join even though their own bio page always states this directly —
-    verified live against several current unresolved-draft-year.json
-    entries (e.g. Spencer Jones, Tolu Smith, Ryan Nembhard).
-
-    Two cases, both on every player's bio 'meta' block:
-      'NBA Debut: April 13, 2025' — season-boundary rule: Aug-Dec debut
-      belongs to the season starting that calendar year; Jan-Jul debut
-      belongs to the season that started the PREVIOUS calendar year (the
-      regular season runs roughly Oct-Jun). Verified against Tolu Smith
-      (debut Apr 13, 2025 -> rookie year 2024, the 2024-25 season).
-      'Experience: Rookie' — no debut yet (signed but hasn't played, e.g.
-      a 2026 second-round pick before opening night) -> current_season_year.
-    Returns None if neither is present (page layout changed, or truly no
-    bio data) — caller treats that as still-unresolved, not a hard failure."""
-    meta = _soup(path).find('div', id='meta')
-    if meta is None:
-        return None
-    text = meta.get_text(' ', strip=True)
-    if re.search(r'Experience:\s*Rookie\b', text):
-        return current_season_year
-    m = re.search(r'NBA Debut:\s*([A-Za-z]+ \d{1,2},\s*\d{4})', text)
-    if not m:
-        return None
-    try:
-        debut = datetime.strptime(re.sub(r'\s+', ' ', m.group(1)), '%B %d, %Y')
-    except ValueError:
-        return None
-    return debut.year if debut.month >= 8 else debut.year - 1
 
 
 def parse_draft(path, year):

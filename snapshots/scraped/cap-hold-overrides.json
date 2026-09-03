@@ -133,12 +133,6 @@
  },
  {
   "team": "CHI",
-  "player": "Nick Richards",
-  "amount": 9500000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "CHI",
   "player": "Matt Thomas",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"
@@ -300,12 +294,6 @@
   "reason": "not-in-realgm-current-free-agents"
  },
  {
-  "team": "DAL",
-  "player": "Brandon Williams",
-  "amount": 2500000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
   "team": "DEN",
   "player": "Tim Hardaway Jr.",
   "amount": 2500000,
@@ -363,12 +351,6 @@
   "team": "DEN",
   "player": "Troy Daniels",
   "amount": 2500000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "DEN",
-  "player": "Peyton Watson",
-  "amount": 13100000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {
@@ -608,12 +590,6 @@
  },
  {
   "team": "LAC",
-  "player": "Sean Pedulla",
-  "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "LAC",
   "player": "Keaton Wagler",
   "amount": 9700000,
   "reason": "not-in-realgm-current-free-agents"
@@ -742,12 +718,6 @@
   "team": "MEM",
   "player": "Cameron Boozer",
   "amount": 11900000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "MIA",
-  "player": "Keshad Johnson",
-  "amount": 2700000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {
@@ -898,6 +868,12 @@
   "team": "NOP",
   "player": "DeAndre Jordan",
   "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
+  "player": "Hunter Dickinson",
+  "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {

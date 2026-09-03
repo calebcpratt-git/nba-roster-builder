@@ -10,38 +10,68 @@
   "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
  },
  {
-  "player": "Quenton Jackson",
-  "team": "Pacers",
-  "guaranteeDate": "2026-07-15",
-  "status": "partial",
-  "partialAmount": 250000,
-  "fullAmount": 2584539,
-  "guaranteeTriggered": true,
-  "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,584,539). ( ✅ )"
- },
- {
-  "player": "Trey Townsend",
-  "team": "Charlotte Hornets",
+  "player": "Tucker DeVries",
+  "team": "Boston Celtics",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
  },
  {
-  "player": "Taj Gibson",
-  "team": "Memphis Grizzlies",
+  "player": "Milos Uzan",
+  "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Mouhamadou Gueye",
+  "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
  },
  {
-  "player": "Tacko Fall",
-  "team": "Philadelphia 76ers",
+  "player": "Julian Phillips",
+  "team": "Houston Rockets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
+ },
+ {
+  "player": "Oscar Tshiebwe",
+  "team": "Houston Rockets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Yuki Kawamura",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Kobe Bufkin",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Christian Koloko",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
  },
  {
   "player": "Duke Miles",
@@ -52,23 +82,23 @@
   "exhibit10": true
  },
  {
-  "player": "Jameer Nelson Jr.",
-  "team": "Philadelphia 76ers",
+  "player": "Taelon Peter",
+  "team": "San Antonio Spurs",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
  },
  {
-  "player": "Saint Thomas",
-  "team": "Philadelphia 76ers",
+  "player": "Nate Bittle",
+  "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
  },
  {
-  "player": "Matthew Murrell",
+  "player": "Harrison Ingram",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

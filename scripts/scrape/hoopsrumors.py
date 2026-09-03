@@ -1,14 +1,18 @@
 """Hoops Rumors: guarantee dates/status, trade kickers, no-trade clauses,
-cash-in-trade ledgers, two-way contract tracker.
+cash-in-trade ledgers.
 
-Six page types from one source, matching the multi-page-type-per-module
+Five page types from one source, matching the multi-page-type-per-module
 convention already used in bbref.py:
   - parse_guarantee_dates()        Early Salary Guarantee Dates article
   - parse_non_guaranteed_by_team() Non-Guaranteed Contracts By Team article
   - parse_trade_kickers()          Players With Trade Kickers article
   - parse_veto_trades()            Players Who Can Veto Trades article
   - parse_cash_in_trade()          Cash Sent, Received In NBA Trades article
-  - parse_two_way_tracker()        Two-Way Contract Tracker (evergreen, kept updated in place — no dated URL)
+
+(parse_two_way_tracker() was retired in the 2026-09 SalarySwish-rosters
+migration — two-way contracts are now a native roster section, sourced
+directly with everyone else, so this tracker's team-correction/creation job
+no longer has anything to do.)
 
 These are hand-written blog posts, not tabular data-stat markup like BBRef.
 Player names sit inside nested <strong><a> tags immediately followed by
@@ -277,67 +281,3 @@ def parse_cash_in_trade(path):
     return out
 
 
-BBREF_PLAYER_ID = re.compile(r'/players/\w/(\w+)\.html')
-
-
-def parse_two_way_tracker(path):
-    """-> [{name, bbrefId, team, position, twoYear, reported}]
-
-    Verified against a live page (2026-08-10): each team is an <h3> header
-    followed directly by a sibling <ol>, one <li> per two-way slot —
-    "<strong><a href=bbref-url>Name</a></strong>, Pos" or the same with a
-    trailing " *" marking year one of a two-year deal (the page's own stated
-    convention), or the literal text "Empty" for an unfilled slot (skipped).
-
-    A signing HR has heard about but that isn't official yet does NOT get an
-    <li> — the page's own stated convention is to list it in italics instead,
-    which shows up here as a <p><em>...</em></p> immediately after the team's
-    <ol>, containing just a name link ("The Clippers reportedly intend to
-    sign Jalen Pickett..."). Still surfaced (reported=True, position=None,
-    twoYear=False — not stated in prose form) rather than dropped: a
-    reported-pending two-way deal is exactly the kind of real-world state
-    BBRef's contracts page (this pipeline's other source of team assignment)
-    lags behind on, same motivation as build_free_agent_reconciliation's
-    signed-elsewhere case.
-
-    bbrefId is pulled from the player's own basketball-reference.com link
-    (e.g. '/players/p/pickeja02.html' -> 'pickeja02') — used as the primary
-    join key onto players.json, same as build_enrichment's SalarySwish match,
-    since it's exact where name matching can collide."""
-    entry = _entry(path)
-    team_abbr = None
-    out = []
-    li_pattern = re.compile(r'^(.+?),\s*(\S+)(\s*\*)?$')
-    for el in entry.find_all(['h3', 'ol', 'p'], recursive=False):
-        if el.name == 'h3':
-            team_abbr = HR_TEAM_NAME_TO_ABBR.get(el.get_text(strip=True))
-            continue
-        if team_abbr is None:
-            continue
-        if el.name == 'ol':
-            for li in el.find_all('li', recursive=False):
-                text = re.sub(r'\s+', ' ', li.get_text(' ', strip=True)).strip()
-                if not text or text == 'Empty':
-                    continue
-                m = li_pattern.match(text)
-                if not m:
-                    continue
-                name, position, two_year = m.group(1).strip(), m.group(2).strip(), bool(m.group(3))
-                link = li.find('a')
-                idm = BBREF_PLAYER_ID.search(link['href']) if link and link.get('href') else None
-                out.append({'name': name, 'bbrefId': idm.group(1) if idm else None, 'team': team_abbr,
-                            'position': position, 'twoYear': two_year, 'reported': False})
-            continue
-        # el.name == 'p' — only a reported-not-yet-official prose entry matters
-        em = el.find('em')
-        if em is None:
-            continue
-        link = em.find('a', href=BBREF_PLAYER_ID)
-        if link is None:
-            continue
-        idm = BBREF_PLAYER_ID.search(link['href'])
-        out.append({'name': link.get_text(strip=True), 'bbrefId': idm.group(1) if idm else None,
-                    'team': team_abbr, 'position': None, 'twoYear': False, 'reported': True})
-    if not out:
-        raise RuntimeError('two-way tracker parsed to zero rows — page layout changed')
-    return out
