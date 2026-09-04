@@ -652,6 +652,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jarkel Joiner",
+  "date": "2026-09-03",
+  "dateRaw": "Sep 3, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Kyle Mangas",
   "date": "2026-09-02",
   "dateRaw": "Sep 2, 2026",
@@ -660,7 +673,7 @@
    "CHO"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {
@@ -4481,34 +4494,34 @@
  {
   "bbrefId": null,
   "name": "Saint Thomas",
-  "date": "2026-09-02",
-  "dateRaw": "Sep 2, 2026",
+  "date": "2026-09-01",
+  "dateRaw": "Sep 1, 2026",
   "method": "free-agent",
   "toTeams": [
    "PHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {
   "bbrefId": null,
   "name": "Jameer Nelson Jr",
-  "date": "2026-09-02",
-  "dateRaw": "Sep 2, 2026",
+  "date": "2026-09-01",
+  "dateRaw": "Sep 1, 2026",
   "method": "free-agent",
   "toTeams": [
    "PHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {
   "bbrefId": null,
   "name": "Tacko Fall",
-  "date": "2026-09-02",
-  "dateRaw": "Sep 2, 2026",
+  "date": "2026-09-01",
+  "dateRaw": "Sep 1, 2026",
   "method": "free-agent",
   "toTeams": [
    "PHI"
@@ -4937,6 +4950,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Ben Simmons",
+  "date": "2026-09-04",
+  "dateRaw": "Sep 4, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -5510,7 +5536,7 @@
    "UTA"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {

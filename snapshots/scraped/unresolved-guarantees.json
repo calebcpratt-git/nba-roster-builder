@@ -26,7 +26,7 @@
   "exhibit10": true
  },
  {
-  "player": "Kyle Mangas",
+  "player": "Jarkel Joiner",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -88,6 +88,22 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Malaki Branham",
+  "team": "Orlando Magic",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "JD Davison",
+  "team": "Orlando Magic",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Tacko Fall",

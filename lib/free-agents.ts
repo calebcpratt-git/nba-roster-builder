@@ -20,6 +20,7 @@ export interface FreeAgentPoolEntry {
 // GENERATED:START
 export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Ochai Agbaji', priorTeam: 'BRK', faType: 'unrestricted', position: 'SG' },
+  { name: 'Josiah Allick', priorTeam: 'CHO', faType: 'unrestricted', position: 'PF' },
   { name: 'Alex Antetokounmpo', priorTeam: 'MIL', faType: 'unrestricted', birdRights: 'non-bird', position: 'PF' },
   { name: 'Thanasis Antetokounmpo', priorTeam: 'MIL', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
   { name: 'Cole Anthony', priorTeam: 'PHO', faType: 'unrestricted', position: 'PG' },
@@ -90,7 +91,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Lawson Lovering', priorTeam: 'MEM', faType: 'unrestricted', position: 'C' },
   { name: 'Kyle Lowry', priorTeam: 'PHI', faType: 'unrestricted', birdRights: 'full-bird', position: 'PG' },
   { name: 'Seth Lundy', priorTeam: 'LAC', faType: 'unrestricted', position: 'G-F' },
-  { name: 'Kyle Mangas', priorTeam: 'SAS', faType: 'unrestricted', position: 'SG' },
   { name: 'Tyrese Martin', priorTeam: 'PHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
   { name: 'Bez Mbeng', priorTeam: 'UTA', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Mac McClung', priorTeam: 'CHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
