@@ -7,6 +7,13 @@
   "birdRights": null
  },
  {
+  "name": "Josiah Allick",
+  "position": "PF",
+  "priorTeam": "CHO",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Alex Antetokounmpo",
   "position": "PF",
   "priorTeam": "MIL",
@@ -448,13 +455,6 @@
   "birdRights": null
  },
  {
-  "name": "Jonathan Kuminga",
-  "position": "SF",
-  "priorTeam": "ATL",
-  "faType": "U",
-  "birdRights": "non-bird"
- },
- {
   "name": "Skal Labissiere",
   "position": "F-C",
   "priorTeam": "WAS",
@@ -514,13 +514,6 @@
   "name": "Seth Lundy",
   "position": "G-F",
   "priorTeam": "LAC",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "Kyle Mangas",
-  "position": "SG",
-  "priorTeam": "SAS",
   "faType": "U",
   "birdRights": null
  },

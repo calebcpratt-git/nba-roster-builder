@@ -138,29 +138,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Kyle Mangas",
-  "team": "CHO",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2185116
-  },
-  "cashSalary": {
-   "2026-27": 2185116
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Wyatt Fricks",
   "team": "CHO",
   "section": "Training Camp and Exhibit 10",
@@ -218,6 +195,29 @@
   },
   "cashSalary": {
    "2026-27": 1361969
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Jarkel Joiner",
+  "team": "CHO",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0

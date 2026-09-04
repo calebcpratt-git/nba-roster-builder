@@ -6269,6 +6269,16 @@
     }
   },
   {
+    "name": "Ben Simmons",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Maxime Raynaud",
     "signedUnder": "rookie-scale",
     "incentives": {

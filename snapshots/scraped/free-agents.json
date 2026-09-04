@@ -7,6 +7,13 @@
   "birdRights": null
  },
  {
+  "name": "Josiah Allick",
+  "position": "PF",
+  "priorTeam": "CHO",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Alex Antetokounmpo",
   "position": "PF",
   "priorTeam": "MIL",
@@ -493,13 +500,6 @@
   "name": "Seth Lundy",
   "position": "G-F",
   "priorTeam": "LAC",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "Kyle Mangas",
-  "position": "SG",
-  "priorTeam": "SAS",
   "faType": "U",
   "birdRights": null
  },

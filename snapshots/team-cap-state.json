@@ -26,12 +26,6 @@
         "amount": 21900000,
         "kind": "free-agent",
         "birdRights": "full-bird"
-      },
-      {
-        "label": "Jonathan Kuminga",
-        "amount": 35000000,
-        "kind": "free-agent",
-        "birdRights": "non-bird"
       }
     ],
     "salaryCap": 165000000,
@@ -6558,10 +6552,6 @@
       "trigger": "BAE: Precious Achiuwa (Jul 7)"
     },
     "exceptionsUsed": {
-      "nonTaxpayerMLE": {
-        "signings": [],
-        "remaining": 2305628
-      },
       "biAnnual": {
         "signings": [
           {

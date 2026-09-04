@@ -25,6 +25,12 @@
  },
  {
   "team": "ATL",
+  "player": "Jonathan Kuminga",
+  "amount": 35000000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
   "player": "Dylan Windler",
   "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"

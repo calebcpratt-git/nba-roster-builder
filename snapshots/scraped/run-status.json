@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 19,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 62,
-      "acquisition": 110,
-      "guarantees": 13,
-      "signing": 19,
-      "awards": 2,
-      "name-bridge": 71,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 62,
       "acquisition": 120,
       "guarantees": 19,
@@ -74,68 +65,39 @@
       "name-bridge": 82,
       "no-current-salary": 1
     },
-    "newUnresolved": 27,
+    "after": {
+      "draft-year": 63,
+      "acquisition": 121,
+      "guarantees": 21,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 83,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 5,
     "newByCategory": {
-      "acquisition": 10,
-      "guarantees": 6,
-      "name-bridge": 11
+      "draft-year": 1,
+      "acquisition": 1,
+      "guarantees": 2,
+      "name-bridge": 1
     },
     "newRecords": {
+      "draft-year": [
+        {
+          "name": "Ben Simmons",
+          "team": "SAC"
+        }
+      ],
       "acquisition": [
         {
-          "name": "Kyle Mangas",
-          "date": "2026-09-02",
-          "method": "free-agent"
-        },
-        {
-          "name": "Trey Townsend",
-          "date": "2026-09-01",
-          "method": "free-agent"
-        },
-        {
-          "name": "Josiah Allick",
-          "date": "2026-08-31",
-          "method": "free-agent"
-        },
-        {
-          "name": "Deivon Smith",
-          "date": "2026-08-24",
-          "method": "free-agent"
-        },
-        {
-          "name": "John Konchar",
-          "date": "2026-08-29",
-          "method": "trade"
-        },
-        {
-          "name": "Malaki Branham",
-          "date": "2026-08-26",
-          "method": "free-agent"
-        },
-        {
-          "name": "Saint Thomas",
-          "date": "2026-09-02",
-          "method": "free-agent"
-        },
-        {
-          "name": "Jameer Nelson Jr",
-          "date": "2026-09-02",
-          "method": "free-agent"
-        },
-        {
-          "name": "Tacko Fall",
-          "date": "2026-09-02",
-          "method": "free-agent"
-        },
-        {
-          "name": "Matthew Murrell",
-          "date": "2026-08-31",
+          "name": "Jarkel Joiner",
+          "date": "2026-09-03",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Kyle Mangas",
+          "player": "Jarkel Joiner",
           "team": "Charlotte Hornets",
           "fullAmount": null,
           "partialAmount": null,
@@ -143,48 +105,16 @@
           "exhibit10": true
         },
         {
-          "player": "Dalen Terry",
-          "team": "Golden State Warriors",
+          "player": "Malaki Branham",
+          "team": "Orlando Magic",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "J’Vonne Hadley",
-          "team": "Miami Heat",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Tacko Fall",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Jameer Nelson Jr.",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Saint Thomas",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Malachi Smith",
-          "team": "Toronto Raptors",
+          "player": "JD Davison",
+          "team": "Orlando Magic",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -193,82 +123,22 @@
       ],
       "name-bridge": [
         {
-          "name": "Christian Koloko"
+          "name": "Ben Simmons"
         },
         {
-          "name": "Cole Anthony"
-        },
-        {
-          "name": "Dalen Terry"
-        },
-        {
-          "name": "Didi Louzada"
-        },
-        {
-          "name": "E.J. Liddell"
-        },
-        {
-          "name": "Harrison Ingram"
-        },
-        {
-          "name": "J'Vonne Hadley"
-        },
-        {
-          "name": "JaVale McGee"
-        },
-        {
-          "name": "John Konchar"
-        },
-        {
-          "name": "Julian Phillips"
-        },
-        {
-          "name": "Kobe Bufkin"
-        },
-        {
-          "name": "Malachi Smith"
-        },
-        {
-          "name": "Mamadi Diakite"
-        },
-        {
-          "name": "Milos Uzan"
-        },
-        {
-          "name": "Nassir Little"
-        },
-        {
-          "name": "Nate Bittle"
-        },
-        {
-          "name": "Oscar Tshiebwe"
-        },
-        {
-          "name": "Ricky Rubio"
-        },
-        {
-          "name": "Taelon Peter"
-        },
-        {
-          "name": "Tucker DeVries"
-        },
-        {
-          "name": "Vasilije Micić"
-        },
-        {
-          "name": "Yuki Kawamura"
+          "name": "Jarkel Joiner"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-03T16:47:50.059Z",
+  "generatedAt": "2026-09-04T14:55:03.011Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~20 (of 523)",
-    "draft-picks: +12 -11 ~0 (of 521)",
-    "contract-details: +9 -0 ~0 (of 506)",
-    "team-cap-state: +0 -0 ~13 (of 150)",
-    "free-agents: +5 -2 ~1 (of 140)",
+    "players: +1 -0 ~1 (of 523)",
+    "draft-picks: +0 -0 ~0 (of 522)",
+    "contract-details: +1 -0 ~0 (of 515)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
+    "free-agents: +1 -1 ~0 (of 143)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true
