@@ -1,122 +1,33 @@
 {
   "added": [
     {
-      "name": "Ben Simmons",
-      "team": "SAC",
+      "name": "Grant Nelson",
+      "team": "BRK",
       "salary": {
-        "2026-27": 2449421
+        "2026-27": 0
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 3524115
+        "2026-27": 678882
       },
       "guaranteed": {
-        "2026-27": 3524065
+        "2026-27": 0
       },
       "likelyIncentives": {
         "2026-27": 0
       },
       "optionExercised": {},
+      "contractType": "two-way",
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
           "date": "2026-09-04",
           "method": "free-agent",
-          "team": "SAC"
+          "team": "BRK"
         }
       ]
     }
   ],
   "removed": [],
-  "changed": [
-    {
-      "before": {
-        "name": "Khalifa Diop",
-        "team": "CLE",
-        "salary": {
-          "2026-27": 1360000,
-          "2027-28": 2232321,
-          "2028-29": 2397679,
-          "2029-30": 3270000
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 1360000,
-          "2027-28": 2232321,
-          "2028-29": 2397679,
-          "2029-30": 3270000
-        },
-        "guaranteed": {
-          "2026-27": 1360000,
-          "2027-28": 0,
-          "2028-29": 0,
-          "2029-30": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0,
-          "2028-29": 0,
-          "2029-30": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Draft",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-02",
-            "method": "free-agent",
-            "team": "CLE"
-          }
-        ]
-      },
-      "after": {
-        "name": "Khalifa Diop",
-        "team": "CLE",
-        "salary": {
-          "2026-27": 1357763,
-          "2027-28": 2294370,
-          "2028-29": 2694363,
-          "2029-30": 2918152
-        },
-        "options": {
-          "2029-30": "Team"
-        },
-        "cashSalary": {
-          "2026-27": 1357763,
-          "2027-28": 2294370,
-          "2028-29": 2694363,
-          "2029-30": 2918152
-        },
-        "guaranteed": {
-          "2026-27": 1357763,
-          "2027-28": 0,
-          "2028-29": 0,
-          "2029-30": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0,
-          "2028-29": 0,
-          "2029-30": 0
-        },
-        "optionExercised": {
-          "2029-30": false
-        },
-        "acquiredMethod": "Draft",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-02",
-            "method": "free-agent",
-            "team": "CLE"
-          }
-        ]
-      },
-      "fields": [
-        "salary",
-        "options",
-        "cashSalary",
-        "guaranteed",
-        "optionExercised"
-      ]
-    }
-  ]
+  "changed": []
 }

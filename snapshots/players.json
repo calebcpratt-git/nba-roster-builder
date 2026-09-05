@@ -1675,6 +1675,33 @@
     "acquiredMethod": "Draft"
   },
   {
+    "name": "Grant Nelson",
+    "team": "BRK",
+    "salary": {
+      "2026-27": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 678882
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-04",
+        "method": "free-agent",
+        "team": "BRK"
+      }
+    ]
+  },
+  {
     "name": "Tyler Bilodeau",
     "team": "BRK",
     "salary": {

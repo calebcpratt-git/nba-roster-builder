@@ -759,6 +759,16 @@
    }
   }
  },
+ "grant nelson": {
+  "team": "BRK",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "tyler bilodeau": {
   "team": "BRK",
   "signedUnder": null,

@@ -32,7 +32,7 @@
   "exhibit10": false
  },
  {
-  "player": "Jarkel Joiner",
+  "player": "Kobe Stewart",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -59,8 +59,8 @@
   "player": "Moussa Cisse",
   "team": "Dallas Mavericks",
   "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
+  "partialAmount": 1092558,
+  "status": "partial",
   "exhibit10": false
  },
  {
@@ -224,6 +224,14 @@
   "exhibit10": false
  },
  {
+  "player": "John Butler",
+  "team": "Milwaukee Bucks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Trey Lyles",
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
@@ -347,8 +355,8 @@
   "player": "Vit Krejci",
   "team": "Portland Trail Blazers",
   "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
+  "partialAmount": 250000,
+  "status": "partial",
   "exhibit10": false
  },
  {
