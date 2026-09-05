@@ -414,6 +414,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Grant Nelson",
+  "date": "2026-09-04",
+  "dateRaw": "Sep 4, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BRK"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Moritz Wagner",
   "date": "2026-07-31",
   "dateRaw": "Jul 31, 2026",

@@ -26,7 +26,7 @@
   "exhibit10": true
  },
  {
-  "player": "Jarkel Joiner",
+  "player": "Kobe Stewart",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -68,6 +68,14 @@
  {
   "player": "J’Vonne Hadley",
   "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "John Butler",
+  "team": "Milwaukee Bucks",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

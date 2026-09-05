@@ -57,15 +57,6 @@
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 62,
-      "acquisition": 120,
-      "guarantees": 19,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 82,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 63,
       "acquisition": 121,
       "guarantees": 21,
@@ -74,30 +65,30 @@
       "name-bridge": 83,
       "no-current-salary": 1
     },
-    "newUnresolved": 5,
+    "after": {
+      "draft-year": 64,
+      "acquisition": 121,
+      "guarantees": 22,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 83,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 2,
     "newByCategory": {
       "draft-year": 1,
-      "acquisition": 1,
-      "guarantees": 2,
-      "name-bridge": 1
+      "guarantees": 1
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Ben Simmons",
-          "team": "SAC"
-        }
-      ],
-      "acquisition": [
-        {
-          "name": "Jarkel Joiner",
-          "date": "2026-09-03",
-          "method": "free-agent"
+          "name": "Grant Nelson",
+          "team": "BRK"
         }
       ],
       "guarantees": [
         {
-          "player": "Jarkel Joiner",
+          "player": "Kobe Stewart",
           "team": "Charlotte Hornets",
           "fullAmount": null,
           "partialAmount": null,
@@ -105,16 +96,8 @@
           "exhibit10": true
         },
         {
-          "player": "Malaki Branham",
-          "team": "Orlando Magic",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "JD Davison",
-          "team": "Orlando Magic",
+          "player": "John Butler",
+          "team": "Milwaukee Bucks",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -123,22 +106,19 @@
       ],
       "name-bridge": [
         {
-          "name": "Ben Simmons"
-        },
-        {
-          "name": "Jarkel Joiner"
+          "name": "Grant Nelson"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-04T14:55:03.011Z",
+  "generatedAt": "2026-09-05T13:45:13.040Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~1 (of 523)",
+    "players: +1 -0 ~0 (of 524)",
     "draft-picks: +0 -0 ~0 (of 522)",
-    "contract-details: +1 -0 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +1 -1 ~0 (of 143)",
+    "contract-details: +1 -0 ~0 (of 516)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +2 -1 ~0 (of 143)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

@@ -553,16 +553,16 @@
   "birdRights": "non-bird"
  },
  {
-  "name": "Eli N'Diaye",
-  "position": "PF",
-  "priorTeam": "ATL",
+  "name": "Matthew Murrell",
+  "position": "PG",
+  "priorTeam": "UTA",
   "faType": "U",
   "birdRights": null
  },
  {
-  "name": "Grant Nelson",
+  "name": "Eli N'Diaye",
   "position": "PF",
-  "priorTeam": "BRK",
+  "priorTeam": "ATL",
   "faType": "U",
   "birdRights": null
  },
@@ -843,6 +843,13 @@
   "name": "Jacob Toppin",
   "position": "PF",
   "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Trey Townsend",
+  "position": "SF",
+  "priorTeam": "CHO",
   "faType": "U",
   "birdRights": null
  },
