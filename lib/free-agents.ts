@@ -91,6 +91,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Lawson Lovering', priorTeam: 'MEM', faType: 'unrestricted', position: 'C' },
   { name: 'Kyle Lowry', priorTeam: 'PHI', faType: 'unrestricted', birdRights: 'full-bird', position: 'PG' },
   { name: 'Seth Lundy', priorTeam: 'LAC', faType: 'unrestricted', position: 'G-F' },
+  { name: 'Kyle Mangas', priorTeam: 'CHO', faType: 'unrestricted', position: 'SG' },
   { name: 'Tyrese Martin', priorTeam: 'PHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
   { name: 'Bez Mbeng', priorTeam: 'UTA', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Mac McClung', priorTeam: 'CHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
