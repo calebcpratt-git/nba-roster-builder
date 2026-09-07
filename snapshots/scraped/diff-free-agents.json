@@ -1,28 +1,13 @@
 {
   "added": [
     {
-      "name": "Matthew Murrell",
-      "position": "PG",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Trey Townsend",
-      "position": "SF",
+      "name": "Kyle Mangas",
+      "position": "SG",
       "priorTeam": "CHO",
       "faType": "U",
       "birdRights": null
     }
   ],
-  "removed": [
-    {
-      "name": "Grant Nelson",
-      "position": "PF",
-      "priorTeam": "BRK",
-      "faType": "U",
-      "birdRights": null
-    }
-  ],
+  "removed": [],
   "changed": []
 }
