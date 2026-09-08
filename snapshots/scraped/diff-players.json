@@ -1,5 +1,291 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Jordan Hawkins",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 7021895
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 7021895
+        },
+        "guaranteed": {
+          "2026-27": 7021895
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {
+          "2026-27": true
+        },
+        "acquiredMethod": "Draft"
+      },
+      "after": {
+        "name": "Jordan Hawkins",
+        "team": "MEM",
+        "salary": {
+          "2026-27": 7021895
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 7021895
+        },
+        "guaranteed": {
+          "2026-27": 7021895
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {
+          "2026-27": true
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-08",
+            "method": "trade",
+            "team": "MEM"
+          }
+        ]
+      },
+      "fields": [
+        "team",
+        "acquiredMethod",
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Micah Peavy",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901,
+          "2028-29": 2735698
+        },
+        "options": {
+          "2028-29": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901,
+          "2028-29": 2735698
+        },
+        "guaranteed": {
+          "2026-27": 2150917,
+          "2027-28": 0,
+          "2028-29": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0
+        },
+        "optionExercised": {
+          "2028-29": false
+        },
+        "acquiredMethod": "Draft"
+      },
+      "after": {
+        "name": "Micah Peavy",
+        "team": "MEM",
+        "salary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901,
+          "2028-29": 2735698
+        },
+        "options": {
+          "2028-29": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901,
+          "2028-29": 2735698
+        },
+        "guaranteed": {
+          "2026-27": 2150917,
+          "2027-28": 0,
+          "2028-29": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0
+        },
+        "optionExercised": {
+          "2028-29": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-08",
+            "method": "trade",
+            "team": "MEM"
+          }
+        ]
+      },
+      "fields": [
+        "team",
+        "acquiredMethod",
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Taj Gibson",
+        "team": "MEM",
+        "salary": {
+          "2026-27": 3815861
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3815861
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "after": {
+        "name": "Taj Gibson",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 3815861
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3815861
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-08",
+            "method": "trade",
+            "team": "NOP"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "fields": [
+        "team",
+        "acquiredMethod",
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "AJ Johnson",
+        "team": "MEM",
+        "salary": {
+          "2026-27": 3237120,
+          "2027-28": 5493393
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 3237120,
+          "2027-28": 5493393
+        },
+        "guaranteed": {
+          "2026-27": 3237120,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-07-01",
+            "method": "trade",
+            "team": "MEM"
+          },
+          {
+            "date": "2026-07-08",
+            "method": "trade",
+            "team": "MEM"
+          }
+        ]
+      },
+      "after": {
+        "name": "AJ Johnson",
+        "team": "NOP",
+        "salary": {
+          "2026-27": 3237120,
+          "2027-28": 5493393
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 3237120,
+          "2027-28": 5493393
+        },
+        "guaranteed": {
+          "2026-27": 3237120,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-07-01",
+            "method": "trade",
+            "team": "MEM"
+          },
+          {
+            "date": "2026-07-08",
+            "method": "trade",
+            "team": "MEM"
+          },
+          {
+            "date": "2026-09-08",
+            "method": "trade",
+            "team": "NOP"
+          }
+        ]
+      },
+      "fields": [
+        "team",
+        "acquisitionHistory"
+      ]
+    }
+  ]
 }

@@ -1,13 +1,20 @@
 {
-  "added": [
+  "added": [],
+  "removed": [
     {
-      "name": "Kyle Mangas",
-      "position": "SG",
+      "name": "Malaki Branham",
+      "position": "SF",
       "priorTeam": "CHO",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "J.D. Davison",
+      "position": "PG",
+      "priorTeam": "HOU",
       "faType": "U",
       "birdRights": null
     }
   ],
-  "removed": [],
   "changed": []
 }

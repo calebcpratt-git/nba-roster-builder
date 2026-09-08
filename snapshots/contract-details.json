@@ -3770,6 +3770,16 @@
     }
   },
   {
+    "name": "Jordan Hawkins",
+    "signedUnder": "rookie-scale",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Zach Edey",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -3839,16 +3849,6 @@
     }
   },
   {
-    "name": "Taj Gibson",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Karim López",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -3865,20 +3865,6 @@
         "unlikely": 0
       },
       "2029-30": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "AJ Johnson",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -3943,6 +3929,24 @@
         "unlikely": 0
       },
       "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Micah Peavy",
+    "signedUnder": "rookie-scale",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2028-29": {
         "likely": 0,
         "unlikely": 0
       }
@@ -4723,16 +4727,6 @@
     "signedUnder": "non-taxpayer-mle"
   },
   {
-    "name": "Jordan Hawkins",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Saddiq Bey",
     "incentives": {
       "2026-27": {
@@ -4774,7 +4768,31 @@
     }
   },
   {
+    "name": "Taj Gibson",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Yves Missi",
+    "signedUnder": "rookie-scale",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "AJ Johnson",
     "signedUnder": "rookie-scale",
     "incentives": {
       "2026-27": {
@@ -4825,24 +4843,6 @@
     "signedUnder": "rookie-scale",
     "incentives": {
       "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Micah Peavy",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2028-29": {
         "likely": 0,
         "unlikely": 0
       }
