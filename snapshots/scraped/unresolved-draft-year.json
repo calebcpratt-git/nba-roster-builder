@@ -136,10 +136,6 @@
   "team": "LAL"
  },
  {
-  "name": "Taj Gibson",
-  "team": "MEM"
- },
- {
   "name": "Carson Cooper",
   "team": "MEM"
  },
@@ -169,6 +165,10 @@
  },
  {
   "name": "Bennedict Mathurin",
+  "team": "NOP"
+ },
+ {
+  "name": "Taj Gibson",
   "team": "NOP"
  },
  {

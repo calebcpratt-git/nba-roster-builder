@@ -50,7 +50,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 14,
       "failed": []
     }
   },
@@ -62,13 +62,13 @@
       "guarantees": 22,
       "signing": 10,
       "awards": 2,
-      "name-bridge": 83,
+      "name-bridge": 82,
       "no-current-salary": 1
     },
     "after": {
       "draft-year": 64,
       "acquisition": 121,
-      "guarantees": 22,
+      "guarantees": 21,
       "signing": 10,
       "awards": 2,
       "name-bridge": 82,
@@ -78,14 +78,14 @@
     "newByCategory": {},
     "newRecords": {}
   },
-  "generatedAt": "2026-09-07T16:22:27.256Z",
+  "generatedAt": "2026-09-08T15:00:43.646Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 525)",
+    "players: +0 -0 ~4 (of 525)",
     "draft-picks: +0 -0 ~0 (of 522)",
     "contract-details: +0 -0 ~0 (of 517)",
     "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +1 -0 ~0 (of 144)",
+    "free-agents: +0 -2 ~0 (of 145)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

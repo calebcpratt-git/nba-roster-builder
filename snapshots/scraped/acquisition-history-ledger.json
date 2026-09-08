@@ -10746,6 +10746,11 @@
    "date": "2026-07-01",
    "method": "trade",
    "team": "MEM"
+  },
+  {
+   "date": "2026-09-08",
+   "method": "trade",
+   "team": "NOP"
   }
  ],
  "kris murray": [
@@ -11710,6 +11715,27 @@
    "date": "2026-09-04",
    "method": "free-agent",
    "team": "BRK"
+  }
+ ],
+ "micah peavy": [
+  {
+   "date": "2026-09-08",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "jordan hawkins": [
+  {
+   "date": "2026-09-08",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "taj gibson": [
+  {
+   "date": "2026-09-08",
+   "method": "trade",
+   "team": "NOP"
   }
  ]
 }

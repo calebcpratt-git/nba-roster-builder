@@ -3041,6 +3041,36 @@
  },
  {
   "bbrefId": null,
+  "name": "Micah Peavy",
+  "date": "2026-09-08",
+  "dateRaw": "Sep 8, 2026",
+  "method": "trade",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [
+   "NOP"
+  ],
+  "text": "Traded from NOP",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jordan Hawkins",
+  "date": "2026-09-08",
+  "dateRaw": "Sep 8, 2026",
+  "method": "trade",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [
+   "NOP"
+  ],
+  "text": "Traded from NOP",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Karim Lopez",
   "date": "2026-07-29",
   "dateRaw": "Jul 29, 2026",
@@ -3063,6 +3093,21 @@
   ],
   "fromTeams": [],
   "text": "Signed to Rookie Scale Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "A.J. Johnson",
+  "date": "2026-07-08",
+  "dateRaw": "Jul 8, 2026",
+  "method": "trade",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [
+   "DAL"
+  ],
+  "text": "Traded from DAL",
   "flags": []
  },
  {
@@ -3106,21 +3151,6 @@
    "DET"
   ],
   "text": "Traded from DET",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "A.J. Johnson",
-  "date": "2026-07-08",
-  "dateRaw": "Jul 8, 2026",
-  "method": "trade",
-  "toTeams": [
-   "MEM"
-  ],
-  "fromTeams": [
-   "DAL"
-  ],
-  "text": "Traded from DAL",
   "flags": []
  },
  {
@@ -3883,6 +3913,36 @@
    "CHI"
   ],
   "text": "Traded from CHI",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Taj Gibson",
+  "date": "2026-09-08",
+  "dateRaw": "Sep 8, 2026",
+  "method": "trade",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [
+   "MEM"
+  ],
+  "text": "Traded from MEM",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "A.J. Johnson",
+  "date": "2026-09-08",
+  "dateRaw": "Sep 8, 2026",
+  "method": "trade",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [
+   "MEM"
+  ],
+  "text": "Traded from MEM",
   "flags": []
  },
  {
