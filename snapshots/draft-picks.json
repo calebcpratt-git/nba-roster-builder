@@ -3300,6 +3300,18 @@
     "rank": null
   },
   {
+    "teamOwner": "Memphis Grizzlies",
+    "year": 2033,
+    "round": "Second Round",
+    "teamFrom": null,
+    "swapOwner": null,
+    "swapOption": null,
+    "protections": null,
+    "pickNumber": null,
+    "pickPool": "",
+    "rank": "---"
+  },
+  {
     "teamOwner": "Miami Heat",
     "year": 2027,
     "round": "First Round",
@@ -3862,6 +3874,18 @@
     "pickNumber": null,
     "pickPool": null,
     "rank": null
+  },
+  {
+    "teamOwner": "New Orleans Pelicans",
+    "year": 2033,
+    "round": "Second Round",
+    "teamFrom": null,
+    "swapOwner": null,
+    "swapOption": null,
+    "protections": null,
+    "pickNumber": null,
+    "pickPool": "",
+    "rank": "---"
   },
   {
     "teamOwner": "New York Knicks",

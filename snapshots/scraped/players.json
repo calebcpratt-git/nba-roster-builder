@@ -1685,7 +1685,7 @@
    "2026-27": 678882
   },
   "guaranteed": {
-   "2026-27": 0
+   "2026-27": 91000
   },
   "likelyIncentives": {
    "2026-27": 0
@@ -9763,6 +9763,11 @@
     "date": "2026-08-26",
     "method": "free-agent",
     "team": "MIN"
+   },
+   {
+    "date": "2026-09-03",
+    "method": "free-agent",
+    "team": "MIN"
    }
   ]
  },
@@ -10368,7 +10373,8 @@
   ],
   "guarantees": {
    "2026-27": {
-    "status": "non-guaranteed"
+    "status": "partial",
+    "amount": 148828
    }
   }
  },
@@ -10478,37 +10484,6 @@
     "team": "NOP"
    }
   ]
- },
- {
-  "name": "Caleb Houstan",
-  "team": "NOP",
-  "salary": {
-   "2026-27": 2449421
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 2625627
-  },
-  "guaranteed": {
-   "2026-27": 2625627
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-08-03",
-    "method": "free-agent",
-    "team": "NOP"
-   }
-  ],
-  "guarantees": {
-   "2026-27": {
-    "status": "non-guaranteed"
-   }
-  }
  },
  {
   "name": "Trendon Watford",

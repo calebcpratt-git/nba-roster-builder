@@ -1,5 +1,137 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "team": "MIL",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Damian Lillard",
+            "amount": 22516603
+          },
+          {
+            "player": "Vasilije Micić",
+            "amount": 666667
+          }
+        ],
+        "capHolds": [
+          {
+            "label": "Thanasis Antetokounmpo",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Alex Antetokounmpo",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "MIL-giannis-antetokounmpo-2026-07-06",
+            "amount": 25456566,
+            "expires": "2027-07-06",
+            "fromPlayer": "Giannis Antetokounmpo"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Jul 8 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 13641684
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 6714000,
+          "availableToReceive": 3464000
+        },
+        "apronAddon": 5075000
+      },
+      "after": {
+        "team": "MIL",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Damian Lillard",
+            "amount": 22516603
+          },
+          {
+            "player": "Vasilije Micić",
+            "amount": 666667
+          }
+        ],
+        "capHolds": [
+          {
+            "label": "Thanasis Antetokounmpo",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Alex Antetokounmpo",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "MIL-giannis-antetokounmpo-2026-07-06",
+            "amount": 25456566,
+            "expires": "2027-07-06",
+            "fromPlayer": "Giannis Antetokounmpo"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Jul 8 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 11192263
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 6714000,
+          "availableToReceive": 3464000
+        },
+        "apronAddon": 5075000
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    }
+  ]
 }
