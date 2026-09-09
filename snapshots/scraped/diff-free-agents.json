@@ -1,20 +1,13 @@
 {
-  "added": [],
-  "removed": [
+  "added": [
     {
-      "name": "Malaki Branham",
-      "position": "SF",
-      "priorTeam": "CHO",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "J.D. Davison",
+      "name": "Jarkel Joiner",
       "position": "PG",
-      "priorTeam": "HOU",
+      "priorTeam": "CHO",
       "faType": "U",
       "birdRights": null
     }
   ],
+  "removed": [],
   "changed": []
 }

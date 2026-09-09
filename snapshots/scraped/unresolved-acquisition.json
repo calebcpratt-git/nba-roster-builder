@@ -60,6 +60,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Kobe Stewart",
+  "date": "2026-09-04",
+  "method": "free-agent"
+ },
+ {
   "name": "Jarkel Joiner",
   "date": "2026-09-03",
   "method": "free-agent"
@@ -350,6 +355,11 @@
   "method": "free-agent"
  },
  {
+  "name": "John Butler jr.",
+  "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
   "name": "John Konchar",
   "date": "2026-08-29",
   "method": "trade"
@@ -368,6 +378,11 @@
   "name": "Mouhamadou Gueye",
   "date": "2026-06-22",
   "method": "trade"
+ },
+ {
+  "name": "Caleb Houstan",
+  "date": "2026-08-03",
+  "method": "free-agent"
  },
  {
   "name": "Christian Koloko",
@@ -432,6 +447,11 @@
  {
   "name": "Nate Johnson",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "JD Davison",
+  "date": "2026-09-03",
   "method": "free-agent"
  },
  {

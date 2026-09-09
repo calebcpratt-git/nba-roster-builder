@@ -70,6 +70,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Jaden Ivey', priorTeam: 'CHI', faType: 'unrestricted', position: 'PG' },
   { name: 'DeJon Jarreau', priorTeam: 'MEM', faType: 'unrestricted', position: 'SG' },
   { name: 'DaQuan Jeffries', priorTeam: 'SAC', faType: 'unrestricted', position: 'G-F' },
+  { name: 'Jarkel Joiner', priorTeam: 'CHO', faType: 'unrestricted', position: 'PG' },
   { name: 'Colby Jones', priorTeam: 'DET', faType: 'unrestricted', position: 'SG' },
   { name: 'Curtis Jones', priorTeam: 'DEN', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
   { name: 'Dillon Jones', priorTeam: 'NYK', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },

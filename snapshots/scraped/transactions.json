@@ -665,6 +665,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Kobe Stewart",
+  "date": "2026-09-04",
+  "dateRaw": "Sep 4, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jarkel Joiner",
   "date": "2026-09-03",
   "dateRaw": "Sep 3, 2026",
@@ -3531,6 +3544,19 @@
  },
  {
   "bbrefId": null,
+  "name": "John Butler jr.",
+  "date": "2026-09-03",
+  "dateRaw": "Sep 3, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Gary Trent Jr.",
   "date": "2026-07-15",
   "dateRaw": "Jul 15, 2026",
@@ -3725,6 +3751,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jonathan Kuminga",
+  "date": "2026-09-03",
+  "dateRaw": "Sep 3, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Cody Williams",
   "date": "2026-08-29",
   "dateRaw": "Aug 29, 2026",
@@ -3751,19 +3790,6 @@
    "UTA"
   ],
   "text": "Traded from UTA",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Jonathan Kuminga",
-  "date": "2026-08-26",
-  "dateRaw": "Aug 26, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "MIN"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -4445,6 +4471,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "JD Davison",
+  "date": "2026-09-03",
+  "dateRaw": "Sep 3, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ORL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {

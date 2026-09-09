@@ -8,6 +8,14 @@
   "exhibit10": false
  },
  {
+  "player": "Devon Higgs",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tucker DeVries",
   "team": "Boston Celtics",
   "fullAmount": null,
@@ -30,6 +38,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Bez Mbeng",
+  "team": "Charlotte Hornets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Mario Hezonja",
@@ -168,14 +184,6 @@
   "exhibit10": false
  },
  {
-  "player": "Taj Gibson",
-  "team": "Memphis Grizzlies",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
   "player": "Myron Gardner",
   "team": "Miami Heat",
   "fullAmount": null,
@@ -240,6 +248,14 @@
   "exhibit10": false
  },
  {
+  "player": "Taj Gibson",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": 148828,
+  "status": "partial",
+  "exhibit10": false
+ },
+ {
   "player": "Kobe Bufkin",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -297,6 +313,14 @@
  },
  {
   "player": "Tacko Fall",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Dillon Jones",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
   "partialAmount": null,
