@@ -992,6 +992,12 @@
  },
  {
   "team": "NYK",
+  "player": "Dillon Jones",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NYK",
   "player": "Petteri Koponen",
   "amount": 3200000,
   "reason": "not-in-realgm-current-free-agents"

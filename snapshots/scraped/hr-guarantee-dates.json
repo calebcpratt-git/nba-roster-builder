@@ -320,6 +320,16 @@
   "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed."
  },
  {
+  "player": "Ben Simmons",
+  "team": "Kings",
+  "guaranteeDate": "2026-10-15",
+  "status": "non-guaranteed",
+  "partialAmount": 0,
+  "fullAmount": 3524115,
+  "guaranteeTriggered": null,
+  "raw": "Non-guaranteed salary ($3,524,115) becomes partially guaranteed ($1,000,000)."
+ },
+ {
   "player": "Trendon Watford",
   "team": "Pelicans",
   "guaranteeDate": "2026-10-15",

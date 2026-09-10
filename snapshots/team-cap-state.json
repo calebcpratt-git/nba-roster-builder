@@ -4991,14 +4991,7 @@
     "team": "NYK",
     "season": "2026-27",
     "deadMoney": [],
-    "capHolds": [
-      {
-        "label": "Dillon Jones",
-        "amount": 2200000,
-        "kind": "free-agent",
-        "birdRights": "non-bird"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,

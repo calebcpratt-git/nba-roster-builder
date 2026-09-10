@@ -1,13 +1,28 @@
 {
   "added": [
     {
-      "name": "Jarkel Joiner",
-      "position": "PG",
+      "name": "Kobe Stewart",
+      "position": "G-F",
       "priorTeam": "CHO",
       "faType": "U",
       "birdRights": null
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Dillon Jones",
+      "position": "SF",
+      "priorTeam": "NYK",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Bez Mbeng",
+      "position": "SG",
+      "priorTeam": "UTA",
+      "faType": "U",
+      "birdRights": "non-bird"
+    }
+  ],
   "changed": []
 }

@@ -1675,33 +1675,6 @@
   "acquiredMethod": "Draft"
  },
  {
-  "name": "Grant Nelson",
-  "team": "BRK",
-  "salary": {
-   "2026-27": 0
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 678882
-  },
-  "guaranteed": {
-   "2026-27": 91000
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "contractType": "two-way",
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-09-04",
-    "method": "free-agent",
-    "team": "BRK"
-   }
-  ]
- },
- {
   "name": "Tyler Bilodeau",
   "team": "BRK",
   "salary": {
@@ -1755,6 +1728,33 @@
   "acquisitionHistory": [
    {
     "date": "2026-06-29",
+    "method": "free-agent",
+    "team": "BRK"
+   }
+  ]
+ },
+ {
+  "name": "Grant Nelson",
+  "team": "BRK",
+  "salary": {
+   "2026-27": 0
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 678882
+  },
+  "guaranteed": {
+   "2026-27": 91000
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "contractType": "two-way",
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-04",
     "method": "free-agent",
     "team": "BRK"
    }
@@ -2957,22 +2957,22 @@
   "name": "James Harden",
   "team": "CLE",
   "salary": {
-   "2026-27": 29938272,
-   "2027-28": 32333333,
-   "2028-29": 34728395
+   "2026-27": 30647619,
+   "2027-28": 32180000,
+   "2028-29": 33712381
   },
   "options": {
    "2028-29": "Player"
   },
   "cashSalary": {
-   "2026-27": 29938272,
-   "2027-28": 32333333,
-   "2028-29": 34728395
+   "2026-27": 30647619,
+   "2027-28": 32180000,
+   "2028-29": 33712381
   },
   "guaranteed": {
-   "2026-27": 29938272,
-   "2027-28": 32333333,
-   "2028-29": 34728395
+   "2026-27": 30647619,
+   "2027-28": 32180000,
+   "2028-29": 33712381
   },
   "likelyIncentives": {
    "2026-27": 0,
@@ -2986,6 +2986,11 @@
   "acquisitionHistory": [
    {
     "date": "2026-08-20",
+    "method": "free-agent",
+    "team": "CLE"
+   },
+   {
+    "date": "2026-09-08",
     "method": "free-agent",
     "team": "CLE"
    }
@@ -4249,6 +4254,11 @@
   "acquisitionHistory": [
    {
     "date": "2026-08-21",
+    "method": "free-agent",
+    "team": "DEN"
+   },
+   {
+    "date": "2026-09-08",
     "method": "free-agent",
     "team": "DEN"
    }
@@ -10347,38 +10357,6 @@
   ]
  },
  {
-  "name": "Taj Gibson",
-  "team": "NOP",
-  "salary": {
-   "2026-27": 3815861
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 3815861
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "acquiredMethod": "Trade",
-  "acquisitionHistory": [
-   {
-    "date": "2026-09-08",
-    "method": "trade",
-    "team": "NOP"
-   }
-  ],
-  "guarantees": {
-   "2026-27": {
-    "status": "partial",
-    "amount": 148828
-   }
-  }
- },
- {
   "name": "Yves Missi",
   "team": "NOP",
   "salary": {
@@ -13903,7 +13881,7 @@
    "2026-27": 3524115
   },
   "guaranteed": {
-   "2026-27": 3524065
+   "2026-27": 0
   },
   "likelyIncentives": {
    "2026-27": 0
@@ -13915,8 +13893,19 @@
     "date": "2026-09-04",
     "method": "free-agent",
     "team": "SAC"
+   },
+   {
+    "date": "2026-09-07",
+    "method": "free-agent",
+    "team": "SAC"
    }
-  ]
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed",
+    "guaranteeDate": "2026-10-15"
+   }
+  }
  },
  {
   "name": "Maxime Raynaud",
