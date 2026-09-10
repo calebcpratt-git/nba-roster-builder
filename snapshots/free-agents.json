@@ -378,13 +378,6 @@
     "birdRights": "non-bird"
   },
   {
-    "name": "Dillon Jones",
-    "position": "SF",
-    "priorTeam": "NYK",
-    "faType": "U",
-    "birdRights": "non-bird"
-  },
-  {
     "name": "Johnny Juzang",
     "position": "SG",
     "priorTeam": "MIN",
@@ -507,13 +500,6 @@
     "name": "Tyrese Martin",
     "position": "SF",
     "priorTeam": "PHI",
-    "faType": "U",
-    "birdRights": "non-bird"
-  },
-  {
-    "name": "Bez Mbeng",
-    "position": "SG",
-    "priorTeam": "UTA",
     "faType": "U",
     "birdRights": "non-bird"
   },
@@ -780,6 +766,13 @@
     "name": "Isaiah Stevens",
     "position": "PG",
     "priorTeam": "SAC",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Kobe Stewart",
+    "position": "G-F",
+    "priorTeam": "CHO",
     "faType": "U",
     "birdRights": null
   },

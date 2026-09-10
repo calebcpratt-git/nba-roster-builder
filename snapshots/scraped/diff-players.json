@@ -2,33 +2,34 @@
   "added": [],
   "removed": [
     {
-      "name": "Caleb Houstan",
+      "name": "Taj Gibson",
       "team": "NOP",
       "salary": {
-        "2026-27": 2449421
+        "2026-27": 3815861
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 2625627
+        "2026-27": 3815861
       },
       "guaranteed": {
-        "2026-27": 2625627
+        "2026-27": 0
       },
       "likelyIncentives": {
         "2026-27": 0
       },
       "optionExercised": {},
-      "acquiredMethod": "Signed",
+      "acquiredMethod": "Trade",
       "acquisitionHistory": [
         {
-          "date": "2026-08-03",
-          "method": "free-agent",
+          "date": "2026-09-08",
+          "method": "trade",
           "team": "NOP"
         }
       ],
       "guarantees": {
         "2026-27": {
-          "status": "non-guaranteed"
+          "status": "partial",
+          "amount": 148828
         }
       }
     }
@@ -36,134 +37,148 @@
   "changed": [
     {
       "before": {
-        "name": "Grant Nelson",
-        "team": "BRK",
+        "name": "James Harden",
+        "team": "CLE",
         "salary": {
-          "2026-27": 0
+          "2026-27": 29938272,
+          "2027-28": 32333333,
+          "2028-29": 34728395
         },
-        "options": {},
+        "options": {
+          "2028-29": "Player"
+        },
         "cashSalary": {
-          "2026-27": 678882
+          "2026-27": 29938272,
+          "2027-28": 32333333,
+          "2028-29": 34728395
         },
         "guaranteed": {
-          "2026-27": 0
+          "2026-27": 29938272,
+          "2027-28": 32333333,
+          "2028-29": 34728395
         },
         "likelyIncentives": {
-          "2026-27": 0
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0
         },
-        "optionExercised": {},
-        "contractType": "two-way",
+        "optionExercised": {
+          "2028-29": false
+        },
         "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-09-04",
+            "date": "2026-08-20",
             "method": "free-agent",
-            "team": "BRK"
+            "team": "CLE"
           }
         ]
       },
       "after": {
-        "name": "Grant Nelson",
-        "team": "BRK",
+        "name": "James Harden",
+        "team": "CLE",
         "salary": {
-          "2026-27": 0
+          "2026-27": 30647619,
+          "2027-28": 32180000,
+          "2028-29": 33712381
         },
-        "options": {},
+        "options": {
+          "2028-29": "Player"
+        },
         "cashSalary": {
-          "2026-27": 678882
+          "2026-27": 30647619,
+          "2027-28": 32180000,
+          "2028-29": 33712381
         },
         "guaranteed": {
-          "2026-27": 91000
+          "2026-27": 30647619,
+          "2027-28": 32180000,
+          "2028-29": 33712381
         },
         "likelyIncentives": {
-          "2026-27": 0
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0
         },
-        "optionExercised": {},
-        "contractType": "two-way",
+        "optionExercised": {
+          "2028-29": false
+        },
         "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-09-04",
+            "date": "2026-08-20",
             "method": "free-agent",
-            "team": "BRK"
+            "team": "CLE"
+          },
+          {
+            "date": "2026-09-08",
+            "method": "free-agent",
+            "team": "CLE"
           }
         ]
       },
       "fields": [
-        "guaranteed"
+        "salary",
+        "cashSalary",
+        "guaranteed",
+        "acquisitionHistory"
       ]
     },
     {
       "before": {
-        "name": "Jonathan Kuminga",
-        "team": "MIN",
+        "name": "DeMar DeRozan",
+        "team": "DEN",
         "salary": {
-          "2026-27": 6064000,
-          "2027-28": 6367200
+          "2026-27": 3876528
         },
-        "options": {
-          "2027-28": "Player"
-        },
+        "options": {},
         "cashSalary": {
-          "2026-27": 6064000,
-          "2027-28": 6367200
+          "2026-27": 3876528
         },
         "guaranteed": {
-          "2026-27": 6064000,
-          "2027-28": 6367200
+          "2026-27": 3876528
         },
         "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
+          "2026-27": 0
         },
-        "optionExercised": {
-          "2027-28": false
-        },
+        "optionExercised": {},
         "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-08-26",
+            "date": "2026-08-21",
             "method": "free-agent",
-            "team": "MIN"
+            "team": "DEN"
           }
         ]
       },
       "after": {
-        "name": "Jonathan Kuminga",
-        "team": "MIN",
+        "name": "DeMar DeRozan",
+        "team": "DEN",
         "salary": {
-          "2026-27": 6064000,
-          "2027-28": 6367200
+          "2026-27": 3876528
         },
-        "options": {
-          "2027-28": "Player"
-        },
+        "options": {},
         "cashSalary": {
-          "2026-27": 6064000,
-          "2027-28": 6367200
+          "2026-27": 3876528
         },
         "guaranteed": {
-          "2026-27": 6064000,
-          "2027-28": 6367200
+          "2026-27": 3876528
         },
         "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
+          "2026-27": 0
         },
-        "optionExercised": {
-          "2027-28": false
-        },
+        "optionExercised": {},
         "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-08-26",
+            "date": "2026-08-21",
             "method": "free-agent",
-            "team": "MIN"
+            "team": "DEN"
           },
           {
-            "date": "2026-09-03",
+            "date": "2026-09-08",
             "method": "free-agent",
-            "team": "MIN"
+            "team": "DEN"
           }
         ]
       },
@@ -173,45 +188,40 @@
     },
     {
       "before": {
-        "name": "Taj Gibson",
-        "team": "NOP",
+        "name": "Ben Simmons",
+        "team": "SAC",
         "salary": {
-          "2026-27": 3815861
+          "2026-27": 2449421
         },
         "options": {},
         "cashSalary": {
-          "2026-27": 3815861
+          "2026-27": 3524115
         },
         "guaranteed": {
-          "2026-27": 0
+          "2026-27": 3524065
         },
         "likelyIncentives": {
           "2026-27": 0
         },
         "optionExercised": {},
-        "acquiredMethod": "Trade",
+        "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-09-08",
-            "method": "trade",
-            "team": "NOP"
+            "date": "2026-09-04",
+            "method": "free-agent",
+            "team": "SAC"
           }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
+        ]
       },
       "after": {
-        "name": "Taj Gibson",
-        "team": "NOP",
+        "name": "Ben Simmons",
+        "team": "SAC",
         "salary": {
-          "2026-27": 3815861
+          "2026-27": 2449421
         },
         "options": {},
         "cashSalary": {
-          "2026-27": 3815861
+          "2026-27": 3524115
         },
         "guaranteed": {
           "2026-27": 0
@@ -220,22 +230,29 @@
           "2026-27": 0
         },
         "optionExercised": {},
-        "acquiredMethod": "Trade",
+        "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-09-08",
-            "method": "trade",
-            "team": "NOP"
+            "date": "2026-09-04",
+            "method": "free-agent",
+            "team": "SAC"
+          },
+          {
+            "date": "2026-09-07",
+            "method": "free-agent",
+            "team": "SAC"
           }
         ],
         "guarantees": {
           "2026-27": {
-            "status": "partial",
-            "amount": 148828
+            "status": "non-guaranteed",
+            "guaranteeDate": "2026-10-15"
           }
         }
       },
       "fields": [
+        "guaranteed",
+        "acquisitionHistory",
         "guarantees"
       ]
     }

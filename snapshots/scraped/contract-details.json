@@ -1201,15 +1201,6 @@
   }
  },
  {
-  "name": "Grant Nelson",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Tyler Bilodeau",
   "incentives": {
    "2026-27": {
@@ -1220,6 +1211,15 @@
  },
  {
   "name": "Chaney Johnson",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Grant Nelson",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -4762,16 +4762,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
-  "name": "Taj Gibson",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
