@@ -1,6 +1,8 @@
 import * as React from 'react'
 
-const MOBILE_BREAKPOINT = 768
+// The two layouts are separate designs sharing one data layer, not one
+// layout that reflows — the handoff's split point is 1024px.
+const MOBILE_BREAKPOINT = 1024
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)

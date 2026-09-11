@@ -685,18 +685,15 @@ export function RosterProvider({ children }: { children: ReactNode }) {
     })
   }
 
+  // Player options can only be exercised, never declined from the GM's side —
+  // that decision belongs to the player, not the team building the roster.
   const togglePlayerOption = (playerId: string, season: Season, exercise: boolean) => {
+    if (!exercise) return
     markChanged()
     const key = `declined-${playerId}-${season}`
     setExercisedPlayerOptions((prev) => {
       const next = new Set(prev)
-      if (exercise) {
-        // Remove from declined set (player exercises option)
-        next.delete(key)
-      } else {
-        // Add to declined set (player declines option)
-        next.add(key)
-      }
+      next.delete(key)
       return next
     })
   }

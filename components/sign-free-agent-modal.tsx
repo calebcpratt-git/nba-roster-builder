@@ -15,7 +15,7 @@ import {
 } from '@/lib/contract-utils'
 import { getMinimumSalaryThreshold, LEAGUE_CAP } from '@/lib/league-cap'
 import { TEAM_CAP_STATE, getTeamCapState } from '@/lib/team-cap-state'
-import { getUsedExceptions } from '@/components/signing-exceptions-panel'
+import { getUsedExceptions } from '@/lib/signing-exceptions'
 import {
   TradeAsset,
   TradeSideInput,
@@ -29,24 +29,18 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
+import { DialogBannerHeader } from '@/components/ui/dialog-banner-header'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+import { SegmentedControl } from '@/components/ui/segmented-control'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { Trash2, CheckCircle2, Plus, X } from 'lucide-react'
+import { Trash2, CheckCircle2, Plus, X, UserPlus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface SignFreeAgentModalProps {
@@ -57,28 +51,11 @@ interface SignFreeAgentModalProps {
   onClose: () => void
 }
 
-const DISTRIBUTION_OPTIONS: Record<
-  DistributionType,
-  { label: string; description: string; shortDescription: string }
-> = {
-  flat: {
-    label: 'Flat',
-    description:
-      'The same salary every year. Rare in practice since the CBA allows annual raises, and most players want them.',
-    shortDescription: 'The same salary every year. Rare in practice.',
-  },
-  escalating: {
-    label: 'Escalating',
-    description: 'Salary increases each year. The standard structure.',
-    shortDescription: 'Salary increases each year. The standard structure.',
-  },
-  declining: {
-    label: 'Declining',
-    description:
-      'Salary decreases each year. Teams use this strategically to push money into earlier years when a player has more value, or to create more cap flexibility in the final year of a deal.',
-    shortDescription: 'Salary decreases each year. Strategically defer money.',
-  },
-}
+const STRUCTURE_OPTIONS: { value: DistributionType; label: string }[] = [
+  { value: 'flat', label: 'Flat' },
+  { value: 'escalating', label: 'Escalating' },
+  { value: 'declining', label: 'Declining' },
+]
 
 function detectDistribution(salary: Partial<Record<Season, number>>): DistributionType {
   const seasons = SEASONS.filter((s) => (salary[s] ?? 0) > 0)
@@ -106,6 +83,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
     addSavedTrade,
     setDeletedContractIds,
     selectedTeamAbbr,
+    selectedTeam,
     getTotalSalary,
     getTeamCapTotal,
     getEffectiveSalary,
@@ -434,6 +412,60 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
       setSelectedOutgoingRosterIds(new Set())
       setSelectedOutgoingPickIds(new Set())
     }
+  }
+
+  type ContractTypeValue = 'custom' | 'maximum' | 'minimum' | ExceptionType | 'two-way'
+
+  const showMaximumOption =
+    !isSignAndTrade &&
+    !isOverSecondApron &&
+    !isOverFirstApronBelowSecondApron &&
+    !isOverCapBelowFirstApron &&
+    rookieYear !== undefined
+  const showMinimumOption = !isSignAndTrade
+  const showTwoWayOption = !isOfferSheet && !isSignAndTrade
+  const showNtmleOption = !isSignAndTrade && ntmleAvailable
+  const showTmleOption = !isSignAndTrade && tmleAvailable
+  const showBaeOption = !isSignAndTrade && baeAvailable
+
+  const contractTypeValue: ContractTypeValue = isMaxContract
+    ? 'maximum'
+    : isMinimum
+    ? 'minimum'
+    : isTwoWay
+    ? 'two-way'
+    : exceptionType
+    ? exceptionType
+    : 'custom'
+
+  const contractTypeOptions: { value: ContractTypeValue; label: string }[] = [
+    { value: 'custom', label: 'Custom' },
+    ...(showMaximumOption ? [{ value: 'maximum' as const, label: 'Maximum' }] : []),
+    ...(showMinimumOption ? [{ value: 'minimum' as const, label: 'Minimum' }] : []),
+    ...(showNtmleOption ? [{ value: 'ntmle' as const, label: 'Non-Tax MLE' }] : []),
+    ...(showTmleOption ? [{ value: 'tmle' as const, label: 'Taxpayer MLE' }] : []),
+    ...(showBaeOption ? [{ value: 'bae' as const, label: 'Bi-Annual' }] : []),
+    ...(showTwoWayOption ? [{ value: 'two-way' as const, label: 'Two-Way' }] : []),
+  ]
+
+  const handleContractTypeChange = (value: ContractTypeValue) => {
+    if (value === contractTypeValue) return
+    if (value === 'custom') {
+      setIsMaxContract(false)
+      setIsMinimum(false)
+      setIsTwoWay(false)
+      setExceptionType(null)
+      setYearsError('')
+      setYears('3')
+      setDistribution('escalating')
+      setSelectedOutgoingRosterIds(new Set())
+      setSelectedOutgoingPickIds(new Set())
+      return
+    }
+    if (value === 'maximum') return handleMaxContractToggle(true)
+    if (value === 'minimum') return handleMinimumToggle(true)
+    if (value === 'two-way') return handleTwoWayToggle(true)
+    return handleExceptionToggle(value, true)
   }
 
   function toggleOutgoingRoster(id: string) {
@@ -804,19 +836,31 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
 
   const isTotalValueDisabled = isMinimum || !!exceptionType || isMaxContract || isTwoWay || capRestricted
 
+  const modalTitle = editingContract ? `Edit ${player.name}'s Contract` : `Sign ${player.name}`
+  const modalSubtitle = editingContract ? 'Update the terms of this contract' : `Starting ${effectiveStartingSeason}`
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
-        <DialogHeader>
-          <DialogTitle>{editingContract ? `Edit ${player.name}'s Contract` : `Sign ${player.name}`}</DialogTitle>
-          <DialogDescription>
-            {editingContract
-              ? 'Update the terms of this contract'
-              : `Create a new contract starting in ${effectiveStartingSeason}`}
-          </DialogDescription>
-        </DialogHeader>
+      <DialogContent
+        className="max-w-md p-0 gap-0 overflow-hidden"
+        showCloseButton={false}
+        style={{ '--primary': selectedTeam.primaryColor } as React.CSSProperties}
+      >
+        <DialogTitle className="sr-only">{modalTitle}</DialogTitle>
+        <DialogDescription className="sr-only">
+          {editingContract
+            ? 'Update the terms of this contract'
+            : `Create a new contract starting in ${effectiveStartingSeason}`}
+        </DialogDescription>
 
-        <div className="space-y-4">
+        <DialogBannerHeader
+          icon={UserPlus}
+          title={modalTitle}
+          subtitle={modalSubtitle}
+          colors={{ primary: selectedTeam.primaryColor, secondary: selectedTeam.secondaryColor }}
+        />
+
+        <div className="p-5 space-y-4 max-h-[70vh] overflow-y-auto">
           {/* Cap restriction notices */}
           <div className="space-y-2">
             {!isSignAndTrade && isOverSecondApron && (
@@ -913,95 +957,17 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
               </div>
             )}
 
-            {/* Contract type toggles */}
-            <div className="flex items-center gap-4 flex-wrap">
-              {/* Maximum Contract — shown when cap allows non-minimum contracts */}
-              {!isSignAndTrade && !isOverSecondApron && !isOverFirstApronBelowSecondApron && !(isOverCapBelowFirstApron) && rookieYear !== undefined && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="max-contract-fa" className="text-xs font-medium cursor-pointer">
-                    Maximum Contract
-                  </Label>
-                  <Switch
-                    id="max-contract-fa"
-                    checked={isMaxContract}
-                    onCheckedChange={handleMaxContractToggle}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
+            {/* Contract type */}
+            <div className="space-y-2">
+              <Label className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                Contract Type
+              </Label>
+              <SegmentedControl value={contractTypeValue} onChange={handleContractTypeChange} options={contractTypeOptions} />
+            </div>
 
-              {!isSignAndTrade && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="minimum-contract-fa" className="text-xs font-medium cursor-pointer">
-                    Minimum Contract
-                  </Label>
-                  <Switch
-                    id="minimum-contract-fa"
-                    checked={isMinimum}
-                    onCheckedChange={handleMinimumToggle}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
-
-              {!isSignAndTrade && ntmleAvailable && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="ntmle-contract-fa" className="text-xs font-medium cursor-pointer">
-                    Non-Taxpayer MLE
-                  </Label>
-                  <Switch
-                    id="ntmle-contract-fa"
-                    checked={exceptionType === 'ntmle'}
-                    onCheckedChange={(checked) => handleExceptionToggle('ntmle', checked)}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
-
-              {!isSignAndTrade && tmleAvailable && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="tmle-contract-fa" className="text-xs font-medium cursor-pointer">
-                    Taxpayer MLE
-                  </Label>
-                  <Switch
-                    id="tmle-contract-fa"
-                    checked={exceptionType === 'tmle'}
-                    onCheckedChange={(checked) => handleExceptionToggle('tmle', checked)}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
-
-              {!isSignAndTrade && baeAvailable && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="bae-contract-fa" className="text-xs font-medium cursor-pointer">
-                    Bi-Annual Exception
-                  </Label>
-                  <Switch
-                    id="bae-contract-fa"
-                    checked={exceptionType === 'bae'}
-                    onCheckedChange={(checked) => handleExceptionToggle('bae', checked)}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
-
-              {!isOfferSheet && !isSignAndTrade && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="two-way-contract-fa" className="text-xs font-medium cursor-pointer">
-                    Two-Way Contract
-                  </Label>
-                  <Switch
-                    id="two-way-contract-fa"
-                    checked={isTwoWay}
-                    onCheckedChange={handleTwoWayToggle}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
-
-              {!isOnSelectedTeam && !isQualifyingOffer && !editingContract && (
-                signAndTradeBlocked ? (
+            {!isOnSelectedTeam && !isQualifyingOffer && !editingContract && (
+              <div className="flex items-center gap-4 flex-wrap">
+                {signAndTradeBlocked ? (
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <div className="flex items-center gap-2 cursor-not-allowed">
@@ -1030,9 +996,9 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                       className="data-[state=unchecked]:bg-gray-400"
                     />
                   </div>
-                )
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             {isTwoWay && (
               <p className="text-xs text-muted-foreground">
@@ -1163,7 +1129,7 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
           {/* Years and Total Value */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <Label htmlFor="years" className="text-xs">
+              <Label htmlFor="years" className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                 Years
               </Label>
               <Input
@@ -1174,15 +1140,15 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 value={years}
                 onChange={(e) => handleYearsChange(e.target.value)}
                 disabled={capRestricted || isQualifyingOffer}
-                className={cn('h-8 text-sm', yearsError && 'border-red-500', capRestricted && 'bg-muted cursor-not-allowed')}
+                className={cn('h-9 text-sm mt-1', yearsError && 'border-red-500', capRestricted && 'bg-muted cursor-not-allowed')}
               />
               {yearsError && <p className="text-xs text-red-500 mt-1">{yearsError}</p>}
             </div>
             <div>
-              <Label htmlFor="total-value" className="text-xs">
-                Total Value (Millions)
+              <Label htmlFor="total-value" className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                Total Value (M)
                 {!isMaxContract && !isMinimum && !exceptionType && maxAllowedTotalM < Infinity && (
-                  <span className="text-muted-foreground font-normal"> · max ${maxAllowedTotalM.toFixed(1)}M</span>
+                  <span className="normal-case font-normal"> · max ${maxAllowedTotalM.toFixed(1)}M</span>
                 )}
               </Label>
               <Input
@@ -1192,50 +1158,20 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
                 value={totalValueDisplayed}
                 onChange={handleTotalValueChange}
                 disabled={isTotalValueDisabled}
-                className={cn('h-8 text-sm', isTotalValueDisabled && 'bg-muted cursor-not-allowed')}
+                className={cn('h-9 text-sm mt-1', isTotalValueDisabled && 'bg-muted cursor-not-allowed')}
               />
             </div>
           </div>
 
-          {/* Distribution Type */}
-          <div className="flex items-center gap-2">
-            <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
-            <Select
+          {/* Structure */}
+          <div className="space-y-2">
+            <Label className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Structure</Label>
+            <SegmentedControl
               value={distribution}
-              onValueChange={(v) => handleDistributionChange(v as DistributionType)}
+              onChange={handleDistributionChange}
+              options={STRUCTURE_OPTIONS}
               disabled={isMinimum || !!exceptionType || isTwoWay || capRestricted}
-            >
-              <SelectTrigger
-                className={cn(
-                  'flex-1 text-sm justify-start items-start py-2',
-                  (isMinimum || !!exceptionType || isTwoWay || capRestricted) && 'bg-muted cursor-not-allowed opacity-50'
-                )}
-                style={{ height: 'auto' }}
-              >
-                {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
-                  <div className="flex flex-col gap-0.5 text-left w-full">
-                    <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>
-                    <p className="text-xs text-muted-foreground whitespace-normal">
-                      {DISTRIBUTION_OPTIONS[distribution].shortDescription}
-                    </p>
-                  </div>
-                ) : (
-                  <SelectValue placeholder="Select structure" />
-                )}
-              </SelectTrigger>
-              <SelectContent className="max-w-[calc(100vw-40px)]">
-                {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
-                  ([key, { label, description }]) => (
-                    <SelectItem key={key} value={key} className="cursor-pointer py-3">
-                      <div className="flex flex-col gap-1 max-w-sm">
-                        <div className="font-medium text-sm">{label}</div>
-                        <p className="text-xs text-muted-foreground whitespace-normal">{description}</p>
-                      </div>
-                    </SelectItem>
-                  )
-                )}
-              </SelectContent>
-            </Select>
+            />
           </div>
 
           {/* Preview */}
@@ -1259,26 +1195,26 @@ export function SignFreeAgentModal({ player, startingSeason, isOpen, editingCont
               </div>
             </div>
           )}
-        </div>
 
-        <div className="flex gap-2 pt-4">
-          {editingContract && (
-            <Button
-              variant="outline"
-              onClick={handleDelete}
-              className="h-8 text-sm text-destructive hover:text-destructive border-destructive/30 hover:bg-destructive/10"
-              title="Delete this contract"
-            >
-              <Trash2 className="h-3.5 w-3.5 mr-1.5" />
-              Delete
+          <div className="flex gap-2 pt-1">
+            {editingContract && (
+              <Button
+                variant="outline"
+                onClick={handleDelete}
+                className="h-11 text-sm text-destructive hover:text-destructive border-destructive/30 hover:bg-destructive/10"
+                title="Delete this contract"
+              >
+                <Trash2 className="h-3.5 w-3.5 mr-1.5" />
+                Delete
+              </Button>
+            )}
+            <Button variant="outline" onClick={onClose} className="flex-1 h-11 text-sm">
+              Cancel
             </Button>
-          )}
-          <Button variant="outline" onClick={onClose} className="flex-1 h-8 text-sm">
-            Cancel
-          </Button>
-          <Button onClick={handleSave} disabled={!isValid} className="flex-1 h-8 text-sm">
-            {editingContract ? 'Save Changes' : isSignAndTrade ? 'Save Trade' : 'Save Contract'}
-          </Button>
+            <Button onClick={handleSave} disabled={!isValid} className="flex-1 h-11 text-sm">
+              {editingContract ? 'Save Changes' : isSignAndTrade ? 'Save Trade' : 'Save Contract'}
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

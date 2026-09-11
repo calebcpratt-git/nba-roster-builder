@@ -19,10 +19,10 @@ type ChatMessage = { role: 'user' | 'assistant'; content: string }
 const SYSTEM_PROMPT = `You are a data assistant embedded in the Association GM app's local /data dashboard. Answer questions by calling the provided tools to look up real data — players, contracts, team cap state, cap thresholds, league-cap figures, draft picks, free agents. Never guess a number you could look up; call as many tools, across as many entities, as the question needs. Cite which team/season/player the data came from. Keep answers concise and use markdown tables for lists of more than a few rows. If a tool returns an error or empty result, say so plainly rather than inventing data.`
 
 export async function POST(req: Request) {
-  const apiKey = process.env.ANTHROPIC_API_KEY
+  const apiKey = process.env.DATA_CHAT_ANTHROPIC_API_KEY
   if (!apiKey) {
     return NextResponse.json(
-      { error: 'ANTHROPIC_API_KEY is not set. Add it to .env.local and restart the dev server.' },
+      { error: 'DATA_CHAT_ANTHROPIC_API_KEY is not set. Add it to .env.local and restart the dev server.' },
       { status: 500 }
     )
   }
