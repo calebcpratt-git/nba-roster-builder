@@ -60,6 +60,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Kobe Stewart",
+  "date": "2026-09-04",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jarkel Joiner",
+  "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
   "name": "Kyle Mangas",
   "date": "2026-09-02",
   "method": "free-agent"
@@ -345,6 +355,11 @@
   "method": "free-agent"
  },
  {
+  "name": "John Butler jr.",
+  "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
   "name": "John Konchar",
   "date": "2026-08-29",
   "method": "trade"
@@ -363,6 +378,11 @@
   "name": "Mouhamadou Gueye",
   "date": "2026-06-22",
   "method": "trade"
+ },
+ {
+  "name": "Caleb Houstan",
+  "date": "2026-08-03",
+  "method": "free-agent"
  },
  {
   "name": "Christian Koloko",
@@ -430,6 +450,11 @@
   "method": "free-agent"
  },
  {
+  "name": "JD Davison",
+  "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
   "name": "Malaki Branham",
   "date": "2026-08-26",
   "method": "free-agent"
@@ -441,17 +466,17 @@
  },
  {
   "name": "Saint Thomas",
-  "date": "2026-09-02",
+  "date": "2026-09-01",
   "method": "free-agent"
  },
  {
   "name": "Jameer Nelson Jr",
-  "date": "2026-09-02",
+  "date": "2026-09-01",
   "method": "free-agent"
  },
  {
   "name": "Tacko Fall",
-  "date": "2026-09-02",
+  "date": "2026-09-01",
   "method": "free-agent"
  },
  {

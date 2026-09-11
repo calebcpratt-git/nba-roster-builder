@@ -12,6 +12,10 @@
   "team": "ATL"
  },
  {
+  "name": "Grant Nelson",
+  "team": "BRK"
+ },
+ {
   "name": "Chaney Johnson",
   "team": "BRK"
  },
@@ -132,10 +136,6 @@
   "team": "LAL"
  },
  {
-  "name": "Taj Gibson",
-  "team": "MEM"
- },
- {
   "name": "Carson Cooper",
   "team": "MEM"
  },
@@ -165,6 +165,10 @@
  },
  {
   "name": "Bennedict Mathurin",
+  "team": "NOP"
+ },
+ {
+  "name": "Taj Gibson",
   "team": "NOP"
  },
  {
@@ -206,6 +210,10 @@
  {
   "name": "Chris Youngblood",
   "team": "POR"
+ },
+ {
+  "name": "Ben Simmons",
+  "team": "SAC"
  },
  {
   "name": "Dylan Cardwell",

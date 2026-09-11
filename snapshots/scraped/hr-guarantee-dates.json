@@ -216,8 +216,8 @@
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2185116,
-  "guaranteeTriggered": null,
-  "raw": "Non-guaranteed salary ($2,185,116) becomes partially guaranteed ($1,092,558)."
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,185,116) becomes partially guaranteed ($1,092,558). (✅)"
  },
  {
   "player": "Moussa Cisse",

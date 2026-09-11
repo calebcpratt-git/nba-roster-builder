@@ -759,6 +759,16 @@
    }
   }
  },
+ "grant nelson": {
+  "team": "BRK",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "tyler bilodeau": {
   "team": "BRK",
   "signedUnder": null,
@@ -3560,6 +3570,16 @@
    }
   }
  },
+ "jordan hawkins": {
+  "team": "MEM",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "zach edey": {
   "team": "MEM",
   "signedUnder": "rookie-scale",
@@ -3630,16 +3650,6 @@
    }
   }
  },
- "taj gibson": {
-  "team": "MEM",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "karim lopez": {
   "team": "MEM",
   "signedUnder": "rookie-scale",
@@ -3657,20 +3667,6 @@
     "unlikely": 0
    },
    "2029-30": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "aj johnson": {
-  "team": "MEM",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -3737,6 +3733,24 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "micah peavy": {
+  "team": "MEM",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
     "likely": 0,
     "unlikely": 0
    }
@@ -4619,16 +4633,6 @@
    }
   }
  },
- "jordan hawkins": {
-  "team": "NOP",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "saddiq bey": {
   "team": "NOP",
   "signedUnder": null,
@@ -4671,7 +4675,31 @@
    }
   }
  },
+ "taj gibson": {
+  "team": "NOP",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "yves missi": {
+  "team": "NOP",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "aj johnson": {
   "team": "NOP",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -4699,16 +4727,6 @@
    }
   }
  },
- "caleb houstan": {
-  "team": "NOP",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "trendon watford": {
   "team": "NOP",
   "signedUnder": "minimum",
@@ -4724,24 +4742,6 @@
   "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "micah peavy": {
-  "team": "NOP",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6288,6 +6288,16 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "ben simmons": {
+  "team": "SAC",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

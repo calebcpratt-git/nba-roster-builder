@@ -10,6 +10,14 @@
   "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
  },
  {
+  "player": "Devon Higgs",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tucker DeVries",
   "team": "Boston Celtics",
   "fullAmount": null,
@@ -26,7 +34,7 @@
   "exhibit10": true
  },
  {
-  "player": "Kyle Mangas",
+  "player": "Bez Mbeng",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -74,7 +82,23 @@
   "exhibit10": true
  },
  {
+  "player": "John Butler",
+  "team": "Milwaukee Bucks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Kobe Bufkin",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Caleb Houstan",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
   "partialAmount": null,
@@ -90,7 +114,31 @@
   "exhibit10": false
  },
  {
+  "player": "Malaki Branham",
+  "team": "Orlando Magic",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "JD Davison",
+  "team": "Orlando Magic",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tacko Fall",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Dillon Jones",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
   "partialAmount": null,

@@ -138,29 +138,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Kyle Mangas",
-  "team": "CHO",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2185116
-  },
-  "cashSalary": {
-   "2026-27": 2185116
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Wyatt Fricks",
   "team": "CHO",
   "section": "Training Camp and Exhibit 10",
@@ -989,6 +966,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "John Butler jr.",
+  "team": "MIL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Kobe Bufkin",
   "team": "NOP",
   "section": "Training Camp and Exhibit 10",
@@ -1003,6 +1003,29 @@
   },
   "guaranteed": {
    "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
+ },
+ {
+  "name": "Caleb Houstan",
+  "team": "NOP",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2625627
+  },
+  "guaranteed": {
+   "2026-27": 2625627
   },
   "likelyIncentives": {
    "2026-27": 0
@@ -1151,6 +1174,29 @@
  },
  {
   "name": "Malaki Branham",
+  "team": "ORL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2625627
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
+ },
+ {
+  "name": "JD Davison",
   "team": "ORL",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",

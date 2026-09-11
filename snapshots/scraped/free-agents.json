@@ -7,6 +7,13 @@
   "birdRights": null
  },
  {
+  "name": "Josiah Allick",
+  "position": "PF",
+  "priorTeam": "CHO",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Alex Antetokounmpo",
   "position": "PF",
   "priorTeam": "MIL",
@@ -112,13 +119,6 @@
   "birdRights": "non-bird"
  },
  {
-  "name": "Malaki Branham",
-  "position": "SF",
-  "priorTeam": "CHO",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Darius Brown II",
   "position": "PG",
   "priorTeam": "CLE",
@@ -185,13 +185,6 @@
   "name": "N'Faly Dante",
   "position": "C",
   "priorTeam": "ATL",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "J.D. Davison",
-  "position": "PG",
-  "priorTeam": "HOU",
   "faType": "U",
   "birdRights": null
  },
@@ -364,6 +357,13 @@
   "birdRights": null
  },
  {
+  "name": "Jarkel Joiner",
+  "position": "PG",
+  "priorTeam": "CHO",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Colby Jones",
   "position": "SG",
   "priorTeam": "DET",
@@ -499,7 +499,7 @@
  {
   "name": "Kyle Mangas",
   "position": "SG",
-  "priorTeam": "SAS",
+  "priorTeam": "CHO",
   "faType": "U",
   "birdRights": null
  },
@@ -553,16 +553,16 @@
   "birdRights": "non-bird"
  },
  {
-  "name": "Eli N'Diaye",
-  "position": "PF",
-  "priorTeam": "ATL",
+  "name": "Matthew Murrell",
+  "position": "PG",
+  "priorTeam": "UTA",
   "faType": "U",
   "birdRights": null
  },
  {
-  "name": "Grant Nelson",
+  "name": "Eli N'Diaye",
   "position": "PF",
-  "priorTeam": "BRK",
+  "priorTeam": "ATL",
   "faType": "U",
   "birdRights": null
  },
@@ -843,6 +843,13 @@
   "name": "Jacob Toppin",
   "position": "PF",
   "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Trey Townsend",
+  "position": "SF",
+  "priorTeam": "CHO",
   "faType": "U",
   "birdRights": null
  },

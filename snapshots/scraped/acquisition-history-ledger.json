@@ -10746,6 +10746,11 @@
    "date": "2026-07-01",
    "method": "trade",
    "team": "MEM"
+  },
+  {
+   "date": "2026-09-08",
+   "method": "trade",
+   "team": "NOP"
   }
  ],
  "kris murray": [
@@ -11689,12 +11694,52 @@
    "date": "2026-08-26",
    "method": "free-agent",
    "team": "MIN"
+  },
+  {
+   "date": "2026-09-03",
+   "method": "free-agent",
+   "team": "MIN"
   }
  ],
  "bennedict mathurin": [
   {
    "date": "2026-08-26",
    "method": "free-agent",
+   "team": "NOP"
+  }
+ ],
+ "ben simmons": [
+  {
+   "date": "2026-09-04",
+   "method": "free-agent",
+   "team": "SAC"
+  }
+ ],
+ "grant nelson": [
+  {
+   "date": "2026-09-04",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "micah peavy": [
+  {
+   "date": "2026-09-08",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "jordan hawkins": [
+  {
+   "date": "2026-09-08",
+   "method": "trade",
+   "team": "MEM"
+  }
+ ],
+ "taj gibson": [
+  {
+   "date": "2026-09-08",
+   "method": "trade",
    "team": "NOP"
   }
  ]
