@@ -8,7 +8,7 @@
   "exhibit10": false
  },
  {
-  "player": "Keyshawn Bryant",
+  "player": "Lamont Butler",
   "team": "Atlanta Hawks",
   "fullAmount": null,
   "partialAmount": null,
@@ -69,6 +69,14 @@
   "fullAmount": null,
   "partialAmount": 1092558,
   "status": "partial",
+  "exhibit10": false
+ },
+ {
+  "player": "Lonnie Walker IV",
+  "team": "Denver Nuggets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
   "exhibit10": false
  },
  {

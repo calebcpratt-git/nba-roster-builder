@@ -138,6 +138,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Bez Mbeng",
+  "team": "CHO",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2185116
+  },
+  "cashSalary": {
+   "2026-27": 2185116
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Wyatt Fricks",
   "team": "CHO",
   "section": "Training Camp and Exhibit 10",
@@ -327,7 +350,7 @@
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
-  "terms": null,
+  "terms": "Camp Invite",
   "salary": {
    "2026-27": 2449421
   },
@@ -335,7 +358,7 @@
    "2026-27": 3286399
   },
   "guaranteed": {
-   "2026-27": 3286399
+   "2026-27": 0
   },
   "likelyIncentives": {
    "2026-27": 0
@@ -527,6 +550,29 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "UFA"
+ },
+ {
+  "name": "Alex Toohey",
+  "team": "GSW",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2185116
+  },
+  "cashSalary": {
+   "2026-27": 2185116
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
  },
  {
   "name": "Nick Boyd",
@@ -1253,6 +1299,29 @@
   },
   "cashSalary": {
    "2026-27": 2537526
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Dillon Jones",
+  "team": "PHI",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
   },
   "guaranteed": {
    "2026-27": 0
