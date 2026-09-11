@@ -1,6 +1,19 @@
 [
  {
   "bbrefId": null,
+  "name": "Devon Higgs",
+  "date": "2026-09-08",
+  "dateRaw": "Sep 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ATL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Camp Invite",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jalen Wilson",
   "date": "2026-07-22",
   "dateRaw": "Jul 22, 2026",
@@ -251,7 +264,7 @@
    "BOS"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -264,7 +277,7 @@
    "BOS"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -988,7 +1001,7 @@
    "CHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -1001,7 +1014,7 @@
    "CHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -1207,6 +1220,19 @@
  },
  {
   "bbrefId": null,
+  "name": "James Harden",
+  "date": "2026-09-08",
+  "dateRaw": "Sep 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Khalifa Diop",
   "date": "2026-09-02",
   "dateRaw": "Sep 2, 2026",
@@ -1216,19 +1242,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Rookie Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "James Harden",
-  "date": "2026-08-20",
-  "dateRaw": "Aug 20, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "CLE"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -1615,6 +1628,19 @@
  },
  {
   "bbrefId": null,
+  "name": "DeMar DeRozan",
+  "date": "2026-09-08",
+  "dateRaw": "Sep 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Bryce Hopkins",
   "date": "2026-08-26",
   "dateRaw": "Aug 26, 2026",
@@ -1623,20 +1649,7 @@
    "DEN"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "DeMar DeRozan",
-  "date": "2026-08-21",
-  "dateRaw": "Aug 21, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "DEN"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -1677,7 +1690,7 @@
    "DEN"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -1820,7 +1833,7 @@
    "DET"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2092,7 +2105,7 @@
    "GSW"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2300,7 +2313,7 @@
    "HOU"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2313,7 +2326,7 @@
    "HOU"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2614,7 +2627,7 @@
    "LAC"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -3552,7 +3565,7 @@
    "MIL"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -4020,7 +4033,7 @@
    "NOP"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Camp Invite",
   "flags": []
  },
  {
@@ -4033,7 +4046,7 @@
    "NOP"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Camp Invite",
   "flags": []
  },
  {
@@ -4046,7 +4059,7 @@
    "NOP"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Camp Invite",
   "flags": []
  },
  {
@@ -4483,7 +4496,7 @@
    "ORL"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -4496,7 +4509,7 @@
    "ORL"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -4613,7 +4626,7 @@
    "PHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -4626,7 +4639,7 @@
    "PHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -4639,7 +4652,7 @@
    "PHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -4691,7 +4704,7 @@
    "PHI"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -5067,8 +5080,8 @@
  {
   "bbrefId": null,
   "name": "Ben Simmons",
-  "date": "2026-09-04",
-  "dateRaw": "Sep 4, 2026",
+  "date": "2026-09-07",
+  "dateRaw": "Sep 7, 2026",
   "method": "free-agent",
   "toTeams": [
    "SAC"
@@ -5271,7 +5284,7 @@
    "SAS"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -5466,7 +5479,7 @@
    "TOR"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -5676,7 +5689,7 @@
    "UTA"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

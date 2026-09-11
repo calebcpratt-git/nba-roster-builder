@@ -26,12 +26,6 @@
         "amount": 21900000,
         "kind": "free-agent",
         "birdRights": "full-bird"
-      },
-      {
-        "label": "Jonathan Kuminga",
-        "amount": 35000000,
-        "kind": "free-agent",
-        "birdRights": "non-bird"
       }
     ],
     "salaryCap": 165000000,
@@ -4077,7 +4071,7 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 13641684
+        "remaining": 11192263
       },
       "taxpayerMLE": {
         "signings": [],
@@ -4997,14 +4991,7 @@
     "team": "NYK",
     "season": "2026-27",
     "deadMoney": [],
-    "capHolds": [
-      {
-        "label": "Dillon Jones",
-        "amount": 2200000,
-        "kind": "free-agent",
-        "birdRights": "non-bird"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -6558,10 +6545,6 @@
       "trigger": "BAE: Precious Achiuwa (Jul 7)"
     },
     "exceptionsUsed": {
-      "nonTaxpayerMLE": {
-        "signings": [],
-        "remaining": 2305628
-      },
       "biAnnual": {
         "signings": [
           {

@@ -1734,6 +1734,33 @@
     ]
   },
   {
+    "name": "Grant Nelson",
+    "team": "BRK",
+    "salary": {
+      "2026-27": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 678882
+    },
+    "guaranteed": {
+      "2026-27": 91000
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-04",
+        "method": "free-agent",
+        "team": "BRK"
+      }
+    ]
+  },
+  {
     "name": "Coby White",
     "team": "CHO",
     "salary": {
@@ -2930,22 +2957,22 @@
     "name": "James Harden",
     "team": "CLE",
     "salary": {
-      "2026-27": 29938272,
-      "2027-28": 32333333,
-      "2028-29": 34728395
+      "2026-27": 30647619,
+      "2027-28": 32180000,
+      "2028-29": 33712381
     },
     "options": {
       "2028-29": "Player"
     },
     "cashSalary": {
-      "2026-27": 29938272,
-      "2027-28": 32333333,
-      "2028-29": 34728395
+      "2026-27": 30647619,
+      "2027-28": 32180000,
+      "2028-29": 33712381
     },
     "guaranteed": {
-      "2026-27": 29938272,
-      "2027-28": 32333333,
-      "2028-29": 34728395
+      "2026-27": 30647619,
+      "2027-28": 32180000,
+      "2028-29": 33712381
     },
     "likelyIncentives": {
       "2026-27": 0,
@@ -2959,6 +2986,11 @@
     "acquisitionHistory": [
       {
         "date": "2026-08-20",
+        "method": "free-agent",
+        "team": "CLE"
+      },
+      {
+        "date": "2026-09-08",
         "method": "free-agent",
         "team": "CLE"
       }
@@ -3241,20 +3273,22 @@
     "name": "Khalifa Diop",
     "team": "CLE",
     "salary": {
-      "2026-27": 1360000,
-      "2027-28": 2232321,
-      "2028-29": 2397679,
-      "2029-30": 3270000
+      "2026-27": 1357763,
+      "2027-28": 2294370,
+      "2028-29": 2694363,
+      "2029-30": 2918152
     },
-    "options": {},
+    "options": {
+      "2029-30": "Team"
+    },
     "cashSalary": {
-      "2026-27": 1360000,
-      "2027-28": 2232321,
-      "2028-29": 2397679,
-      "2029-30": 3270000
+      "2026-27": 1357763,
+      "2027-28": 2294370,
+      "2028-29": 2694363,
+      "2029-30": 2918152
     },
     "guaranteed": {
-      "2026-27": 1360000,
+      "2026-27": 1357763,
       "2027-28": 0,
       "2028-29": 0,
       "2029-30": 0
@@ -3265,7 +3299,9 @@
       "2028-29": 0,
       "2029-30": 0
     },
-    "optionExercised": {},
+    "optionExercised": {
+      "2029-30": false
+    },
     "acquiredMethod": "Draft",
     "acquisitionHistory": [
       {
@@ -4218,6 +4254,11 @@
     "acquisitionHistory": [
       {
         "date": "2026-08-21",
+        "method": "free-agent",
+        "team": "DEN"
+      },
+      {
+        "date": "2026-09-08",
         "method": "free-agent",
         "team": "DEN"
       }
@@ -7918,6 +7959,34 @@
     "acquiredMethod": "Trade"
   },
   {
+    "name": "Jordan Hawkins",
+    "team": "MEM",
+    "salary": {
+      "2026-27": 7021895
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 7021895
+    },
+    "guaranteed": {
+      "2026-27": 7021895
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {
+      "2026-27": true
+    },
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-08",
+        "method": "trade",
+        "team": "MEM"
+      }
+    ]
+  },
+  {
     "name": "Zach Edey",
     "team": "MEM",
     "salary": {
@@ -8062,30 +8131,6 @@
     "acquiredMethod": "Trade"
   },
   {
-    "name": "Taj Gibson",
-    "team": "MEM",
-    "salary": {
-      "2026-27": 3815861
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 3815861
-    },
-    "guaranteed": {
-      "2026-27": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {},
-    "acquiredMethod": "Signed",
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
-  },
-  {
     "name": "Karim López",
     "team": "MEM",
     "salary": {
@@ -8130,46 +8175,6 @@
       {
         "date": "2026-07-29",
         "method": "free-agent",
-        "team": "MEM"
-      }
-    ]
-  },
-  {
-    "name": "AJ Johnson",
-    "team": "MEM",
-    "salary": {
-      "2026-27": 3237120,
-      "2027-28": 5493393
-    },
-    "options": {
-      "2027-28": "Team"
-    },
-    "cashSalary": {
-      "2026-27": 3237120,
-      "2027-28": 5493393
-    },
-    "guaranteed": {
-      "2026-27": 3237120,
-      "2027-28": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0
-    },
-    "optionExercised": {
-      "2026-27": true,
-      "2027-28": false
-    },
-    "acquiredMethod": "Trade",
-    "acquisitionHistory": [
-      {
-        "date": "2026-07-01",
-        "method": "trade",
-        "team": "MEM"
-      },
-      {
-        "date": "2026-07-08",
-        "method": "trade",
         "team": "MEM"
       }
     ]
@@ -8307,6 +8312,44 @@
         "guaranteeDate": "2026-10-15"
       }
     }
+  },
+  {
+    "name": "Micah Peavy",
+    "team": "MEM",
+    "salary": {
+      "2026-27": 2150917,
+      "2027-28": 2525901,
+      "2028-29": 2735698
+    },
+    "options": {
+      "2028-29": "Team"
+    },
+    "cashSalary": {
+      "2026-27": 2150917,
+      "2027-28": 2525901,
+      "2028-29": 2735698
+    },
+    "guaranteed": {
+      "2026-27": 2150917,
+      "2027-28": 0,
+      "2028-29": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0,
+      "2028-29": 0
+    },
+    "optionExercised": {
+      "2028-29": false
+    },
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-08",
+        "method": "trade",
+        "team": "MEM"
+      }
+    ]
   },
   {
     "name": "Carson Cooper",
@@ -9730,6 +9773,11 @@
         "date": "2026-08-26",
         "method": "free-agent",
         "team": "MIN"
+      },
+      {
+        "date": "2026-09-03",
+        "method": "free-agent",
+        "team": "MIN"
       }
     ]
   },
@@ -10227,27 +10275,6 @@
     ]
   },
   {
-    "name": "Jordan Hawkins",
-    "team": "NOP",
-    "salary": {
-      "2026-27": 7021895
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 7021895
-    },
-    "guaranteed": {
-      "2026-27": 7021895
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {
-      "2026-27": true
-    },
-    "acquiredMethod": "Draft"
-  },
-  {
     "name": "Saddiq Bey",
     "team": "NOP",
     "salary": {
@@ -10358,6 +10385,51 @@
     "acquiredMethod": "Draft"
   },
   {
+    "name": "AJ Johnson",
+    "team": "NOP",
+    "salary": {
+      "2026-27": 3237120,
+      "2027-28": 5493393
+    },
+    "options": {
+      "2027-28": "Team"
+    },
+    "cashSalary": {
+      "2026-27": 3237120,
+      "2027-28": 5493393
+    },
+    "guaranteed": {
+      "2026-27": 3237120,
+      "2027-28": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "optionExercised": {
+      "2026-27": true,
+      "2027-28": false
+    },
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-07-01",
+        "method": "trade",
+        "team": "MEM"
+      },
+      {
+        "date": "2026-07-08",
+        "method": "trade",
+        "team": "MEM"
+      },
+      {
+        "date": "2026-09-08",
+        "method": "trade",
+        "team": "NOP"
+      }
+    ]
+  },
+  {
     "name": "Bryce McGowens",
     "team": "NOP",
     "salary": {
@@ -10390,37 +10462,6 @@
         "team": "NOP"
       }
     ]
-  },
-  {
-    "name": "Caleb Houstan",
-    "team": "NOP",
-    "salary": {
-      "2026-27": 2449421
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 2625627
-    },
-    "guaranteed": {
-      "2026-27": 2625627
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {},
-    "acquiredMethod": "Signed",
-    "acquisitionHistory": [
-      {
-        "date": "2026-08-03",
-        "method": "free-agent",
-        "team": "NOP"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
   },
   {
     "name": "Trendon Watford",
@@ -10473,37 +10514,6 @@
     },
     "optionExercised": {
       "2026-27": true
-    },
-    "acquiredMethod": "Draft"
-  },
-  {
-    "name": "Micah Peavy",
-    "team": "NOP",
-    "salary": {
-      "2026-27": 2150917,
-      "2027-28": 2525901,
-      "2028-29": 2735698
-    },
-    "options": {
-      "2028-29": "Team"
-    },
-    "cashSalary": {
-      "2026-27": 2150917,
-      "2027-28": 2525901,
-      "2028-29": 2735698
-    },
-    "guaranteed": {
-      "2026-27": 2150917,
-      "2027-28": 0,
-      "2028-29": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0,
-      "2028-29": 0
-    },
-    "optionExercised": {
-      "2028-29": false
     },
     "acquiredMethod": "Draft"
   },
@@ -13859,6 +13869,43 @@
         "team": "SAC"
       }
     ]
+  },
+  {
+    "name": "Ben Simmons",
+    "team": "SAC",
+    "salary": {
+      "2026-27": 2449421
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 3524115
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-04",
+        "method": "free-agent",
+        "team": "SAC"
+      },
+      {
+        "date": "2026-09-07",
+        "method": "free-agent",
+        "team": "SAC"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed",
+        "guaranteeDate": "2026-10-15"
+      }
+    }
   },
   {
     "name": "Maxime Raynaud",

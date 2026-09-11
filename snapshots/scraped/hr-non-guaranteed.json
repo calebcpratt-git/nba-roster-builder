@@ -8,7 +8,7 @@
   "exhibit10": false
  },
  {
-  "player": "Devon Higgs",
+  "player": "Keyshawn Bryant",
   "team": "Atlanta Hawks",
   "fullAmount": null,
   "partialAmount": null,
@@ -248,14 +248,6 @@
   "exhibit10": false
  },
  {
-  "player": "Taj Gibson",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": 148828,
-  "status": "partial",
-  "exhibit10": false
- },
- {
   "player": "Kobe Bufkin",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -386,6 +378,14 @@
  {
   "player": "Jeremy Sochan",
   "team": "Portland Trail Blazers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Ben Simmons",
+  "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

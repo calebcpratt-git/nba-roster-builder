@@ -9981,6 +9981,11 @@
    "date": "2026-08-20",
    "method": "free-agent",
    "team": "CLE"
+  },
+  {
+   "date": "2026-09-08",
+   "method": "free-agent",
+   "team": "CLE"
   }
  ],
  "peyton watson": [
@@ -11638,6 +11643,11 @@
    "date": "2026-08-21",
    "method": "free-agent",
    "team": "DEN"
+  },
+  {
+   "date": "2026-09-08",
+   "method": "free-agent",
+   "team": "DEN"
   }
  ],
  "brandon williams": [
@@ -11711,6 +11721,11 @@
  "ben simmons": [
   {
    "date": "2026-09-04",
+   "method": "free-agent",
+   "team": "SAC"
+  },
+  {
+   "date": "2026-09-07",
    "method": "free-agent",
    "team": "SAC"
   }
