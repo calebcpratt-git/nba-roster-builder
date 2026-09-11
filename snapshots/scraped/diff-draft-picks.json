@@ -1,5 +1,326 @@
 {
-  "added": [],
-  "removed": [],
-  "changed": []
+  "added": [
+    {
+      "teamOwner": "Indiana Pacers",
+      "year": 2028,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Indiana Pacers, Phoenix Suns, New York Knicks",
+      "rank": "less favorable of IND and PHX to NYK"
+    },
+    {
+      "teamOwner": "Phoenix Suns",
+      "year": 2030,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Phoenix Suns, Portland Trail Blazers, Washington Wizards, Philadelphia Sixers, Boston Celtics",
+      "rank": "Less favorable of (i) more favorable of PHX and POR and (ii) WAS to PHL then most favorable of all to BOS;"
+    },
+    {
+      "teamOwner": "Portland Trail Blazers",
+      "year": 2030,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Portland Trail Blazers, Phoenix Suns, Washington Wizards, Philadelphia Sixers, Boston Celtics",
+      "rank": "Less favorable of (i) more favorable of POR and PHX and (ii) WAS to PHL then most favorable of all to BOS;"
+    },
+    {
+      "teamOwner": "San Antonio Spurs",
+      "year": 2030,
+      "round": "First Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "San Antonio Spurs, Dallas Mavericks, Minnesota Timberwolves 2-30, Minnesota Timberwolves, Charlotte Hornets",
+      "rank": "less favorable of (i) more favorable of SAN and DAL and (ii) MIN 2-30 [or MIN if MIN not conveyable] to MIN [MIN may convey to CHA];"
+    }
+  ],
+  "removed": [
+    {
+      "teamOwner": "Phoenix Suns",
+      "year": 2028,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Phoenix Suns, Indiana Pacers, Chicago Bulls",
+      "rank": "less favorable of (i) more favorable of PHX and IND and (ii) CHI to IND;"
+    },
+    {
+      "teamOwner": "Phoenix Suns",
+      "year": 2030,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Phoenix Suns, Portland Trail Blazers, Washington Wizards, Boston Celtics",
+      "rank": "Most favorable of PHX, POR and WAS to BOS;"
+    },
+    {
+      "teamOwner": "Phoenix Suns",
+      "year": 2030,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Phoenix Suns, Portland Trail Blazers, Washington Wizards, Philadelphia Sixers",
+      "rank": "less favorable of (i) more favorable of PHX and POR and (ii) WAS to PHL;"
+    },
+    {
+      "teamOwner": "Portland Trail Blazers",
+      "year": 2030,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Portland Trail Blazers, Phoenix Suns, Washington Wizards, Boston Celtics",
+      "rank": "Most favorable of POR, PHX and WAS to BOS;"
+    },
+    {
+      "teamOwner": "Portland Trail Blazers",
+      "year": 2030,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Portland Trail Blazers, Phoenix Suns, Washington Wizards, Philadelphia Sixers",
+      "rank": "less favorable of (i) more favorable of POR and PHX and (ii) WAS to PHL;"
+    },
+    {
+      "teamOwner": "San Antonio Spurs",
+      "year": 2030,
+      "round": "First Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Minnesota Timberwolves 2-30, San Antonio Spurs, Dallas Mavericks, Minnesota Timberwolves, Charlotte Hornets",
+      "rank": "less favorable of (i) MIN 2-30 and (ii) more favorable of SAN and DAL [or MIN if MIN not conveyable] to MIN [MIN may convey to CHA]"
+    },
+    {
+      "teamOwner": "Utah Jazz",
+      "year": 2032,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Utah Jazz, Washington Wizards, Memphis Grizzlies, Philadelphia Sixers",
+      "rank": "(via UTH to WAS; via MEM swap for PHL; via MEM swap of MEM or PHL for UTH);"
+    },
+    {
+      "teamOwner": "Washington Wizards",
+      "year": 2030,
+      "round": "Second Round",
+      "teamFrom": null,
+      "swapOwner": null,
+      "swapOption": null,
+      "protections": null,
+      "pickNumber": null,
+      "pickPool": "Phoenix Suns, Portland Trail Blazers, Washington Wizards, Philadelphia Sixers",
+      "rank": "(via PHX and POR to WAS to PHL);"
+    }
+  ],
+  "changed": [
+    {
+      "before": {
+        "teamOwner": "Indiana Pacers",
+        "year": 2028,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Indiana Pacers, Phoenix Suns, Chicago Bulls",
+        "rank": "Less favorable of (i) more favorable of IND and PHX and (ii) CHI;"
+      },
+      "after": {
+        "teamOwner": "Indiana Pacers",
+        "year": 2028,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Indiana Pacers, Phoenix Suns, Chicago Bulls",
+        "rank": "Less favorable of (i) more favorable of IND and PHX and (ii) CHI then most favorable of all to CHI;"
+      },
+      "fields": [
+        "rank"
+      ]
+    },
+    {
+      "before": {
+        "teamOwner": "Los Angeles Lakers",
+        "year": 2028,
+        "round": "First Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Los Angeles Lakers, Utah Jazz, Cleveland Cavaliers",
+        "rank": "Less favorable of (i) LAL and (ii) more favorable of UTH and CLE;"
+      },
+      "after": {
+        "teamOwner": "Los Angeles Lakers",
+        "year": 2028,
+        "round": "First Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Los Angeles Lakers, Utah Jazz, Cleveland Cavaliers",
+        "rank": "Less favorable of (i) LAL and (ii) more favorable of UTH and CLE then most favorable of all to UTH (via UTH swap for CLE; via UTH swap of UTH or CLE for LAL)"
+      },
+      "fields": [
+        "rank"
+      ]
+    },
+    {
+      "before": {
+        "teamOwner": "Philadelphia Sixers",
+        "year": 2027,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Oklahoma City Thunder, Houston Rockets, Indiana Pacers, Miami Heat, Detroit Pistons, Philadelphia Sixers",
+        "rank": "Most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via MIA to OKC; via OKC to PHL)*"
+      },
+      "after": {
+        "teamOwner": "Philadelphia Sixers",
+        "year": 2027,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Oklahoma City Thunder, Houston Rockets, Indiana Pacers, Miami Heat, Detroit Pistons, Philadelphia Sixers",
+        "rank": "Most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via IND and MIA to OKC; via OKC to PHL)*"
+      },
+      "fields": [
+        "rank"
+      ]
+    },
+    {
+      "before": {
+        "teamOwner": "Phoenix Suns",
+        "year": 2028,
+        "round": "First Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Philadelphia Sixers 9-30, New York Knicks, Phoenix Suns, Brooklyn Nets",
+        "rank": "if (i) PHL 9-30 is third most favorable and (ii) NYK is most or second most favorable of PHX, BRK and PHL 9-30 and NYK, then most and third most favorable to BRK; or most / two most favorable to BRK in all other scenarios;"
+      },
+      "after": {
+        "teamOwner": "Phoenix Suns",
+        "year": 2028,
+        "round": "First Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Philadelphia Sixers 9-30, New York Knicks, Phoenix Suns, Brooklyn Nets",
+        "rank": "if (i) PHL 9-30 is third most favorable and (ii) NYK is most or second most favorable of PHX, PHL 9-30, BRK and NYK, then most and third most favorable to BRK; or most / two most favorable to BRK in all other scenarios;"
+      },
+      "fields": [
+        "rank"
+      ]
+    },
+    {
+      "before": {
+        "teamOwner": "Phoenix Suns",
+        "year": 2028,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Phoenix Suns, Indiana Pacers, Chicago Bulls",
+        "rank": "Most favorable of PHX, IND and CHI to CHI;"
+      },
+      "after": {
+        "teamOwner": "Phoenix Suns",
+        "year": 2028,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Phoenix Suns, Indiana Pacers, Chicago Bulls",
+        "rank": "Less favorable of (i) more favorable of PHX and IND and (ii) CHI to IND then most favorable of all to CHI;"
+      },
+      "fields": [
+        "rank"
+      ]
+    },
+    {
+      "before": {
+        "teamOwner": "Washington Wizards",
+        "year": 2032,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Utah Jazz, Memphis Grizzlies, Philadelphia Sixers, Washington Wizards",
+        "rank": "Less favorable of (i) UTH and (i) more favorable of MEM and PHL (via UTH to WAS; via MEM swap for PHL; via MEM swap of MEM or PHL for UTH)"
+      },
+      "after": {
+        "teamOwner": "Washington Wizards",
+        "year": 2032,
+        "round": "Second Round",
+        "teamFrom": null,
+        "swapOwner": null,
+        "swapOption": null,
+        "protections": null,
+        "pickNumber": null,
+        "pickPool": "Utah Jazz, Memphis Grizzlies, Philadelphia Sixers, Washington Wizards",
+        "rank": "Less favorable of (i) UTH and (i) more favorable of MEM and PHL (via MEM swap for PHL; via MEM swap of MEM or PHL for UTH; via UTH to WAS)"
+      },
+      "fields": [
+        "rank"
+      ]
+    }
+  ]
 }

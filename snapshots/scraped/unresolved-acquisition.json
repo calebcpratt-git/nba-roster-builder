@@ -65,6 +65,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Bez Mbeng",
+  "date": "2026-09-07",
+  "method": "free-agent"
+ },
+ {
   "name": "Kobe Stewart",
   "date": "2026-09-04",
   "method": "free-agent"
@@ -170,14 +175,14 @@
   "method": "free-agent"
  },
  {
+  "name": "Lonnie Walker IV",
+  "date": "2026-09-08",
+  "method": "free-agent"
+ },
+ {
   "name": "Julian Reese",
   "date": "2026-08-20",
   "method": "trade"
- },
- {
-  "name": "Lonnie Walker IV",
-  "date": "2026-08-05",
-  "method": "free-agent"
  },
  {
   "name": "Aaron Nkrumah",
@@ -212,6 +217,11 @@
  {
   "name": "Jaden Henley",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Alex Toohey",
+  "date": "2026-09-09",
   "method": "free-agent"
  },
  {
@@ -472,6 +482,11 @@
  {
   "name": "Malik Reneau",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Dillon Jones",
+  "date": "2026-09-07",
   "method": "free-agent"
  },
  {

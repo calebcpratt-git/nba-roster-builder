@@ -10,7 +10,7 @@
   "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
  },
  {
-  "player": "Keyshawn Bryant",
+  "player": "Lamont Butler",
   "team": "Atlanta Hawks",
   "fullAmount": null,
   "partialAmount": null,
@@ -40,6 +40,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
+ },
+ {
+  "player": "Lonnie Walker IV",
+  "team": "Denver Nuggets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
  },
  {
   "player": "Dalen Terry",

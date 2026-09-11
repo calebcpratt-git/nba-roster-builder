@@ -1,28 +1,5 @@
 {
-  "added": [
-    {
-      "name": "Kobe Stewart",
-      "position": "G-F",
-      "priorTeam": "CHO",
-      "faType": "U",
-      "birdRights": null
-    }
-  ],
-  "removed": [
-    {
-      "name": "Dillon Jones",
-      "position": "SF",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Bez Mbeng",
-      "position": "SG",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": "non-bird"
-    }
-  ],
+  "added": [],
+  "removed": [],
   "changed": []
 }
