@@ -1,11 +1,6 @@
-'use client'
-
-import { useRoster } from '@/lib/roster-context'
-import { CAP_THRESHOLDS } from '@/lib/data'
-import { ExceptionsUsed, TEAM_CAP_STATE } from '@/lib/team-cap-state'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Check, X } from 'lucide-react'
-import { SavedContract, Season, SEASONS } from '@/lib/types'
+import { CAP_THRESHOLDS } from './data'
+import { ExceptionsUsed } from './team-cap-state'
+import { SavedContract, Season, SEASONS } from './types'
 
 const SEASON: Season = '2026-27'
 
@@ -112,52 +107,4 @@ export function getSigningExceptions(
       alreadyUsed: dpeUsed,
     },
   ]
-}
-
-export function SigningExceptionsPanel() {
-  const { selectedTeamAbbr, getTeamCapTotal, savedContracts, deletedContractIds } = useRoster()
-  const { capSpaceTotal, apronTotal } = getTeamCapTotal(selectedTeamAbbr, SEASON)
-
-  const exceptionsUsed = TEAM_CAP_STATE[selectedTeamAbbr]?.[SEASON]?.exceptionsUsed
-  const usedExceptions = getUsedExceptions(exceptionsUsed, savedContracts, deletedContractIds, SEASON)
-  const dpeUsed = exceptionsUsed?.dpe?.used ?? false
-  const mechanisms = getSigningExceptions(SEASON, capSpaceTotal, apronTotal, usedExceptions, dpeUsed)
-
-  return (
-    <Card className="border border-border rounded-lg overflow-hidden shadow-none py-0 gap-0">
-      <CardHeader className="py-2.5 px-3.5 gap-0 bg-accent">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-[12.5px] font-semibold">Signing Exceptions (26-27)</CardTitle>
-        </div>
-      </CardHeader>
-      <CardContent className="px-3.5 py-3">
-        <div className="grid grid-cols-1 gap-1.5">
-          {mechanisms.map((mechanism) => {
-            const available = mechanism.eligible && !mechanism.alreadyUsed
-            return (
-              <div key={mechanism.key} className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{mechanism.label}</span>
-                {available ? (
-                  <span className="flex items-center gap-1 text-xs font-medium text-emerald-500">
-                    <Check className="h-3.5 w-3.5" />
-                    Available
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground">
-                    <X className="h-3.5 w-3.5" />
-                    {mechanism.alreadyUsed ? 'Already Used' : 'Unavailable'}
-                  </span>
-                )}
-              </div>
-            )
-          })}
-        </div>
-        <p className="text-[10.5px] text-muted-foreground mt-2.5 pt-2.5 border-t border-border">
-          Already-used status is sourced directly from SalarySwish&apos;s per-team exception trackers. A team only
-          gets a Disabled Player Exception grant if it has a qualifying player and physician&apos;s designation —
-          absent a known grant, that row reflects apron eligibility only.
-        </p>
-      </CardContent>
-    </Card>
-  )
 }

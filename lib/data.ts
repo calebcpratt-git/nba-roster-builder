@@ -27,7 +27,7 @@ export function getTeamRoster(teamAbbreviation: string): Player[] {
 }
 
 // Player.id is only unique within a single getTeamRoster() call (it's
-// `player-${idx}` per team, not global) — sign-free-agents-panel.tsx already
+// `player-${idx}` per team, not global) — lib/free-agent-pool.ts already
 // works around this with a `${team}-${id}` composite key. RFA offer sheets
 // need to resolve a player's original team from just a name (a SavedContract
 // only stores playerName), so this scans every team the same way

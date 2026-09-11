@@ -5,13 +5,16 @@ import { useRoster } from '@/lib/roster-context'
 import { incomingPicksFor } from '@/lib/trade-model'
 import { useRosterTableData } from '@/hooks/use-roster-table-data'
 import { SEASONS, Season, Player, SavedContract } from '@/lib/types'
-import { formatCurrency, CAP_THRESHOLDS } from '@/lib/data'
+import { formatCurrency } from '@/lib/data'
+import { getTeamCapState } from '@/lib/team-cap-state'
 import {
   OptionSalaryCell,
   TotalPayrollCell,
   EmptyOrExtendCell,
   PlainSalaryCell,
   PickNumberSelect,
+  CapHoldsCell,
+  DeadMoneyCell,
   getSalaryColor,
   SALARY_PILL_BASE,
 } from '@/components/roster-table'
@@ -74,6 +77,35 @@ function ReleasablePlayerName({ name, onRelease }: { name: string; onRelease: ()
   )
 }
 
+// The full-width band that introduces a group of non-player rows
+// ("Dead Money", "Cap Holds", "Draft Picks").
+function GroupRow({ label, seasons }: { label: string; seasons: Season[] }) {
+  return (
+    <div className="flex bg-muted/40">
+      <div
+        className="shrink-0 sticky left-0 bg-muted/40 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-muted-foreground"
+        style={{ width: PLAYER_COL_W }}
+      >
+        {label}
+      </div>
+      {seasons.map((s) => (
+        <div key={s} className="shrink-0" style={{ width: SEASON_COL_W }} />
+      ))}
+    </div>
+  )
+}
+
+function ValueCell({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      className="shrink-0 flex items-center justify-center py-1.5 px-1 border-b border-border/40"
+      style={{ width: SEASON_COL_W }}
+    >
+      {children}
+    </div>
+  )
+}
+
 function DashCell({ isLast }: { isLast?: boolean }) {
   return (
     <div
@@ -102,6 +134,11 @@ export function MobileRosterTable() {
     releasedRosterIds,
     releaseRosterPlayer,
     restoreRosterPlayer,
+    getUnresolvedCapHolds,
+    getReleaseDeadMoney,
+    isCapHoldRenounced,
+    renounceCapHold,
+    restoreCapHold,
     normalizedTrades,
     selectedTeamAbbr,
     tradedPickIds,
@@ -127,9 +164,18 @@ export function MobileRosterTable() {
 
   const tableWidth = PLAYER_COL_W + SEASON_COL_W * displayedSeasons.length
 
+  // Scraped dead money plus anything the user's own releases created in this
+  // session — the same pair the desktop table sums.
+  const deadMoneyFor = (season: Season) => [
+    ...(getTeamCapState(selectedTeamAbbr, season)?.deadMoney ?? []),
+    ...getReleaseDeadMoney(selectedTeamAbbr, season),
+  ]
+  const hasDeadMoney = displayedSeasons.some((season) => deadMoneyFor(season).length > 0)
+  const hasCapHolds = displayedSeasons.some((season) => getUnresolvedCapHolds(selectedTeamAbbr, season).length > 0)
+
   return (
     <div className="flex-1 min-h-0 flex flex-col mt-2">
-      <div className="shrink-0 px-4 pb-1.5 flex items-center justify-between gap-2">
+      <div className="shrink-0 px-4 pt-3 pb-1.5 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 min-w-0">
           <span className="font-bold text-[13px]">Roster &amp; Contracts</span>
           <span className="bg-muted text-muted-foreground text-[9.5px] font-bold px-1.5 py-0.5 rounded-md shrink-0">
@@ -289,15 +335,52 @@ export function MobileRosterTable() {
           )
         })}
 
-        {/* Draft picks */}
-        {draftPickPlayers.length > 0 && (
-          <div className="flex bg-muted/40">
-            <div className="shrink-0 sticky left-0 bg-muted/40 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-muted-foreground" style={{ width: PLAYER_COL_W }}>
-              Draft Picks
+        {/* Dead Money — waived/stretched cap hits. Always counts toward Team
+            Salary (and Apron Salary); never renounceable, so it's kept separate
+            from the toggleable FA holds below. */}
+        {hasDeadMoney && (
+          <>
+            <GroupRow label="Dead Money" seasons={displayedSeasons} />
+            <div className="flex">
+              <NameCell>
+                <span className="font-semibold text-xs text-muted-foreground truncate">Dead Money</span>
+              </NameCell>
+              {displayedSeasons.map((season) => (
+                <ValueCell key={season}>
+                  <DeadMoneyCell season={season} entries={deadMoneyFor(season)} />
+                </ValueCell>
+              ))}
             </div>
-            {displayedSeasons.map((s) => <div key={s} className="shrink-0" style={{ width: SEASON_COL_W }} />)}
-          </div>
+          </>
         )}
+
+        {/* Cap Holds — free-agent holds count toward Team Salary by default;
+            tap a season's pill to renounce/restore individual holds. */}
+        {hasCapHolds && (
+          <>
+            <GroupRow label="Cap Holds" seasons={displayedSeasons} />
+            <div className="flex">
+              <NameCell>
+                <span className="font-semibold text-xs text-muted-foreground truncate">Unresolved FA Holds</span>
+              </NameCell>
+              {displayedSeasons.map((season) => (
+                <ValueCell key={season}>
+                  <CapHoldsCell
+                    teamAbbr={selectedTeamAbbr}
+                    season={season}
+                    holds={getUnresolvedCapHolds(selectedTeamAbbr, season)}
+                    isRenounced={(label) => isCapHoldRenounced(selectedTeamAbbr, season, label)}
+                    onRenounce={(label) => renounceCapHold(selectedTeamAbbr, season, label)}
+                    onRestore={(label) => restoreCapHold(selectedTeamAbbr, season, label)}
+                  />
+                </ValueCell>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Draft picks */}
+        {draftPickPlayers.length > 0 && <GroupRow label="Draft Picks" seasons={displayedSeasons} />}
         {draftPickPlayers.map((pick, pickIdx) => {
           const yearMatch = pick.name.match(/^(\d{4}) - 1st/)
           const pickYear = yearMatch ? parseInt(yearMatch[1]) : 0
@@ -411,18 +494,33 @@ export function MobileRosterTable() {
         ))}
 
         {/* Footer */}
-        <div className="flex sticky bottom-0 z-[3] bg-muted border-t-2" style={{ borderTopColor: selectedTeam.primaryColor }}>
-          <div className="shrink-0 sticky left-0 z-[4] bg-muted px-2.5 py-2 font-extrabold text-[12.5px]" style={{ width: PLAYER_COL_W }}>
-            Team Salary
+        <div className="sticky bottom-0 z-[3] flex flex-col">
+          <div className="flex bg-muted border-t-2" style={{ borderTopColor: selectedTeam.primaryColor }}>
+            <div className="shrink-0 sticky left-0 z-[4] bg-muted px-2.5 py-2 font-extrabold text-[12.5px]" style={{ width: PLAYER_COL_W }}>
+              Team Salary
+            </div>
+            {displayedSeasons.map((season) => {
+              const proj = projections.find((p) => p.season === season)!
+              return (
+                <div key={season} className="shrink-0 flex items-center justify-center py-2 bg-muted" style={{ width: SEASON_COL_W }}>
+                  <TotalPayrollCell proj={proj} total={proj.capSpaceTotal} status={proj.capSpaceStatus} />
+                </div>
+              )
+            })}
           </div>
-          {displayedSeasons.map((season) => {
-            const proj = projections.find((p) => p.season === season)!
-            return (
-              <div key={season} className="shrink-0 flex items-center justify-center py-2" style={{ width: SEASON_COL_W }}>
-                <TotalPayrollCell proj={proj} total={proj.capSpaceTotal} status={proj.capSpaceStatus} />
-              </div>
-            )
-          })}
+          <div className="flex bg-muted border-t border-border">
+            <div className="shrink-0 sticky left-0 z-[4] bg-muted px-2.5 py-2 font-bold text-[11.5px] text-muted-foreground" style={{ width: PLAYER_COL_W }}>
+              Apron Salary
+            </div>
+            {displayedSeasons.map((season) => {
+              const proj = projections.find((p) => p.season === season)!
+              return (
+                <div key={season} className="shrink-0 flex items-center justify-center py-2 bg-muted" style={{ width: SEASON_COL_W }}>
+                  <TotalPayrollCell proj={proj} total={proj.apronTotal} status={proj.apronStatus} />
+                </div>
+              )
+            })}
+          </div>
         </div>
         </div>
       </div>

@@ -32,6 +32,7 @@ import { ExtensionModal, ExtendButton } from '@/components/extension-modal'
 import { ReleasePlayerModal } from '@/components/release-player-modal'
 import { SignFreeAgentModal } from '@/components/sign-free-agent-modal'
 import { SaveCapSheetButton } from '@/components/save-cap-sheet-modal'
+import { RosterComplianceStrip } from '@/components/desktop/roster-compliance-strip'
 import { Check, X, Info, Plus, RotateCcw, Trash2, AlertTriangle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -138,7 +139,7 @@ export function TotalPayrollCell({ proj, total, status }: {
 // pill (the sum still counting toward Team Salary) that opens a popover to
 // renounce/restore individual holds. Non-free-agent holds (empty-roster,
 // draft-pick) are structural — listed but never toggleable.
-function CapHoldsCell({
+export function CapHoldsCell({
   teamAbbr,
   season,
   holds,
@@ -216,7 +217,7 @@ function CapHoldsCell({
 // roster choices, so unlike cap holds it's never renounceable. Shown as its
 // own read-only pill so it isn't confused with the toggleable FA holds above
 // it, with a tooltip spelling out that it counts toward both totals.
-function DeadMoneyCell({ season, entries }: { season: Season; entries: DeadMoney[] }) {
+export function DeadMoneyCell({ season, entries }: { season: Season; entries: DeadMoney[] }) {
   const [isOpen, setIsOpen] = useState(false)
   if (entries.length === 0) {
     return <span className="text-[10px] text-muted-foreground/30">—</span>
@@ -377,7 +378,7 @@ export function OptionSalaryCell({
               size="sm"
               variant={!isExercised ? "destructive" : "outline"}
               className="flex-1 min-w-0 shrink h-7 px-2 text-xs"
-              disabled={!isExercised}
+              disabled={!isExercised || optionType === 'Player'}
               onClick={() => {
                 onToggle(false)
                 setIsOpen(false)
@@ -664,6 +665,7 @@ export function RosterTable() {
             </div>
           </div>
         </CardHeader>
+        <RosterComplianceStrip />
         <CardContent className="p-0 flex flex-col flex-1 min-h-0">
           <div ref={scrollContainerRef} className="overflow-x-auto flex-1 min-h-0 overflow-y-auto">
             <table className="w-full table-fixed">

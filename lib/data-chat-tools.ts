@@ -1,8 +1,11 @@
-// Tool definitions + executors for the /data dashboard's AI query panel,
-// letting it answer questions by reading the app's real data entities
-// (players, contracts, cap state, draft picks, free agents, league-cap
-// figures) instead of guessing. Only imported by app/api/data-chat's
-// dev-only route.
+// Tool definitions + executors for the app's AI chats, letting them answer
+// questions by reading the app's real data entities (players, contracts, cap
+// state, draft picks, free agents, league-cap figures) instead of guessing.
+//
+// Two consumers: the /data dashboard's query panel (app/api/data-chat, dev
+// only) and the GM assistant (app/api/gm-chat, shipped), which re-exports
+// these through lib/gm-chat/tools.ts. Nothing here is dev-only — it must keep
+// building in production.
 
 import { RAW_PLAYER_DATA, ALL_TEAMS, TEAM_NAMES } from './player-data'
 import { getContractDetail } from './contract-details'

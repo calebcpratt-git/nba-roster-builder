@@ -15,21 +15,14 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
+import { DialogBannerHeader } from '@/components/ui/dialog-banner-header'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Switch } from '@/components/ui/switch'
+import { SegmentedControl } from '@/components/ui/segmented-control'
 import { Plus, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -39,29 +32,6 @@ interface ExtensionModalProps {
   startSeason?: Season
   editingContract?: SavedContract | null
   onClose: () => void
-}
-
-const DISTRIBUTION_OPTIONS: Record<
-  DistributionType,
-  { label: string; description: string; shortDescription: string }
-> = {
-  flat: {
-    label: 'Flat',
-    description:
-      'The same salary every year. Rare in practice since the CBA allows annual raises, and most players want them.',
-    shortDescription: 'The same salary every year. Rare in practice.',
-  },
-  escalating: {
-    label: 'Escalating',
-    description: 'Salary increases each year. The standard structure.',
-    shortDescription: 'Salary increases each year. The standard structure.',
-  },
-  declining: {
-    label: 'Declining',
-    description:
-      'Salary decreases each year. Teams use this strategically to push money into earlier years when a player has more value, or to create more cap flexibility in the final year of a deal.',
-    shortDescription: 'Salary decreases each year. Strategically defer money.',
-  },
 }
 
 function detectDistribution(salary: Partial<Record<Season, number>>): DistributionType {
@@ -75,7 +45,7 @@ function detectDistribution(salary: Partial<Record<Season, number>>): Distributi
 }
 
 export function ExtensionModal({ player, isOpen, startSeason, editingContract, onClose }: ExtensionModalProps) {
-  const { addSavedContract, updateSavedContract, setDeletedContractIds, deletedContractIds } = useRoster()
+  const { addSavedContract, updateSavedContract, setDeletedContractIds, deletedContractIds, selectedTeam } = useRoster()
   const [years, setYears] = useState('3')
   const [totalValue, setTotalValue] = useState('')
   const [distribution, setDistribution] = useState<DistributionType>('escalating')
@@ -173,6 +143,33 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
       setDistribution('escalating')
     }
   }
+
+  type ContractTypeValue = 'custom' | 'maximum' | 'minimum'
+  const contractTypeValue: ContractTypeValue = isMaxContract ? 'maximum' : isMinimum ? 'minimum' : 'custom'
+  const contractTypeOptions: { value: ContractTypeValue; label: string }[] = [
+    { value: 'custom', label: 'Custom' },
+    ...(rookieYear !== undefined ? [{ value: 'maximum' as const, label: 'Maximum' }] : []),
+    { value: 'minimum', label: 'Minimum' },
+  ]
+  const handleContractTypeChange = (value: ContractTypeValue) => {
+    if (value === contractTypeValue) return
+    if (value === 'custom') {
+      setIsMaxContract(false)
+      setIsMinimum(false)
+      setYearsError('')
+      setYears('3')
+      setDistribution('escalating')
+      return
+    }
+    if (value === 'maximum') return handleMaxContractToggle(true)
+    return handleMinimumToggle(true)
+  }
+
+  const STRUCTURE_OPTIONS: { value: DistributionType; label: string }[] = [
+    { value: 'flat', label: 'Flat' },
+    { value: 'escalating', label: 'Escalating' },
+    { value: 'declining', label: 'Declining' },
+  ]
 
   const handleYearsChange = (value: string) => {
     setYearsError('')
@@ -304,47 +301,37 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
 
   const isTotalValueDisabled = isMinimum || isMaxContract
 
+  const modalTitle = editingContract ? `Edit ${player.name}'s Extension` : `Extend ${player.name}`
+  const modalSubtitle = editingContract ? 'Update the terms of this extension' : `Starting ${firstEmptySeason}`
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
-        <DialogHeader>
-          <DialogTitle>{editingContract ? `Edit ${player.name}'s Extension` : `Extend ${player.name}`}</DialogTitle>
-          <DialogDescription>
-            {editingContract
-              ? 'Update the terms of this extension'
-              : `Create a new contract extension starting in ${firstEmptySeason}`}
-          </DialogDescription>
-        </DialogHeader>
+      <DialogContent
+        className="max-w-md p-0 gap-0 overflow-hidden"
+        showCloseButton={false}
+        style={{ '--primary': selectedTeam.primaryColor } as React.CSSProperties}
+      >
+        <DialogTitle className="sr-only">{modalTitle}</DialogTitle>
+        <DialogDescription className="sr-only">
+          {editingContract
+            ? 'Update the terms of this extension'
+            : `Create a new contract extension starting in ${firstEmptySeason}`}
+        </DialogDescription>
 
-        <div className="space-y-4">
-          {/* Contract type toggles */}
+        <DialogBannerHeader
+          icon={Plus}
+          title={modalTitle}
+          subtitle={modalSubtitle}
+          colors={{ primary: selectedTeam.primaryColor, secondary: selectedTeam.secondaryColor }}
+        />
+
+        <div className="p-5 space-y-4 max-h-[70vh] overflow-y-auto">
+          {/* Contract type */}
           <div className="space-y-2">
-            <div className="flex items-center gap-4 flex-wrap">
-              {rookieYear !== undefined && (
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="max-contract-ext" className="text-xs font-medium cursor-pointer">
-                    Maximum Contract
-                  </Label>
-                  <Switch
-                    id="max-contract-ext"
-                    checked={isMaxContract}
-                    onCheckedChange={handleMaxContractToggle}
-                    className="data-[state=unchecked]:bg-gray-400"
-                  />
-                </div>
-              )}
-              <div className="flex items-center gap-2">
-                <Label htmlFor="minimum-contract" className="text-xs font-medium cursor-pointer">
-                  Minimum Contract
-                </Label>
-                <Switch
-                  id="minimum-contract"
-                  checked={isMinimum}
-                  onCheckedChange={handleMinimumToggle}
-                  className="data-[state=unchecked]:bg-gray-400"
-                />
-              </div>
-            </div>
+            <Label className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+              Contract Type
+            </Label>
+            <SegmentedControl value={contractTypeValue} onChange={handleContractTypeChange} options={contractTypeOptions} />
 
             {yoe !== undefined && maxPct !== undefined && (
               <p className="text-xs text-muted-foreground">
@@ -360,7 +347,7 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
           {/* Years and Total Value */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <Label htmlFor="years" className="text-xs">
+              <Label htmlFor="years" className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                 Years
               </Label>
               <Input
@@ -370,15 +357,15 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
                 max={maxYearsAllowed}
                 value={years}
                 onChange={(e) => handleYearsChange(e.target.value)}
-                className={cn('h-8 text-sm', yearsError && 'border-red-500')}
+                className={cn('h-9 text-sm mt-1', yearsError && 'border-red-500')}
               />
               {yearsError && <p className="text-xs text-red-500 mt-1">{yearsError}</p>}
             </div>
             <div>
-              <Label htmlFor="total-value" className="text-xs">
-                Total Value (Millions)
+              <Label htmlFor="total-value" className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                Total Value (M)
                 {!isMaxContract && !isMinimum && maxAllowedTotalM < Infinity && (
-                  <span className="text-muted-foreground font-normal"> · max ${maxAllowedTotalM.toFixed(1)}M</span>
+                  <span className="normal-case font-normal"> · max ${maxAllowedTotalM.toFixed(1)}M</span>
                 )}
               </Label>
               <Input
@@ -388,47 +375,20 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
                 value={totalValueDisplayed}
                 onChange={handleTotalValueChange}
                 disabled={isTotalValueDisabled}
-                className={cn('h-8 text-sm', isTotalValueDisabled && 'bg-muted cursor-not-allowed')}
+                className={cn('h-9 text-sm mt-1', isTotalValueDisabled && 'bg-muted cursor-not-allowed')}
               />
             </div>
           </div>
 
-          {/* Distribution Type */}
-          <div className="flex items-center gap-2">
-            <Label className="text-xs font-medium whitespace-nowrap">Contract Structure</Label>
-            <Select
+          {/* Structure */}
+          <div className="space-y-2">
+            <Label className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Structure</Label>
+            <SegmentedControl
               value={distribution}
-              onValueChange={(v) => handleDistributionChange(v as DistributionType)}
+              onChange={handleDistributionChange}
+              options={STRUCTURE_OPTIONS}
               disabled={isMinimum}
-            >
-              <SelectTrigger
-                className={cn('flex-1 text-sm justify-start items-start py-2', isMinimum && 'bg-muted cursor-not-allowed opacity-50')}
-                style={{ height: 'auto' }}
-              >
-                {distribution && DISTRIBUTION_OPTIONS[distribution] ? (
-                  <div className="flex flex-col gap-0.5 text-left w-full">
-                    <div className="font-medium text-sm">{DISTRIBUTION_OPTIONS[distribution].label}</div>
-                    <p className="text-xs text-muted-foreground whitespace-normal">
-                      {DISTRIBUTION_OPTIONS[distribution].shortDescription}
-                    </p>
-                  </div>
-                ) : (
-                  <SelectValue placeholder="Select structure" />
-                )}
-              </SelectTrigger>
-              <SelectContent className="max-w-[calc(100vw-40px)]">
-                {(Object.entries(DISTRIBUTION_OPTIONS) as [DistributionType, typeof DISTRIBUTION_OPTIONS[DistributionType]][]).map(
-                  ([key, { label, description }]) => (
-                    <SelectItem key={key} value={key} className="cursor-pointer py-3">
-                      <div className="flex flex-col gap-1 max-w-sm">
-                        <div className="font-medium text-sm">{label}</div>
-                        <p className="text-xs text-muted-foreground whitespace-normal">{description}</p>
-                      </div>
-                    </SelectItem>
-                  )
-                )}
-              </SelectContent>
-            </Select>
+            />
           </div>
 
           {/* Preview */}
@@ -449,26 +409,26 @@ export function ExtensionModal({ player, isOpen, startSeason, editingContract, o
               </div>
             </div>
           )}
-        </div>
 
-        <div className="flex gap-2 pt-4">
-          {editingContract && (
-            <Button
-              variant="outline"
-              onClick={handleDelete}
-              className="h-8 text-sm text-destructive hover:text-destructive border-destructive/30 hover:bg-destructive/10"
-              title="Delete this extension"
-            >
-              <Trash2 className="h-3.5 w-3.5 mr-1.5" />
-              Delete
+          <div className="flex gap-2 pt-1">
+            {editingContract && (
+              <Button
+                variant="outline"
+                onClick={handleDelete}
+                className="h-11 text-sm text-destructive hover:text-destructive border-destructive/30 hover:bg-destructive/10"
+                title="Delete this extension"
+              >
+                <Trash2 className="h-3.5 w-3.5 mr-1.5" />
+                Delete
+              </Button>
+            )}
+            <Button variant="outline" onClick={onClose} className="flex-1 h-11 text-sm">
+              Cancel
             </Button>
-          )}
-          <Button variant="outline" onClick={onClose} className="flex-1 h-8 text-sm">
-            Cancel
-          </Button>
-          <Button onClick={handleSave} disabled={!isValid} className="flex-1 h-8 text-sm">
-            {editingContract ? 'Save Changes' : 'Save Extension'}
-          </Button>
+            <Button onClick={handleSave} disabled={!isValid} className="flex-1 h-11 text-sm">
+              {editingContract ? 'Save Changes' : 'Save Extension'}
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

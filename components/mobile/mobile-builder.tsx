@@ -11,7 +11,9 @@ export function MobileBuilder() {
   const { activeCapSheet } = useRoster()
 
   return (
-    <div className="h-full flex flex-col bg-[#F2F2F7] dark:bg-background">
+    // `relative` anchors the expanded Free Agents / Trades overlay, which sizes
+    // and positions itself against this container.
+    <div className="relative h-full flex flex-col bg-[#F2F2F7] dark:bg-background">
       <MobileHeader />
       {activeCapSheet ? <MobileSheetTitle /> : <MobileTeamPicker />}
       <MobilePanelTabs />
