@@ -3207,11 +3207,6 @@
   "deadMoney": [],
   "capHolds": [
    {
-    "label": "Bennedict Mathurin",
-    "amount": 27600000,
-    "kind": "free-agent"
-   },
-   {
     "label": "Norchad Omier",
     "amount": 2200000,
     "kind": "free-agent",

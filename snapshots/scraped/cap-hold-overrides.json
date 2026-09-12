@@ -626,6 +626,12 @@
  },
  {
   "team": "LAC",
+  "player": "Bennedict Mathurin",
+  "amount": 27600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAC",
   "player": "John Collins",
   "amount": 39900000,
   "reason": "not-in-realgm-current-free-agents"

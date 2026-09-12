@@ -11,7 +11,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Buddy Hield": 2016,
   "Aaron Wiggins": 2021,
   "Kingston Flemings": 2026,
-  "Devin Carter": 2024,
   "Zuby Ejiofor": 2026,
   "Asa Newell": 2025,
   "Mouhamed Gueye": 2023,

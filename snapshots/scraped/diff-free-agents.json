@@ -1,5 +1,28 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "Taj Gibson",
+      "position": "PF",
+      "priorTeam": "NOP",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Devon Higgs",
+      "position": "SG",
+      "priorTeam": "ATL",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
+      "name": "Alex Toohey",
+      "position": "PF",
+      "priorTeam": "GSW",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
   "changed": []
 }

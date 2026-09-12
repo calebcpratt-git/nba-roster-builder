@@ -8,14 +8,6 @@
   "exhibit10": false
  },
  {
-  "player": "Lamont Butler",
-  "team": "Atlanta Hawks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Tucker DeVries",
   "team": "Boston Celtics",
   "fullAmount": null,
@@ -129,6 +121,14 @@
  },
  {
   "player": "Dalen Terry",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Alex Toohey",
   "team": "Golden State Warriors",
   "fullAmount": null,
   "partialAmount": null,

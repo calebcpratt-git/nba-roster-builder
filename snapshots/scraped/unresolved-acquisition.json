@@ -1,8 +1,23 @@
 [
  {
+  "name": "Lamont Butler",
+  "date": "2026-09-10",
+  "method": "free-agent"
+ },
+ {
+  "name": "Keyshawn Bryant",
+  "date": "2026-09-09",
+  "method": "free-agent"
+ },
+ {
   "name": "Devon Higgs",
   "date": "2026-09-08",
   "method": "free-agent"
+ },
+ {
+  "name": "Devin Carter",
+  "date": "2026-06-30",
+  "method": "trade"
  },
  {
   "name": "Isaac McKneely",
@@ -17,6 +32,11 @@
  {
   "name": "Tony Bradley",
   "date": "2026-04-06",
+  "method": "free-agent"
+ },
+ {
+  "name": "Hank Morgan",
+  "date": "2026-09-10",
   "method": "free-agent"
  },
  {
