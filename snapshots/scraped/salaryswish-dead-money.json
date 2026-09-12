@@ -1,5 +1,24 @@
 [
  {
+  "name": "Devin Carter",
+  "team": "ATL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 5158080
+  },
+  "cashSalary": {
+   "2026-27": 5158080
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "N'Faly Dante",
   "team": "ATL",
   "section": "Waivers",

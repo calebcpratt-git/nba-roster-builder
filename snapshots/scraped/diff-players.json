@@ -1,5 +1,41 @@
 {
   "added": [],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Devin Carter",
+      "team": "ATL",
+      "salary": {
+        "2026-27": 5158080,
+        "2027-28": 7370896
+      },
+      "options": {
+        "2027-28": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 5158080,
+        "2027-28": 7370896
+      },
+      "guaranteed": {
+        "2026-27": 5158080,
+        "2027-28": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0
+      },
+      "optionExercised": {
+        "2026-27": true,
+        "2027-28": false
+      },
+      "acquiredMethod": "Trade",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-30",
+          "method": "trade",
+          "team": "ATL"
+        }
+      ]
+    }
+  ],
   "changed": []
 }

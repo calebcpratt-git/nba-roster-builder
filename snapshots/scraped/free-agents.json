@@ -266,6 +266,13 @@
   "birdRights": null
  },
  {
+  "name": "Taj Gibson",
+  "position": "PF",
+  "priorTeam": "NOP",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Anthony Gill",
   "position": "SF",
   "priorTeam": "WAS",
@@ -318,6 +325,13 @@
   "name": "Nigel Hayes-Davis",
   "position": "SF",
   "priorTeam": "MIL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Devon Higgs",
+  "position": "SG",
+  "priorTeam": "ATL",
   "faType": "U",
   "birdRights": null
  },
@@ -824,13 +838,6 @@
   "priorTeam": "LAL",
   "faType": "U",
   "birdRights": "non-bird"
- },
- {
-  "name": "Alex Toohey",
-  "position": "PF",
-  "priorTeam": "GSW",
-  "faType": "U",
-  "birdRights": null
  },
  {
   "name": "Jacob Toppin",

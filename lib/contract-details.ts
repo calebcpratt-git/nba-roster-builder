@@ -64,7 +64,6 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Buddy Hield": { signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Aaron Wiggins": { signedUnder: 'bird', incentives: { "2026-27": { likely: 196262, unlikely: 196262 }, "2027-28": { likely: 177571, unlikely: 177571 }, "2028-29": { likely: 177571, unlikely: 177571 } } },
   "Kingston Flemings": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 100000, unlikely: 0 }, "2027-28": { likely: 100000, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
-  "Devin Carter": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Zuby Ejiofor": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 150000, unlikely: 0 }, "2027-28": { likely: 150000, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Asa Newell": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 150000, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Mouhamed Gueye": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
