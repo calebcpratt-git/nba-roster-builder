@@ -58,7 +58,7 @@
   "unresolved": {
     "before": {
       "draft-year": 63,
-      "acquisition": 130,
+      "acquisition": 134,
       "guarantees": 26,
       "signing": 10,
       "awards": 2,
@@ -68,59 +68,43 @@
     "after": {
       "draft-year": 63,
       "acquisition": 134,
-      "guarantees": 26,
+      "guarantees": 27,
       "signing": 10,
       "awards": 2,
-      "name-bridge": 87,
+      "name-bridge": 88,
       "no-current-salary": 1
     },
-    "newUnresolved": 4,
+    "newUnresolved": 2,
     "newByCategory": {
-      "acquisition": 4
+      "guarantees": 1,
+      "name-bridge": 1
     },
     "newRecords": {
-      "acquisition": [
-        {
-          "name": "Lamont Butler",
-          "date": "2026-09-10",
-          "method": "free-agent"
-        },
-        {
-          "name": "Keyshawn Bryant",
-          "date": "2026-09-09",
-          "method": "free-agent"
-        },
-        {
-          "name": "Devin Carter",
-          "date": "2026-06-30",
-          "method": "trade"
-        },
-        {
-          "name": "Hank Morgan",
-          "date": "2026-09-10",
-          "method": "free-agent"
-        }
-      ],
       "guarantees": [
         {
-          "player": "Alex Toohey",
-          "team": "Golden State Warriors",
+          "player": "Christian Shumate",
+          "team": "New Orleans Pelicans",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         }
+      ],
+      "name-bridge": [
+        {
+          "name": "Devin Carter"
+        }
       ]
     }
   },
-  "generatedAt": "2026-09-12T13:58:23.036Z",
+  "generatedAt": "2026-09-14T16:53:09.784Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -1 ~0 (of 523)",
+    "players: +0 -0 ~0 (of 522)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -1 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +2 -1 ~0 (of 143)",
+    "contract-details: +0 -0 ~0 (of 514)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +4 -0 ~0 (of 144)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

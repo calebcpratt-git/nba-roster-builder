@@ -1,28 +1,34 @@
 {
   "added": [
     {
-      "name": "Taj Gibson",
-      "position": "PF",
-      "priorTeam": "NOP",
+      "name": "Keyshawn Bryant",
+      "position": "SF",
+      "priorTeam": "ATL",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Devon Higgs",
-      "position": "SG",
+      "name": "LaMont Butler",
+      "position": "PG",
       "priorTeam": "ATL",
       "faType": "U",
       "birdRights": null
-    }
-  ],
-  "removed": [
+    },
     {
-      "name": "Alex Toohey",
-      "position": "PF",
-      "priorTeam": "GSW",
+      "name": "Devin Carter",
+      "position": "PG",
+      "priorTeam": "ATL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Hank Morgan",
+      "position": "SF",
+      "priorTeam": "BOS",
       "faType": "U",
       "birdRights": null
     }
   ],
+  "removed": [],
   "changed": []
 }

@@ -133,9 +133,30 @@
   "birdRights": "non-bird"
  },
  {
+  "name": "Keyshawn Bryant",
+  "position": "SF",
+  "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Tyler Burton",
   "position": "SF",
   "priorTeam": "MEM",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "LaMont Butler",
+  "position": "PG",
+  "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Devin Carter",
+  "position": "PG",
+  "priorTeam": "ATL",
   "faType": "U",
   "birdRights": null
  },
@@ -551,6 +572,13 @@
   "priorTeam": "DET",
   "faType": "U",
   "birdRights": "non-bird"
+ },
+ {
+  "name": "Hank Morgan",
+  "position": "SF",
+  "priorTeam": "BOS",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Matthew Murrell",
