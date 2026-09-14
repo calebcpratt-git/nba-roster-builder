@@ -1,20 +1,5 @@
 {
   "added": [],
-  "removed": [
-    {
-      "name": "Devin Carter",
-      "signedUnder": "rookie-scale",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        },
-        "2027-28": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    }
-  ],
+  "removed": [],
   "changed": []
 }

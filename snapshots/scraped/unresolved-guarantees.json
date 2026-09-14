@@ -122,6 +122,14 @@
   "exhibit10": false
  },
  {
+  "player": "Christian Shumate",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Malaki Branham",
   "team": "Orlando Magic",
   "fullAmount": null,
