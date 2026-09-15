@@ -1,34 +1,5 @@
 {
-  "added": [
-    {
-      "name": "Keyshawn Bryant",
-      "position": "SF",
-      "priorTeam": "ATL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "LaMont Butler",
-      "position": "PG",
-      "priorTeam": "ATL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Devin Carter",
-      "position": "PG",
-      "priorTeam": "ATL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Hank Morgan",
-      "position": "SF",
-      "priorTeam": "BOS",
-      "faType": "U",
-      "birdRights": null
-    }
-  ],
+  "added": [],
   "removed": [],
   "changed": []
 }

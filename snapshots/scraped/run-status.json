@@ -50,7 +50,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 13,
       "failed": []
     }
   },
@@ -59,52 +59,123 @@
     "before": {
       "draft-year": 63,
       "acquisition": 134,
-      "guarantees": 26,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 87,
-      "no-current-salary": 1
-    },
-    "after": {
-      "draft-year": 63,
-      "acquisition": 134,
       "guarantees": 27,
       "signing": 10,
       "awards": 2,
       "name-bridge": 88,
       "no-current-salary": 1
     },
-    "newUnresolved": 2,
+    "after": {
+      "draft-year": 63,
+      "acquisition": 137,
+      "guarantees": 36,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 88,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 12,
     "newByCategory": {
-      "guarantees": 1,
-      "name-bridge": 1
+      "acquisition": 3,
+      "guarantees": 9
     },
     "newRecords": {
+      "acquisition": [
+        {
+          "name": "Christian Shumate",
+          "date": "2026-09-11",
+          "method": "free-agent"
+        },
+        {
+          "name": "Andre Jackson Jr.",
+          "date": "2026-08-04",
+          "method": "free-agent"
+        }
+      ],
       "guarantees": [
         {
-          "player": "Christian Shumate",
-          "team": "New Orleans Pelicans",
+          "player": "Will Baker",
+          "team": "Atlanta Hawks",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Devin Carter",
+          "team": "Boston Celtics",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Caleb Grill",
+          "team": "Boston Celtics",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Keion Brooks Jr.",
+          "team": "Indiana Pacers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Cam Hildreth",
+          "team": "Indiana Pacers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "M.J. Iraldi",
+          "team": "Indiana Pacers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Wade Taylor IV",
+          "team": "Indiana Pacers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Christoph Tilly",
+          "team": "Oklahoma City Thunder",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Andre Jackson Jr.",
+          "team": "Toronto Raptors",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         }
-      ],
-      "name-bridge": [
-        {
-          "name": "Devin Carter"
-        }
       ]
     }
   },
-  "generatedAt": "2026-09-14T16:53:09.784Z",
+  "generatedAt": "2026-09-15T15:32:31.725Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 522)",
+    "players: +0 -1 ~4 (of 522)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -0 ~0 (of 514)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +4 -0 ~0 (of 144)",
+    "contract-details: +0 -1 ~0 (of 514)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
+    "free-agents: +0 -0 ~0 (of 148)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true
