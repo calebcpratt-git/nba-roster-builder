@@ -296,7 +296,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 5391952
+    "remaining": 2942531
    }
   },
   "cashLedger": {
@@ -4681,7 +4681,7 @@
     "signings": [
      {
       "player": "Bennedict Mathurin",
-      "amount": 7804878
+      "amount": 7500000
      }
     ],
     "remaining": null

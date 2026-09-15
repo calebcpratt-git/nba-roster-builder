@@ -23,6 +23,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Devin Carter",
+  "team": "BOS",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Hayden Gray",
   "team": "BOS",
   "section": "Training Camp and Exhibit 10",
@@ -1173,7 +1196,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "Christoph Tilly",
+  "name": "Lamar Wilkerson",
   "team": "OKC",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -1196,17 +1219,17 @@
   "faYear": "RFA"
  },
  {
-  "name": "Lamar Wilkerson",
+  "name": "Christoph Tilly",
   "team": "OKC",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
   },
   "cashSalary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0
@@ -1509,6 +1532,29 @@
   },
   "guaranteed": {
    "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Andre Jackson Jr.",
+  "team": "TOR",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2537526
+  },
+  "guaranteed": {
+   "2026-27": 2537526
   },
   "likelyIncentives": {
    "2026-27": 0

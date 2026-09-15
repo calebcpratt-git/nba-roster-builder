@@ -2908,17 +2908,21 @@
    }
   }
  },
- "kawhi leonard": {
+ "darius garland": {
   "team": "LAC",
   "signedUnder": "bird",
   "incentives": {
    "2026-27": {
     "likely": 0,
     "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
    }
   }
  },
- "darius garland": {
+ "brandon ingram": {
   "team": "LAC",
   "signedUnder": "bird",
   "incentives": {
@@ -2991,6 +2995,16 @@
  "brook lopez": {
   "team": "LAC",
   "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "gradey dick": {
+  "team": "LAC",
+  "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -6615,6 +6629,16 @@
    }
   }
  },
+ "kawhi leonard": {
+  "team": "TOR",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "scottie barnes": {
   "team": "TOR",
   "signedUnder": "bird",
@@ -6632,20 +6656,6 @@
     "unlikely": 0
    },
    "2029-30": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "brandon ingram": {
-  "team": "TOR",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6686,16 +6696,6 @@
    "2026-27": {
     "likely": 0,
     "unlikely": 500000
-   }
-  }
- },
- "gradey dick": {
-  "team": "TOR",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
    }
   }
  },
@@ -6748,16 +6748,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "andre jackson": {
-  "team": "TOR",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

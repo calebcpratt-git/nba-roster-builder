@@ -6495,25 +6495,6 @@
   ]
  },
  {
-  "name": "Kawhi Leonard",
-  "team": "LAC",
-  "salary": {
-   "2026-27": 50300000
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 50300000
-  },
-  "guaranteed": {
-   "2026-27": 50300000
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "acquiredMethod": "Trade"
- },
- {
   "name": "Darius Garland",
   "team": "LAC",
   "salary": {
@@ -6535,6 +6516,40 @@
   },
   "optionExercised": {},
   "acquiredMethod": "Trade"
+ },
+ {
+  "name": "Brandon Ingram",
+  "team": "LAC",
+  "salary": {
+   "2026-27": 40000000,
+   "2027-28": 41904762
+  },
+  "options": {
+   "2027-28": "Player"
+  },
+  "cashSalary": {
+   "2026-27": 40000000,
+   "2027-28": 41904762
+  },
+  "guaranteed": {
+   "2026-27": 40000000,
+   "2027-28": 41904762
+  },
+  "likelyIncentives": {
+   "2026-27": 0,
+   "2027-28": 0
+  },
+  "optionExercised": {
+   "2027-28": false
+  },
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-14",
+    "method": "trade",
+    "team": "LAC"
+   }
+  ]
  },
  {
   "name": "Max Strus",
@@ -6689,6 +6704,34 @@
    "2026-27": true
   },
   "acquiredMethod": "Signed"
+ },
+ {
+  "name": "Gradey Dick",
+  "team": "LAC",
+  "salary": {
+   "2026-27": 7131510
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 7131510
+  },
+  "guaranteed": {
+   "2026-27": 7131510
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {
+   "2026-27": true
+  },
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-14",
+    "method": "trade",
+    "team": "LAC"
+   }
+  ]
  },
  {
   "name": "Isaiah Jackson",
@@ -10209,19 +10252,19 @@
   "name": "Bennedict Mathurin",
   "team": "NOP",
   "salary": {
-   "2026-27": 7804878,
-   "2027-28": 8195122
+   "2026-27": 7500000,
+   "2027-28": 7875000
   },
   "options": {
    "2027-28": "Player"
   },
   "cashSalary": {
-   "2026-27": 7804878,
-   "2027-28": 8195122
+   "2026-27": 7500000,
+   "2027-28": 7875000
   },
   "guaranteed": {
-   "2026-27": 7804878,
-   "2027-28": 8195122
+   "2026-27": 7500000,
+   "2027-28": 7875000
   },
   "likelyIncentives": {
    "2026-27": 0,
@@ -10234,6 +10277,11 @@
   "acquisitionHistory": [
    {
     "date": "2026-08-26",
+    "method": "free-agent",
+    "team": "NOP"
+   },
+   {
+    "date": "2026-09-10",
     "method": "free-agent",
     "team": "NOP"
    }
@@ -14614,6 +14662,32 @@
   "acquiredMethod": "Signed"
  },
  {
+  "name": "Kawhi Leonard",
+  "team": "TOR",
+  "salary": {
+   "2026-27": 50300000
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 50300000
+  },
+  "guaranteed": {
+   "2026-27": 50300000
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-14",
+    "method": "trade",
+    "team": "TOR"
+   }
+  ]
+ },
+ {
   "name": "Scottie Barnes",
   "team": "TOR",
   "salary": {
@@ -14643,33 +14717,6 @@
   },
   "optionExercised": {},
   "acquiredMethod": "Draft"
- },
- {
-  "name": "Brandon Ingram",
-  "team": "TOR",
-  "salary": {
-   "2026-27": 40000000,
-   "2027-28": 41904762
-  },
-  "options": {
-   "2027-28": "Player"
-  },
-  "cashSalary": {
-   "2026-27": 40000000,
-   "2027-28": 41904762
-  },
-  "guaranteed": {
-   "2026-27": 40000000,
-   "2027-28": 41904762
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "optionExercised": {
-   "2027-28": false
-  },
-  "acquiredMethod": "Trade"
  },
  {
   "name": "Immanuel Quickley",
@@ -14749,27 +14796,6 @@
    "2026-27": true
   },
   "acquiredMethod": "Signed"
- },
- {
-  "name": "Gradey Dick",
-  "team": "TOR",
-  "salary": {
-   "2026-27": 7131510
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 7131510
-  },
-  "guaranteed": {
-   "2026-27": 7131510
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {
-   "2026-27": true
-  },
-  "acquiredMethod": "Trade"
  },
  {
   "name": "Collin Murray-Boyles",
@@ -14874,37 +14900,6 @@
    "2027-28": false
   },
   "acquiredMethod": "Draft"
- },
- {
-  "name": "Andre Jackson Jr.",
-  "team": "TOR",
-  "salary": {
-   "2026-27": 2449421
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 2537526
-  },
-  "guaranteed": {
-   "2026-27": 2537526
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-08-04",
-    "method": "free-agent",
-    "team": "TOR"
-   }
-  ],
-  "guarantees": {
-   "2026-27": {
-    "status": "non-guaranteed"
-   }
-  }
  },
  {
   "name": "Kyle Anderson",

@@ -35,7 +35,7 @@
    "ATL"
   ],
   "fromTeams": [],
-  "text": "Signed to Camp Invite",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -239,6 +239,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Devin Carter",
+  "date": "2026-09-14",
+  "dateRaw": "Sep 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BOS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2816,6 +2829,36 @@
  },
  {
   "bbrefId": null,
+  "name": "Gradey Dick",
+  "date": "2026-09-14",
+  "dateRaw": "Sep 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [
+   "TOR"
+  ],
+  "text": "Traded from TOR",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Brandon Ingram",
+  "date": "2026-09-14",
+  "dateRaw": "Sep 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [
+   "TOR"
+  ],
+  "text": "Traded from TOR",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Fletcher Loyer",
   "date": "2026-06-25",
   "dateRaw": "Jun 25, 2026",
@@ -4021,6 +4064,32 @@
  },
  {
   "bbrefId": null,
+  "name": "Christian Shumate",
+  "date": "2026-09-11",
+  "dateRaw": "Sep 11, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Bennedict Mathurin",
+  "date": "2026-09-10",
+  "dateRaw": "Sep 10, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Taj Gibson",
   "date": "2026-09-08",
   "dateRaw": "Sep 8, 2026",
@@ -4047,19 +4116,6 @@
    "MEM"
   ],
   "text": "Traded from MEM",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Bennedict Mathurin",
-  "date": "2026-08-26",
-  "dateRaw": "Aug 26, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "NOP"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -4384,6 +4440,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Christoph Tilly",
+  "date": "2026-09-14",
+  "dateRaw": "Sep 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "OKC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Kenrich Williams",
   "date": "2026-07-06",
   "dateRaw": "Jul 6, 2026",
@@ -4471,19 +4540,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Christoph Tilly",
-  "date": "2026-06-24",
-  "dateRaw": "Jun 24, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "OKC"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -5570,7 +5626,7 @@
    "TOR"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -5649,6 +5705,21 @@
   ],
   "fromTeams": [],
   "text": "Signed to Rookie Scale Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Kawhi Leonard",
+  "date": "2026-09-14",
+  "dateRaw": "Sep 14, 2026",
+  "method": "trade",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [
+   "LAC"
+  ],
+  "text": "Traded from LAC",
   "flags": []
  },
  {

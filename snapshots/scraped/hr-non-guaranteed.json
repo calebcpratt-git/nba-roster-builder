@@ -8,7 +8,31 @@
   "exhibit10": false
  },
  {
+  "player": "Will Baker",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Devin Carter",
+  "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tucker DeVries",
+  "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Caleb Grill",
   "team": "Boston Celtics",
   "fullAmount": null,
   "partialAmount": null,
@@ -168,6 +192,38 @@
   "exhibit10": true
  },
  {
+  "player": "Keion Brooks Jr.",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Cam Hildreth",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "M.J. Iraldi",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Wade Taylor IV",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Cam Christie",
   "team": "Los Angeles Clippers",
   "fullAmount": null,
@@ -282,6 +338,14 @@
  {
   "player": "Christian Shumate",
   "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Christoph Tilly",
+  "team": "Oklahoma City Thunder",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

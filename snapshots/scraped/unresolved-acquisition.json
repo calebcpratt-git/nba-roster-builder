@@ -35,6 +35,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Devin Carter",
+  "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Hank Morgan",
   "date": "2026-09-10",
   "method": "free-agent"
@@ -415,6 +420,11 @@
   "method": "trade"
  },
  {
+  "name": "Christian Shumate",
+  "date": "2026-09-11",
+  "method": "free-agent"
+ },
+ {
   "name": "Taj Gibson",
   "date": "2026-09-08",
   "method": "trade"
@@ -476,7 +486,7 @@
  },
  {
   "name": "Christoph Tilly",
-  "date": "2026-06-24",
+  "date": "2026-09-14",
   "method": "free-agent"
  },
  {
@@ -587,6 +597,11 @@
  {
   "name": "Malachi Smith",
   "date": "2026-08-17",
+  "method": "free-agent"
+ },
+ {
+  "name": "Andre Jackson Jr.",
+  "date": "2026-08-04",
   "method": "free-agent"
  },
  {
