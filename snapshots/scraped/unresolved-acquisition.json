@@ -1,5 +1,10 @@
 [
  {
+  "name": "William Baker",
+  "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Lamont Butler",
   "date": "2026-09-10",
   "method": "free-agent"
@@ -35,13 +40,18 @@
   "method": "free-agent"
  },
  {
+  "name": "Caleb Grill",
+  "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Devin Carter",
   "date": "2026-09-14",
   "method": "free-agent"
  },
  {
   "name": "Hank Morgan",
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "method": "free-agent"
  },
  {
@@ -62,6 +72,16 @@
  {
   "name": "Dalano Banton",
   "date": "2026-04-11",
+  "method": "free-agent"
+ },
+ {
+  "name": "Dwight Murray, Jr.",
+  "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Isaiah Wong",
+  "date": "2026-09-15",
   "method": "free-agent"
  },
  {
@@ -225,8 +245,13 @@
   "method": "free-agent"
  },
  {
+  "name": "Dawson Garcia",
+  "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Basheer Jihad",
-  "date": "2026-08-14",
+  "date": "2026-09-14",
   "method": "free-agent"
  },
  {
@@ -245,6 +270,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Chance McMillian",
+  "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Deivon Smith",
+  "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
   "name": "Alex Toohey",
   "date": "2026-09-09",
   "method": "free-agent"
@@ -252,11 +287,6 @@
  {
   "name": "Dalen Terry",
   "date": "2026-08-31",
-  "method": "free-agent"
- },
- {
-  "name": "Deivon Smith",
-  "date": "2026-08-24",
   "method": "free-agent"
  },
  {
@@ -292,6 +322,26 @@
  {
   "name": "JD Davison",
   "date": "2026-04-07",
+  "method": "free-agent"
+ },
+ {
+  "name": "Keion Brooks Jr.",
+  "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
+  "name": "Cameron Hildreth",
+  "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
+  "name": "M.J. Iraldi",
+  "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
+  "name": "Wade Taylor IV",
+  "date": "2026-09-14",
   "method": "free-agent"
  },
  {
@@ -400,11 +450,6 @@
   "method": "free-agent"
  },
  {
-  "name": "John Konchar",
-  "date": "2026-08-29",
-  "method": "trade"
- },
- {
   "name": "Nah'Shon Bones Hyland",
   "date": "2026-07-03",
   "method": "free-agent"
@@ -418,6 +463,11 @@
   "name": "Mouhamadou Gueye",
   "date": "2026-06-22",
   "method": "trade"
+ },
+ {
+  "name": "Johnny O’Neil",
+  "date": "2026-09-14",
+  "method": "free-agent"
  },
  {
   "name": "Christian Shumate",
@@ -506,7 +556,7 @@
  },
  {
   "name": "Malaki Branham",
-  "date": "2026-08-26",
+  "date": "2026-09-03",
   "method": "free-agent"
  },
  {

@@ -376,6 +376,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Mohamed Diawara": { signedUnder: 'non-bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Jordan Clarkson": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Andre Drummond": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
+  "John Konchar": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Tyler Kolek": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Chet Holmgren": { signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 }, "2030-31": { likely: 0, unlikely: 0 } } },
   "Jalen Williams": { signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 }, "2030-31": { likely: 0, unlikely: 0 } } },
@@ -532,6 +533,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Kyshawn George": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Tristan Vukcevic": { incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Justin Champagnie": { incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
+  "Anthony Gill": { signedUnder: 'minimum', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Felix Okpara": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Jamir Watkins": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
 }

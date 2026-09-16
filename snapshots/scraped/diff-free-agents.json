@@ -1,5 +1,27 @@
 {
   "added": [],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Devin Carter",
+      "position": "PG",
+      "priorTeam": "ATL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Anthony Gill",
+      "position": "SF",
+      "priorTeam": "WAS",
+      "faType": "U",
+      "birdRights": "full-bird"
+    },
+    {
+      "name": "John Konchar",
+      "position": "SG",
+      "priorTeam": "MIN",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
   "changed": []
 }
