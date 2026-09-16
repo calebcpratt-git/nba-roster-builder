@@ -4939,6 +4939,16 @@
    }
   }
  },
+ "john konchar": {
+  "team": "NYK",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "tyler kolek": {
   "team": "NYK",
   "signedUnder": "rookie-scale",
@@ -7290,6 +7300,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "anthony gill": {
+  "team": "WAS",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

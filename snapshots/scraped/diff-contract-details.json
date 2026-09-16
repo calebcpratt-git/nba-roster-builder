@@ -1,8 +1,17 @@
 {
-  "added": [],
-  "removed": [
+  "added": [
     {
-      "name": "Andre Jackson Jr.",
+      "name": "John Konchar",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Anthony Gill",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -12,5 +21,6 @@
       }
     }
   ],
+  "removed": [],
   "changed": []
 }

@@ -154,13 +154,6 @@
   "birdRights": null
  },
  {
-  "name": "Devin Carter",
-  "position": "PG",
-  "priorTeam": "ATL",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Kennedy Chandler",
   "position": "PG",
   "priorTeam": "UTA",
@@ -292,13 +285,6 @@
   "priorTeam": "NOP",
   "faType": "U",
   "birdRights": null
- },
- {
-  "name": "Anthony Gill",
-  "position": "SF",
-  "priorTeam": "WAS",
-  "faType": "U",
-  "birdRights": "full-bird"
  },
  {
   "name": "Eric Gordon",
@@ -451,13 +437,6 @@
   "name": "Bobi Klintman",
   "position": "PF",
   "priorTeam": "DET",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "John Konchar",
-  "position": "SG",
-  "priorTeam": "MIN",
   "faType": "U",
   "birdRights": null
  },

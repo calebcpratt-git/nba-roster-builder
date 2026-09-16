@@ -5004,6 +5004,16 @@
   }
  },
  {
+  "name": "John Konchar",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Tyler Kolek",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -7226,6 +7236,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Anthony Gill",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

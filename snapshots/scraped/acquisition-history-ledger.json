@@ -11783,5 +11783,24 @@
    "method": "trade",
    "team": "TOR"
   }
+ ],
+ "john konchar": [
+  {
+   "date": "2026-08-29",
+   "method": "trade",
+   "team": "MIN"
+  },
+  {
+   "date": "2026-09-15",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "anthony gill": [
+  {
+   "date": "2026-09-15",
+   "method": "free-agent",
+   "team": "WAS"
+  }
  ]
 }

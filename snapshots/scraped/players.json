@@ -10958,6 +10958,37 @@
   ]
  },
  {
+  "name": "John Konchar",
+  "team": "NYK",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 3286399
+  },
+  "guaranteed": {
+   "2026-27": 3286399
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-08-29",
+    "method": "trade",
+    "team": "MIN"
+   },
+   {
+    "date": "2026-09-15",
+    "method": "free-agent",
+    "team": "NYK"
+   }
+  ]
+ },
+ {
   "name": "Tyler Kolek",
   "team": "NYK",
   "salary": {
@@ -16091,6 +16122,32 @@
     "status": "non-guaranteed"
    }
   }
+ },
+ {
+  "name": "Anthony Gill",
+  "team": "WAS",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 3066143
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-15",
+    "method": "free-agent",
+    "team": "WAS"
+   }
+  ]
  },
  {
   "name": "Felix Okpara",

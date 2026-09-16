@@ -172,6 +172,10 @@
   "team": "NOP"
  },
  {
+  "name": "John Konchar",
+  "team": "NYK"
+ },
+ {
   "name": "Josh Dix",
   "team": "OKC"
  },
@@ -249,6 +253,10 @@
  },
  {
   "name": "Tristan Vukcevic",
+  "team": "WAS"
+ },
+ {
+  "name": "Anthony Gill",
   "team": "WAS"
  }
 ]
