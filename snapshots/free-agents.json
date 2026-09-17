@@ -1,12 +1,5 @@
 [
   {
-    "name": "Ochai Agbaji",
-    "position": "SG",
-    "priorTeam": "BRK",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Josiah Allick",
     "position": "PF",
     "priorTeam": "CHO",
@@ -126,13 +119,6 @@
     "birdRights": null
   },
   {
-    "name": "Bruce Brown, Jr.",
-    "position": "G-F",
-    "priorTeam": "DEN",
-    "faType": "U",
-    "birdRights": "non-bird"
-  },
-  {
     "name": "Keyshawn Bryant",
     "position": "SF",
     "priorTeam": "ATL",
@@ -238,13 +224,6 @@
     "birdRights": "early-bird"
   },
   {
-    "name": "Drew Eubanks",
-    "position": "F-C",
-    "priorTeam": "SAC",
-    "faType": "U",
-    "birdRights": "non-bird"
-  },
-  {
     "name": "Tosan Evbuomwan",
     "position": "PF",
     "priorTeam": "CHO",
@@ -306,6 +285,13 @@
     "priorTeam": "HOU",
     "faType": "U",
     "birdRights": "full-bird"
+  },
+  {
+    "name": "Caleb Grill",
+    "position": "PG",
+    "priorTeam": "BOS",
+    "faType": "U",
+    "birdRights": null
   },
   {
     "name": "Mouhamadou Gueye",
@@ -595,13 +581,6 @@
     "birdRights": "early-bird"
   },
   {
-    "name": "Toby Okani",
-    "position": "PF",
-    "priorTeam": "MEM",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Lachlan Olbrich",
     "position": "C",
     "priorTeam": "CHI",
@@ -656,13 +635,6 @@
     "priorTeam": "DAL",
     "faType": "U",
     "birdRights": "full-bird"
-  },
-  {
-    "name": "Duop Reath",
-    "position": "C",
-    "priorTeam": "ATL",
-    "faType": "U",
-    "birdRights": null
   },
   {
     "name": "Julian Reese",
@@ -768,6 +740,13 @@
     "priorTeam": "BOS",
     "faType": "U",
     "birdRights": "non-bird"
+  },
+  {
+    "name": "Christian Shumate",
+    "position": "SF",
+    "priorTeam": "NOP",
+    "faType": "U",
+    "birdRights": null
   },
   {
     "name": "Nick Smith, Jr.",
@@ -976,13 +955,6 @@
     "name": "Lucas Williamson",
     "position": "SG",
     "priorTeam": "MEM",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
-    "name": "Isaiah Wong",
-    "position": "SG",
-    "priorTeam": "CHO",
     "faType": "U",
     "birdRights": null
   },

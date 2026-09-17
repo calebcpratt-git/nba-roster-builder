@@ -34,12 +34,6 @@
   "secondApron": 222000000,
   "heldTPEs": [
    {
-    "id": "ATL-kobe-bufkin-2025-09-16",
-    "amount": 4503720,
-    "expires": "2026-09-16",
-    "fromPlayer": "Kobe Bufkin"
-   },
-   {
     "id": "ATL-trae-young-2026-01-09",
     "amount": 1357994,
     "expires": "2027-01-09",
@@ -513,11 +507,6 @@
     "amount": 2200000,
     "kind": "free-agent",
     "birdRights": "non-bird"
-   },
-   {
-    "label": "Ochai Agbaji",
-    "amount": 19200000,
-    "kind": "free-agent"
    }
   ],
   "salaryCap": 165000000,
@@ -5006,10 +4995,6 @@
    }
   ],
   "exceptionsUsed": {
-   "taxpayerMLE": {
-    "signings": [],
-    "remaining": 6064000
-   },
    "biAnnual": {
     "signings": [],
     "remaining": 0
@@ -6152,7 +6137,7 @@
       "amount": 6064000
      }
     ],
-    "remaining": 0
+    "remaining": null
    }
   },
   "cashLedger": {
@@ -6504,12 +6489,6 @@
     "amount": 2500000,
     "kind": "free-agent",
     "birdRights": "early-bird"
-   },
-   {
-    "label": "Drew Eubanks",
-    "amount": 2500000,
-    "kind": "free-agent",
-    "birdRights": "non-bird"
    },
    {
     "label": "Markelle Fultz",
@@ -7616,12 +7595,6 @@
   "season": "2026-27",
   "deadMoney": [],
   "capHolds": [
-   {
-    "label": "Anthony Gill",
-    "amount": 2500000,
-    "kind": "free-agent",
-    "birdRights": "full-bird"
-   },
    {
     "label": "Sharife Cooper",
     "amount": 2200000,

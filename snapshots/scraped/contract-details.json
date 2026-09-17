@@ -5004,16 +5004,6 @@
   }
  },
  {
-  "name": "John Konchar",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Tyler Kolek",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -5755,24 +5745,6 @@
   }
  },
  {
-  "name": "Mark Williams",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Collin Gillespie",
   "signedUnder": "early-bird",
   "incentives": {
@@ -5891,6 +5863,16 @@
   }
  },
  {
+  "name": "Duop Reath",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Haywood Highsmith",
   "signedUnder": "minimum",
   "incentives": {
@@ -5917,6 +5899,24 @@
  {
   "name": "Rasheer Fleming",
   "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Mark Williams",
+  "signedUnder": "bird",
   "incentives": {
    "2026-27": {
     "likely": 0,

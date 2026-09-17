@@ -4,18 +4,371 @@
   "changed": [
     {
       "before": {
-        "team": "WAS",
+        "team": "ATL",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "N'Faly Dante",
+            "amount": 2411090
+          }
+        ],
+        "capHolds": [
+          {
+            "label": "Keaton Wallace",
+            "amount": 3400000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Tony Bradley",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Gabe Vincent",
+            "amount": 21900000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "ATL-kobe-bufkin-2025-09-16",
+            "amount": 4503720,
+            "expires": "2026-09-16",
+            "fromPlayer": "Kobe Bufkin"
+          },
+          {
+            "id": "ATL-trae-young-2026-01-09",
+            "amount": 1357994,
+            "expires": "2027-01-09",
+            "fromPlayer": "Trae Young"
+          },
+          {
+            "id": "ATL-vit-krejci-2026-02-01",
+            "amount": 2349578,
+            "expires": "2027-02-01",
+            "fromPlayer": "Vit Krejci"
+          },
+          {
+            "id": "ATL-luke-kennard-2026-02-05",
+            "amount": 1775700,
+            "expires": "2027-02-05",
+            "fromPlayer": "Luke Kennard"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Jock Landale (Jul 10)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Jock Landale",
+                "amount": 14100000
+              }
+            ],
+            "remaining": 944000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Luke Kennard",
+              "usedByPlayer": "Aaron Wiggins",
+              "amount": 9224300,
+              "date": "2026-07-06"
+            }
+          ]
+        },
+        "cashLedger": {
+          "availableToSend": 1964000,
+          "availableToReceive": 7768700
+        },
+        "apronAddon": 1196262
+      },
+      "after": {
+        "team": "ATL",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "N'Faly Dante",
+            "amount": 2411090
+          }
+        ],
+        "capHolds": [
+          {
+            "label": "Keaton Wallace",
+            "amount": 3400000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Tony Bradley",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Gabe Vincent",
+            "amount": 21900000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "ATL-trae-young-2026-01-09",
+            "amount": 1357994,
+            "expires": "2027-01-09",
+            "fromPlayer": "Trae Young"
+          },
+          {
+            "id": "ATL-vit-krejci-2026-02-01",
+            "amount": 2349578,
+            "expires": "2027-02-01",
+            "fromPlayer": "Vit Krejci"
+          },
+          {
+            "id": "ATL-luke-kennard-2026-02-05",
+            "amount": 1775700,
+            "expires": "2027-02-05",
+            "fromPlayer": "Luke Kennard"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Jock Landale (Jul 10)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Jock Landale",
+                "amount": 14100000
+              }
+            ],
+            "remaining": 944000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Luke Kennard",
+              "usedByPlayer": "Aaron Wiggins",
+              "amount": 9224300,
+              "date": "2026-07-06"
+            }
+          ]
+        },
+        "cashLedger": {
+          "availableToSend": 1964000,
+          "availableToReceive": 7768700
+        },
+        "apronAddon": 1196262
+      },
+      "fields": [
+        "heldTPEs"
+      ]
+    },
+    {
+      "before": {
+        "team": "BRK",
         "season": "2026-27",
         "deadMoney": [],
         "capHolds": [
           {
-            "label": "Anthony Gill",
-            "amount": 2500000,
+            "label": "Tyson Etienne",
+            "amount": 2200000,
             "kind": "free-agent",
-            "birdRights": "full-bird"
+            "birdRights": "early-bird"
           },
           {
-            "label": "Sharife Cooper",
+            "label": "E.J. Liddell",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Ochai Agbaji",
+            "amount": 19200000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "exceptionsUsed": {
+          "roomMLE": {
+            "signings": [],
+            "remaining": 9366000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 6644000,
+          "availableToReceive": 4464000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "BRK",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Tyson Etienne",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "E.J. Liddell",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "exceptionsUsed": {
+          "roomMLE": {
+            "signings": [],
+            "remaining": 9366000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 6644000,
+          "availableToReceive": 4464000
+        },
+        "apronAddon": 0
+      },
+      "fields": [
+        "capHolds"
+      ]
+    },
+    {
+      "before": {
+        "team": "NYK",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "NYK-dalen-terry-2026-02-05",
+            "amount": 899118,
+            "expires": "2027-02-05",
+            "fromPlayer": "Dalen Terry"
+          },
+          {
+            "id": "NYK-guerschon-yabusele-2026-02-05",
+            "amount": 100882,
+            "expires": "2027-02-05",
+            "fromPlayer": "Guerschon Yabusele"
+          }
+        ],
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7075000,
+          "availableToReceive": 464000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "NYK",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "NYK-dalen-terry-2026-02-05",
+            "amount": 899118,
+            "expires": "2027-02-05",
+            "fromPlayer": "Dalen Terry"
+          },
+          {
+            "id": "NYK-guerschon-yabusele-2026-02-05",
+            "amount": 100882,
+            "expires": "2027-02-05",
+            "fromPlayer": "Guerschon Yabusele"
+          }
+        ],
+        "exceptionsUsed": {
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7075000,
+          "availableToReceive": 464000
+        },
+        "apronAddon": 0
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "PHO",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Nassir Little",
+            "amount": 3107143
+          },
+          {
+            "player": "E.J. Liddell",
+            "amount": 706898
+          },
+          {
+            "player": "Bradley Beal",
+            "amount": 19383010
+          }
+        ],
+        "capHolds": [
+          {
+            "label": "Amir Coffey",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Isaiah Livers",
             "amount": 2200000,
             "kind": "free-agent",
             "birdRights": "non-bird"
@@ -27,43 +380,250 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "WAS-jaden-hardy-2026-07-08",
-            "amount": 6000000,
-            "expires": "2027-07-08",
-            "fromPlayer": "Jaden Hardy"
+            "id": "PHO-nick-richards-2026-02-05",
+            "amount": 5000000,
+            "expires": "2027-02-05",
+            "fromPlayer": "Nick Richards"
           },
           {
-            "id": "WAS-dangelo-russell-2026-07-08",
-            "amount": 5969250,
-            "expires": "2027-07-08",
-            "fromPlayer": "D'Angelo Russell"
+            "id": "PHO-nigel-hayes-davis-2026-02-05",
+            "amount": 2048492,
+            "expires": "2027-02-05",
+            "fromPlayer": "Nigel Hayes-Davis"
+          }
+        ],
+        "hardCapped": {
+          "apron": 2,
+          "trigger": "Any MLE: Luke Kennard (Jul 14)"
+        },
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [
+              {
+                "player": "Luke Kennard",
+                "amount": 6064000
+              }
+            ],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 1464000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "PHO",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Nassir Little",
+            "amount": 3107143
+          },
+          {
+            "player": "E.J. Liddell",
+            "amount": 706898
+          },
+          {
+            "player": "Bradley Beal",
+            "amount": 19383010
+          }
+        ],
+        "capHolds": [
+          {
+            "label": "Amir Coffey",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Isaiah Livers",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "PHO-nick-richards-2026-02-05",
+            "amount": 5000000,
+            "expires": "2027-02-05",
+            "fromPlayer": "Nick Richards"
+          },
+          {
+            "id": "PHO-nigel-hayes-davis-2026-02-05",
+            "amount": 2048492,
+            "expires": "2027-02-05",
+            "fromPlayer": "Nigel Hayes-Davis"
+          }
+        ],
+        "hardCapped": {
+          "apron": 2,
+          "trigger": "Any MLE: Luke Kennard (Jul 14)"
+        },
+        "exceptionsUsed": {
+          "taxpayerMLE": {
+            "signings": [
+              {
+                "player": "Luke Kennard",
+                "amount": 6064000
+              }
+            ],
+            "remaining": null
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 1464000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "SAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Isaiah Stevens",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Doug McDermott",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Drew Eubanks",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          },
+          {
+            "label": "Markelle Fultz",
+            "amount": 2500000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "SAC-dario-saric-2026-02-01",
+            "amount": 5426000,
+            "expires": "2027-02-01",
+            "fromPlayer": "Dario Saric"
+          },
+          {
+            "id": "SAC-devin-carter-2026-06-30",
+            "amount": 4923720,
+            "expires": "2027-06-30",
+            "fromPlayer": "Devin Carter"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "Trade Salary Acquired: Aug 20 trade"
+          "trigger": "BAE: Precious Achiuwa (Jul 7)"
         },
         "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 14277968
-          },
-          "taxpayerMLE": {
-            "signings": [],
-            "remaining": 0
-          },
           "biAnnual": {
-            "signings": [],
-            "remaining": 5477000
+            "signings": [
+              {
+                "player": "Precious Achiuwa",
+                "amount": 5477000,
+                "date": "2026-07-07"
+              }
+            ],
+            "remaining": 0
           }
         },
         "cashLedger": {
           "availableToSend": 7964000,
           "availableToReceive": 7964000
         },
-        "apronAddon": 0
+        "apronAddon": 3850000
       },
       "after": {
+        "team": "SAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Isaiah Stevens",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Doug McDermott",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Markelle Fultz",
+            "amount": 2500000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "SAC-dario-saric-2026-02-01",
+            "amount": 5426000,
+            "expires": "2027-02-01",
+            "fromPlayer": "Dario Saric"
+          },
+          {
+            "id": "SAC-devin-carter-2026-06-30",
+            "amount": 4923720,
+            "expires": "2027-06-30",
+            "fromPlayer": "Devin Carter"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+        },
+        "exceptionsUsed": {
+          "biAnnual": {
+            "signings": [
+              {
+                "player": "Precious Achiuwa",
+                "amount": 5477000,
+                "date": "2026-07-07"
+              }
+            ],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 3850000
+      },
+      "fields": [
+        "capHolds"
+      ]
+    },
+    {
+      "before": {
         "team": "WAS",
         "season": "2026-27",
         "deadMoney": [],
@@ -123,8 +683,62 @@
         },
         "apronAddon": 0
       },
+      "after": {
+        "team": "WAS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Sharife Cooper",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "WAS-jaden-hardy-2026-07-08",
+            "amount": 6000000,
+            "expires": "2027-07-08",
+            "fromPlayer": "Jaden Hardy"
+          },
+          {
+            "id": "WAS-dangelo-russell-2026-07-08",
+            "amount": 5969250,
+            "expires": "2027-07-08",
+            "fromPlayer": "D'Angelo Russell"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Aug 20 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 11828547
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
+      },
       "fields": [
-        "exceptionsUsed"
+        "capHolds"
       ]
     }
   ]

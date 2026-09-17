@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 12,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 63,
-      "acquisition": 137,
-      "guarantees": 36,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 88,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 65,
       "acquisition": 147,
       "guarantees": 30,
@@ -74,104 +65,177 @@
       "name-bridge": 91,
       "no-current-salary": 1
     },
-    "newUnresolved": 15,
+    "after": {
+      "draft-year": 65,
+      "acquisition": 160,
+      "guarantees": 36,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 92,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 20,
     "newByCategory": {
-      "draft-year": 2,
-      "acquisition": 10,
-      "name-bridge": 3
+      "acquisition": 13,
+      "guarantees": 6,
+      "name-bridge": 1
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "John Konchar",
-          "team": "NYK"
-        },
-        {
-          "name": "Anthony Gill",
-          "team": "WAS"
+          "name": "Duop Reath",
+          "team": "PHO"
         }
       ],
       "acquisition": [
         {
-          "name": "William Baker",
-          "date": "2026-09-14",
-          "method": "free-agent"
+          "name": "John Konchar",
+          "date": "2026-08-29",
+          "method": "trade"
         },
         {
-          "name": "Caleb Grill",
-          "date": "2026-09-14",
-          "method": "free-agent"
-        },
-        {
-          "name": "Dwight Murray, Jr.",
+          "name": "Aziz Bandaogo",
           "date": "2026-09-15",
           "method": "free-agent"
         },
         {
-          "name": "Isaiah Wong",
+          "name": "James Wiseman",
+          "date": "2026-09-16",
+          "method": "free-agent"
+        },
+        {
+          "name": "Ochai Agbaji",
+          "date": "2026-09-16",
+          "method": "free-agent"
+        },
+        {
+          "name": "Drew Eubanks",
+          "date": "2026-09-16",
+          "method": "free-agent"
+        },
+        {
+          "name": "Bruce Brown Jr.",
+          "date": "2026-09-16",
+          "method": "free-agent"
+        },
+        {
+          "name": "Nick Jourdain",
           "date": "2026-09-15",
           "method": "free-agent"
         },
         {
-          "name": "Dawson Garcia",
-          "date": "2026-09-14",
-          "method": "free-agent"
-        },
-        {
-          "name": "Chance McMillian",
+          "name": "Paul Zilinskas",
           "date": "2026-09-15",
           "method": "free-agent"
         },
         {
-          "name": "Keion Brooks Jr.",
-          "date": "2026-09-14",
+          "name": "Toby Okani",
+          "date": "2026-09-15",
           "method": "free-agent"
         },
         {
-          "name": "Cameron Hildreth",
-          "date": "2026-09-14",
+          "name": "Mitch Mascari",
+          "date": "2026-09-15",
           "method": "free-agent"
         },
         {
-          "name": "M.J. Iraldi",
-          "date": "2026-09-14",
+          "name": "Igor Milicic",
+          "date": "2026-09-15",
           "method": "free-agent"
         },
         {
-          "name": "Wade Taylor IV",
-          "date": "2026-09-14",
+          "name": "Jaden Akins",
+          "date": "2026-09-15",
           "method": "free-agent"
         },
         {
-          "name": "Johnny O’Neil",
-          "date": "2026-09-14",
+          "name": "Liam Robbins",
+          "date": "2026-09-15",
           "method": "free-agent"
+        },
+        {
+          "name": "John Konchar",
+          "date": "2026-09-15",
+          "method": "free-agent"
+        }
+      ],
+      "guarantees": [
+        {
+          "player": "Sean McNeil",
+          "team": "Cleveland Cavaliers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Ochai Agbaji",
+          "team": "New York Knicks",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "Bruce Brown",
+          "team": "New York Knicks",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "Drew Eubanks",
+          "team": "New York Knicks",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "John Konchar",
+          "team": "New York Knicks",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "James Wiseman",
+          "team": "New York Knicks",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
         }
       ],
       "name-bridge": [
         {
-          "name": "Andre Jackson Jr."
+          "name": "Bruce Brown Jr."
         },
         {
-          "name": "Anthony Gill"
+          "name": "Drew Eubanks"
         },
         {
-          "name": "Chance McMillian"
+          "name": "Duop Reath"
         },
         {
-          "name": "William Baker"
+          "name": "James Wiseman"
+        },
+        {
+          "name": "Ochai Agbaji"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-16T15:24:55.653Z",
+  "generatedAt": "2026-09-17T15:30:59.825Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -0 ~0 (of 521)",
+    "players: +1 -1 ~1 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +2 -0 ~0 (of 513)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -3 ~0 (of 148)",
+    "contract-details: +1 -1 ~0 (of 515)",
+    "team-cap-state: +0 -0 ~6 (of 150)",
+    "free-agents: +2 -6 ~0 (of 145)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

@@ -72,6 +72,14 @@
   "exhibit10": false
  },
  {
+  "player": "Sean McNeil",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Moussa Cisse",
   "team": "Dallas Mavericks",
   "fullAmount": null,
@@ -296,6 +304,46 @@
   "exhibit10": false
  },
  {
+  "player": "Ochai Agbaji",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Bruce Brown",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Drew Eubanks",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "John Konchar",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "James Wiseman",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Christoph Tilly",
   "team": "Oklahoma City Thunder",
   "fullAmount": null,
@@ -473,6 +521,14 @@
  },
  {
   "player": "Justin Champagnie",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Anthony Gill",
   "team": "Washington Wizards",
   "fullAmount": null,
   "partialAmount": null,
