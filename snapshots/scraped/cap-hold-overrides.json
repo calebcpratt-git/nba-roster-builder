@@ -91,6 +91,12 @@
  },
  {
   "team": "BRK",
+  "player": "Ochai Agbaji",
+  "amount": 19200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "BRK",
   "player": "Ziaire Williams",
   "amount": 11900000,
   "reason": "not-in-realgm-current-free-agents"
@@ -1274,6 +1280,12 @@
  },
  {
   "team": "SAC",
+  "player": "Drew Eubanks",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
   "player": "Precious Achiuwa",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"
@@ -1414,6 +1426,12 @@
  {
   "team": "WAS",
   "player": "Shabazz Napier",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "WAS",
+  "player": "Anthony Gill",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"
  },

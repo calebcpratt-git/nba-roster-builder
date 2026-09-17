@@ -1,6 +1,34 @@
 {
   "added": [
     {
+      "name": "Duop Reath",
+      "team": "PHO",
+      "salary": {
+        "2026-27": 2449421
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 2537526
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-16",
+          "method": "free-agent",
+          "team": "PHO"
+        }
+      ]
+    }
+  ],
+  "removed": [
+    {
       "name": "John Konchar",
       "team": "NYK",
       "salary": {
@@ -30,34 +58,70 @@
           "team": "NYK"
         }
       ]
-    },
-    {
-      "name": "Anthony Gill",
-      "team": "WAS",
-      "salary": {
-        "2026-27": 2449421
-      },
-      "options": {},
-      "cashSalary": {
-        "2026-27": 3066143
-      },
-      "guaranteed": {
-        "2026-27": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 0
-      },
-      "optionExercised": {},
-      "acquiredMethod": "Signed",
-      "acquisitionHistory": [
-        {
-          "date": "2026-09-15",
-          "method": "free-agent",
-          "team": "WAS"
-        }
-      ]
     }
   ],
-  "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Anthony Gill",
+        "team": "WAS",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3066143
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-15",
+            "method": "free-agent",
+            "team": "WAS"
+          }
+        ]
+      },
+      "after": {
+        "name": "Anthony Gill",
+        "team": "WAS",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 3066143
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-15",
+            "method": "free-agent",
+            "team": "WAS"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "fields": [
+        "guarantees"
+      ]
+    }
+  ]
 }

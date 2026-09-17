@@ -50,6 +50,14 @@
   "exhibit10": true
  },
  {
+  "player": "Sean McNeil",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Lonnie Walker IV",
   "team": "Denver Nuggets",
   "fullAmount": null,
@@ -132,6 +140,46 @@
  {
   "player": "Christian Koloko",
   "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Ochai Agbaji",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Bruce Brown",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Drew Eubanks",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "John Konchar",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "James Wiseman",
+  "team": "New York Knicks",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

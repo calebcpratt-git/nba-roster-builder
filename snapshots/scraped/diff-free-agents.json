@@ -1,24 +1,60 @@
 {
-  "added": [],
+  "added": [
+    {
+      "name": "Caleb Grill",
+      "position": "PG",
+      "priorTeam": "BOS",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Christian Shumate",
+      "position": "SF",
+      "priorTeam": "NOP",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
   "removed": [
     {
-      "name": "Devin Carter",
-      "position": "PG",
+      "name": "Ochai Agbaji",
+      "position": "SG",
+      "priorTeam": "BRK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Bruce Brown, Jr.",
+      "position": "G-F",
+      "priorTeam": "DEN",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Drew Eubanks",
+      "position": "F-C",
+      "priorTeam": "SAC",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Toby Okani",
+      "position": "PF",
+      "priorTeam": "MEM",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Duop Reath",
+      "position": "C",
       "priorTeam": "ATL",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Anthony Gill",
-      "position": "SF",
-      "priorTeam": "WAS",
-      "faType": "U",
-      "birdRights": "full-bird"
-    },
-    {
-      "name": "John Konchar",
+      "name": "Isaiah Wong",
       "position": "SG",
-      "priorTeam": "MIN",
+      "priorTeam": "CHO",
       "faType": "U",
       "birdRights": null
     }

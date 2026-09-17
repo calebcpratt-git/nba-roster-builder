@@ -1,17 +1,7 @@
 {
   "added": [
     {
-      "name": "John Konchar",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Anthony Gill",
+      "name": "Duop Reath",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -21,6 +11,17 @@
       }
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "name": "John Konchar",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
   "changed": []
 }

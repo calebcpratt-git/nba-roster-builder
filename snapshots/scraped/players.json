@@ -10958,37 +10958,6 @@
   ]
  },
  {
-  "name": "John Konchar",
-  "team": "NYK",
-  "salary": {
-   "2026-27": 2449421
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 3286399
-  },
-  "guaranteed": {
-   "2026-27": 3286399
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-08-29",
-    "method": "trade",
-    "team": "MIN"
-   },
-   {
-    "date": "2026-09-15",
-    "method": "free-agent",
-    "team": "NYK"
-   }
-  ]
- },
- {
   "name": "Tyler Kolek",
   "team": "NYK",
   "salary": {
@@ -12681,40 +12650,6 @@
   ]
  },
  {
-  "name": "Mark Williams",
-  "team": "PHO",
-  "salary": {
-   "2026-27": 11728395,
-   "2027-28": 12666667,
-   "2028-29": 13604938
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 11728395,
-   "2027-28": 12666667,
-   "2028-29": 13604938
-  },
-  "guaranteed": {
-   "2026-27": 11728395,
-   "2027-28": 12666667,
-   "2028-29": 13604938
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0,
-   "2028-29": 0
-  },
-  "optionExercised": {},
-  "acquiredMethod": "Trade",
-  "acquisitionHistory": [
-   {
-    "date": "2026-07-07",
-    "method": "free-agent",
-    "team": "PHO"
-   }
-  ]
- },
- {
   "name": "Collin Gillespie",
   "team": "PHO",
   "salary": {
@@ -12961,6 +12896,32 @@
   }
  },
  {
+  "name": "Duop Reath",
+  "team": "PHO",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 2537526
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-16",
+    "method": "free-agent",
+    "team": "PHO"
+   }
+  ]
+ },
+ {
   "name": "Haywood Highsmith",
   "team": "PHO",
   "salary": {
@@ -13048,6 +13009,40 @@
    "2028-29": false
   },
   "acquiredMethod": "Draft"
+ },
+ {
+  "name": "Mark Williams",
+  "team": "PHO",
+  "salary": {
+   "2026-27": 11728395,
+   "2027-28": 12666667,
+   "2028-29": 13604938
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 11728395,
+   "2027-28": 12666667,
+   "2028-29": 13604938
+  },
+  "guaranteed": {
+   "2026-27": 11728395,
+   "2027-28": 12666667,
+   "2028-29": 13604938
+  },
+  "likelyIncentives": {
+   "2026-27": 0,
+   "2027-28": 0,
+   "2028-29": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-07-07",
+    "method": "free-agent",
+    "team": "PHO"
+   }
+  ]
  },
  {
   "name": "Koby Brea",
@@ -16147,7 +16142,12 @@
     "method": "free-agent",
     "team": "WAS"
    }
-  ]
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
  },
  {
   "name": "Felix Okpara",
