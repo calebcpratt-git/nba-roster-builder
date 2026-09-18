@@ -1,7 +1,7 @@
 {
   "added": [
     {
-      "name": "Duop Reath",
+      "name": "Jake Stephens",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -11,17 +11,6 @@
       }
     }
   ],
-  "removed": [
-    {
-      "name": "John Konchar",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    }
-  ],
+  "removed": [],
   "changed": []
 }

@@ -50,14 +50,6 @@
   "exhibit10": true
  },
  {
-  "player": "Sean McNeil",
-  "team": "Cleveland Cavaliers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Lonnie Walker IV",
   "team": "Denver Nuggets",
   "fullAmount": null,
@@ -106,6 +98,14 @@
   "exhibit10": true
  },
  {
+  "player": "Anton Watson",
+  "team": "Los Angeles Lakers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "J’Vonne Hadley",
   "team": "Miami Heat",
   "fullAmount": null,
@@ -116,6 +116,14 @@
  {
   "player": "John Butler",
   "team": "Milwaukee Bucks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jules Bernard",
+  "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -244,6 +252,14 @@
  {
   "player": "Saint Thomas",
   "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "David Stockton",
+  "team": "Phoenix Suns",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

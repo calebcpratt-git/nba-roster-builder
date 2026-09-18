@@ -72,14 +72,6 @@
   "exhibit10": false
  },
  {
-  "player": "Sean McNeil",
-  "team": "Cleveland Cavaliers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Moussa Cisse",
   "team": "Dallas Mavericks",
   "fullAmount": null,
@@ -208,6 +200,14 @@
   "exhibit10": true
  },
  {
+  "player": "Anton Watson",
+  "team": "Los Angeles Lakers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Jaylen Wells",
   "team": "Memphis Grizzlies",
   "fullAmount": null,
@@ -264,12 +264,28 @@
   "exhibit10": true
  },
  {
+  "player": "Jake Stephens",
+  "team": "Milwaukee Bucks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Trey Lyles",
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": 1500000,
   "status": "partial",
   "exhibit10": false
+ },
+ {
+  "player": "Jules Bernard",
+  "team": "Minnesota Timberwolves",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Trendon Watford",
@@ -438,6 +454,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "David Stockton",
+  "team": "Phoenix Suns",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Vit Krejci",

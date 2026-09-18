@@ -756,19 +756,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Trevon Scott",
-  "date": "2026-04-02",
-  "dateRaw": "Apr 2, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "BRK"
-  ],
-  "fromTeams": [],
-  "text": "Signed to 10-Day Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Bez Mbeng",
   "date": "2026-09-07",
   "dateRaw": "Sep 7, 2026",
@@ -1320,6 +1307,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Sean McNeil",
+  "date": "2026-09-15",
+  "dateRaw": "Sep 15, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -3028,6 +3028,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Anton Watson",
+  "date": "2026-09-17",
+  "dateRaw": "Sep 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Matisse Thybulle",
   "date": "2026-07-27",
   "dateRaw": "Jul 27, 2026",
@@ -3782,6 +3795,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jake Stephens",
+  "date": "2026-09-17",
+  "dateRaw": "Sep 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "John Butler jr.",
   "date": "2026-09-03",
   "dateRaw": "Sep 3, 2026",
@@ -4177,6 +4203,19 @@
    "CHI"
   ],
   "text": "Traded from CHI",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Saddiq Bey",
+  "date": "2026-09-17",
+  "dateRaw": "Sep 17, 2026",
+  "method": "extension",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Extension",
   "flags": []
  },
  {
@@ -5235,6 +5274,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jordan Schakel",
+  "date": "2026-09-17",
+  "dateRaw": "Sep 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Duop Reath",
   "date": "2026-09-16",
   "dateRaw": "Sep 16, 2026",
@@ -5539,8 +5591,8 @@
  {
   "bbrefId": null,
   "name": "Daeqwon Plowden",
-  "date": "2026-07-03",
-  "dateRaw": "Jul 3, 2026",
+  "date": "2026-07-02",
+  "dateRaw": "Jul 2, 2026",
   "method": "free-agent",
   "toTeams": [
    "SAC"

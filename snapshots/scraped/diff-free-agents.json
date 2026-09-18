@@ -1,63 +1,69 @@
 {
   "added": [
     {
-      "name": "Caleb Grill",
-      "position": "PG",
-      "priorTeam": "BOS",
+      "name": "Keion Brooks, Jr.",
+      "position": "SF",
+      "priorTeam": "IND",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Christian Shumate",
-      "position": "SF",
-      "priorTeam": "NOP",
+      "name": "Dawson Garcia",
+      "position": "PF",
+      "priorTeam": "DET",
       "faType": "U",
       "birdRights": null
-    }
-  ],
-  "removed": [
+    },
     {
-      "name": "Ochai Agbaji",
+      "name": "Cameron Hildreth",
       "position": "SG",
+      "priorTeam": "IND",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "M.J. Iraldi",
+      "position": "SF",
+      "priorTeam": "IND",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Basheer Jihad",
+      "position": "PF",
+      "priorTeam": "DET",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Dwight Murray, Jr.",
+      "position": "PG",
       "priorTeam": "BRK",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Bruce Brown, Jr.",
-      "position": "G-F",
-      "priorTeam": "DEN",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Drew Eubanks",
-      "position": "F-C",
-      "priorTeam": "SAC",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Toby Okani",
+      "name": "Johnny O'Neil",
       "position": "PF",
-      "priorTeam": "MEM",
+      "priorTeam": "NOP",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Duop Reath",
-      "position": "C",
-      "priorTeam": "ATL",
+      "name": "Wade Taylor IV",
+      "position": "PG",
+      "priorTeam": "IND",
       "faType": "U",
       "birdRights": null
     },
     {
       "name": "Isaiah Wong",
       "position": "SG",
-      "priorTeam": "CHO",
+      "priorTeam": "BRK",
       "faType": "U",
       "birdRights": null
     }
   ],
+  "removed": [],
   "changed": []
 }

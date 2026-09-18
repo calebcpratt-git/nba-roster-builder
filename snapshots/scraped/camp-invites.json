@@ -828,6 +828,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Anton Watson",
+  "team": "LAL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2185116
+  },
+  "cashSalary": {
+   "2026-27": 2185116
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Robbie Avila",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
