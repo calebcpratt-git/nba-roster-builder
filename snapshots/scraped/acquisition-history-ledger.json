@@ -11362,6 +11362,11 @@
    "date": "2026-07-03",
    "method": "free-agent",
    "team": "SAC"
+  },
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "SAC"
   }
  ],
  "jonathan mogbo": [
@@ -11808,6 +11813,20 @@
    "date": "2026-09-16",
    "method": "free-agent",
    "team": "PHO"
+  }
+ ],
+ "jake stephens": [
+  {
+   "date": "2026-09-17",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "saddiq bey": [
+  {
+   "date": "2026-09-17",
+   "method": "extension",
+   "team": "NOP"
   }
  ]
 }
