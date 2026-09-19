@@ -1,69 +1,77 @@
 {
   "added": [
     {
-      "name": "Keion Brooks, Jr.",
-      "position": "SF",
-      "priorTeam": "IND",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Dawson Garcia",
-      "position": "PF",
-      "priorTeam": "DET",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Cameron Hildreth",
+      "name": "Jaden Akins",
       "position": "SG",
-      "priorTeam": "IND",
+      "priorTeam": "NYK",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "M.J. Iraldi",
-      "position": "SF",
-      "priorTeam": "IND",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Basheer Jihad",
+      "name": "Nick Jourdain",
       "position": "PF",
-      "priorTeam": "DET",
+      "priorTeam": "NYK",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Dwight Murray, Jr.",
-      "position": "PG",
-      "priorTeam": "BRK",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Johnny O'Neil",
-      "position": "PF",
-      "priorTeam": "NOP",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Wade Taylor IV",
-      "position": "PG",
-      "priorTeam": "IND",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Isaiah Wong",
+      "name": "Mitch Mascari",
       "position": "SG",
-      "priorTeam": "BRK",
+      "priorTeam": "NYK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Chance McMillian",
+      "position": "PG",
+      "priorTeam": "GSW",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Igor Milicic, Jr.",
+      "position": "PF",
+      "priorTeam": "NYK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Toby Okani",
+      "position": "PF",
+      "priorTeam": "NYK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Deivon Smith",
+      "position": "PG",
+      "priorTeam": "GSW",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Paul Zilinskas",
+      "position": "SG",
+      "priorTeam": "NYK",
       "faType": "U",
       "birdRights": null
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Jules Bernard",
+      "position": "SG",
+      "priorTeam": "MIN",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Cam Whitmore",
+      "position": "SF",
+      "priorTeam": "CLE",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
   "changed": []
 }

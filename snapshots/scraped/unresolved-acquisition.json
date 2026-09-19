@@ -205,11 +205,6 @@
   "method": "trade"
  },
  {
-  "name": "Cam Whitmore",
-  "date": "2026-08-20",
-  "method": "trade"
- },
- {
   "name": "Rashaun Agee",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -270,6 +265,21 @@
   "method": "free-agent"
  },
  {
+  "name": "Elias Ralph",
+  "date": "2026-09-18",
+  "method": "free-agent"
+ },
+ {
+  "name": "Nick Boyd",
+  "date": "2026-09-18",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jacksen Moni",
+  "date": "2026-09-17",
+  "method": "free-agent"
+ },
+ {
   "name": "Chance McMillian",
   "date": "2026-09-15",
   "method": "free-agent"
@@ -291,11 +301,6 @@
  },
  {
   "name": "Graham Ike",
-  "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Nick Boyd",
   "date": "2026-06-24",
   "method": "free-agent"
  },
@@ -375,6 +380,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Meechie Johnson Jr.",
+  "date": "2026-09-18",
+  "method": "free-agent"
+ },
+ {
+  "name": "Chase Ross",
+  "date": "2026-09-18",
+  "method": "free-agent"
+ },
+ {
   "name": "Anton Watson",
   "date": "2026-09-17",
   "method": "free-agent"
@@ -390,11 +405,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Chase Ross",
-  "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
   "name": "Robert McCray V",
   "date": "2026-06-24",
   "method": "free-agent"
@@ -402,11 +412,6 @@
  {
   "name": "William Kyle III",
   "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Nick Smith Jr.",
-  "date": "2026-04-12",
   "method": "free-agent"
  },
  {
@@ -452,6 +457,11 @@
  {
   "name": "John Butler jr.",
   "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jules Bernard",
+  "date": "2026-09-17",
   "method": "free-agent"
  },
  {
@@ -525,26 +535,6 @@
   "method": "free-agent"
  },
  {
-  "name": "James Wiseman",
-  "date": "2026-09-16",
-  "method": "free-agent"
- },
- {
-  "name": "Ochai Agbaji",
-  "date": "2026-09-16",
-  "method": "free-agent"
- },
- {
-  "name": "Drew Eubanks",
-  "date": "2026-09-16",
-  "method": "free-agent"
- },
- {
-  "name": "Bruce Brown Jr.",
-  "date": "2026-09-16",
-  "method": "free-agent"
- },
- {
   "name": "Nick Jourdain",
   "date": "2026-09-15",
   "method": "free-agent"
@@ -576,6 +566,26 @@
  },
  {
   "name": "Liam Robbins",
+  "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "James Wiseman",
+  "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Ochai Agbaji",
+  "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Drew Eubanks",
+  "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Bruce Brown Jr.",
   "date": "2026-09-15",
   "method": "free-agent"
  },
@@ -665,8 +675,13 @@
   "method": "free-agent"
  },
  {
-  "name": "Jordan Schakel",
+  "name": "David Stockton",
   "date": "2026-09-17",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jordan Schakel",
+  "date": "2026-09-16",
   "method": "free-agent"
  },
  {
@@ -707,6 +722,11 @@
  {
   "name": "Killian Hayes",
   "date": "2026-03-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jayden Nunn",
+  "date": "2026-09-18",
   "method": "free-agent"
  },
  {

@@ -23,29 +23,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "William Baker",
-  "team": "ATL",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Devin Carter",
   "team": "BOS",
   "section": "Training Camp and Exhibit 10",
@@ -598,7 +575,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "Nick Boyd",
+  "name": "Graham Ike",
   "team": "GSW",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -621,17 +598,40 @@
   "faYear": "RFA"
  },
  {
-  "name": "Graham Ike",
+  "name": "Nick Boyd",
   "team": "GSW",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
   },
   "cashSalary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Elias Ralph",
+  "team": "GSW",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0
@@ -828,29 +828,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Anton Watson",
-  "team": "LAL",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2185116
-  },
-  "cashSalary": {
-   "2026-27": 2185116
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Robbie Avila",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
@@ -920,6 +897,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Meechie Johnson Jr.",
+  "team": "LAL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Chase Ross",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
@@ -927,10 +927,10 @@
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
   },
   "cashSalary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0
@@ -1644,6 +1644,29 @@
   },
   "cashSalary": {
    "2026-27": 2185116
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Jayden Nunn",
+  "team": "SAS",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0

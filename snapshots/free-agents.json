@@ -1,5 +1,12 @@
 [
   {
+    "name": "Jaden Akins",
+    "position": "SG",
+    "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Josiah Allick",
     "position": "PF",
     "priorTeam": "CHO",
@@ -68,13 +75,6 @@
     "priorTeam": "PHI",
     "faType": "U",
     "birdRights": "non-bird"
-  },
-  {
-    "name": "Jules Bernard",
-    "position": "SG",
-    "priorTeam": "MIN",
-    "faType": "U",
-    "birdRights": null
   },
   {
     "name": "Bismack Biyombo",
@@ -420,6 +420,13 @@
     "birdRights": "non-bird"
   },
   {
+    "name": "Nick Jourdain",
+    "position": "PF",
+    "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Johnny Juzang",
     "position": "SG",
     "priorTeam": "MIN",
@@ -539,6 +546,13 @@
     "birdRights": "non-bird"
   },
   {
+    "name": "Mitch Mascari",
+    "position": "SG",
+    "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Mac McClung",
     "position": "PG",
     "priorTeam": "CHI",
@@ -558,6 +572,20 @@
     "priorTeam": "SAC",
     "faType": "U",
     "birdRights": "early-bird"
+  },
+  {
+    "name": "Chance McMillian",
+    "position": "PG",
+    "priorTeam": "GSW",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Igor Milicic, Jr.",
+    "position": "PF",
+    "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
   },
   {
     "name": "Emanuel Miller",
@@ -628,6 +656,13 @@
     "priorTeam": "NOP",
     "faType": "U",
     "birdRights": "early-bird"
+  },
+  {
+    "name": "Toby Okani",
+    "position": "PF",
+    "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
   },
   {
     "name": "Lachlan Olbrich",
@@ -794,6 +829,13 @@
     "name": "Christian Shumate",
     "position": "SF",
     "priorTeam": "NOP",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Deivon Smith",
+    "position": "PG",
+    "priorTeam": "GSW",
     "faType": "U",
     "birdRights": null
   },
@@ -973,13 +1015,6 @@
     "birdRights": null
   },
   {
-    "name": "Cam Whitmore",
-    "position": "SF",
-    "priorTeam": "CLE",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Alondes Williams",
     "position": "SG",
     "priorTeam": "WAS",
@@ -1046,6 +1081,13 @@
     "name": "Omer Yurtseven",
     "position": "C",
     "priorTeam": "GSW",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Paul Zilinskas",
+    "position": "SG",
+    "priorTeam": "NYK",
     "faType": "U",
     "birdRights": null
   }
