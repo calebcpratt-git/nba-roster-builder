@@ -8,14 +8,6 @@
   "exhibit10": false
  },
  {
-  "player": "Will Baker",
-  "team": "Atlanta Hawks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Devin Carter",
   "team": "Boston Celtics",
   "fullAmount": null,
@@ -136,6 +128,22 @@
   "exhibit10": false
  },
  {
+  "player": "Nick Boyd",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Elias Ralph",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Dalen Terry",
   "team": "Golden State Warriors",
   "fullAmount": null,
@@ -200,7 +208,15 @@
   "exhibit10": true
  },
  {
-  "player": "Anton Watson",
+  "player": "Meechie Johnson",
+  "team": "Los Angeles Lakers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Chase Ross",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
   "partialAmount": null,
@@ -280,7 +296,7 @@
   "exhibit10": false
  },
  {
-  "player": "Jules Bernard",
+  "player": "Stephen Thompson",
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": null,
@@ -318,6 +334,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Markquis Nowell",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Ochai Agbaji",
@@ -456,14 +480,6 @@
   "exhibit10": false
  },
  {
-  "player": "David Stockton",
-  "team": "Phoenix Suns",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Vit Krejci",
   "team": "Portland Trail Blazers",
   "fullAmount": null,
@@ -494,6 +510,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Jayden Nunn",
+  "team": "San Antonio Spurs",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Taelon Peter",

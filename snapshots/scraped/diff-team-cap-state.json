@@ -4,28 +4,31 @@
   "changed": [
     {
       "before": {
-        "team": "MIL",
+        "team": "SAS",
         "season": "2026-27",
-        "deadMoney": [
-          {
-            "player": "Damian Lillard",
-            "amount": 22516603
-          },
-          {
-            "player": "Vasilije Micić",
-            "amount": 666667
-          }
-        ],
+        "deadMoney": [],
         "capHolds": [
           {
-            "label": "Thanasis Antetokounmpo",
+            "label": "Kelly Olynyk",
+            "amount": 25500000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          },
+          {
+            "label": "Bismack Biyombo",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Mason Plumlee",
             "amount": 2500000,
             "kind": "free-agent",
             "birdRights": "non-bird"
           },
           {
-            "label": "Alex Antetokounmpo",
-            "amount": 2200000,
+            "label": "Lindy Waters III",
+            "amount": 2500000,
             "kind": "free-agent",
             "birdRights": "non-bird"
           }
@@ -34,25 +37,18 @@
         "taxLine": 201000000,
         "firstApron": 209000000,
         "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "MIL-giannis-antetokounmpo-2026-07-06",
-            "amount": 25456566,
-            "expires": "2027-07-06",
-            "fromPlayer": "Giannis Antetokounmpo"
-          }
-        ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "Trade Salary Acquired: Jul 8 trade"
+          "trigger": "TP-MLE Exceeded: Tobias Harris (Jul 6)"
         },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 11192263
-          },
-          "taxpayerMLE": {
-            "signings": [],
+            "signings": [
+              {
+                "player": "Tobias Harris",
+                "amount": 15044000
+              }
+            ],
             "remaining": 0
           },
           "biAnnual": {
@@ -61,34 +57,37 @@
           }
         },
         "cashLedger": {
-          "availableToSend": 6714000,
-          "availableToReceive": 3464000
+          "availableToSend": 7964000,
+          "availableToReceive": 5464000
         },
-        "apronAddon": 5075000
+        "apronAddon": 3700000
       },
       "after": {
-        "team": "MIL",
+        "team": "SAS",
         "season": "2026-27",
-        "deadMoney": [
-          {
-            "player": "Damian Lillard",
-            "amount": 22516603
-          },
-          {
-            "player": "Vasilije Micić",
-            "amount": 666667
-          }
-        ],
+        "deadMoney": [],
         "capHolds": [
           {
-            "label": "Thanasis Antetokounmpo",
+            "label": "Kelly Olynyk",
+            "amount": 25500000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
+          },
+          {
+            "label": "Bismack Biyombo",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Mason Plumlee",
             "amount": 2500000,
             "kind": "free-agent",
             "birdRights": "non-bird"
           },
           {
-            "label": "Alex Antetokounmpo",
-            "amount": 2200000,
+            "label": "Lindy Waters III",
+            "amount": 2500000,
             "kind": "free-agent",
             "birdRights": "non-bird"
           }
@@ -97,37 +96,30 @@
         "taxLine": 201000000,
         "firstApron": 209000000,
         "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "MIL-giannis-antetokounmpo-2026-07-06",
-            "amount": 25456566,
-            "expires": "2027-07-06",
-            "fromPlayer": "Giannis Antetokounmpo"
-          }
-        ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "Trade Salary Acquired: Jul 8 trade"
+          "trigger": "TP-MLE Exceeded: Tobias Harris (Jul 6)"
         },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 9834500
-          },
-          "taxpayerMLE": {
-            "signings": [],
+            "signings": [
+              {
+                "player": "Tobias Harris",
+                "amount": 15044000
+              }
+            ],
             "remaining": 0
           },
           "biAnnual": {
             "signings": [],
-            "remaining": 5477000
+            "remaining": 4492154
           }
         },
         "cashLedger": {
-          "availableToSend": 6714000,
-          "availableToReceive": 3464000
+          "availableToSend": 7964000,
+          "availableToReceive": 5464000
         },
-        "apronAddon": 5075000
+        "apronAddon": 3700000
       },
       "fields": [
         "exceptionsUsed"

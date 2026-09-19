@@ -1979,6 +1979,16 @@
    }
   }
  },
+ "cam whitmore": {
+  "team": "DEN",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "cade cunningham": {
   "team": "DET",
   "signedUnder": "bird",

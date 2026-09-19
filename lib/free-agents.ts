@@ -19,6 +19,7 @@ export interface FreeAgentPoolEntry {
 // projection of future free agency.
 // GENERATED:START
 export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
+  { name: 'Jaden Akins', priorTeam: 'NYK', faType: 'unrestricted', position: 'SG' },
   { name: 'Josiah Allick', priorTeam: 'CHO', faType: 'unrestricted', position: 'PF' },
   { name: 'Alex Antetokounmpo', priorTeam: 'MIL', faType: 'unrestricted', birdRights: 'non-bird', position: 'PF' },
   { name: 'Thanasis Antetokounmpo', priorTeam: 'MIL', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
@@ -29,7 +30,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Dalano Banton', priorTeam: 'BOS', faType: 'unrestricted', position: 'PF' },
   { name: 'Nicolas Batum', priorTeam: 'LAC', faType: 'unrestricted', birdRights: 'early-bird', position: 'SG/SF' },
   { name: 'MarJon Beauchamp', priorTeam: 'PHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
-  { name: 'Jules Bernard', priorTeam: 'MIN', faType: 'unrestricted', position: 'SG' },
   { name: 'Bismack Biyombo', priorTeam: 'SAS', faType: 'unrestricted', birdRights: 'early-bird', position: 'PF/C' },
   { name: 'Leaky Black', priorTeam: 'WAS', faType: 'unrestricted', position: 'SF' },
   { name: 'Buddy Boeheim', priorTeam: 'OKC', faType: 'unrestricted', position: 'SF' },
@@ -79,6 +79,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Jarkel Joiner', priorTeam: 'CHO', faType: 'unrestricted', position: 'PG' },
   { name: 'Colby Jones', priorTeam: 'DET', faType: 'unrestricted', position: 'SG' },
   { name: 'Curtis Jones', priorTeam: 'DEN', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
+  { name: 'Nick Jourdain', priorTeam: 'NYK', faType: 'unrestricted', position: 'PF' },
   { name: 'Johnny Juzang', priorTeam: 'MIN', faType: 'unrestricted', position: 'SG' },
   { name: 'Trevor Keels', priorTeam: 'MIA', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
   { name: 'Miles Kelly', priorTeam: 'DAL', faType: 'unrestricted', position: 'SG' },
@@ -96,9 +97,12 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Seth Lundy', priorTeam: 'LAC', faType: 'unrestricted', position: 'G-F' },
   { name: 'Kyle Mangas', priorTeam: 'CHO', faType: 'unrestricted', position: 'SG' },
   { name: 'Tyrese Martin', priorTeam: 'PHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
+  { name: 'Mitch Mascari', priorTeam: 'NYK', faType: 'unrestricted', position: 'SG' },
   { name: 'Mac McClung', priorTeam: 'CHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
   { name: 'Kevin McCullar, Jr.', priorTeam: 'NYK', faType: 'unrestricted', birdRights: 'early-bird', position: 'SG' },
   { name: 'Doug McDermott', priorTeam: 'SAC', faType: 'unrestricted', birdRights: 'early-bird', position: 'SF' },
+  { name: 'Chance McMillian', priorTeam: 'GSW', faType: 'unrestricted', position: 'PG' },
+  { name: 'Igor Milicic, Jr.', priorTeam: 'NYK', faType: 'unrestricted', position: 'PF' },
   { name: 'Emanuel Miller', priorTeam: 'SAS', faType: 'unrestricted', position: 'SF' },
   { name: 'Wendell Moore, Jr.', priorTeam: 'DET', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Hank Morgan', priorTeam: 'BOS', faType: 'unrestricted', position: 'SF' },
@@ -109,6 +113,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Miles Norris', priorTeam: 'BOS', faType: 'unrestricted', position: 'SF' },
   { name: 'Johnny O\'Neil', priorTeam: 'NOP', faType: 'unrestricted', position: 'PF' },
   { name: 'Josh Oduro', priorTeam: 'NOP', faType: 'unrestricted', birdRights: 'early-bird', position: 'C' },
+  { name: 'Toby Okani', priorTeam: 'NYK', faType: 'unrestricted', position: 'PF' },
   { name: 'Lachlan Olbrich', priorTeam: 'CHI', faType: 'unrestricted', birdRights: 'non-bird', position: 'C' },
   { name: 'Kelly Olynyk', priorTeam: 'SAS', faType: 'unrestricted', birdRights: 'full-bird', position: 'C/PF' },
   { name: 'Norchad Omier', priorTeam: 'LAC', faType: 'unrestricted', birdRights: 'non-bird', position: 'SF' },
@@ -133,6 +138,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Mark Sears', priorTeam: 'MIL', faType: 'unrestricted', position: 'PG' },
   { name: 'Max Shulga', priorTeam: 'BOS', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Christian Shumate', priorTeam: 'NOP', faType: 'unrestricted', position: 'SF' },
+  { name: 'Deivon Smith', priorTeam: 'GSW', faType: 'unrestricted', position: 'PG' },
   { name: 'Nick Smith, Jr.', priorTeam: 'LAL', faType: 'unrestricted', position: 'PG' },
   { name: 'Tyler Smith', priorTeam: 'DAL', faType: 'unrestricted', position: 'PF' },
   { name: 'Isaiah Stevens', priorTeam: 'SAC', faType: 'unrestricted', position: 'PG' },
@@ -158,7 +164,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Blake Wesley', priorTeam: 'POR', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Russell Westbrook', priorTeam: 'SAC', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
   { name: 'Dariq Whitehead', priorTeam: 'MEM', faType: 'unrestricted', position: 'G-F' },
-  { name: 'Cam Whitmore', priorTeam: 'CLE', faType: 'unrestricted', position: 'SF' },
   { name: 'Alondes Williams', priorTeam: 'WAS', faType: 'unrestricted', position: 'SG' },
   { name: 'Nate Williams, Jr.', priorTeam: 'GSW', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Vincent Williams, Jr.', priorTeam: 'UTA', faType: 'unrestricted', position: 'SG' },
@@ -169,6 +174,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Cui Yongxi', priorTeam: 'BRK', faType: 'unrestricted', position: 'SF' },
   { name: 'Jahmir Young', priorTeam: 'MIA', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
   { name: 'Omer Yurtseven', priorTeam: 'GSW', faType: 'unrestricted', position: 'C' },
+  { name: 'Paul Zilinskas', priorTeam: 'NYK', faType: 'unrestricted', position: 'SG' },
 ]
 // GENERATED:END
 
