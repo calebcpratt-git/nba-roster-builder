@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 10,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 66,
-      "acquisition": 162,
-      "guarantees": 38,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 94,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 67,
       "acquisition": 166,
       "guarantees": 41,
@@ -74,54 +65,36 @@
       "name-bridge": 94,
       "no-current-salary": 1
     },
-    "newUnresolved": 8,
+    "after": {
+      "draft-year": 67,
+      "acquisition": 168,
+      "guarantees": 46,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 92,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 7,
     "newByCategory": {
-      "draft-year": 1,
-      "acquisition": 4,
-      "guarantees": 3
+      "acquisition": 2,
+      "guarantees": 5
     },
     "newRecords": {
-      "draft-year": [
-        {
-          "name": "Cam Whitmore",
-          "team": "DEN"
-        }
-      ],
       "acquisition": [
         {
-          "name": "Elias Ralph",
-          "date": "2026-09-18",
+          "name": "Stephen Thompson",
+          "date": "2026-09-19",
           "method": "free-agent"
         },
         {
-          "name": "Jacksen Moni",
-          "date": "2026-09-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Meechie Johnson Jr.",
-          "date": "2026-09-18",
-          "method": "free-agent"
-        },
-        {
-          "name": "Jules Bernard",
-          "date": "2026-09-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "David Stockton",
-          "date": "2026-09-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Jayden Nunn",
-          "date": "2026-09-18",
+          "name": "Markquis Nowell",
+          "date": "2026-09-19",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Nick Boyd",
+          "player": "Obi Agbim",
           "team": "Golden State Warriors",
           "fullAmount": null,
           "partialAmount": null,
@@ -129,75 +102,56 @@
           "exhibit10": true
         },
         {
-          "player": "Elias Ralph",
-          "team": "Golden State Warriors",
+          "player": "Keba Keita",
+          "team": "Indiana Pacers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Meechie Johnson",
-          "team": "Los Angeles Lakers",
+          "player": "Rienk Mast",
+          "team": "Indiana Pacers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Chase Ross",
-          "team": "Los Angeles Lakers",
+          "player": "Kowacie Reeves Jr.",
+          "team": "Indiana Pacers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Stephen Thompson",
-          "team": "Minnesota Timberwolves",
+          "player": "Jalen Warley",
+          "team": "Indiana Pacers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Markquis Nowell",
-          "team": "New Orleans Pelicans",
+          "player": "KeShawn Murphy",
+          "team": "Washington Wizards",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
-        },
-        {
-          "player": "Jayden Nunn",
-          "team": "San Antonio Spurs",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        }
-      ],
-      "name-bridge": [
-        {
-          "name": "Elias Ralph"
-        },
-        {
-          "name": "Jayden Nunn"
-        },
-        {
-          "name": "Meechie Johnson Jr."
         }
       ]
     }
   },
-  "generatedAt": "2026-09-19T14:16:08.196Z",
+  "generatedAt": "2026-09-20T14:37:24.937Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~4 (of 524)",
+    "players: +0 -0 ~0 (of 525)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -0 ~0 (of 516)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +8 -2 ~0 (of 150)",
+    "contract-details: +0 -0 ~0 (of 517)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +3 -0 ~0 (of 156)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

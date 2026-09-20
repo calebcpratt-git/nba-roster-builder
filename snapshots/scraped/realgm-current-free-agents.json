@@ -581,6 +581,13 @@
   "birdRights": null
  },
  {
+  "name": "Sean McNeil",
+  "position": "SG",
+  "priorTeam": "CLE",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Igor Milicic, Jr.",
   "position": "PF",
   "priorTeam": "NYK",
@@ -749,6 +756,13 @@
   "birdRights": null
  },
  {
+  "name": "Liam Robbins",
+  "position": "C",
+  "priorTeam": "NYK",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Orlando Robinson",
   "position": "C",
   "priorTeam": "ORL",
@@ -810,6 +824,13 @@
   "priorTeam": "CLE",
   "faType": "U",
   "birdRights": "non-bird"
+ },
+ {
+  "name": "Jordan Schakel",
+  "position": "SG",
+  "priorTeam": "PHO",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Tre Scott",
@@ -1018,13 +1039,6 @@
   "name": "Dariq Whitehead",
   "position": "G-F",
   "priorTeam": "MEM",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "Cam Whitmore",
-  "position": "SF",
-  "priorTeam": "CLE",
   "faType": "U",
   "birdRights": null
  },
