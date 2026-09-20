@@ -1,77 +1,27 @@
 {
   "added": [
     {
-      "name": "Jaden Akins",
+      "name": "Sean McNeil",
       "position": "SG",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Nick Jourdain",
-      "position": "PF",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Mitch Mascari",
-      "position": "SG",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Chance McMillian",
-      "position": "PG",
-      "priorTeam": "GSW",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Igor Milicic, Jr.",
-      "position": "PF",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Toby Okani",
-      "position": "PF",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Deivon Smith",
-      "position": "PG",
-      "priorTeam": "GSW",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Paul Zilinskas",
-      "position": "SG",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": null
-    }
-  ],
-  "removed": [
-    {
-      "name": "Jules Bernard",
-      "position": "SG",
-      "priorTeam": "MIN",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Cam Whitmore",
-      "position": "SF",
       "priorTeam": "CLE",
       "faType": "U",
       "birdRights": null
+    },
+    {
+      "name": "Liam Robbins",
+      "position": "C",
+      "priorTeam": "NYK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jordan Schakel",
+      "position": "SG",
+      "priorTeam": "PHO",
+      "faType": "U",
+      "birdRights": null
     }
   ],
+  "removed": [],
   "changed": []
 }

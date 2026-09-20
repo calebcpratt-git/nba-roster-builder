@@ -120,6 +120,14 @@
   "exhibit10": false
  },
  {
+  "player": "Dalen Terry",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Brandon Williams",
   "team": "Golden State Warriors",
   "fullAmount": null,
@@ -128,23 +136,15 @@
   "exhibit10": false
  },
  {
+  "player": "Obi Agbim",
+  "team": "Golden State Warriors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Nick Boyd",
-  "team": "Golden State Warriors",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Elias Ralph",
-  "team": "Golden State Warriors",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Dalen Terry",
   "team": "Golden State Warriors",
   "fullAmount": null,
   "partialAmount": null,
@@ -186,6 +186,38 @@
  {
   "player": "Oscar Tshiebwe",
   "team": "Houston Rockets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Keba Keita",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Rienk Mast",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Kowacie Reeves Jr.",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jalen Warley",
+  "team": "Indiana Pacers",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -582,5 +614,13 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "KeShawn Murphy",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  }
 ]

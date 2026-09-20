@@ -4080,6 +4080,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Stephen Thompson",
+  "date": "2026-09-19",
+  "dateRaw": "Sep 19, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jules Bernard",
   "date": "2026-09-17",
   "dateRaw": "Sep 17, 2026",
@@ -4281,6 +4294,19 @@
    "CHI"
   ],
   "text": "Traded from CHI",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Markquis Nowell",
+  "date": "2026-09-19",
+  "dateRaw": "Sep 19, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
