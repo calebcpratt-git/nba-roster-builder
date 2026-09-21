@@ -34,14 +34,6 @@
   "exhibit10": true
  },
  {
-  "player": "Bez Mbeng",
-  "team": "Charlotte Hornets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Lonnie Walker IV",
   "team": "Denver Nuggets",
   "fullAmount": null,
@@ -170,14 +162,6 @@
   "exhibit10": true
  },
  {
-  "player": "Stephen Thompson",
-  "team": "Minnesota Timberwolves",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Kobe Bufkin",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -200,14 +184,6 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
- },
- {
-  "player": "Markquis Nowell",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Ochai Agbaji",

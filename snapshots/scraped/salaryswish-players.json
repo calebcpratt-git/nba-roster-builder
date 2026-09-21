@@ -2437,6 +2437,20 @@
    }
   }
  },
+ "graham ike": {
+  "team": "GSW",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "malevy leons": {
   "team": "GSW",
   "signedUnder": null,

@@ -5522,6 +5522,37 @@
     "acquiredMethod": "Signed"
   },
   {
+    "name": "Graham Ike",
+    "team": "GSW",
+    "salary": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 678882,
+      "2027-28": 749083
+    },
+    "guaranteed": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-20",
+        "method": "free-agent",
+        "team": "GSW"
+      }
+    ]
+  },
+  {
     "name": "Malevy Leons",
     "team": "GSW",
     "salary": {

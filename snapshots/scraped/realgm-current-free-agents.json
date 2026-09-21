@@ -35,6 +35,13 @@
   "birdRights": null
  },
  {
+  "name": "Will Baker",
+  "position": "C",
+  "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Adama-Alpha Bal",
   "position": "SG",
   "priorTeam": "MEM",
@@ -75,6 +82,13 @@
   "priorTeam": "PHI",
   "faType": "U",
   "birdRights": "non-bird"
+ },
+ {
+  "name": "Jules Bernard",
+  "position": "SG",
+  "priorTeam": "MIN",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Bismack Biyombo",
@@ -602,6 +616,13 @@
   "birdRights": null
  },
  {
+  "name": "Jacksen Moni",
+  "position": "C",
+  "priorTeam": "GSW",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Wendell Moore, Jr.",
   "position": "SG",
   "priorTeam": "DET",
@@ -896,6 +917,13 @@
   "birdRights": null
  },
  {
+  "name": "David Stockton",
+  "position": "PG",
+  "priorTeam": "PHO",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Peter Suder",
   "position": "SG",
   "priorTeam": "LAL",
@@ -1020,6 +1048,13 @@
   "priorTeam": "SAS",
   "faType": "U",
   "birdRights": "non-bird"
+ },
+ {
+  "name": "Anton Watson",
+  "position": "PF",
+  "priorTeam": "LAL",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Blake Wesley",
