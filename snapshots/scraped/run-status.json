@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 67,
-      "acquisition": 166,
-      "guarantees": 41,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 94,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 67,
       "acquisition": 168,
       "guarantees": 46,
@@ -74,84 +65,48 @@
       "name-bridge": 92,
       "no-current-salary": 1
     },
-    "newUnresolved": 7,
+    "after": {
+      "draft-year": 68,
+      "acquisition": 168,
+      "guarantees": 43,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 92,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 1,
     "newByCategory": {
-      "acquisition": 2,
-      "guarantees": 5
+      "draft-year": 1
     },
     "newRecords": {
+      "draft-year": [
+        {
+          "name": "Graham Ike",
+          "team": "GSW"
+        }
+      ],
       "acquisition": [
         {
-          "name": "Stephen Thompson",
-          "date": "2026-09-19",
-          "method": "free-agent"
-        },
-        {
-          "name": "Markquis Nowell",
-          "date": "2026-09-19",
+          "name": "D.J. Armstrong Jr.",
+          "date": "2026-09-21",
           "method": "free-agent"
         }
       ],
-      "guarantees": [
+      "name-bridge": [
         {
-          "player": "Obi Agbim",
-          "team": "Golden State Warriors",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Keba Keita",
-          "team": "Indiana Pacers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Rienk Mast",
-          "team": "Indiana Pacers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Kowacie Reeves Jr.",
-          "team": "Indiana Pacers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Jalen Warley",
-          "team": "Indiana Pacers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "KeShawn Murphy",
-          "team": "Washington Wizards",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
+          "name": "D.J. Armstrong Jr."
         }
       ]
     }
   },
-  "generatedAt": "2026-09-20T14:37:24.937Z",
+  "generatedAt": "2026-09-21T16:52:50.406Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 525)",
+    "players: +1 -0 ~0 (of 525)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -0 ~0 (of 517)",
+    "contract-details: +1 -0 ~0 (of 517)",
     "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +3 -0 ~0 (of 156)",
+    "free-agents: +5 -0 ~0 (of 159)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

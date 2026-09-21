@@ -40,14 +40,6 @@
   "exhibit10": false
  },
  {
-  "player": "Bez Mbeng",
-  "team": "Charlotte Hornets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Mario Hezonja",
   "team": "Cleveland Cavaliers",
   "fullAmount": null,
@@ -328,14 +320,6 @@
   "exhibit10": false
  },
  {
-  "player": "Stephen Thompson",
-  "team": "Minnesota Timberwolves",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Trendon Watford",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -366,14 +350,6 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
- },
- {
-  "player": "Markquis Nowell",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Ochai Agbaji",

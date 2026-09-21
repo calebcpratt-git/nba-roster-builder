@@ -756,6 +756,19 @@
  },
  {
   "bbrefId": null,
+  "name": "D.J. Armstrong Jr.",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Bez Mbeng",
   "date": "2026-09-07",
   "dateRaw": "Sep 7, 2026",
@@ -2201,6 +2214,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Graham Ike",
+  "date": "2026-09-20",
+  "dateRaw": "Sep 20, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "GSW"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Elias Ralph",
   "date": "2026-09-18",
   "dateRaw": "Sep 18, 2026",
@@ -2405,19 +2431,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Extension",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Graham Ike",
-  "date": "2026-06-24",
-  "dateRaw": "Jun 24, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "GSW"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

@@ -1,23 +1,37 @@
 {
   "added": [
     {
-      "name": "Sean McNeil",
-      "position": "SG",
-      "priorTeam": "CLE",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Liam Robbins",
+      "name": "Will Baker",
       "position": "C",
-      "priorTeam": "NYK",
+      "priorTeam": "ATL",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Jordan Schakel",
+      "name": "Jules Bernard",
       "position": "SG",
+      "priorTeam": "MIN",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jacksen Moni",
+      "position": "C",
+      "priorTeam": "GSW",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "David Stockton",
+      "position": "PG",
       "priorTeam": "PHO",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Anton Watson",
+      "position": "PF",
+      "priorTeam": "LAL",
       "faType": "U",
       "birdRights": null
     }
