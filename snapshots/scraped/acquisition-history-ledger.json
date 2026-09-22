@@ -11509,6 +11509,11 @@
    "date": "2026-06-23",
    "method": "draft",
    "team": "TOR"
+  },
+  {
+   "date": "2026-09-21",
+   "method": "free-agent",
+   "team": "TOR"
   }
  ],
  "alijah martin": [
@@ -11867,6 +11872,18 @@
    "date": "2026-09-20",
    "method": "free-agent",
    "team": "GSW"
+  }
+ ],
+ "malachi smith": [
+  {
+   "date": "2026-09-21",
+   "method": "free-agent",
+   "team": "TOR"
+  },
+  {
+   "date": "2026-08-17",
+   "method": "free-agent",
+   "team": "TOR"
   }
  ]
 }

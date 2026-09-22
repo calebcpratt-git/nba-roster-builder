@@ -1,37 +1,30 @@
 {
   "added": [
     {
-      "name": "Will Baker",
-      "position": "C",
-      "priorTeam": "ATL",
+      "name": "Aziz Bandaogo",
+      "position": "PF",
+      "priorTeam": "NOP",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Jules Bernard",
-      "position": "SG",
-      "priorTeam": "MIN",
+      "name": "Markquis Nowell",
+      "position": "PG",
+      "priorTeam": "NOP",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Jacksen Moni",
-      "position": "C",
+      "name": "Elias Ralph",
+      "position": "SF",
       "priorTeam": "GSW",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "David Stockton",
-      "position": "PG",
-      "priorTeam": "PHO",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Anton Watson",
-      "position": "PF",
-      "priorTeam": "LAL",
+      "name": "Stevie Thompson",
+      "position": "SG",
+      "priorTeam": "MIN",
       "faType": "U",
       "birdRights": null
     }

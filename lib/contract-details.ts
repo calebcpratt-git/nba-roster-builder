@@ -506,6 +506,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Jaden Bradley": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Chucky Hepburn": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Trey Jemison": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
+  "Malachi Smith": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Jaren Jackson Jr.": { signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Lauri Markkanen": { signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Josh Green": { signedUnder: 'bird', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
