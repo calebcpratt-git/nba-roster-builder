@@ -8,6 +8,14 @@
   "exhibit10": false
  },
  {
+  "player": "Isaac McKneely",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Devin Carter",
   "team": "Boston Celtics",
   "fullAmount": null,
@@ -32,12 +40,28 @@
   "exhibit10": true
  },
  {
+  "player": "Nick Pringle",
+  "team": "Brooklyn Nets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Pat Connaughton",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Tre Carroll",
+  "team": "Charlotte Hornets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Mario Hezonja",
@@ -72,6 +96,22 @@
   "exhibit10": false
  },
  {
+  "player": "Reese Dixon-Waters",
+  "team": "Denver Nuggets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Keonte Jones",
+  "team": "Denver Nuggets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Duncan Robinson",
   "team": "Detroit Pistons",
   "fullAmount": 15992957,
@@ -94,6 +134,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Drake Allen",
+  "team": "Detroit Pistons",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Georges Niang",
@@ -193,22 +241,6 @@
  },
  {
   "player": "Rienk Mast",
-  "team": "Indiana Pacers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Kowacie Reeves Jr.",
-  "team": "Indiana Pacers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Jalen Warley",
   "team": "Indiana Pacers",
   "fullAmount": null,
   "partialAmount": null,
@@ -350,6 +382,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Solomon Washington",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Ochai Agbaji",
@@ -545,14 +585,6 @@
  },
  {
   "player": "Andre Jackson Jr.",
-  "team": "Toronto Raptors",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Malachi Smith",
   "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,

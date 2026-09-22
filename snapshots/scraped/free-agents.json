@@ -63,6 +63,13 @@
   "birdRights": null
  },
  {
+  "name": "Aziz Bandaogo",
+  "position": "PF",
+  "priorTeam": "NOP",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Dalano Banton",
   "position": "PF",
   "priorTeam": "BOS",
@@ -672,6 +679,13 @@
   "birdRights": null
  },
  {
+  "name": "Markquis Nowell",
+  "position": "PG",
+  "priorTeam": "NOP",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Johnny O'Neil",
   "position": "PF",
   "priorTeam": "NOP",
@@ -747,6 +761,13 @@
   "priorTeam": "DAL",
   "faType": "U",
   "birdRights": "full-bird"
+ },
+ {
+  "name": "Elias Ralph",
+  "position": "SF",
+  "priorTeam": "GSW",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Julian Reese",
@@ -955,6 +976,13 @@
   "name": "Ethan Thompson",
   "position": "SG",
   "priorTeam": "IND",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Stevie Thompson",
+  "position": "SG",
+  "priorTeam": "MIN",
   "faType": "U",
   "birdRights": null
  },

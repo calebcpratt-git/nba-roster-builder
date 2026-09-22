@@ -492,6 +492,45 @@
  },
  {
   "bbrefId": null,
+  "name": "Aaron Scott",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BRK"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "DJ Rodman",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BRK"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "DJ Rodman",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BRK"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Dwight Murray, Jr.",
   "date": "2026-09-15",
   "dateRaw": "Sep 15, 2026",
@@ -739,19 +778,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Malachi Smith",
-  "date": "2026-04-04",
-  "dateRaw": "Apr 4, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "BRK"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -2461,19 +2487,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Charles Bassey",
-  "date": "2026-04-05",
-  "dateRaw": "Apr 5, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "GSW"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Amen Thompson",
   "date": "2026-09-03",
   "dateRaw": "Sep 3, 2026",
@@ -2665,6 +2678,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jalen Warley",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "IND"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -4307,6 +4333,19 @@
    "CHI"
   ],
   "text": "Traded from CHI",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Dominique Daniels Jr.",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6095,6 +6134,32 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jaden Bradley",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Malachi Smith",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {

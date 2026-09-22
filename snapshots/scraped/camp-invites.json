@@ -667,29 +667,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Kowacie Reeves Jr.",
-  "team": "IND",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1361969
-  },
-  "cashSalary": {
-   "2026-27": 1361969
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Keba Keita",
   "team": "IND",
   "section": "Training Camp and Exhibit 10",
@@ -1647,29 +1624,6 @@
   },
   "guaranteed": {
    "2026-27": 2537526
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Malachi Smith",
-  "team": "TOR",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2185116
-  },
-  "cashSalary": {
-   "2026-27": 2185116
-  },
-  "guaranteed": {
-   "2026-27": 91000
   },
   "likelyIncentives": {
    "2026-27": 0
