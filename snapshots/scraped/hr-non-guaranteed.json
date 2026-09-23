@@ -56,8 +56,16 @@
   "exhibit10": false
  },
  {
-  "player": "Tre Carroll",
-  "team": "Charlotte Hornets",
+  "player": "Houston Mallette",
+  "team": "Chicago Bulls",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Peter Suder",
+  "team": "Chicago Bulls",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -96,22 +104,6 @@
   "exhibit10": false
  },
  {
-  "player": "Reese Dixon-Waters",
-  "team": "Denver Nuggets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Keonte Jones",
-  "team": "Denver Nuggets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Duncan Robinson",
   "team": "Detroit Pistons",
   "fullAmount": 15992957,
@@ -136,7 +128,7 @@
   "exhibit10": false
  },
  {
-  "player": "Drake Allen",
+  "player": "Jordan Riley",
   "team": "Detroit Pistons",
   "fullAmount": null,
   "partialAmount": null,
@@ -174,14 +166,6 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
- },
- {
-  "player": "Obi Agbim",
-  "team": "Golden State Warriors",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Nick Boyd",
@@ -230,6 +214,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
+ },
+ {
+  "player": "James Johnson",
+  "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
  },
  {
   "player": "Keba Keita",
@@ -320,6 +312,14 @@
   "exhibit10": true
  },
  {
+  "player": "Bez Mbeng",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Pete Nance",
   "team": "Milwaukee Bucks",
   "fullAmount": null,
@@ -382,14 +382,6 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
- },
- {
-  "player": "Solomon Washington",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Ochai Agbaji",
@@ -552,12 +544,44 @@
   "exhibit10": false
  },
  {
+  "player": "Mark Armstrong",
+  "team": "Portland Trail Blazers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Keylan Boone",
+  "team": "Portland Trail Blazers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Samson Johnson",
+  "team": "Portland Trail Blazers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Ben Simmons",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Miles Barnstable",
+  "team": "San Antonio Spurs",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Jayden Nunn",

@@ -1,7 +1,8 @@
 {
   "added": [
     {
-      "name": "Malachi Smith",
+      "name": "Nick Pringle",
+      "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -11,5 +12,30 @@
     }
   ],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Jaden Bradley",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Jaden Bradley",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        },
+        "signedUnder": "non-taxpayer-mle"
+      },
+      "fields": [
+        "signedUnder"
+      ]
+    }
+  ]
 }

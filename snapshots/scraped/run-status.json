@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 14,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 68,
-      "acquisition": 168,
-      "guarantees": 43,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 92,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 69,
       "acquisition": 171,
       "guarantees": 47,
@@ -74,89 +65,79 @@
       "name-bridge": 90,
       "no-current-salary": 1
     },
-    "newUnresolved": 8,
+    "after": {
+      "draft-year": 70,
+      "acquisition": 177,
+      "guarantees": 49,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 90,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 9,
     "newByCategory": {
       "draft-year": 1,
-      "acquisition": 3,
-      "guarantees": 4
+      "acquisition": 6,
+      "guarantees": 2
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Malachi Smith",
-          "team": "TOR"
+          "name": "Nick Pringle",
+          "team": "BRK"
         }
       ],
       "acquisition": [
         {
-          "name": "Aaron Scott",
-          "date": "2026-09-21",
+          "name": "Tre Carroll",
+          "date": "2026-09-22",
           "method": "free-agent"
         },
         {
-          "name": "DJ Rodman",
-          "date": "2026-09-21",
+          "name": "Keonte Jones",
+          "date": "2026-09-22",
           "method": "free-agent"
         },
         {
-          "name": "DJ Rodman",
-          "date": "2026-09-21",
+          "name": "Reese Dixon-Waters",
+          "date": "2026-09-22",
           "method": "free-agent"
         },
         {
-          "name": "Jalen Warley",
-          "date": "2026-09-21",
+          "name": "Obi Agbim",
+          "date": "2026-09-19",
           "method": "free-agent"
         },
         {
-          "name": "Dominique Daniels Jr.",
-          "date": "2026-09-21",
+          "name": "Jalen Crutcher",
+          "date": "2026-09-22",
+          "method": "free-agent"
+        },
+        {
+          "name": "Solomon Washington",
+          "date": "2026-09-22",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Isaac McKneely",
-          "team": "Atlanta Hawks",
+          "player": "Houston Mallette",
+          "team": "Chicago Bulls",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Nick Pringle",
-          "team": "Brooklyn Nets",
+          "player": "Peter Suder",
+          "team": "Chicago Bulls",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Tre Carroll",
-          "team": "Charlotte Hornets",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Reese Dixon-Waters",
-          "team": "Denver Nuggets",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Keonte Jones",
-          "team": "Denver Nuggets",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Drake Allen",
+          "player": "Jordan Riley",
           "team": "Detroit Pistons",
           "fullAmount": null,
           "partialAmount": null,
@@ -164,24 +145,75 @@
           "exhibit10": true
         },
         {
-          "player": "Solomon Washington",
-          "team": "New Orleans Pelicans",
+          "player": "James Johnson",
+          "team": "Indiana Pacers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "Bez Mbeng",
+          "team": "Miami Heat",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Mark Armstrong",
+          "team": "Portland Trail Blazers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Keylan Boone",
+          "team": "Portland Trail Blazers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Samson Johnson",
+          "team": "Portland Trail Blazers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Miles Barnstable",
+          "team": "San Antonio Spurs",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         }
+      ],
+      "name-bridge": [
+        {
+          "name": "Bez Mbeng"
+        },
+        {
+          "name": "Nick Pringle"
+        },
+        {
+          "name": "Obi Agbim"
+        }
       ]
     }
   },
-  "generatedAt": "2026-09-22T15:31:14.545Z",
+  "generatedAt": "2026-09-23T15:23:54.786Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~1 (of 526)",
+    "players: +1 -0 ~8 (of 527)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -0 ~0 (of 518)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +4 -0 ~0 (of 164)",
+    "contract-details: +1 -0 ~1 (of 519)",
+    "team-cap-state: +0 -0 ~3 (of 150)",
+    "free-agents: +31 -0 ~0 (of 168)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true
