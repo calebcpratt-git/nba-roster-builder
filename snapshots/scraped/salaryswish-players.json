@@ -95,6 +95,24 @@
    }
   }
  },
+ "dorian finney smith": {
+  "team": "ATL",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "jock landale": {
   "team": "ATL",
   "signedUnder": null,
@@ -118,20 +136,6 @@
     "unlikely": 0
    },
    "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "buddy hield": {
-  "team": "ATL",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -220,16 +224,6 @@
  "mouhamed gueye": {
   "team": "ATL",
   "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "ryan nembhard": {
-  "team": "ATL",
-  "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -745,6 +739,16 @@
    }
   }
  },
+ "nick pringle": {
+  "team": "BRK",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "tyler bilodeau": {
   "team": "BRK",
   "signedUnder": null,
@@ -863,24 +867,6 @@
    }
   }
  },
- "dorian finney smith": {
-  "team": "CHO",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "royce oneale": {
   "team": "CHO",
   "signedUnder": "bird",
@@ -908,6 +894,20 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "buddy hield": {
+  "team": "CHO",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -1018,6 +1018,16 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "ryan nembhard": {
+  "team": "CHO",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

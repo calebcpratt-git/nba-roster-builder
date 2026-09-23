@@ -230,29 +230,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "D.J. Armstrong Jr.",
-  "team": "CHO",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Isaiah Stevens",
   "team": "CHI",
   "section": "Training Camp and Exhibit 10",
@@ -460,29 +437,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Drake Allen",
-  "team": "DET",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1361969
-  },
-  "cashSalary": {
-   "2026-27": 1361969
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Jaden Henley",
   "team": "DET",
   "section": "Training Camp and Exhibit 10",
@@ -575,6 +529,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Obi Agbim",
+  "team": "GSW",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": "Camp Invite",
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Nick Boyd",
   "team": "GSW",
   "section": "Training Camp and Exhibit 10",
@@ -644,29 +621,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Rienk Mast",
-  "team": "IND",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1361969
-  },
-  "cashSalary": {
-   "2026-27": 1361969
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Keba Keita",
   "team": "IND",
   "section": "Training Camp and Exhibit 10",
@@ -691,6 +645,29 @@
  },
  {
   "name": "Tamin Lipsey",
+  "team": "IND",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Rienk Mast",
   "team": "IND",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -885,6 +862,29 @@
   },
   "cashSalary": {
    "2026-27": 1361969
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Bez Mbeng",
+  "team": "MIA",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Waivers claim",
+  "terms": null,
+  "salary": {
+   "2026-27": 2185116
+  },
+  "cashSalary": {
+   "2026-27": 2185116
   },
   "guaranteed": {
    "2026-27": 0
@@ -1748,7 +1748,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "KeShawn Murphy",
+  "name": "Seth Trimble",
   "team": "WAS",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -1771,17 +1771,17 @@
   "faYear": "RFA"
  },
  {
-  "name": "Seth Trimble",
+  "name": "KeShawn Murphy",
   "team": "WAS",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
   },
   "cashSalary": {
-   "2026-27": 1361969
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0

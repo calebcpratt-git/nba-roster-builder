@@ -9564,6 +9564,11 @@
    "date": "2026-07-19",
    "method": "trade",
    "team": "ATL"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "trade",
+   "team": "CHO"
   }
  ],
  "luguentz dort": [
@@ -9877,6 +9882,11 @@
    "date": "2026-07-03",
    "method": "trade",
    "team": "CHO"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "trade",
+   "team": "ATL"
   }
  ],
  "royce oneale": [
@@ -11792,6 +11802,11 @@
    "date": "2026-09-14",
    "method": "trade",
    "team": "TOR"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "free-agent",
+   "team": "TOR"
   }
  ],
  "john konchar": [
@@ -11884,6 +11899,20 @@
    "date": "2026-08-17",
    "method": "free-agent",
    "team": "TOR"
+  }
+ ],
+ "nick pringle": [
+  {
+   "date": "2026-09-21",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "buddy hield": [
+  {
+   "date": "2026-09-22",
+   "method": "trade",
+   "team": "CHO"
   }
  ]
 }

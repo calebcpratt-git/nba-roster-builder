@@ -85,11 +85,6 @@
   "method": "free-agent"
  },
  {
-  "name": "DJ Rodman",
-  "date": "2026-09-21",
-  "method": "free-agent"
- },
- {
   "name": "Dwight Murray, Jr.",
   "date": "2026-09-15",
   "method": "free-agent"
@@ -112,6 +107,11 @@
  {
   "name": "Trevon Scott",
   "date": "2026-04-12",
+  "method": "free-agent"
+ },
+ {
+  "name": "Tre Carroll",
+  "date": "2026-09-22",
   "method": "free-agent"
  },
  {
@@ -230,6 +230,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Keonte Jones",
+  "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "Reese Dixon-Waters",
+  "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
   "name": "Lonnie Walker IV",
   "date": "2026-09-08",
   "method": "free-agent"
@@ -277,6 +287,11 @@
  {
   "name": "Jaden Henley",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Obi Agbim",
+  "date": "2026-09-19",
   "method": "free-agent"
  },
  {
@@ -341,7 +356,22 @@
  },
  {
   "name": "Jalen Warley",
-  "date": "2026-09-21",
+  "date": "2026-09-18",
+  "method": "free-agent"
+ },
+ {
+  "name": "Keba Keita",
+  "date": "2026-09-18",
+  "method": "free-agent"
+ },
+ {
+  "name": "Kowacie Reeves Jr.",
+  "date": "2026-09-18",
+  "method": "free-agent"
+ },
+ {
+  "name": "Rienk Mast",
+  "date": "2026-09-18",
   "method": "free-agent"
  },
  {
@@ -362,21 +392,6 @@
  {
   "name": "Wade Taylor IV",
   "date": "2026-09-14",
-  "method": "free-agent"
- },
- {
-  "name": "Kowacie Reeves Jr.",
-  "date": "2026-06-26",
-  "method": "free-agent"
- },
- {
-  "name": "Keba Keita",
-  "date": "2026-06-25",
-  "method": "free-agent"
- },
- {
-  "name": "Rienk Mast",
-  "date": "2026-06-24",
   "method": "free-agent"
  },
  {
@@ -450,6 +465,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Bez Mbeng",
+  "date": "2026-09-22",
+  "method": "waiver"
+ },
+ {
   "name": "J'Vonne Hadley",
   "date": "2026-08-27",
   "method": "free-agent"
@@ -475,8 +495,13 @@
   "method": "free-agent"
  },
  {
+  "name": "Jalen Crutcher",
+  "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
   "name": "Stephen Thompson",
-  "date": "2026-09-19",
+  "date": "2026-09-18",
   "method": "free-agent"
  },
  {
@@ -505,13 +530,18 @@
   "method": "trade"
  },
  {
+  "name": "Solomon Washington",
+  "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
   "name": "Dominique Daniels Jr.",
-  "date": "2026-09-21",
+  "date": "2026-09-20",
   "method": "free-agent"
  },
  {
   "name": "Markquis Nowell",
-  "date": "2026-09-19",
+  "date": "2026-09-17",
   "method": "free-agent"
  },
  {
@@ -841,7 +871,7 @@
  },
  {
   "name": "KeShawn Murphy",
-  "date": "2026-06-24",
+  "date": "2026-09-18",
   "method": "free-agent"
  },
  {

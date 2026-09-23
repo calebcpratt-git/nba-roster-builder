@@ -170,6 +170,54 @@
   "acquiredMethod": "Signed"
  },
  {
+  "name": "Dorian Finney-Smith",
+  "team": "ATL",
+  "salary": {
+   "2026-27": 14196974,
+   "2027-28": 13335000,
+   "2028-29": 13335000
+  },
+  "options": {
+   "2028-29": "Player"
+  },
+  "cashSalary": {
+   "2026-27": 13335000,
+   "2027-28": 13335000,
+   "2028-29": 13335000
+  },
+  "guaranteed": {
+   "2026-27": 13335000,
+   "2027-28": 0,
+   "2028-29": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0,
+   "2027-28": 0,
+   "2028-29": 0
+  },
+  "optionExercised": {
+   "2028-29": false
+  },
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-07-03",
+    "method": "trade",
+    "team": "CHO"
+   },
+   {
+    "date": "2026-07-06",
+    "method": "trade",
+    "team": "CHO"
+   },
+   {
+    "date": "2026-09-22",
+    "method": "trade",
+    "team": "ATL"
+   }
+  ]
+ },
+ {
   "name": "Jock Landale",
   "team": "ATL",
   "salary": {
@@ -225,40 +273,6 @@
    "2028-29": false
   },
   "acquiredMethod": "Trade"
- },
- {
-  "name": "Buddy Hield",
-  "team": "ATL",
-  "salary": {
-   "2026-27": 9658536,
-   "2027-28": 10097560
-  },
-  "options": {
-   "2027-28": "Player"
-  },
-  "cashSalary": {
-   "2026-27": 9658536,
-   "2027-28": 10097560
-  },
-  "guaranteed": {
-   "2026-27": 9658536,
-   "2027-28": 3136364
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "optionExercised": {
-   "2027-28": false
-  },
-  "acquiredMethod": "Trade",
-  "guarantees": {
-   "2026-27": {
-    "status": "partial",
-    "amount": 3000000,
-    "guaranteeDate": "2026-06-28"
-   }
-  }
  },
  {
   "name": "Aaron Wiggins",
@@ -454,34 +468,6 @@
     "status": "non-guaranteed"
    }
   }
- },
- {
-  "name": "Ryan Nembhard",
-  "team": "ATL",
-  "salary": {
-   "2026-27": 2150917
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 2150917
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {
-   "2026-27": true
-  },
-  "acquiredMethod": "Trade",
-  "acquisitionHistory": [
-   {
-    "date": "2026-07-19",
-    "method": "trade",
-    "team": "ATL"
-   }
-  ]
  },
  {
   "name": "Henri Veesaar",
@@ -1640,6 +1626,37 @@
   "acquiredMethod": "Draft"
  },
  {
+  "name": "Nick Pringle",
+  "team": "BRK",
+  "salary": {
+   "2026-27": 1357763
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-21",
+    "method": "free-agent",
+    "team": "BRK"
+   }
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
+ },
+ {
   "name": "Tyler Bilodeau",
   "team": "BRK",
   "salary": {
@@ -1911,49 +1928,6 @@
   "acquiredMethod": "Trade"
  },
  {
-  "name": "Dorian Finney-Smith",
-  "team": "CHO",
-  "salary": {
-   "2026-27": 14196974,
-   "2027-28": 13335000,
-   "2028-29": 13335000
-  },
-  "options": {
-   "2028-29": "Player"
-  },
-  "cashSalary": {
-   "2026-27": 13335000,
-   "2027-28": 13335000,
-   "2028-29": 13335000
-  },
-  "guaranteed": {
-   "2026-27": 13335000,
-   "2027-28": 0,
-   "2028-29": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0,
-   "2028-29": 0
-  },
-  "optionExercised": {
-   "2028-29": false
-  },
-  "acquiredMethod": "Trade",
-  "acquisitionHistory": [
-   {
-    "date": "2026-07-03",
-    "method": "trade",
-    "team": "CHO"
-   },
-   {
-    "date": "2026-07-06",
-    "method": "trade",
-    "team": "CHO"
-   }
-  ]
- },
- {
   "name": "Royce O'Neale",
   "team": "CHO",
   "salary": {
@@ -2015,6 +1989,47 @@
    "2028-29": false
   },
   "acquiredMethod": "Trade"
+ },
+ {
+  "name": "Buddy Hield",
+  "team": "CHO",
+  "salary": {
+   "2026-27": 9658536,
+   "2027-28": 10097560
+  },
+  "options": {
+   "2027-28": "Player"
+  },
+  "cashSalary": {
+   "2026-27": 9658536,
+   "2027-28": 10097560
+  },
+  "guaranteed": {
+   "2026-27": 9658536,
+   "2027-28": 3136364
+  },
+  "likelyIncentives": {
+   "2026-27": 0,
+   "2027-28": 0
+  },
+  "optionExercised": {
+   "2027-28": false
+  },
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-22",
+    "method": "trade",
+    "team": "CHO"
+   }
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "partial",
+    "amount": 3000000,
+    "guaranteeDate": "2026-06-28"
+   }
+  }
  },
  {
   "name": "Tidjane Salaün",
@@ -2276,6 +2291,39 @@
    "2028-29": false
   },
   "acquiredMethod": "Draft"
+ },
+ {
+  "name": "Ryan Nembhard",
+  "team": "CHO",
+  "salary": {
+   "2026-27": 2150917
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 2150917
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {
+   "2026-27": true
+  },
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-07-19",
+    "method": "trade",
+    "team": "ATL"
+   },
+   {
+    "date": "2026-09-22",
+    "method": "trade",
+    "team": "CHO"
+   }
+  ]
  },
  {
   "name": "Michael Ajayi",
@@ -4445,7 +4493,7 @@
    "2026-27": 678882
   },
   "guaranteed": {
-   "2026-27": 0
+   "2026-27": 91000
   },
   "likelyIncentives": {
    "2026-27": 0
@@ -10439,22 +10487,22 @@
   "team": "NOP",
   "salary": {
    "2026-27": 6557080,
-   "2027-28": 20100000,
+   "2027-28": 20108695,
    "2028-29": 18500000,
-   "2029-30": 16900000
+   "2029-30": 16891305
   },
   "options": {},
   "cashSalary": {
    "2026-27": 6440678,
-   "2027-28": 20100000,
+   "2027-28": 20108695,
    "2028-29": 18500000,
-   "2029-30": 16900000
+   "2029-30": 16891305
   },
   "guaranteed": {
    "2026-27": 6440678,
-   "2027-28": 20100000,
+   "2027-28": 20108695,
    "2028-29": 18500000,
-   "2029-30": 16900000
+   "2029-30": 16891305
   },
   "likelyIncentives": {
    "2026-27": 116402,
@@ -14866,24 +14914,41 @@
   "name": "Kawhi Leonard",
   "team": "TOR",
   "salary": {
-   "2026-27": 50300000
+   "2026-27": 50300000,
+   "2027-28": 55288462,
+   "2028-29": 59711538
   },
-  "options": {},
+  "options": {
+   "2028-29": "Player"
+  },
   "cashSalary": {
-   "2026-27": 50300000
+   "2026-27": 50300000,
+   "2027-28": 55288462,
+   "2028-29": 59711538
   },
   "guaranteed": {
-   "2026-27": 50300000
+   "2026-27": 50300000,
+   "2027-28": 55288462,
+   "2028-29": 59711538
   },
   "likelyIncentives": {
-   "2026-27": 0
+   "2026-27": 0,
+   "2027-28": 0,
+   "2028-29": 0
   },
-  "optionExercised": {},
+  "optionExercised": {
+   "2028-29": false
+  },
   "acquiredMethod": "Trade",
   "acquisitionHistory": [
    {
     "date": "2026-09-14",
     "method": "trade",
+    "team": "TOR"
+   },
+   {
+    "date": "2026-09-22",
+    "method": "free-agent",
     "team": "TOR"
    }
   ]
@@ -15234,7 +15299,9 @@
    "2028-29": 2694363,
    "2029-30": 2918152
   },
-  "options": {},
+  "options": {
+   "2029-30": "Team"
+  },
   "cashSalary": {
    "2026-27": 1357763,
    "2027-28": 2294370,
@@ -15253,7 +15320,9 @@
    "2028-29": 0,
    "2029-30": 0
   },
-  "optionExercised": {},
+  "optionExercised": {
+   "2029-30": false
+  },
   "acquiredMethod": "Draft",
   "acquisitionHistory": [
    {
@@ -15569,28 +15638,28 @@
   "team": "UTA",
   "salary": {
    "2026-27": 6563925,
-   "2027-28": 27155172,
-   "2028-29": 29327586,
-   "2029-30": 31500000,
-   "2030-31": 33672414,
-   "2031-32": 35844828
+   "2027-28": 28703704,
+   "2028-29": 29851852,
+   "2029-30": 31000000,
+   "2030-31": 32148148,
+   "2031-32": 33296296
   },
   "options": {},
   "cashSalary": {
    "2026-27": 6563925,
-   "2027-28": 27155172,
-   "2028-29": 29327586,
-   "2029-30": 31500000,
-   "2030-31": 33672414,
-   "2031-32": 35844828
+   "2027-28": 28703704,
+   "2028-29": 29851852,
+   "2029-30": 31000000,
+   "2030-31": 32148148,
+   "2031-32": 33296296
   },
   "guaranteed": {
    "2026-27": 6563925,
-   "2027-28": 27155172,
-   "2028-29": 29327586,
-   "2029-30": 31500000,
-   "2030-31": 33672414,
-   "2031-32": 35844828
+   "2027-28": 28703704,
+   "2028-29": 29851852,
+   "2029-30": 31000000,
+   "2030-31": 32148148,
+   "2031-32": 33296296
   },
   "likelyIncentives": {
    "2026-27": 0,

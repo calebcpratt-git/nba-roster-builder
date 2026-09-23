@@ -602,20 +602,6 @@
   }
  },
  {
-  "name": "Buddy Hield",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Aaron Wiggins",
   "signedUnder": "bird",
   "incentives": {
@@ -698,16 +684,6 @@
  {
   "name": "Mouhamed Gueye",
   "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
-  "name": "Ryan Nembhard",
-  "signedUnder": "minimum",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -1187,6 +1163,16 @@
   }
  },
  {
+  "name": "Nick Pringle",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Tyler Bilodeau",
   "incentives": {
    "2026-27": {
@@ -1334,6 +1320,20 @@
   }
  },
  {
+  "name": "Buddy Hield",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Tidjane Salaün",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -1437,6 +1437,16 @@
     "unlikely": 0
    },
    "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Ryan Nembhard",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -6823,7 +6833,8 @@
     "likely": 0,
     "unlikely": 0
    }
-  }
+  },
+  "signedUnder": "non-taxpayer-mle"
  },
  {
   "name": "Chucky Hepburn",
