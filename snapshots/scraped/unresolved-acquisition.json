@@ -1,5 +1,15 @@
 [
  {
+  "name": "Keon Johnson",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Isaac McKneely",
+  "date": "2026-09-21",
+  "method": "free-agent"
+ },
+ {
   "name": "William Baker",
   "date": "2026-09-14",
   "method": "free-agent"
@@ -25,11 +35,6 @@
   "method": "trade"
  },
  {
-  "name": "Isaac McKneely",
-  "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
   "name": "Narcisse N'Goy",
   "date": "2026-06-23",
   "method": "draft"
@@ -37,6 +42,16 @@
  {
   "name": "Tony Bradley",
   "date": "2026-04-06",
+  "method": "free-agent"
+ },
+ {
+  "name": "Gabe McGlothan",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Hayden Gray",
+  "date": "2026-09-23",
   "method": "free-agent"
  },
  {
@@ -52,11 +67,6 @@
  {
   "name": "Hank Morgan",
   "date": "2026-09-11",
-  "method": "free-agent"
- },
- {
-  "name": "Hayden Gray",
-  "date": "2026-08-11",
   "method": "free-agent"
  },
  {
@@ -175,6 +185,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Peter Suder",
+  "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "Houston Mallette",
+  "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
   "name": "Marquel Sutton",
   "date": "2026-08-07",
   "method": "free-agent"
@@ -210,6 +230,26 @@
   "method": "free-agent"
  },
  {
+  "name": "Curtis Jones",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Zach Austin",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Kadary Richmond",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Rashaun Agee",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
   "name": "Sean McNeil",
   "date": "2026-09-15",
   "method": "free-agent"
@@ -220,13 +260,13 @@
   "method": "trade"
  },
  {
-  "name": "Rashaun Agee",
+  "name": "Xaivian Lee",
   "date": "2026-06-24",
   "method": "free-agent"
  },
  {
-  "name": "Xaivian Lee",
-  "date": "2026-06-24",
+  "name": "Boopie Miller",
+  "date": "2026-09-23",
   "method": "free-agent"
  },
  {
@@ -265,6 +305,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Jordan Riley",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Drake Allen",
+  "date": "2026-09-21",
+  "method": "free-agent"
+ },
+ {
   "name": "Dawson Garcia",
   "date": "2026-09-14",
   "method": "free-agent"
@@ -276,11 +326,6 @@
  },
  {
   "name": "Corey Stephenson",
-  "date": "2026-06-24",
-  "method": "free-agent"
- },
- {
-  "name": "Drake Allen",
   "date": "2026-06-24",
   "method": "free-agent"
  },
@@ -495,6 +540,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Nate Santos",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Payton Sandfort",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
   "name": "Jalen Crutcher",
   "date": "2026-09-22",
   "method": "free-agent"
@@ -690,6 +745,31 @@
   "method": "free-agent"
  },
  {
+  "name": "Kevin Knox II",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jarron Cumberland",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Ace Baldwin Jr.",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Au’Diese Toney",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Ricky Council IV",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
   "name": "JD Davison",
   "date": "2026-09-03",
   "method": "free-agent"
@@ -761,7 +841,27 @@
  },
  {
   "name": "Barry Dunning Jr.",
-  "date": "2026-06-24",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Mark Sears",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Keylan Boone",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Samson Johnson",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Mark Armstrong",
+  "date": "2026-09-23",
   "method": "free-agent"
  },
  {
@@ -822,6 +922,16 @@
  {
   "name": "Tyreke Key",
   "date": "2026-04-06",
+  "method": "free-agent"
+ },
+ {
+  "name": "Justin Harmon",
+  "date": "2026-09-23",
+  "method": "free-agent"
+ },
+ {
+  "name": "Ibrahima Diallo",
+  "date": "2026-09-23",
   "method": "free-agent"
  },
  {

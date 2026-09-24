@@ -10,6 +10,14 @@
   "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
  },
  {
+  "player": "Keon Johnson",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Isaac McKneely",
   "team": "Atlanta Hawks",
   "fullAmount": null,
@@ -34,8 +42,40 @@
   "exhibit10": true
  },
  {
+  "player": "Hayden Gray",
+  "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Gabe McGlothan",
+  "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Milos Uzan",
   "team": "Boston Celtics",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Dain Dainja",
+  "team": "Brooklyn Nets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Ben Humrichous",
+  "team": "Brooklyn Nets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -52,6 +92,38 @@
  {
   "player": "Peter Suder",
   "team": "Chicago Bulls",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Rashaun Agee",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Zack Austin",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Curtis Jones",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Kadary Richmond",
+  "team": "Cleveland Cavaliers",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -186,6 +258,22 @@
   "exhibit10": true
  },
  {
+  "player": "Payton Sandfort",
+  "team": "Minnesota Timberwolves",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Nate Santos",
+  "team": "Minnesota Timberwolves",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Kobe Bufkin",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -274,6 +362,14 @@
   "exhibit10": true
  },
  {
+  "player": "Kevin Knox II",
+  "team": "Orlando Magic",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tacko Fall",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
@@ -314,8 +410,24 @@
   "exhibit10": true
  },
  {
-  "player": "Mark Armstrong",
-  "team": "Portland Trail Blazers",
+  "player": "John Camden",
+  "team": "Phoenix Suns",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Corey Camper",
+  "team": "Phoenix Suns",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Sam Hoiberg",
+  "team": "Phoenix Suns",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -330,7 +442,7 @@
   "exhibit10": true
  },
  {
-  "player": "Samson Johnson",
+  "player": "Barry Dunning Jr.",
   "team": "Portland Trail Blazers",
   "fullAmount": null,
   "partialAmount": null,
@@ -338,16 +450,8 @@
   "exhibit10": true
  },
  {
-  "player": "Miles Barnstable",
-  "team": "San Antonio Spurs",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Jayden Nunn",
-  "team": "San Antonio Spurs",
+  "player": "Mark Sears",
+  "team": "Portland Trail Blazers",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -372,6 +476,22 @@
  {
   "player": "Andre Jackson Jr.",
   "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Ibrahima Diallo",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Justin Harmon",
+  "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

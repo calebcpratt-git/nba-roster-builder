@@ -72,7 +72,7 @@
           },
           "biAnnual": {
             "signings": [],
-            "remaining": 5477000
+            "remaining": 5376267
           },
           "tradeExceptionsUsed": [
             {
@@ -158,7 +158,7 @@
           },
           "biAnnual": {
             "signings": [],
-            "remaining": 5376267
+            "remaining": 2931052
           },
           "tradeExceptionsUsed": [
             {
@@ -181,124 +181,12 @@
     },
     {
       "before": {
-        "team": "TOR",
+        "team": "BOS",
         "season": "2026-27",
         "deadMoney": [],
         "capHolds": [
           {
-            "label": "Garrett Temple",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
-          },
-          {
-            "label": "A.J. Lawson",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "early-bird"
-          },
-          {
-            "label": "Tyreke Key",
-            "amount": 2400000,
-            "kind": "free-agent"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "TOR-ochai-agbaji-2026-02-05",
-            "amount": 6383525,
-            "expires": "2027-02-05",
-            "fromPlayer": "Ochai Agbaji"
-          }
-        ],
-        "exceptionsUsed": {
-          "taxpayerMLE": {
-            "signings": [],
-            "remaining": 6064000
-          },
-          "biAnnual": {
-            "signings": [],
-            "remaining": 0
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
-        },
-        "apronAddon": 6598209
-      },
-      "after": {
-        "team": "TOR",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "Garrett Temple",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
-          },
-          {
-            "label": "A.J. Lawson",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "early-bird"
-          },
-          {
-            "label": "Tyreke Key",
-            "amount": 2400000,
-            "kind": "free-agent"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "TOR-ochai-agbaji-2026-02-05",
-            "amount": 6383525,
-            "expires": "2027-02-05",
-            "fromPlayer": "Ochai Agbaji"
-          }
-        ],
-        "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [
-              {
-                "player": "Jaden Bradley",
-                "amount": 1357763
-              }
-            ],
-            "remaining": null
-          },
-          "biAnnual": {
-            "signings": [],
-            "remaining": 0
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
-        },
-        "apronAddon": 6598209
-      },
-      "fields": [
-        "exceptionsUsed"
-      ]
-    },
-    {
-      "before": {
-        "team": "WAS",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "Sharife Cooper",
+            "label": "Max Shulga",
             "amount": 2200000,
             "kind": "free-agent",
             "birdRights": "non-bird"
@@ -310,26 +198,160 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "WAS-jaden-hardy-2026-07-08",
-            "amount": 6000000,
-            "expires": "2027-07-08",
-            "fromPlayer": "Jaden Hardy"
+            "id": "BOS-xavier-tillman-sr-2026-02-05",
+            "amount": 2546675,
+            "expires": "2027-02-05",
+            "fromPlayer": "Xavier Tillman Sr."
           },
           {
-            "id": "WAS-dangelo-russell-2026-07-08",
-            "amount": 5969250,
-            "expires": "2027-07-08",
-            "fromPlayer": "D'Angelo Russell"
+            "id": "BOS-josh-minott-2026-02-05",
+            "amount": 2378870,
+            "expires": "2027-02-05",
+            "fromPlayer": "Josh Minott"
+          },
+          {
+            "id": "BOS-chris-boucher-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Chris Boucher"
+          },
+          {
+            "id": "BOS-jaylen-brown-2026-07-06",
+            "amount": 2952438,
+            "expires": "2027-07-06",
+            "fromPlayer": "Jaylen Brown"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "Trade Salary Acquired: Aug 20 trade"
+          "trigger": "TP-MLE Exceeded: Mitchell Robinson (Jul 6)"
         },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Mitchell Robinson",
+                "amount": 15044000
+              }
+            ],
+            "remaining": 0
+          },
+          "biAnnual": {
             "signings": [],
-            "remaining": 11828547
+            "remaining": 2942531
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 4464000,
+          "availableToReceive": 6754000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "BOS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Max Shulga",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "BOS-xavier-tillman-sr-2026-02-05",
+            "amount": 2546675,
+            "expires": "2027-02-05",
+            "fromPlayer": "Xavier Tillman Sr."
+          },
+          {
+            "id": "BOS-josh-minott-2026-02-05",
+            "amount": 2378870,
+            "expires": "2027-02-05",
+            "fromPlayer": "Josh Minott"
+          },
+          {
+            "id": "BOS-chris-boucher-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Chris Boucher"
+          },
+          {
+            "id": "BOS-jaylen-brown-2026-07-06",
+            "amount": 2952438,
+            "expires": "2027-07-06",
+            "fromPlayer": "Jaylen Brown"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "TP-MLE Exceeded: Mitchell Robinson (Jul 6)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Mitchell Robinson",
+                "amount": 15044000
+              }
+            ],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 757415
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 4464000,
+          "availableToReceive": 6754000
+        },
+        "apronAddon": 0
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "POR",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Didi Louzada",
+            "amount": 268032
+          }
+        ],
+        "capHolds": [
+          {
+            "label": "Blake Wesley",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "POR-kris-murray-2026-06-29",
+            "amount": 3132000,
+            "expires": "2027-06-29",
+            "fromPlayer": "Kris Murray"
+          }
+        ],
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 13110137
           },
           "taxpayerMLE": {
             "signings": [],
@@ -347,13 +369,18 @@
         "apronAddon": 0
       },
       "after": {
-        "team": "WAS",
+        "team": "POR",
         "season": "2026-27",
-        "deadMoney": [],
+        "deadMoney": [
+          {
+            "player": "Didi Louzada",
+            "amount": 268032
+          }
+        ],
         "capHolds": [
           {
-            "label": "Sharife Cooper",
-            "amount": 2200000,
+            "label": "Blake Wesley",
+            "amount": 2500000,
             "kind": "free-agent",
             "birdRights": "non-bird"
           }
@@ -364,26 +391,16 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "WAS-jaden-hardy-2026-07-08",
-            "amount": 6000000,
-            "expires": "2027-07-08",
-            "fromPlayer": "Jaden Hardy"
-          },
-          {
-            "id": "WAS-dangelo-russell-2026-07-08",
-            "amount": 5969250,
-            "expires": "2027-07-08",
-            "fromPlayer": "D'Angelo Russell"
+            "id": "POR-kris-murray-2026-06-29",
+            "amount": 3132000,
+            "expires": "2027-06-29",
+            "fromPlayer": "Kris Murray"
           }
         ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "Trade Salary Acquired: Aug 20 trade"
-        },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
             "signings": [],
-            "remaining": 11832753
+            "remaining": 9571464
           },
           "taxpayerMLE": {
             "signings": [],
