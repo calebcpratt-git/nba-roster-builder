@@ -1,6 +1,43 @@
 {
   "added": [
     {
+      "name": "Dominique Daniels, Jr.",
+      "position": "PG",
+      "priorTeam": "NOP",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Kowacie Reeves, Jr.",
+      "position": "SF",
+      "priorTeam": "IND",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "D.J. Rodman",
+      "position": "SG",
+      "priorTeam": "BRK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Aaron Scott",
+      "position": "SG",
+      "priorTeam": "BRK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jalen Warley",
+      "position": "SG",
+      "priorTeam": "IND",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
       "name": "Alex Antetokounmpo",
       "position": "PF",
       "priorTeam": "MIL",
@@ -216,8 +253,14 @@
       "priorTeam": "MIA",
       "faType": "U",
       "birdRights": "non-bird"
+    },
+    {
+      "name": "Peter Suder",
+      "position": "SG",
+      "priorTeam": "LAL",
+      "faType": "U",
+      "birdRights": null
     }
   ],
-  "removed": [],
   "changed": []
 }

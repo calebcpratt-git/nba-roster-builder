@@ -1083,6 +1083,7 @@
    "2026-27": 0
   },
   "optionExercised": {},
+  "contractType": "two-way",
   "acquiredMethod": "Draft",
   "acquisitionHistory": [
    {
@@ -14825,6 +14826,37 @@
     "team": "SAS"
    }
   ]
+ },
+ {
+  "name": "Miles Barnstable",
+  "team": "SAS",
+  "salary": {
+   "2026-27": 1357763
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-22",
+    "method": "free-agent",
+    "team": "SAS"
+   }
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
  },
  {
   "name": "Maliq Brown",

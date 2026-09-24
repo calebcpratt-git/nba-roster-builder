@@ -68,7 +68,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 5376267
+    "remaining": 2931052
    },
    "tradeExceptionsUsed": [
     {
@@ -290,7 +290,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 2942531
+    "remaining": 757415
    }
   },
   "cashLedger": {
@@ -6311,7 +6311,7 @@
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
-    "remaining": 13110137
+    "remaining": 9571464
    },
    "taxpayerMLE": {
     "signings": [],

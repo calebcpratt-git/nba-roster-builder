@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 14,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 69,
-      "acquisition": 171,
-      "guarantees": 47,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 90,
-      "no-current-salary": 1
-    },
-    "after": {
       "draft-year": 70,
       "acquisition": 177,
       "guarantees": 49,
@@ -74,94 +65,259 @@
       "name-bridge": 90,
       "no-current-salary": 1
     },
-    "newUnresolved": 9,
+    "after": {
+      "draft-year": 71,
+      "acquisition": 199,
+      "guarantees": 64,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 104,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 52,
     "newByCategory": {
       "draft-year": 1,
-      "acquisition": 6,
-      "guarantees": 2
+      "acquisition": 22,
+      "guarantees": 15,
+      "name-bridge": 14
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Nick Pringle",
-          "team": "BRK"
+          "name": "Miles Barnstable",
+          "team": "SAS"
         }
       ],
       "acquisition": [
         {
-          "name": "Tre Carroll",
+          "name": "Keon Johnson",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Gabe McGlothan",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Houston Mallette",
           "date": "2026-09-22",
           "method": "free-agent"
         },
         {
-          "name": "Keonte Jones",
-          "date": "2026-09-22",
+          "name": "Curtis Jones",
+          "date": "2026-09-23",
           "method": "free-agent"
         },
         {
-          "name": "Reese Dixon-Waters",
-          "date": "2026-09-22",
+          "name": "Zach Austin",
+          "date": "2026-09-23",
           "method": "free-agent"
         },
         {
-          "name": "Obi Agbim",
-          "date": "2026-09-19",
+          "name": "Kadary Richmond",
+          "date": "2026-09-23",
           "method": "free-agent"
         },
         {
-          "name": "Jalen Crutcher",
-          "date": "2026-09-22",
+          "name": "Boopie Miller",
+          "date": "2026-09-23",
           "method": "free-agent"
         },
         {
-          "name": "Solomon Washington",
-          "date": "2026-09-22",
+          "name": "Jordan Riley",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Nate Santos",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Payton Sandfort",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Kevin Knox II",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Jarron Cumberland",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Ace Baldwin Jr.",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Au’Diese Toney",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Ricky Council IV",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Mark Sears",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Keylan Boone",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Samson Johnson",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Mark Armstrong",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Justin Harmon",
+          "date": "2026-09-23",
+          "method": "free-agent"
+        },
+        {
+          "name": "Ibrahima Diallo",
+          "date": "2026-09-23",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Houston Mallette",
-          "team": "Chicago Bulls",
+          "player": "Keon Johnson",
+          "team": "Atlanta Hawks",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Peter Suder",
-          "team": "Chicago Bulls",
+          "player": "Hayden Gray",
+          "team": "Boston Celtics",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Jordan Riley",
-          "team": "Detroit Pistons",
+          "player": "Gabe McGlothan",
+          "team": "Boston Celtics",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "James Johnson",
-          "team": "Indiana Pacers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": false
-        },
-        {
-          "player": "Bez Mbeng",
-          "team": "Miami Heat",
+          "player": "Dain Dainja",
+          "team": "Brooklyn Nets",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Mark Armstrong",
+          "player": "Ben Humrichous",
+          "team": "Brooklyn Nets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Rashaun Agee",
+          "team": "Cleveland Cavaliers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Zack Austin",
+          "team": "Cleveland Cavaliers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Curtis Jones",
+          "team": "Cleveland Cavaliers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Kadary Richmond",
+          "team": "Cleveland Cavaliers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Payton Sandfort",
+          "team": "Minnesota Timberwolves",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Nate Santos",
+          "team": "Minnesota Timberwolves",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Kevin Knox II",
+          "team": "Orlando Magic",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "John Camden",
+          "team": "Phoenix Suns",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Corey Camper",
+          "team": "Phoenix Suns",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Sam Hoiberg",
+          "team": "Phoenix Suns",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Barry Dunning Jr.",
           "team": "Portland Trail Blazers",
           "fullAmount": null,
           "partialAmount": null,
@@ -169,7 +325,7 @@
           "exhibit10": true
         },
         {
-          "player": "Keylan Boone",
+          "player": "Mark Sears",
           "team": "Portland Trail Blazers",
           "fullAmount": null,
           "partialAmount": null,
@@ -177,16 +333,16 @@
           "exhibit10": true
         },
         {
-          "player": "Samson Johnson",
-          "team": "Portland Trail Blazers",
+          "player": "Ibrahima Diallo",
+          "team": "Utah Jazz",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Miles Barnstable",
-          "team": "San Antonio Spurs",
+          "player": "Justin Harmon",
+          "team": "Utah Jazz",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -195,25 +351,64 @@
       ],
       "name-bridge": [
         {
-          "name": "Bez Mbeng"
+          "name": "Curtis Jones"
         },
         {
-          "name": "Nick Pringle"
+          "name": "Gabe McGlothan"
         },
         {
-          "name": "Obi Agbim"
+          "name": "Houston Mallette"
+        },
+        {
+          "name": "Ibrahima Diallo"
+        },
+        {
+          "name": "Jordan Riley"
+        },
+        {
+          "name": "Justin Harmon"
+        },
+        {
+          "name": "Kadary Richmond"
+        },
+        {
+          "name": "Keon Johnson"
+        },
+        {
+          "name": "Kevin Knox II"
+        },
+        {
+          "name": "Keylan Boone"
+        },
+        {
+          "name": "Mark Sears"
+        },
+        {
+          "name": "Miles Barnstable"
+        },
+        {
+          "name": "Nate Santos"
+        },
+        {
+          "name": "Payton Sandfort"
+        },
+        {
+          "name": "Peter Suder"
+        },
+        {
+          "name": "Zach Austin"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-23T15:23:54.786Z",
+  "generatedAt": "2026-09-24T15:47:51.632Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~8 (of 527)",
+    "players: +1 -0 ~1 (of 528)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -0 ~1 (of 519)",
+    "contract-details: +1 -0 ~0 (of 520)",
     "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +31 -0 ~0 (of 168)",
+    "free-agents: +5 -32 ~0 (of 199)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

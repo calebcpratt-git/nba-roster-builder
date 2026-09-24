@@ -1,7 +1,7 @@
 {
   "added": [
     {
-      "name": "Nick Pringle",
+      "name": "Miles Barnstable",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -12,30 +12,5 @@
     }
   ],
   "removed": [],
-  "changed": [
-    {
-      "before": {
-        "name": "Jaden Bradley",
-        "incentives": {
-          "2026-27": {
-            "likely": 0,
-            "unlikely": 0
-          }
-        }
-      },
-      "after": {
-        "name": "Jaden Bradley",
-        "incentives": {
-          "2026-27": {
-            "likely": 0,
-            "unlikely": 0
-          }
-        },
-        "signedUnder": "non-taxpayer-mle"
-      },
-      "fields": [
-        "signedUnder"
-      ]
-    }
-  ]
+  "changed": []
 }

@@ -6663,6 +6663,16 @@
    }
   }
  },
+ "miles barnstable": {
+  "team": "SAS",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "maliq brown": {
   "team": "SAS",
   "signedUnder": null,
