@@ -325,6 +325,12 @@
  },
  {
   "team": "DEN",
+  "player": "Curtis Jones",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DEN",
   "player": "Bruce Brown Jr.",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"

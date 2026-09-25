@@ -1921,8 +1921,8 @@
  {
   "bbrefId": null,
   "name": "Boopie Miller",
-  "date": "2026-09-23",
-  "dateRaw": "Sep 23, 2026",
+  "date": "2026-09-22",
+  "dateRaw": "Sep 22, 2026",
   "method": "free-agent",
   "toTeams": [
    "DEN"
@@ -1934,8 +1934,8 @@
  {
   "bbrefId": null,
   "name": "Keonte Jones",
-  "date": "2026-09-22",
-  "dateRaw": "Sep 22, 2026",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
   "method": "free-agent",
   "toTeams": [
    "DEN"
@@ -1947,8 +1947,8 @@
  {
   "bbrefId": null,
   "name": "Reese Dixon-Waters",
-  "date": "2026-09-22",
-  "dateRaw": "Sep 22, 2026",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
   "method": "free-agent",
   "toTeams": [
    "DEN"
@@ -3889,14 +3889,14 @@
  {
   "bbrefId": null,
   "name": "Pelle Larsson",
-  "date": "2026-09-18",
-  "dateRaw": "Sep 18, 2026",
+  "date": "2026-09-22",
+  "dateRaw": "Sep 22, 2026",
   "method": "extension",
   "toTeams": [
    "MIA"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Scale Extension",
+  "text": "Signed to Veteran Extension",
   "flags": []
  },
  {
@@ -4346,6 +4346,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Antonio Reeves",
+  "date": "2026-09-24",
+  "dateRaw": "Sep 24, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Nate Santos",
   "date": "2026-09-23",
   "dateRaw": "Sep 23, 2026",
@@ -4373,8 +4386,8 @@
  {
   "bbrefId": null,
   "name": "Jalen Crutcher",
-  "date": "2026-09-22",
-  "dateRaw": "Sep 22, 2026",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
   "method": "free-agent",
   "toTeams": [
    "MIN"
@@ -4603,9 +4616,22 @@
  },
  {
   "bbrefId": null,
+  "name": "Julian Reese",
+  "date": "2026-09-24",
+  "dateRaw": "Sep 24, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Solomon Washington",
-  "date": "2026-09-22",
-  "dateRaw": "Sep 22, 2026",
+  "date": "2026-09-21",
+  "dateRaw": "Sep 21, 2026",
   "method": "free-agent",
   "toTeams": [
    "NOP"
@@ -6011,8 +6037,8 @@
  {
   "bbrefId": null,
   "name": "Keylan Boone",
-  "date": "2026-09-23",
-  "dateRaw": "Sep 23, 2026",
+  "date": "2026-09-22",
+  "dateRaw": "Sep 22, 2026",
   "method": "free-agent",
   "toTeams": [
    "POR"
@@ -6024,8 +6050,8 @@
  {
   "bbrefId": null,
   "name": "Samson Johnson",
-  "date": "2026-09-23",
-  "dateRaw": "Sep 23, 2026",
+  "date": "2026-09-22",
+  "dateRaw": "Sep 22, 2026",
   "method": "free-agent",
   "toTeams": [
    "POR"
@@ -6037,8 +6063,8 @@
  {
   "bbrefId": null,
   "name": "Mark Armstrong",
-  "date": "2026-09-23",
-  "dateRaw": "Sep 23, 2026",
+  "date": "2026-09-22",
+  "dateRaw": "Sep 22, 2026",
   "method": "free-agent",
   "toTeams": [
    "POR"
@@ -6125,6 +6151,32 @@
    "MEM"
   ],
   "text": "Traded from MEM",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Tyrone Marshall Jr.",
+  "date": "2026-09-24",
+  "dateRaw": "Sep 24, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Gabe Levin",
+  "date": "2026-09-24",
+  "dateRaw": "Sep 24, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6313,15 +6365,28 @@
  },
  {
   "bbrefId": null,
-  "name": "Killian Hayes",
-  "date": "2026-03-15",
-  "dateRaw": "Mar 15, 2026",
+  "name": "Jon Elmore",
+  "date": "2026-09-24",
+  "dateRaw": "Sep 24, 2026",
   "method": "free-agent",
   "toTeams": [
-   "SAC"
+   "SAS"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Malik Williams",
+  "date": "2026-09-24",
+  "dateRaw": "Sep 24, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6543,6 +6608,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "A.J. Hoggard",
+  "date": "2026-09-24",
+  "dateRaw": "Sep 24, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

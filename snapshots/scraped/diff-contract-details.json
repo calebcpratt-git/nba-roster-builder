@@ -1,6 +1,35 @@
 {
   "added": [
     {
+      "name": "Julian Reese",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
+  "removed": [
+    {
+      "name": "Johni Broome",
+      "signedUnder": "rookie-scale",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2028-29": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
       "name": "Miles Barnstable",
       "signedUnder": "minimum",
       "incentives": {
@@ -11,6 +40,5 @@
       }
     }
   ],
-  "removed": [],
   "changed": []
 }

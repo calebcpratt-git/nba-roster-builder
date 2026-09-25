@@ -10,14 +10,6 @@
   "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
  },
  {
-  "player": "Keon Johnson",
-  "team": "Atlanta Hawks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Isaac McKneely",
   "team": "Atlanta Hawks",
   "fullAmount": null,
@@ -130,20 +122,20 @@
   "exhibit10": true
  },
  {
-  "player": "Lonnie Walker IV",
-  "team": "Denver Nuggets",
+  "player": "Dwight Powell",
+  "team": "Dallas Mavericks",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
  },
  {
-  "player": "Jordan Riley",
-  "team": "Detroit Pistons",
+  "player": "Lonnie Walker IV",
+  "team": "Denver Nuggets",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": true
+  "exhibit10": false
  },
  {
   "player": "Dalen Terry",
@@ -258,15 +250,7 @@
   "exhibit10": true
  },
  {
-  "player": "Payton Sandfort",
-  "team": "Minnesota Timberwolves",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Nate Santos",
+  "player": "Antonio Reeves",
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": null,
@@ -434,24 +418,32 @@
   "exhibit10": true
  },
  {
-  "player": "Keylan Boone",
-  "team": "Portland Trail Blazers",
+  "player": "Elfrid Payton",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Gabe Levin",
+  "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
  },
  {
-  "player": "Barry Dunning Jr.",
-  "team": "Portland Trail Blazers",
+  "player": "Tyrone Marshall Jr.",
+  "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
  },
  {
-  "player": "Mark Sears",
-  "team": "Portland Trail Blazers",
+  "player": "Jon Elmore",
+  "team": "San Antonio Spurs",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -459,6 +451,14 @@
  },
  {
   "player": "Taelon Peter",
+  "team": "San Antonio Spurs",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Malik Williams",
   "team": "San Antonio Spurs",
   "fullAmount": null,
   "partialAmount": null,
@@ -474,6 +474,14 @@
   "exhibit10": true
  },
  {
+  "player": "Nimari Burnett",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Andre Jackson Jr.",
   "team": "Toronto Raptors",
   "fullAmount": null,
@@ -482,16 +490,8 @@
   "exhibit10": true
  },
  {
-  "player": "Ibrahima Diallo",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Justin Harmon",
-  "team": "Utah Jazz",
+  "player": "Tyreke Key",
+  "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",

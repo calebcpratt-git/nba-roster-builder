@@ -3417,24 +3417,6 @@
   }
  },
  {
-  "name": "Johni Broome",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Baba Miller",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -4882,6 +4864,15 @@
  },
  {
   "name": "Malik Dia",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Julian Reese",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -6633,16 +6624,6 @@
  },
  {
   "name": "Jordan McLaughlin",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
-  "name": "Miles Barnstable",
   "signedUnder": "minimum",
   "incentives": {
    "2026-27": {

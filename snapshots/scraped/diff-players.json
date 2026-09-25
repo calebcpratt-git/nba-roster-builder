@@ -1,6 +1,78 @@
 {
   "added": [
     {
+      "name": "Julian Reese",
+      "team": "NOP",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 678882
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-08-20",
+          "method": "trade",
+          "team": "DEN"
+        },
+        {
+          "date": "2026-09-24",
+          "method": "free-agent",
+          "team": "NOP"
+        }
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "name": "Johni Broome",
+      "team": "LAC",
+      "salary": {
+        "2026-27": 2150917,
+        "2027-28": 2525901,
+        "2028-29": 2735698
+      },
+      "options": {
+        "2028-29": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 2150917,
+        "2027-28": 2525901,
+        "2028-29": 2735698
+      },
+      "guaranteed": {
+        "2026-27": 2150917,
+        "2027-28": 0,
+        "2028-29": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0,
+        "2028-29": 0
+      },
+      "optionExercised": {
+        "2028-29": false
+      },
+      "acquiredMethod": "Trade",
+      "acquisitionHistory": [
+        {
+          "date": "2026-07-28",
+          "method": "trade",
+          "team": "LAC"
+        }
+      ]
+    },
+    {
       "name": "Miles Barnstable",
       "team": "SAS",
       "salary": {
@@ -32,74 +104,124 @@
       }
     }
   ],
-  "removed": [],
   "changed": [
     {
       "before": {
-        "name": "Dillon Mitchell",
-        "team": "BOS",
+        "name": "Pelle Larsson",
+        "team": "MIA",
         "salary": {
-          "2026-27": 0
+          "2026-27": 2296271,
+          "2027-28": 13392857,
+          "2028-29": 14464286,
+          "2029-30": 15535714,
+          "2030-31": 16607143
         },
-        "options": {},
+        "options": {
+          "2030-31": "Player"
+        },
         "cashSalary": {
-          "2026-27": 678882
+          "2026-27": 2296271,
+          "2027-28": 13392857,
+          "2028-29": 14464286,
+          "2029-30": 15535714,
+          "2030-31": 16607143
         },
         "guaranteed": {
-          "2026-27": 91000
+          "2026-27": 0,
+          "2027-28": 13392857,
+          "2028-29": 14464286,
+          "2029-30": 15535714,
+          "2030-31": 16607143
         },
         "likelyIncentives": {
-          "2026-27": 0
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0,
+          "2030-31": 0
         },
-        "optionExercised": {},
+        "optionExercised": {
+          "2026-27": true,
+          "2030-31": false
+        },
         "acquiredMethod": "Draft",
         "acquisitionHistory": [
           {
-            "date": "2026-06-23",
-            "method": "draft",
-            "team": "BOS"
-          },
-          {
-            "date": "2026-08-05",
-            "method": "free-agent",
-            "team": "BOS"
+            "date": "2026-09-18",
+            "method": "extension",
+            "team": "MIA"
           }
-        ]
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed",
+            "guaranteeDate": "2026-10-15"
+          }
+        }
       },
       "after": {
-        "name": "Dillon Mitchell",
-        "team": "BOS",
+        "name": "Pelle Larsson",
+        "team": "MIA",
         "salary": {
-          "2026-27": 0
+          "2026-27": 2296271,
+          "2027-28": 13500000,
+          "2028-29": 14580000,
+          "2029-30": 15660000,
+          "2030-31": 16260000
         },
-        "options": {},
+        "options": {
+          "2030-31": "Player"
+        },
         "cashSalary": {
-          "2026-27": 678882
+          "2026-27": 2296271,
+          "2027-28": 13500000,
+          "2028-29": 14580000,
+          "2029-30": 15660000,
+          "2030-31": 16260000
         },
         "guaranteed": {
-          "2026-27": 91000
+          "2026-27": 0,
+          "2027-28": 13500000,
+          "2028-29": 14580000,
+          "2029-30": 15660000,
+          "2030-31": 16260000
         },
         "likelyIncentives": {
-          "2026-27": 0
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0,
+          "2030-31": 0
         },
-        "optionExercised": {},
-        "contractType": "two-way",
+        "optionExercised": {
+          "2026-27": true,
+          "2030-31": false
+        },
         "acquiredMethod": "Draft",
         "acquisitionHistory": [
           {
-            "date": "2026-06-23",
-            "method": "draft",
-            "team": "BOS"
+            "date": "2026-09-18",
+            "method": "extension",
+            "team": "MIA"
           },
           {
-            "date": "2026-08-05",
-            "method": "free-agent",
-            "team": "BOS"
+            "date": "2026-09-22",
+            "method": "extension",
+            "team": "MIA"
           }
-        ]
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed",
+            "guaranteeDate": "2026-10-15"
+          }
+        }
       },
       "fields": [
-        "contractType"
+        "salary",
+        "cashSalary",
+        "guaranteed",
+        "acquisitionHistory"
       ]
     }
   ]
