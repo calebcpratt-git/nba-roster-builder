@@ -194,7 +194,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Yanic Konan Niederhäuser": 2025,
   "Kobe Sanders": 2025,
   "Cam Christie": 2024,
-  "Johni Broome": 2025,
   "Baba Miller": 2026,
   "Bradley Beal": 2012,
   "Nick Martinelli": 2026,

@@ -179,6 +179,25 @@
   "faYear": null
  },
  {
+  "name": "Johni Broome",
+  "team": "LAC",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2150917
+  },
+  "cashSalary": {
+   "2026-27": 2150917
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Mamadi Diakite",
   "team": "MEM",
   "section": "Waivers",

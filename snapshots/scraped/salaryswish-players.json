@@ -3142,24 +3142,6 @@
    }
   }
  },
- "johni broome": {
-  "team": "LAC",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "baba miller": {
   "team": "LAC",
   "signedUnder": "rookie-scale",
@@ -4782,6 +4764,16 @@
   }
  },
  "malik dia": {
+  "team": "NOP",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "julian reese": {
   "team": "NOP",
   "signedUnder": null,
   "incentives": {
@@ -6654,16 +6646,6 @@
   }
  },
  "jordan mclaughlin": {
-  "team": "SAS",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "miles barnstable": {
   "team": "SAS",
   "signedUnder": "minimum",
   "incentives": {

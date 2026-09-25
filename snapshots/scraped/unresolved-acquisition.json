@@ -266,28 +266,23 @@
  },
  {
   "name": "Boopie Miller",
-  "date": "2026-09-23",
+  "date": "2026-09-22",
   "method": "free-agent"
  },
  {
   "name": "Keonte Jones",
-  "date": "2026-09-22",
+  "date": "2026-09-21",
   "method": "free-agent"
  },
  {
   "name": "Reese Dixon-Waters",
-  "date": "2026-09-22",
+  "date": "2026-09-21",
   "method": "free-agent"
  },
  {
   "name": "Lonnie Walker IV",
   "date": "2026-09-08",
   "method": "free-agent"
- },
- {
-  "name": "Julian Reese",
-  "date": "2026-08-20",
-  "method": "trade"
  },
  {
   "name": "Aaron Nkrumah",
@@ -450,6 +445,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Johni Broome",
+  "date": "2026-07-28",
+  "method": "trade"
+ },
+ {
   "name": "Fletcher Loyer",
   "date": "2026-06-25",
   "method": "free-agent"
@@ -540,6 +540,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Antonio Reeves",
+  "date": "2026-09-24",
+  "method": "free-agent"
+ },
+ {
   "name": "Nate Santos",
   "date": "2026-09-23",
   "method": "free-agent"
@@ -551,7 +556,7 @@
  },
  {
   "name": "Jalen Crutcher",
-  "date": "2026-09-22",
+  "date": "2026-09-21",
   "method": "free-agent"
  },
  {
@@ -586,7 +591,7 @@
  },
  {
   "name": "Solomon Washington",
-  "date": "2026-09-22",
+  "date": "2026-09-21",
   "method": "free-agent"
  },
  {
@@ -851,17 +856,27 @@
  },
  {
   "name": "Keylan Boone",
-  "date": "2026-09-23",
+  "date": "2026-09-22",
   "method": "free-agent"
  },
  {
   "name": "Samson Johnson",
-  "date": "2026-09-23",
+  "date": "2026-09-22",
   "method": "free-agent"
  },
  {
   "name": "Mark Armstrong",
-  "date": "2026-09-23",
+  "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "Tyrone Marshall Jr.",
+  "date": "2026-09-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Gabe Levin",
+  "date": "2026-09-24",
   "method": "free-agent"
  },
  {
@@ -880,8 +895,18 @@
   "method": "free-agent"
  },
  {
-  "name": "Killian Hayes",
-  "date": "2026-03-15",
+  "name": "Jon Elmore",
+  "date": "2026-09-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Malik Williams",
+  "date": "2026-09-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Miles Barnstable",
+  "date": "2026-09-22",
   "method": "free-agent"
  },
  {
@@ -897,6 +922,11 @@
  {
   "name": "David Jones",
   "date": "2026-07-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "A.J. Hoggard",
+  "date": "2026-09-24",
   "method": "free-agent"
  },
  {

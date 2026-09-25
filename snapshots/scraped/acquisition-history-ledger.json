@@ -11873,6 +11873,11 @@
    "date": "2026-09-18",
    "method": "extension",
    "team": "MIA"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "extension",
+   "team": "MIA"
   }
  ],
  "keyonte george": [
@@ -11920,6 +11925,18 @@
    "date": "2026-09-22",
    "method": "free-agent",
    "team": "SAS"
+  }
+ ],
+ "julian reese": [
+  {
+   "date": "2026-08-20",
+   "method": "trade",
+   "team": "DEN"
+  },
+  {
+   "date": "2026-09-24",
+   "method": "free-agent",
+   "team": "NOP"
   }
  ]
 }

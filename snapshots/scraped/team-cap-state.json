@@ -68,7 +68,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 2931052
+    "remaining": 5380473
    },
    "tradeExceptionsUsed": [
     {
@@ -1642,12 +1642,6 @@
   "season": "2026-27",
   "deadMoney": [],
   "capHolds": [
-   {
-    "label": "Curtis Jones",
-    "amount": 2200000,
-    "kind": "free-agent",
-    "birdRights": "non-bird"
-   },
    {
     "label": "David Roddy",
     "amount": 2200000,
@@ -6311,7 +6305,7 @@
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
-    "remaining": 9571464
+    "remaining": 14472106
    },
    "taxpayerMLE": {
     "signings": [],
@@ -6818,7 +6812,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 4492154
+    "remaining": 2042733
    }
   },
   "cashLedger": {
