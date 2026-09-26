@@ -127,6 +127,12 @@
  },
  {
   "team": "CHO",
+  "player": "Antonio Reeves",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "CHO",
   "player": "Christian Anderson",
   "amount": 4300000,
   "reason": "not-in-realgm-current-free-agents"
@@ -1373,6 +1379,12 @@
   "team": "TOR",
   "player": "Jordan Nwora",
   "amount": 5700000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "TOR",
+  "player": "Tyreke Key",
+  "amount": 2400000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {

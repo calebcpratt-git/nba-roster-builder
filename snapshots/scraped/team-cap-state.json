@@ -655,14 +655,7 @@
   "team": "CHO",
   "season": "2026-27",
   "deadMoney": [],
-  "capHolds": [
-   {
-    "label": "Antonio Reeves",
-    "amount": 2200000,
-    "kind": "free-agent",
-    "birdRights": "non-bird"
-   }
-  ],
+  "capHolds": [],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -4349,7 +4342,7 @@
       "amount": 6064000
      }
     ],
-    "remaining": 0
+    "remaining": null
    }
   },
   "cashLedger": {
@@ -7038,11 +7031,6 @@
     "amount": 2500000,
     "kind": "free-agent",
     "birdRights": "early-bird"
-   },
-   {
-    "label": "Tyreke Key",
-    "amount": 2400000,
-    "kind": "free-agent"
    }
   ],
   "salaryCap": 165000000,

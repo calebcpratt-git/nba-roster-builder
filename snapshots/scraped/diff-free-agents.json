@@ -1,26 +1,42 @@
 {
   "added": [
     {
-      "name": "Obi Agbim",
+      "name": "Mark Armstrong",
       "position": "PG",
-      "priorTeam": "GSW",
+      "priorTeam": "POR",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Drake Allen",
-      "position": "SG",
-      "priorTeam": "DET",
+      "name": "Samson Johnson",
+      "position": "C",
+      "priorTeam": "POR",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "D.J. Armstrong, Jr.",
-      "position": "SG",
-      "priorTeam": "CHO",
+      "name": "Boopie Miller",
+      "position": "PG",
+      "priorTeam": "DEN",
       "faType": "U",
       "birdRights": null
     },
+    {
+      "name": "Jayden Nunn",
+      "position": "SG",
+      "priorTeam": "SAS",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jamarion Sharp",
+      "position": "C",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": "non-bird"
+    }
+  ],
+  "removed": [
     {
       "name": "Nicolas Batum",
       "position": "SG/SF",
@@ -34,20 +50,6 @@
       "priorTeam": "SAS",
       "faType": "U",
       "birdRights": "early-bird"
-    },
-    {
-      "name": "Tre Carroll",
-      "position": "PF",
-      "priorTeam": "CHO",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Jalen Crutcher",
-      "position": "PG",
-      "priorTeam": "MIN",
-      "faType": "U",
-      "birdRights": null
     },
     {
       "name": "Seth Curry",
@@ -97,13 +99,6 @@
       "priorTeam": "MIN",
       "faType": "U",
       "birdRights": "early-bird"
-    },
-    {
-      "name": "Keonte Jones",
-      "position": "SF",
-      "priorTeam": "DEN",
-      "faType": "U",
-      "birdRights": null
     },
     {
       "name": "Maxi Kleber",
@@ -162,13 +157,6 @@
       "birdRights": "non-bird"
     },
     {
-      "name": "Dwight Powell",
-      "position": "F-C",
-      "priorTeam": "DAL",
-      "faType": "U",
-      "birdRights": "full-bird"
-    },
-    {
       "name": "Terry Rozier",
       "position": "PG",
       "priorTeam": "MIA",
@@ -204,20 +192,6 @@
       "birdRights": null
     },
     {
-      "name": "Solomon Washington",
-      "position": "SF",
-      "priorTeam": "NOP",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Reese Waters",
-      "position": "SG",
-      "priorTeam": "DEN",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
       "name": "Russell Westbrook",
       "position": "PG",
       "priorTeam": "SAC",
@@ -230,48 +204,39 @@
       "priorTeam": "CHI",
       "faType": "U",
       "birdRights": null
-    }
-  ],
-  "removed": [
+    },
     {
-      "name": "Hayden Gray",
+      "name": "Tyreke Key",
+      "position": "PG",
+      "priorTeam": "TOR",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Dwight Powell",
+      "position": "F-C",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": "full-bird"
+    },
+    {
+      "name": "Dwight Powell",
+      "position": "F-C",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": "full-bird"
+    },
+    {
+      "name": "Antonio Reeves",
       "position": "SG",
-      "priorTeam": "UTA",
+      "priorTeam": "CHO",
       "faType": "U",
       "birdRights": "non-bird"
     },
     {
-      "name": "Curtis Jones",
-      "position": "PG",
-      "priorTeam": "DEN",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Julian Reese",
-      "position": "PF",
-      "priorTeam": "DEN",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Kadary Richmond",
-      "position": "SG",
-      "priorTeam": "WAS",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Payton Sandfort",
-      "position": "SF",
-      "priorTeam": "OKC",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Mark Sears",
-      "position": "PG",
-      "priorTeam": "MIL",
+      "name": "Malik Williams",
+      "position": "C",
+      "priorTeam": "ATL",
       "faType": "U",
       "birdRights": null
     }

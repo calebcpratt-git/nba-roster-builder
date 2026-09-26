@@ -88,12 +88,28 @@
   "exhibit10": false
  },
  {
-  "player": "Houston Mallette",
+  "player": "Brandon Boston Jr.",
   "team": "Chicago Bulls",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": true
+  "exhibit10": false
+ },
+ {
+  "player": "Drew Peterson",
+  "team": "Chicago Bulls",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Orlando Robinson",
+  "team": "Chicago Bulls",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
  },
  {
   "player": "Peter Suder",
@@ -163,8 +179,8 @@
   "player": "Dwight Powell",
   "team": "Dallas Mavericks",
   "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
+  "partialAmount": 1000000,
+  "status": "partial",
   "exhibit10": false
  },
  {
@@ -174,6 +190,30 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Coleman Hawkins",
+  "team": "Denver Nuggets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Dane Goodwin",
+  "team": "Denver Nuggets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Emanuel Miller",
+  "team": "Denver Nuggets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Duncan Robinson",
@@ -344,6 +384,14 @@
   "exhibit10": false
  },
  {
+  "player": "Brendan Hausen",
+  "team": "Memphis Grizzlies",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Myron Gardner",
   "team": "Miami Heat",
   "fullAmount": null,
@@ -384,6 +432,14 @@
   "exhibit10": true
  },
  {
+  "player": "Ian Schieffelin",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Pete Nance",
   "team": "Milwaukee Bucks",
   "fullAmount": null,
@@ -413,6 +469,22 @@
   "fullAmount": null,
   "partialAmount": 1500000,
   "status": "partial",
+  "exhibit10": false
+ },
+ {
+  "player": "KJ Martin",
+  "team": "Minnesota Timberwolves",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Norchad Omier",
+  "team": "Minnesota Timberwolves",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
   "exhibit10": false
  },
  {
@@ -494,6 +566,30 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Andrew Holifield",
+  "team": "Oklahoma City Thunder",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Robert McCray",
+  "team": "Oklahoma City Thunder",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Zhaire Smith",
+  "team": "Oklahoma City Thunder",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Christoph Tilly",
@@ -600,7 +696,15 @@
   "exhibit10": false
  },
  {
-  "player": "John Camden",
+  "player": "Duop Reath",
+  "team": "Phoenix Suns",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Kennedy Chandler",
   "team": "Phoenix Suns",
   "fullAmount": null,
   "partialAmount": null,
@@ -608,15 +712,7 @@
   "exhibit10": true
  },
  {
-  "player": "Corey Camper",
-  "team": "Phoenix Suns",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Sam Hoiberg",
+  "player": "Phillip Wheeler",
   "team": "Phoenix Suns",
   "fullAmount": null,
   "partialAmount": null,
@@ -664,7 +760,7 @@
   "exhibit10": false
  },
  {
-  "player": "Gabe Levin",
+  "player": "Leaky Black",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
@@ -672,8 +768,8 @@
   "exhibit10": true
  },
  {
-  "player": "Tyrone Marshall Jr.",
-  "team": "Sacramento Kings",
+  "player": "RJ Davis",
+  "team": "San Antonio Spurs",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -742,6 +838,22 @@
   "partialAmount": 200000,
   "status": "partial",
   "exhibit10": false
+ },
+ {
+  "player": "Jonas Aidoo",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jaelen House",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Harrison Ingram",

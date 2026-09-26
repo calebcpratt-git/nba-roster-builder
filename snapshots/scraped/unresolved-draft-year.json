@@ -60,6 +60,10 @@
   "team": "CLE"
  },
  {
+  "name": "Dwight Powell",
+  "team": "DAL"
+ },
+ {
   "name": "Jett Howard",
   "team": "DAL"
  },
@@ -129,10 +133,6 @@
  },
  {
   "name": "Jalen Pickett",
-  "team": "LAC"
- },
- {
-  "name": "Jamarion Sharp",
   "team": "LAC"
  },
  {

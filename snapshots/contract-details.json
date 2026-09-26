@@ -2091,6 +2091,16 @@
     "signedUnder": "non-taxpayer-mle"
   },
   {
+    "name": "Dwight Powell",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Moussa Cisse",
     "signedUnder": "minimum",
     "incentives": {
@@ -3461,15 +3471,6 @@
     }
   },
   {
-    "name": "Jamarion Sharp",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Luka Dončić",
     "signedUnder": "bird",
     "incentives": {
@@ -3830,15 +3831,6 @@
         "unlikely": 0
       },
       "2028-29": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "D'Angelo Russell",
-    "incentives": {
-      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }

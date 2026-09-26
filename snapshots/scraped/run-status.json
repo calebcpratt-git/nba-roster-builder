@@ -58,15 +58,6 @@
   "unresolved": {
     "before": {
       "draft-year": 71,
-      "acquisition": 199,
-      "guarantees": 64,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 104,
-      "no-current-salary": 1
-    },
-    "after": {
-      "draft-year": 71,
       "acquisition": 205,
       "guarantees": 64,
       "signing": 10,
@@ -74,86 +65,218 @@
       "name-bridge": 100,
       "no-current-salary": 1
     },
-    "newUnresolved": 6,
+    "after": {
+      "draft-year": 71,
+      "acquisition": 219,
+      "guarantees": 76,
+      "signing": 10,
+      "awards": 2,
+      "name-bridge": 109,
+      "no-current-salary": 1
+    },
+    "newUnresolved": 35,
     "newByCategory": {
-      "acquisition": 6
+      "acquisition": 14,
+      "guarantees": 12,
+      "name-bridge": 9
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Julian Reese",
-          "team": "NOP"
+          "name": "Dwight Powell",
+          "team": "DAL"
         }
       ],
       "acquisition": [
         {
-          "name": "Johni Broome",
-          "date": "2026-07-28",
+          "name": "Emanuel Miller",
+          "date": "2026-09-25",
+          "method": "free-agent"
+        },
+        {
+          "name": "Dane Goodwin",
+          "date": "2026-09-25",
+          "method": "free-agent"
+        },
+        {
+          "name": "Coleman Hawkins",
+          "date": "2026-09-25",
+          "method": "free-agent"
+        },
+        {
+          "name": "Romeo Weems",
+          "date": "2026-09-25",
+          "method": "free-agent"
+        },
+        {
+          "name": "Jamarion Sharp",
+          "date": "2026-08-06",
+          "method": "free-agent"
+        },
+        {
+          "name": "D'Angelo Russell",
+          "date": "2026-07-08",
           "method": "trade"
         },
         {
-          "name": "Antonio Reeves",
-          "date": "2026-09-24",
+          "name": "Drew Timme",
+          "date": "2026-09-26",
           "method": "free-agent"
         },
         {
-          "name": "Tyrone Marshall Jr.",
-          "date": "2026-09-24",
+          "name": "Kenyon Martin Jr.",
+          "date": "2026-09-25",
           "method": "free-agent"
         },
         {
-          "name": "Gabe Levin",
-          "date": "2026-09-24",
+          "name": "Norchad Omier",
+          "date": "2026-09-25",
           "method": "free-agent"
         },
         {
-          "name": "Jon Elmore",
-          "date": "2026-09-24",
+          "name": "Phillip Wheeler",
+          "date": "2026-09-25",
           "method": "free-agent"
         },
         {
-          "name": "Malik Williams",
-          "date": "2026-09-24",
+          "name": "Leaky Black",
+          "date": "2026-09-25",
           "method": "free-agent"
         },
         {
-          "name": "Miles Barnstable",
-          "date": "2026-09-22",
+          "name": "Jonas Aidoo",
+          "date": "2026-09-25",
           "method": "free-agent"
         },
         {
-          "name": "A.J. Hoggard",
-          "date": "2026-09-24",
+          "name": "Jaelen House",
+          "date": "2026-09-25",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Dwight Powell",
-          "team": "Dallas Mavericks",
+          "player": "Brandon Boston Jr.",
+          "team": "Chicago Bulls",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": false
         },
         {
-          "player": "Antonio Reeves",
+          "player": "Drew Peterson",
+          "team": "Chicago Bulls",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "Orlando Robinson",
+          "team": "Chicago Bulls",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
+        },
+        {
+          "player": "Coleman Hawkins",
+          "team": "Denver Nuggets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Dane Goodwin",
+          "team": "Denver Nuggets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Emanuel Miller",
+          "team": "Denver Nuggets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Brendan Hausen",
+          "team": "Memphis Grizzlies",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Ian Schieffelin",
+          "team": "Miami Heat",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "KJ Martin",
           "team": "Minnesota Timberwolves",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
-          "exhibit10": true
+          "exhibit10": false
         },
         {
-          "player": "Elfrid Payton",
-          "team": "Sacramento Kings",
+          "player": "Norchad Omier",
+          "team": "Minnesota Timberwolves",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": false
         },
         {
-          "player": "Gabe Levin",
+          "player": "Andrew Holifield",
+          "team": "Oklahoma City Thunder",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Robert McCray",
+          "team": "Oklahoma City Thunder",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Zhaire Smith",
+          "team": "Oklahoma City Thunder",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Kennedy Chandler",
+          "team": "Phoenix Suns",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Phillip Wheeler",
+          "team": "Phoenix Suns",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Leaky Black",
           "team": "Sacramento Kings",
           "fullAmount": null,
           "partialAmount": null,
@@ -161,15 +284,7 @@
           "exhibit10": true
         },
         {
-          "player": "Tyrone Marshall Jr.",
-          "team": "Sacramento Kings",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Jon Elmore",
+          "player": "RJ Davis",
           "team": "San Antonio Spurs",
           "fullAmount": null,
           "partialAmount": null,
@@ -177,24 +292,16 @@
           "exhibit10": true
         },
         {
-          "player": "Malik Williams",
-          "team": "San Antonio Spurs",
+          "player": "Jonas Aidoo",
+          "team": "Utah Jazz",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Nimari Burnett",
-          "team": "Toronto Raptors",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Tyreke Key",
-          "team": "Toronto Raptors",
+          "player": "Jaelen House",
+          "team": "Utah Jazz",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -203,34 +310,55 @@
       ],
       "name-bridge": [
         {
-          "name": "Antonio Reeves"
+          "name": "Coleman Hawkins"
         },
         {
-          "name": "Gabe Levin"
+          "name": "Dane Goodwin"
         },
         {
-          "name": "Jon Elmore"
+          "name": "Drew Timme"
         },
         {
-          "name": "Julian Reese"
+          "name": "Dwight Powell"
         },
         {
-          "name": "Malik Williams"
+          "name": "Emanuel Miller"
         },
         {
-          "name": "Tyrone Marshall Jr."
+          "name": "Jaelen House"
+        },
+        {
+          "name": "Johni Broome"
+        },
+        {
+          "name": "Jonas Aidoo"
+        },
+        {
+          "name": "Kennedy Chandler"
+        },
+        {
+          "name": "Kenyon Martin Jr."
+        },
+        {
+          "name": "Leaky Black"
+        },
+        {
+          "name": "Norchad Omier"
+        },
+        {
+          "name": "Phillip Wheeler"
         }
       ]
     }
   },
-  "generatedAt": "2026-09-25T15:48:38.905Z",
+  "generatedAt": "2026-09-26T14:58:25.033Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -2 ~1 (of 529)",
+    "players: +1 -2 ~2 (of 528)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -2 ~0 (of 521)",
-    "team-cap-state: +0 -0 ~4 (of 150)",
-    "free-agents: +33 -6 ~0 (of 172)",
+    "contract-details: +1 -2 ~0 (of 520)",
+    "team-cap-state: +0 -0 ~3 (of 150)",
+    "free-agents: +5 -29 ~0 (of 199)",
     "awards: +0 -0 ~0 (of 78)"
   ],
   "clean": true

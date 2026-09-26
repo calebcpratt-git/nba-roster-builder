@@ -11938,5 +11938,19 @@
    "method": "free-agent",
    "team": "NOP"
   }
+ ],
+ "dwight powell": [
+  {
+   "date": "2026-09-25",
+   "method": "free-agent",
+   "team": "DAL"
+  }
+ ],
+ "stephen curry": [
+  {
+   "date": "2026-09-25",
+   "method": "extension",
+   "team": "GSW"
+  }
  ]
 }

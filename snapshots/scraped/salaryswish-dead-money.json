@@ -198,6 +198,25 @@
   "faYear": null
  },
  {
+  "name": "D'Angelo Russell",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 5969250
+  },
+  "cashSalary": {
+   "2026-27": 5969250
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Mamadi Diakite",
   "team": "MEM",
   "section": "Waivers",

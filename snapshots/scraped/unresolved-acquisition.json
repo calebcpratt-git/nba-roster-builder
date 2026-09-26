@@ -265,6 +265,21 @@
   "method": "free-agent"
  },
  {
+  "name": "Emanuel Miller",
+  "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
+  "name": "Dane Goodwin",
+  "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
+  "name": "Coleman Hawkins",
+  "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
   "name": "Boopie Miller",
   "date": "2026-09-22",
   "method": "free-agent"
@@ -297,6 +312,11 @@
  {
   "name": "Mark Mitchell",
   "date": "2026-06-24",
+  "method": "free-agent"
+ },
+ {
+  "name": "Romeo Weems",
+  "date": "2026-09-25",
   "method": "free-agent"
  },
  {
@@ -445,6 +465,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Jamarion Sharp",
+  "date": "2026-08-06",
+  "method": "free-agent"
+ },
+ {
   "name": "Johni Broome",
   "date": "2026-07-28",
   "method": "trade"
@@ -488,6 +513,11 @@
   "name": "William Kyle III",
   "date": "2026-06-24",
   "method": "free-agent"
+ },
+ {
+  "name": "D'Angelo Russell",
+  "date": "2026-07-08",
+  "method": "trade"
  },
  {
   "name": "Zach Cleveland",
@@ -537,6 +567,21 @@
  {
   "name": "John Butler jr.",
   "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
+  "name": "Drew Timme",
+  "date": "2026-09-26",
+  "method": "free-agent"
+ },
+ {
+  "name": "Kenyon Martin Jr.",
+  "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
+  "name": "Norchad Omier",
+  "date": "2026-09-25",
   "method": "free-agent"
  },
  {
@@ -820,6 +865,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Kennedy Chandler",
+  "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
+  "name": "Phillip Wheeler",
+  "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
   "name": "David Stockton",
   "date": "2026-09-17",
   "method": "free-agent"
@@ -867,6 +922,11 @@
  {
   "name": "Mark Armstrong",
   "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "Leaky Black",
+  "date": "2026-09-25",
   "method": "free-agent"
  },
  {
@@ -952,6 +1012,16 @@
  {
   "name": "Tyreke Key",
   "date": "2026-04-06",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jonas Aidoo",
+  "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jaelen House",
+  "date": "2026-09-25",
   "method": "free-agent"
  },
  {

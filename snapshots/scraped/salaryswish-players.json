@@ -1715,6 +1715,16 @@
    }
   }
  },
+ "dwight powell": {
+  "team": "DAL",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "moussa cisse": {
   "team": "DAL",
   "signedUnder": "minimum",
@@ -3202,16 +3212,6 @@
    }
   }
  },
- "jamarion sharp": {
-  "team": "LAC",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "luka doncic": {
   "team": "LAL",
   "signedUnder": "bird",
@@ -3623,16 +3623,6 @@
     "unlikely": 0
    },
    "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "dangelo russell": {
-  "team": "MEM",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
