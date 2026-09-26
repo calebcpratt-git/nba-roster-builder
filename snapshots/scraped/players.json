@@ -3894,6 +3894,38 @@
   ]
  },
  {
+  "name": "Dwight Powell",
+  "team": "DAL",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 3876528
+  },
+  "guaranteed": {
+   "2026-27": 1000000
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-25",
+    "method": "free-agent",
+    "team": "DAL"
+   }
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "partial",
+    "amount": 1000000
+   }
+  }
+ },
+ {
   "name": "Moussa Cisse",
   "team": "DAL",
   "salary": {
@@ -5099,20 +5131,39 @@
   "name": "Stephen Curry",
   "team": "GSW",
   "salary": {
-   "2026-27": 62587158
+   "2026-27": 62587158,
+   "2027-28": 55769231,
+   "2028-29": 60230769
   },
-  "options": {},
+  "options": {
+   "2028-29": "Player"
+  },
   "cashSalary": {
-   "2026-27": 62587158
+   "2026-27": 62587158,
+   "2027-28": 55769231,
+   "2028-29": 60230769
   },
   "guaranteed": {
-   "2026-27": 62587158
+   "2026-27": 62587158,
+   "2027-28": 55769231,
+   "2028-29": 60230769
   },
   "likelyIncentives": {
-   "2026-27": 0
+   "2026-27": 0,
+   "2027-28": 0,
+   "2028-29": 0
   },
-  "optionExercised": {},
-  "acquiredMethod": "Signed"
+  "optionExercised": {
+   "2028-29": false
+  },
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-25",
+    "method": "extension",
+    "team": "GSW"
+   }
+  ]
  },
  {
   "name": "Jimmy Butler",
@@ -7218,33 +7269,6 @@
   ]
  },
  {
-  "name": "Jamarion Sharp",
-  "team": "LAC",
-  "salary": {
-   "2026-27": 0
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 678882
-  },
-  "guaranteed": {
-   "2026-27": 91000
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "contractType": "two-way",
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-08-06",
-    "method": "free-agent",
-    "team": "LAC"
-   }
-  ]
- },
- {
   "name": "Luka Dončić",
   "team": "LAL",
   "salary": {
@@ -8155,34 +8179,6 @@
    "2028-29": false
   },
   "acquiredMethod": "Draft"
- },
- {
-  "name": "D'Angelo Russell",
-  "team": "MEM",
-  "salary": {
-   "2026-27": 5969250
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 5969250
-  },
-  "guaranteed": {
-   "2026-27": 5969250
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {
-   "2026-27": true
-  },
-  "acquiredMethod": "Trade",
-  "acquisitionHistory": [
-   {
-    "date": "2026-07-08",
-    "method": "trade",
-    "team": "MEM"
-   }
-  ]
  },
  {
   "name": "Kris Murray",
@@ -13133,7 +13129,12 @@
     "method": "free-agent",
     "team": "PHO"
    }
-  ]
+  ],
+  "guarantees": {
+   "2026-27": {
+    "status": "non-guaranteed"
+   }
+  }
  },
  {
   "name": "Haywood Highsmith",

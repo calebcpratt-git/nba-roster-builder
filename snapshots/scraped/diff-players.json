@@ -1,8 +1,42 @@
 {
   "added": [
     {
-      "name": "Julian Reese",
-      "team": "NOP",
+      "name": "Dwight Powell",
+      "team": "DAL",
+      "salary": {
+        "2026-27": 2449421
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 3876528
+      },
+      "guaranteed": {
+        "2026-27": 1000000
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-25",
+          "method": "free-agent",
+          "team": "DAL"
+        }
+      ],
+      "guarantees": {
+        "2026-27": {
+          "status": "partial",
+          "amount": 1000000
+        }
+      }
+    }
+  ],
+  "removed": [
+    {
+      "name": "Jamarion Sharp",
+      "team": "LAC",
       "salary": {
         "2026-27": 0
       },
@@ -11,7 +45,7 @@
         "2026-27": 678882
       },
       "guaranteed": {
-        "2026-27": 0
+        "2026-27": 91000
       },
       "likelyIncentives": {
         "2026-27": 0
@@ -21,207 +55,170 @@
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
-          "date": "2026-08-20",
-          "method": "trade",
-          "team": "DEN"
-        },
-        {
-          "date": "2026-09-24",
+          "date": "2026-08-06",
           "method": "free-agent",
-          "team": "NOP"
-        }
-      ]
-    }
-  ],
-  "removed": [
-    {
-      "name": "Johni Broome",
-      "team": "LAC",
-      "salary": {
-        "2026-27": 2150917,
-        "2027-28": 2525901,
-        "2028-29": 2735698
-      },
-      "options": {
-        "2028-29": "Team"
-      },
-      "cashSalary": {
-        "2026-27": 2150917,
-        "2027-28": 2525901,
-        "2028-29": 2735698
-      },
-      "guaranteed": {
-        "2026-27": 2150917,
-        "2027-28": 0,
-        "2028-29": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0,
-        "2028-29": 0
-      },
-      "optionExercised": {
-        "2028-29": false
-      },
-      "acquiredMethod": "Trade",
-      "acquisitionHistory": [
-        {
-          "date": "2026-07-28",
-          "method": "trade",
           "team": "LAC"
         }
       ]
     },
     {
-      "name": "Miles Barnstable",
-      "team": "SAS",
+      "name": "D'Angelo Russell",
+      "team": "MEM",
       "salary": {
-        "2026-27": 1357763
+        "2026-27": 5969250
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 1357763
+        "2026-27": 5969250
       },
       "guaranteed": {
-        "2026-27": 0
+        "2026-27": 5969250
       },
       "likelyIncentives": {
         "2026-27": 0
       },
-      "optionExercised": {},
-      "acquiredMethod": "Signed",
+      "optionExercised": {
+        "2026-27": true
+      },
+      "acquiredMethod": "Trade",
       "acquisitionHistory": [
         {
-          "date": "2026-09-22",
-          "method": "free-agent",
-          "team": "SAS"
+          "date": "2026-07-08",
+          "method": "trade",
+          "team": "MEM"
         }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "non-guaranteed"
-        }
-      }
+      ]
     }
   ],
   "changed": [
     {
       "before": {
-        "name": "Pelle Larsson",
-        "team": "MIA",
+        "name": "Stephen Curry",
+        "team": "GSW",
         "salary": {
-          "2026-27": 2296271,
-          "2027-28": 13392857,
-          "2028-29": 14464286,
-          "2029-30": 15535714,
-          "2030-31": 16607143
+          "2026-27": 62587158
         },
-        "options": {
-          "2030-31": "Player"
-        },
+        "options": {},
         "cashSalary": {
-          "2026-27": 2296271,
-          "2027-28": 13392857,
-          "2028-29": 14464286,
-          "2029-30": 15535714,
-          "2030-31": 16607143
+          "2026-27": 62587158
         },
         "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 13392857,
-          "2028-29": 14464286,
-          "2029-30": 15535714,
-          "2030-31": 16607143
+          "2026-27": 62587158
         },
         "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0,
-          "2028-29": 0,
-          "2029-30": 0,
-          "2030-31": 0
+          "2026-27": 0
         },
-        "optionExercised": {
-          "2026-27": true,
-          "2030-31": false
-        },
-        "acquiredMethod": "Draft",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-18",
-            "method": "extension",
-            "team": "MIA"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed",
-            "guaranteeDate": "2026-10-15"
-          }
-        }
+        "optionExercised": {},
+        "acquiredMethod": "Signed"
       },
       "after": {
-        "name": "Pelle Larsson",
-        "team": "MIA",
+        "name": "Stephen Curry",
+        "team": "GSW",
         "salary": {
-          "2026-27": 2296271,
-          "2027-28": 13500000,
-          "2028-29": 14580000,
-          "2029-30": 15660000,
-          "2030-31": 16260000
+          "2026-27": 62587158,
+          "2027-28": 55769231,
+          "2028-29": 60230769
         },
         "options": {
-          "2030-31": "Player"
+          "2028-29": "Player"
         },
         "cashSalary": {
-          "2026-27": 2296271,
-          "2027-28": 13500000,
-          "2028-29": 14580000,
-          "2029-30": 15660000,
-          "2030-31": 16260000
+          "2026-27": 62587158,
+          "2027-28": 55769231,
+          "2028-29": 60230769
         },
         "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 13500000,
-          "2028-29": 14580000,
-          "2029-30": 15660000,
-          "2030-31": 16260000
+          "2026-27": 62587158,
+          "2027-28": 55769231,
+          "2028-29": 60230769
         },
         "likelyIncentives": {
           "2026-27": 0,
           "2027-28": 0,
-          "2028-29": 0,
-          "2029-30": 0,
-          "2030-31": 0
+          "2028-29": 0
         },
         "optionExercised": {
-          "2026-27": true,
-          "2030-31": false
+          "2028-29": false
         },
-        "acquiredMethod": "Draft",
+        "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-09-18",
+            "date": "2026-09-25",
             "method": "extension",
-            "team": "MIA"
-          },
+            "team": "GSW"
+          }
+        ]
+      },
+      "fields": [
+        "salary",
+        "options",
+        "cashSalary",
+        "guaranteed",
+        "likelyIncentives",
+        "optionExercised",
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Duop Reath",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2537526
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
           {
-            "date": "2026-09-22",
-            "method": "extension",
-            "team": "MIA"
+            "date": "2026-09-16",
+            "method": "free-agent",
+            "team": "PHO"
+          }
+        ]
+      },
+      "after": {
+        "name": "Duop Reath",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 2449421
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2537526
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-16",
+            "method": "free-agent",
+            "team": "PHO"
           }
         ],
         "guarantees": {
           "2026-27": {
-            "status": "non-guaranteed",
-            "guaranteeDate": "2026-10-15"
+            "status": "non-guaranteed"
           }
         }
       },
       "fields": [
-        "salary",
-        "cashSalary",
-        "guaranteed",
-        "acquisitionHistory"
+        "guarantees"
       ]
     }
   ]

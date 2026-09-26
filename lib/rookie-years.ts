@@ -222,7 +222,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Jordan Hawkins": 2023,
   "Zach Edey": 2024,
   "Cedric Coward": 2025,
-  "D'Angelo Russell": 2015,
   "Kris Murray": 2023,
   "Walter Clayton": 2025,
   "Karim López": 2026,
