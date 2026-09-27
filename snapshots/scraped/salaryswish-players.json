@@ -899,9 +899,9 @@
    }
   }
  },
- "buddy hield": {
+ "tidjane salaun": {
   "team": "CHO",
-  "signedUnder": "bird",
+  "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -913,7 +913,7 @@
    }
   }
  },
- "tidjane salaun": {
+ "rob dillingham": {
   "team": "CHO",
   "signedUnder": "rookie-scale",
   "incentives": {
@@ -1167,6 +1167,20 @@
    }
   }
  },
+ "buddy hield": {
+  "team": "CHI",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "jalen smith": {
   "team": "CHI",
   "signedUnder": null,
@@ -1194,20 +1208,6 @@
  "tre jones": {
   "team": "CHI",
   "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "rob dillingham": {
-  "team": "CHI",
-  "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
     "likely": 0,

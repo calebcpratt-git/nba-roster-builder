@@ -253,6 +253,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Drew Peterson",
+  "team": "CHI",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2537526
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Isaiah Stevens",
   "team": "CHI",
   "section": "Training Camp and Exhibit 10",
@@ -274,6 +297,52 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "RFA"
+ },
+ {
+  "name": "Brandon Boston Jr.",
+  "team": "CHI",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2625627
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
+ },
+ {
+  "name": "Orlando Robinson",
+  "team": "CHI",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2625627
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
  },
  {
   "name": "Donovan Atwell",
@@ -448,6 +517,29 @@
   },
   "cashSalary": {
    "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Seth Lundy",
+  "team": "DAL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
   },
   "guaranteed": {
    "2026-27": 0
@@ -1033,6 +1125,29 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "RFA"
+ },
+ {
+  "name": "Kira Lewis Jr.",
+  "team": "MEM",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2625627
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
  },
  {
   "name": "Zach Cleveland",
@@ -1864,6 +1979,29 @@
  },
  {
   "name": "Leaky Black",
+  "team": "SAC",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Tristen Newton",
   "team": "SAC",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",

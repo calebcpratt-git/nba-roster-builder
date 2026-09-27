@@ -1351,14 +1351,7 @@
         "amount": 1002360
       }
     ],
-    "capHolds": [
-      {
-        "label": "Dwight Powell",
-        "amount": 7600000,
-        "kind": "free-agent",
-        "birdRights": "full-bird"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -3181,14 +3174,7 @@
     "team": "LAC",
     "season": "2026-27",
     "deadMoney": [],
-    "capHolds": [
-      {
-        "label": "Norchad Omier",
-        "amount": 2200000,
-        "kind": "free-agent",
-        "birdRights": "non-bird"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -3429,12 +3415,6 @@
     "deadMoney": [],
     "capHolds": [
       {
-        "label": "Drew Timme",
-        "amount": 2200000,
-        "kind": "free-agent",
-        "birdRights": "non-bird"
-      },
-      {
         "label": "Maxi Kleber",
         "amount": 20900000,
         "kind": "free-agent"
@@ -3641,7 +3621,7 @@
             "amount": 9000000
           }
         ],
-        "remaining": null
+        "remaining": 6044000
       },
       "biAnnual": {
         "signings": [],

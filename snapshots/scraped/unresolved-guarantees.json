@@ -74,6 +74,14 @@
   "exhibit10": true
  },
  {
+  "player": "Jarkel Joiner",
+  "team": "Charlotte Hornets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Brandon Boston Jr.",
   "team": "Chicago Bulls",
   "fullAmount": null,
@@ -99,6 +107,14 @@
  },
  {
   "player": "Peter Suder",
+  "team": "Chicago Bulls",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Marquel Sutton",
   "team": "Chicago Bulls",
   "fullAmount": null,
   "partialAmount": null,
@@ -132,6 +148,14 @@
  {
   "player": "Kadary Richmond",
   "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Seth Lundy",
+  "team": "Dallas Mavericks",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -242,6 +266,22 @@
   "exhibit10": true
  },
  {
+  "player": "Jason Preston",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Hunter Sallis",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Meechie Johnson",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
@@ -258,7 +298,7 @@
   "exhibit10": true
  },
  {
-  "player": "Brendan Hausen",
+  "player": "Lawson Lovering",
   "team": "Memphis Grizzlies",
   "fullAmount": null,
   "partialAmount": null,
@@ -307,6 +347,14 @@
  },
  {
   "player": "Norchad Omier",
+  "team": "Minnesota Timberwolves",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Drew Timme",
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": null,
@@ -384,6 +432,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "N’Faly Dante",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Andrew Holifield",
@@ -507,6 +563,14 @@
  },
  {
   "player": "Leaky Black",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Tristen Newton",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,

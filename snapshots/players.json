@@ -1992,47 +1992,6 @@
     "acquiredMethod": "Trade"
   },
   {
-    "name": "Buddy Hield",
-    "team": "CHO",
-    "salary": {
-      "2026-27": 9658536,
-      "2027-28": 10097560
-    },
-    "options": {
-      "2027-28": "Player"
-    },
-    "cashSalary": {
-      "2026-27": 9658536,
-      "2027-28": 10097560
-    },
-    "guaranteed": {
-      "2026-27": 9658536,
-      "2027-28": 3136364
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0
-    },
-    "optionExercised": {
-      "2027-28": false
-    },
-    "acquiredMethod": "Trade",
-    "acquisitionHistory": [
-      {
-        "date": "2026-09-22",
-        "method": "trade",
-        "team": "CHO"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "partial",
-        "amount": 3000000,
-        "guaranteeDate": "2026-06-28"
-      }
-    }
-  },
-  {
     "name": "Tidjane Salaün",
     "team": "CHO",
     "salary": {
@@ -2054,6 +2013,41 @@
     },
     "optionExercised": {},
     "acquiredMethod": "Draft"
+  },
+  {
+    "name": "Rob Dillingham",
+    "team": "CHO",
+    "salary": {
+      "2026-27": 6889320,
+      "2027-28": 8763215
+    },
+    "options": {
+      "2027-28": "Team"
+    },
+    "cashSalary": {
+      "2026-27": 6889320,
+      "2027-28": 8763215
+    },
+    "guaranteed": {
+      "2026-27": 6889320,
+      "2027-28": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "optionExercised": {
+      "2026-27": true,
+      "2027-28": false
+    },
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-26",
+        "method": "trade",
+        "team": "CHO"
+      }
+    ]
   },
   {
     "name": "Hannes Steinbach",
@@ -2592,6 +2586,52 @@
     ]
   },
   {
+    "name": "Buddy Hield",
+    "team": "CHI",
+    "salary": {
+      "2026-27": 9658536,
+      "2027-28": 10097560
+    },
+    "options": {
+      "2027-28": "Player"
+    },
+    "cashSalary": {
+      "2026-27": 9658536,
+      "2027-28": 10097560
+    },
+    "guaranteed": {
+      "2026-27": 9658536,
+      "2027-28": 3136364
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "optionExercised": {
+      "2027-28": false
+    },
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-22",
+        "method": "trade",
+        "team": "CHO"
+      },
+      {
+        "date": "2026-09-26",
+        "method": "trade",
+        "team": "CHI"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "partial",
+        "amount": 3000000,
+        "guaranteeDate": "2026-06-28"
+      }
+    }
+  },
+  {
     "name": "Jalen Smith",
     "team": "CHI",
     "salary": {
@@ -2670,34 +2710,6 @@
       "2027-28": false
     },
     "acquiredMethod": "Signed"
-  },
-  {
-    "name": "Rob Dillingham",
-    "team": "CHI",
-    "salary": {
-      "2026-27": 6889320,
-      "2027-28": 8763215
-    },
-    "options": {
-      "2027-28": "Team"
-    },
-    "cashSalary": {
-      "2026-27": 6889320,
-      "2027-28": 8763215
-    },
-    "guaranteed": {
-      "2026-27": 6889320,
-      "2027-28": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0
-    },
-    "optionExercised": {
-      "2026-27": true,
-      "2027-28": false
-    },
-    "acquiredMethod": "Trade"
   },
   {
     "name": "Matas Buzelis",

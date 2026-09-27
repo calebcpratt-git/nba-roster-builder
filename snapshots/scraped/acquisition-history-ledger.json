@@ -11918,6 +11918,11 @@
    "date": "2026-09-22",
    "method": "trade",
    "team": "CHO"
+  },
+  {
+   "date": "2026-09-26",
+   "method": "trade",
+   "team": "CHI"
   }
  ],
  "miles barnstable": [
@@ -11951,6 +11956,13 @@
    "date": "2026-09-25",
    "method": "extension",
    "team": "GSW"
+  }
+ ],
+ "rob dillingham": [
+  {
+   "date": "2026-09-26",
+   "method": "trade",
+   "team": "CHO"
   }
  ]
 }
