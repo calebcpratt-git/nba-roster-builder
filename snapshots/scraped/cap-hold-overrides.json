@@ -295,6 +295,12 @@
  },
  {
   "team": "DAL",
+  "player": "Dwight Powell",
+  "amount": 7600000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DAL",
   "player": "Sergio de Larrea",
   "amount": 3200000,
   "reason": "not-in-realgm-current-free-agents"
@@ -679,6 +685,12 @@
   "reason": "not-in-realgm-current-free-agents"
  },
  {
+  "team": "LAC",
+  "player": "Norchad Omier",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
   "team": "LAL",
   "player": "Cameron Carr",
   "amount": 3300000,
@@ -694,6 +706,12 @@
   "team": "LAL",
   "player": "Rui Hachimura",
   "amount": 27400000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "LAL",
+  "player": "Drew Timme",
+  "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {

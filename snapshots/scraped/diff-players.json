@@ -1,224 +1,167 @@
 {
-  "added": [
-    {
-      "name": "Dwight Powell",
-      "team": "DAL",
-      "salary": {
-        "2026-27": 2449421
-      },
-      "options": {},
-      "cashSalary": {
-        "2026-27": 3876528
-      },
-      "guaranteed": {
-        "2026-27": 1000000
-      },
-      "likelyIncentives": {
-        "2026-27": 0
-      },
-      "optionExercised": {},
-      "acquiredMethod": "Signed",
-      "acquisitionHistory": [
-        {
-          "date": "2026-09-25",
-          "method": "free-agent",
-          "team": "DAL"
-        }
-      ],
-      "guarantees": {
-        "2026-27": {
-          "status": "partial",
-          "amount": 1000000
-        }
-      }
-    }
-  ],
-  "removed": [
-    {
-      "name": "Jamarion Sharp",
-      "team": "LAC",
-      "salary": {
-        "2026-27": 0
-      },
-      "options": {},
-      "cashSalary": {
-        "2026-27": 678882
-      },
-      "guaranteed": {
-        "2026-27": 91000
-      },
-      "likelyIncentives": {
-        "2026-27": 0
-      },
-      "optionExercised": {},
-      "contractType": "two-way",
-      "acquiredMethod": "Signed",
-      "acquisitionHistory": [
-        {
-          "date": "2026-08-06",
-          "method": "free-agent",
-          "team": "LAC"
-        }
-      ]
-    },
-    {
-      "name": "D'Angelo Russell",
-      "team": "MEM",
-      "salary": {
-        "2026-27": 5969250
-      },
-      "options": {},
-      "cashSalary": {
-        "2026-27": 5969250
-      },
-      "guaranteed": {
-        "2026-27": 5969250
-      },
-      "likelyIncentives": {
-        "2026-27": 0
-      },
-      "optionExercised": {
-        "2026-27": true
-      },
-      "acquiredMethod": "Trade",
-      "acquisitionHistory": [
-        {
-          "date": "2026-07-08",
-          "method": "trade",
-          "team": "MEM"
-        }
-      ]
-    }
-  ],
+  "added": [],
+  "removed": [],
   "changed": [
     {
       "before": {
-        "name": "Stephen Curry",
-        "team": "GSW",
+        "name": "Rob Dillingham",
+        "team": "CHI",
         "salary": {
-          "2026-27": 62587158
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 62587158
-        },
-        "guaranteed": {
-          "2026-27": 62587158
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Signed"
-      },
-      "after": {
-        "name": "Stephen Curry",
-        "team": "GSW",
-        "salary": {
-          "2026-27": 62587158,
-          "2027-28": 55769231,
-          "2028-29": 60230769
+          "2026-27": 6889320,
+          "2027-28": 8763215
         },
         "options": {
-          "2028-29": "Player"
+          "2027-28": "Team"
         },
         "cashSalary": {
-          "2026-27": 62587158,
-          "2027-28": 55769231,
-          "2028-29": 60230769
+          "2026-27": 6889320,
+          "2027-28": 8763215
         },
         "guaranteed": {
-          "2026-27": 62587158,
-          "2027-28": 55769231,
-          "2028-29": 60230769
+          "2026-27": 6889320,
+          "2027-28": 0
         },
         "likelyIncentives": {
           "2026-27": 0,
-          "2027-28": 0,
-          "2028-29": 0
+          "2027-28": 0
         },
         "optionExercised": {
-          "2028-29": false
+          "2026-27": true,
+          "2027-28": false
         },
-        "acquiredMethod": "Signed",
+        "acquiredMethod": "Trade"
+      },
+      "after": {
+        "name": "Rob Dillingham",
+        "team": "CHO",
+        "salary": {
+          "2026-27": 6889320,
+          "2027-28": 8763215
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 6889320,
+          "2027-28": 8763215
+        },
+        "guaranteed": {
+          "2026-27": 6889320,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
         "acquisitionHistory": [
           {
-            "date": "2026-09-25",
-            "method": "extension",
-            "team": "GSW"
+            "date": "2026-09-26",
+            "method": "trade",
+            "team": "CHO"
           }
         ]
       },
       "fields": [
-        "salary",
-        "options",
-        "cashSalary",
-        "guaranteed",
-        "likelyIncentives",
-        "optionExercised",
+        "team",
         "acquisitionHistory"
       ]
     },
     {
       "before": {
-        "name": "Duop Reath",
-        "team": "PHO",
+        "name": "Buddy Hield",
+        "team": "CHO",
         "salary": {
-          "2026-27": 2449421
+          "2026-27": 9658536,
+          "2027-28": 10097560
         },
-        "options": {},
+        "options": {
+          "2027-28": "Player"
+        },
         "cashSalary": {
-          "2026-27": 2537526
+          "2026-27": 9658536,
+          "2027-28": 10097560
         },
         "guaranteed": {
-          "2026-27": 0
+          "2026-27": 9658536,
+          "2027-28": 3136364
         },
         "likelyIncentives": {
-          "2026-27": 0
+          "2026-27": 0,
+          "2027-28": 0
         },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
         "acquisitionHistory": [
           {
-            "date": "2026-09-16",
-            "method": "free-agent",
-            "team": "PHO"
-          }
-        ]
-      },
-      "after": {
-        "name": "Duop Reath",
-        "team": "PHO",
-        "salary": {
-          "2026-27": 2449421
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 2537526
-        },
-        "guaranteed": {
-          "2026-27": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-16",
-            "method": "free-agent",
-            "team": "PHO"
+            "date": "2026-09-22",
+            "method": "trade",
+            "team": "CHO"
           }
         ],
         "guarantees": {
           "2026-27": {
-            "status": "non-guaranteed"
+            "status": "partial",
+            "amount": 3000000,
+            "guaranteeDate": "2026-06-28"
+          }
+        }
+      },
+      "after": {
+        "name": "Buddy Hield",
+        "team": "CHI",
+        "salary": {
+          "2026-27": 9658536,
+          "2027-28": 10097560
+        },
+        "options": {
+          "2027-28": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 9658536,
+          "2027-28": 10097560
+        },
+        "guaranteed": {
+          "2026-27": 9658536,
+          "2027-28": 3136364
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-22",
+            "method": "trade",
+            "team": "CHO"
+          },
+          {
+            "date": "2026-09-26",
+            "method": "trade",
+            "team": "CHI"
+          }
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "partial",
+            "amount": 3000000,
+            "guaranteeDate": "2026-06-28"
           }
         }
       },
       "fields": [
-        "guarantees"
+        "team",
+        "acquisitionHistory"
       ]
     }
   ]

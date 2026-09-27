@@ -271,19 +271,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Tony Bradley",
-  "date": "2026-04-06",
-  "dateRaw": "Apr 6, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "ATL"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Gabe McGlothan",
   "date": "2026-09-23",
   "dateRaw": "Sep 23, 2026",
@@ -823,6 +810,21 @@
  },
  {
   "bbrefId": null,
+  "name": "Rob Dillingham",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "trade",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [
+   "CHI"
+  ],
+  "text": "Traded from CHI",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Tre Carroll",
   "date": "2026-09-22",
   "dateRaw": "Sep 22, 2026",
@@ -1203,6 +1205,60 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Buddy Hield",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "trade",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [
+   "CHA"
+  ],
+  "text": "Traded from CHA",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Orlando Robinson",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Drew Peterson",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Brandon Boston Jr.",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -1683,6 +1739,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Seth Lundy",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -3684,6 +3753,58 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Kira Lewis Jr.",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Eric Dixon",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Yuri Collins",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Brendan Hausen",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6294,6 +6415,19 @@
    "MEM"
   ],
   "text": "Traded from MEM",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Tristen Newton",
+  "date": "2026-09-26",
+  "dateRaw": "Sep 26, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
