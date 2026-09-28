@@ -217,6 +217,20 @@
     "birdRights": null
   },
   {
+    "name": "John Camden",
+    "position": "PF",
+    "priorTeam": "PHO",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Corey Camper, Jr.",
+    "position": "SG",
+    "priorTeam": "PHO",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Tre Carroll",
     "position": "PF",
     "priorTeam": "CHO",
@@ -469,6 +483,13 @@
     "birdRights": null
   },
   {
+    "name": "Sam Hoiberg",
+    "position": "PG",
+    "priorTeam": "PHO",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Aaron Holiday",
     "position": "PG",
     "priorTeam": "HOU",
@@ -609,6 +630,13 @@
     "birdRights": "early-bird"
   },
   {
+    "name": "Gabe Levin",
+    "position": "PF",
+    "priorTeam": "SAC",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "E.J. Liddell",
     "position": "SF",
     "priorTeam": "BRK",
@@ -637,13 +665,6 @@
     "birdRights": "full-bird"
   },
   {
-    "name": "Lawson Lovering",
-    "position": "C",
-    "priorTeam": "MEM",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Kyle Lowry",
     "position": "PG",
     "priorTeam": "PHI",
@@ -651,9 +672,9 @@
     "birdRights": "full-bird"
   },
   {
-    "name": "Seth Lundy",
-    "position": "G-F",
-    "priorTeam": "LAC",
+    "name": "Houston Mallette",
+    "position": "SG",
+    "priorTeam": "CHI",
     "faType": "U",
     "birdRights": null
   },
@@ -661,6 +682,13 @@
     "name": "Kyle Mangas",
     "position": "SG",
     "priorTeam": "CHO",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Tyrone Marshall, Jr.",
+    "position": "SF",
+    "priorTeam": "SAC",
     "faType": "U",
     "birdRights": null
   },
@@ -840,13 +868,6 @@
     "birdRights": null
   },
   {
-    "name": "Drew Peterson",
-    "position": "PF",
-    "priorTeam": "CHO",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Mason Plumlee",
     "position": "PF",
     "priorTeam": "SAS",
@@ -878,13 +899,6 @@
     "name": "Liam Robbins",
     "position": "C",
     "priorTeam": "NYK",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
-    "name": "Orlando Robinson",
-    "position": "C",
-    "priorTeam": "ORL",
     "faType": "U",
     "birdRights": null
   },
@@ -924,9 +938,9 @@
     "birdRights": null
   },
   {
-    "name": "Hunter Sallis",
-    "position": "SG",
-    "priorTeam": "PHI",
+    "name": "D'Angelo Russell",
+    "position": "PG",
+    "priorTeam": "MEM",
     "faType": "U",
     "birdRights": null
   },
@@ -1200,6 +1214,13 @@
     "name": "Anton Watson",
     "position": "PF",
     "priorTeam": "LAL",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Romeo Weems",
+    "position": "SF",
+    "priorTeam": "DET",
     "faType": "U",
     "birdRights": null
   },

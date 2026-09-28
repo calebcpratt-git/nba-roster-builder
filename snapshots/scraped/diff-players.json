@@ -1,37 +1,198 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "Kevin McCullar Jr.",
+      "team": "NYK",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 678882
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-27",
+          "method": "free-agent",
+          "team": "NYK"
+        }
+      ]
+    },
+    {
+      "name": "Tyler Nickel",
+      "team": "NYK",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 678882
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-23",
+          "method": "draft",
+          "team": "PHO"
+        },
+        {
+          "date": "2026-09-28",
+          "method": "free-agent",
+          "team": "NYK"
+        }
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "name": "Nick Pringle",
+      "team": "BRK",
+      "salary": {
+        "2026-27": 1357763
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 1357763
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-21",
+          "method": "free-agent",
+          "team": "BRK"
+        }
+      ],
+      "guarantees": {
+        "2026-27": {
+          "status": "non-guaranteed"
+        }
+      }
+    },
+    {
+      "name": "Ryan Nembhard",
+      "team": "CHO",
+      "salary": {
+        "2026-27": 2150917
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 2150917
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {
+        "2026-27": true
+      },
+      "acquiredMethod": "Trade",
+      "acquisitionHistory": [
+        {
+          "date": "2026-07-19",
+          "method": "trade",
+          "team": "ATL"
+        },
+        {
+          "date": "2026-09-22",
+          "method": "trade",
+          "team": "CHO"
+        }
+      ]
+    },
+    {
+      "name": "Gary Harris",
+      "team": "DET",
+      "salary": {
+        "2026-27": 3815861
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 3815861
+      },
+      "guaranteed": {
+        "2026-27": 3815861
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {
+        "2026-27": true
+      },
+      "acquiredMethod": "Trade",
+      "acquisitionHistory": [
+        {
+          "date": "2026-07-07",
+          "method": "trade",
+          "team": "DET"
+        },
+        {
+          "date": "2026-07-08",
+          "method": "trade",
+          "team": "DET"
+        }
+      ]
+    },
+    {
+      "name": "Jake Stephens",
+      "team": "MIL",
+      "salary": {
+        "2026-27": 1357763
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 1357763
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-17",
+          "method": "free-agent",
+          "team": "MIL"
+        }
+      ],
+      "guarantees": {
+        "2026-27": {
+          "status": "non-guaranteed"
+        }
+      }
+    }
+  ],
   "changed": [
     {
       "before": {
-        "name": "Rob Dillingham",
-        "team": "CHI",
-        "salary": {
-          "2026-27": 6889320,
-          "2027-28": 8763215
-        },
-        "options": {
-          "2027-28": "Team"
-        },
-        "cashSalary": {
-          "2026-27": 6889320,
-          "2027-28": 8763215
-        },
-        "guaranteed": {
-          "2026-27": 6889320,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {
-          "2026-27": true,
-          "2027-28": false
-        },
-        "acquiredMethod": "Trade"
-      },
-      "after": {
         "name": "Rob Dillingham",
         "team": "CHO",
         "salary": {
@@ -66,15 +227,54 @@
           }
         ]
       },
+      "after": {
+        "name": "Rob Dillingham",
+        "team": "CHO",
+        "salary": {
+          "2026-27": 6889320,
+          "2027-28": 8763215
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 6889320,
+          "2027-28": 8763215
+        },
+        "guaranteed": {
+          "2026-27": 6889320,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": false
+        },
+        "acquiredMethod": "Trade",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-26",
+            "method": "trade",
+            "team": "CHO"
+          },
+          {
+            "date": "2026-09-27",
+            "method": "trade",
+            "team": "CHO"
+          }
+        ]
+      },
       "fields": [
-        "team",
         "acquisitionHistory"
       ]
     },
     {
       "before": {
         "name": "Buddy Hield",
-        "team": "CHO",
+        "team": "CHI",
         "salary": {
           "2026-27": 9658536,
           "2027-28": 10097560
@@ -103,6 +303,11 @@
             "date": "2026-09-22",
             "method": "trade",
             "team": "CHO"
+          },
+          {
+            "date": "2026-09-26",
+            "method": "trade",
+            "team": "CHI"
           }
         ],
         "guarantees": {
@@ -149,6 +354,11 @@
             "date": "2026-09-26",
             "method": "trade",
             "team": "CHI"
+          },
+          {
+            "date": "2026-09-27",
+            "method": "trade",
+            "team": "CHI"
           }
         ],
         "guarantees": {
@@ -160,8 +370,55 @@
         }
       },
       "fields": [
-        "team",
         "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Paul Reed",
+        "team": "DET",
+        "salary": {
+          "2026-27": 5602689
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 5602689
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "after": {
+        "name": "Paul Reed",
+        "team": "DET",
+        "salary": {
+          "2026-27": 5602689
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 5602689
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed"
+      },
+      "fields": [
+        "guarantees"
       ]
     }
   ]

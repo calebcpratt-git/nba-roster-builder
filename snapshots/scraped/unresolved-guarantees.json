@@ -194,6 +194,14 @@
   "exhibit10": true
  },
  {
+  "player": "Brice Williams",
+  "team": "Detroit Pistons",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Dalen Terry",
   "team": "Golden State Warriors",
   "fullAmount": null,
@@ -202,7 +210,7 @@
   "exhibit10": false
  },
  {
-  "player": "Nick Boyd",
+  "player": "Miles Kelly",
   "team": "Golden State Warriors",
   "fullAmount": null,
   "partialAmount": null,
@@ -266,22 +274,6 @@
   "exhibit10": true
  },
  {
-  "player": "Jason Preston",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Hunter Sallis",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Meechie Johnson",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
@@ -292,14 +284,6 @@
  {
   "player": "Chase Ross",
   "team": "Los Angeles Lakers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Lawson Lovering",
-  "team": "Memphis Grizzlies",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -331,6 +315,14 @@
  },
  {
   "player": "John Butler",
+  "team": "Milwaukee Bucks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jake Stephens",
   "team": "Milwaukee Bucks",
   "fullAmount": null,
   "partialAmount": null,
@@ -650,6 +642,14 @@
   "exhibit10": true
  },
  {
+  "player": "Terrell Brown Jr.",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Jaelen House",
   "team": "Utah Jazz",
   "fullAmount": null,
@@ -666,7 +666,31 @@
   "exhibit10": true
  },
  {
-  "player": "KeShawn Murphy",
+  "player": "Reece Beekman",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Trevor Keels",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Chris Livingston",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Steve Settle",
   "team": "Washington Wizards",
   "fullAmount": null,
   "partialAmount": null,

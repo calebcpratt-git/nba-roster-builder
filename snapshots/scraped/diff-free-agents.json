@@ -1,160 +1,97 @@
 {
   "added": [
     {
-      "name": "Ace Baldwin, Jr.",
-      "position": "PG",
-      "priorTeam": "ORL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Miles Barnstable",
-      "position": "PG",
-      "priorTeam": "SAS",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Keylan Boone",
+      "name": "John Camden",
       "position": "PF",
-      "priorTeam": "POR",
+      "priorTeam": "PHO",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Johni Broome",
+      "name": "Corey Camper, Jr.",
+      "position": "SG",
+      "priorTeam": "PHO",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Sam Hoiberg",
+      "position": "PG",
+      "priorTeam": "PHO",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Gabe Levin",
       "position": "PF",
-      "priorTeam": "LAC",
+      "priorTeam": "SAC",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Ricky Council IV",
+      "name": "Houston Mallette",
       "position": "SG",
-      "priorTeam": "ORL",
+      "priorTeam": "CHI",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Jarron Cumberland",
-      "position": "SG",
-      "priorTeam": "ORL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Ibrahima Diallo",
-      "position": "C",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Barry Dunning, Jr.",
+      "name": "Tyrone Marshall, Jr.",
       "position": "SF",
-      "priorTeam": "POR",
+      "priorTeam": "SAC",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Justin Harmon",
-      "position": "GF",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "A.J. Hoggard",
+      "name": "D'Angelo Russell",
       "position": "PG",
-      "priorTeam": "TOR",
+      "priorTeam": "MEM",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Keon Johnson",
-      "position": "SG",
-      "priorTeam": "ATL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Jordan Riley",
-      "position": "SG",
+      "name": "Romeo Weems",
+      "position": "SF",
       "priorTeam": "DET",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Payton Sandfort",
-      "position": "SF",
-      "priorTeam": "MIN",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Nate Santos",
-      "position": "SF",
-      "priorTeam": "MIN",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Mark Sears",
-      "position": "PG",
-      "priorTeam": "POR",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Au'Diese Toney",
-      "position": "SG",
-      "priorTeam": "ORL",
       "faType": "U",
       "birdRights": null
     }
   ],
   "removed": [
     {
-      "name": "Leaky Black",
-      "position": "SF",
-      "priorTeam": "WAS",
+      "name": "Lawson Lovering",
+      "position": "C",
+      "priorTeam": "MEM",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Kennedy Chandler",
-      "position": "PG",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Emanuel Miller",
-      "position": "SF",
-      "priorTeam": "SAS",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Tristen Newton",
-      "position": "SG",
-      "priorTeam": "HOU",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Norchad Omier",
-      "position": "SF",
+      "name": "Seth Lundy",
+      "position": "G-F",
       "priorTeam": "LAC",
       "faType": "U",
-      "birdRights": "non-bird"
+      "birdRights": null
     },
     {
-      "name": "Drew Timme",
+      "name": "Drew Peterson",
       "position": "PF",
-      "priorTeam": "LAL",
+      "priorTeam": "CHO",
       "faType": "U",
-      "birdRights": "non-bird"
+      "birdRights": null
+    },
+    {
+      "name": "Orlando Robinson",
+      "position": "C",
+      "priorTeam": "ORL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Hunter Sallis",
+      "position": "SG",
+      "priorTeam": "PHI",
+      "faType": "U",
+      "birdRights": null
     }
   ],
   "changed": []

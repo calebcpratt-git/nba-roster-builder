@@ -11923,6 +11923,11 @@
    "date": "2026-09-26",
    "method": "trade",
    "team": "CHI"
+  },
+  {
+   "date": "2026-09-27",
+   "method": "trade",
+   "team": "CHI"
   }
  ],
  "miles barnstable": [
@@ -11963,6 +11968,30 @@
    "date": "2026-09-26",
    "method": "trade",
    "team": "CHO"
+  },
+  {
+   "date": "2026-09-27",
+   "method": "trade",
+   "team": "CHO"
+  }
+ ],
+ "tyler nickel": [
+  {
+   "date": "2026-09-28",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "PHO"
+  }
+ ],
+ "kevin mccullar": [
+  {
+   "date": "2026-09-27",
+   "method": "free-agent",
+   "team": "NYK"
   }
  ]
 }
