@@ -12,10 +12,6 @@
   "team": "ATL"
  },
  {
-  "name": "Nick Pringle",
-  "team": "BRK"
- },
- {
   "name": "Chaney Johnson",
   "team": "BRK"
  },
@@ -164,10 +160,6 @@
   "team": "MIA"
  },
  {
-  "name": "Jake Stephens",
-  "team": "MIL"
- },
- {
   "name": "Cormac Ryan",
   "team": "MIL"
  },
@@ -190,6 +182,10 @@
  {
   "name": "Julian Reese",
   "team": "NOP"
+ },
+ {
+  "name": "Kevin McCullar Jr.",
+  "team": "NYK"
  },
  {
   "name": "Josh Dix",

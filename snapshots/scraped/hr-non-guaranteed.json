@@ -72,14 +72,6 @@
   "exhibit10": true
  },
  {
-  "player": "Nick Pringle",
-  "team": "Brooklyn Nets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Pat Connaughton",
   "team": "Charlotte Hornets",
   "fullAmount": null,
@@ -248,20 +240,20 @@
   "exhibit10": false
  },
  {
-  "player": "Paul Reed",
-  "team": "Detroit Pistons",
-  "fullAmount": 5602689,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
   "player": "Tolu Smith",
   "team": "Detroit Pistons",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Brice Williams",
+  "team": "Detroit Pistons",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Georges Niang",
@@ -296,7 +288,7 @@
   "exhibit10": false
  },
  {
-  "player": "Nick Boyd",
+  "player": "Miles Kelly",
   "team": "Golden State Warriors",
   "fullAmount": null,
   "partialAmount": null,
@@ -384,22 +376,6 @@
   "exhibit10": true
  },
  {
-  "player": "Jason Preston",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Hunter Sallis",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Meechie Johnson",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
@@ -422,14 +398,6 @@
   "partialAmount": 300000,
   "status": "partial",
   "exhibit10": false
- },
- {
-  "player": "Lawson Lovering",
-  "team": "Memphis Grizzlies",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Myron Gardner",
@@ -912,6 +880,14 @@
   "exhibit10": true
  },
  {
+  "player": "Terrell Brown Jr.",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Jaelen House",
   "team": "Utah Jazz",
   "fullAmount": null,
@@ -944,7 +920,31 @@
   "exhibit10": false
  },
  {
-  "player": "KeShawn Murphy",
+  "player": "Reece Beekman",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Trevor Keels",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Chris Livingston",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Steve Settle",
   "team": "Washington Wizards",
   "fullAmount": null,
   "partialAmount": null,

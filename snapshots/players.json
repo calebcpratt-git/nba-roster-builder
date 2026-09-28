@@ -1627,37 +1627,6 @@
     "acquiredMethod": "Draft"
   },
   {
-    "name": "Nick Pringle",
-    "team": "BRK",
-    "salary": {
-      "2026-27": 1357763
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 1357763
-    },
-    "guaranteed": {
-      "2026-27": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {},
-    "acquiredMethod": "Signed",
-    "acquisitionHistory": [
-      {
-        "date": "2026-09-21",
-        "method": "free-agent",
-        "team": "BRK"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
-  },
-  {
     "name": "Tyler Bilodeau",
     "team": "BRK",
     "salary": {
@@ -2046,6 +2015,11 @@
         "date": "2026-09-26",
         "method": "trade",
         "team": "CHO"
+      },
+      {
+        "date": "2026-09-27",
+        "method": "trade",
+        "team": "CHO"
       }
     ]
   },
@@ -2286,39 +2260,6 @@
       "2028-29": false
     },
     "acquiredMethod": "Draft"
-  },
-  {
-    "name": "Ryan Nembhard",
-    "team": "CHO",
-    "salary": {
-      "2026-27": 2150917
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 2150917
-    },
-    "guaranteed": {
-      "2026-27": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {
-      "2026-27": true
-    },
-    "acquiredMethod": "Trade",
-    "acquisitionHistory": [
-      {
-        "date": "2026-07-19",
-        "method": "trade",
-        "team": "ATL"
-      },
-      {
-        "date": "2026-09-22",
-        "method": "trade",
-        "team": "CHO"
-      }
-    ]
   },
   {
     "name": "Michael Ajayi",
@@ -2619,6 +2560,11 @@
       },
       {
         "date": "2026-09-26",
+        "method": "trade",
+        "team": "CHI"
+      },
+      {
+        "date": "2026-09-27",
         "method": "trade",
         "team": "CHI"
       }
@@ -4823,12 +4769,7 @@
       "2026-27": 0
     },
     "optionExercised": {},
-    "acquiredMethod": "Signed",
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
+    "acquiredMethod": "Signed"
   },
   {
     "name": "Ebuka Okorie",
@@ -4922,39 +4863,6 @@
       {
         "date": "2026-07-08",
         "method": "free-agent",
-        "team": "DET"
-      }
-    ]
-  },
-  {
-    "name": "Gary Harris",
-    "team": "DET",
-    "salary": {
-      "2026-27": 3815861
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 3815861
-    },
-    "guaranteed": {
-      "2026-27": 3815861
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {
-      "2026-27": true
-    },
-    "acquiredMethod": "Trade",
-    "acquisitionHistory": [
-      {
-        "date": "2026-07-07",
-        "method": "trade",
-        "team": "DET"
-      },
-      {
-        "date": "2026-07-08",
-        "method": "trade",
         "team": "DET"
       }
     ]
@@ -5221,47 +5129,6 @@
         "team": "GSW"
       }
     ]
-  },
-  {
-    "name": "Kristaps Porziņģis",
-    "team": "GSW",
-    "salary": {
-      "2026-27": 20000000,
-      "2027-28": 20000000
-    },
-    "options": {
-      "2027-28": "Player"
-    },
-    "cashSalary": {
-      "2026-27": 20000000,
-      "2027-28": 20000000
-    },
-    "guaranteed": {
-      "2026-27": 20000000,
-      "2027-28": 3000000
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0
-    },
-    "optionExercised": {
-      "2027-28": false
-    },
-    "acquiredMethod": "Trade",
-    "acquisitionHistory": [
-      {
-        "date": "2026-06-30",
-        "method": "extension",
-        "team": "GSW"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "partial",
-        "amount": 3000000,
-        "guaranteeDate": "2026-07-07"
-      }
-    }
   },
   {
     "name": "Moses Moody",
@@ -5614,6 +5481,47 @@
     "acquiredMethod": "Draft"
   },
   {
+    "name": "Kristaps Porziņģis",
+    "team": "GSW",
+    "salary": {
+      "2026-27": 20000000,
+      "2027-28": 20000000
+    },
+    "options": {
+      "2027-28": "Player"
+    },
+    "cashSalary": {
+      "2026-27": 20000000,
+      "2027-28": 20000000
+    },
+    "guaranteed": {
+      "2026-27": 20000000,
+      "2027-28": 3000000
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "optionExercised": {
+      "2027-28": false
+    },
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-06-30",
+        "method": "extension",
+        "team": "GSW"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "partial",
+        "amount": 3000000,
+        "guaranteeDate": "2026-07-07"
+      }
+    }
+  },
+  {
     "name": "LJ Cryer",
     "team": "GSW",
     "salary": {
@@ -5745,6 +5653,27 @@
       "2029-30": false
     },
     "acquiredMethod": "Trade"
+  },
+  {
+    "name": "Fred VanVleet",
+    "team": "HOU",
+    "salary": {
+      "2026-27": 25000000
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 25000000
+    },
+    "guaranteed": {
+      "2026-27": 25000000
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {
+      "2026-27": true
+    },
+    "acquiredMethod": "Signed"
   },
   {
     "name": "Jabari Smith Jr.",
@@ -6137,27 +6066,6 @@
     ]
   },
   {
-    "name": "Fred VanVleet",
-    "team": "HOU",
-    "salary": {
-      "2026-27": 25000000
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 25000000
-    },
-    "guaranteed": {
-      "2026-27": 25000000
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {
-      "2026-27": true
-    },
-    "acquiredMethod": "Signed"
-  },
-  {
     "name": "Rafael Castro",
     "team": "HOU",
     "salary": {
@@ -6250,6 +6158,33 @@
         "team": "HOU"
       }
     ]
+  },
+  {
+    "name": "Tyrese Haliburton",
+    "team": "IND",
+    "salary": {
+      "2026-27": 48924624,
+      "2027-28": 52298736,
+      "2028-29": 55672848
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 48924624,
+      "2027-28": 52298736,
+      "2028-29": 55672848
+    },
+    "guaranteed": {
+      "2026-27": 48924624,
+      "2027-28": 52298736,
+      "2028-29": 55672848
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0,
+      "2028-29": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Trade"
   },
   {
     "name": "Pascal Siakam",
@@ -6582,33 +6517,6 @@
       "2027-28": false
     },
     "acquiredMethod": "Draft"
-  },
-  {
-    "name": "Tyrese Haliburton",
-    "team": "IND",
-    "salary": {
-      "2026-27": 48924624,
-      "2027-28": 52298736,
-      "2028-29": 55672848
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 48924624,
-      "2027-28": 52298736,
-      "2028-29": 55672848
-    },
-    "guaranteed": {
-      "2026-27": 48924624,
-      "2027-28": 52298736,
-      "2028-29": 55672848
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0,
-      "2028-29": 0
-    },
-    "optionExercised": {},
-    "acquiredMethod": "Trade"
   },
   {
     "name": "Jalen Slawson",
@@ -6959,6 +6867,47 @@
     "acquiredMethod": "Trade"
   },
   {
+    "name": "Bradley Beal",
+    "team": "LAC",
+    "salary": {
+      "2026-27": 6424800,
+      "2027-28": 6746040
+    },
+    "options": {
+      "2027-28": "Player"
+    },
+    "cashSalary": {
+      "2026-27": 6424800,
+      "2027-28": 6746040
+    },
+    "guaranteed": {
+      "2026-27": 6424800,
+      "2027-28": 3373020
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "optionExercised": {
+      "2027-28": false
+    },
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-08-13",
+        "method": "free-agent",
+        "team": "LAC"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "partial",
+        "amount": 3212400,
+        "guaranteeDate": "2026-08-18"
+      }
+    }
+  },
+  {
     "name": "Kris Dunn",
     "team": "LAC",
     "salary": {
@@ -7175,47 +7124,6 @@
         "team": "LAC"
       }
     ]
-  },
-  {
-    "name": "Bradley Beal",
-    "team": "LAC",
-    "salary": {
-      "2026-27": 6424800,
-      "2027-28": 6746040
-    },
-    "options": {
-      "2027-28": "Player"
-    },
-    "cashSalary": {
-      "2026-27": 6424800,
-      "2027-28": 6746040
-    },
-    "guaranteed": {
-      "2026-27": 6424800,
-      "2027-28": 3373020
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0
-    },
-    "optionExercised": {
-      "2027-28": false
-    },
-    "acquiredMethod": "Signed",
-    "acquisitionHistory": [
-      {
-        "date": "2026-08-13",
-        "method": "free-agent",
-        "team": "LAC"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "partial",
-        "amount": 3212400,
-        "guaranteeDate": "2026-08-18"
-      }
-    }
   },
   {
     "name": "Nick Martinelli",
@@ -9652,37 +9560,6 @@
     ]
   },
   {
-    "name": "Jake Stephens",
-    "team": "MIL",
-    "salary": {
-      "2026-27": 1357763
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 1357763
-    },
-    "guaranteed": {
-      "2026-27": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {},
-    "acquiredMethod": "Signed",
-    "acquisitionHistory": [
-      {
-        "date": "2026-09-17",
-        "method": "free-agent",
-        "team": "MIL"
-      }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
-  },
-  {
     "name": "Kam Jones",
     "team": "MIL",
     "salary": {
@@ -11207,6 +11084,65 @@
     "acquiredMethod": "Draft"
   },
   {
+    "name": "Kevin McCullar Jr.",
+    "team": "NYK",
+    "salary": {
+      "2026-27": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 678882
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-27",
+        "method": "free-agent",
+        "team": "NYK"
+      }
+    ]
+  },
+  {
+    "name": "Tyler Nickel",
+    "team": "NYK",
+    "salary": {
+      "2026-27": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 678882
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Draft",
+    "acquisitionHistory": [
+      {
+        "date": "2026-06-23",
+        "method": "draft",
+        "team": "PHO"
+      },
+      {
+        "date": "2026-09-28",
+        "method": "free-agent",
+        "team": "NYK"
+      }
+    ]
+  },
+  {
     "name": "Chet Holmgren",
     "team": "OKC",
     "salary": {
@@ -11532,6 +11468,39 @@
     ]
   },
   {
+    "name": "Thomas Sorber",
+    "team": "OKC",
+    "salary": {
+      "2026-27": 4887720,
+      "2027-28": 5120400,
+      "2028-29": 7849573
+    },
+    "options": {
+      "2027-28": "Team",
+      "2028-29": "Team"
+    },
+    "cashSalary": {
+      "2026-27": 4073100,
+      "2027-28": 5120400,
+      "2028-29": 7849573
+    },
+    "guaranteed": {
+      "2026-27": 4073100,
+      "2027-28": 0,
+      "2028-29": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 814620,
+      "2027-28": 0,
+      "2028-29": 0
+    },
+    "optionExercised": {
+      "2027-28": false,
+      "2028-29": false
+    },
+    "acquiredMethod": "Draft"
+  },
+  {
     "name": "Bennett Stirtz",
     "team": "OKC",
     "salary": {
@@ -11641,39 +11610,6 @@
         "guaranteeDate": "2026-06-30"
       }
     }
-  },
-  {
-    "name": "Thomas Sorber",
-    "team": "OKC",
-    "salary": {
-      "2026-27": 4887720,
-      "2027-28": 5120400,
-      "2028-29": 7849573
-    },
-    "options": {
-      "2027-28": "Team",
-      "2028-29": "Team"
-    },
-    "cashSalary": {
-      "2026-27": 4073100,
-      "2027-28": 5120400,
-      "2028-29": 7849573
-    },
-    "guaranteed": {
-      "2026-27": 4073100,
-      "2027-28": 0,
-      "2028-29": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 814620,
-      "2027-28": 0,
-      "2028-29": 0
-    },
-    "optionExercised": {
-      "2027-28": false,
-      "2028-29": false
-    },
-    "acquiredMethod": "Draft"
   },
   {
     "name": "Brooks Barnhizer",
@@ -12872,6 +12808,40 @@
     ]
   },
   {
+    "name": "Mark Williams",
+    "team": "PHO",
+    "salary": {
+      "2026-27": 11728395,
+      "2027-28": 12666667,
+      "2028-29": 13604938
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 11728395,
+      "2027-28": 12666667,
+      "2028-29": 13604938
+    },
+    "guaranteed": {
+      "2026-27": 11728395,
+      "2027-28": 12666667,
+      "2028-29": 13604938
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0,
+      "2028-29": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Trade",
+    "acquisitionHistory": [
+      {
+        "date": "2026-07-07",
+        "method": "free-agent",
+        "team": "PHO"
+      }
+    ]
+  },
+  {
     "name": "Collin Gillespie",
     "team": "PHO",
     "salary": {
@@ -13236,40 +13206,6 @@
       "2028-29": false
     },
     "acquiredMethod": "Draft"
-  },
-  {
-    "name": "Mark Williams",
-    "team": "PHO",
-    "salary": {
-      "2026-27": 11728395,
-      "2027-28": 12666667,
-      "2028-29": 13604938
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 11728395,
-      "2027-28": 12666667,
-      "2028-29": 13604938
-    },
-    "guaranteed": {
-      "2026-27": 11728395,
-      "2027-28": 12666667,
-      "2028-29": 13604938
-    },
-    "likelyIncentives": {
-      "2026-27": 0,
-      "2027-28": 0,
-      "2028-29": 0
-    },
-    "optionExercised": {},
-    "acquiredMethod": "Trade",
-    "acquisitionHistory": [
-      {
-        "date": "2026-07-07",
-        "method": "free-agent",
-        "team": "PHO"
-      }
-    ]
   },
   {
     "name": "Koby Brea",

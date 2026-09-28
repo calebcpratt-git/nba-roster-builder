@@ -1,5 +1,65 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "Kevin McCullar Jr.",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Tyler Nickel",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
+  "removed": [
+    {
+      "name": "Nick Pringle",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Ryan Nembhard",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Gary Harris",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Jake Stephens",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
   "changed": []
 }

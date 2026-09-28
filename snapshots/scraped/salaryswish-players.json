@@ -739,16 +739,6 @@
    }
   }
  },
- "nick pringle": {
-  "team": "BRK",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "tyler bilodeau": {
   "team": "BRK",
   "signedUnder": null,
@@ -1018,16 +1008,6 @@
     "unlikely": 0
    },
    "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "ryan nembhard": {
-  "team": "CHO",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -2171,16 +2151,6 @@
    }
   }
  },
- "gary harris": {
-  "team": "DET",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "taurean prince": {
   "team": "DET",
   "signedUnder": "minimum",
@@ -2278,20 +2248,6 @@
   "signedUnder": "bird",
   "incentives": {
    "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "kristaps porzingis": {
-  "team": "GSW",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -2447,6 +2403,20 @@
    }
   }
  },
+ "kristaps porzingis": {
+  "team": "GSW",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "lj cryer": {
   "team": "GSW",
   "signedUnder": null,
@@ -2512,6 +2482,16 @@
     "unlikely": 0
    },
    "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "fred vanvleet": {
+  "team": "HOU",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -2690,16 +2670,6 @@
    }
   }
  },
- "fred vanvleet": {
-  "team": "HOU",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "rafael castro": {
   "team": "HOU",
   "signedUnder": null,
@@ -2729,6 +2699,24 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "tyrese haliburton": {
+  "team": "IND",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
     "likely": 0,
     "unlikely": 0
    }
@@ -2904,24 +2892,6 @@
    }
   }
  },
- "tyrese haliburton": {
-  "team": "IND",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "jalen slawson": {
   "team": "IND",
   "signedUnder": null,
@@ -3070,6 +3040,20 @@
    }
   }
  },
+ "bradley beal": {
+  "team": "LAC",
+  "signedUnder": "bi-annual",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "kris dunn": {
   "team": "LAC",
   "signedUnder": "early-bird",
@@ -3169,20 +3153,6 @@
     "unlikely": 0
    },
    "2029-30": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "bradley beal": {
-  "team": "LAC",
-  "signedUnder": "bi-annual",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -4271,16 +4241,6 @@
    }
   }
  },
- "jake stephens": {
-  "team": "MIL",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "kam jones": {
   "team": "MIL",
   "signedUnder": null,
@@ -4979,6 +4939,26 @@
    }
   }
  },
+ "kevin mccullar": {
+  "team": "NYK",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "tyler nickel": {
+  "team": "NYK",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "chet holmgren": {
   "team": "OKC",
   "signedUnder": "bird",
@@ -5159,6 +5139,24 @@
    }
   }
  },
+ "thomas sorber": {
+  "team": "OKC",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 814620,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "bennett stirtz": {
   "team": "OKC",
   "signedUnder": "rookie-scale",
@@ -5204,24 +5202,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "thomas sorber": {
-  "team": "OKC",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 814620,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
     "likely": 0,
     "unlikely": 0
    }
@@ -5765,6 +5745,24 @@
    }
   }
  },
+ "mark williams": {
+  "team": "PHO",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "collin gillespie": {
   "team": "PHO",
   "signedUnder": "early-bird",
@@ -5920,24 +5918,6 @@
  "rasheer fleming": {
   "team": "PHO",
   "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "mark williams": {
-  "team": "PHO",
-  "signedUnder": "bird",
   "incentives": {
    "2026-27": {
     "likely": 0,

@@ -1,18 +1,15 @@
 [
   {
-    "name": "Aaron Nkrumah"
-  },
-  {
     "name": "Alex Toohey"
   },
   {
     "name": "Andre Jackson Jr."
   },
   {
-    "name": "Antonio Reeves"
+    "name": "Andrew Holifield"
   },
   {
-    "name": "BJ Edwards"
+    "name": "Antonio Reeves"
   },
   {
     "name": "Ben Humrichous"
@@ -21,19 +18,25 @@
     "name": "Bez Mbeng"
   },
   {
+    "name": "Blake Wesley"
+  },
+  {
     "name": "Brandon Boston Jr."
+  },
+  {
+    "name": "Brice Williams"
   },
   {
     "name": "Bruce Brown Jr."
   },
   {
+    "name": "Bryson Warren"
+  },
+  {
     "name": "Caleb Houstan"
   },
   {
-    "name": "Chase Ross"
-  },
-  {
-    "name": "Chris Bell"
+    "name": "Chris Livingston"
   },
   {
     "name": "Christian Koloko"
@@ -45,19 +48,19 @@
     "name": "Cole Anthony"
   },
   {
+    "name": "Cole Swider"
+  },
+  {
     "name": "Coleman Hawkins"
-  },
-  {
-    "name": "Corey Camper Jr."
-  },
-  {
-    "name": "Corey Stephenson"
   },
   {
     "name": "Curtis Jones"
   },
   {
     "name": "D'Angelo Russell"
+  },
+  {
+    "name": "Dain Dainja"
   },
   {
     "name": "Dalen Terry"
@@ -75,12 +78,6 @@
     "name": "Dillon Jones"
   },
   {
-    "name": "Dion Brown"
-  },
-  {
-    "name": "Donovan Atwell"
-  },
-  {
     "name": "Drew Eubanks"
   },
   {
@@ -96,6 +93,9 @@
     "name": "E.J. Liddell"
   },
   {
+    "name": "Elfrid Payton"
+  },
+  {
     "name": "Emanuel Miller"
   },
   {
@@ -105,19 +105,16 @@
     "name": "Gabe McGlothan"
   },
   {
-    "name": "Giovanni Emejuru"
-  },
-  {
     "name": "Harrison Ingram"
   },
   {
     "name": "Hayden Gray"
   },
   {
-    "name": "Isaac McKneely"
+    "name": "Ian Schieffelin"
   },
   {
-    "name": "Isaiah Stevens"
+    "name": "Isaac McKneely"
   },
   {
     "name": "J'Vonne Hadley"
@@ -127,9 +124,6 @@
   },
   {
     "name": "JaVale McGee"
-  },
-  {
-    "name": "Jaden Henley"
   },
   {
     "name": "Jaelen House"
@@ -144,13 +138,16 @@
     "name": "James Wiseman"
   },
   {
-    "name": "Jaxon Kohler"
+    "name": "Jarkel Joiner"
   },
   {
     "name": "John Butler jr."
   },
   {
     "name": "John Konchar"
+  },
+  {
+    "name": "John Ukomadu"
   },
   {
     "name": "Johni Broome"
@@ -171,9 +168,6 @@
     "name": "Kadary Richmond"
   },
   {
-    "name": "KeShawn Murphy"
-  },
-  {
     "name": "Keba Keita"
   },
   {
@@ -186,19 +180,10 @@
     "name": "Kevin Knox II"
   },
   {
-    "name": "Keyshawn Hall"
-  },
-  {
-    "name": "Kira Lewis Jr."
+    "name": "Kevin McCullar Jr."
   },
   {
     "name": "Kobe Bufkin"
-  },
-  {
-    "name": "Lamar Wilkerson"
-  },
-  {
-    "name": "Latrell Wrightsell Jr."
   },
   {
     "name": "Leaky Black"
@@ -210,31 +195,16 @@
     "name": "Malaki Branham"
   },
   {
-    "name": "Malik Reneau"
-  },
-  {
     "name": "Malik Williams"
   },
   {
     "name": "Mamadi Diakite"
   },
   {
-    "name": "Mark Mitchell"
-  },
-  {
     "name": "Marquel Sutton"
   },
   {
-    "name": "Max MacKinnon"
-  },
-  {
-    "name": "Meechie Johnson Jr."
-  },
-  {
-    "name": "Melvin Council Jr."
-  },
-  {
-    "name": "Micah Handlogten"
+    "name": "Miles Kelly"
   },
   {
     "name": "Milos Uzan"
@@ -249,19 +219,10 @@
     "name": "Nate Bittle"
   },
   {
-    "name": "Nate Johnson"
-  },
-  {
-    "name": "Nick Boyd"
-  },
-  {
     "name": "Nimari Burnett"
   },
   {
     "name": "Norchad Omier"
-  },
-  {
-    "name": "Obi Agbim"
   },
   {
     "name": "Ochai Agbaji"
@@ -279,7 +240,13 @@
     "name": "Phillip Wheeler"
   },
   {
+    "name": "RJ Davis"
+  },
+  {
     "name": "Rashaun Agee"
+  },
+  {
+    "name": "Reece Beekman"
   },
   {
     "name": "Ricky Rubio"
@@ -288,22 +255,16 @@
     "name": "Rienk Mast"
   },
   {
-    "name": "Robbie Avila"
-  },
-  {
     "name": "Robert McCray V"
   },
   {
     "name": "Saint Thomas"
   },
   {
-    "name": "Sam Hoiberg"
-  },
-  {
     "name": "Seth Lundy"
   },
   {
-    "name": "Seth Trimble"
+    "name": "Steve Settle III"
   },
   {
     "name": "Tacko Fall"
@@ -312,10 +273,10 @@
     "name": "Taelon Peter"
   },
   {
-    "name": "Tamin Lipsey"
+    "name": "Terrell Brown Jr."
   },
   {
-    "name": "Tre White"
+    "name": "Trevor Keels"
   },
   {
     "name": "Tristen Newton"
@@ -324,16 +285,16 @@
     "name": "Tucker DeVries"
   },
   {
+    "name": "Tyler Nickel"
+  },
+  {
+    "name": "Tyreke Key"
+  },
+  {
     "name": "Vasilije Mici\u0107"
   },
   {
     "name": "William Kyle III"
-  },
-  {
-    "name": "Wyatt Fricks"
-  },
-  {
-    "name": "Xaivian Lee"
   },
   {
     "name": "Yuki Kawamura"
@@ -342,6 +303,6 @@
     "name": "Zach Austin"
   },
   {
-    "name": "Zach Cleveland"
+    "name": "Zhaire Smith"
   }
 ]

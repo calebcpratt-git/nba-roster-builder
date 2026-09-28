@@ -1399,12 +1399,6 @@
       "biAnnual": {
         "signings": [],
         "remaining": 5477000
-      },
-      "dpe": {
-        "player": "Dereck Lively II",
-        "initial": 3619565,
-        "used": false,
-        "remaining": 3619565
       }
     },
     "cashLedger": {
@@ -2676,12 +2670,6 @@
       "roomMLE": {
         "signings": [],
         "remaining": 9366000
-      },
-      "dpe": {
-        "player": "Fred VanVleet",
-        "initial": 12500000,
-        "used": false,
-        "remaining": 12500000
       }
     },
     "cashLedger": {
@@ -3002,12 +2990,6 @@
       "biAnnual": {
         "signings": [],
         "remaining": 0
-      },
-      "dpe": {
-        "player": "Tyrese Haliburton",
-        "initial": 15044000,
-        "used": false,
-        "remaining": 15044000
       }
     },
     "cashLedger": {
@@ -3222,12 +3204,6 @@
       "biAnnual": {
         "signings": [],
         "remaining": 5477000
-      },
-      "dpe": {
-        "player": "Bradley Beal",
-        "initial": 3212400,
-        "used": false,
-        "remaining": 3212400
       },
       "tradeExceptionsUsed": [
         {
@@ -3621,7 +3597,7 @@
             "amount": 9000000
           }
         ],
-        "remaining": 6044000
+        "remaining": null
       },
       "biAnnual": {
         "signings": [],
@@ -5297,12 +5273,6 @@
       "biAnnual": {
         "signings": [],
         "remaining": 0
-      },
-      "dpe": {
-        "player": "Thomas Sorber",
-        "initial": 2443860,
-        "used": false,
-        "remaining": 2443860
       }
     },
     "cashLedger": {
@@ -6785,7 +6755,7 @@
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 2042733
+        "remaining": 684970
       }
     },
     "cashLedger": {
@@ -7594,7 +7564,7 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 11832753
+        "remaining": 6110764
       },
       "taxpayerMLE": {
         "signings": [],

@@ -156,6 +156,25 @@
   "faYear": null
  },
  {
+  "name": "Gary Harris",
+  "team": "DET",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 3815861
+  },
+  "cashSalary": {
+   "2026-27": 3815861
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Cam Whitmore",
   "team": "HOU",
   "section": "Waivers",
