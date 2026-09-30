@@ -1324,20 +1324,6 @@
     }
   },
   {
-    "name": "Rob Dillingham",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Hannes Steinbach",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -2592,6 +2578,20 @@
     }
   },
   {
+    "name": "Kristaps Porziņģis",
+    "signedUnder": "bird",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Moses Moody",
     "signedUnder": "bird",
     "incentives": {
@@ -2722,20 +2722,6 @@
         "unlikely": 0
       },
       "2028-29": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Kristaps Porziņģis",
-    "signedUnder": "bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -5003,6 +4989,15 @@
     }
   },
   {
+    "name": "Jaden Akins",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Kevin McCullar Jr.",
     "incentives": {
       "2026-27": {
@@ -5884,16 +5879,6 @@
     }
   },
   {
-    "name": "Duop Reath",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Haywood Highsmith",
     "signedUnder": "minimum",
     "incentives": {
@@ -6281,6 +6266,20 @@
     }
   },
   {
+    "name": "Daeqwon Plowden",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Ben Simmons",
     "signedUnder": "minimum",
     "incentives": {
@@ -6334,20 +6333,6 @@
         "unlikely": 0
       },
       "2028-29": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Daeqwon Plowden",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -7249,16 +7234,6 @@
         "unlikely": 0
       },
       "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Anthony Gill",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }

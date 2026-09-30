@@ -10,6 +10,22 @@
   "raw": "Partial guarantee ($2,000,000) increases to full guarantee ($10,000,000). ( ❌ )"
  },
  {
+  "player": "Cameron Corhen",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Kobe Johnson",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Isaac McKneely",
   "team": "Atlanta Hawks",
   "fullAmount": null,
@@ -74,6 +90,14 @@
   "exhibit10": true
  },
  {
+  "player": "Wyatt Fricks",
+  "team": "Charlotte Hornets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Jarkel Joiner",
   "team": "Charlotte Hornets",
   "fullAmount": null,
@@ -87,7 +111,7 @@
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
   "player": "Drew Peterson",
@@ -95,7 +119,7 @@
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
   "player": "Orlando Robinson",
@@ -103,7 +127,7 @@
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
   "player": "Peter Suder",
@@ -194,6 +218,14 @@
   "exhibit10": true
  },
  {
+  "player": "John Ukomadu",
+  "team": "Detroit Pistons",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Brice Williams",
   "team": "Detroit Pistons",
   "fullAmount": null,
@@ -274,7 +306,23 @@
   "exhibit10": true
  },
  {
-  "player": "Meechie Johnson",
+  "player": "Fletcher Loyer",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Blake Wesley",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "William K yle III",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
   "partialAmount": null,
@@ -282,7 +330,7 @@
   "exhibit10": true
  },
  {
-  "player": "Chase Ross",
+  "player": "Cole Swider",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
   "partialAmount": null,
@@ -299,6 +347,14 @@
  },
  {
   "player": "Bez Mbeng",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Lester Quinones",
   "team": "Miami Heat",
   "fullAmount": null,
   "partialAmount": null,
@@ -335,7 +391,7 @@
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
   "player": "Norchad Omier",
@@ -343,18 +399,18 @@
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
-  "player": "Drew Timme",
+  "player": "Antonio Reeves",
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
-  "player": "Antonio Reeves",
+  "player": "Drew Timme",
   "team": "Minnesota Timberwolves",
   "fullAmount": null,
   "partialAmount": null,
@@ -394,6 +450,14 @@
   "exhibit10": false
  },
  {
+  "player": "Tony Bradley",
+  "team": "New York Knicks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Bruce Brown",
   "team": "New York Knicks",
   "fullAmount": null,
@@ -410,28 +474,12 @@
   "exhibit10": false
  },
  {
-  "player": "John Konchar",
-  "team": "New York Knicks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
   "player": "James Wiseman",
   "team": "New York Knicks",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
- },
- {
-  "player": "N’Faly Dante",
-  "team": "New York Knicks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Andrew Holifield",
@@ -538,8 +586,32 @@
   "exhibit10": true
  },
  {
+  "player": "Duop Reath",
+  "team": "Phoenix Suns",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Phillip Wheeler",
   "team": "Phoenix Suns",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Hyunjung Lee",
+  "team": "Portland Trail Blazers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jaylen Martin",
+  "team": "Portland Trail Blazers",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -555,6 +627,22 @@
  },
  {
   "player": "Leaky Black",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Sean East II",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Viktor Lakhin",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
@@ -664,6 +752,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
+ },
+ {
+  "player": "Anthony Gill",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
  },
  {
   "player": "Reece Beekman",

@@ -126,6 +126,13 @@
   "birdRights": "early-bird"
  },
  {
+  "name": "Nicolas Batum",
+  "position": "SG/SF",
+  "priorTeam": "LAC",
+  "faType": "U",
+  "birdRights": "early-bird"
+ },
+ {
   "name": "MarJon Beauchamp",
   "position": "SF",
   "priorTeam": "PHI",
@@ -138,6 +145,13 @@
   "priorTeam": "MIN",
   "faType": "U",
   "birdRights": null
+ },
+ {
+  "name": "Bismack Biyombo",
+  "position": "PF/C",
+  "priorTeam": "SAS",
+  "faType": "U",
+  "birdRights": "early-bird"
  },
  {
   "name": "Bismack Biyombo",
@@ -164,6 +178,13 @@
   "name": "Chris Boucher",
   "position": "PF",
   "priorTeam": "UTA",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Nick Boyd",
+  "position": "PG",
+  "priorTeam": "GSW",
   "faType": "U",
   "birdRights": null
  },
@@ -252,6 +273,13 @@
   "birdRights": "non-bird"
  },
  {
+  "name": "Yuri Collins",
+  "position": "PG",
+  "priorTeam": "MEM",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Javonte Cooke",
   "position": "SG",
   "priorTeam": "POR",
@@ -294,16 +322,16 @@
   "birdRights": "non-bird"
  },
  {
+  "name": "Seth Curry",
+  "position": "PG",
+  "priorTeam": "GSW",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
   "name": "Dominique Daniels, Jr.",
   "position": "PG",
   "priorTeam": "NOP",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "N'Faly Dante",
-  "position": "C",
-  "priorTeam": "ATL",
   "faType": "U",
   "birdRights": null
  },
@@ -318,6 +346,13 @@
   "name": "Hunter Dickinson",
   "position": "C",
   "priorTeam": "NOP",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Eric Dixon",
+  "position": "SF",
+  "priorTeam": "MEM",
   "faType": "U",
   "birdRights": null
  },
@@ -371,6 +406,13 @@
   "birdRights": null
  },
  {
+  "name": "Dante Exum",
+  "position": "SG",
+  "priorTeam": "WAS",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Trentyn Flowers",
   "position": "PF",
   "priorTeam": "CHI",
@@ -406,11 +448,32 @@
   "birdRights": null
  },
  {
+  "name": "Taj Gibson",
+  "position": "PF",
+  "priorTeam": "NOP",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Eric Gordon",
   "position": "SG",
   "priorTeam": "MEM",
   "faType": "U",
   "birdRights": null
+ },
+ {
+  "name": "Eric Gordon",
+  "position": "SG",
+  "priorTeam": "MEM",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Jeff Green",
+  "position": "PF",
+  "priorTeam": "HOU",
+  "faType": "U",
+  "birdRights": "full-bird"
  },
  {
   "name": "Jeff Green",
@@ -441,9 +504,30 @@
   "birdRights": null
  },
  {
+  "name": "Gary Harris",
+  "position": "SG",
+  "priorTeam": "DET",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Gary Harris",
+  "position": "SG",
+  "priorTeam": "DET",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Kevon Harris",
   "position": "SG",
   "priorTeam": "HOU",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Brendan Hausen",
+  "position": "SG",
+  "priorTeam": "MEM",
   "faType": "U",
   "birdRights": null
  },
@@ -453,6 +537,13 @@
   "priorTeam": "SAC",
   "faType": "U",
   "birdRights": "non-bird"
+ },
+ {
+  "name": "Nigel Hayes-Davis",
+  "position": "SF",
+  "priorTeam": "MIL",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Nigel Hayes-Davis",
@@ -495,6 +586,13 @@
   "priorTeam": "HOU",
   "faType": "U",
   "birdRights": "full-bird"
+ },
+ {
+  "name": "Joe Ingles",
+  "position": "F-G",
+  "priorTeam": "MIN",
+  "faType": "U",
+  "birdRights": "early-bird"
  },
  {
   "name": "Joe Ingles",
@@ -553,13 +651,6 @@
   "birdRights": null
  },
  {
-  "name": "Jarkel Joiner",
-  "position": "PG",
-  "priorTeam": "CHO",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Colby Jones",
   "position": "SG",
   "priorTeam": "DET",
@@ -588,16 +679,9 @@
   "birdRights": null
  },
  {
-  "name": "Trevor Keels",
-  "position": "PG",
-  "priorTeam": "MIA",
-  "faType": "U",
-  "birdRights": "non-bird"
- },
- {
-  "name": "Miles Kelly",
-  "position": "SG",
-  "priorTeam": "DAL",
+  "name": "Maxi Kleber",
+  "position": "PF",
+  "priorTeam": "LAL",
   "faType": "U",
   "birdRights": null
  },
@@ -623,6 +707,13 @@
   "birdRights": null
  },
  {
+  "name": "Skal Labissiere",
+  "position": "F-C",
+  "priorTeam": "WAS",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "A.J. Lawson",
   "position": "SG",
   "priorTeam": "TOR",
@@ -633,6 +724,13 @@
   "name": "Gabe Levin",
   "position": "PF",
   "priorTeam": "SAC",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Kira Lewis, Jr.",
+  "position": "PG",
+  "priorTeam": "MEM",
   "faType": "U",
   "birdRights": null
  },
@@ -651,16 +749,23 @@
   "birdRights": "non-bird"
  },
  {
-  "name": "Chris Livingston",
-  "position": "SF",
-  "priorTeam": "CLE",
+  "name": "Kevin Love",
+  "position": "PF/C",
+  "priorTeam": "UTA",
   "faType": "U",
-  "birdRights": null
+  "birdRights": "full-bird"
  },
  {
   "name": "Kevin Love",
   "position": "PF/C",
   "priorTeam": "UTA",
+  "faType": "U",
+  "birdRights": "full-bird"
+ },
+ {
+  "name": "Kyle Lowry",
+  "position": "PG",
+  "priorTeam": "PHI",
   "faType": "U",
   "birdRights": "full-bird"
  },
@@ -714,9 +819,9 @@
   "birdRights": "non-bird"
  },
  {
-  "name": "Kevin McCullar, Jr.",
-  "position": "SG",
-  "priorTeam": "NYK",
+  "name": "Doug McDermott",
+  "position": "SF",
+  "priorTeam": "SAC",
   "faType": "U",
   "birdRights": "early-bird"
  },
@@ -777,6 +882,13 @@
   "birdRights": null
  },
  {
+  "name": "KeShawn Murphy",
+  "position": "PF",
+  "priorTeam": "WAS",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Dwight Murray, Jr.",
   "position": "PG",
   "priorTeam": "BRK",
@@ -794,6 +906,13 @@
   "name": "Eli N'Diaye",
   "position": "PF",
   "priorTeam": "ATL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Ryan Nembhard",
+  "position": "PG",
+  "priorTeam": "CHO",
   "faType": "U",
   "birdRights": null
  },
@@ -854,6 +973,20 @@
   "birdRights": "full-bird"
  },
  {
+  "name": "Kelly Olynyk",
+  "position": "C/PF",
+  "priorTeam": "SAS",
+  "faType": "U",
+  "birdRights": "full-bird"
+ },
+ {
+  "name": "Chris Paul",
+  "position": "PG",
+  "priorTeam": "TOR",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Chris Paul",
   "position": "PG",
   "priorTeam": "TOR",
@@ -873,6 +1006,27 @@
   "priorTeam": "SAS",
   "faType": "U",
   "birdRights": "non-bird"
+ },
+ {
+  "name": "Mason Plumlee",
+  "position": "PF",
+  "priorTeam": "SAS",
+  "faType": "U",
+  "birdRights": "non-bird"
+ },
+ {
+  "name": "Jason Preston",
+  "position": "PG",
+  "priorTeam": "LAC",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Nick Pringle",
+  "position": "PF",
+  "priorTeam": "BRK",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Elias Ralph",
@@ -938,9 +1092,30 @@
   "birdRights": null
  },
  {
+  "name": "Terry Rozier",
+  "position": "PG",
+  "priorTeam": "MIA",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "D'Angelo Russell",
   "position": "PG",
   "priorTeam": "MEM",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "D'Angelo Russell",
+  "position": "PG",
+  "priorTeam": "MEM",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Hunter Sallis",
+  "position": "SG",
+  "priorTeam": "LAC",
   "faType": "U",
   "birdRights": null
  },
@@ -955,6 +1130,13 @@
   "name": "Nate Santos",
   "position": "SF",
   "priorTeam": "MIN",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Dario Saric",
+  "position": "F-C",
+  "priorTeam": "DET",
   "faType": "U",
   "birdRights": null
  },
@@ -1005,7 +1187,7 @@
   "position": "C",
   "priorTeam": "LAC",
   "faType": "U",
-  "birdRights": "non-bird"
+  "birdRights": null
  },
  {
   "name": "Max Shulga",
@@ -1064,6 +1246,13 @@
   "birdRights": null
  },
  {
+  "name": "David Stockton",
+  "position": "PG",
+  "priorTeam": "PHO",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Wade Taylor IV",
   "position": "PG",
   "priorTeam": "IND",
@@ -1076,6 +1265,13 @@
   "priorTeam": "LAC",
   "faType": "U",
   "birdRights": null
+ },
+ {
+  "name": "Garrett Temple",
+  "position": "SG",
+  "priorTeam": "TOR",
+  "faType": "U",
+  "birdRights": "full-bird"
  },
  {
   "name": "Garrett Temple",
@@ -1162,6 +1358,13 @@
   "birdRights": null
  },
  {
+  "name": "Jonas Valanciunas",
+  "position": "C",
+  "priorTeam": "DEN",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Gabe Vincent",
   "position": "PG",
   "priorTeam": "ATL",
@@ -1179,6 +1382,13 @@
   "name": "Jalen Warley",
   "position": "SG",
   "priorTeam": "IND",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Bryson Warren",
+  "position": "PG",
+  "priorTeam": "DET",
   "faType": "U",
   "birdRights": null
  },
@@ -1225,9 +1435,9 @@
   "birdRights": null
  },
  {
-  "name": "Blake Wesley",
-  "position": "SG",
-  "priorTeam": "POR",
+  "name": "Russell Westbrook",
+  "position": "PG",
+  "priorTeam": "SAC",
   "faType": "U",
   "birdRights": "non-bird"
  },
@@ -1277,6 +1487,13 @@
   "name": "Isaiah Wong",
   "position": "SG",
   "priorTeam": "BRK",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Guerschon Yabusele",
+  "position": "SF",
+  "priorTeam": "CHI",
   "faType": "U",
   "birdRights": null
  },

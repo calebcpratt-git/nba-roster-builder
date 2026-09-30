@@ -50,6 +50,12 @@
     "amount": 1775700,
     "expires": "2027-02-05",
     "fromPlayer": "Luke Kennard"
+   },
+   {
+    "id": "ATL-ryan-nembhard-2026-09-22",
+    "amount": 2150917,
+    "expires": "2027-09-22",
+    "fromPlayer": "Ryan Nembhard"
    }
   ],
   "hardCapped": {
@@ -68,7 +74,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 5380473
+    "remaining": 2664947
    },
    "tradeExceptionsUsed": [
     {
@@ -675,7 +681,7 @@
    },
    {
     "id": "CHO-tyus-jones-2026-02-05",
-    "amount": 7000000,
+    "amount": 110680,
     "expires": "2027-02-05",
     "fromPlayer": "Tyus Jones"
    },
@@ -684,6 +690,18 @@
     "amount": 40770520,
     "expires": "2027-07-10",
     "fromPlayer": "LaMelo Ball"
+   },
+   {
+    "id": "CHO-dorian-finney-smith-2026-09-22",
+    "amount": 4538438,
+    "expires": "2027-09-22",
+    "fromPlayer": "Dorian Finney-Smith"
+   },
+   {
+    "id": "CHO-buddy-hield-2026-09-27",
+    "amount": 9658536,
+    "expires": "2027-09-27",
+    "fromPlayer": "Buddy Hield"
    }
   ],
   "hardCapped": {
@@ -702,7 +720,15 @@
    "biAnnual": {
     "signings": [],
     "remaining": 5477000
-   }
+   },
+   "tradeExceptionsUsed": [
+    {
+     "tpeFromPlayer": "Tyus Jones",
+     "usedByPlayer": "Rob Dillingham",
+     "amount": 6889320,
+     "date": "2026-09-27"
+    }
+   ]
   },
   "cashLedger": {
    "availableToSend": 7854000,
@@ -910,6 +936,10 @@
     "fromPlayer": "Julian Phillips"
    }
   ],
+  "hardCapped": {
+   "apron": 1,
+   "trigger": "Trade Salary Acquired: Sep 27 trade"
+  },
   "exceptionsUsed": {
    "roomMLE": {
     "signings": [],
@@ -3185,6 +3215,12 @@
     "amount": 0,
     "expires": "2027-07-08",
     "fromPlayer": "John Collins"
+   },
+   {
+    "id": "LAC-kawhi-leonard-2026-09-14",
+    "amount": 3168490,
+    "expires": "2027-09-14",
+    "fromPlayer": "Kawhi Leonard"
    }
   ],
   "hardCapped": {
@@ -3583,6 +3619,12 @@
     "amount": 28872920,
     "expires": "2027-02-03",
     "fromPlayer": "Jaren Jackson Jr."
+   },
+   {
+    "id": "MEM-ja-morant-2026-06-29",
+    "amount": 493691,
+    "expires": "2027-06-29",
+    "fromPlayer": "Ja Morant"
    }
   ],
   "hardCapped": {
@@ -3602,7 +3644,15 @@
    "biAnnual": {
     "signings": [],
     "remaining": 5477000
-   }
+   },
+   "tradeExceptionsUsed": [
+    {
+     "tpeFromPlayer": "Ja Morant",
+     "usedByPlayer": "Micah Peavy",
+     "amount": 2150917,
+     "date": "2026-09-08"
+    }
+   ]
   },
   "cashLedger": {
    "availableToSend": 7964000,
@@ -3760,14 +3810,7 @@
   "team": "MIA",
   "season": "2026-27",
   "deadMoney": [],
-  "capHolds": [
-   {
-    "label": "Trevor Keels",
-    "amount": 2200000,
-    "kind": "free-agent",
-    "birdRights": "non-bird"
-   }
-  ],
+  "capHolds": [],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -4606,8 +4649,18 @@
     "amount": 4500000,
     "expires": "2027-02-05",
     "fromPlayer": "Jose Alvarado"
+   },
+   {
+    "id": "NOP-jordan-hawkins-2026-09-08",
+    "amount": 7021895,
+    "expires": "2027-09-08",
+    "fromPlayer": "Jordan Hawkins"
    }
   ],
+  "hardCapped": {
+   "apron": 1,
+   "trigger": "Trade Salary Acquired: Sep 8 trade"
+  },
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
@@ -6225,14 +6278,7 @@
     "amount": 268032
    }
   ],
-  "capHolds": [
-   {
-    "label": "Blake Wesley",
-    "amount": 2500000,
-    "kind": "free-agent",
-    "birdRights": "non-bird"
-   }
-  ],
+  "capHolds": [],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -6995,6 +7041,10 @@
     "fromPlayer": "Ochai Agbaji"
    }
   ],
+  "hardCapped": {
+   "apron": 1,
+   "trigger": "Trade Salary Acquired: Sep 14 trade"
+  },
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [
