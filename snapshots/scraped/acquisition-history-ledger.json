@@ -10787,6 +10787,11 @@
    "date": "2026-06-24",
    "method": "free-agent",
    "team": "MEM"
+  },
+  {
+   "date": "2026-09-28",
+   "method": "free-agent",
+   "team": "MEM"
   }
  ],
  "bennett stirtz": [
@@ -11866,6 +11871,11 @@
    "date": "2026-09-18",
    "method": "extension",
    "team": "DET"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "extension",
+   "team": "DET"
   }
  ],
  "pelle larsson": [
@@ -11890,6 +11900,11 @@
  "graham ike": [
   {
    "date": "2026-09-20",
+   "method": "free-agent",
+   "team": "GSW"
+  },
+  {
+   "date": "2026-09-21",
    "method": "free-agent",
    "team": "GSW"
   }
@@ -11985,11 +12000,33 @@
    "date": "2026-06-23",
    "method": "draft",
    "team": "PHO"
+  },
+  {
+   "date": "2026-09-26",
+   "method": "free-agent",
+   "team": "NYK"
   }
  ],
  "kevin mccullar": [
   {
    "date": "2026-09-27",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "jaden akins": [
+  {
+   "date": "2026-09-30",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-09-26",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-09-15",
    "method": "free-agent",
    "team": "NYK"
   }

@@ -184,6 +184,10 @@
   "team": "NOP"
  },
  {
+  "name": "Jaden Akins",
+  "team": "NYK"
+ },
+ {
   "name": "Kevin McCullar Jr.",
   "team": "NYK"
  },
@@ -206,10 +210,6 @@
  {
   "name": "Rayan Rupert",
   "team": "PHI"
- },
- {
-  "name": "Duop Reath",
-  "team": "PHO"
  },
  {
   "name": "CJ Huntley",
@@ -273,10 +273,6 @@
  },
  {
   "name": "Tristan Vukcevic",
-  "team": "WAS"
- },
- {
-  "name": "Anthony Gill",
   "team": "WAS"
  }
 ]

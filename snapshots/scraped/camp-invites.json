@@ -1,5 +1,51 @@
 [
  {
+  "name": "Cam Corhen",
+  "team": "ATL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Kobe Johnson",
+  "team": "ATL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Isaac McKneely",
   "team": "ATL",
   "section": "Training Camp and Exhibit 10",
@@ -184,12 +230,35 @@
   "faYear": "RFA"
  },
  {
-  "name": "Jarkel Joiner",
+  "name": "Wyatt Fricks",
   "team": "CHO",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Jarkel Joiner",
+  "team": "CHO",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": "Camp Invite",
   "salary": {
    "2026-27": 1357763
   },
@@ -552,29 +621,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Bryson Warren",
-  "team": "DET",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Brice Williams",
   "team": "DET",
   "section": "Training Camp and Exhibit 10",
@@ -711,6 +757,29 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "RFA"
+ },
+ {
+  "name": "James Johnson",
+  "team": "IND",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": "Camp Invite",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 3876529
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
  },
  {
   "name": "Keba Keita",
@@ -885,6 +954,29 @@
   },
   "cashSalary": {
    "2026-27": 2185116
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Ezra Ausar",
+  "team": "MIA",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0
@@ -1173,6 +1265,29 @@
   "faYear": "UFA"
  },
  {
+  "name": "Tony Bradley",
+  "team": "NYK",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": "Camp Invite",
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 3506659
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
+ },
+ {
   "name": "Bruce Brown Jr.",
   "team": "NYK",
   "section": "Training Camp and Exhibit 10",
@@ -1207,29 +1322,6 @@
   },
   "cashSalary": {
    "2026-27": 3506659
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "UFA"
- },
- {
-  "name": "John Konchar",
-  "team": "NYK",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": "Camp Invite",
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 3286399
   },
   "guaranteed": {
    "2026-27": 0
@@ -1564,6 +1656,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Duop Reath",
+  "team": "PHO",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2537526
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Phillip Wheeler",
   "team": "PHO",
   "section": "Training Camp and Exhibit 10",
@@ -1638,7 +1753,7 @@
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
-  "terms": null,
+  "terms": "Camp Invite",
   "salary": {
    "2026-27": 2449421
   },
@@ -1654,6 +1769,29 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "UFA"
+ },
+ {
+  "name": "Viktor Lakhin",
+  "team": "SAC",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
  },
  {
   "name": "Malik Williams",
@@ -1976,6 +2114,29 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "RFA"
+ },
+ {
+  "name": "Anthony Gill",
+  "team": "WAS",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 3066143
+  },
+  "guaranteed": {
+   "2026-27": 3066143
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "UFA"
  },
  {
   "name": "Reece Beekman",

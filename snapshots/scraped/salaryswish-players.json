@@ -903,20 +903,6 @@
    }
   }
  },
- "rob dillingham": {
-  "team": "CHO",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "hannes steinbach": {
   "team": "CHO",
   "signedUnder": "rookie-scale",
@@ -2253,6 +2239,20 @@
    }
   }
  },
+ "kristaps porzingis": {
+  "team": "GSW",
+  "signedUnder": "bird",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "moses moody": {
   "team": "GSW",
   "signedUnder": "bird",
@@ -2398,20 +2398,6 @@
     "unlikely": 0
    },
    "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "kristaps porzingis": {
-  "team": "GSW",
-  "signedUnder": "bird",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -4939,6 +4925,16 @@
    }
   }
  },
+ "jaden akins": {
+  "team": "NYK",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "kevin mccullar": {
   "team": "NYK",
   "signedUnder": null,
@@ -5881,16 +5877,6 @@
    }
   }
  },
- "duop reath": {
-  "team": "PHO",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "haywood highsmith": {
   "team": "PHO",
   "signedUnder": "minimum",
@@ -6299,6 +6285,20 @@
    }
   }
  },
+ "daeqwon plowden": {
+  "team": "SAC",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "ben simmons": {
   "team": "SAC",
   "signedUnder": "minimum",
@@ -6354,20 +6354,6 @@
     "unlikely": 0
    },
    "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "daeqwon plowden": {
-  "team": "SAC",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -7316,16 +7302,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "anthony gill": {
-  "team": "WAS",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

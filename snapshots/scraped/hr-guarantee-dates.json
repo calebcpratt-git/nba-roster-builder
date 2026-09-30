@@ -242,7 +242,7 @@
  {
   "player": "Pete Nance",
   "team": "Bucks",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2537526,
@@ -252,7 +252,7 @@
  {
   "player": "Mo Bamba",
   "team": "Jazz",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "partial",
   "partialAmount": 250000,
   "fullAmount": 500000,
@@ -262,7 +262,7 @@
  {
   "player": "Isaiah Crawford",
   "team": "Rockets",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2449421,
@@ -270,9 +270,19 @@
   "raw": "Non-guaranteed salary ($2,449,421) becomes partially guaranteed ($1,154,325)."
  },
  {
+  "player": "Dwight Powell",
+  "team": "Mavericks",
+  "guaranteeDate": "2026-10-19",
+  "status": "partial",
+  "partialAmount": 1000000,
+  "fullAmount": 1500000,
+  "guaranteeTriggered": null,
+  "raw": "Partial guarantee ($1,000,000) increases to $1,500,000."
+ },
+ {
   "player": "Nick Richards",
   "team": "Heat",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 3066143,
@@ -282,7 +292,7 @@
  {
   "player": "Jaylen Wells",
   "team": "Grizzlies",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "partial",
   "partialAmount": 300000,
   "fullAmount": 2296271,
@@ -292,7 +302,7 @@
  {
   "player": "Brandon Williams",
   "team": "Warriors",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2625627,
@@ -302,7 +312,7 @@
  {
   "player": "Vit Krejci",
   "team": "Trail Blazers",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "partial",
   "partialAmount": 250000,
   "fullAmount": 2667944,
@@ -312,7 +322,7 @@
  {
   "player": "Pelle Larsson",
   "team": "Heat",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2296271,
@@ -322,7 +332,7 @@
  {
   "player": "Ben Simmons",
   "team": "Kings",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 3524115,
@@ -332,7 +342,7 @@
  {
   "player": "Trendon Watford",
   "team": "Pelicans",
-  "guaranteeDate": "2026-10-15",
+  "guaranteeDate": "2026-10-19",
   "status": "partial",
   "partialAmount": 250000,
   "fullAmount": 500000,

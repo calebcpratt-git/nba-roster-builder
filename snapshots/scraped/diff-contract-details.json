@@ -1,16 +1,7 @@
 {
   "added": [
     {
-      "name": "Kevin McCullar Jr.",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Tyler Nickel",
+      "name": "Jaden Akins",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -21,7 +12,21 @@
   ],
   "removed": [
     {
-      "name": "Nick Pringle",
+      "name": "Rob Dillingham",
+      "signedUnder": "rookie-scale",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Duop Reath",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -31,27 +36,7 @@
       }
     },
     {
-      "name": "Ryan Nembhard",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Gary Harris",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Jake Stephens",
+      "name": "Anthony Gill",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {

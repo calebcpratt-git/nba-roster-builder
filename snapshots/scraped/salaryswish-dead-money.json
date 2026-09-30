@@ -38,6 +38,25 @@
   "faYear": null
  },
  {
+  "name": "Rob Dillingham",
+  "team": "CHO",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 6889320
+  },
+  "cashSalary": {
+   "2026-27": 6889320
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Kam Jones",
   "team": "CHI",
   "section": "Waivers",
