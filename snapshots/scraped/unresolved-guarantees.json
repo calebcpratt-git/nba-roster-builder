@@ -114,6 +114,14 @@
   "exhibit10": true
  },
  {
+  "player": "Jalen Bridges",
+  "team": "Chicago Bulls",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Drew Peterson",
   "team": "Chicago Bulls",
   "fullAmount": null,
@@ -131,14 +139,6 @@
  },
  {
   "player": "Peter Suder",
-  "team": "Chicago Bulls",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Marquel Sutton",
   "team": "Chicago Bulls",
   "fullAmount": null,
   "partialAmount": null,

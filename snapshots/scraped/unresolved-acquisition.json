@@ -40,11 +40,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Ryan Nembhard",
-  "date": "2026-07-19",
-  "method": "trade"
- },
- {
   "name": "Devin Carter",
   "date": "2026-06-30",
   "method": "trade"
@@ -155,11 +150,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Ryan Nembhard",
-  "date": "2026-09-22",
-  "method": "trade"
- },
- {
   "name": "D.J. Armstrong Jr.",
   "date": "2026-09-21",
   "method": "free-agent"
@@ -203,6 +193,11 @@
   "name": "Mouhamadou Gueye",
   "date": "2026-07-10",
   "method": "trade"
+ },
+ {
+  "name": "Jalen Bridges",
+  "date": "2026-09-30",
+  "method": "free-agent"
  },
  {
   "name": "Orlando Robinson",
@@ -600,6 +595,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Lester Quinones",
+  "date": "2026-09-29",
+  "method": "free-agent"
+ },
+ {
   "name": "Ezra Ausar",
   "date": "2026-09-28",
   "method": "free-agent"
@@ -965,6 +965,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Lee Hyun-jung",
+  "date": "2026-09-29",
+  "method": "free-agent"
+ },
+ {
   "name": "Barry Dunning Jr.",
   "date": "2026-09-23",
   "method": "free-agent"
@@ -987,6 +992,11 @@
  {
   "name": "Mark Armstrong",
   "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "Sean East II",
+  "date": "2026-09-28",
   "method": "free-agent"
  },
  {

@@ -16,12 +16,6 @@
         "birdRights": "early-bird"
       },
       {
-        "label": "Tony Bradley",
-        "amount": 2500000,
-        "kind": "free-agent",
-        "birdRights": "non-bird"
-      },
-      {
         "label": "Gabe Vincent",
         "amount": 21900000,
         "kind": "free-agent",
@@ -1652,6 +1646,12 @@
     "season": "2026-27",
     "deadMoney": [],
     "capHolds": [
+      {
+        "label": "K.J. Simpson",
+        "amount": 4074252,
+        "kind": "free-agent",
+        "birdRights": "early-bird"
+      },
       {
         "label": "David Roddy",
         "amount": 2200000,

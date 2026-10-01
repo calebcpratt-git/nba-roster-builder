@@ -182,13 +182,6 @@
   "birdRights": null
  },
  {
-  "name": "Tony Bradley",
-  "position": "C-F",
-  "priorTeam": "ATL",
-  "faType": "U",
-  "birdRights": "non-bird"
- },
- {
   "name": "Keion Brooks, Jr.",
   "position": "SF",
   "priorTeam": "IND",
@@ -339,6 +332,13 @@
   "name": "Hunter Dickinson",
   "position": "C",
   "priorTeam": "NOP",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Rob Dillingham",
+  "position": "PG",
+  "priorTeam": "CHO",
   "faType": "U",
   "birdRights": null
  },
@@ -630,6 +630,13 @@
   "birdRights": null
  },
  {
+  "name": "Meechie Johnson, Jr.",
+  "position": "PG",
+  "priorTeam": "LAL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Keon Johnson",
   "position": "SG",
   "priorTeam": "ATL",
@@ -700,13 +707,6 @@
   "birdRights": null
  },
  {
-  "name": "Skal Labissiere",
-  "position": "F-C",
-  "priorTeam": "WAS",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "A.J. Lawson",
   "position": "SG",
   "priorTeam": "TOR",
@@ -754,6 +754,13 @@
   "priorTeam": "UTA",
   "faType": "U",
   "birdRights": "full-bird"
+ },
+ {
+  "name": "Lawson Lovering",
+  "position": "C",
+  "priorTeam": "MEM",
+  "faType": "U",
+  "birdRights": null
  },
  {
   "name": "Kyle Lowry",
@@ -903,13 +910,6 @@
   "birdRights": null
  },
  {
-  "name": "Ryan Nembhard",
-  "position": "PG",
-  "priorTeam": "CHO",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Miles Norris",
   "position": "SF",
   "priorTeam": "BOS",
@@ -943,13 +943,6 @@
   "priorTeam": "NOP",
   "faType": "U",
   "birdRights": "early-bird"
- },
- {
-  "name": "Toby Okani",
-  "position": "PF",
-  "priorTeam": "NYK",
-  "faType": "U",
-  "birdRights": null
  },
  {
   "name": "Lachlan Olbrich",
@@ -1071,6 +1064,13 @@
   "birdRights": null
  },
  {
+  "name": "Chase Ross",
+  "position": "SG",
+  "priorTeam": "LAL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Jackson Rowe",
   "position": "SF",
   "priorTeam": "GSW",
@@ -1088,13 +1088,6 @@
   "name": "Terry Rozier",
   "position": "PG",
   "priorTeam": "MIA",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "D'Angelo Russell",
-  "position": "PG",
-  "priorTeam": "MEM",
   "faType": "U",
   "birdRights": null
  },
@@ -1195,6 +1188,13 @@
   "priorTeam": "NOP",
   "faType": "U",
   "birdRights": null
+ },
+ {
+  "name": "K.J. Simpson",
+  "position": "PG",
+  "priorTeam": "DEN",
+  "faType": "U",
+  "birdRights": "early-bird"
  },
  {
   "name": "Deivon Smith",

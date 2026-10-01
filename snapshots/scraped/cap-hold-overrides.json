@@ -13,6 +13,12 @@
  },
  {
   "team": "ATL",
+  "player": "Tony Bradley",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
   "player": "Wesley Matthews",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"
@@ -363,12 +369,6 @@
   "team": "DEN",
   "player": "Markus Howard",
   "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "DEN",
-  "player": "K.J. Simpson",
-  "amount": 4074252,
   "reason": "not-in-realgm-current-free-agents"
  },
  {

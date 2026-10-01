@@ -4415,24 +4415,41 @@
   ]
  },
  {
-  "name": "KJ Simpson",
+  "name": "Ryan Nembhard",
   "team": "DEN",
   "salary": {
    "2026-27": 0
   },
   "options": {},
   "cashSalary": {
-   "2026-27": 680985
+   "2026-27": 678882
   },
   "guaranteed": {
-   "2026-27": 85300
+   "2026-27": 0
   },
   "likelyIncentives": {
    "2026-27": 0
   },
   "optionExercised": {},
   "contractType": "two-way",
-  "acquiredMethod": "Signed"
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-07-19",
+    "method": "trade",
+    "team": "ATL"
+   },
+   {
+    "date": "2026-09-22",
+    "method": "trade",
+    "team": "CHO"
+   },
+   {
+    "date": "2026-09-30",
+    "method": "free-agent",
+    "team": "DEN"
+   }
+  ]
  },
  {
   "name": "Cam Whitmore",
@@ -8351,17 +8368,21 @@
   "name": "Carson Cooper",
   "team": "MEM",
   "salary": {
-   "2026-27": 0
+   "2026-27": 0,
+   "2027-28": 0
   },
   "options": {},
   "cashSalary": {
-   "2026-27": 678882
+   "2026-27": 678882,
+   "2027-28": 749083
   },
   "guaranteed": {
-   "2026-27": 0
+   "2026-27": 91000,
+   "2027-28": 91000
   },
   "likelyIncentives": {
-   "2026-27": 0
+   "2026-27": 0,
+   "2027-28": 0
   },
   "optionExercised": {},
   "contractType": "two-way",
@@ -15182,22 +15203,41 @@
   "name": "Jamal Shead",
   "team": "TOR",
   "salary": {
-   "2026-27": 2296271
+   "2026-27": 2296271,
+   "2027-28": 7407407,
+   "2028-29": 8000000,
+   "2029-30": 8592593
   },
   "options": {},
   "cashSalary": {
-   "2026-27": 2296271
+   "2026-27": 2296271,
+   "2027-28": 7407407,
+   "2028-29": 8000000,
+   "2029-30": 8592593
   },
   "guaranteed": {
-   "2026-27": 2296271
+   "2026-27": 2296271,
+   "2027-28": 7407407,
+   "2028-29": 8000000,
+   "2029-30": 8592593
   },
   "likelyIncentives": {
-   "2026-27": 0
+   "2026-27": 0,
+   "2027-28": 0,
+   "2028-29": 0,
+   "2029-30": 0
   },
   "optionExercised": {
    "2026-27": true
   },
-  "acquiredMethod": "Draft"
+  "acquiredMethod": "Draft",
+  "acquisitionHistory": [
+   {
+    "date": "2026-10-01",
+    "method": "extension",
+    "team": "TOR"
+   }
+  ]
  },
  {
   "name": "Alijah Martin",

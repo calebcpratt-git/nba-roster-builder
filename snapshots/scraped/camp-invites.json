@@ -345,17 +345,17 @@
   "faYear": "UFA"
  },
  {
-  "name": "Peter Suder",
+  "name": "Jalen Bridges",
   "team": "CHI",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 1357763
+   "2026-27": 2185116
   },
   "cashSalary": {
-   "2026-27": 1357763
+   "2026-27": 2185116
   },
   "guaranteed": {
    "2026-27": 0
@@ -368,7 +368,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "Marquel Sutton",
+  "name": "Peter Suder",
   "team": "CHI",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -931,6 +931,29 @@
   },
   "cashSalary": {
    "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Lester Quinones",
+  "team": "MIA",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2537526
   },
   "guaranteed": {
    "2026-27": 0
@@ -1769,6 +1792,29 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "UFA"
+ },
+ {
+  "name": "Sean East II",
+  "team": "SAC",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
  },
  {
   "name": "Viktor Lakhin",
