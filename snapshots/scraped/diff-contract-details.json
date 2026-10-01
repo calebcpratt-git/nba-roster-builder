@@ -1,7 +1,7 @@
 {
   "added": [
     {
-      "name": "Jaden Akins",
+      "name": "Ryan Nembhard",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -12,32 +12,7 @@
   ],
   "removed": [
     {
-      "name": "Rob Dillingham",
-      "signedUnder": "rookie-scale",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        },
-        "2027-28": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Duop Reath",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Anthony Gill",
-      "signedUnder": "minimum",
+      "name": "KJ Simpson",
       "incentives": {
         "2026-27": {
           "likely": 0,

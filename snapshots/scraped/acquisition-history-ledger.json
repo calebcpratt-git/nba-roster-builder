@@ -9569,6 +9569,11 @@
    "date": "2026-09-22",
    "method": "trade",
    "team": "CHO"
+  },
+  {
+   "date": "2026-09-30",
+   "method": "free-agent",
+   "team": "DEN"
   }
  ],
  "luguentz dort": [
@@ -12029,6 +12034,13 @@
    "date": "2026-09-15",
    "method": "free-agent",
    "team": "NYK"
+  }
+ ],
+ "jamal shead": [
+  {
+   "date": "2026-10-01",
+   "method": "extension",
+   "team": "TOR"
   }
  ]
 }

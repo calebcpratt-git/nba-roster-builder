@@ -1196,6 +1196,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jalen Bridges",
+  "date": "2026-09-30",
+  "dateRaw": "Sep 30, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Buddy Hield",
   "date": "2026-09-27",
   "dateRaw": "Sep 27, 2026",
@@ -1946,6 +1959,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Ryan Nembhard",
+  "date": "2026-09-30",
+  "dateRaw": "Sep 30, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -4018,6 +4044,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Lester Quinones",
+  "date": "2026-09-29",
+  "dateRaw": "Sep 29, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6285,6 +6324,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Lee Hyun-jung",
+  "date": "2026-09-29",
+  "dateRaw": "Sep 29, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "POR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Barry Dunning Jr.",
   "date": "2026-09-23",
   "dateRaw": "Sep 23, 2026",
@@ -6426,6 +6478,19 @@
    "MEM"
   ],
   "text": "Traded from MEM",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Sean East II",
+  "date": "2026-09-28",
+  "dateRaw": "Sep 28, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6935,6 +7000,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jamal Shead",
+  "date": "2026-10-01",
+  "dateRaw": "Oct 1, 2026",
+  "method": "extension",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Extension",
   "flags": []
  },
  {
