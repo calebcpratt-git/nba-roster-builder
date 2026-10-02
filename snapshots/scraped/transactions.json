@@ -2225,6 +2225,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jalen Duren",
+  "date": "2026-10-01",
+  "dateRaw": "Oct 1, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DET"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "John Ukomadu",
   "date": "2026-09-27",
   "dateRaw": "Sep 27, 2026",

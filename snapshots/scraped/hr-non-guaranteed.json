@@ -144,7 +144,7 @@
   "exhibit10": true
  },
  {
-  "player": "Peter Suder",
+  "player": "Isaiah Stevens",
   "team": "Chicago Bulls",
   "fullAmount": null,
   "partialAmount": null,
@@ -198,14 +198,6 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
- },
- {
-  "player": "Moussa Cisse",
-  "team": "Dallas Mavericks",
-  "fullAmount": null,
-  "partialAmount": 1092558,
-  "status": "partial",
-  "exhibit10": false
  },
  {
   "player": "Dwight Powell",
@@ -808,14 +800,6 @@
   "exhibit10": false
  },
  {
-  "player": "Hyunjung Lee",
-  "team": "Portland Trail Blazers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jaylen Martin",
   "team": "Portland Trail Blazers",
   "fullAmount": null,
@@ -953,14 +937,6 @@
  },
  {
   "player": "Terrell Brown Jr.",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Jaelen House",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

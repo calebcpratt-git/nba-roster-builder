@@ -138,7 +138,7 @@
   "exhibit10": true
  },
  {
-  "player": "Peter Suder",
+  "player": "Isaiah Stevens",
   "team": "Chicago Bulls",
   "fullAmount": null,
   "partialAmount": null,
@@ -602,14 +602,6 @@
   "exhibit10": true
  },
  {
-  "player": "Hyunjung Lee",
-  "team": "Portland Trail Blazers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jaylen Martin",
   "team": "Portland Trail Blazers",
   "fullAmount": null,
@@ -731,14 +723,6 @@
  },
  {
   "player": "Terrell Brown Jr.",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Jaelen House",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,
