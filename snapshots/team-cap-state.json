@@ -2210,7 +2210,8 @@
     "salaryCap": 201774000,
     "taxLine": 245155000,
     "firstApron": 255616000,
-    "secondApron": 271115000
+    "secondApron": 271115000,
+    "apronAddon": 0
   },
   {
     "team": "GSW",

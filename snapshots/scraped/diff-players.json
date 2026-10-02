@@ -1,210 +1,164 @@
 {
   "added": [
     {
-      "name": "Ryan Nembhard",
-      "team": "DEN",
+      "name": "Jalen Duren",
+      "team": "DET",
       "salary": {
-        "2026-27": 0
+        "2026-27": 34482759,
+        "2027-28": 37241379,
+        "2028-29": 40000000,
+        "2029-30": 42758621,
+        "2030-31": 45517241
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 678882
+        "2026-27": 34482759,
+        "2027-28": 37241379,
+        "2028-29": 40000000,
+        "2029-30": 42758621,
+        "2030-31": 45517241
       },
       "guaranteed": {
-        "2026-27": 0
+        "2026-27": 34482759,
+        "2027-28": 37241379,
+        "2028-29": 40000000,
+        "2029-30": 42758621,
+        "2030-31": 45517241
       },
       "likelyIncentives": {
-        "2026-27": 0
+        "2026-27": 0,
+        "2027-28": 0,
+        "2028-29": 0,
+        "2029-30": 0,
+        "2030-31": 0
       },
       "optionExercised": {},
-      "contractType": "two-way",
-      "acquiredMethod": "Signed",
+      "acquiredMethod": "Trade",
       "acquisitionHistory": [
         {
-          "date": "2026-07-19",
-          "method": "trade",
-          "team": "ATL"
-        },
-        {
-          "date": "2026-09-22",
-          "method": "trade",
-          "team": "CHO"
-        },
-        {
-          "date": "2026-09-30",
+          "date": "2026-10-01",
           "method": "free-agent",
-          "team": "DEN"
+          "team": "DET"
         }
       ]
     }
   ],
   "removed": [
     {
-      "name": "KJ Simpson",
-      "team": "DEN",
+      "name": "Rafael Castro",
+      "team": "HOU",
       "salary": {
-        "2026-27": 0
+        "2026-27": 0,
+        "2027-28": 0
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 680985
+        "2026-27": 678882,
+        "2027-28": 749083
       },
       "guaranteed": {
-        "2026-27": 85300
+        "2026-27": 0,
+        "2027-28": 0
       },
       "likelyIncentives": {
-        "2026-27": 0
+        "2026-27": 0,
+        "2027-28": 0
       },
       "optionExercised": {},
       "contractType": "two-way",
-      "acquiredMethod": "Signed"
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-24",
+          "method": "free-agent",
+          "team": "MIL"
+        },
+        {
+          "date": "2026-08-26",
+          "method": "free-agent",
+          "team": "HOU"
+        }
+      ]
     }
   ],
   "changed": [
     {
       "before": {
-        "name": "Carson Cooper",
-        "team": "MEM",
+        "name": "Moussa Cisse",
+        "team": "DAL",
         "salary": {
-          "2026-27": 0
+          "2026-27": 2185116,
+          "2027-28": 2571895
         },
         "options": {},
         "cashSalary": {
-          "2026-27": 678882
+          "2026-27": 2185116,
+          "2027-28": 2571895
         },
         "guaranteed": {
-          "2026-27": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-06-24",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-09-28",
-            "method": "free-agent",
-            "team": "MEM"
-          }
-        ]
-      },
-      "after": {
-        "name": "Carson Cooper",
-        "team": "MEM",
-        "salary": {
-          "2026-27": 0,
+          "2026-27": 1092558,
           "2027-28": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 678882,
-          "2027-28": 749083
-        },
-        "guaranteed": {
-          "2026-27": 91000,
-          "2027-28": 91000
         },
         "likelyIncentives": {
           "2026-27": 0,
           "2027-28": 0
         },
         "optionExercised": {},
-        "contractType": "two-way",
         "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-06-24",
+            "date": "2026-07-18",
             "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-09-28",
-            "method": "free-agent",
-            "team": "MEM"
+            "team": "DAL"
           }
-        ]
-      },
-      "fields": [
-        "salary",
-        "cashSalary",
-        "guaranteed",
-        "likelyIncentives"
-      ]
-    },
-    {
-      "before": {
-        "name": "Jamal Shead",
-        "team": "TOR",
-        "salary": {
-          "2026-27": 2296271
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 2296271
-        },
-        "guaranteed": {
-          "2026-27": 2296271
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {
-          "2026-27": true
-        },
-        "acquiredMethod": "Draft"
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "partial",
+            "amount": 1092558,
+            "guaranteeDate": "2026-10-01"
+          }
+        }
       },
       "after": {
-        "name": "Jamal Shead",
-        "team": "TOR",
+        "name": "Moussa Cisse",
+        "team": "DAL",
         "salary": {
-          "2026-27": 2296271,
-          "2027-28": 7407407,
-          "2028-29": 8000000,
-          "2029-30": 8592593
+          "2026-27": 2185116,
+          "2027-28": 2571895
         },
         "options": {},
         "cashSalary": {
-          "2026-27": 2296271,
-          "2027-28": 7407407,
-          "2028-29": 8000000,
-          "2029-30": 8592593
+          "2026-27": 2185116,
+          "2027-28": 2571895
         },
         "guaranteed": {
-          "2026-27": 2296271,
-          "2027-28": 7407407,
-          "2028-29": 8000000,
-          "2029-30": 8592593
+          "2026-27": 2185116,
+          "2027-28": 0
         },
         "likelyIncentives": {
           "2026-27": 0,
-          "2027-28": 0,
-          "2028-29": 0,
-          "2029-30": 0
+          "2027-28": 0
         },
-        "optionExercised": {
-          "2026-27": true
-        },
-        "acquiredMethod": "Draft",
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-10-01",
-            "method": "extension",
-            "team": "TOR"
+            "date": "2026-07-18",
+            "method": "free-agent",
+            "team": "DAL"
           }
-        ]
+        ],
+        "guarantees": {
+          "2026-27": {
+            "status": "partial",
+            "amount": 1092558,
+            "guaranteeDate": "2026-10-01"
+          }
+        }
       },
       "fields": [
-        "salary",
-        "cashSalary",
-        "guaranteed",
-        "likelyIncentives",
-        "acquisitionHistory"
+        "guaranteed"
       ]
     }
   ]

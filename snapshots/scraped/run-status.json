@@ -58,15 +58,6 @@
   "unresolved": {
     "before": {
       "draft-year": 69,
-      "acquisition": 239,
-      "guarantees": 99,
-      "signing": 10,
-      "awards": 2,
-      "name-bridge": 109,
-      "no-current-salary": 1
-    },
-    "after": {
-      "draft-year": 69,
       "acquisition": 241,
       "guarantees": 99,
       "signing": 10,
@@ -74,84 +65,54 @@
       "name-bridge": 114,
       "no-current-salary": 1
     },
-    "newUnresolved": 7,
+    "after": {
+      "draft-year": 69,
+      "acquisition": 242,
+      "guarantees": 97,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 111,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 1,
     "newByCategory": {
-      "acquisition": 2,
-      "name-bridge": 5
+      "acquisition": 1
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Ryan Nembhard",
-          "team": "DEN"
+          "name": "Jalen Duren",
+          "team": "DET"
         }
       ],
       "acquisition": [
         {
-          "name": "Jalen Bridges",
-          "date": "2026-09-30",
-          "method": "free-agent"
-        },
-        {
-          "name": "Lester Quinones",
-          "date": "2026-09-29",
-          "method": "free-agent"
-        },
-        {
-          "name": "Lee Hyun-jung",
-          "date": "2026-09-29",
-          "method": "free-agent"
-        },
-        {
-          "name": "Sean East II",
-          "date": "2026-09-28",
+          "name": "Rafael Castro",
+          "date": "2026-08-26",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Jalen Bridges",
+          "player": "Isaiah Stevens",
           "team": "Chicago Bulls",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         }
-      ],
-      "name-bridge": [
-        {
-          "name": "Anthony Gill"
-        },
-        {
-          "name": "Duop Reath"
-        },
-        {
-          "name": "Jalen Bridges"
-        },
-        {
-          "name": "Lester Quinones"
-        },
-        {
-          "name": "Rob Dillingham"
-        },
-        {
-          "name": "Ryan Nembhard"
-        },
-        {
-          "name": "Sean East II"
-        }
       ]
     }
   },
-  "generatedAt": "2026-10-01T17:21:09.233Z",
+  "generatedAt": "2026-10-02T16:35:17.772Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -1 ~2 (of 523)",
+    "players: +1 -1 ~1 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
     "contract-details: +1 -1 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +5 -5 ~0 (of 218)",
-    "awards: +0 -0 ~0 (of 78)"
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +1 -25 ~0 (of 218)",
+    "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true
 }

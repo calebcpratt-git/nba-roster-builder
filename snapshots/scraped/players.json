@@ -3857,7 +3857,7 @@
    "2027-28": 2571895
   },
   "guaranteed": {
-   "2026-27": 1092558,
+   "2026-27": 2185116,
    "2027-28": 0
   },
   "likelyIncentives": {
@@ -4513,6 +4513,48 @@
   },
   "optionExercised": {},
   "acquiredMethod": "Draft"
+ },
+ {
+  "name": "Jalen Duren",
+  "team": "DET",
+  "salary": {
+   "2026-27": 34482759,
+   "2027-28": 37241379,
+   "2028-29": 40000000,
+   "2029-30": 42758621,
+   "2030-31": 45517241
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 34482759,
+   "2027-28": 37241379,
+   "2028-29": 40000000,
+   "2029-30": 42758621,
+   "2030-31": 45517241
+  },
+  "guaranteed": {
+   "2026-27": 34482759,
+   "2027-28": 37241379,
+   "2028-29": 40000000,
+   "2029-30": 42758621,
+   "2030-31": 45517241
+  },
+  "likelyIncentives": {
+   "2026-27": 0,
+   "2027-28": 0,
+   "2028-29": 0,
+   "2029-30": 0,
+   "2030-31": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Trade",
+  "acquisitionHistory": [
+   {
+    "date": "2026-10-01",
+    "method": "free-agent",
+    "team": "DET"
+   }
+  ]
  },
  {
   "name": "John Collins",
@@ -6048,42 +6090,6 @@
    },
    {
     "date": "2026-07-07",
-    "method": "free-agent",
-    "team": "HOU"
-   }
-  ]
- },
- {
-  "name": "Rafael Castro",
-  "team": "HOU",
-  "salary": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 678882,
-   "2027-28": 749083
-  },
-  "guaranteed": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "optionExercised": {},
-  "contractType": "two-way",
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-06-24",
-    "method": "free-agent",
-    "team": "MIL"
-   },
-   {
-    "date": "2026-08-26",
     "method": "free-agent",
     "team": "HOU"
    }
