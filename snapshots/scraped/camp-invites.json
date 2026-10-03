@@ -1702,6 +1702,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Jaylen Martin",
+  "team": "POR",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Leaky Black",
   "team": "SAC",
   "section": "Training Camp and Exhibit 10",
@@ -2162,17 +2185,17 @@
   "faYear": "RFA"
  },
  {
-  "name": "Steve Settle III",
+  "name": "Jazian Gortman",
   "team": "WAS",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 1357763
+   "2026-27": 2185116
   },
   "cashSalary": {
-   "2026-27": 1357763
+   "2026-27": 2185116
   },
   "guaranteed": {
    "2026-27": 0

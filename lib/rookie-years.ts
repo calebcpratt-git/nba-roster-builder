@@ -216,7 +216,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Ty Jerome": 2019,
   "Quinten Post": 2024,
   "Taylor Hendricks": 2023,
-  "Jordan Hawkins": 2023,
   "Zach Edey": 2024,
   "Cedric Coward": 2025,
   "Kris Murray": 2023,

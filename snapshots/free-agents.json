@@ -308,6 +308,13 @@
     "birdRights": null
   },
   {
+    "name": "N'Faly Dante",
+    "position": "C",
+    "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Ibrahima Diallo",
     "position": "C",
     "priorTeam": "UTA",
@@ -518,6 +525,13 @@
     "birdRights": "full-bird"
   },
   {
+    "name": "Lee Hyun-jung",
+    "position": "GF",
+    "priorTeam": "POR",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Joe Ingles",
     "position": "F-G",
     "priorTeam": "MIN",
@@ -619,6 +633,13 @@
     "name": "Bobi Klintman",
     "position": "PF",
     "priorTeam": "DET",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "John Konchar",
+    "position": "SG",
+    "priorTeam": "NYK",
     "faType": "U",
     "birdRights": null
   },
@@ -845,6 +866,13 @@
     "priorTeam": "NOP",
     "faType": "U",
     "birdRights": "early-bird"
+  },
+  {
+    "name": "Toby Okani",
+    "position": "PF",
+    "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
   },
   {
     "name": "Lachlan Olbrich",

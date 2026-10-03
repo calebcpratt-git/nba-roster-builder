@@ -1,82 +1,31 @@
 {
-  "added": [
+  "added": [],
+  "removed": [
     {
-      "name": "Jalen Duren",
-      "team": "DET",
+      "name": "Jordan Hawkins",
+      "team": "MEM",
       "salary": {
-        "2026-27": 34482759,
-        "2027-28": 37241379,
-        "2028-29": 40000000,
-        "2029-30": 42758621,
-        "2030-31": 45517241
+        "2026-27": 7021895
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 34482759,
-        "2027-28": 37241379,
-        "2028-29": 40000000,
-        "2029-30": 42758621,
-        "2030-31": 45517241
+        "2026-27": 7021895
       },
       "guaranteed": {
-        "2026-27": 34482759,
-        "2027-28": 37241379,
-        "2028-29": 40000000,
-        "2029-30": 42758621,
-        "2030-31": 45517241
+        "2026-27": 7021895
       },
       "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0,
-        "2028-29": 0,
-        "2029-30": 0,
-        "2030-31": 0
+        "2026-27": 0
       },
-      "optionExercised": {},
+      "optionExercised": {
+        "2026-27": true
+      },
       "acquiredMethod": "Trade",
       "acquisitionHistory": [
         {
-          "date": "2026-10-01",
-          "method": "free-agent",
-          "team": "DET"
-        }
-      ]
-    }
-  ],
-  "removed": [
-    {
-      "name": "Rafael Castro",
-      "team": "HOU",
-      "salary": {
-        "2026-27": 0,
-        "2027-28": 0
-      },
-      "options": {},
-      "cashSalary": {
-        "2026-27": 678882,
-        "2027-28": 749083
-      },
-      "guaranteed": {
-        "2026-27": 0,
-        "2027-28": 0
-      },
-      "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0
-      },
-      "optionExercised": {},
-      "contractType": "two-way",
-      "acquiredMethod": "Signed",
-      "acquisitionHistory": [
-        {
-          "date": "2026-06-24",
-          "method": "free-agent",
-          "team": "MIL"
-        },
-        {
-          "date": "2026-08-26",
-          "method": "free-agent",
-          "team": "HOU"
+          "date": "2026-09-08",
+          "method": "trade",
+          "team": "MEM"
         }
       ]
     }
@@ -84,81 +33,225 @@
   "changed": [
     {
       "before": {
-        "name": "Moussa Cisse",
-        "team": "DAL",
+        "name": "Khaman Maluach",
+        "team": "PHO",
         "salary": {
-          "2026-27": 2185116,
-          "2027-28": 2571895
+          "2026-27": 6316680,
+          "2027-28": 6617160,
+          "2028-29": 8436879
         },
-        "options": {},
+        "options": {
+          "2027-28": "Team",
+          "2028-29": "Team"
+        },
         "cashSalary": {
-          "2026-27": 2185116,
-          "2027-28": 2571895
+          "2026-27": 6316680,
+          "2027-28": 6617160,
+          "2028-29": 8436879
         },
         "guaranteed": {
-          "2026-27": 1092558,
-          "2027-28": 0
+          "2026-27": 6316680,
+          "2027-28": 0,
+          "2028-29": 0
         },
         "likelyIncentives": {
           "2026-27": 0,
-          "2027-28": 0
+          "2027-28": 0,
+          "2028-29": 0
         },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-07-18",
-            "method": "free-agent",
-            "team": "DAL"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "partial",
-            "amount": 1092558,
-            "guaranteeDate": "2026-10-01"
-          }
-        }
+        "optionExercised": {
+          "2027-28": false,
+          "2028-29": false
+        },
+        "acquiredMethod": "Draft"
       },
       "after": {
-        "name": "Moussa Cisse",
-        "team": "DAL",
+        "name": "Khaman Maluach",
+        "team": "PHO",
         "salary": {
-          "2026-27": 2185116,
-          "2027-28": 2571895
+          "2026-27": 6316680,
+          "2027-28": 6617160,
+          "2028-29": 8436879
         },
-        "options": {},
+        "options": {
+          "2027-28": "Team",
+          "2028-29": "Team"
+        },
         "cashSalary": {
-          "2026-27": 2185116,
-          "2027-28": 2571895
+          "2026-27": 6316680,
+          "2027-28": 6617160,
+          "2028-29": 8436879
         },
         "guaranteed": {
-          "2026-27": 2185116,
+          "2026-27": 6316680,
+          "2027-28": 6617160,
+          "2028-29": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0
+        },
+        "optionExercised": {
+          "2027-28": true,
+          "2028-29": false
+        },
+        "acquiredMethod": "Draft"
+      },
+      "fields": [
+        "guaranteed",
+        "optionExercised"
+      ]
+    },
+    {
+      "before": {
+        "name": "Ryan Dunn",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 2784240,
+          "2027-28": 5025553
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 2784240,
+          "2027-28": 5025553
+        },
+        "guaranteed": {
+          "2026-27": 2784240,
           "2027-28": 0
         },
         "likelyIncentives": {
           "2026-27": 0,
           "2027-28": 0
         },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-07-18",
-            "method": "free-agent",
-            "team": "DAL"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "partial",
-            "amount": 1092558,
-            "guaranteeDate": "2026-10-01"
-          }
-        }
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": false
+        },
+        "acquiredMethod": "Draft"
+      },
+      "after": {
+        "name": "Ryan Dunn",
+        "team": "PHO",
+        "salary": {
+          "2026-27": 2784240,
+          "2027-28": 5025553
+        },
+        "options": {
+          "2027-28": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 2784240,
+          "2027-28": 5025553
+        },
+        "guaranteed": {
+          "2026-27": 2784240,
+          "2027-28": 5025553
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2027-28": true
+        },
+        "acquiredMethod": "Draft"
       },
       "fields": [
-        "guaranteed"
+        "guaranteed",
+        "optionExercised"
+      ]
+    },
+    {
+      "before": {
+        "name": "Jamal Shead",
+        "team": "TOR",
+        "salary": {
+          "2026-27": 2296271,
+          "2027-28": 7407407,
+          "2028-29": 8000000,
+          "2029-30": 8592593
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2296271,
+          "2027-28": 7407407,
+          "2028-29": 8000000,
+          "2029-30": 8592593
+        },
+        "guaranteed": {
+          "2026-27": 2296271,
+          "2027-28": 7407407,
+          "2028-29": 8000000,
+          "2029-30": 8592593
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {
+          "2026-27": true
+        },
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-10-01",
+            "method": "extension",
+            "team": "TOR"
+          }
+        ]
+      },
+      "after": {
+        "name": "Jamal Shead",
+        "team": "TOR",
+        "salary": {
+          "2026-27": 2296271,
+          "2027-28": 7407407,
+          "2028-29": 8000000,
+          "2029-30": 8592593
+        },
+        "options": {
+          "2029-30": "Team"
+        },
+        "cashSalary": {
+          "2026-27": 2296271,
+          "2027-28": 7407407,
+          "2028-29": 8000000,
+          "2029-30": 8592593
+        },
+        "guaranteed": {
+          "2026-27": 2296271,
+          "2027-28": 7407407,
+          "2028-29": 8000000,
+          "2029-30": 8592593
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {
+          "2026-27": true,
+          "2029-30": false
+        },
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-10-01",
+            "method": "extension",
+            "team": "TOR"
+          }
+        ]
+      },
+      "fields": [
+        "options",
+        "optionExercised"
       ]
     }
   ]

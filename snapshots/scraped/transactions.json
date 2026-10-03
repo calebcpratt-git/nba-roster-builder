@@ -5471,49 +5471,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Bruce Thornton",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Louis Labeyrie",
-  "date": "2026-06-24",
-  "dateRaw": "Jun 24, 2026",
-  "method": "trade",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [
-   "LAL"
-  ],
-  "text": "Traded from LAL",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Chinemelu Elonu",
-  "date": "2026-06-24",
-  "dateRaw": "Jun 24, 2026",
-  "method": "trade",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [
-   "LAL"
-  ],
-  "text": "Traded from LAL",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Zhaire Smith",
   "date": "2026-09-25",
   "dateRaw": "Sep 25, 2026",
@@ -6333,6 +6290,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jaylen Martin",
+  "date": "2026-09-30",
+  "dateRaw": "Sep 30, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "POR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -7589,6 +7559,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jazian Gortman",
+  "date": "2026-10-02",
+  "dateRaw": "Oct 2, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "WAS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

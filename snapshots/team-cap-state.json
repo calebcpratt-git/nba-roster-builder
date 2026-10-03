@@ -6295,7 +6295,7 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 14472106
+        "remaining": 12022685
       },
       "taxpayerMLE": {
         "signings": [],
@@ -7615,15 +7615,15 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 6110764
+        "remaining": 5283411
       },
       "taxpayerMLE": {
         "signings": [],
-        "remaining": 0
+        "remaining": 6064000
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 5477000
+        "remaining": 5283411
       }
     },
     "cashLedger": {

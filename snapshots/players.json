@@ -8006,34 +8006,6 @@
     "acquiredMethod": "Trade"
   },
   {
-    "name": "Jordan Hawkins",
-    "team": "MEM",
-    "salary": {
-      "2026-27": 7021895
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 7021895
-    },
-    "guaranteed": {
-      "2026-27": 7021895
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {
-      "2026-27": true
-    },
-    "acquiredMethod": "Trade",
-    "acquisitionHistory": [
-      {
-        "date": "2026-09-08",
-        "method": "trade",
-        "team": "MEM"
-      }
-    ]
-  },
-  {
     "name": "Zach Edey",
     "team": "MEM",
     "salary": {
@@ -12947,7 +12919,7 @@
     },
     "guaranteed": {
       "2026-27": 6316680,
-      "2027-28": 0,
+      "2027-28": 6617160,
       "2028-29": 0
     },
     "likelyIncentives": {
@@ -12956,7 +12928,7 @@
       "2028-29": 0
     },
     "optionExercised": {
-      "2027-28": false,
+      "2027-28": true,
       "2028-29": false
     },
     "acquiredMethod": "Draft"
@@ -13098,7 +13070,7 @@
     },
     "guaranteed": {
       "2026-27": 2784240,
-      "2027-28": 0
+      "2027-28": 5025553
     },
     "likelyIncentives": {
       "2026-27": 0,
@@ -13106,7 +13078,7 @@
     },
     "optionExercised": {
       "2026-27": true,
-      "2027-28": false
+      "2027-28": true
     },
     "acquiredMethod": "Draft"
   },
@@ -15214,7 +15186,9 @@
       "2028-29": 8000000,
       "2029-30": 8592593
     },
-    "options": {},
+    "options": {
+      "2029-30": "Team"
+    },
     "cashSalary": {
       "2026-27": 2296271,
       "2027-28": 7407407,
@@ -15234,7 +15208,8 @@
       "2029-30": 0
     },
     "optionExercised": {
-      "2026-27": true
+      "2026-27": true,
+      "2029-30": false
     },
     "acquiredMethod": "Draft",
     "acquisitionHistory": [
