@@ -585,6 +585,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Jordan Hawkins",
+  "date": "2026-09-08",
+  "method": "trade"
+ },
+ {
   "name": "D'Angelo Russell",
   "date": "2026-07-08",
   "method": "trade"
@@ -835,16 +840,6 @@
   "method": "trade"
  },
  {
-  "name": "Louis Labeyrie",
-  "date": "2026-06-24",
-  "method": "trade"
- },
- {
-  "name": "Chinemelu Elonu",
-  "date": "2026-06-24",
-  "method": "trade"
- },
- {
   "name": "Zhaire Smith",
   "date": "2026-09-25",
   "method": "free-agent"
@@ -967,6 +962,11 @@
  {
   "name": "Jordan Schakel",
   "date": "2026-09-16",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jaylen Martin",
+  "date": "2026-09-30",
   "method": "free-agent"
  },
  {
@@ -1172,6 +1172,11 @@
  {
   "name": "Kennedy Chandler",
   "date": "2026-03-21",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jazian Gortman",
+  "date": "2026-10-02",
   "method": "free-agent"
  },
  {

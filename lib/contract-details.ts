@@ -285,7 +285,6 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Cameron Boozer": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 }, "2029-30": { likely: 0, unlikely: 0 } } },
   "Quinten Post": { signedUnder: 'non-taxpayer-mle', incentives: { "2026-27": { likely: 0, unlikely: 1350000 }, "2027-28": { likely: 0, unlikely: 1282500 }, "2028-29": { likely: 0, unlikely: 1282500 } } },
   "Taylor Hendricks": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
-  "Jordan Hawkins": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Zach Edey": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
   "Cedric Coward": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 100000, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "Kris Murray": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 } } },

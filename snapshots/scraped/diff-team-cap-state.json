@@ -4,28 +4,204 @@
   "changed": [
     {
       "before": {
-        "team": "DET",
-        "season": "2030-31",
-        "deadMoney": [],
+        "team": "POR",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Didi Louzada",
+            "amount": 268032
+          }
+        ],
         "capHolds": [],
-        "salaryCap": 201774000,
-        "taxLine": 245155000,
-        "firstApron": 255616000,
-        "secondApron": 271115000
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "POR-kris-murray-2026-06-29",
+            "amount": 3132000,
+            "expires": "2027-06-29",
+            "fromPlayer": "Kris Murray"
+          }
+        ],
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 14472106
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
       },
       "after": {
-        "team": "DET",
-        "season": "2030-31",
-        "deadMoney": [],
+        "team": "POR",
+        "season": "2026-27",
+        "deadMoney": [
+          {
+            "player": "Didi Louzada",
+            "amount": 268032
+          }
+        ],
         "capHolds": [],
-        "salaryCap": 201774000,
-        "taxLine": 245155000,
-        "firstApron": 255616000,
-        "secondApron": 271115000,
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "POR-kris-murray-2026-06-29",
+            "amount": 3132000,
+            "expires": "2027-06-29",
+            "fromPlayer": "Kris Murray"
+          }
+        ],
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 12022685
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
         "apronAddon": 0
       },
       "fields": [
-        "apronAddon"
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "WAS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Sharife Cooper",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "WAS-jaden-hardy-2026-07-08",
+            "amount": 6000000,
+            "expires": "2027-07-08",
+            "fromPlayer": "Jaden Hardy"
+          },
+          {
+            "id": "WAS-dangelo-russell-2026-07-08",
+            "amount": 5969250,
+            "expires": "2027-07-08",
+            "fromPlayer": "D'Angelo Russell"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Aug 20 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 6110764
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 0
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "WAS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Sharife Cooper",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "WAS-jaden-hardy-2026-07-08",
+            "amount": 6000000,
+            "expires": "2027-07-08",
+            "fromPlayer": "Jaden Hardy"
+          },
+          {
+            "id": "WAS-dangelo-russell-2026-07-08",
+            "amount": 5969250,
+            "expires": "2027-07-08",
+            "fromPlayer": "D'Angelo Russell"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Aug 20 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 5283411
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5283411
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
+      },
+      "fields": [
+        "exceptionsUsed"
       ]
     }
   ]

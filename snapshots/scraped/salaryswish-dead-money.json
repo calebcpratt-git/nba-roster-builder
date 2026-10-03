@@ -236,6 +236,25 @@
   "faYear": null
  },
  {
+  "name": "Jordan Hawkins",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 7021895
+  },
+  "cashSalary": {
+   "2026-27": 7021895
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "D'Angelo Russell",
   "team": "MEM",
   "section": "Waivers",
