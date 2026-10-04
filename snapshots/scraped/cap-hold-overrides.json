@@ -422,6 +422,12 @@
  },
  {
   "team": "DET",
+  "player": "Jalen Duren",
+  "amount": 19400000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "DET",
   "player": "Malik Beasley",
   "amount": 7200000,
   "reason": "not-in-realgm-current-free-agents"
@@ -1287,6 +1293,12 @@
  {
   "team": "POR",
   "player": "Ashton Hagans",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAC",
+  "player": "Isaiah Stevens",
   "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"
  },
