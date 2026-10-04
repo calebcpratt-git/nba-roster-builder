@@ -976,6 +976,14 @@
   "exhibit10": true
  },
  {
+  "player": "Jazian Gortman",
+  "team": "Washington Wizards",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Trevor Keels",
   "team": "Washington Wizards",
   "fullAmount": null,
@@ -985,14 +993,6 @@
  },
  {
   "player": "Chris Livingston",
-  "team": "Washington Wizards",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Steve Settle",
   "team": "Washington Wizards",
   "fullAmount": null,
   "partialAmount": null,

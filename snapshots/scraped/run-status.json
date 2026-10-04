@@ -58,7 +58,7 @@
   "unresolved": {
     "before": {
       "draft-year": 69,
-      "acquisition": 242,
+      "acquisition": 243,
       "guarantees": 97,
       "signing": 10,
       "awards": 1,
@@ -71,49 +71,39 @@
       "guarantees": 97,
       "signing": 10,
       "awards": 1,
-      "name-bridge": 111,
+      "name-bridge": 112,
       "no-current-salary": 0
     },
     "newUnresolved": 1,
     "newByCategory": {
-      "acquisition": 1
+      "name-bridge": 1
     },
     "newRecords": {
-      "acquisition": [
+      "guarantees": [
         {
-          "name": "Jordan Hawkins",
-          "date": "2026-09-08",
-          "method": "trade"
-        },
-        {
-          "name": "Jaylen Martin",
-          "date": "2026-09-30",
-          "method": "free-agent"
-        },
-        {
-          "name": "Jazian Gortman",
-          "date": "2026-10-02",
-          "method": "free-agent"
+          "player": "Jazian Gortman",
+          "team": "Washington Wizards",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
         }
       ],
       "name-bridge": [
         {
-          "name": "Jaylen Martin"
-        },
-        {
-          "name": "Jazian Gortman"
+          "name": "Jordan Hawkins"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-03T15:08:19.020Z",
+  "generatedAt": "2026-10-04T15:45:47.323Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -1 ~3 (of 523)",
+    "players: +0 -0 ~0 (of 522)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -1 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +4 -0 ~0 (of 194)",
+    "contract-details: +0 -0 ~0 (of 514)",
+    "team-cap-state: +0 -0 ~3 (of 150)",
+    "free-agents: +29 -1 ~1 (of 198)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

@@ -1649,8 +1649,7 @@
       {
         "label": "K.J. Simpson",
         "amount": 4074252,
-        "kind": "free-agent",
-        "birdRights": "early-bird"
+        "kind": "free-agent"
       },
       {
         "label": "David Roddy",
@@ -1945,14 +1944,7 @@
     "team": "DET",
     "season": "2026-27",
     "deadMoney": [],
-    "capHolds": [
-      {
-        "label": "Jalen Duren",
-        "amount": 19400000,
-        "kind": "free-agent",
-        "birdRights": "full-bird"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -6463,11 +6455,6 @@
     "season": "2026-27",
     "deadMoney": [],
     "capHolds": [
-      {
-        "label": "Isaiah Stevens",
-        "amount": 2200000,
-        "kind": "free-agent"
-      },
       {
         "label": "Doug McDermott",
         "amount": 2500000,
