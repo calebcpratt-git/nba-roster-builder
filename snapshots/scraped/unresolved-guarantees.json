@@ -138,14 +138,6 @@
   "exhibit10": true
  },
  {
-  "player": "Isaiah Stevens",
-  "team": "Chicago Bulls",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Rashaun Agee",
   "team": "Cleveland Cavaliers",
   "fullAmount": null,
@@ -370,7 +362,7 @@
   "exhibit10": true
  },
  {
-  "player": "John Butler",
+  "player": "Johni Broome",
   "team": "Milwaukee Bucks",
   "fullAmount": null,
   "partialAmount": null,
@@ -483,14 +475,6 @@
  },
  {
   "player": "Andrew Holifield",
-  "team": "Oklahoma City Thunder",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Robert McCray",
   "team": "Oklahoma City Thunder",
   "fullAmount": null,
   "partialAmount": null,
@@ -626,22 +610,6 @@
   "exhibit10": true
  },
  {
-  "player": "Sean East II",
-  "team": "Sacramento Kings",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Viktor Lakhin",
-  "team": "Sacramento Kings",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Tristen Newton",
   "team": "Sacramento Kings",
   "fullAmount": null,
@@ -698,7 +666,7 @@
   "exhibit10": true
  },
  {
-  "player": "Andre Jackson Jr.",
+  "player": "Tyson Degenhart",
   "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,
@@ -730,6 +698,14 @@
   "exhibit10": true
  },
  {
+  "player": "Taylor Funk",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Harrison Ingram",
   "team": "Utah Jazz",
   "fullAmount": null,
@@ -754,7 +730,7 @@
   "exhibit10": true
  },
  {
-  "player": "Jazian Gortman",
+  "player": "Trevor Keels",
   "team": "Washington Wizards",
   "fullAmount": null,
   "partialAmount": null,
@@ -762,7 +738,7 @@
   "exhibit10": true
  },
  {
-  "player": "Trevor Keels",
+  "player": "Skal Labissiere",
   "team": "Washington Wizards",
   "fullAmount": null,
   "partialAmount": null,

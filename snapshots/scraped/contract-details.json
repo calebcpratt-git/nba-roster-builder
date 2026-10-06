@@ -1674,6 +1674,15 @@
   }
  },
  {
+  "name": "Jordan Hawkins",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Jaylin Sellers",
   "incentives": {
    "2026-27": {
@@ -5640,16 +5649,6 @@
   }
  },
  {
-  "name": "Ariel Hukporti",
-  "signedUnder": "bi-annual",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
   "name": "Jabari Walker",
   "signedUnder": "minimum",
   "incentives": {
@@ -5692,6 +5691,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
+  "name": "Ariel Hukporti",
+  "signedUnder": "bi-annual",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

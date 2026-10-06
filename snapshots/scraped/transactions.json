@@ -1196,9 +1196,35 @@
  },
  {
   "bbrefId": null,
+  "name": "Jordan Hawkins",
+  "date": "2026-10-05",
+  "dateRaw": "Oct 5, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Isaiah Stevens",
+  "date": "2026-10-01",
+  "dateRaw": "Oct 1, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jalen Bridges",
-  "date": "2026-09-30",
-  "dateRaw": "Sep 30, 2026",
+  "date": "2026-10-01",
+  "dateRaw": "Oct 1, 2026",
   "method": "free-agent",
   "toTeams": [
    "CHI"
@@ -2226,8 +2252,8 @@
  {
   "bbrefId": null,
   "name": "Jalen Duren",
-  "date": "2026-10-01",
-  "dateRaw": "Oct 1, 2026",
+  "date": "2026-10-02",
+  "dateRaw": "Oct 2, 2026",
   "method": "free-agent",
   "toTeams": [
    "DET"
@@ -5653,6 +5679,32 @@
  },
  {
   "bbrefId": null,
+  "name": "Johnell Davis",
+  "date": "2026-10-05",
+  "dateRaw": "Oct 5, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ORL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Mike Sharavjamts",
+  "date": "2026-10-04",
+  "dateRaw": "Oct 4, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ORL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Kevin Knox II",
   "date": "2026-09-23",
   "dateRaw": "Sep 23, 2026",
@@ -5818,19 +5870,6 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Jamal Cain",
-  "date": "2026-03-20",
-  "dateRaw": "Mar 20, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "ORL"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -7559,6 +7598,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Skal Labissiere",
+  "date": "2026-10-05",
+  "dateRaw": "Oct 5, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "WAS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

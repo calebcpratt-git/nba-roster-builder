@@ -1970,7 +1970,7 @@
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
-    "remaining": 15044000
+    "remaining": 11801296
    },
    "taxpayerMLE": {
     "signings": [],
@@ -5870,6 +5870,12 @@
      }
     ],
     "remaining": 0
+   },
+   "dpe": {
+    "player": "Ariel Hukporti",
+    "initial": 1700000,
+    "used": false,
+    "remaining": 1700000
    }
   },
   "cashLedger": {
@@ -7602,7 +7608,7 @@
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
-    "remaining": 5283411
+    "remaining": 5019106
    },
    "taxpayerMLE": {
     "signings": [],
@@ -7610,7 +7616,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 5283411
+    "remaining": 5019106
    }
   },
   "cashLedger": {

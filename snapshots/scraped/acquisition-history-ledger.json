@@ -11784,6 +11784,11 @@
    "date": "2026-09-08",
    "method": "trade",
    "team": "MEM"
+  },
+  {
+   "date": "2026-10-05",
+   "method": "free-agent",
+   "team": "CHI"
   }
  ],
  "taj gibson": [
@@ -12046,6 +12051,11 @@
  "jalen duren": [
   {
    "date": "2026-10-01",
+   "method": "free-agent",
+   "team": "DET"
+  },
+  {
+   "date": "2026-10-02",
    "method": "free-agent",
    "team": "DET"
   }

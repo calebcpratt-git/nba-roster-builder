@@ -1259,6 +1259,16 @@
    }
   }
  },
+ "jordan hawkins": {
+  "team": "CHI",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "jaylin sellers": {
   "team": "CHI",
   "signedUnder": null,
@@ -5621,16 +5631,6 @@
    }
   }
  },
- "ariel hukporti": {
-  "team": "PHI",
-  "signedUnder": "bi-annual",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "jabari walker": {
   "team": "PHI",
   "signedUnder": "minimum",
@@ -5674,6 +5674,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "ariel hukporti": {
+  "team": "PHI",
+  "signedUnder": "bi-annual",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

@@ -50,7 +50,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 11,
       "failed": []
     }
   },
@@ -62,26 +62,79 @@
       "guarantees": 97,
       "signing": 10,
       "awards": 1,
-      "name-bridge": 111,
-      "no-current-salary": 0
-    },
-    "after": {
-      "draft-year": 69,
-      "acquisition": 243,
-      "guarantees": 97,
-      "signing": 10,
-      "awards": 1,
       "name-bridge": 112,
       "no-current-salary": 0
     },
-    "newUnresolved": 1,
+    "after": {
+      "draft-year": 70,
+      "acquisition": 246,
+      "guarantees": 94,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 109,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 4,
     "newByCategory": {
-      "name-bridge": 1
+      "draft-year": 1,
+      "acquisition": 3
     },
     "newRecords": {
+      "draft-year": [
+        {
+          "name": "Jordan Hawkins",
+          "team": "CHI"
+        }
+      ],
+      "acquisition": [
+        {
+          "name": "Isaiah Stevens",
+          "date": "2026-10-01",
+          "method": "free-agent"
+        },
+        {
+          "name": "Johnell Davis",
+          "date": "2026-10-05",
+          "method": "free-agent"
+        },
+        {
+          "name": "Mike Sharavjamts",
+          "date": "2026-10-04",
+          "method": "free-agent"
+        },
+        {
+          "name": "Skal Labissiere",
+          "date": "2026-10-05",
+          "method": "free-agent"
+        }
+      ],
       "guarantees": [
         {
-          "player": "Jazian Gortman",
+          "player": "Johni Broome",
+          "team": "Milwaukee Bucks",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Tyson Degenhart",
+          "team": "Toronto Raptors",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Taylor Funk",
+          "team": "Utah Jazz",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Skal Labissiere",
           "team": "Washington Wizards",
           "fullAmount": null,
           "partialAmount": null,
@@ -91,19 +144,19 @@
       ],
       "name-bridge": [
         {
-          "name": "Jordan Hawkins"
+          "name": "Skal Labissiere"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-04T15:45:47.323Z",
+  "generatedAt": "2026-10-06T17:08:00.670Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 522)",
+    "players: +1 -0 ~3 (of 522)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -0 ~0 (of 514)",
+    "contract-details: +1 -0 ~0 (of 514)",
     "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +29 -1 ~1 (of 198)",
+    "free-agents: +1 -26 ~1 (of 226)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true
