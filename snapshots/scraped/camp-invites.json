@@ -1794,52 +1794,6 @@
   "faYear": "UFA"
  },
  {
-  "name": "Sean East II",
-  "team": "SAC",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Viktor Lakhin",
-  "team": "SAC",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Malik Williams",
   "team": "SAS",
   "section": "Training Camp and Exhibit 10",
@@ -1923,29 +1877,6 @@
   },
   "guaranteed": {
    "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Andre Jackson Jr.",
-  "team": "TOR",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 2537526
-  },
-  "guaranteed": {
-   "2026-27": 2537526
   },
   "likelyIncentives": {
    "2026-27": 0
@@ -2162,17 +2093,17 @@
   "faYear": "UFA"
  },
  {
-  "name": "Reece Beekman",
+  "name": "Skal Labissiere",
   "team": "WAS",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 2185116
+   "2026-27": 2449421
   },
   "cashSalary": {
-   "2026-27": 2185116
+   "2026-27": 3066143
   },
   "guaranteed": {
    "2026-27": 0
@@ -2182,10 +2113,10 @@
   },
   "options": {},
   "optionsAccepted": {},
-  "faYear": "RFA"
+  "faYear": "UFA"
  },
  {
-  "name": "Jazian Gortman",
+  "name": "Reece Beekman",
   "team": "WAS",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",

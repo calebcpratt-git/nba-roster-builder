@@ -195,8 +195,13 @@
   "method": "trade"
  },
  {
+  "name": "Isaiah Stevens",
+  "date": "2026-10-01",
+  "method": "free-agent"
+ },
+ {
   "name": "Jalen Bridges",
-  "date": "2026-09-30",
+  "date": "2026-10-01",
   "method": "free-agent"
  },
  {
@@ -585,11 +590,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Jordan Hawkins",
-  "date": "2026-09-08",
-  "method": "trade"
- },
- {
   "name": "D'Angelo Russell",
   "date": "2026-07-08",
   "method": "trade"
@@ -857,6 +857,16 @@
  {
   "name": "Christoph Tilly",
   "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
+  "name": "Johnell Davis",
+  "date": "2026-10-05",
+  "method": "free-agent"
+ },
+ {
+  "name": "Mike Sharavjamts",
+  "date": "2026-10-04",
   "method": "free-agent"
  },
  {
@@ -1172,6 +1182,11 @@
  {
   "name": "Kennedy Chandler",
   "date": "2026-03-21",
+  "method": "free-agent"
+ },
+ {
+  "name": "Skal Labissiere",
+  "date": "2026-10-05",
   "method": "free-agent"
  },
  {

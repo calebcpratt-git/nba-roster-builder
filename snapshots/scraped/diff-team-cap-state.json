@@ -4,127 +4,10 @@
   "changed": [
     {
       "before": {
-        "team": "DEN",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "K.J. Simpson",
-            "amount": 4074252,
-            "kind": "free-agent",
-            "birdRights": "early-bird"
-          },
-          {
-            "label": "David Roddy",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          },
-          {
-            "label": "Russell Westbrook",
-            "amount": 2500000,
-            "kind": "free-agent"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "DEN-hunter-tyson-2026-02-05",
-            "amount": 2221677,
-            "expires": "2027-02-05",
-            "fromPlayer": "Hunter Tyson"
-          },
-          {
-            "id": "DEN-peyton-watson-2026-08-20",
-            "amount": 10232558,
-            "expires": "2027-08-20",
-            "fromPlayer": "Peyton Watson"
-          }
-        ],
-        "exceptionsUsed": {
-          "biAnnual": {
-            "signings": [],
-            "remaining": 0
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
-        },
-        "apronAddon": 5617500
-      },
-      "after": {
-        "team": "DEN",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "K.J. Simpson",
-            "amount": 4074252,
-            "kind": "free-agent"
-          },
-          {
-            "label": "David Roddy",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          },
-          {
-            "label": "Russell Westbrook",
-            "amount": 2500000,
-            "kind": "free-agent"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "DEN-hunter-tyson-2026-02-05",
-            "amount": 2221677,
-            "expires": "2027-02-05",
-            "fromPlayer": "Hunter Tyson"
-          },
-          {
-            "id": "DEN-peyton-watson-2026-08-20",
-            "amount": 10232558,
-            "expires": "2027-08-20",
-            "fromPlayer": "Peyton Watson"
-          }
-        ],
-        "exceptionsUsed": {
-          "biAnnual": {
-            "signings": [],
-            "remaining": 0
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
-        },
-        "apronAddon": 5617500
-      },
-      "fields": [
-        "capHolds"
-      ]
-    },
-    {
-      "before": {
         "team": "DET",
         "season": "2026-27",
         "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "Jalen Duren",
-            "amount": 19400000,
-            "kind": "free-agent",
-            "birdRights": "full-bird"
-          }
-        ],
+        "capHolds": [],
         "salaryCap": 165000000,
         "taxLine": 201000000,
         "firstApron": 209000000,
@@ -203,7 +86,7 @@
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
             "signings": [],
-            "remaining": 15044000
+            "remaining": 11801296
           },
           "taxpayerMLE": {
             "signings": [],
@@ -227,30 +110,26 @@
         "apronAddon": 0
       },
       "fields": [
-        "capHolds"
+        "exceptionsUsed"
       ]
     },
     {
       "before": {
-        "team": "SAC",
+        "team": "PHI",
         "season": "2026-27",
         "deadMoney": [],
         "capHolds": [
           {
-            "label": "Isaiah Stevens",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Doug McDermott",
+            "label": "MarJon Beauchamp",
             "amount": 2500000,
             "kind": "free-agent",
-            "birdRights": "early-bird"
+            "birdRights": "non-bird"
           },
           {
-            "label": "Markelle Fultz",
+            "label": "Kyle Lowry",
             "amount": 2500000,
-            "kind": "free-agent"
+            "kind": "free-agent",
+            "birdRights": "full-bird"
           }
         ],
         "salaryCap": 165000000,
@@ -259,29 +138,48 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "SAC-dario-saric-2026-02-01",
-            "amount": 5426000,
-            "expires": "2027-02-01",
-            "fromPlayer": "Dario Saric"
+            "id": "PHI-jared-mccain-2026-02-04",
+            "amount": 4221360,
+            "expires": "2027-02-04",
+            "fromPlayer": "Jared McCain"
           },
           {
-            "id": "SAC-devin-carter-2026-06-30",
-            "amount": 4923720,
-            "expires": "2027-06-30",
-            "fromPlayer": "Devin Carter"
+            "id": "PHI-eric-gordon-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Eric Gordon"
+          },
+          {
+            "id": "PHI-johni-broome-2026-07-28",
+            "amount": 2150917,
+            "expires": "2027-07-28",
+            "fromPlayer": "Johni Broome"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+          "trigger": "TP-MLE Exceeded: Dean Wade (Jul 6)"
         },
         "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Anfernee Simons",
+                "amount": 6000000
+              },
+              {
+                "player": "Dean Wade",
+                "amount": 9000000
+              }
+            ],
+            "remaining": null
+          },
           "biAnnual": {
             "signings": [
               {
-                "player": "Precious Achiuwa",
-                "amount": 5477000,
-                "date": "2026-07-07"
+                "player": "Ariel Hukporti",
+                "amount": 3400000,
+                "date": "2026-07-06"
               }
             ],
             "remaining": 0
@@ -291,23 +189,24 @@
           "availableToSend": 7964000,
           "availableToReceive": 7964000
         },
-        "apronAddon": 3850000
+        "apronAddon": 0
       },
       "after": {
-        "team": "SAC",
+        "team": "PHI",
         "season": "2026-27",
         "deadMoney": [],
         "capHolds": [
           {
-            "label": "Doug McDermott",
+            "label": "MarJon Beauchamp",
             "amount": 2500000,
             "kind": "free-agent",
-            "birdRights": "early-bird"
+            "birdRights": "non-bird"
           },
           {
-            "label": "Markelle Fultz",
+            "label": "Kyle Lowry",
             "amount": 2500000,
-            "kind": "free-agent"
+            "kind": "free-agent",
+            "birdRights": "full-bird"
           }
         ],
         "salaryCap": 165000000,
@@ -316,42 +215,180 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "SAC-dario-saric-2026-02-01",
-            "amount": 5426000,
-            "expires": "2027-02-01",
-            "fromPlayer": "Dario Saric"
+            "id": "PHI-jared-mccain-2026-02-04",
+            "amount": 4221360,
+            "expires": "2027-02-04",
+            "fromPlayer": "Jared McCain"
           },
           {
-            "id": "SAC-devin-carter-2026-06-30",
-            "amount": 4923720,
-            "expires": "2027-06-30",
-            "fromPlayer": "Devin Carter"
+            "id": "PHI-eric-gordon-2026-02-05",
+            "amount": 2296274,
+            "expires": "2027-02-05",
+            "fromPlayer": "Eric Gordon"
+          },
+          {
+            "id": "PHI-johni-broome-2026-07-28",
+            "amount": 2150917,
+            "expires": "2027-07-28",
+            "fromPlayer": "Johni Broome"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+          "trigger": "TP-MLE Exceeded: Dean Wade (Jul 6)"
         },
         "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Anfernee Simons",
+                "amount": 6000000
+              },
+              {
+                "player": "Dean Wade",
+                "amount": 9000000
+              }
+            ],
+            "remaining": null
+          },
           "biAnnual": {
             "signings": [
               {
-                "player": "Precious Achiuwa",
-                "amount": 5477000,
-                "date": "2026-07-07"
+                "player": "Ariel Hukporti",
+                "amount": 3400000,
+                "date": "2026-07-06"
               }
             ],
             "remaining": 0
+          },
+          "dpe": {
+            "player": "Ariel Hukporti",
+            "initial": 1700000,
+            "used": false,
+            "remaining": 1700000
           }
         },
         "cashLedger": {
           "availableToSend": 7964000,
           "availableToReceive": 7964000
         },
-        "apronAddon": 3850000
+        "apronAddon": 0
       },
       "fields": [
-        "capHolds"
+        "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "WAS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Sharife Cooper",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "WAS-jaden-hardy-2026-07-08",
+            "amount": 6000000,
+            "expires": "2027-07-08",
+            "fromPlayer": "Jaden Hardy"
+          },
+          {
+            "id": "WAS-dangelo-russell-2026-07-08",
+            "amount": 5969250,
+            "expires": "2027-07-08",
+            "fromPlayer": "D'Angelo Russell"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Aug 20 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 5283411
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5283411
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
+      },
+      "after": {
+        "team": "WAS",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Sharife Cooper",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "non-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "WAS-jaden-hardy-2026-07-08",
+            "amount": 6000000,
+            "expires": "2027-07-08",
+            "fromPlayer": "Jaden Hardy"
+          },
+          {
+            "id": "WAS-dangelo-russell-2026-07-08",
+            "amount": 5969250,
+            "expires": "2027-07-08",
+            "fromPlayer": "D'Angelo Russell"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Aug 20 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 5019106
+          },
+          "taxpayerMLE": {
+            "signings": [],
+            "remaining": 6064000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5019106
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 0
+      },
+      "fields": [
+        "exceptionsUsed"
       ]
     }
   ]

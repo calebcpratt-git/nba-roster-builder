@@ -1,6 +1,15 @@
 {
   "added": [
     {
+      "name": "Steve Settle",
+      "position": "PF",
+      "priorTeam": "WAS",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
       "name": "Nicolas Batum",
       "position": "SG/SF",
       "priorTeam": "LAC",
@@ -60,13 +69,6 @@
       "name": "Nigel Hayes-Davis",
       "position": "SF",
       "priorTeam": "MIL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Jaelen House",
-      "position": "PG",
-      "priorTeam": "UTA",
       "faType": "U",
       "birdRights": null
     },
@@ -162,20 +164,6 @@
       "birdRights": null
     },
     {
-      "name": "Peter Suder",
-      "position": "SG",
-      "priorTeam": "CHI",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Marquel Sutton",
-      "position": "PF",
-      "priorTeam": "CHI",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
       "name": "Garrett Temple",
       "position": "SG",
       "priorTeam": "TOR",
@@ -204,28 +192,19 @@
       "birdRights": null
     }
   ],
-  "removed": [
-    {
-      "name": "Isaiah Stevens",
-      "position": "PG",
-      "priorTeam": "SAC",
-      "faType": "U",
-      "birdRights": null
-    }
-  ],
   "changed": [
     {
       "before": {
-        "name": "K.J. Simpson",
-        "position": "PG",
-        "priorTeam": "DEN",
+        "name": "Rafael Castro",
+        "position": "C",
+        "priorTeam": "HOU",
         "faType": "U",
-        "birdRights": "early-bird"
+        "birdRights": "non-bird"
       },
       "after": {
-        "name": "K.J. Simpson",
-        "position": "PG",
-        "priorTeam": "DEN",
+        "name": "Rafael Castro",
+        "position": "C",
+        "priorTeam": "HOU",
         "faType": "U",
         "birdRights": null
       },
