@@ -635,6 +635,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Johni Broome",
+  "date": "2026-10-06",
+  "method": "free-agent"
+ },
+ {
   "name": "Jake Stephens",
   "date": "2026-09-17",
   "method": "free-agent"
@@ -838,6 +843,11 @@
   "name": "Mojave King",
   "date": "2026-06-24",
   "method": "trade"
+ },
+ {
+  "name": "Anthony Pritchard",
+  "date": "2026-10-06",
+  "method": "free-agent"
  },
  {
   "name": "Zhaire Smith",

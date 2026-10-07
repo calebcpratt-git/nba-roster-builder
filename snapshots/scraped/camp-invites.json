@@ -851,29 +851,6 @@
   "faYear": "UFA"
  },
  {
-  "name": "Fletcher Loyer",
-  "team": "LAC",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Cole Swider",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
@@ -1035,17 +1012,17 @@
   "faYear": "RFA"
  },
  {
-  "name": "John Butler jr.",
+  "name": "Johni Broome",
   "team": "MIL",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 2449421
+   "2026-27": 2185116
   },
   "cashSalary": {
-   "2026-27": 2449421
+   "2026-27": 2185116
   },
   "guaranteed": {
    "2026-27": 0
@@ -1403,7 +1380,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "Robert McCray V",
+  "name": "Anthony Pritchard",
   "team": "OKC",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -1979,29 +1956,6 @@
  },
  {
   "name": "Jonas Aidoo",
-  "team": "UTA",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Terrell Brown Jr.",
   "team": "UTA",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
