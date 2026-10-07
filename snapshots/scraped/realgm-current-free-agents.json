@@ -357,6 +357,13 @@
   "birdRights": null
  },
  {
+  "name": "Sean East II",
+  "position": "PG",
+  "priorTeam": "SAC",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Jesse Edwards",
   "position": "C",
   "priorTeam": "MIN",
@@ -658,9 +665,9 @@
   "birdRights": null
  },
  {
-  "name": "Skal Labissiere",
-  "position": "F-C",
-  "priorTeam": "WAS",
+  "name": "Viktor Lakhin",
+  "position": "PF",
+  "priorTeam": "SAC",
   "faType": "U",
   "birdRights": null
  },

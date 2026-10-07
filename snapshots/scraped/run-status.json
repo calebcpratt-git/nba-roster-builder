@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 10,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 69,
-      "acquisition": 243,
-      "guarantees": 97,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 112,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 70,
       "acquisition": 246,
       "guarantees": 94,
@@ -74,68 +65,31 @@
       "name-bridge": 109,
       "no-current-salary": 0
     },
-    "newUnresolved": 4,
+    "after": {
+      "draft-year": 70,
+      "acquisition": 248,
+      "guarantees": 93,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 105,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 2,
     "newByCategory": {
-      "draft-year": 1,
-      "acquisition": 3
+      "acquisition": 2
     },
     "newRecords": {
-      "draft-year": [
-        {
-          "name": "Jordan Hawkins",
-          "team": "CHI"
-        }
-      ],
       "acquisition": [
         {
-          "name": "Isaiah Stevens",
-          "date": "2026-10-01",
-          "method": "free-agent"
-        },
-        {
-          "name": "Johnell Davis",
-          "date": "2026-10-05",
-          "method": "free-agent"
-        },
-        {
-          "name": "Mike Sharavjamts",
-          "date": "2026-10-04",
-          "method": "free-agent"
-        },
-        {
-          "name": "Skal Labissiere",
-          "date": "2026-10-05",
+          "name": "Anthony Pritchard",
+          "date": "2026-10-06",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Johni Broome",
-          "team": "Milwaukee Bucks",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Tyson Degenhart",
-          "team": "Toronto Raptors",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Taylor Funk",
-          "team": "Utah Jazz",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Skal Labissiere",
-          "team": "Washington Wizards",
+          "player": "Anthony Pritchard",
+          "team": "Oklahoma City Thunder",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -144,19 +98,19 @@
       ],
       "name-bridge": [
         {
-          "name": "Skal Labissiere"
+          "name": "Anthony Pritchard"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-06T17:08:00.670Z",
+  "generatedAt": "2026-10-07T17:45:08.120Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~3 (of 522)",
+    "players: +0 -0 ~0 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -0 ~0 (of 514)",
-    "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +1 -26 ~1 (of 226)",
+    "contract-details: +0 -0 ~0 (of 515)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +2 -1 ~0 (of 201)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

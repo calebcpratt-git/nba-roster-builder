@@ -392,14 +392,6 @@
   "exhibit10": true
  },
  {
-  "player": "Fletcher Loyer",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Blake Wesley",
   "team": "Los Angeles Clippers",
   "fullAmount": null,
@@ -617,6 +609,14 @@
  },
  {
   "player": "Andrew Holifield",
+  "team": "Oklahoma City Thunder",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Anthony Pritchard",
   "team": "Oklahoma City Thunder",
   "fullAmount": null,
   "partialAmount": null,
@@ -897,14 +897,6 @@
  },
  {
   "player": "Jonas Aidoo",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Terrell Brown Jr.",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

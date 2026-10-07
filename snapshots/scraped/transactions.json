@@ -4351,6 +4351,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Johni Broome",
+  "date": "2026-10-06",
+  "dateRaw": "Oct 6, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jake Stephens",
   "date": "2026-09-17",
   "dateRaw": "Sep 17, 2026",
@@ -5493,6 +5506,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Anthony Pritchard",
+  "date": "2026-10-06",
+  "dateRaw": "Oct 6, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "OKC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
