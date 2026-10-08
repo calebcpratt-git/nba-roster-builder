@@ -58,15 +58,6 @@
   "unresolved": {
     "before": {
       "draft-year": 70,
-      "acquisition": 246,
-      "guarantees": 94,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 109,
-      "no-current-salary": 0
-    },
-    "after": {
-      "draft-year": 70,
       "acquisition": 248,
       "guarantees": 93,
       "signing": 10,
@@ -74,22 +65,36 @@
       "name-bridge": 105,
       "no-current-salary": 0
     },
-    "newUnresolved": 2,
+    "after": {
+      "draft-year": 70,
+      "acquisition": 249,
+      "guarantees": 93,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 105,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 1,
     "newByCategory": {
-      "acquisition": 2
+      "acquisition": 1
     },
     "newRecords": {
       "acquisition": [
         {
-          "name": "Anthony Pritchard",
-          "date": "2026-10-06",
+          "name": "Jahmyl Telfort",
+          "date": "2026-10-07",
+          "method": "free-agent"
+        },
+        {
+          "name": "Trhae Mitchell",
+          "date": "2026-10-08",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Anthony Pritchard",
-          "team": "Oklahoma City Thunder",
+          "player": "Jahmyl Telfort",
+          "team": "Los Angeles Clippers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -98,19 +103,19 @@
       ],
       "name-bridge": [
         {
-          "name": "Anthony Pritchard"
+          "name": "Jahmyl Telfort"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-07T17:45:08.120Z",
+  "generatedAt": "2026-10-08T17:49:55.331Z",
   "warnings": [],
   "diffSummaries": [
     "players: +0 -0 ~0 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
     "contract-details: +0 -0 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +2 -1 ~0 (of 201)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
+    "free-agents: +4 -1 ~0 (of 202)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

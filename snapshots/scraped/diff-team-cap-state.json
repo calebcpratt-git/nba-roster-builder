@@ -4,52 +4,31 @@
   "changed": [
     {
       "before": {
-        "team": "MIL",
+        "team": "POR",
         "season": "2026-27",
         "deadMoney": [
           {
-            "player": "Damian Lillard",
-            "amount": 22516603
-          },
-          {
-            "player": "Vasilije Micić",
-            "amount": 666667
+            "player": "Didi Louzada",
+            "amount": 268032
           }
         ],
-        "capHolds": [
-          {
-            "label": "Thanasis Antetokounmpo",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          },
-          {
-            "label": "Alex Antetokounmpo",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          }
-        ],
+        "capHolds": [],
         "salaryCap": 165000000,
         "taxLine": 201000000,
         "firstApron": 209000000,
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "MIL-giannis-antetokounmpo-2026-07-06",
-            "amount": 25456566,
-            "expires": "2027-07-06",
-            "fromPlayer": "Giannis Antetokounmpo"
+            "id": "POR-kris-murray-2026-06-29",
+            "amount": 3132000,
+            "expires": "2027-06-29",
+            "fromPlayer": "Kris Murray"
           }
         ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "Trade Salary Acquired: Jul 8 trade"
-        },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
             "signings": [],
-            "remaining": 9834500
+            "remaining": 12022685
           },
           "taxpayerMLE": {
             "signings": [],
@@ -61,58 +40,37 @@
           }
         },
         "cashLedger": {
-          "availableToSend": 6714000,
-          "availableToReceive": 3464000
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
         },
-        "apronAddon": 5075000
+        "apronAddon": 0
       },
       "after": {
-        "team": "MIL",
+        "team": "POR",
         "season": "2026-27",
         "deadMoney": [
           {
-            "player": "Damian Lillard",
-            "amount": 22516603
-          },
-          {
-            "player": "Vasilije Micić",
-            "amount": 666667
+            "player": "Didi Louzada",
+            "amount": 268032
           }
         ],
-        "capHolds": [
-          {
-            "label": "Thanasis Antetokounmpo",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          },
-          {
-            "label": "Alex Antetokounmpo",
-            "amount": 2200000,
-            "kind": "free-agent",
-            "birdRights": "non-bird"
-          }
-        ],
+        "capHolds": [],
         "salaryCap": 165000000,
         "taxLine": 201000000,
         "firstApron": 209000000,
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "MIL-giannis-antetokounmpo-2026-07-06",
-            "amount": 25456566,
-            "expires": "2027-07-06",
-            "fromPlayer": "Giannis Antetokounmpo"
+            "id": "POR-kris-murray-2026-06-29",
+            "amount": 3132000,
+            "expires": "2027-06-29",
+            "fromPlayer": "Kris Murray"
           }
         ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "Trade Salary Acquired: Jul 8 trade"
-        },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
             "signings": [],
-            "remaining": 10098805
+            "remaining": 14472106
           },
           "taxpayerMLE": {
             "signings": [],
@@ -124,13 +82,137 @@
           }
         },
         "cashLedger": {
-          "availableToSend": 6714000,
-          "availableToReceive": 3464000
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
         },
-        "apronAddon": 5075000
+        "apronAddon": 0
       },
       "fields": [
         "exceptionsUsed"
+      ]
+    },
+    {
+      "before": {
+        "team": "SAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Doug McDermott",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Markelle Fultz",
+            "amount": 2500000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "SAC-dario-saric-2026-02-01",
+            "amount": 5426000,
+            "expires": "2027-02-01",
+            "fromPlayer": "Dario Saric"
+          },
+          {
+            "id": "SAC-devin-carter-2026-06-30",
+            "amount": 4923720,
+            "expires": "2027-06-30",
+            "fromPlayer": "Devin Carter"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+        },
+        "exceptionsUsed": {
+          "biAnnual": {
+            "signings": [
+              {
+                "player": "Precious Achiuwa",
+                "amount": 5477000,
+                "date": "2026-07-07"
+              }
+            ],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 3850000
+      },
+      "after": {
+        "team": "SAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Isaiah Stevens",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Doug McDermott",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Markelle Fultz",
+            "amount": 2500000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "SAC-dario-saric-2026-02-01",
+            "amount": 5426000,
+            "expires": "2027-02-01",
+            "fromPlayer": "Dario Saric"
+          },
+          {
+            "id": "SAC-devin-carter-2026-06-30",
+            "amount": 4923720,
+            "expires": "2027-06-30",
+            "fromPlayer": "Devin Carter"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+        },
+        "exceptionsUsed": {
+          "biAnnual": {
+            "signings": [
+              {
+                "player": "Precious Achiuwa",
+                "amount": 5477000,
+                "date": "2026-07-07"
+              }
+            ],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 3850000
+      },
+      "fields": [
+        "capHolds"
       ]
     }
   ]

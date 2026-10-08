@@ -175,13 +175,6 @@
   "birdRights": null
  },
  {
-  "name": "Johni Broome",
-  "position": "PF",
-  "priorTeam": "LAC",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Darius Brown II",
   "position": "PG",
   "priorTeam": "CLE",
@@ -434,6 +427,13 @@
   "birdRights": null
  },
  {
+  "name": "Jazian Gortman",
+  "position": "PG",
+  "priorTeam": "WAS",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Jeff Green",
   "position": "PF",
   "priorTeam": "HOU",
@@ -563,6 +563,13 @@
   "name": "Jaden Ivey",
   "position": "PG",
   "priorTeam": "CHI",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Andre Jackson, Jr.",
+  "position": "SG",
+  "priorTeam": "TOR",
   "faType": "U",
   "birdRights": null
  },
@@ -1085,6 +1092,13 @@
   "birdRights": null
  },
  {
+  "name": "Mike Sharavjamts",
+  "position": "SG",
+  "priorTeam": "ORL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Jamarion Sharp",
   "position": "C",
   "priorTeam": "LAC",
@@ -1130,6 +1144,13 @@
   "name": "Tyler Smith",
   "position": "PF",
   "priorTeam": "DAL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Isaiah Stevens",
+  "position": "PG",
+  "priorTeam": "CHI",
   "faType": "U",
   "birdRights": null
  },

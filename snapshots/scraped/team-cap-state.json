@@ -6293,7 +6293,7 @@
   "exceptionsUsed": {
    "nonTaxpayerMLE": {
     "signings": [],
-    "remaining": 12022685
+    "remaining": 14472106
    },
    "taxpayerMLE": {
     "signings": [],
@@ -6461,6 +6461,11 @@
   "season": "2026-27",
   "deadMoney": [],
   "capHolds": [
+   {
+    "label": "Isaiah Stevens",
+    "amount": 2200000,
+    "kind": "free-agent"
+   },
    {
     "label": "Doug McDermott",
     "amount": 2500000,

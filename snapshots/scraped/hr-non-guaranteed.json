@@ -392,6 +392,14 @@
   "exhibit10": true
  },
  {
+  "player": "Jahmyl Telfort",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Blake Wesley",
   "team": "Los Angeles Clippers",
   "fullAmount": null,
@@ -782,14 +790,6 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
- },
- {
-  "player": "Jaylen Martin",
-  "team": "Portland Trail Blazers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Elfrid Payton",

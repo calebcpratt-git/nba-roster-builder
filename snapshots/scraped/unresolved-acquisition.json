@@ -495,6 +495,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Jahmyl Telfort",
+  "date": "2026-10-07",
+  "method": "free-agent"
+ },
+ {
   "name": "Fletcher Loyer",
   "date": "2026-09-27",
   "method": "free-agent"
@@ -876,7 +881,7 @@
  },
  {
   "name": "Mike Sharavjamts",
-  "date": "2026-10-04",
+  "date": "2026-10-05",
   "method": "free-agent"
  },
  {
@@ -1020,6 +1025,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Trhae Mitchell",
+  "date": "2026-10-08",
+  "method": "free-agent"
+ },
+ {
   "name": "Sean East II",
   "date": "2026-09-28",
   "method": "free-agent"
@@ -1058,11 +1068,6 @@
   "name": "Alpha Kaba",
   "date": "2026-06-30",
   "method": "trade"
- },
- {
-  "name": "DaQuan Jeffries",
-  "date": "2026-03-26",
-  "method": "free-agent"
  },
  {
   "name": "RJ Davis",

@@ -1,25 +1,39 @@
 {
   "added": [
     {
-      "name": "Sean East II",
+      "name": "Jazian Gortman",
       "position": "PG",
-      "priorTeam": "SAC",
+      "priorTeam": "WAS",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Viktor Lakhin",
-      "position": "PF",
-      "priorTeam": "SAC",
+      "name": "Andre Jackson, Jr.",
+      "position": "SG",
+      "priorTeam": "TOR",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Mike Sharavjamts",
+      "position": "SG",
+      "priorTeam": "ORL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Isaiah Stevens",
+      "position": "PG",
+      "priorTeam": "CHI",
       "faType": "U",
       "birdRights": null
     }
   ],
   "removed": [
     {
-      "name": "Skal Labissiere",
-      "position": "F-C",
-      "priorTeam": "WAS",
+      "name": "Johni Broome",
+      "position": "PF",
+      "priorTeam": "LAC",
       "faType": "U",
       "birdRights": null
     }
