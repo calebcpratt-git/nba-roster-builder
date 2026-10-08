@@ -3212,6 +3212,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jahmyl Telfort",
+  "date": "2026-10-07",
+  "dateRaw": "Oct 7, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Fletcher Loyer",
   "date": "2026-09-27",
   "dateRaw": "Sep 27, 2026",
@@ -5719,8 +5732,8 @@
  {
   "bbrefId": null,
   "name": "Mike Sharavjamts",
-  "date": "2026-10-04",
-  "dateRaw": "Oct 4, 2026",
+  "date": "2026-10-05",
+  "dateRaw": "Oct 5, 2026",
   "method": "free-agent",
   "toTeams": [
    "ORL"
@@ -6530,6 +6543,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Trhae Mitchell",
+  "date": "2026-10-08",
+  "dateRaw": "Oct 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Sean East II",
   "date": "2026-09-28",
   "dateRaw": "Sep 28, 2026",
@@ -6775,19 +6801,6 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "DaQuan Jeffries",
-  "date": "2026-03-26",
-  "dateRaw": "Mar 26, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "SAC"
-  ],
-  "fromTeams": [],
-  "text": "Signed to 10-Day Contract",
   "flags": []
  },
  {

@@ -1300,7 +1300,8 @@
   "team": "SAC",
   "player": "Isaiah Stevens",
   "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "CHI"
  },
  {
   "team": "SAC",
