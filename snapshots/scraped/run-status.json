@@ -58,7 +58,7 @@
   "unresolved": {
     "before": {
       "draft-year": 70,
-      "acquisition": 248,
+      "acquisition": 249,
       "guarantees": 93,
       "signing": 10,
       "awards": 1,
@@ -71,51 +71,44 @@
       "guarantees": 93,
       "signing": 10,
       "awards": 1,
-      "name-bridge": 105,
+      "name-bridge": 107,
       "no-current-salary": 0
     },
-    "newUnresolved": 1,
+    "newUnresolved": 2,
     "newByCategory": {
-      "acquisition": 1
+      "name-bridge": 2
     },
     "newRecords": {
       "acquisition": [
         {
-          "name": "Jahmyl Telfort",
-          "date": "2026-10-07",
+          "name": "Tyson Degenhart",
+          "date": "2026-10-05",
           "method": "free-agent"
         },
         {
-          "name": "Trhae Mitchell",
-          "date": "2026-10-08",
+          "name": "Taylor Funk",
+          "date": "2026-10-05",
           "method": "free-agent"
-        }
-      ],
-      "guarantees": [
-        {
-          "player": "Jahmyl Telfort",
-          "team": "Los Angeles Clippers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
         }
       ],
       "name-bridge": [
         {
-          "name": "Jahmyl Telfort"
+          "name": "Taylor Funk"
+        },
+        {
+          "name": "Tyson Degenhart"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-08T17:49:55.331Z",
+  "generatedAt": "2026-10-09T17:25:31.365Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 523)",
+    "players: +0 -0 ~1 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
     "contract-details: +0 -0 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +4 -1 ~0 (of 202)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +30 -0 ~0 (of 205)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true
