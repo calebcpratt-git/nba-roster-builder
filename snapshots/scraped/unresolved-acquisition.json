@@ -641,7 +641,7 @@
  },
  {
   "name": "Johni Broome",
-  "date": "2026-10-06",
+  "date": "2026-10-05",
   "method": "free-agent"
  },
  {
@@ -1105,6 +1105,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Tyson Degenhart",
+  "date": "2026-10-05",
+  "method": "free-agent"
+ },
+ {
   "name": "Tyreke Key",
   "date": "2026-09-24",
   "method": "free-agent"
@@ -1137,6 +1142,11 @@
  {
   "name": "Tyreke Key",
   "date": "2026-04-06",
+  "method": "free-agent"
+ },
+ {
+  "name": "Taylor Funk",
+  "date": "2026-10-05",
   "method": "free-agent"
  },
  {
@@ -1187,16 +1197,6 @@
  {
   "name": "Kennedy Chandler",
   "date": "2026-04-01",
-  "method": "free-agent"
- },
- {
-  "name": "Bez Mbeng",
-  "date": "2026-03-23",
-  "method": "free-agent"
- },
- {
-  "name": "Kennedy Chandler",
-  "date": "2026-03-21",
   "method": "free-agent"
  },
  {

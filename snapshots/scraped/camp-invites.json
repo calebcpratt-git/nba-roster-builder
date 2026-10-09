@@ -1932,6 +1932,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Tyson Degenhart",
+  "team": "TOR",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Harrison Ingram",
   "team": "UTA",
   "section": "Training Camp and Exhibit 10",
@@ -1956,6 +1979,29 @@
  },
  {
   "name": "Jonas Aidoo",
+  "team": "UTA",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Taylor Funk",
   "team": "UTA",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",

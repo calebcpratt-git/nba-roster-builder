@@ -1,5 +1,75 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Jordan Hawkins",
+        "team": "CHI",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 678882
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-08",
+            "method": "trade",
+            "team": "MEM"
+          },
+          {
+            "date": "2026-10-05",
+            "method": "free-agent",
+            "team": "CHI"
+          }
+        ]
+      },
+      "after": {
+        "name": "Jordan Hawkins",
+        "team": "CHI",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 678882
+        },
+        "guaranteed": {
+          "2026-27": 91000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-08",
+            "method": "trade",
+            "team": "MEM"
+          },
+          {
+            "date": "2026-10-05",
+            "method": "free-agent",
+            "team": "CHI"
+          }
+        ]
+      },
+      "fields": [
+        "guaranteed"
+      ]
+    }
+  ]
 }
