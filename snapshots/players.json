@@ -1627,6 +1627,37 @@
     "acquiredMethod": "Draft"
   },
   {
+    "name": "Dion Brown",
+    "team": "BRK",
+    "salary": {
+      "2026-27": 1357763
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 1357763
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-10-08",
+        "method": "free-agent",
+        "team": "BRK"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
     "name": "Tyler Bilodeau",
     "team": "BRK",
     "salary": {
@@ -5377,22 +5408,52 @@
     "name": "Brandin Podziemski",
     "team": "GSW",
     "salary": {
-      "2026-27": 5679458
+      "2026-27": 5679458,
+      "2027-28": 18965517,
+      "2028-29": 20482759,
+      "2029-30": 22000000,
+      "2030-31": 23517241,
+      "2031-32": 25034483
     },
-    "options": {},
+    "options": {
+      "2031-32": "Player"
+    },
     "cashSalary": {
-      "2026-27": 5679458
+      "2026-27": 5679458,
+      "2027-28": 18965517,
+      "2028-29": 20482759,
+      "2029-30": 22000000,
+      "2030-31": 23517241,
+      "2031-32": 25034483
     },
     "guaranteed": {
-      "2026-27": 5679458
+      "2026-27": 5679458,
+      "2027-28": 18965517,
+      "2028-29": 20482759,
+      "2029-30": 22000000,
+      "2030-31": 23517241,
+      "2031-32": 0
     },
     "likelyIncentives": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0,
+      "2028-29": 0,
+      "2029-30": 0,
+      "2030-31": 0,
+      "2031-32": 0
     },
     "optionExercised": {
-      "2026-27": true
+      "2026-27": true,
+      "2031-32": false
     },
-    "acquiredMethod": "Draft"
+    "acquiredMethod": "Draft",
+    "acquisitionHistory": [
+      {
+        "date": "2026-10-10",
+        "method": "extension",
+        "team": "GSW"
+      }
+    ]
   },
   {
     "name": "Gui Santos",
@@ -15901,6 +15962,37 @@
       "2027-28": false
     },
     "acquiredMethod": "Draft"
+  },
+  {
+    "name": "Mohamed Wague",
+    "team": "UTA",
+    "salary": {
+      "2026-27": 1357763
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 1357763
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-10-08",
+        "method": "free-agent",
+        "team": "UTA"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
   },
   {
     "name": "Trey Alexander",

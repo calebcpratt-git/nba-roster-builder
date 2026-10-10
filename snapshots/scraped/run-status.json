@@ -50,7 +50,7 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 12,
       "failed": []
     }
   },
@@ -62,53 +62,121 @@
       "guarantees": 93,
       "signing": 10,
       "awards": 1,
-      "name-bridge": 105,
-      "no-current-salary": 0
-    },
-    "after": {
-      "draft-year": 70,
-      "acquisition": 249,
-      "guarantees": 93,
-      "signing": 10,
-      "awards": 1,
       "name-bridge": 107,
       "no-current-salary": 0
     },
-    "newUnresolved": 2,
+    "after": {
+      "draft-year": 72,
+      "acquisition": 255,
+      "guarantees": 92,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 110,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 11,
     "newByCategory": {
-      "name-bridge": 2
+      "draft-year": 2,
+      "acquisition": 6,
+      "name-bridge": 3
     },
     "newRecords": {
+      "draft-year": [
+        {
+          "name": "Dion Brown",
+          "team": "BRK"
+        },
+        {
+          "name": "Mohamed Wague",
+          "team": "UTA"
+        }
+      ],
       "acquisition": [
         {
-          "name": "Tyson Degenhart",
-          "date": "2026-10-05",
+          "name": "Noam Yaacov",
+          "date": "2026-10-09",
           "method": "free-agent"
         },
         {
-          "name": "Taylor Funk",
-          "date": "2026-10-05",
+          "name": "Jaxson Robinson",
+          "date": "2026-10-09",
           "method": "free-agent"
+        },
+        {
+          "name": "Dennis Smith Jr.",
+          "date": "2026-10-08",
+          "method": "free-agent"
+        },
+        {
+          "name": "Gabe Madsen",
+          "date": "2026-10-08",
+          "method": "free-agent"
+        },
+        {
+          "name": "Kylor Kelley",
+          "date": "2026-10-08",
+          "method": "free-agent"
+        }
+      ],
+      "guarantees": [
+        {
+          "player": "Rafael Castro",
+          "team": "Los Angeles Lakers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Kylor Kelley",
+          "team": "Miami Heat",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Gabe Madsen",
+          "team": "Miami Heat",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
         }
       ],
       "name-bridge": [
         {
-          "name": "Taylor Funk"
+          "name": "Dion Brown"
         },
         {
-          "name": "Tyson Degenhart"
+          "name": "Gabe Madsen"
+        },
+        {
+          "name": "Jaxson Robinson"
+        },
+        {
+          "name": "Kylor Kelley"
+        },
+        {
+          "name": "Mohamed Wague"
+        },
+        {
+          "name": "Noam Yaacov"
+        },
+        {
+          "name": "Rafael Castro"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-09T17:25:31.365Z",
+  "generatedAt": "2026-10-10T16:10:59.447Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~1 (of 523)",
+    "players: +2 -0 ~1 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -0 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +30 -0 ~0 (of 205)",
+    "contract-details: +2 -0 ~0 (of 515)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +2 -26 ~0 (of 235)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

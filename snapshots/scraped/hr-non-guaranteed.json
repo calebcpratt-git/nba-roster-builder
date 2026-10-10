@@ -72,6 +72,14 @@
   "exhibit10": true
  },
  {
+  "player": "Dion Brown",
+  "team": "Brooklyn Nets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Dain Dainja",
   "team": "Brooklyn Nets",
   "fullAmount": null,
@@ -408,7 +416,7 @@
   "exhibit10": true
  },
  {
-  "player": "William K yle III",
+  "player": "Rafael Castro",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
   "partialAmount": null,
@@ -448,7 +456,15 @@
   "exhibit10": false
  },
  {
-  "player": "J’Vonne Hadley",
+  "player": "Kylor Kelley",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Gabe Madsen",
   "team": "Miami Heat",
   "fullAmount": null,
   "partialAmount": null,
@@ -457,14 +473,6 @@
  },
  {
   "player": "Bez Mbeng",
-  "team": "Miami Heat",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Lester Quinones",
   "team": "Miami Heat",
   "fullAmount": null,
   "partialAmount": null,
@@ -561,14 +569,6 @@
  },
  {
   "player": "Caleb Houstan",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "Christian Koloko",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
   "partialAmount": null,
@@ -913,6 +913,14 @@
  },
  {
   "player": "Harrison Ingram",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Mohamed Wague",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

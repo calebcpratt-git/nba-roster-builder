@@ -1,6 +1,22 @@
 {
   "added": [
     {
+      "name": "Jaylen Martin",
+      "position": "SG",
+      "priorTeam": "POR",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Trhae Mitchell",
+      "position": "SG",
+      "priorTeam": "SAC",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
       "name": "Nicolas Batum",
       "position": "SG/SF",
       "priorTeam": "LAC",
@@ -15,32 +31,11 @@
       "birdRights": "early-bird"
     },
     {
-      "name": "Terrell Brown, Jr.",
-      "position": "PG",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "John Butler",
-      "position": "PF",
-      "priorTeam": "MIL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
       "name": "Seth Curry",
       "position": "PG",
       "priorTeam": "GSW",
       "faType": "U",
       "birdRights": "non-bird"
-    },
-    {
-      "name": "Johnell Davis",
-      "position": "SG",
-      "priorTeam": "ORL",
-      "faType": "U",
-      "birdRights": null
     },
     {
       "name": "Dante Exum",
@@ -111,20 +106,6 @@
       "priorTeam": "PHI",
       "faType": "U",
       "birdRights": "full-bird"
-    },
-    {
-      "name": "Fletcher Loyer",
-      "position": "SG",
-      "priorTeam": "LAC",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Robert McCray V",
-      "position": "SG",
-      "priorTeam": "OKC",
-      "faType": "U",
-      "birdRights": null
     },
     {
       "name": "Doug McDermott",
@@ -209,8 +190,14 @@
       "priorTeam": "CHI",
       "faType": "U",
       "birdRights": null
+    },
+    {
+      "name": "Jahmyl Telfort",
+      "position": "SG",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": null
     }
   ],
-  "removed": [],
   "changed": []
 }
