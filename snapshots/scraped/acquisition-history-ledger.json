@@ -12059,5 +12059,26 @@
    "method": "free-agent",
    "team": "DET"
   }
+ ],
+ "dion brown": [
+  {
+   "date": "2026-10-08",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "brandin podziemski": [
+  {
+   "date": "2026-10-10",
+   "method": "extension",
+   "team": "GSW"
+  }
+ ],
+ "mohamed wague": [
+  {
+   "date": "2026-10-08",
+   "method": "free-agent",
+   "team": "UTA"
+  }
  ]
 }

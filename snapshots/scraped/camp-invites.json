@@ -460,6 +460,52 @@
   "faYear": "RFA"
  },
  {
+  "name": "Jaxson Robinson",
+  "team": "CLE",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Noam Yaacov",
+  "team": "CLE",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Seth Lundy",
   "team": "DAL",
   "section": "Training Camp and Exhibit 10",
@@ -897,7 +943,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "William Kyle III",
+  "name": "Rafael Castro",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -920,17 +966,17 @@
   "faYear": "RFA"
  },
  {
-  "name": "Lester Quinones",
+  "name": "Kylor Kelley",
   "team": "MIA",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 2449421
+   "2026-27": 2185116
   },
   "cashSalary": {
-   "2026-27": 2537526
+   "2026-27": 2185116
   },
   "guaranteed": {
    "2026-27": 0
@@ -989,7 +1035,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "J'Vonne Hadley",
+  "name": "Gabe Madsen",
   "team": "MIA",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -1210,29 +1256,6 @@
   },
   "guaranteed": {
    "2026-27": 2625627
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "UFA"
- },
- {
-  "name": "Christian Koloko",
-  "team": "NOP",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": "Camp Invite",
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 2625627
-  },
-  "guaranteed": {
-   "2026-27": 0
   },
   "likelyIncentives": {
    "2026-27": 0

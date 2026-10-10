@@ -546,6 +546,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Dion Brown",
+  "date": "2026-10-08",
+  "dateRaw": "Oct 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BRK"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Ben Humrichous",
   "date": "2026-09-23",
   "dateRaw": "Sep 23, 2026",
@@ -1512,6 +1525,32 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Noam Yaacov",
+  "date": "2026-10-09",
+  "dateRaw": "Oct 9, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jaxson Robinson",
+  "date": "2026-10-09",
+  "dateRaw": "Oct 9, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2549,6 +2588,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Brandin Podziemski",
+  "date": "2026-10-10",
+  "dateRaw": "Oct 10, 2026",
+  "method": "extension",
+  "toTeams": [
+   "GSW"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Scale Extension",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Miles Kelly",
   "date": "2026-09-27",
   "dateRaw": "Sep 27, 2026",
@@ -3532,6 +3584,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Rafael Castro",
+  "date": "2026-10-10",
+  "dateRaw": "Oct 10, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Cole Swider",
   "date": "2026-09-27",
   "dateRaw": "Sep 27, 2026",
@@ -3779,19 +3844,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Rookie Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Sergio De Larrea",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "LAL"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
   "flags": []
  },
  {
@@ -4096,6 +4148,45 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Dennis Smith Jr.",
+  "date": "2026-10-08",
+  "dateRaw": "Oct 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Gabe Madsen",
+  "date": "2026-10-08",
+  "dateRaw": "Oct 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Kylor Kelley",
+  "date": "2026-10-08",
+  "dateRaw": "Oct 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6544,8 +6635,8 @@
  {
   "bbrefId": null,
   "name": "Trhae Mitchell",
-  "date": "2026-10-08",
-  "dateRaw": "Oct 8, 2026",
+  "date": "2026-10-07",
+  "dateRaw": "Oct 7, 2026",
   "method": "free-agent",
   "toTeams": [
    "SAC"
@@ -7349,6 +7440,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Mohamed Wague",
+  "date": "2026-10-08",
+  "dateRaw": "Oct 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "UTA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

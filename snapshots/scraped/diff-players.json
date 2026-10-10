@@ -1,74 +1,151 @@
 {
-  "added": [],
+  "added": [
+    {
+      "name": "Dion Brown",
+      "team": "BRK",
+      "salary": {
+        "2026-27": 1357763
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 1357763
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-10-08",
+          "method": "free-agent",
+          "team": "BRK"
+        }
+      ],
+      "guarantees": {
+        "2026-27": {
+          "status": "non-guaranteed"
+        }
+      }
+    },
+    {
+      "name": "Mohamed Wague",
+      "team": "UTA",
+      "salary": {
+        "2026-27": 1357763
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 1357763
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-10-08",
+          "method": "free-agent",
+          "team": "UTA"
+        }
+      ],
+      "guarantees": {
+        "2026-27": {
+          "status": "non-guaranteed"
+        }
+      }
+    }
+  ],
   "removed": [],
   "changed": [
     {
       "before": {
-        "name": "Jordan Hawkins",
-        "team": "CHI",
+        "name": "Brandin Podziemski",
+        "team": "GSW",
         "salary": {
-          "2026-27": 0
+          "2026-27": 5679458
         },
         "options": {},
         "cashSalary": {
-          "2026-27": 678882
+          "2026-27": 5679458
         },
         "guaranteed": {
-          "2026-27": 0
+          "2026-27": 5679458
         },
         "likelyIncentives": {
           "2026-27": 0
         },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-08",
-            "method": "trade",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-10-05",
-            "method": "free-agent",
-            "team": "CHI"
-          }
-        ]
+        "optionExercised": {
+          "2026-27": true
+        },
+        "acquiredMethod": "Draft"
       },
       "after": {
-        "name": "Jordan Hawkins",
-        "team": "CHI",
+        "name": "Brandin Podziemski",
+        "team": "GSW",
         "salary": {
-          "2026-27": 0
+          "2026-27": 5679458,
+          "2027-28": 18965517,
+          "2028-29": 20482759,
+          "2029-30": 22000000,
+          "2030-31": 23517241,
+          "2031-32": 25034483
         },
-        "options": {},
+        "options": {
+          "2031-32": "Player"
+        },
         "cashSalary": {
-          "2026-27": 678882
+          "2026-27": 5679458,
+          "2027-28": 18965517,
+          "2028-29": 20482759,
+          "2029-30": 22000000,
+          "2030-31": 23517241,
+          "2031-32": 25034483
         },
         "guaranteed": {
-          "2026-27": 91000
+          "2026-27": 5679458,
+          "2027-28": 18965517,
+          "2028-29": 20482759,
+          "2029-30": 22000000,
+          "2030-31": 23517241,
+          "2031-32": 0
         },
         "likelyIncentives": {
-          "2026-27": 0
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0,
+          "2030-31": 0,
+          "2031-32": 0
         },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
+        "optionExercised": {
+          "2026-27": true,
+          "2031-32": false
+        },
+        "acquiredMethod": "Draft",
         "acquisitionHistory": [
           {
-            "date": "2026-09-08",
-            "method": "trade",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-10-05",
-            "method": "free-agent",
-            "team": "CHI"
+            "date": "2026-10-10",
+            "method": "extension",
+            "team": "GSW"
           }
         ]
       },
       "fields": [
-        "guaranteed"
+        "salary",
+        "options",
+        "cashSalary",
+        "guaranteed",
+        "likelyIncentives",
+        "optionExercised",
+        "acquisitionHistory"
       ]
     }
   ]

@@ -1,5 +1,131 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "team": "NOP",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Hunter Dickinson",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Josh Oduro",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "NOP-jose-alvarado-2026-02-05",
+            "amount": 4500000,
+            "expires": "2027-02-05",
+            "fromPlayer": "Jose Alvarado"
+          },
+          {
+            "id": "NOP-jordan-hawkins-2026-09-08",
+            "amount": 7021895,
+            "expires": "2027-09-08",
+            "fromPlayer": "Jordan Hawkins"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Sep 8 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Bennedict Mathurin",
+                "amount": 7500000
+              }
+            ],
+            "remaining": null
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7575000
+        },
+        "apronAddon": 6918801
+      },
+      "after": {
+        "team": "NOP",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Hunter Dickinson",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Josh Oduro",
+            "amount": 2200000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "NOP-jose-alvarado-2026-02-05",
+            "amount": 4500000,
+            "expires": "2027-02-05",
+            "fromPlayer": "Jose Alvarado"
+          },
+          {
+            "id": "NOP-jordan-hawkins-2026-09-08",
+            "amount": 7021895,
+            "expires": "2027-09-08",
+            "fromPlayer": "Jordan Hawkins"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "Trade Salary Acquired: Sep 8 trade"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [
+              {
+                "player": "Bennedict Mathurin",
+                "amount": 7500000
+              }
+            ],
+            "remaining": 976308
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 976308
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7575000
+        },
+        "apronAddon": 6918801
+      },
+      "fields": [
+        "exceptionsUsed"
+      ]
+    }
+  ]
 }
