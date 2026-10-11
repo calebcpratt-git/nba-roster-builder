@@ -200,6 +200,22 @@
   "exhibit10": true
  },
  {
+  "player": "Jaxson Robinson",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Noam Yaacov",
+  "team": "Cleveland Cavaliers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Dwight Powell",
   "team": "Dallas Mavericks",
   "fullAmount": null,
@@ -574,6 +590,14 @@
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
+ },
+ {
+  "player": "Jalon Moore",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Ochai Agbaji",
