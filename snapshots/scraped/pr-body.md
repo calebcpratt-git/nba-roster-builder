@@ -5,10 +5,10 @@ _Automated scrape of Basketball Reference, RealGM, Hoops Rumors, nbacaptracker.c
 - draft-picks: +0 -0 ~0 (of 520)
 - contract-details: +0 -0 ~0 (of 517)
 - team-cap-state: +0 -0 ~0 (of 150)
-- free-agents: +0 -0 ~0 (of 211)
+- free-agents: +2 -0 ~0 (of 211)
 - awards: +1 -0 ~0 (of 78)
 
-### 3 new unresolved entries
-- guarantees: +3
+### 2 new unresolved entries
+- acquisition: +2
 
-**Auto-merged.** 3 new unresolved entries were skipped (see above) — no stale sources, no validation warnings.
+**Auto-merged.** 2 new unresolved entries were skipped (see above) — no stale sources, no validation warnings.

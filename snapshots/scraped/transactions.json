@@ -2588,6 +2588,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Tyler Burton",
+  "date": "2026-10-11",
+  "dateRaw": "Oct 11, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "GSW"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Brandin Podziemski",
   "date": "2026-10-10",
   "dateRaw": "Oct 10, 2026",
@@ -7741,6 +7754,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Alondes Williams",
+  "date": "2026-10-11",
+  "dateRaw": "Oct 11, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "WAS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
