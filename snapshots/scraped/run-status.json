@@ -16,7 +16,7 @@
   "staleSources": [],
   "sourceFetches": {
     "realgm_future_drafts": true,
-    "realgm_current_free_agents": false,
+    "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -59,62 +59,74 @@
     "before": {
       "draft-year": 72,
       "acquisition": 255,
-      "guarantees": 92,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 110,
-      "no-current-salary": 0
-    },
-    "after": {
-      "draft-year": 72,
-      "acquisition": 255,
       "guarantees": 95,
       "signing": 10,
       "awards": 1,
       "name-bridge": 108,
       "no-current-salary": 0
     },
-    "newUnresolved": 3,
+    "after": {
+      "draft-year": 72,
+      "acquisition": 257,
+      "guarantees": 95,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 108,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 2,
     "newByCategory": {
-      "guarantees": 3
+      "acquisition": 2
     },
     "newRecords": {
+      "acquisition": [
+        {
+          "name": "Tyler Burton",
+          "date": "2026-10-11",
+          "method": "free-agent"
+        },
+        {
+          "name": "Alondes Williams",
+          "date": "2026-10-11",
+          "method": "free-agent"
+        }
+      ],
       "guarantees": [
         {
-          "player": "Jaxson Robinson",
-          "team": "Cleveland Cavaliers",
+          "player": "Tyler Burton",
+          "team": "Golden State Warriors",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Noam Yaacov",
-          "team": "Cleveland Cavaliers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Jalon Moore",
-          "team": "New Orleans Pelicans",
+          "player": "Alondes Williams",
+          "team": "Washington Wizards",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         }
+      ],
+      "name-bridge": [
+        {
+          "name": "Alondes Williams"
+        },
+        {
+          "name": "Tyler Burton"
+        }
       ]
     }
   },
-  "generatedAt": "2026-10-11T16:39:44.441Z",
+  "generatedAt": "2026-10-12T20:13:01.446Z",
   "warnings": [],
   "diffSummaries": [
     "players: +0 -0 ~0 (of 525)",
     "draft-picks: +0 -0 ~0 (of 520)",
     "contract-details: +0 -0 ~0 (of 517)",
     "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -0 ~0 (of 211)",
+    "free-agents: +2 -0 ~0 (of 211)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true
