@@ -3598,8 +3598,8 @@
  {
   "bbrefId": null,
   "name": "Rafael Castro",
-  "date": "2026-10-10",
-  "dateRaw": "Oct 10, 2026",
+  "date": "2026-10-09",
+  "dateRaw": "Oct 9, 2026",
   "method": "free-agent",
   "toTeams": [
    "LAL"
@@ -3857,6 +3857,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Zach Cleveland",
+  "date": "2026-10-12",
+  "dateRaw": "Oct 12, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -7169,6 +7182,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jamarion Sharp",
+  "date": "2026-10-12",
+  "dateRaw": "Oct 12, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Tyson Degenhart",
   "date": "2026-10-05",
   "dateRaw": "Oct 5, 2026",
@@ -7440,19 +7466,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Tyreke Key",
-  "date": "2026-04-06",
-  "dateRaw": "Apr 6, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "TOR"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {

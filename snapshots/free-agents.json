@@ -238,13 +238,6 @@
     "birdRights": null
   },
   {
-    "name": "Rafael Castro",
-    "position": "C",
-    "priorTeam": "HOU",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Ulrich Chomche",
     "position": "C",
     "priorTeam": "TOR",
@@ -525,6 +518,13 @@
     "birdRights": null
   },
   {
+    "name": "Chucky Hepburn",
+    "position": "PG",
+    "priorTeam": "TOR",
+    "faType": "U",
+    "birdRights": "early-bird"
+  },
+  {
     "name": "Devon Higgs",
     "position": "SG",
     "priorTeam": "ATL",
@@ -651,6 +651,13 @@
     "birdRights": null
   },
   {
+    "name": "Curtis Jones",
+    "position": "PG",
+    "priorTeam": "CLE",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Keonte Jones",
     "position": "SF",
     "priorTeam": "DEN",
@@ -686,9 +693,23 @@
     "birdRights": null
   },
   {
+    "name": "Christian Koloko",
+    "position": "C",
+    "priorTeam": "NOP",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "John Konchar",
     "position": "SG",
     "priorTeam": "NYK",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "William Kyle III",
+    "position": "PF",
+    "priorTeam": "LAL",
     "faType": "U",
     "birdRights": null
   },
@@ -1022,6 +1043,13 @@
     "birdRights": null
   },
   {
+    "name": "Kadary Richmond",
+    "position": "SG",
+    "priorTeam": "CLE",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
     "name": "Jordan Riley",
     "position": "SG",
     "priorTeam": "DET",
@@ -1193,6 +1221,13 @@
     "name": "Deivon Smith",
     "position": "PG",
     "priorTeam": "GSW",
+    "faType": "U",
+    "birdRights": null
+  },
+  {
+    "name": "Dennis Smith",
+    "position": "PG",
+    "priorTeam": "MIA",
     "faType": "U",
     "birdRights": null
   },

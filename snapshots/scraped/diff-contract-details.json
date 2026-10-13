@@ -1,5 +1,25 @@
 {
   "added": [],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Dion Brown",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Chucky Hepburn",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
   "changed": []
 }

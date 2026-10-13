@@ -3,7 +3,8 @@
   "team": "ATL",
   "player": "Christian Koloko",
   "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "NOP"
  },
  {
   "team": "ATL",
@@ -345,7 +346,8 @@
   "team": "DEN",
   "player": "Curtis Jones",
   "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "CLE"
  },
  {
   "team": "DEN",
@@ -1434,12 +1436,6 @@
   "team": "TOR",
   "player": "Allen Graves",
   "amount": 4100000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "TOR",
-  "player": "Chucky Hepburn",
-  "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"
  },
  {
