@@ -72,22 +72,6 @@
   "exhibit10": true
  },
  {
-  "player": "Dion Brown",
-  "team": "Brooklyn Nets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Dain Dainja",
-  "team": "Brooklyn Nets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Ben Humrichous",
   "team": "Brooklyn Nets",
   "fullAmount": null,
@@ -184,22 +168,6 @@
   "exhibit10": true
  },
  {
-  "player": "Curtis Jones",
-  "team": "Cleveland Cavaliers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Kadary Richmond",
-  "team": "Cleveland Cavaliers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jaxson Robinson",
   "team": "Cleveland Cavaliers",
   "fullAmount": null,
@@ -224,7 +192,7 @@
   "exhibit10": false
  },
  {
-  "player": "Seth Lundy",
+  "player": "Matt Cross",
   "team": "Dallas Mavericks",
   "fullAmount": null,
   "partialAmount": null,
@@ -232,12 +200,12 @@
   "exhibit10": true
  },
  {
-  "player": "Lonnie Walker IV",
-  "team": "Denver Nuggets",
+  "player": "Seth Lundy",
+  "team": "Dallas Mavericks",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
-  "exhibit10": false
+  "exhibit10": true
  },
  {
   "player": "Coleman Hawkins",
@@ -408,14 +376,6 @@
   "exhibit10": false
  },
  {
-  "player": "Yuki Kawamura",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jahmyl Telfort",
   "team": "Los Angeles Clippers",
   "fullAmount": null,
@@ -454,6 +414,14 @@
   "partialAmount": 300000,
   "status": "partial",
   "exhibit10": false
+ },
+ {
+  "player": "Zach Cleveland",
+  "team": "Memphis Grizzlies",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
  },
  {
   "player": "Myron Gardner",
@@ -577,14 +545,6 @@
  },
  {
   "player": "Kobe Bufkin",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "Caleb Houstan",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
   "partialAmount": null,
@@ -840,7 +800,23 @@
   "exhibit10": true
  },
  {
+  "player": "Damari Monsanto",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tristen Newton",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Aaron Nkrumah",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
@@ -905,6 +881,14 @@
  },
  {
   "player": "Tyreke Key",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jamarion Sharp",
   "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,

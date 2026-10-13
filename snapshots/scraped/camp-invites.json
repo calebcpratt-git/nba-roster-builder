@@ -184,29 +184,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Dain Dainja",
-  "team": "BRK",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Ben Humrichous",
   "team": "BRK",
   "section": "Training Camp and Exhibit 10",
@@ -414,52 +391,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Curtis Jones",
-  "team": "CLE",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Kadary Richmond",
-  "team": "CLE",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Jaxson Robinson",
   "team": "CLE",
   "section": "Training Camp and Exhibit 10",
@@ -550,29 +481,6 @@
   "options": {},
   "optionsAccepted": {},
   "faYear": "RFA"
- },
- {
-  "name": "Lonnie Walker IV",
-  "team": "DEN",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": "Camp Invite",
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 3286399
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "UFA"
  },
  {
   "name": "Dane Goodwin",
@@ -966,6 +874,29 @@
   "faYear": "RFA"
  },
  {
+  "name": "Zach Cleveland",
+  "team": "MEM",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Kylor Kelley",
   "team": "MIA",
   "section": "Training Camp and Exhibit 10",
@@ -1233,29 +1164,6 @@
   },
   "guaranteed": {
    "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "UFA"
- },
- {
-  "name": "Caleb Houstan",
-  "team": "NOP",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": "Camp Invite",
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 2625627
-  },
-  "guaranteed": {
-   "2026-27": 2625627
   },
   "likelyIncentives": {
    "2026-27": 0
@@ -1956,6 +1864,29 @@
  },
  {
   "name": "Tyson Degenhart",
+  "team": "TOR",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Jamarion Sharp",
   "team": "TOR",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",

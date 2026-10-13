@@ -1,20 +1,56 @@
 {
   "added": [
     {
-      "name": "J'Vonne Hadley",
-      "position": "SF",
-      "priorTeam": "MIA",
+      "name": "Chucky Hepburn",
+      "position": "PG",
+      "priorTeam": "TOR",
+      "faType": "U",
+      "birdRights": "early-bird"
+    },
+    {
+      "name": "Curtis Jones",
+      "position": "PG",
+      "priorTeam": "CLE",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Lester Quinones",
+      "name": "Christian Koloko",
+      "position": "C",
+      "priorTeam": "NOP",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "William Kyle III",
+      "position": "PF",
+      "priorTeam": "LAL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Kadary Richmond",
       "position": "SG",
+      "priorTeam": "CLE",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Dennis Smith",
+      "position": "PG",
       "priorTeam": "MIA",
       "faType": "U",
       "birdRights": null
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Rafael Castro",
+      "position": "C",
+      "priorTeam": "HOU",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
   "changed": []
 }

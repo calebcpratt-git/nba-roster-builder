@@ -58,15 +58,6 @@
   "unresolved": {
     "before": {
       "draft-year": 72,
-      "acquisition": 255,
-      "guarantees": 95,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 108,
-      "no-current-salary": 0
-    },
-    "after": {
-      "draft-year": 72,
       "acquisition": 257,
       "guarantees": 95,
       "signing": 10,
@@ -74,35 +65,73 @@
       "name-bridge": 108,
       "no-current-salary": 0
     },
-    "newUnresolved": 2,
+    "after": {
+      "draft-year": 70,
+      "acquisition": 260,
+      "guarantees": 94,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 105,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 3,
     "newByCategory": {
-      "acquisition": 2
+      "acquisition": 3
     },
     "newRecords": {
       "acquisition": [
         {
-          "name": "Tyler Burton",
-          "date": "2026-10-11",
+          "name": "Dion Brown",
+          "date": "2026-10-08",
           "method": "free-agent"
         },
         {
-          "name": "Alondes Williams",
-          "date": "2026-10-11",
+          "name": "Zach Cleveland",
+          "date": "2026-10-12",
+          "method": "free-agent"
+        },
+        {
+          "name": "Chucky Hepburn",
+          "date": "2026-06-25",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Tyler Burton",
-          "team": "Golden State Warriors",
+          "player": "Matt Cross",
+          "team": "Dallas Mavericks",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Alondes Williams",
-          "team": "Washington Wizards",
+          "player": "Zach Cleveland",
+          "team": "Memphis Grizzlies",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Damari Monsanto",
+          "team": "Sacramento Kings",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Aaron Nkrumah",
+          "team": "Sacramento Kings",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Jamarion Sharp",
+          "team": "Toronto Raptors",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -111,22 +140,22 @@
       ],
       "name-bridge": [
         {
-          "name": "Alondes Williams"
+          "name": "Jamarion Sharp"
         },
         {
-          "name": "Tyler Burton"
+          "name": "Zach Cleveland"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-12T20:13:01.446Z",
+  "generatedAt": "2026-10-13T18:02:35.604Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 525)",
+    "players: +0 -2 ~1 (of 525)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -0 ~0 (of 517)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +2 -0 ~0 (of 211)",
+    "contract-details: +0 -2 ~0 (of 517)",
+    "team-cap-state: +0 -0 ~4 (of 150)",
+    "free-agents: +6 -1 ~0 (of 213)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

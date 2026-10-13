@@ -16,6 +16,11 @@
     "birdRights": "early-bird"
    },
    {
+    "label": "Christian Koloko",
+    "amount": 2200000,
+    "kind": "free-agent"
+   },
+   {
     "label": "Gabe Vincent",
     "amount": 21900000,
     "kind": "free-agent",
@@ -1646,6 +1651,11 @@
   "season": "2026-27",
   "deadMoney": [],
   "capHolds": [
+   {
+    "label": "Curtis Jones",
+    "amount": 2200000,
+    "kind": "free-agent"
+   },
    {
     "label": "K.J. Simpson",
     "amount": 4074252,
@@ -4662,11 +4672,11 @@
       "amount": 7500000
      }
     ],
-    "remaining": 976308
+    "remaining": 3425729
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 976308
+    "remaining": 3425729
    }
   },
   "cashLedger": {
@@ -7024,6 +7034,12 @@
    {
     "label": "A.J. Lawson",
     "amount": 2500000,
+    "kind": "free-agent",
+    "birdRights": "early-bird"
+   },
+   {
+    "label": "Chucky Hepburn",
+    "amount": 2200000,
     "kind": "free-agent",
     "birdRights": "early-bird"
    }
