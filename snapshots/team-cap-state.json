@@ -4672,11 +4672,11 @@
             "amount": 7500000
           }
         ],
-        "remaining": 3425729
+        "remaining": 2067966
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 3425729
+        "remaining": 2067966
       }
     },
     "cashLedger": {
@@ -6810,7 +6810,7 @@
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 684970
+        "remaining": 2042733
       }
     },
     "cashLedger": {

@@ -1,53 +1,53 @@
 {
   "added": [
     {
-      "name": "Chucky Hepburn",
+      "name": "Dion Brown",
       "position": "PG",
-      "priorTeam": "TOR",
-      "faType": "U",
-      "birdRights": "early-bird"
-    },
-    {
-      "name": "Curtis Jones",
-      "position": "PG",
-      "priorTeam": "CLE",
+      "priorTeam": "BRK",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Christian Koloko",
-      "position": "C",
-      "priorTeam": "NOP",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "William Kyle III",
+      "name": "Dain Dainja",
       "position": "PF",
-      "priorTeam": "LAL",
+      "priorTeam": "BRK",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Kadary Richmond",
+      "name": "Miles Kelly",
       "position": "SG",
-      "priorTeam": "CLE",
+      "priorTeam": "GSW",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Dennis Smith",
-      "position": "PG",
-      "priorTeam": "MIA",
+      "name": "Skal Labissiere",
+      "position": "F-C",
+      "priorTeam": "WAS",
       "faType": "U",
       "birdRights": null
     }
   ],
   "removed": [
     {
-      "name": "Rafael Castro",
+      "name": "Tyler Burton",
+      "position": "SF",
+      "priorTeam": "MEM",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jamarion Sharp",
       "position": "C",
-      "priorTeam": "HOU",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Alondes Williams",
+      "position": "SG",
+      "priorTeam": "WAS",
       "faType": "U",
       "birdRights": null
     }

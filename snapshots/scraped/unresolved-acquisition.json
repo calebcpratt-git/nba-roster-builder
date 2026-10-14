@@ -300,8 +300,33 @@
   "method": "trade"
  },
  {
+  "name": "Darin Green Jr.",
+  "date": "2026-10-13",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jorge Diaz-Graham",
+  "date": "2026-10-13",
+  "method": "free-agent"
+ },
+ {
+  "name": "Matt Cross",
+  "date": "2026-10-12",
+  "method": "free-agent"
+ },
+ {
+  "name": "Chris Mantis",
+  "date": "2026-10-12",
+  "method": "free-agent"
+ },
+ {
   "name": "Seth Lundy",
   "date": "2026-09-25",
+  "method": "free-agent"
+ },
+ {
+  "name": "Pedro Bradshaw",
+  "date": "2026-10-13",
   "method": "free-agent"
  },
  {
@@ -765,6 +790,11 @@
   "method": "trade"
  },
  {
+  "name": "Jalon Moore",
+  "date": "2026-10-09",
+  "method": "free-agent"
+ },
+ {
   "name": "Solomon Washington",
   "date": "2026-09-21",
   "method": "free-agent"
@@ -1070,6 +1100,16 @@
   "method": "free-agent"
  },
  {
+  "name": "Aaron Nkrumah",
+  "date": "2026-10-11",
+  "method": "free-agent"
+ },
+ {
+  "name": "Domari Monsanto",
+  "date": "2026-10-11",
+  "method": "free-agent"
+ },
+ {
   "name": "Trhae Mitchell",
   "date": "2026-10-07",
   "method": "free-agent"
@@ -1192,6 +1232,11 @@
  {
   "name": "A.J. Lawson",
   "date": "2026-04-11",
+  "method": "free-agent"
+ },
+ {
+  "name": "Mohamed Wague",
+  "date": "2026-10-08",
   "method": "free-agent"
  },
  {

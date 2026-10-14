@@ -10044,6 +10044,11 @@
    "date": "2026-07-07",
    "method": "extension",
    "team": "CLE"
+  },
+  {
+   "date": "2026-07-08",
+   "method": "extension",
+   "team": "CLE"
   }
  ],
  "meleek thomas": [
@@ -12079,6 +12084,13 @@
    "date": "2026-10-08",
    "method": "free-agent",
    "team": "UTA"
+  }
+ ],
+ "payton pritchard": [
+  {
+   "date": "2026-10-13",
+   "method": "extension",
+   "team": "BOS"
   }
  ]
 }
