@@ -57,15 +57,6 @@
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 72,
-      "acquisition": 257,
-      "guarantees": 95,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 108,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 70,
       "acquisition": 260,
       "guarantees": 94,
@@ -74,31 +65,71 @@
       "name-bridge": 105,
       "no-current-salary": 0
     },
-    "newUnresolved": 3,
+    "after": {
+      "draft-year": 69,
+      "acquisition": 269,
+      "guarantees": 93,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 108,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 12,
     "newByCategory": {
-      "acquisition": 3
+      "acquisition": 9,
+      "name-bridge": 3
     },
     "newRecords": {
       "acquisition": [
         {
-          "name": "Dion Brown",
-          "date": "2026-10-08",
+          "name": "Darin Green Jr.",
+          "date": "2026-10-13",
           "method": "free-agent"
         },
         {
-          "name": "Zach Cleveland",
+          "name": "Jorge Diaz-Graham",
+          "date": "2026-10-13",
+          "method": "free-agent"
+        },
+        {
+          "name": "Matt Cross",
           "date": "2026-10-12",
           "method": "free-agent"
         },
         {
-          "name": "Chucky Hepburn",
-          "date": "2026-06-25",
+          "name": "Chris Mantis",
+          "date": "2026-10-12",
+          "method": "free-agent"
+        },
+        {
+          "name": "Pedro Bradshaw",
+          "date": "2026-10-13",
+          "method": "free-agent"
+        },
+        {
+          "name": "Jalon Moore",
+          "date": "2026-10-09",
+          "method": "free-agent"
+        },
+        {
+          "name": "Aaron Nkrumah",
+          "date": "2026-10-11",
+          "method": "free-agent"
+        },
+        {
+          "name": "Domari Monsanto",
+          "date": "2026-10-11",
+          "method": "free-agent"
+        },
+        {
+          "name": "Mohamed Wague",
+          "date": "2026-10-08",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Matt Cross",
+          "player": "Jorge Diaz Graham",
           "team": "Dallas Mavericks",
           "fullAmount": null,
           "partialAmount": null,
@@ -106,15 +137,15 @@
           "exhibit10": true
         },
         {
-          "player": "Zach Cleveland",
-          "team": "Memphis Grizzlies",
+          "player": "Fletcher Loyer",
+          "team": "Los Angeles Clippers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Damari Monsanto",
+          "player": "Viktor Lakhin",
           "team": "Sacramento Kings",
           "fullAmount": null,
           "partialAmount": null,
@@ -122,16 +153,8 @@
           "exhibit10": true
         },
         {
-          "player": "Aaron Nkrumah",
-          "team": "Sacramento Kings",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Jamarion Sharp",
-          "team": "Toronto Raptors",
+          "player": "Terry Taylor",
+          "team": "San Antonio Spurs",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -140,22 +163,31 @@
       ],
       "name-bridge": [
         {
-          "name": "Jamarion Sharp"
+          "name": "Aaron Nkrumah"
         },
         {
-          "name": "Zach Cleveland"
+          "name": "Domari Monsanto"
+        },
+        {
+          "name": "Jalon Moore"
+        },
+        {
+          "name": "Jorge Diaz-Graham"
+        },
+        {
+          "name": "Pedro Bradshaw"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-13T18:02:35.604Z",
+  "generatedAt": "2026-10-14T15:47:48.548Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -2 ~1 (of 525)",
+    "players: +0 -1 ~2 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -2 ~0 (of 517)",
-    "team-cap-state: +0 -0 ~4 (of 150)",
-    "free-agents: +6 -1 ~0 (of 213)",
+    "contract-details: +0 -1 ~0 (of 515)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
+    "free-agents: +4 -3 ~0 (of 218)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

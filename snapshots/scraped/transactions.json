@@ -297,6 +297,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Payton Pritchard",
+  "date": "2026-10-13",
+  "dateRaw": "Oct 13, 2026",
+  "method": "extension",
+  "toTeams": [
+   "BOS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Extension",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Gabe McGlothan",
   "date": "2026-09-23",
   "dateRaw": "Sep 23, 2026",
@@ -1704,6 +1717,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Donovan Mitchell",
+  "date": "2026-07-08",
+  "dateRaw": "Jul 8, 2026",
+  "method": "extension",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Extension",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Thomas Bryant",
   "date": "2026-07-07",
   "dateRaw": "Jul 7, 2026",
@@ -1713,19 +1739,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Donovan Mitchell",
-  "date": "2026-07-07",
-  "dateRaw": "Jul 7, 2026",
-  "method": "extension",
-  "toTeams": [
-   "CLE"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Extension",
   "flags": []
  },
  {
@@ -1765,6 +1778,58 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Darin Green Jr.",
+  "date": "2026-10-13",
+  "dateRaw": "Oct 13, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jorge Diaz-Graham",
+  "date": "2026-10-13",
+  "dateRaw": "Oct 13, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Matt Cross",
+  "date": "2026-10-12",
+  "dateRaw": "Oct 12, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Chris Mantis",
+  "date": "2026-10-12",
+  "dateRaw": "Oct 12, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2024,6 +2089,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Pedro Bradshaw",
+  "date": "2026-10-13",
+  "dateRaw": "Oct 13, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -5023,6 +5101,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jalon Moore",
+  "date": "2026-10-09",
+  "dateRaw": "Oct 9, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Julian Reese",
   "date": "2026-09-24",
   "dateRaw": "Sep 24, 2026",
@@ -6656,6 +6747,32 @@
    "MEM"
   ],
   "text": "Traded from MEM",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Aaron Nkrumah",
+  "date": "2026-10-11",
+  "dateRaw": "Oct 11, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Domari Monsanto",
+  "date": "2026-10-11",
+  "dateRaw": "Oct 11, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

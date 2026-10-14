@@ -26,14 +26,6 @@
   "exhibit10": true
  },
  {
-  "player": "Isaac McKneely",
-  "team": "Atlanta Hawks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Devin Carter",
   "team": "Boston Celtics",
   "fullAmount": null,
@@ -162,7 +154,7 @@
   "exhibit10": true
  },
  {
-  "player": "Matt Cross",
+  "player": "Jorge Diaz Graham",
   "team": "Dallas Mavericks",
   "fullAmount": null,
   "partialAmount": null,
@@ -276,6 +268,14 @@
  {
   "player": "Rienk Mast",
   "team": "Indiana Pacers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Fletcher Loyer",
+  "team": "Los Angeles Clippers",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -594,7 +594,7 @@
   "exhibit10": true
  },
  {
-  "player": "Damari Monsanto",
+  "player": "Viktor Lakhin",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
@@ -610,22 +610,6 @@
   "exhibit10": true
  },
  {
-  "player": "Aaron Nkrumah",
-  "team": "Sacramento Kings",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "RJ Davis",
-  "team": "San Antonio Spurs",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jon Elmore",
   "team": "San Antonio Spurs",
   "fullAmount": null,
@@ -635,6 +619,14 @@
  },
  {
   "player": "Taelon Peter",
+  "team": "San Antonio Spurs",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Terry Taylor",
   "team": "San Antonio Spurs",
   "fullAmount": null,
   "partialAmount": null,
