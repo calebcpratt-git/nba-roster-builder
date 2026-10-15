@@ -1,5 +1,28 @@
 [
  {
+  "name": "Giorgi Bezhanishvili",
+  "team": "ATL",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Cam Corhen",
   "team": "ATL",
   "section": "Training Camp and Exhibit 10",
@@ -24,29 +47,6 @@
  },
  {
   "name": "Kobe Johnson",
-  "team": "ATL",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Isaac McKneely",
   "team": "ATL",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -391,29 +391,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Jaxson Robinson",
-  "team": "CLE",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Noam Yaacov",
   "team": "CLE",
   "section": "Training Camp and Exhibit 10",
@@ -494,29 +471,6 @@
   },
   "cashSalary": {
    "2026-27": 2449421
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Pedro Bradshaw",
-  "team": "DEN",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0
@@ -851,7 +805,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "Cole Swider",
+  "name": "Jahmir Young",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -861,7 +815,7 @@
    "2026-27": 2449421
   },
   "cashSalary": {
-   "2026-27": 2537526
+   "2026-27": 2449421
   },
   "guaranteed": {
    "2026-27": 0
@@ -1748,98 +1702,6 @@
   "faYear": "UFA"
  },
  {
-  "name": "Domari Monsanto",
-  "team": "SAC",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Aaron Nkrumah",
-  "team": "SAC",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Malik Williams",
-  "team": "SAS",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 2449421
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Taelon Peter",
-  "team": "SAS",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2185116
-  },
-  "cashSalary": {
-   "2026-27": 2185116
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Jon Elmore",
   "team": "SAS",
   "section": "Training Camp and Exhibit 10",
@@ -2002,29 +1864,6 @@
  },
  {
   "name": "Jonas Aidoo",
-  "team": "UTA",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Taylor Funk",
   "team": "UTA",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",

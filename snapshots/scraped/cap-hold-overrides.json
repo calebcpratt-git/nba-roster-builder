@@ -1044,7 +1044,8 @@
   "team": "NYK",
   "player": "Trey Jemison",
   "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "TOR"
  },
  {
   "team": "NYK",
@@ -1146,7 +1147,8 @@
   "team": "PHI",
   "player": "Lonnie Walker IV",
   "amount": 2500000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "DEN"
  },
  {
   "team": "PHI",

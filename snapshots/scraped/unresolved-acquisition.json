@@ -1,5 +1,10 @@
 [
  {
+  "name": "Giorgi Bezhanishvili",
+  "date": "2026-10-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Cam Corhen",
   "date": "2026-09-28",
   "method": "free-agent"
@@ -325,6 +330,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Steven Crowl",
+  "date": "2026-10-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Pedro Bradshaw",
   "date": "2026-10-13",
   "method": "free-agent"
@@ -540,6 +550,11 @@
   "method": "free-agent"
  },
  {
+  "name": "DeAndre Williams",
+  "date": "2026-10-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Jahmyl Telfort",
   "date": "2026-10-07",
   "method": "free-agent"
@@ -583,6 +598,11 @@
   "name": "Johni Broome",
   "date": "2026-07-28",
   "method": "trade"
+ },
+ {
+  "name": "Jahmir Young",
+  "date": "2026-10-14",
+  "method": "free-agent"
  },
  {
   "name": "Rafael Castro",
@@ -1105,7 +1125,7 @@
   "method": "free-agent"
  },
  {
-  "name": "Domari Monsanto",
+  "name": "Damari Monsanto",
   "date": "2026-10-11",
   "method": "free-agent"
  },
@@ -1153,6 +1173,11 @@
   "name": "Alpha Kaba",
   "date": "2026-06-30",
   "method": "trade"
+ },
+ {
+  "name": "Terry Taylor",
+  "date": "2026-10-14",
+  "method": "free-agent"
  },
  {
   "name": "RJ Davis",
@@ -1220,6 +1245,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Trey Jemison",
+  "date": "2026-08-04",
+  "method": "free-agent"
+ },
+ {
   "name": "Nate Bittle",
   "date": "2026-07-09",
   "method": "free-agent"
@@ -1232,6 +1262,11 @@
  {
   "name": "A.J. Lawson",
   "date": "2026-04-11",
+  "method": "free-agent"
+ },
+ {
+  "name": "Chance Moore",
+  "date": "2026-10-14",
   "method": "free-agent"
  },
  {

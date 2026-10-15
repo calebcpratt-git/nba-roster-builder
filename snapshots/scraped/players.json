@@ -7131,39 +7131,6 @@
   ]
  },
  {
-  "name": "Cam Christie",
-  "team": "LAC",
-  "salary": {
-   "2026-27": 2296271,
-   "2027-28": 2486995
-  },
-  "options": {
-   "2027-28": "Team"
-  },
-  "cashSalary": {
-   "2026-27": 2296271,
-   "2027-28": 2486995
-  },
-  "guaranteed": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "optionExercised": {
-   "2027-28": false
-  },
-  "acquiredMethod": "Draft",
-  "guarantees": {
-   "2026-27": {
-    "status": "non-guaranteed",
-    "guaranteeDate": "2026-10-15"
-   }
-  }
- },
- {
   "name": "Baba Miller",
   "team": "LAC",
   "salary": {
@@ -15388,33 +15355,6 @@
    },
    {
     "date": "2026-09-21",
-    "method": "free-agent",
-    "team": "TOR"
-   }
-  ]
- },
- {
-  "name": "Trey Jemison",
-  "team": "TOR",
-  "salary": {
-   "2026-27": 0
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 678882
-  },
-  "guaranteed": {
-   "2026-27": 91000
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "contractType": "two-way",
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-08-04",
     "method": "free-agent",
     "team": "TOR"
    }

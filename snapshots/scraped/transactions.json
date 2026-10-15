@@ -1,6 +1,19 @@
 [
  {
   "bbrefId": null,
+  "name": "Giorgi Bezhanishvili",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ATL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Cam Corhen",
   "date": "2026-09-28",
   "dateRaw": "Sep 28, 2026",
@@ -2093,6 +2106,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Steven Crowl",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DEN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Pedro Bradshaw",
   "date": "2026-10-13",
   "dateRaw": "Oct 13, 2026",
@@ -3355,6 +3381,19 @@
  },
  {
   "bbrefId": null,
+  "name": "DeAndre Williams",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jahmyl Telfort",
   "date": "2026-10-07",
   "dateRaw": "Oct 7, 2026",
@@ -3649,28 +3688,15 @@
  },
  {
   "bbrefId": null,
-  "name": "Baba Miller",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
+  "name": "Jahmir Young",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
+  "method": "free-agent",
   "toTeams": [
-   "LAC"
+   "LAL"
   ],
   "fromTeams": [],
-  "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Henri Veesaar",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "LAC"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6764,7 +6790,7 @@
  },
  {
   "bbrefId": null,
-  "name": "Domari Monsanto",
+  "name": "Damari Monsanto",
   "date": "2026-10-11",
   "dateRaw": "Oct 11, 2026",
   "method": "free-agent",
@@ -7035,6 +7061,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Terry Taylor",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -7583,6 +7622,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Chance Moore",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "UTA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

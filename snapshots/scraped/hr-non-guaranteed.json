@@ -8,6 +8,14 @@
   "exhibit10": false
  },
  {
+  "player": "Giorgi Bezhanishvili",
+  "team": "Atlanta Hawks",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Cameron Corhen",
   "team": "Atlanta Hawks",
   "fullAmount": null,
@@ -153,14 +161,6 @@
  },
  {
   "player": "Zack Austin",
-  "team": "Cleveland Cavaliers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Jaxson Robinson",
   "team": "Cleveland Cavaliers",
   "fullAmount": null,
   "partialAmount": null,
@@ -360,14 +360,6 @@
   "exhibit10": true
  },
  {
-  "player": "Cam Christie",
-  "team": "Los Angeles Clippers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
   "player": "Fletcher Loyer",
   "team": "Los Angeles Clippers",
   "fullAmount": null,
@@ -400,7 +392,7 @@
   "exhibit10": true
  },
  {
-  "player": "Cole Swider",
+  "player": "Aniwaniwa Tait-Jones",
   "team": "Los Angeles Lakers",
   "fullAmount": null,
   "partialAmount": null,
@@ -824,22 +816,6 @@
   "exhibit10": true
  },
  {
-  "player": "Taelon Peter",
-  "team": "San Antonio Spurs",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Terry Taylor",
-  "team": "San Antonio Spurs",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Malik Williams",
   "team": "San Antonio Spurs",
   "fullAmount": null,
@@ -913,6 +889,14 @@
  },
  {
   "player": "Harrison Ingram",
+  "team": "Utah Jazz",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Chance Moore",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

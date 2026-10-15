@@ -3395,20 +3395,6 @@
     }
   },
   {
-    "name": "Cam Christie",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Baba Miller",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -6797,15 +6783,6 @@
       }
     },
     "signedUnder": "non-taxpayer-mle"
-  },
-  {
-    "name": "Trey Jemison",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
   },
   {
     "name": "Malachi Smith",

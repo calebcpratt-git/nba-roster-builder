@@ -191,7 +191,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Jordan Miller": 2023,
   "Yanic Konan Niederhäuser": 2025,
   "Kobe Sanders": 2025,
-  "Cam Christie": 2024,
   "Baba Miller": 2026,
   "Nick Martinelli": 2026,
   "Luka Dončić": 2018,
