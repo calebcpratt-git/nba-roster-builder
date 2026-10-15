@@ -4974,7 +4974,13 @@
   "team": "NYK",
   "season": "2026-27",
   "deadMoney": [],
-  "capHolds": [],
+  "capHolds": [
+   {
+    "label": "Trey Jemison",
+    "amount": 2200000,
+    "kind": "free-agent"
+   }
+  ],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -5816,6 +5822,11 @@
   "season": "2026-27",
   "deadMoney": [],
   "capHolds": [
+   {
+    "label": "Lonnie Walker IV",
+    "amount": 2500000,
+    "kind": "free-agent"
+   },
    {
     "label": "MarJon Beauchamp",
     "amount": 2500000,
@@ -6810,7 +6821,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 2042733
+    "remaining": 5477000
    }
   },
   "cashLedger": {

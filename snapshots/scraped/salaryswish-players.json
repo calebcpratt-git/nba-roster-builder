@@ -3134,20 +3134,6 @@
    }
   }
  },
- "cam christie": {
-  "team": "LAC",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "baba miller": {
   "team": "LAC",
   "signedUnder": "rookie-scale",
@@ -6826,16 +6812,6 @@
   }
  },
  "jaden bradley": {
-  "team": "TOR",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "trey jemison": {
   "team": "TOR",
   "signedUnder": null,
   "incentives": {

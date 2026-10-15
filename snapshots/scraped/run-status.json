@@ -57,15 +57,6 @@
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 70,
-      "acquisition": 260,
-      "guarantees": 94,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 105,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 69,
       "acquisition": 269,
       "guarantees": 93,
@@ -74,87 +65,87 @@
       "name-bridge": 108,
       "no-current-salary": 0
     },
-    "newUnresolved": 12,
+    "after": {
+      "draft-year": 68,
+      "acquisition": 276,
+      "guarantees": 93,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 101,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 7,
     "newByCategory": {
-      "acquisition": 9,
-      "name-bridge": 3
+      "acquisition": 7
     },
     "newRecords": {
       "acquisition": [
         {
-          "name": "Darin Green Jr.",
-          "date": "2026-10-13",
+          "name": "Giorgi Bezhanishvili",
+          "date": "2026-10-14",
           "method": "free-agent"
         },
         {
-          "name": "Jorge Diaz-Graham",
-          "date": "2026-10-13",
+          "name": "Steven Crowl",
+          "date": "2026-10-14",
           "method": "free-agent"
         },
         {
-          "name": "Matt Cross",
-          "date": "2026-10-12",
+          "name": "DeAndre Williams",
+          "date": "2026-10-14",
           "method": "free-agent"
         },
         {
-          "name": "Chris Mantis",
-          "date": "2026-10-12",
-          "method": "free-agent"
-        },
-        {
-          "name": "Pedro Bradshaw",
-          "date": "2026-10-13",
-          "method": "free-agent"
-        },
-        {
-          "name": "Jalon Moore",
-          "date": "2026-10-09",
-          "method": "free-agent"
-        },
-        {
-          "name": "Aaron Nkrumah",
+          "name": "Damari Monsanto",
           "date": "2026-10-11",
           "method": "free-agent"
         },
         {
-          "name": "Domari Monsanto",
-          "date": "2026-10-11",
+          "name": "Terry Taylor",
+          "date": "2026-10-14",
           "method": "free-agent"
         },
         {
-          "name": "Mohamed Wague",
-          "date": "2026-10-08",
+          "name": "Trey Jemison",
+          "date": "2026-08-04",
+          "method": "free-agent"
+        },
+        {
+          "name": "Chance Moore",
+          "date": "2026-10-14",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Jorge Diaz Graham",
-          "team": "Dallas Mavericks",
+          "player": "Cam Christie",
+          "team": "Clippers",
+          "guaranteeDate": "2026-10-15",
+          "status": "non-guaranteed",
+          "partialAmount": 0,
+          "fullAmount": 2296271,
+          "guaranteeTriggered": false,
+          "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed. ( ❌ )"
+        },
+        {
+          "player": "Giorgi Bezhanishvili",
+          "team": "Atlanta Hawks",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Fletcher Loyer",
-          "team": "Los Angeles Clippers",
+          "player": "Aniwaniwa Tait-Jones",
+          "team": "Los Angeles Lakers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Viktor Lakhin",
-          "team": "Sacramento Kings",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Terry Taylor",
-          "team": "San Antonio Spurs",
+          "player": "Chance Moore",
+          "team": "Utah Jazz",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -163,31 +154,22 @@
       ],
       "name-bridge": [
         {
-          "name": "Aaron Nkrumah"
+          "name": "Giorgi Bezhanishvili"
         },
         {
-          "name": "Domari Monsanto"
-        },
-        {
-          "name": "Jalon Moore"
-        },
-        {
-          "name": "Jorge Diaz-Graham"
-        },
-        {
-          "name": "Pedro Bradshaw"
+          "name": "Jahmir Young"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-14T15:47:48.548Z",
+  "generatedAt": "2026-10-15T15:34:42.952Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -1 ~2 (of 523)",
+    "players: +0 -2 ~0 (of 522)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -1 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +4 -3 ~0 (of 218)",
+    "contract-details: +0 -2 ~0 (of 514)",
+    "team-cap-state: +0 -0 ~3 (of 150)",
+    "free-agents: +31 -2 ~0 (of 219)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true
