@@ -140,6 +140,11 @@
   "method": "free-agent"
  },
  {
+  "name": "DaJuan Gordon",
+  "date": "2026-10-15",
+  "method": "free-agent"
+ },
+ {
   "name": "Wyatt Fricks",
   "date": "2026-09-28",
   "method": "free-agent"
@@ -193,16 +198,6 @@
   "name": "Josiah Allick",
   "date": "2026-08-31",
   "method": "free-agent"
- },
- {
-  "name": "Matteo Spagnolo",
-  "date": "2026-07-10",
-  "method": "trade"
- },
- {
-  "name": "Mouhamadou Gueye",
-  "date": "2026-07-10",
-  "method": "trade"
  },
  {
   "name": "Isaiah Stevens",
@@ -303,6 +298,11 @@
   "name": "Ismael Kamagate",
   "date": "2026-08-20",
   "method": "trade"
+ },
+ {
+  "name": "Guillermo Diaz Graham",
+  "date": "2026-10-16",
+  "method": "free-agent"
  },
  {
   "name": "Darin Green Jr.",
@@ -552,6 +552,11 @@
  {
   "name": "DeAndre Williams",
   "date": "2026-10-14",
+  "method": "free-agent"
+ },
+ {
+  "name": "Fletcher Loyer",
+  "date": "2026-10-13",
   "method": "free-agent"
  },
  {
@@ -940,11 +945,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Mojave King",
-  "date": "2026-06-24",
-  "method": "trade"
- },
- {
   "name": "Anthony Pritchard",
   "date": "2026-10-06",
   "method": "free-agent"
@@ -1012,6 +1012,16 @@
  {
   "name": "Malaki Branham",
   "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
+  "name": "Taye Fields",
+  "date": "2026-10-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Cris Carroll",
+  "date": "2026-10-15",
   "method": "free-agent"
  },
  {
@@ -1120,6 +1130,11 @@
   "method": "free-agent"
  },
  {
+  "name": "David Muoka",
+  "date": "2026-10-15",
+  "method": "free-agent"
+ },
+ {
   "name": "Aaron Nkrumah",
   "date": "2026-10-11",
   "method": "free-agent"
@@ -1150,11 +1165,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Leaky Black",
-  "date": "2026-09-25",
-  "method": "free-agent"
- },
- {
   "name": "Tyrone Marshall Jr.",
   "date": "2026-09-24",
   "method": "free-agent"
@@ -1176,7 +1186,7 @@
  },
  {
   "name": "Terry Taylor",
-  "date": "2026-10-14",
+  "date": "2026-10-13",
   "method": "free-agent"
  },
  {

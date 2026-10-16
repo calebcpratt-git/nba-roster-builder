@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 69,
-      "acquisition": 269,
-      "guarantees": 93,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 108,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 68,
       "acquisition": 276,
       "guarantees": 93,
@@ -74,78 +65,146 @@
       "name-bridge": 101,
       "no-current-salary": 0
     },
-    "newUnresolved": 7,
+    "after": {
+      "draft-year": 69,
+      "acquisition": 278,
+      "guarantees": 91,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 91,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 3,
     "newByCategory": {
-      "acquisition": 7
+      "draft-year": 1,
+      "acquisition": 2
     },
     "newRecords": {
+      "draft-year": [
+        {
+          "name": "Leaky Black",
+          "team": "SAC"
+        }
+      ],
       "acquisition": [
         {
-          "name": "Giorgi Bezhanishvili",
-          "date": "2026-10-14",
+          "name": "DaJuan Gordon",
+          "date": "2026-10-15",
           "method": "free-agent"
         },
         {
-          "name": "Steven Crowl",
-          "date": "2026-10-14",
+          "name": "Guillermo Diaz Graham",
+          "date": "2026-10-16",
           "method": "free-agent"
         },
         {
-          "name": "DeAndre Williams",
-          "date": "2026-10-14",
+          "name": "Taye Fields",
+          "date": "2026-10-15",
           "method": "free-agent"
         },
         {
-          "name": "Damari Monsanto",
-          "date": "2026-10-11",
+          "name": "Cris Carroll",
+          "date": "2026-10-15",
           "method": "free-agent"
         },
         {
-          "name": "Terry Taylor",
-          "date": "2026-10-14",
-          "method": "free-agent"
-        },
-        {
-          "name": "Trey Jemison",
-          "date": "2026-08-04",
-          "method": "free-agent"
-        },
-        {
-          "name": "Chance Moore",
-          "date": "2026-10-14",
+          "name": "David Muoka",
+          "date": "2026-10-15",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Cam Christie",
-          "team": "Clippers",
-          "guaranteeDate": "2026-10-15",
-          "status": "non-guaranteed",
-          "partialAmount": 0,
-          "fullAmount": 2296271,
-          "guaranteeTriggered": false,
-          "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed. ( ❌ )"
-        },
-        {
-          "player": "Giorgi Bezhanishvili",
-          "team": "Atlanta Hawks",
+          "player": "Latrell Wrightsell",
+          "team": "Charlotte Hornets",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Aniwaniwa Tait-Jones",
-          "team": "Los Angeles Lakers",
+          "player": "Guillermo Diaz Graham",
+          "team": "Dallas Mavericks",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Chance Moore",
-          "team": "Utah Jazz",
+          "player": "Cameron Matthews",
+          "team": "Houston Rockets",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Nathan Mensah",
+          "team": "Los Angeles Clippers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Miye Oni",
+          "team": "Los Angeles Clippers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Ezra Ausar",
+          "team": "Miami Heat",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Hunter Dickinson",
+          "team": "New Orleans Pelicans",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Cris Carroll",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Taye Fields",
+          "team": "Philadelphia 76ers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Caleb Houstan",
+          "team": "Portland Trail Blazers",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "David Muoka",
+          "team": "Sacramento Kings",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": true
+        },
+        {
+          "player": "Kendall Brown",
+          "team": "San Antonio Spurs",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -154,22 +213,22 @@
       ],
       "name-bridge": [
         {
-          "name": "Giorgi Bezhanishvili"
+          "name": "Cris Carroll"
         },
         {
-          "name": "Jahmir Young"
+          "name": "Taye Fields"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-15T15:34:42.952Z",
+  "generatedAt": "2026-10-16T15:19:28.102Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -2 ~0 (of 522)",
+    "players: +1 -0 ~0 (of 520)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +0 -2 ~0 (of 514)",
+    "contract-details: +1 -0 ~0 (of 512)",
     "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +31 -2 ~0 (of 219)",
+    "free-agents: +8 -27 ~1 (of 248)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

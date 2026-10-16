@@ -1,6 +1,64 @@
 {
   "added": [
     {
+      "name": "Pedro Bradshaw",
+      "position": "SF",
+      "priorTeam": "DEN",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Matt Cross",
+      "position": "SF",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "R.J. Davis",
+      "position": "PG",
+      "priorTeam": "SAS",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Darin Green, Jr.",
+      "position": "SG",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Yuki Kawamura",
+      "position": "PG",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Chris Mantis",
+      "position": "SF",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Isaac McKneely",
+      "position": "SG",
+      "priorTeam": "ATL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Mohamed Wague",
+      "position": "PF",
+      "priorTeam": "UTA",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
       "name": "Nicolas Batum",
       "position": "SG/SF",
       "priorTeam": "LAC",
@@ -64,25 +122,11 @@
       "birdRights": null
     },
     {
-      "name": "Caleb Houstan",
-      "position": "SG",
-      "priorTeam": "NOP",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
       "name": "Joe Ingles",
       "position": "F-G",
       "priorTeam": "MIN",
       "faType": "U",
       "birdRights": "early-bird"
-    },
-    {
-      "name": "Trey Jemison",
-      "position": "C",
-      "priorTeam": "TOR",
-      "faType": "U",
-      "birdRights": "non-bird"
     },
     {
       "name": "Maxi Kleber",
@@ -118,20 +162,6 @@
       "priorTeam": "SAC",
       "faType": "U",
       "birdRights": "early-bird"
-    },
-    {
-      "name": "Damari Monsanto",
-      "position": "SG",
-      "priorTeam": "SAC",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Aaron Nkrumah",
-      "position": "SG",
-      "priorTeam": "SAC",
-      "faType": "U",
-      "birdRights": null
     },
     {
       "name": "Kelly Olynyk",
@@ -197,13 +227,6 @@
       "birdRights": null
     },
     {
-      "name": "Lonnie Walker",
-      "position": "G-F",
-      "priorTeam": "DEN",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
       "name": "Russell Westbrook",
       "position": "PG",
       "priorTeam": "SAC",
@@ -216,23 +239,34 @@
       "priorTeam": "CHI",
       "faType": "U",
       "birdRights": null
-    }
-  ],
-  "removed": [
-    {
-      "name": "Viktor Lakhin",
-      "position": "PF",
-      "priorTeam": "SAC",
-      "faType": "U",
-      "birdRights": null
     },
     {
-      "name": "Fletcher Loyer",
-      "position": "SG",
-      "priorTeam": "LAC",
+      "name": "Jahmir Young",
+      "position": "PG",
+      "priorTeam": "MIA",
       "faType": "U",
-      "birdRights": null
+      "birdRights": "non-bird"
     }
   ],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Chucky Hepburn",
+        "position": "PG",
+        "priorTeam": "TOR",
+        "faType": "U",
+        "birdRights": "early-bird"
+      },
+      "after": {
+        "name": "Chucky Hepburn",
+        "position": "PG",
+        "priorTeam": "TOR",
+        "faType": "U",
+        "birdRights": null
+      },
+      "fields": [
+        "birdRights"
+      ]
+    }
+  ]
 }

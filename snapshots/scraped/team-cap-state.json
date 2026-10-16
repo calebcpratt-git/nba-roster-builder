@@ -73,7 +73,7 @@
    },
    "biAnnual": {
     "signings": [],
-    "remaining": 2664947
+    "remaining": 4022710
    },
    "tradeExceptionsUsed": [
     {
@@ -892,6 +892,11 @@
     "amount": 2200000,
     "kind": "free-agent",
     "birdRights": "non-bird"
+   },
+   {
+    "label": "Yuki Kawamura",
+    "amount": 2200000,
+    "kind": "free-agent"
    },
    {
     "label": "Guerschon Yabusele",
@@ -7051,8 +7056,7 @@
    {
     "label": "Chucky Hepburn",
     "amount": 2200000,
-    "kind": "free-agent",
-    "birdRights": "early-bird"
+    "kind": "free-agent"
    }
   ],
   "salaryCap": 165000000,
