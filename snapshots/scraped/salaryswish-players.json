@@ -6361,6 +6361,16 @@
    }
   }
  },
+ "leaky black": {
+  "team": "SAC",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "adam flagler": {
   "team": "SAC",
   "signedUnder": null,

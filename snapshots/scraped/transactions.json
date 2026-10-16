@@ -875,6 +875,19 @@
  },
  {
   "bbrefId": null,
+  "name": "DaJuan Gordon",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Wyatt Fricks",
   "date": "2026-09-28",
   "dateRaw": "Sep 28, 2026",
@@ -1186,51 +1199,6 @@
    "PHX"
   ],
   "text": "Traded from PHX",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Matteo Spagnolo",
-  "date": "2026-07-10",
-  "dateRaw": "Jul 10, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [
-   "MIN"
-  ],
-  "text": "Traded from MIN",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Mouhamadou Gueye",
-  "date": "2026-07-10",
-  "dateRaw": "Jul 10, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [
-   "CHI"
-  ],
-  "text": "Traded from CHI",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Naz Reid",
-  "date": "2026-07-10",
-  "dateRaw": "Jul 10, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [
-   "MIN"
-  ],
-  "text": "Traded from MIN",
   "flags": []
  },
  {
@@ -1791,6 +1759,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Guillermo Diaz Graham",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "DAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -3394,6 +3375,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Fletcher Loyer",
+  "date": "2026-10-13",
+  "dateRaw": "Oct 13, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jahmyl Telfort",
   "date": "2026-10-07",
   "dateRaw": "Oct 7, 2026",
@@ -3671,19 +3665,6 @@
    "TOR"
   ],
   "text": "Traded from TOR",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Keaton Wagler",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "LAC"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
   "flags": []
  },
  {
@@ -5716,47 +5697,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Mojave King",
-  "date": "2026-06-24",
-  "dateRaw": "Jun 24, 2026",
-  "method": "trade",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [
-   "HOU"
-  ],
-  "text": "Traded from HOU",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Cameron Carr",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Nick Martinelli",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Anthony Pritchard",
   "date": "2026-10-06",
   "dateRaw": "Oct 6, 2026",
@@ -6143,6 +6083,32 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Taye Fields",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Cris Carroll",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6777,6 +6743,32 @@
  },
  {
   "bbrefId": null,
+  "name": "David Muoka",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Leaky Black",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Aaron Nkrumah",
   "date": "2026-10-11",
   "dateRaw": "Oct 11, 2026",
@@ -7066,8 +7058,8 @@
  {
   "bbrefId": null,
   "name": "Terry Taylor",
-  "date": "2026-10-14",
-  "dateRaw": "Oct 14, 2026",
+  "date": "2026-10-13",
+  "dateRaw": "Oct 13, 2026",
   "method": "free-agent",
   "toTeams": [
    "SAS"

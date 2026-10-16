@@ -20,14 +20,6 @@
   "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed. ( ❌ )"
  },
  {
-  "player": "Giorgi Bezhanishvili",
-  "team": "Atlanta Hawks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Cameron Corhen",
   "team": "Atlanta Hawks",
   "fullAmount": null,
@@ -84,15 +76,7 @@
   "exhibit10": true
  },
  {
-  "player": "Ben Humrichous",
-  "team": "Brooklyn Nets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Wyatt Fricks",
+  "player": "Jarkel Joiner",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -100,7 +84,7 @@
   "exhibit10": true
  },
  {
-  "player": "Jarkel Joiner",
+  "player": "Latrell Wrightsell",
   "team": "Charlotte Hornets",
   "fullAmount": null,
   "partialAmount": null,
@@ -164,7 +148,7 @@
   "exhibit10": true
  },
  {
-  "player": "Jorge Diaz Graham",
+  "player": "Guillermo Diaz Graham",
   "team": "Dallas Mavericks",
   "fullAmount": null,
   "partialAmount": null,
@@ -244,6 +228,14 @@
   "exhibit10": true
  },
  {
+  "player": "Cameron Matthews",
+  "team": "Houston Rockets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Julian Phillips",
   "team": "Houston Rockets",
   "fullAmount": null,
@@ -284,7 +276,15 @@
   "exhibit10": true
  },
  {
-  "player": "Fletcher Loyer",
+  "player": "Nathan Mensah",
+  "team": "Los Angeles Clippers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Miye Oni",
   "team": "Los Angeles Clippers",
   "fullAmount": null,
   "partialAmount": null,
@@ -332,6 +332,14 @@
   "exhibit10": true
  },
  {
+  "player": "Ezra Ausar",
+  "team": "Miami Heat",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Kylor Kelley",
   "team": "Miami Heat",
   "fullAmount": null,
@@ -349,14 +357,6 @@
  },
  {
   "player": "Bez Mbeng",
-  "team": "Miami Heat",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Ian Schieffelin",
   "team": "Miami Heat",
   "fullAmount": null,
   "partialAmount": null,
@@ -420,6 +420,14 @@
   "exhibit10": false
  },
  {
+  "player": "Hunter Dickinson",
+  "team": "New Orleans Pelicans",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Jalon Moore",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -428,31 +436,7 @@
   "exhibit10": true
  },
  {
-  "player": "Ochai Agbaji",
-  "team": "New York Knicks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "Tony Bradley",
-  "team": "New York Knicks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
   "player": "Bruce Brown",
-  "team": "New York Knicks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "Drew Eubanks",
   "team": "New York Knicks",
   "fullAmount": null,
   "partialAmount": null,
@@ -524,7 +508,23 @@
   "exhibit10": true
  },
  {
+  "player": "Cris Carroll",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tacko Fall",
+  "team": "Philadelphia 76ers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Taye Fields",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
   "partialAmount": null,
@@ -540,23 +540,7 @@
   "exhibit10": true
  },
  {
-  "player": "Duke Miles",
-  "team": "Philadelphia 76ers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jameer Nelson Jr.",
-  "team": "Philadelphia 76ers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Saint Thomas",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
   "partialAmount": null,
@@ -588,20 +572,20 @@
   "exhibit10": true
  },
  {
+  "player": "Caleb Houstan",
+  "team": "Portland Trail Blazers",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Elfrid Payton",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": false
- },
- {
-  "player": "Leaky Black",
-  "team": "Sacramento Kings",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
  },
  {
   "player": "Viktor Lakhin",
@@ -612,8 +596,24 @@
   "exhibit10": true
  },
  {
+  "player": "David Muoka",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Tristen Newton",
   "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Kendall Brown",
+  "team": "San Antonio Spurs",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -684,23 +684,7 @@
   "exhibit10": true
  },
  {
-  "player": "Taylor Funk",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Harrison Ingram",
-  "team": "Utah Jazz",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Chance Moore",
   "team": "Utah Jazz",
   "fullAmount": null,
   "partialAmount": null,

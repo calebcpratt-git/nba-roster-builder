@@ -172,7 +172,8 @@
   "team": "CHI",
   "player": "Yuki Kawamura",
   "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "LAC"
  },
  {
   "team": "CHI",

@@ -14298,6 +14298,38 @@
   ]
  },
  {
+  "name": "Leaky Black",
+  "team": "SAC",
+  "salary": {
+   "2026-27": 0
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 678882
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "contractType": "two-way",
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-25",
+    "method": "free-agent",
+    "team": "SAC"
+   },
+   {
+    "date": "2026-10-15",
+    "method": "free-agent",
+    "team": "SAC"
+   }
+  ]
+ },
+ {
   "name": "Adam Flagler",
   "team": "SAC",
   "salary": {
