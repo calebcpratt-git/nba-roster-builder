@@ -252,6 +252,13 @@
   "birdRights": null
  },
  {
+  "name": "Cameron Christie",
+  "position": "SG",
+  "priorTeam": "LAC",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Amir Coffey",
   "position": "G-F",
   "priorTeam": "PHO",
@@ -290,6 +297,13 @@
   "name": "Matt Cross",
   "position": "SF",
   "priorTeam": "DAL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Steven Crowl",
+  "position": "C",
+  "priorTeam": "DEN",
   "faType": "U",
   "birdRights": null
  },
@@ -353,13 +367,6 @@
   "name": "Ibrahima Diallo",
   "position": "C",
   "priorTeam": "UTA",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "Hunter Dickinson",
-  "position": "C",
-  "priorTeam": "NOP",
   "faType": "U",
   "birdRights": null
  },
@@ -598,13 +605,6 @@
   "name": "Jaelen House",
   "position": "PG",
   "priorTeam": "UTA",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "Caleb Houstan",
-  "position": "SG",
-  "priorTeam": "NOP",
   "faType": "U",
   "birdRights": null
  },
@@ -1085,6 +1085,13 @@
   "birdRights": null
  },
  {
+  "name": "Taelon Peter",
+  "position": "PG",
+  "priorTeam": "SAS",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Mason Plumlee",
   "position": "PF",
   "priorTeam": "SAS",
@@ -1144,6 +1151,13 @@
   "name": "Liam Robbins",
   "position": "C",
   "priorTeam": "NYK",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Jax Robinson",
+  "position": "G-F",
+  "priorTeam": "CLE",
   "faType": "U",
   "birdRights": null
  },
@@ -1358,9 +1372,23 @@
   "birdRights": null
  },
  {
+  "name": "Cole Swider",
+  "position": "PF",
+  "priorTeam": "LAL",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Wade Taylor IV",
   "position": "PG",
   "priorTeam": "IND",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Terry Taylor",
+  "position": "SF",
+  "priorTeam": "SAS",
   "faType": "U",
   "birdRights": null
  },
@@ -1547,6 +1575,13 @@
   "birdRights": null
  },
  {
+  "name": "DeAndre Williams",
+  "position": "SF",
+  "priorTeam": "LAC",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
   "name": "Nate Williams, Jr.",
   "position": "SG",
   "priorTeam": "GSW",
@@ -1557,6 +1592,13 @@
   "name": "Vincent Williams, Jr.",
   "position": "SG",
   "priorTeam": "UTA",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Malik Williams",
+  "position": "C",
+  "priorTeam": "SAS",
   "faType": "U",
   "birdRights": null
  },

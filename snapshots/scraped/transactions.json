@@ -311,8 +311,8 @@
  {
   "bbrefId": null,
   "name": "Payton Pritchard",
-  "date": "2026-10-13",
-  "dateRaw": "Oct 13, 2026",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
   "method": "extension",
   "toTeams": [
    "BOS"
@@ -862,19 +862,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Trevon Scott",
-  "date": "2026-04-12",
-  "dateRaw": "Apr 12, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "BRK"
-  ],
-  "fromTeams": [],
-  "text": "Signed to 10-Day Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "DaJuan Gordon",
   "date": "2026-10-15",
   "dateRaw": "Oct 15, 2026",
@@ -1174,21 +1161,6 @@
  {
   "bbrefId": null,
   "name": "Royce O'Neale",
-  "date": "2026-07-13",
-  "dateRaw": "Jul 13, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [
-   "PHX"
-  ],
-  "text": "Traded from PHX",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Grayson Allen",
   "date": "2026-07-13",
   "dateRaw": "Jul 13, 2026",
   "method": "trade",
@@ -3362,6 +3334,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Cameron Christie",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "DeAndre Williams",
   "date": "2026-10-14",
   "dateRaw": "Oct 14, 2026",
@@ -3665,6 +3650,19 @@
    "TOR"
   ],
   "text": "Traded from TOR",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Aniwaniwa Tait-Jones",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -5108,6 +5106,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Hunter Dickinson",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NOP"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jalon Moore",
   "date": "2026-10-09",
   "dateRaw": "Oct 9, 2026",
@@ -5693,6 +5704,45 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Extension",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Lamar Wilkerson",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "OKC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Nate Johnson",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "OKC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Dariq Whitehead",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "OKC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6572,6 +6622,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Caleb Houstan",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "POR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jaylen Martin",
   "date": "2026-09-30",
   "dateRaw": "Sep 30, 2026",
@@ -7057,6 +7120,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Kendall Brown",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Terry Taylor",
   "date": "2026-10-13",
   "dateRaw": "Oct 13, 2026",
@@ -7326,6 +7402,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Jalen Celestine",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

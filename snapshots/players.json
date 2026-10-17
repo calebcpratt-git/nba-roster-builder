@@ -787,6 +787,11 @@
         "date": "2026-10-13",
         "method": "extension",
         "team": "BOS"
+      },
+      {
+        "date": "2026-10-16",
+        "method": "extension",
+        "team": "BOS"
       }
     ]
   },
@@ -2099,32 +2104,6 @@
         "team": "CHO"
       }
     ]
-  },
-  {
-    "name": "Pat Connaughton",
-    "team": "CHO",
-    "salary": {
-      "2026-27": 3815861
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 3815861
-    },
-    "guaranteed": {
-      "2026-27": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {
-      "2026-27": true
-    },
-    "acquiredMethod": "Signed",
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
   },
   {
     "name": "Liam McNeeley",
@@ -7172,6 +7151,33 @@
       },
       {
         "date": "2026-07-09",
+        "method": "free-agent",
+        "team": "LAC"
+      }
+    ]
+  },
+  {
+    "name": "Cameron Christie",
+    "team": "LAC",
+    "salary": {
+      "2026-27": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 678882
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-10-16",
         "method": "free-agent",
         "team": "LAC"
       }

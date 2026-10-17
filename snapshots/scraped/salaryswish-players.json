@@ -925,16 +925,6 @@
    }
   }
  },
- "pat connaughton": {
-  "team": "CHO",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "liam mcneeley": {
   "team": "CHO",
   "signedUnder": "rookie-scale",
@@ -3151,6 +3141,16 @@
     "unlikely": 0
    },
    "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "cameron christie": {
+  "team": "LAC",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

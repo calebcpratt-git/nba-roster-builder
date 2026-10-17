@@ -135,11 +135,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Trevon Scott",
-  "date": "2026-04-12",
-  "method": "free-agent"
- },
- {
   "name": "DaJuan Gordon",
   "date": "2026-10-15",
   "method": "free-agent"
@@ -605,6 +600,11 @@
   "method": "trade"
  },
  {
+  "name": "Aniwaniwa Tait-Jones",
+  "date": "2026-10-14",
+  "method": "free-agent"
+ },
+ {
   "name": "Jahmir Young",
   "date": "2026-10-14",
   "method": "free-agent"
@@ -815,6 +815,11 @@
   "method": "trade"
  },
  {
+  "name": "Hunter Dickinson",
+  "date": "2026-10-15",
+  "method": "free-agent"
+ },
+ {
   "name": "Jalon Moore",
   "date": "2026-10-09",
   "method": "free-agent"
@@ -942,6 +947,21 @@
  {
   "name": "John Konchar",
   "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Lamar Wilkerson",
+  "date": "2026-10-16",
+  "method": "free-agent"
+ },
+ {
+  "name": "Nate Johnson",
+  "date": "2026-10-16",
+  "method": "free-agent"
+ },
+ {
+  "name": "Dariq Whitehead",
+  "date": "2026-10-16",
   "method": "free-agent"
  },
  {
@@ -1095,6 +1115,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Caleb Houstan",
+  "date": "2026-10-16",
+  "method": "free-agent"
+ },
+ {
   "name": "Jaylen Martin",
   "date": "2026-09-30",
   "method": "free-agent"
@@ -1185,6 +1210,11 @@
   "method": "trade"
  },
  {
+  "name": "Kendall Brown",
+  "date": "2026-10-16",
+  "method": "free-agent"
+ },
+ {
   "name": "Terry Taylor",
   "date": "2026-10-13",
   "method": "free-agent"
@@ -1222,6 +1252,11 @@
  {
   "name": "David Jones",
   "date": "2026-07-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jalen Celestine",
+  "date": "2026-10-16",
   "method": "free-agent"
  },
  {

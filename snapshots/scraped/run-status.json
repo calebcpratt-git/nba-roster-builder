@@ -57,15 +57,6 @@
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 68,
-      "acquisition": 276,
-      "guarantees": 93,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 101,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 69,
       "acquisition": 278,
       "guarantees": 91,
@@ -74,64 +65,70 @@
       "name-bridge": 91,
       "no-current-salary": 0
     },
-    "newUnresolved": 3,
+    "after": {
+      "draft-year": 70,
+      "acquisition": 285,
+      "guarantees": 86,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 90,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 8,
     "newByCategory": {
       "draft-year": 1,
-      "acquisition": 2
+      "acquisition": 7
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Leaky Black",
-          "team": "SAC"
+          "name": "Cameron Christie",
+          "team": "LAC"
         }
       ],
       "acquisition": [
         {
-          "name": "DaJuan Gordon",
-          "date": "2026-10-15",
+          "name": "Aniwaniwa Tait-Jones",
+          "date": "2026-10-14",
           "method": "free-agent"
         },
         {
-          "name": "Guillermo Diaz Graham",
+          "name": "Lamar Wilkerson",
           "date": "2026-10-16",
           "method": "free-agent"
         },
         {
-          "name": "Taye Fields",
-          "date": "2026-10-15",
+          "name": "Nate Johnson",
+          "date": "2026-10-16",
           "method": "free-agent"
         },
         {
-          "name": "Cris Carroll",
-          "date": "2026-10-15",
+          "name": "Dariq Whitehead",
+          "date": "2026-10-16",
           "method": "free-agent"
         },
         {
-          "name": "David Muoka",
-          "date": "2026-10-15",
+          "name": "Kendall Brown",
+          "date": "2026-10-16",
+          "method": "free-agent"
+        },
+        {
+          "name": "Jalen Celestine",
+          "date": "2026-10-16",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Latrell Wrightsell",
-          "team": "Charlotte Hornets",
+          "player": "Tre’Von Spillers",
+          "team": "Cleveland Cavaliers",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Guillermo Diaz Graham",
-          "team": "Dallas Mavericks",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Cameron Matthews",
+          "player": "Bryce Harris",
           "team": "Houston Rockets",
           "fullAmount": null,
           "partialAmount": null,
@@ -139,72 +136,40 @@
           "exhibit10": true
         },
         {
-          "player": "Nathan Mensah",
-          "team": "Los Angeles Clippers",
+          "player": "Caleb McConnell",
+          "team": "Houston Rockets",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Miye Oni",
-          "team": "Los Angeles Clippers",
+          "player": "Nate Johnson",
+          "team": "Oklahoma City Thunder",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Ezra Ausar",
-          "team": "Miami Heat",
+          "player": "Dariq Whitehead",
+          "team": "Oklahoma City Thunder",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Hunter Dickinson",
-          "team": "New Orleans Pelicans",
+          "player": "Lamar Wilkerson",
+          "team": "Oklahoma City Thunder",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
           "exhibit10": true
         },
         {
-          "player": "Cris Carroll",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Taye Fields",
-          "team": "Philadelphia 76ers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Caleb Houstan",
-          "team": "Portland Trail Blazers",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "David Muoka",
-          "team": "Sacramento Kings",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Kendall Brown",
-          "team": "San Antonio Spurs",
+          "player": "Jalen Celestine",
+          "team": "Toronto Raptors",
           "fullAmount": null,
           "partialAmount": null,
           "status": "non-guaranteed",
@@ -213,22 +178,34 @@
       ],
       "name-bridge": [
         {
-          "name": "Cris Carroll"
+          "name": "Aniwaniwa Tait-Jones"
         },
         {
-          "name": "Taye Fields"
+          "name": "Cameron Christie"
+        },
+        {
+          "name": "Dariq Whitehead"
+        },
+        {
+          "name": "Jalen Celestine"
+        },
+        {
+          "name": "Lamar Wilkerson"
+        },
+        {
+          "name": "Nate Johnson"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-16T15:19:28.102Z",
+  "generatedAt": "2026-10-17T14:09:20.161Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~0 (of 520)",
+    "players: +1 -1 ~1 (of 521)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -0 ~0 (of 512)",
-    "team-cap-state: +0 -0 ~3 (of 150)",
-    "free-agents: +8 -27 ~1 (of 248)",
+    "contract-details: +1 -1 ~0 (of 513)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
+    "free-agents: +7 -2 ~0 (of 229)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true
