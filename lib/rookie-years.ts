@@ -58,7 +58,6 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Tidjane Salaün": 2024,
   "Hannes Steinbach": 2026,
   "Christian Anderson Jr.": 2026,
-  "Pat Connaughton": 2015,
   "Liam McNeeley": 2025,
   "Moussa Diabaté": 2022,
   "Sion James": 2025,

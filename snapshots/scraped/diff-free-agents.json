@@ -1,272 +1,70 @@
 {
   "added": [
     {
-      "name": "Pedro Bradshaw",
-      "position": "SF",
-      "priorTeam": "DEN",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Matt Cross",
-      "position": "SF",
-      "priorTeam": "DAL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "R.J. Davis",
-      "position": "PG",
-      "priorTeam": "SAS",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Darin Green, Jr.",
-      "position": "SG",
-      "priorTeam": "DAL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Yuki Kawamura",
-      "position": "PG",
-      "priorTeam": "LAC",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Chris Mantis",
-      "position": "SF",
-      "priorTeam": "DAL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Isaac McKneely",
-      "position": "SG",
-      "priorTeam": "ATL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Mohamed Wague",
-      "position": "PF",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": null
-    }
-  ],
-  "removed": [
-    {
-      "name": "Nicolas Batum",
-      "position": "SG/SF",
-      "priorTeam": "LAC",
-      "faType": "U",
-      "birdRights": "early-bird"
-    },
-    {
-      "name": "Bismack Biyombo",
-      "position": "PF/C",
-      "priorTeam": "SAS",
-      "faType": "U",
-      "birdRights": "early-bird"
-    },
-    {
-      "name": "Seth Curry",
-      "position": "PG",
-      "priorTeam": "GSW",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Dante Exum",
-      "position": "SG",
-      "priorTeam": "WAS",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Taj Gibson",
-      "position": "PF",
-      "priorTeam": "NOP",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Eric Gordon",
-      "position": "SG",
-      "priorTeam": "MEM",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Jeff Green",
-      "position": "PF",
-      "priorTeam": "HOU",
-      "faType": "U",
-      "birdRights": "full-bird"
-    },
-    {
-      "name": "Gary Harris",
-      "position": "SG",
-      "priorTeam": "DET",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Nigel Hayes-Davis",
-      "position": "SF",
-      "priorTeam": "MIL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Joe Ingles",
-      "position": "F-G",
-      "priorTeam": "MIN",
-      "faType": "U",
-      "birdRights": "early-bird"
-    },
-    {
-      "name": "Maxi Kleber",
-      "position": "PF",
-      "priorTeam": "LAL",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Skal Labissiere",
-      "position": "F-C",
-      "priorTeam": "WAS",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Kevin Love",
-      "position": "PF/C",
-      "priorTeam": "UTA",
-      "faType": "U",
-      "birdRights": "full-bird"
-    },
-    {
-      "name": "Kyle Lowry",
-      "position": "PG",
-      "priorTeam": "PHI",
-      "faType": "U",
-      "birdRights": "full-bird"
-    },
-    {
-      "name": "Doug McDermott",
-      "position": "SF",
-      "priorTeam": "SAC",
-      "faType": "U",
-      "birdRights": "early-bird"
-    },
-    {
-      "name": "Kelly Olynyk",
-      "position": "C/PF",
-      "priorTeam": "SAS",
-      "faType": "U",
-      "birdRights": "full-bird"
-    },
-    {
-      "name": "Chris Paul",
-      "position": "PG",
-      "priorTeam": "TOR",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Mason Plumlee",
-      "position": "PF",
-      "priorTeam": "SAS",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Terry Rozier",
-      "position": "PG",
-      "priorTeam": "MIA",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "D'Angelo Russell",
-      "position": "PG",
-      "priorTeam": "MEM",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Dario Saric",
-      "position": "F-C",
-      "priorTeam": "DET",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "David Stockton",
-      "position": "PG",
-      "priorTeam": "PHO",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Garrett Temple",
-      "position": "SG",
-      "priorTeam": "TOR",
-      "faType": "U",
-      "birdRights": "full-bird"
-    },
-    {
-      "name": "Jonas Valanciunas",
+      "name": "Steven Crowl",
       "position": "C",
       "priorTeam": "DEN",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Russell Westbrook",
+      "name": "Taelon Peter",
       "position": "PG",
-      "priorTeam": "SAC",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Guerschon Yabusele",
-      "position": "SF",
-      "priorTeam": "CHI",
+      "priorTeam": "SAS",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Jahmir Young",
-      "position": "PG",
-      "priorTeam": "MIA",
+      "name": "Jax Robinson",
+      "position": "G-F",
+      "priorTeam": "CLE",
       "faType": "U",
-      "birdRights": "non-bird"
+      "birdRights": null
+    },
+    {
+      "name": "Cole Swider",
+      "position": "PF",
+      "priorTeam": "LAL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Terry Taylor",
+      "position": "SF",
+      "priorTeam": "SAS",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "DeAndre Williams",
+      "position": "SF",
+      "priorTeam": "LAC",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Malik Williams",
+      "position": "C",
+      "priorTeam": "SAS",
+      "faType": "U",
+      "birdRights": null
     }
   ],
-  "changed": [
+  "removed": [
     {
-      "before": {
-        "name": "Chucky Hepburn",
-        "position": "PG",
-        "priorTeam": "TOR",
-        "faType": "U",
-        "birdRights": "early-bird"
-      },
-      "after": {
-        "name": "Chucky Hepburn",
-        "position": "PG",
-        "priorTeam": "TOR",
-        "faType": "U",
-        "birdRights": null
-      },
-      "fields": [
-        "birdRights"
-      ]
+      "name": "Hunter Dickinson",
+      "position": "C",
+      "priorTeam": "NOP",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Caleb Houstan",
+      "position": "SG",
+      "priorTeam": "NOP",
+      "faType": "U",
+      "birdRights": null
     }
-  ]
+  ],
+  "changed": []
 }

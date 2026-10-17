@@ -1346,16 +1346,6 @@
     }
   },
   {
-    "name": "Pat Connaughton",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Liam McNeeley",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -3411,6 +3401,15 @@
         "unlikely": 0
       },
       "2029-30": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Cameron Christie",
+    "incentives": {
+      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }

@@ -1,8 +1,8 @@
 {
   "added": [
     {
-      "name": "Leaky Black",
-      "team": "SAC",
+      "name": "Cameron Christie",
+      "team": "LAC",
       "salary": {
         "2026-27": 0
       },
@@ -21,18 +21,135 @@
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
-          "date": "2026-09-25",
+          "date": "2026-10-16",
           "method": "free-agent",
-          "team": "SAC"
-        },
-        {
-          "date": "2026-10-15",
-          "method": "free-agent",
-          "team": "SAC"
+          "team": "LAC"
         }
       ]
     }
   ],
-  "removed": [],
-  "changed": []
+  "removed": [
+    {
+      "name": "Pat Connaughton",
+      "team": "CHO",
+      "salary": {
+        "2026-27": 3815861
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 3815861
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {
+        "2026-27": true
+      },
+      "acquiredMethod": "Signed",
+      "guarantees": {
+        "2026-27": {
+          "status": "non-guaranteed"
+        }
+      }
+    }
+  ],
+  "changed": [
+    {
+      "before": {
+        "name": "Payton Pritchard",
+        "team": "BOS",
+        "salary": {
+          "2026-27": 7767857,
+          "2027-28": 8303571,
+          "2028-29": 21250000,
+          "2029-30": 22950000
+        },
+        "options": {
+          "2029-30": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 7767857,
+          "2027-28": 8303571,
+          "2028-29": 21250000,
+          "2029-30": 22950000
+        },
+        "guaranteed": {
+          "2026-27": 7767857,
+          "2027-28": 8303571,
+          "2028-29": 21250000,
+          "2029-30": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {
+          "2029-30": false
+        },
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-10-13",
+            "method": "extension",
+            "team": "BOS"
+          }
+        ]
+      },
+      "after": {
+        "name": "Payton Pritchard",
+        "team": "BOS",
+        "salary": {
+          "2026-27": 7767857,
+          "2027-28": 8303571,
+          "2028-29": 21250000,
+          "2029-30": 22950000
+        },
+        "options": {
+          "2029-30": "Player"
+        },
+        "cashSalary": {
+          "2026-27": 7767857,
+          "2027-28": 8303571,
+          "2028-29": 21250000,
+          "2029-30": 22950000
+        },
+        "guaranteed": {
+          "2026-27": 7767857,
+          "2027-28": 8303571,
+          "2028-29": 21250000,
+          "2029-30": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0,
+          "2028-29": 0,
+          "2029-30": 0
+        },
+        "optionExercised": {
+          "2029-30": false
+        },
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-10-13",
+            "method": "extension",
+            "team": "BOS"
+          },
+          {
+            "date": "2026-10-16",
+            "method": "extension",
+            "team": "BOS"
+          }
+        ]
+      },
+      "fields": [
+        "acquisitionHistory"
+      ]
+    }
+  ]
 }

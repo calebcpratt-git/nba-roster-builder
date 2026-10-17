@@ -140,7 +140,7 @@
   "exhibit10": true
  },
  {
-  "player": "Noam Yaacov",
+  "player": "Tre’Von Spillers",
   "team": "Cleveland Cavaliers",
   "fullAmount": null,
   "partialAmount": null,
@@ -148,8 +148,8 @@
   "exhibit10": true
  },
  {
-  "player": "Guillermo Diaz Graham",
-  "team": "Dallas Mavericks",
+  "player": "Noam Yaacov",
+  "team": "Cleveland Cavaliers",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -228,7 +228,23 @@
   "exhibit10": true
  },
  {
+  "player": "Bryce Harris",
+  "team": "Houston Rockets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
   "player": "Cameron Matthews",
+  "team": "Houston Rockets",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Caleb McConnell",
   "team": "Houston Rockets",
   "fullAmount": null,
   "partialAmount": null,
@@ -420,14 +436,6 @@
   "exhibit10": false
  },
  {
-  "player": "Hunter Dickinson",
-  "team": "New Orleans Pelicans",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Jalon Moore",
   "team": "New Orleans Pelicans",
   "fullAmount": null,
@@ -452,23 +460,7 @@
   "exhibit10": false
  },
  {
-  "player": "Andrew Holifield",
-  "team": "Oklahoma City Thunder",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Anthony Pritchard",
-  "team": "Oklahoma City Thunder",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Zhaire Smith",
+  "player": "Nate Johnson",
   "team": "Oklahoma City Thunder",
   "fullAmount": null,
   "partialAmount": null,
@@ -484,24 +476,16 @@
   "exhibit10": true
  },
  {
-  "player": "Malaki Branham",
-  "team": "Orlando Magic",
+  "player": "Dariq Whitehead",
+  "team": "Oklahoma City Thunder",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
   "exhibit10": true
  },
  {
-  "player": "JD Davison",
-  "team": "Orlando Magic",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Kevin Knox II",
-  "team": "Orlando Magic",
+  "player": "Lamar Wilkerson",
+  "team": "Oklahoma City Thunder",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -572,14 +556,6 @@
   "exhibit10": true
  },
  {
-  "player": "Caleb Houstan",
-  "team": "Portland Trail Blazers",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Elfrid Payton",
   "team": "Sacramento Kings",
   "fullAmount": null,
@@ -596,32 +572,8 @@
   "exhibit10": true
  },
  {
-  "player": "David Muoka",
-  "team": "Sacramento Kings",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
   "player": "Tristen Newton",
   "team": "Sacramento Kings",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Kendall Brown",
-  "team": "San Antonio Spurs",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Jon Elmore",
-  "team": "San Antonio Spurs",
   "fullAmount": null,
   "partialAmount": null,
   "status": "non-guaranteed",
@@ -645,6 +597,14 @@
  },
  {
   "player": "Nimari Burnett",
+  "team": "Toronto Raptors",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": true
+ },
+ {
+  "player": "Jalen Celestine",
   "team": "Toronto Raptors",
   "fullAmount": null,
   "partialAmount": null,

@@ -965,6 +965,12 @@
  },
  {
   "team": "NOP",
+  "player": "Hunter Dickinson",
+  "amount": 2200000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "NOP",
   "player": "Trey Alexander",
   "amount": 2200000,
   "reason": "not-in-realgm-current-free-agents"

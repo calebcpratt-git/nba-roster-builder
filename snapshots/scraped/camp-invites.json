@@ -161,29 +161,6 @@
   "faYear": "RFA"
  },
  {
-  "name": "Ben Humrichous",
-  "team": "BRK",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
   "name": "Jarkel Joiner",
   "team": "CHO",
   "section": "Training Camp and Exhibit 10",
@@ -736,17 +713,17 @@
   "faYear": "RFA"
  },
  {
-  "name": "Jahmir Young",
+  "name": "Rafael Castro",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 2449421
+   "2026-27": 1357763
   },
   "cashSalary": {
-   "2026-27": 2449421
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0
@@ -759,7 +736,7 @@
   "faYear": "RFA"
  },
  {
-  "name": "Rafael Castro",
+  "name": "Aniwaniwa Tait-Jones",
   "team": "LAL",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -875,29 +852,6 @@
  },
  {
   "name": "Gabe Madsen",
-  "team": "MIA",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 1357763
-  },
-  "cashSalary": {
-   "2026-27": 1357763
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "RFA"
- },
- {
-  "name": "Ian Schieffelin",
   "team": "MIA",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
@@ -1150,6 +1104,52 @@
   "faYear": "UFA"
  },
  {
+  "name": "Dariq Whitehead",
+  "team": "OKC",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 2185116
+  },
+  "cashSalary": {
+   "2026-27": 2537526
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Nate Johnson",
+  "team": "OKC",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
   "name": "Christoph Tilly",
   "team": "OKC",
   "section": "Training Camp and Exhibit 10",
@@ -1173,17 +1173,17 @@
   "faYear": "RFA"
  },
  {
-  "name": "Malaki Branham",
-  "team": "ORL",
+  "name": "Lamar Wilkerson",
+  "team": "OKC",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
   "acquiredMethod": "Signed",
   "terms": null,
   "salary": {
-   "2026-27": 2449421
+   "2026-27": 1357763
   },
   "cashSalary": {
-   "2026-27": 2625627
+   "2026-27": 1357763
   },
   "guaranteed": {
    "2026-27": 0
@@ -1193,53 +1193,7 @@
   },
   "options": {},
   "optionsAccepted": {},
-  "faYear": "UFA"
- },
- {
-  "name": "JD Davison",
-  "team": "ORL",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 2625627
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "UFA"
- },
- {
-  "name": "Kevin Knox II",
-  "team": "ORL",
-  "section": "Training Camp and Exhibit 10",
-  "status": "Training Camp and Exhibit 10",
-  "acquiredMethod": "Signed",
-  "terms": null,
-  "salary": {
-   "2026-27": 2449421
-  },
-  "cashSalary": {
-   "2026-27": 3286399
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "options": {},
-  "optionsAccepted": {},
-  "faYear": "UFA"
+  "faYear": "RFA"
  },
  {
   "name": "Tacko Fall",
@@ -1519,6 +1473,29 @@
  },
  {
   "name": "Nimari Burnett",
+  "team": "TOR",
+  "section": "Training Camp and Exhibit 10",
+  "status": "Training Camp and Exhibit 10",
+  "acquiredMethod": "Signed",
+  "terms": null,
+  "salary": {
+   "2026-27": 1357763
+  },
+  "cashSalary": {
+   "2026-27": 1357763
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": "RFA"
+ },
+ {
+  "name": "Jalen Celestine",
   "team": "TOR",
   "section": "Training Camp and Exhibit 10",
   "status": "Training Camp and Exhibit 10",
