@@ -503,6 +503,16 @@
    }
   }
  },
+ "devin carter": {
+  "team": "BOS",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "dillon mitchell": {
   "team": "BOS",
   "signedUnder": null,
@@ -1726,16 +1736,6 @@
   }
  },
  "tobi lawal": {
-  "team": "DAL",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "john poulakidas": {
   "team": "DAL",
   "signedUnder": null,
   "incentives": {
@@ -4193,20 +4193,6 @@
    }
   }
  },
- "pete nance": {
-  "team": "MIL",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "bogoljub markovic": {
   "team": "MIL",
   "signedUnder": "rookie-scale",
@@ -4464,16 +4450,6 @@
     "unlikely": 0
    },
    "2029-30": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "enrique freeman": {
-  "team": "MIN",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -5675,6 +5651,16 @@
    }
   }
  },
+ "tacko fall": {
+  "team": "PHI",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "caleb love": {
   "team": "PHI",
   "signedUnder": null,
@@ -5879,16 +5865,6 @@
    }
   }
  },
- "haywood highsmith": {
-  "team": "PHO",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "oso ighodaro": {
   "team": "PHO",
   "signedUnder": "rookie-scale",
@@ -5932,6 +5908,16 @@
   }
  },
  "cj huntley": {
+  "team": "PHO",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "duop reath": {
   "team": "PHO",
   "signedUnder": null,
   "incentives": {
@@ -6128,16 +6114,6 @@
   }
  },
  "branden carlson": {
-  "team": "POR",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "jeremy sochan": {
   "team": "POR",
   "signedUnder": "minimum",
   "incentives": {
@@ -6831,6 +6807,16 @@
    }
   }
  },
+ "nate bittle": {
+  "team": "TOR",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "malachi smith": {
   "team": "TOR",
   "signedUnder": null,
@@ -7049,6 +7035,16 @@
    }
   }
  },
+ "tony bradley": {
+  "team": "UTA",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "trey alexander": {
   "team": "UTA",
   "signedUnder": null,
@@ -7059,21 +7055,17 @@
    }
   }
  },
- "tamar bates": {
+ "blake hinson": {
   "team": "UTA",
   "signedUnder": null,
   "incentives": {
    "2026-27": {
     "likely": 0,
     "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
    }
   }
  },
- "blake hinson": {
+ "harrison ingram": {
   "team": "UTA",
   "signedUnder": null,
   "incentives": {
@@ -7294,6 +7286,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "reece beekman": {
+  "team": "WAS",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

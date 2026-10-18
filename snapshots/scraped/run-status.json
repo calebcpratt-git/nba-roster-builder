@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 17,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 69,
-      "acquisition": 278,
-      "guarantees": 91,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 91,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 70,
       "acquisition": 285,
       "guarantees": 86,
@@ -74,138 +65,170 @@
       "name-bridge": 90,
       "no-current-salary": 0
     },
-    "newUnresolved": 8,
+    "after": {
+      "draft-year": 74,
+      "acquisition": 288,
+      "guarantees": 8,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 27,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 7,
     "newByCategory": {
-      "draft-year": 1,
-      "acquisition": 7
+      "draft-year": 4,
+      "acquisition": 3
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Cameron Christie",
-          "team": "LAC"
+          "name": "Devin Carter",
+          "team": "BOS"
+        },
+        {
+          "name": "Tacko Fall",
+          "team": "PHI"
+        },
+        {
+          "name": "Duop Reath",
+          "team": "PHO"
+        },
+        {
+          "name": "Nate Bittle",
+          "team": "TOR"
+        },
+        {
+          "name": "Tony Bradley",
+          "team": "UTA"
+        },
+        {
+          "name": "Harrison Ingram",
+          "team": "UTA"
+        },
+        {
+          "name": "Reece Beekman",
+          "team": "WAS"
         }
       ],
       "acquisition": [
         {
-          "name": "Aniwaniwa Tait-Jones",
-          "date": "2026-10-14",
+          "name": "Latrell Wrightsell, Jr.",
+          "date": "2026-10-17",
           "method": "free-agent"
         },
         {
-          "name": "Lamar Wilkerson",
+          "name": "Tre'Von Spillers",
           "date": "2026-10-16",
           "method": "free-agent"
         },
         {
-          "name": "Nate Johnson",
-          "date": "2026-10-16",
+          "name": "Bryce Harris",
+          "date": "2026-10-17",
           "method": "free-agent"
         },
         {
-          "name": "Dariq Whitehead",
-          "date": "2026-10-16",
+          "name": "Caleb McConnell",
+          "date": "2026-10-17",
           "method": "free-agent"
         },
         {
-          "name": "Kendall Brown",
-          "date": "2026-10-16",
+          "name": "Cameron Matthews",
+          "date": "2026-10-17",
           "method": "free-agent"
         },
         {
-          "name": "Jalen Celestine",
-          "date": "2026-10-16",
+          "name": "Nathan Mensah",
+          "date": "2026-10-17",
+          "method": "free-agent"
+        },
+        {
+          "name": "Miye Oni",
+          "date": "2026-10-17",
+          "method": "free-agent"
+        },
+        {
+          "name": "Marcus Garrett",
+          "date": "2026-10-17",
+          "method": "free-agent"
+        },
+        {
+          "name": "Pete Nance",
+          "date": "2026-07-08",
+          "method": "free-agent"
+        },
+        {
+          "name": "Enrique Freeman",
+          "date": "2026-07-02",
+          "method": "free-agent"
+        },
+        {
+          "name": "Dink Pate",
+          "date": "2026-10-17",
+          "method": "free-agent"
+        },
+        {
+          "name": "Buddy Boeheim",
+          "date": "2026-10-17",
+          "method": "free-agent"
+        },
+        {
+          "name": "Haywood Highsmith",
+          "date": "2026-08-17",
+          "method": "free-agent"
+        },
+        {
+          "name": "Jeremy Sochan",
+          "date": "2026-08-02",
+          "method": "free-agent"
+        },
+        {
+          "name": "Tamar Bates",
+          "date": "2026-07-03",
+          "method": "free-agent"
+        },
+        {
+          "name": "Nolan Hickman",
+          "date": "2026-10-17",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Tre’Von Spillers",
-          "team": "Cleveland Cavaliers",
-          "fullAmount": null,
-          "partialAmount": null,
+          "player": "Pete Nance",
+          "team": "Bucks",
+          "guaranteeDate": "2026-07-04",
           "status": "non-guaranteed",
-          "exhibit10": true
+          "partialAmount": 0,
+          "fullAmount": 2497812,
+          "guaranteeTriggered": false,
+          "raw": "Non-guaranteed salary ($2,497,812) becomes fully guaranteed. ( ❌ )"
         },
         {
-          "player": "Bryce Harris",
-          "team": "Houston Rockets",
-          "fullAmount": null,
-          "partialAmount": null,
+          "player": "Pete Nance",
+          "team": "Bucks",
+          "guaranteeDate": "2026-10-19",
           "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Caleb McConnell",
-          "team": "Houston Rockets",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Nate Johnson",
-          "team": "Oklahoma City Thunder",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Dariq Whitehead",
-          "team": "Oklahoma City Thunder",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Lamar Wilkerson",
-          "team": "Oklahoma City Thunder",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
-        },
-        {
-          "player": "Jalen Celestine",
-          "team": "Toronto Raptors",
-          "fullAmount": null,
-          "partialAmount": null,
-          "status": "non-guaranteed",
-          "exhibit10": true
+          "partialAmount": 0,
+          "fullAmount": 2537526,
+          "guaranteeTriggered": false,
+          "raw": "Non-guaranteed salary ($2,537,526) becomes fully guaranteed. ( ❌ )"
         }
       ],
       "name-bridge": [
         {
-          "name": "Aniwaniwa Tait-Jones"
-        },
-        {
-          "name": "Cameron Christie"
-        },
-        {
-          "name": "Dariq Whitehead"
-        },
-        {
-          "name": "Jalen Celestine"
-        },
-        {
-          "name": "Lamar Wilkerson"
-        },
-        {
-          "name": "Nate Johnson"
+          "name": "Tony Bradley"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-17T14:09:20.161Z",
+  "generatedAt": "2026-10-18T14:24:50.073Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -1 ~1 (of 521)",
+    "players: +7 -6 ~5 (of 521)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -1 ~0 (of 513)",
-    "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +7 -2 ~0 (of 229)",
+    "contract-details: +7 -6 ~0 (of 513)",
+    "team-cap-state: +0 -0 ~17 (of 150)",
+    "free-agents: +19 -2 ~1 (of 234)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

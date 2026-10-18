@@ -310,6 +310,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Devin Carter",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "BOS"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Payton Pritchard",
   "date": "2026-10-16",
   "dateRaw": "Oct 16, 2026",
@@ -555,19 +568,6 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Dalano Banton",
-  "date": "2026-04-11",
-  "dateRaw": "Apr 11, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "BOS"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
   "flags": []
  },
  {
@@ -862,6 +862,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Latrell Wrightsell, Jr.",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "DaJuan Gordon",
   "date": "2026-10-15",
   "dateRaw": "Oct 15, 2026",
@@ -1115,62 +1128,6 @@
    "HOU"
   ],
   "text": "Traded from HOU",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Michael Ajayi",
-  "date": "2026-07-06",
-  "dateRaw": "Jul 6, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Coby White",
-  "date": "2026-07-06",
-  "dateRaw": "Jul 6, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Dorian Finney-Smith",
-  "date": "2026-07-03",
-  "dateRaw": "Jul 3, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [
-   "HOU"
-  ],
-  "text": "Traded from HOU",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Royce O'Neale",
-  "date": "2026-07-13",
-  "dateRaw": "Jul 13, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CHO"
-  ],
-  "fromTeams": [
-   "PHX"
-  ],
-  "text": "Traded from PHX",
   "flags": []
  },
  {
@@ -1482,15 +1439,15 @@
  },
  {
   "bbrefId": null,
-  "name": "Mouhamadou Gueye",
-  "date": "2026-04-09",
-  "dateRaw": "Apr 9, 2026",
+  "name": "Tre'Von Spillers",
+  "date": "2026-10-16",
+  "dateRaw": "Oct 16, 2026",
   "method": "free-agent",
   "toTeams": [
-   "CHI"
+   "CLE"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -2957,6 +2914,45 @@
  },
  {
   "bbrefId": null,
+  "name": "Bryce Harris",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "HOU"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Caleb McConnell",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "HOU"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Cameron Matthews",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "HOU"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Amen Thompson",
   "date": "2026-09-03",
   "dateRaw": "Sep 3, 2026",
@@ -3334,6 +3330,32 @@
  },
  {
   "bbrefId": null,
+  "name": "Nathan Mensah",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Miye Oni",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Cameron Christie",
   "date": "2026-10-16",
   "dateRaw": "Oct 16, 2026",
@@ -3598,62 +3620,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Keaton Wagler",
-  "date": "2026-07-03",
-  "dateRaw": "Jul 3, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "LAC"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Rookie Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Nick Martinelli",
-  "date": "2026-06-30",
-  "dateRaw": "Jun 30, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "LAC"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Gradey Dick",
-  "date": "2026-09-14",
-  "dateRaw": "Sep 14, 2026",
-  "method": "trade",
-  "toTeams": [
-   "LAC"
-  ],
-  "fromTeams": [
-   "TOR"
-  ],
-  "text": "Traded from TOR",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Brandon Ingram",
-  "date": "2026-09-14",
-  "dateRaw": "Sep 14, 2026",
-  "method": "trade",
-  "toTeams": [
-   "LAC"
-  ],
-  "fromTeams": [
-   "TOR"
-  ],
-  "text": "Traded from TOR",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Aniwaniwa Tait-Jones",
   "date": "2026-10-14",
   "dateRaw": "Oct 14, 2026",
@@ -3914,32 +3880,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "AK Okereke",
-  "date": "2026-07-03",
-  "dateRaw": "Jul 3, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "LAL"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Cameron Carr",
-  "date": "2026-07-02",
-  "dateRaw": "Jul 2, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "LAL"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Rookie Contract",
   "flags": []
  },
  {
@@ -4564,6 +4504,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Marcus Garrett",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Exhibit 10",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Johni Broome",
   "date": "2026-10-05",
   "dateRaw": "Oct 5, 2026",
@@ -5107,8 +5060,8 @@
  {
   "bbrefId": null,
   "name": "Hunter Dickinson",
-  "date": "2026-10-15",
-  "dateRaw": "Oct 15, 2026",
+  "date": "2026-10-14",
+  "dateRaw": "Oct 14, 2026",
   "method": "free-agent",
   "toTeams": [
    "NOP"
@@ -5396,6 +5349,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Dink Pate",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "NYK"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Rookie Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Toby Okani",
   "date": "2026-09-30",
   "dateRaw": "Sep 30, 2026",
@@ -5656,54 +5622,15 @@
  },
  {
   "bbrefId": null,
-  "name": "Mohamed Diawara",
-  "date": "2026-07-06",
-  "dateRaw": "Jul 6, 2026",
+  "name": "Buddy Boeheim",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
   "method": "free-agent",
   "toTeams": [
-   "NYK"
+   "OKC"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Andre Drummond",
-  "date": "2026-07-06",
-  "dateRaw": "Jul 6, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Landry Shamet",
-  "date": "2026-07-06",
-  "dateRaw": "Jul 6, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Jose Alvarado",
-  "date": "2026-07-06",
-  "dateRaw": "Jul 6, 2026",
-  "method": "extension",
-  "toTeams": [
-   "NYK"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Extension",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {
@@ -6137,6 +6064,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Tacko Fall",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Taye Fields",
   "date": "2026-10-15",
   "dateRaw": "Oct 15, 2026",
@@ -6369,6 +6309,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Duop Reath",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "PHO"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -6623,8 +6576,8 @@
  {
   "bbrefId": null,
   "name": "Caleb Houstan",
-  "date": "2026-10-16",
-  "dateRaw": "Oct 16, 2026",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
   "method": "free-agent",
   "toTeams": [
    "POR"
@@ -7121,8 +7074,8 @@
  {
   "bbrefId": null,
   "name": "Kendall Brown",
-  "date": "2026-10-16",
-  "dateRaw": "Oct 16, 2026",
+  "date": "2026-10-15",
+  "dateRaw": "Oct 15, 2026",
   "method": "free-agent",
   "toTeams": [
    "SAS"
@@ -7402,6 +7355,19 @@
   ],
   "fromTeams": [],
   "text": "Drafted",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Nate Bittle",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -7694,15 +7660,28 @@
  },
  {
   "bbrefId": null,
-  "name": "A.J. Lawson",
-  "date": "2026-04-11",
-  "dateRaw": "Apr 11, 2026",
-  "method": "free-agent",
+  "name": "Tony Bradley",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "waiver",
   "toTeams": [
-   "TOR"
+   "UTA"
   ],
   "fromTeams": [],
-  "text": "Signed to Veteran Contract",
+  "text": "Claimed on waivers by Utah Jazz",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Harrison Ingram",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "UTA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -7995,28 +7974,28 @@
  },
  {
   "bbrefId": null,
-  "name": "Bez Mbeng",
-  "date": "2026-04-03",
-  "dateRaw": "Apr 3, 2026",
+  "name": "Reece Beekman",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
   "method": "free-agent",
   "toTeams": [
-   "UTA"
+   "WAS"
   ],
   "fromTeams": [],
-  "text": "Signed to Rookie Contract",
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
   "bbrefId": null,
-  "name": "Kennedy Chandler",
-  "date": "2026-04-01",
-  "dateRaw": "Apr 1, 2026",
+  "name": "Nolan Hickman",
+  "date": "2026-10-17",
+  "dateRaw": "Oct 17, 2026",
   "method": "free-agent",
   "toTeams": [
-   "UTA"
+   "WAS"
   ],
   "fromTeams": [],
-  "text": "Signed to 10-Day Contract",
+  "text": "Signed to Exhibit 10",
   "flags": []
  },
  {

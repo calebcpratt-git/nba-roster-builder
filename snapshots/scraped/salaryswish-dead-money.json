@@ -455,6 +455,25 @@
   "acquiredMethod": null,
   "terms": null,
   "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Haywood Highsmith",
+  "team": "PHO",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
    "2026-27": 1000000
   },
   "cashSalary": {

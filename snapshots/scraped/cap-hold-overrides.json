@@ -100,7 +100,8 @@
   "team": "BRK",
   "player": "Ochai Agbaji",
   "amount": 19200000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "NYK"
  },
  {
   "team": "BRK",
@@ -929,12 +930,6 @@
  },
  {
   "team": "MIN",
-  "player": "Enrique Freeman",
-  "amount": 2200000,
-  "reason": "not-in-realgm-current-free-agents"
- },
- {
-  "team": "MIN",
   "player": "Jaylen Clark",
   "amount": 3000000,
   "reason": "not-in-realgm-current-free-agents"
@@ -1348,7 +1343,8 @@
   "team": "SAC",
   "player": "Drew Eubanks",
   "amount": 2500000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "NYK"
  },
  {
   "team": "SAC",

@@ -45,11 +45,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Devin Carter",
-  "date": "2026-06-30",
-  "method": "trade"
- },
- {
   "name": "Narcisse N'Goy",
   "date": "2026-06-23",
   "method": "draft"
@@ -70,11 +65,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Devin Carter",
-  "date": "2026-09-14",
-  "method": "free-agent"
- },
- {
   "name": "Hank Morgan",
   "date": "2026-09-11",
   "method": "free-agent"
@@ -87,11 +77,6 @@
  {
   "name": "Tucker DeVries",
   "date": "2026-07-14",
-  "method": "free-agent"
- },
- {
-  "name": "Dalano Banton",
-  "date": "2026-04-11",
   "method": "free-agent"
  },
  {
@@ -132,6 +117,11 @@
  {
   "name": "Isaiah Wong",
   "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Latrell Wrightsell, Jr.",
+  "date": "2026-10-17",
   "method": "free-agent"
  },
  {
@@ -250,8 +240,8 @@
   "method": "trade"
  },
  {
-  "name": "Mouhamadou Gueye",
-  "date": "2026-04-09",
+  "name": "Tre'Von Spillers",
+  "date": "2026-10-16",
   "method": "free-agent"
  },
  {
@@ -475,6 +465,21 @@
   "method": "draft"
  },
  {
+  "name": "Bryce Harris",
+  "date": "2026-10-17",
+  "method": "free-agent"
+ },
+ {
+  "name": "Caleb McConnell",
+  "date": "2026-10-17",
+  "method": "free-agent"
+ },
+ {
+  "name": "Cameron Matthews",
+  "date": "2026-10-17",
+  "method": "free-agent"
+ },
+ {
   "name": "Rafael Castro",
   "date": "2026-08-26",
   "method": "free-agent"
@@ -542,6 +547,16 @@
  {
   "name": "Wade Taylor IV",
   "date": "2026-09-14",
+  "method": "free-agent"
+ },
+ {
+  "name": "Nathan Mensah",
+  "date": "2026-10-17",
+  "method": "free-agent"
+ },
+ {
+  "name": "Miye Oni",
+  "date": "2026-10-17",
   "method": "free-agent"
  },
  {
@@ -735,6 +750,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Marcus Garrett",
+  "date": "2026-10-17",
+  "method": "free-agent"
+ },
+ {
   "name": "Johni Broome",
   "date": "2026-10-05",
   "method": "free-agent"
@@ -747,6 +767,11 @@
  {
   "name": "John Butler jr.",
   "date": "2026-09-03",
+  "method": "free-agent"
+ },
+ {
+  "name": "Pete Nance",
+  "date": "2026-07-08",
   "method": "free-agent"
  },
  {
@@ -805,6 +830,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Enrique Freeman",
+  "date": "2026-07-02",
+  "method": "free-agent"
+ },
+ {
   "name": "Trey Kaufman-Renn",
   "date": "2026-06-23",
   "method": "draft"
@@ -816,7 +846,7 @@
  },
  {
   "name": "Hunter Dickinson",
-  "date": "2026-10-15",
+  "date": "2026-10-14",
   "method": "free-agent"
  },
  {
@@ -880,12 +910,12 @@
   "method": "free-agent"
  },
  {
-  "name": "Toby Okani",
-  "date": "2026-09-30",
+  "name": "Dink Pate",
+  "date": "2026-10-17",
   "method": "free-agent"
  },
  {
-  "name": "Tony Bradley",
+  "name": "Toby Okani",
   "date": "2026-09-30",
   "method": "free-agent"
  },
@@ -947,6 +977,11 @@
  {
   "name": "John Konchar",
   "date": "2026-09-15",
+  "method": "free-agent"
+ },
+ {
+  "name": "Buddy Boeheim",
+  "date": "2026-10-17",
   "method": "free-agent"
  },
  {
@@ -1060,11 +1095,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Tacko Fall",
-  "date": "2026-09-01",
-  "method": "free-agent"
- },
- {
   "name": "Duke Miles",
   "date": "2026-07-07",
   "method": "free-agent"
@@ -1076,11 +1106,6 @@
  },
  {
   "name": "Kennedy Chandler",
-  "date": "2026-09-25",
-  "method": "free-agent"
- },
- {
-  "name": "Duop Reath",
   "date": "2026-09-25",
   "method": "free-agent"
  },
@@ -1115,8 +1140,13 @@
   "method": "free-agent"
  },
  {
+  "name": "Haywood Highsmith",
+  "date": "2026-08-17",
+  "method": "free-agent"
+ },
+ {
   "name": "Caleb Houstan",
-  "date": "2026-10-16",
+  "date": "2026-10-15",
   "method": "free-agent"
  },
  {
@@ -1152,6 +1182,11 @@
  {
   "name": "Mark Armstrong",
   "date": "2026-09-22",
+  "method": "free-agent"
+ },
+ {
+  "name": "Jeremy Sochan",
+  "date": "2026-08-02",
   "method": "free-agent"
  },
  {
@@ -1211,7 +1246,7 @@
  },
  {
   "name": "Kendall Brown",
-  "date": "2026-10-16",
+  "date": "2026-10-15",
   "method": "free-agent"
  },
  {
@@ -1295,18 +1330,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Nate Bittle",
-  "date": "2026-07-09",
-  "method": "free-agent"
- },
- {
   "name": "Chucky Hepburn",
   "date": "2026-06-25",
-  "method": "free-agent"
- },
- {
-  "name": "A.J. Lawson",
-  "date": "2026-04-11",
   "method": "free-agent"
  },
  {
@@ -1355,8 +1380,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Harrison Ingram",
-  "date": "2026-07-25",
+  "name": "Tamar Bates",
+  "date": "2026-07-03",
   "method": "free-agent"
  },
  {
@@ -1365,13 +1390,8 @@
   "method": "free-agent"
  },
  {
-  "name": "Bez Mbeng",
-  "date": "2026-04-03",
-  "method": "free-agent"
- },
- {
-  "name": "Kennedy Chandler",
-  "date": "2026-04-01",
+  "name": "Nolan Hickman",
+  "date": "2026-10-17",
   "method": "free-agent"
  },
  {
@@ -1401,11 +1421,6 @@
  },
  {
   "name": "Trevor Keels",
-  "date": "2026-09-27",
-  "method": "free-agent"
- },
- {
-  "name": "Reece Beekman",
   "date": "2026-09-27",
   "method": "free-agent"
  },
