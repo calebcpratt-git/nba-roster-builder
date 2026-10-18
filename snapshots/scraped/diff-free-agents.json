@@ -1,70 +1,174 @@
 {
   "added": [
     {
-      "name": "Steven Crowl",
-      "position": "C",
-      "priorTeam": "DEN",
+      "name": "Ochai Agbaji",
+      "position": "SG",
+      "priorTeam": "NYK",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Taelon Peter",
+      "name": "Tamar Bates",
+      "position": "SG",
+      "priorTeam": "UTA",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Giorgi Bezhanishvili",
+      "position": "PF",
+      "priorTeam": "ATL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Guillermo Diaz",
+      "position": "PF",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jorge Diaz-Graham",
+      "position": "PF",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jon Elmore",
       "position": "PG",
       "priorTeam": "SAS",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Jax Robinson",
-      "position": "G-F",
-      "priorTeam": "CLE",
+      "name": "Drew Eubanks",
+      "position": "F-C",
+      "priorTeam": "NYK",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Cole Swider",
+      "name": "Enrique Freeman",
+      "position": "SF",
+      "priorTeam": "MIN",
+      "faType": "U",
+      "birdRights": "early-bird"
+    },
+    {
+      "name": "Wyatt Fricks",
       "position": "PF",
-      "priorTeam": "LAL",
+      "priorTeam": "CHO",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Terry Taylor",
-      "position": "SF",
-      "priorTeam": "SAS",
+      "name": "Taylor Funk",
+      "position": "PF",
+      "priorTeam": "UTA",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "DeAndre Williams",
-      "position": "SF",
+      "name": "DaJuan Gordon",
+      "position": "SG",
+      "priorTeam": "CHO",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Ben Humrichous",
+      "position": "PF",
+      "priorTeam": "BRK",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Fletcher Loyer",
+      "position": "SG",
       "priorTeam": "LAC",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Malik Williams",
-      "position": "C",
-      "priorTeam": "SAS",
+      "name": "Duke Miles",
+      "position": "PG",
+      "priorTeam": "PHI",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Chance Moore",
+      "position": "SF",
+      "priorTeam": "UTA",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "David Muoka",
+      "position": "C-F",
+      "priorTeam": "SAC",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "John Poulakidas",
+      "position": "SG",
+      "priorTeam": "DAL",
+      "faType": "U",
+      "birdRights": "early-bird"
+    },
+    {
+      "name": "Saint Thomas",
+      "position": "SF",
+      "priorTeam": "PHI",
+      "faType": "U",
+      "birdRights": null
+    },
+    {
+      "name": "Jahmir Young",
+      "position": "PG",
+      "priorTeam": "LAL",
       "faType": "U",
       "birdRights": null
     }
   ],
   "removed": [
     {
-      "name": "Hunter Dickinson",
-      "position": "C",
-      "priorTeam": "NOP",
+      "name": "Buddy Boeheim",
+      "position": "SF",
+      "priorTeam": "OKC",
       "faType": "U",
       "birdRights": null
     },
     {
-      "name": "Caleb Houstan",
-      "position": "SG",
-      "priorTeam": "NOP",
+      "name": "Dariq Whitehead",
+      "position": "G-F",
+      "priorTeam": "MEM",
       "faType": "U",
       "birdRights": null
     }
   ],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Trey Jemison",
+        "position": "C",
+        "priorTeam": "TOR",
+        "faType": "U",
+        "birdRights": "non-bird"
+      },
+      "after": {
+        "name": "Trey Jemison",
+        "position": "C",
+        "priorTeam": "TOR",
+        "faType": "U",
+        "birdRights": null
+      },
+      "fields": [
+        "birdRights"
+      ]
+    }
+  ]
 }

@@ -73,7 +73,7 @@
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 4022710
+        "remaining": 5477000
       },
       "tradeExceptionsUsed": [
         {
@@ -295,7 +295,7 @@
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 757415
+        "remaining": 5477000
       }
     },
     "cashLedger": {
@@ -512,6 +512,11 @@
         "amount": 2200000,
         "kind": "free-agent",
         "birdRights": "non-bird"
+      },
+      {
+        "label": "Ochai Agbaji",
+        "amount": 19200000,
+        "kind": "free-agent"
       }
     ],
     "salaryCap": 165000000,
@@ -1157,13 +1162,17 @@
       "trigger": "Trade Salary Acquired: Aug 20 trade"
     },
     "exceptionsUsed": {
+      "nonTaxpayerMLE": {
+        "signings": [],
+        "remaining": 1864482
+      },
       "taxpayerMLE": {
         "signings": [],
         "remaining": 6064000
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 0
+        "remaining": 1864482
       },
       "tradeExceptionsUsed": [
         {
@@ -1985,7 +1994,7 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 11801296
+        "remaining": 14516822
       },
       "taxpayerMLE": {
         "signings": [],
@@ -3023,11 +3032,11 @@
             "amount": 8050000
           }
         ],
-        "remaining": null
+        "remaining": 2235068
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 0
+        "remaining": 2235068
       }
     },
     "cashLedger": {
@@ -3839,11 +3848,11 @@
             "amount": 6065000
           }
         ],
-        "remaining": null
+        "remaining": 2825744
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 0
+        "remaining": 2825744
       }
     },
     "cashLedger": {
@@ -4049,7 +4058,7 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 10098805
+        "remaining": 15044000
       },
       "taxpayerMLE": {
         "signings": [],
@@ -4311,6 +4320,12 @@
         "amount": 2500000,
         "kind": "free-agent",
         "birdRights": "early-bird"
+      },
+      {
+        "label": "Enrique Freeman",
+        "amount": 2200000,
+        "kind": "free-agent",
+        "birdRights": "early-bird"
       }
     ],
     "salaryCap": 165000000,
@@ -4349,7 +4364,7 @@
             "amount": 6064000
           }
         ],
-        "remaining": null
+        "remaining": 0
       }
     },
     "cashLedger": {
@@ -4672,11 +4687,11 @@
             "amount": 7500000
           }
         ],
-        "remaining": 2067966
+        "remaining": 5875150
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 2067966
+        "remaining": 5477000
       }
     },
     "cashLedger": {
@@ -5000,6 +5015,10 @@
       }
     ],
     "exceptionsUsed": {
+      "taxpayerMLE": {
+        "signings": [],
+        "remaining": 6064000
+      },
       "biAnnual": {
         "signings": [],
         "remaining": 0
@@ -5884,7 +5903,7 @@
             "amount": 9000000
           }
         ],
-        "remaining": null
+        "remaining": 44000
       },
       "biAnnual": {
         "signings": [
@@ -5894,7 +5913,7 @@
             "date": "2026-07-06"
           }
         ],
-        "remaining": 0
+        "remaining": 1828529
       },
       "dpe": {
         "player": "Ariel Hukporti",
@@ -6151,7 +6170,7 @@
             "amount": 6064000
           }
         ],
-        "remaining": null
+        "remaining": 0
       }
     },
     "cashLedger": {
@@ -6318,7 +6337,7 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 14472106
+        "remaining": 15044000
       },
       "taxpayerMLE": {
         "signings": [],
@@ -6498,6 +6517,11 @@
         "birdRights": "early-bird"
       },
       {
+        "label": "Drew Eubanks",
+        "amount": 2500000,
+        "kind": "free-agent"
+      },
+      {
         "label": "Markelle Fultz",
         "amount": 2500000,
         "kind": "free-agent"
@@ -6526,6 +6550,10 @@
       "trigger": "BAE: Precious Achiuwa (Jul 7)"
     },
     "exceptionsUsed": {
+      "nonTaxpayerMLE": {
+        "signings": [],
+        "remaining": 1218176
+      },
       "biAnnual": {
         "signings": [
           {
@@ -7082,11 +7110,11 @@
             "amount": 1357763
           }
         ],
-        "remaining": null
+        "remaining": 1227903
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 0
+        "remaining": 1227903
       }
     },
     "cashLedger": {
@@ -7643,15 +7671,15 @@
     "exceptionsUsed": {
       "nonTaxpayerMLE": {
         "signings": [],
-        "remaining": 5019106
+        "remaining": 14552485
       },
       "taxpayerMLE": {
         "signings": [],
-        "remaining": 6064000
+        "remaining": 0
       },
       "biAnnual": {
         "signings": [],
-        "remaining": 5019106
+        "remaining": 5477000
       }
     },
     "cashLedger": {

@@ -1,7 +1,62 @@
 {
   "added": [
     {
-      "name": "Cameron Christie",
+      "name": "Devin Carter",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Tacko Fall",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Duop Reath",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Nate Bittle",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Tony Bradley",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Harrison Ingram",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Reece Beekman",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -12,10 +67,65 @@
   ],
   "removed": [
     {
-      "name": "Pat Connaughton",
+      "name": "John Poulakidas",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Pete Nance",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Enrique Freeman",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Haywood Highsmith",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Jeremy Sochan",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Tamar Bates",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
           "likely": 0,
           "unlikely": 0
         }

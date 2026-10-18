@@ -246,8 +246,8 @@
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2537526,
-  "guaranteeTriggered": null,
-  "raw": "Non-guaranteed salary ($2,537,526) becomes fully guaranteed."
+  "guaranteeTriggered": false,
+  "raw": "Non-guaranteed salary ($2,537,526) becomes fully guaranteed. ( ❌ )"
  },
  {
   "player": "Mo Bamba",
