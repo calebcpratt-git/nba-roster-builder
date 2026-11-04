@@ -1,15 +1,5 @@
 [
  {
-  "player": "Pete Nance",
-  "team": "Bucks",
-  "guaranteeDate": "2026-07-04",
-  "status": "non-guaranteed",
-  "partialAmount": 0,
-  "fullAmount": 2497812,
-  "guaranteeTriggered": false,
-  "raw": "Non-guaranteed salary ($2,497,812) becomes fully guaranteed. ( ❌ )"
- },
- {
   "player": "Jonas Valanciunas",
   "team": "Nuggets",
   "guaranteeDate": "2026-07-08",
@@ -30,45 +20,13 @@
   "raw": "Non-guaranteed salary ($2,296,271) becomes fully guaranteed. ( ❌ )"
  },
  {
-  "player": "Pete Nance",
-  "team": "Bucks",
+  "player": "Dwight Powell",
+  "team": "Mavericks",
   "guaranteeDate": "2026-10-19",
-  "status": "non-guaranteed",
-  "partialAmount": 0,
-  "fullAmount": 2537526,
+  "status": "partial",
+  "partialAmount": 1000000,
+  "fullAmount": 1500000,
   "guaranteeTriggered": false,
-  "raw": "Non-guaranteed salary ($2,537,526) becomes fully guaranteed. ( ❌ )"
- },
- {
-  "player": "Julian Phillips",
-  "team": "Houston Rockets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "Oscar Tshiebwe",
-  "team": "Houston Rockets",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": true
- },
- {
-  "player": "James Wiseman",
-  "team": "New York Knicks",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
-  "player": "Anthony Gill",
-  "team": "Washington Wizards",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
+  "raw": "Partial guarantee ($1,000,000) increases to $1,500,000. ( ❌ )"
  }
 ]

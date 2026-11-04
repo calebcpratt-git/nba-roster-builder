@@ -1,7 +1,7 @@
 {
   "added": [
     {
-      "name": "Devin Carter",
+      "name": "Julian Phillips",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -10,7 +10,7 @@
       }
     },
     {
-      "name": "Tacko Fall",
+      "name": "Oscar Tshiebwe",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -19,7 +19,7 @@
       }
     },
     {
-      "name": "Duop Reath",
+      "name": "Blake Wesley",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -28,7 +28,20 @@
       }
     },
     {
-      "name": "Nate Bittle",
+      "name": "Lawson Lovering",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Pete Nance",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -37,7 +50,7 @@
       }
     },
     {
-      "name": "Tony Bradley",
+      "name": "James Wiseman",
       "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
@@ -47,7 +60,21 @@
       }
     },
     {
-      "name": "Harrison Ingram",
+      "name": "Dalen Terry",
+      "signedUnder": "minimum",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        },
+        "2027-28": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Drew Timme",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -56,7 +83,17 @@
       }
     },
     {
-      "name": "Reece Beekman",
+      "name": "Kobe Bufkin",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Anthony Gill",
+      "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -67,7 +104,8 @@
   ],
   "removed": [
     {
-      "name": "John Poulakidas",
+      "name": "Dwight Powell",
+      "signedUnder": "minimum",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -76,8 +114,61 @@
       }
     },
     {
-      "name": "Pete Nance",
-      "signedUnder": "minimum",
+      "name": "AK Okereke",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Kevin Porter Jr.",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Kevin McCullar Jr.",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Otega Oweh",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Koby Brea",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "CJ Huntley",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Adam Flagler",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -90,47 +181,137 @@
       }
     },
     {
-      "name": "Enrique Freeman",
+      "name": "Blake Hinson",
       "incentives": {
         "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Haywood Highsmith",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Jeremy Sochan",
-      "signedUnder": "minimum",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Tamar Bates",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        },
-        "2027-28": {
           "likely": 0,
           "unlikely": 0
         }
       }
     }
   ],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Walter Clayton",
+        "signedUnder": "rookie-scale",
+        "incentives": {
+          "2026-27": {
+            "likely": 50000,
+            "unlikely": 0
+          },
+          "2027-28": {
+            "likely": 0,
+            "unlikely": 0
+          },
+          "2028-29": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Walter Clayton",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "fields": [
+        "signedUnder",
+        "incentives"
+      ]
+    },
+    {
+      "before": {
+        "name": "Dalton Knecht",
+        "signedUnder": "rookie-scale",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          },
+          "2027-28": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Dalton Knecht",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "fields": [
+        "signedUnder",
+        "incentives"
+      ]
+    },
+    {
+      "before": {
+        "name": "Micah Peavy",
+        "signedUnder": "rookie-scale",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          },
+          "2027-28": {
+            "likely": 0,
+            "unlikely": 0
+          },
+          "2028-29": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Micah Peavy",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "fields": [
+        "signedUnder",
+        "incentives"
+      ]
+    },
+    {
+      "before": {
+        "name": "Sean Pedulla",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          },
+          "2027-28": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "after": {
+        "name": "Sean Pedulla",
+        "incentives": {
+          "2026-27": {
+            "likely": 0,
+            "unlikely": 0
+          }
+        }
+      },
+      "fields": [
+        "incentives"
+      ]
+    }
+  ]
 }

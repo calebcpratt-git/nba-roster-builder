@@ -137,6 +137,25 @@
   "faYear": null
  },
  {
+  "name": "Dwight Powell",
+  "team": "DAL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 1000000
+  },
+  "cashSalary": {
+   "2026-27": 1000000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Klay Thompson",
   "team": "DAL",
   "section": "Buyout",
@@ -236,6 +255,25 @@
   "faYear": null
  },
  {
+  "name": "Dalton Knecht",
+  "team": "LAL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 4201080
+  },
+  "cashSalary": {
+   "2026-27": 4201080
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Jordan Hawkins",
   "team": "MEM",
   "section": "Waivers",
@@ -266,6 +304,44 @@
   },
   "cashSalary": {
    "2026-27": 5969250
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Walter Clayton",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 4140520
+  },
+  "cashSalary": {
+   "2026-27": 4140520
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Micah Peavy",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2150917
+  },
+  "cashSalary": {
+   "2026-27": 2150917
   },
   "guaranteed": {},
   "likelyIncentives": {},
@@ -350,6 +426,25 @@
    "2027-28": 21311053,
    "2028-29": 21311053,
    "2029-30": 21311053
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Kevin Porter Jr.",
+  "team": "MIL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 5390700
+  },
+  "cashSalary": {
+   "2026-27": 5390700
   },
   "guaranteed": {},
   "likelyIncentives": {},
