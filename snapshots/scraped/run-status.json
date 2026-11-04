@@ -16,7 +16,7 @@
   "staleSources": [],
   "sourceFetches": {
     "realgm_future_drafts": true,
-    "realgm_current_free_agents": true,
+    "realgm_current_free_agents": false,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 17,
+      "total": 24,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 70,
-      "acquisition": 285,
-      "guarantees": 86,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 90,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 74,
       "acquisition": 288,
       "guarantees": 8,
@@ -74,161 +65,134 @@
       "name-bridge": 27,
       "no-current-salary": 0
     },
-    "newUnresolved": 7,
+    "after": {
+      "draft-year": 78,
+      "acquisition": 264,
+      "guarantees": 3,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 26,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 4,
     "newByCategory": {
-      "draft-year": 4,
-      "acquisition": 3
+      "draft-year": 4
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Devin Carter",
-          "team": "BOS"
+          "name": "Julian Phillips",
+          "team": "HOU"
         },
         {
-          "name": "Tacko Fall",
-          "team": "PHI"
+          "name": "Oscar Tshiebwe",
+          "team": "HOU"
         },
         {
-          "name": "Duop Reath",
+          "name": "Blake Wesley",
+          "team": "LAC"
+        },
+        {
+          "name": "Lawson Lovering",
+          "team": "LAL"
+        },
+        {
+          "name": "Pete Nance",
+          "team": "MIL"
+        },
+        {
+          "name": "James Wiseman",
+          "team": "NYK"
+        },
+        {
+          "name": "Dalen Terry",
+          "team": "OKC"
+        },
+        {
+          "name": "Drew Timme",
           "team": "PHO"
         },
         {
-          "name": "Nate Bittle",
-          "team": "TOR"
-        },
-        {
-          "name": "Tony Bradley",
+          "name": "Kobe Bufkin",
           "team": "UTA"
         },
         {
-          "name": "Harrison Ingram",
-          "team": "UTA"
-        },
-        {
-          "name": "Reece Beekman",
+          "name": "Anthony Gill",
           "team": "WAS"
         }
       ],
       "acquisition": [
         {
-          "name": "Latrell Wrightsell, Jr.",
-          "date": "2026-10-17",
+          "name": "Dwight Powell",
+          "date": "2026-09-25",
           "method": "free-agent"
         },
         {
-          "name": "Tre'Von Spillers",
-          "date": "2026-10-16",
+          "name": "Otega Oweh",
+          "date": "2026-06-23",
+          "method": "draft"
+        },
+        {
+          "name": "Kevin McCullar Jr.",
+          "date": "2026-09-27",
           "method": "free-agent"
         },
         {
-          "name": "Bryce Harris",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Caleb McConnell",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Cameron Matthews",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Nathan Mensah",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Miye Oni",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Marcus Garrett",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Pete Nance",
-          "date": "2026-07-08",
-          "method": "free-agent"
-        },
-        {
-          "name": "Enrique Freeman",
-          "date": "2026-07-02",
-          "method": "free-agent"
-        },
-        {
-          "name": "Dink Pate",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Buddy Boeheim",
-          "date": "2026-10-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Haywood Highsmith",
-          "date": "2026-08-17",
-          "method": "free-agent"
-        },
-        {
-          "name": "Jeremy Sochan",
-          "date": "2026-08-02",
-          "method": "free-agent"
-        },
-        {
-          "name": "Tamar Bates",
+          "name": "Otega Oweh",
           "date": "2026-07-03",
           "method": "free-agent"
         },
         {
-          "name": "Nolan Hickman",
-          "date": "2026-10-17",
+          "name": "Koby Brea",
+          "date": "2026-07-06",
           "method": "free-agent"
         }
       ],
       "guarantees": [
         {
-          "player": "Pete Nance",
-          "team": "Bucks",
-          "guaranteeDate": "2026-07-04",
-          "status": "non-guaranteed",
-          "partialAmount": 0,
-          "fullAmount": 2497812,
-          "guaranteeTriggered": false,
-          "raw": "Non-guaranteed salary ($2,497,812) becomes fully guaranteed. ( ❌ )"
-        },
-        {
-          "player": "Pete Nance",
-          "team": "Bucks",
+          "player": "Dwight Powell",
+          "team": "Mavericks",
           "guaranteeDate": "2026-10-19",
-          "status": "non-guaranteed",
-          "partialAmount": 0,
-          "fullAmount": 2537526,
+          "status": "partial",
+          "partialAmount": 1000000,
+          "fullAmount": 1500000,
           "guaranteeTriggered": false,
-          "raw": "Non-guaranteed salary ($2,537,526) becomes fully guaranteed. ( ❌ )"
+          "raw": "Partial guarantee ($1,000,000) increases to $1,500,000. ( ❌ )"
         }
       ],
       "name-bridge": [
         {
-          "name": "Tony Bradley"
+          "name": "Blake Wesley"
+        },
+        {
+          "name": "Dalen Terry"
+        },
+        {
+          "name": "Drew Timme"
+        },
+        {
+          "name": "Haywood Highsmith"
+        },
+        {
+          "name": "Kobe Bufkin"
+        },
+        {
+          "name": "Lawson Lovering"
+        },
+        {
+          "name": "Pete Nance"
         }
       ]
     }
   },
-  "generatedAt": "2026-10-18T14:24:50.073Z",
+  "generatedAt": "2026-11-04T18:34:51.405Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +7 -6 ~5 (of 521)",
+    "players: +10 -9 ~52 (of 522)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +7 -6 ~0 (of 513)",
-    "team-cap-state: +0 -0 ~17 (of 150)",
-    "free-agents: +19 -2 ~1 (of 234)",
+    "contract-details: +10 -9 ~4 (of 514)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +0 -1 ~0 (of 251)",
     "awards: +1 -0 ~0 (of 78)"
   ],
   "clean": true

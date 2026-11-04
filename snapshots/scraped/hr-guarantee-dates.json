@@ -256,8 +256,8 @@
   "status": "partial",
   "partialAmount": 250000,
   "fullAmount": 500000,
-  "guaranteeTriggered": null,
-  "raw": "Partial guarantee ($250,000) increases to $500,000."
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($250,000) increases to $500,000. ( ✅ )"
  },
  {
   "player": "Isaiah Crawford",
@@ -266,8 +266,8 @@
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2449421,
-  "guaranteeTriggered": null,
-  "raw": "Non-guaranteed salary ($2,449,421) becomes partially guaranteed ($1,154,325)."
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,449,421) becomes partially guaranteed ($1,154,325). ( ✅ )"
  },
  {
   "player": "Dwight Powell",
@@ -276,8 +276,8 @@
   "status": "partial",
   "partialAmount": 1000000,
   "fullAmount": 1500000,
-  "guaranteeTriggered": null,
-  "raw": "Partial guarantee ($1,000,000) increases to $1,500,000."
+  "guaranteeTriggered": false,
+  "raw": "Partial guarantee ($1,000,000) increases to $1,500,000. ( ❌ )"
  },
  {
   "player": "Nick Richards",
@@ -286,8 +286,8 @@
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 3066143,
-  "guaranteeTriggered": null,
-  "raw": "Non-guaranteed salary ($3,066,143) becomes fully guaranteed."
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($3,066,143) becomes fully guaranteed. ( ✅ )"
  },
  {
   "player": "Jaylen Wells",
@@ -296,8 +296,8 @@
   "status": "partial",
   "partialAmount": 300000,
   "fullAmount": 2296271,
-  "guaranteeTriggered": null,
-  "raw": "Partial guarantee ($300,000) increases to full guarantee ($2,296,271)."
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($300,000) increases to full guarantee ($2,296,271). ( ✅ )"
  },
  {
   "player": "Brandon Williams",
@@ -306,8 +306,8 @@
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 2625627,
-  "guaranteeTriggered": null,
-  "raw": "Non-guaranteed salary ($2,625,627) becomes partially guaranteed ($1,400,000)."
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($2,625,627) becomes partially guaranteed ($1,400,000). ( ✅ )"
  },
  {
   "player": "Vit Krejci",
@@ -316,8 +316,8 @@
   "status": "partial",
   "partialAmount": 250000,
   "fullAmount": 2667944,
-  "guaranteeTriggered": null,
-  "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,667,944)."
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($250,000) increases to full guarantee ($2,667,944). ( ✅ )"
  },
  {
   "player": "Pelle Larsson",
@@ -336,8 +336,8 @@
   "status": "non-guaranteed",
   "partialAmount": 0,
   "fullAmount": 3524115,
-  "guaranteeTriggered": null,
-  "raw": "Non-guaranteed salary ($3,524,115) becomes partially guaranteed ($1,000,000)."
+  "guaranteeTriggered": true,
+  "raw": "Non-guaranteed salary ($3,524,115) becomes partially guaranteed ($1,000,000). ( ✅ )"
  },
  {
   "player": "Trendon Watford",
@@ -346,8 +346,8 @@
   "status": "partial",
   "partialAmount": 250000,
   "fullAmount": 500000,
-  "guaranteeTriggered": null,
-  "raw": "Partial guarantee ($250,000) increases to $500,000."
+  "guaranteeTriggered": true,
+  "raw": "Partial guarantee ($250,000) increases to $500,000. ( ✅ )"
  },
  {
   "player": "Mario Hezonja",

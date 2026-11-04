@@ -1667,6 +1667,16 @@
    }
   }
  },
+ "dereck lively": {
+  "team": "DAL",
+  "signedUnder": "rookie-scale",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "marcus sasser": {
   "team": "DAL",
   "signedUnder": "bi-annual",
@@ -1691,16 +1701,6 @@
    }
   }
  },
- "dwight powell": {
-  "team": "DAL",
-  "signedUnder": "minimum",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "moussa cisse": {
   "team": "DAL",
   "signedUnder": "minimum",
@@ -1715,9 +1715,9 @@
    }
   }
  },
- "dereck lively": {
+ "walter clayton": {
   "team": "DAL",
-  "signedUnder": "rookie-scale",
+  "signedUnder": null,
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -2692,15 +2692,21 @@
    }
   }
  },
- "sean pedulla": {
+ "julian phillips": {
   "team": "HOU",
   "signedUnder": null,
   "incentives": {
    "2026-27": {
     "likely": 0,
     "unlikely": 0
-   },
-   "2027-28": {
+   }
+  }
+ },
+ "oscar tshiebwe": {
+  "team": "HOU",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -3146,6 +3152,16 @@
    }
   }
  },
+ "blake wesley": {
+  "team": "LAC",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "cameron christie": {
   "team": "LAC",
   "signedUnder": null,
@@ -3338,20 +3354,6 @@
    }
   }
  },
- "dalton knecht": {
-  "team": "LAL",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "cameron carr": {
   "team": "LAL",
   "signedUnder": "rookie-scale",
@@ -3442,17 +3444,21 @@
    }
   }
  },
- "chris manon": {
+ "lawson lovering": {
   "team": "LAL",
   "signedUnder": null,
   "incentives": {
    "2026-27": {
     "likely": 0,
     "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
    }
   }
  },
- "ak okereke": {
+ "chris manon": {
   "team": "LAL",
   "signedUnder": null,
   "incentives": {
@@ -3596,24 +3602,6 @@
    }
   }
  },
- "walter clayton": {
-  "team": "MEM",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 50000,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "karim lopez": {
   "team": "MEM",
   "signedUnder": "rookie-scale",
@@ -3697,24 +3685,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "micah peavy": {
-  "team": "MEM",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
     "likely": 0,
     "unlikely": 0
    }
@@ -4127,16 +4097,6 @@
    }
   }
  },
- "kevin porter": {
-  "team": "MIL",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "kelel ware": {
   "team": "MIL",
   "signedUnder": "rookie-scale",
@@ -4216,6 +4176,16 @@
   }
  },
  "kam jones": {
+  "team": "MIL",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "pete nance": {
   "team": "MIL",
   "signedUnder": null,
   "incentives": {
@@ -4889,6 +4859,16 @@
    }
   }
  },
+ "james wiseman": {
+  "team": "NYK",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "tyler kolek": {
   "team": "NYK",
   "signedUnder": "rookie-scale",
@@ -4913,7 +4893,7 @@
    }
   }
  },
- "kevin mccullar": {
+ "dalton knecht": {
   "team": "NYK",
   "signedUnder": null,
   "incentives": {
@@ -5181,6 +5161,20 @@
    }
   }
  },
+ "dalen terry": {
+  "team": "OKC",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "brooks barnhizer": {
   "team": "OKC",
   "signedUnder": null,
@@ -5201,7 +5195,7 @@
    }
   }
  },
- "otega oweh": {
+ "micah peavy": {
   "team": "OKC",
   "signedUnder": null,
   "incentives": {
@@ -5593,6 +5587,16 @@
    }
   }
  },
+ "ariel hukporti": {
+  "team": "PHI",
+  "signedUnder": "bi-annual",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "jabari walker": {
   "team": "PHI",
   "signedUnder": "minimum",
@@ -5636,16 +5640,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "ariel hukporti": {
-  "team": "PHI",
-  "signedUnder": "bi-annual",
-  "incentives": {
-   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
@@ -5897,27 +5891,17 @@
    }
   }
  },
- "koby brea": {
-  "team": "PHO",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- "cj huntley": {
-  "team": "PHO",
-  "signedUnder": null,
-  "incentives": {
-   "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
  "duop reath": {
+  "team": "PHO",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "drew timme": {
   "team": "PHO",
   "signedUnder": null,
   "incentives": {
@@ -6347,7 +6331,7 @@
    }
   }
  },
- "adam flagler": {
+ "jonathan mogbo": {
   "team": "SAC",
   "signedUnder": null,
   "incentives": {
@@ -6361,15 +6345,11 @@
    }
   }
  },
- "jonathan mogbo": {
+ "sean pedulla": {
   "team": "SAC",
   "signedUnder": null,
   "incentives": {
    "2026-27": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2027-28": {
     "likely": 0,
     "unlikely": 0
    }
@@ -7055,7 +7035,7 @@
    }
   }
  },
- "blake hinson": {
+ "kobe bufkin": {
   "team": "UTA",
   "signedUnder": null,
   "incentives": {
@@ -7286,6 +7266,16 @@
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "anthony gill": {
+  "team": "WAS",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }

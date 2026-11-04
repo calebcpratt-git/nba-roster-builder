@@ -10451,6 +10451,11 @@
    "date": "2026-08-17",
    "method": "free-agent",
    "team": "HOU"
+  },
+  {
+   "date": "2026-10-23",
+   "method": "free-agent",
+   "team": "SAC"
   }
  ],
  "jaesean tate": [
@@ -10928,6 +10933,11 @@
  "pete nance": [
   {
    "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "MIL"
+  },
+  {
+   "date": "2026-10-19",
    "method": "free-agent",
    "team": "MIL"
   }
@@ -11792,6 +11802,11 @@
    "date": "2026-09-08",
    "method": "trade",
    "team": "MEM"
+  },
+  {
+   "date": "2026-10-24",
+   "method": "free-agent",
+   "team": "OKC"
   }
  ],
  "jordan hawkins": [
@@ -12135,6 +12150,11 @@
    "date": "2026-10-16",
    "method": "free-agent",
    "team": "LAC"
+  },
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "LAC"
   }
  ],
  "tony bradley": [
@@ -12195,6 +12215,137 @@
    "date": "2026-09-27",
    "method": "free-agent",
    "team": "WAS"
+  }
+ ],
+ "brandon miller": [
+  {
+   "date": "2026-10-19",
+   "method": "extension",
+   "team": "CHO"
+  }
+ ],
+ "walter clayton": [
+  {
+   "date": "2026-10-21",
+   "method": "free-agent",
+   "team": "DAL"
+  }
+ ],
+ "dalen terry": [
+  {
+   "date": "2026-08-31",
+   "method": "free-agent",
+   "team": "GSW"
+  },
+  {
+   "date": "2026-11-03",
+   "method": "free-agent",
+   "team": "OKC"
+  },
+  {
+   "date": "2026-04-10",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "oscar tshiebwe": [
+  {
+   "date": "2026-10-19",
+   "method": "free-agent",
+   "team": "HOU"
+  },
+  {
+   "date": "2026-07-23",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "julian phillips": [
+  {
+   "date": "2026-10-19",
+   "method": "free-agent",
+   "team": "HOU"
+  },
+  {
+   "date": "2026-07-25",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "blake wesley": [
+  {
+   "date": "2026-10-29",
+   "method": "free-agent",
+   "team": "LAC"
+  },
+  {
+   "date": "2026-09-27",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "lawson lovering": [
+  {
+   "date": "2026-10-28",
+   "method": "free-agent",
+   "team": "LAL"
+  },
+  {
+   "date": "2026-09-16",
+   "method": "free-agent",
+   "team": "MEM"
+  }
+ ],
+ "jaden mcdaniels": [
+  {
+   "date": "2026-10-17",
+   "method": "extension",
+   "team": "MIN"
+  }
+ ],
+ "drew timme": [
+  {
+   "date": "2026-09-25",
+   "method": "free-agent",
+   "team": "MIN"
+  },
+  {
+   "date": "2026-10-19",
+   "method": "free-agent",
+   "team": "PHO"
+  },
+  {
+   "date": "2026-10-19",
+   "method": "waiver",
+   "team": "PHO"
+  }
+ ],
+ "dalton knecht": [
+  {
+   "date": "2026-10-23",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "cason wallace": [
+  {
+   "date": "2026-10-19",
+   "method": "extension",
+   "team": "OKC"
+  }
+ ],
+ "oso ighodaro": [
+  {
+   "date": "2026-10-19",
+   "method": "extension",
+   "team": "PHO"
+  }
+ ],
+ "kobe bufkin": [
+  {
+   "date": "2026-10-23",
+   "method": "free-agent",
+   "team": "UTA"
   }
  ]
 }
