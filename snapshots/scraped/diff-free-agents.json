@@ -666,15 +666,7 @@
       "birdRights": null
     }
   ],
-  "removed": [
-    {
-      "name": "Lawson Lovering",
-      "position": "C",
-      "priorTeam": "MEM",
-      "faType": "U",
-      "birdRights": null
-    }
-  ],
+  "removed": [],
   "changed": [
     {
       "before": {

@@ -665,7 +665,13 @@
   "team": "CHO",
   "season": "2026-27",
   "deadMoney": [],
-  "capHolds": [],
+  "capHolds": [
+   {
+    "label": "Antonio Reeves",
+    "amount": 2200000,
+    "kind": "free-agent"
+   }
+  ],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -1394,7 +1400,13 @@
     "amount": 1002360
    }
   ],
-  "capHolds": [],
+  "capHolds": [
+   {
+    "label": "Dwight Powell",
+    "amount": 7600000,
+    "kind": "free-agent"
+   }
+  ],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -2239,6 +2251,11 @@
     "amount": 2500000,
     "kind": "free-agent",
     "birdRights": "non-bird"
+   },
+   {
+    "label": "Kevin Knox",
+    "amount": 2500000,
+    "kind": "free-agent"
    }
   ],
   "salaryCap": 165000000,
@@ -3007,7 +3024,13 @@
   "team": "IND",
   "season": "2026-27",
   "deadMoney": [],
-  "capHolds": [],
+  "capHolds": [
+   {
+    "label": "James Johnson",
+    "amount": 2500000,
+    "kind": "free-agent"
+   }
+  ],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -3203,7 +3226,13 @@
   "team": "LAC",
   "season": "2026-27",
   "deadMoney": [],
-  "capHolds": [],
+  "capHolds": [
+   {
+    "label": "Norchad Omier",
+    "amount": 2200000,
+    "kind": "free-agent"
+   }
+  ],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -3827,7 +3856,13 @@
   "team": "MIA",
   "season": "2026-27",
   "deadMoney": [],
-  "capHolds": [],
+  "capHolds": [
+   {
+    "label": "Trevor Keels",
+    "amount": 2200000,
+    "kind": "free-agent"
+   }
+  ],
   "salaryCap": 165000000,
   "taxLine": 201000000,
   "firstApron": 209000000,
@@ -4651,10 +4686,20 @@
   "deadMoney": [],
   "capHolds": [
    {
+    "label": "Hunter Dickinson",
+    "amount": 2200000,
+    "kind": "free-agent"
+   },
+   {
     "label": "Josh Oduro",
     "amount": 2200000,
     "kind": "free-agent",
     "birdRights": "early-bird"
+   },
+   {
+    "label": "Elfrid Payton",
+    "amount": 2500000,
+    "kind": "free-agent"
    }
   ],
   "salaryCap": 165000000,
@@ -4991,7 +5036,17 @@
   "deadMoney": [],
   "capHolds": [
    {
+    "label": "Jeremy Sochan",
+    "amount": 2500000,
+    "kind": "free-agent"
+   },
+   {
     "label": "Trey Jemison",
+    "amount": 2200000,
+    "kind": "free-agent"
+   },
+   {
+    "label": "Dillon Jones",
     "amount": 2200000,
     "kind": "free-agent"
    }
@@ -6128,6 +6183,11 @@
     "birdRights": "non-bird"
    },
    {
+    "label": "Koby Brea",
+    "amount": 2200000,
+    "kind": "free-agent"
+   },
+   {
     "label": "Isaiah Livers",
     "amount": 2200000,
     "kind": "free-agent",
@@ -7073,6 +7133,11 @@
     "amount": 2500000,
     "kind": "free-agent",
     "birdRights": "early-bird"
+   },
+   {
+    "label": "Tyreke Key",
+    "amount": 2400000,
+    "kind": "free-agent"
    },
    {
     "label": "Chucky Hepburn",
