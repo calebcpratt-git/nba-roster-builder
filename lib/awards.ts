@@ -26,6 +26,7 @@ export const PLAYER_AWARDS: Record<string, AwardRecord[]> = {
   "Tyrese Maxey": [{ season: '2025-26', award: 'All-NBA-3' }],
   "Jamal Murray": [{ season: '2025-26', award: 'All-NBA-3' }],
   "Jalen Johnson": [{ season: '2025-26', award: 'All-NBA-3' }],
+  "Jalen Duren": [{ season: '2025-26', award: 'All-NBA-3' }],
   "Chet Holmgren": [{ season: '2025-26', award: 'All-NBA-3' }],
   "Giannis Antetokounmpo": [{ season: '2021-22', award: 'All-NBA-1' }, { season: '2022-23', award: 'All-NBA-1' }, { season: '2023-24', award: 'All-NBA-1' }, { season: '2024-25', award: 'All-NBA-1' }],
   "Jayson Tatum": [{ season: '2021-22', award: 'All-NBA-1' }, { season: '2022-23', award: 'All-NBA-1' }, { season: '2023-24', award: 'All-NBA-1' }, { season: '2024-25', award: 'All-NBA-1' }],

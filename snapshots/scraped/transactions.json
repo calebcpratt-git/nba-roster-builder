@@ -5098,8 +5098,8 @@
  {
   "bbrefId": null,
   "name": "Dalen Terry",
-  "date": "2026-11-03",
-  "dateRaw": "Nov 3, 2026",
+  "date": "2026-11-04",
+  "dateRaw": "Nov 4, 2026",
   "method": "free-agent",
   "toTeams": [
    "OKC"
@@ -6804,6 +6804,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Kevin McCullar Jr.",
+  "date": "2026-11-05",
+  "dateRaw": "Nov 5, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "TOR"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Nate Bittle",
   "date": "2026-10-17",
   "dateRaw": "Oct 17, 2026",
@@ -7062,19 +7075,6 @@
    "LAC"
   ],
   "text": "Traded from LAC",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Chucky Hepburn",
-  "date": "2026-06-25",
-  "dateRaw": "Jun 25, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "TOR"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {

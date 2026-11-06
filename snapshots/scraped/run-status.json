@@ -16,7 +16,7 @@
   "staleSources": [],
   "sourceFetches": {
     "realgm_future_drafts": true,
-    "realgm_current_free_agents": false,
+    "realgm_current_free_agents": true,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -54,15 +54,17 @@
       "failed": []
     }
   },
-  "rescuedSources": [],
+  "rescuedSources": [
+    "realgm_current_free_agents"
+  ],
   "unresolved": {
     "before": {
-      "draft-year": 74,
-      "acquisition": 288,
-      "guarantees": 8,
+      "draft-year": 78,
+      "acquisition": 264,
+      "guarantees": 3,
       "signing": 10,
       "awards": 1,
-      "name-bridge": 27,
+      "name-bridge": 26,
       "no-current-salary": 0
     },
     "after": {
@@ -74,126 +76,21 @@
       "name-bridge": 26,
       "no-current-salary": 0
     },
-    "newUnresolved": 4,
-    "newByCategory": {
-      "draft-year": 4
-    },
-    "newRecords": {
-      "draft-year": [
-        {
-          "name": "Julian Phillips",
-          "team": "HOU"
-        },
-        {
-          "name": "Oscar Tshiebwe",
-          "team": "HOU"
-        },
-        {
-          "name": "Blake Wesley",
-          "team": "LAC"
-        },
-        {
-          "name": "Lawson Lovering",
-          "team": "LAL"
-        },
-        {
-          "name": "Pete Nance",
-          "team": "MIL"
-        },
-        {
-          "name": "James Wiseman",
-          "team": "NYK"
-        },
-        {
-          "name": "Dalen Terry",
-          "team": "OKC"
-        },
-        {
-          "name": "Drew Timme",
-          "team": "PHO"
-        },
-        {
-          "name": "Kobe Bufkin",
-          "team": "UTA"
-        },
-        {
-          "name": "Anthony Gill",
-          "team": "WAS"
-        }
-      ],
-      "acquisition": [
-        {
-          "name": "Dwight Powell",
-          "date": "2026-09-25",
-          "method": "free-agent"
-        },
-        {
-          "name": "Otega Oweh",
-          "date": "2026-06-23",
-          "method": "draft"
-        },
-        {
-          "name": "Kevin McCullar Jr.",
-          "date": "2026-09-27",
-          "method": "free-agent"
-        },
-        {
-          "name": "Otega Oweh",
-          "date": "2026-07-03",
-          "method": "free-agent"
-        },
-        {
-          "name": "Koby Brea",
-          "date": "2026-07-06",
-          "method": "free-agent"
-        }
-      ],
-      "guarantees": [
-        {
-          "player": "Dwight Powell",
-          "team": "Mavericks",
-          "guaranteeDate": "2026-10-19",
-          "status": "partial",
-          "partialAmount": 1000000,
-          "fullAmount": 1500000,
-          "guaranteeTriggered": false,
-          "raw": "Partial guarantee ($1,000,000) increases to $1,500,000. ( ❌ )"
-        }
-      ],
-      "name-bridge": [
-        {
-          "name": "Blake Wesley"
-        },
-        {
-          "name": "Dalen Terry"
-        },
-        {
-          "name": "Drew Timme"
-        },
-        {
-          "name": "Haywood Highsmith"
-        },
-        {
-          "name": "Kobe Bufkin"
-        },
-        {
-          "name": "Lawson Lovering"
-        },
-        {
-          "name": "Pete Nance"
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-11-04T18:34:51.405Z",
-  "warnings": [],
+  "generatedAt": "2026-11-06T19:18:04.324Z",
+  "warnings": [
+    "free-agents: diff too large — 97 of 250 previous records changed (38.8%, threshold 30%) — proceeding because a large diff was explicitly accepted"
+  ],
   "diffSummaries": [
-    "players: +10 -9 ~52 (of 522)",
+    "players: +10 -9 ~52 (of 523)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +10 -9 ~4 (of 514)",
+    "contract-details: +10 -9 ~4 (of 515)",
     "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -1 ~0 (of 251)",
+    "free-agents: +95 -1 ~2 (of 250)",
     "awards: +1 -0 ~0 (of 78)"
   ],
-  "clean": true
+  "clean": false
 }
