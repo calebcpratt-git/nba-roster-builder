@@ -1,9 +1,7 @@
 {
-  "added": [],
-  "removed": [
+  "added": [
     {
-      "name": "Taj Gibson",
-      "signedUnder": "minimum",
+      "name": "Kevin McCullar Jr.",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -12,5 +10,6 @@
       }
     }
   ],
+  "removed": [],
   "changed": []
 }

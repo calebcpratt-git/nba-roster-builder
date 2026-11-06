@@ -1,5 +1,24 @@
 [
  {
+  "name": "Devin Carter",
+  "team": "ATL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 5158080
+  },
+  "cashSalary": {
+   "2026-27": 5158080
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "N'Faly Dante",
   "team": "ATL",
   "section": "Waivers",
@@ -11,6 +30,25 @@
   },
   "cashSalary": {
    "2026-27": 2411090
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Rob Dillingham",
+  "team": "CHO",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 6889320
+  },
+  "cashSalary": {
+   "2026-27": 6889320
   },
   "guaranteed": {},
   "likelyIncentives": {},
@@ -99,6 +137,25 @@
   "faYear": null
  },
  {
+  "name": "Dwight Powell",
+  "team": "DAL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 1000000
+  },
+  "cashSalary": {
+   "2026-27": 1000000
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Klay Thompson",
   "team": "DAL",
   "section": "Buyout",
@@ -137,6 +194,25 @@
   "faYear": null
  },
  {
+  "name": "Gary Harris",
+  "team": "DET",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 3815861
+  },
+  "cashSalary": {
+   "2026-27": 3815861
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Cam Whitmore",
   "team": "HOU",
   "section": "Waivers",
@@ -152,6 +228,120 @@
    "2026-27": 1819437,
    "2027-28": 1819437,
    "2028-29": 1819437
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Johni Broome",
+  "team": "LAC",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2150917
+  },
+  "cashSalary": {
+   "2026-27": 2150917
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Dalton Knecht",
+  "team": "LAL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 4201080
+  },
+  "cashSalary": {
+   "2026-27": 4201080
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Jordan Hawkins",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 7021895
+  },
+  "cashSalary": {
+   "2026-27": 7021895
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "D'Angelo Russell",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 5969250
+  },
+  "cashSalary": {
+   "2026-27": 5969250
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Walter Clayton",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 4140520
+  },
+  "cashSalary": {
+   "2026-27": 4140520
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Micah Peavy",
+  "team": "MEM",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2150917
+  },
+  "cashSalary": {
+   "2026-27": 2150917
   },
   "guaranteed": {},
   "likelyIncentives": {},
@@ -244,6 +434,25 @@
   "faYear": null
  },
  {
+  "name": "Kevin Porter Jr.",
+  "team": "MIL",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 5390700
+  },
+  "cashSalary": {
+   "2026-27": 5390700
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Vasilije Micić",
   "team": "MIL",
   "section": "Buyout",
@@ -326,6 +535,25 @@
    "2028-29": 3107143,
    "2029-30": 3107143,
    "2030-31": 3107143
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
+  "name": "Haywood Highsmith",
+  "team": "PHO",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 2449421
+  },
+  "cashSalary": {
+   "2026-27": 2449421
   },
   "guaranteed": {},
   "likelyIncentives": {},

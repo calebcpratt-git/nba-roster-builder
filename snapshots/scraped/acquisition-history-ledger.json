@@ -9564,6 +9564,16 @@
    "date": "2026-07-19",
    "method": "trade",
    "team": "ATL"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "trade",
+   "team": "CHO"
+  },
+  {
+   "date": "2026-09-30",
+   "method": "free-agent",
+   "team": "DEN"
   }
  ],
  "luguentz dort": [
@@ -9621,6 +9631,16 @@
    "date": "2026-06-30",
    "method": "trade",
    "team": "ATL"
+  },
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "BOS"
+  },
+  {
+   "date": "2026-09-14",
+   "method": "free-agent",
+   "team": "BOS"
   }
  ],
  "cj mccollum": [
@@ -9877,6 +9897,11 @@
    "date": "2026-07-03",
    "method": "trade",
    "team": "CHO"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "trade",
+   "team": "ATL"
   }
  ],
  "royce oneale": [
@@ -10027,6 +10052,11 @@
  "donovan mitchell": [
   {
    "date": "2026-07-07",
+   "method": "extension",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-07-08",
    "method": "extension",
    "team": "CLE"
   }
@@ -10421,6 +10451,11 @@
    "date": "2026-08-17",
    "method": "free-agent",
    "team": "HOU"
+  },
+  {
+   "date": "2026-10-23",
+   "method": "free-agent",
+   "team": "SAC"
   }
  ],
  "jaesean tate": [
@@ -10777,6 +10812,11 @@
    "date": "2026-06-24",
    "method": "free-agent",
    "team": "MEM"
+  },
+  {
+   "date": "2026-09-28",
+   "method": "free-agent",
+   "team": "MEM"
   }
  ],
  "bennett stirtz": [
@@ -10893,6 +10933,11 @@
  "pete nance": [
   {
    "date": "2026-07-08",
+   "method": "free-agent",
+   "team": "MIL"
+  },
+  {
+   "date": "2026-10-19",
    "method": "free-agent",
    "team": "MIL"
   }
@@ -11362,6 +11407,11 @@
    "date": "2026-07-03",
    "method": "free-agent",
    "team": "SAC"
+  },
+  {
+   "date": "2026-07-02",
+   "method": "free-agent",
+   "team": "SAC"
   }
  ],
  "jonathan mogbo": [
@@ -11503,6 +11553,11 @@
   {
    "date": "2026-06-23",
    "method": "draft",
+   "team": "TOR"
+  },
+  {
+   "date": "2026-09-21",
+   "method": "free-agent",
    "team": "TOR"
   }
  ],
@@ -11716,6 +11771,11 @@
    "date": "2026-08-26",
    "method": "free-agent",
    "team": "NOP"
+  },
+  {
+   "date": "2026-09-10",
+   "method": "free-agent",
+   "team": "NOP"
   }
  ],
  "ben simmons": [
@@ -11742,6 +11802,11 @@
    "date": "2026-09-08",
    "method": "trade",
    "team": "MEM"
+  },
+  {
+   "date": "2026-10-24",
+   "method": "free-agent",
+   "team": "OKC"
   }
  ],
  "jordan hawkins": [
@@ -11749,6 +11814,11 @@
    "date": "2026-09-08",
    "method": "trade",
    "team": "MEM"
+  },
+  {
+   "date": "2026-10-05",
+   "method": "free-agent",
+   "team": "CHI"
   }
  ],
  "taj gibson": [
@@ -11756,6 +11826,536 @@
    "date": "2026-09-08",
    "method": "trade",
    "team": "NOP"
+  }
+ ],
+ "gradey dick": [
+  {
+   "date": "2026-09-14",
+   "method": "trade",
+   "team": "LAC"
+  }
+ ],
+ "brandon ingram": [
+  {
+   "date": "2026-09-14",
+   "method": "trade",
+   "team": "LAC"
+  }
+ ],
+ "kawhi leonard": [
+  {
+   "date": "2026-09-14",
+   "method": "trade",
+   "team": "TOR"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "john konchar": [
+  {
+   "date": "2026-08-29",
+   "method": "trade",
+   "team": "MIN"
+  },
+  {
+   "date": "2026-09-15",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "anthony gill": [
+  {
+   "date": "2026-09-15",
+   "method": "free-agent",
+   "team": "WAS"
+  }
+ ],
+ "duop reath": [
+  {
+   "date": "2026-09-16",
+   "method": "free-agent",
+   "team": "PHO"
+  },
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "PHO"
+  },
+  {
+   "date": "2026-09-25",
+   "method": "free-agent",
+   "team": "PHO"
+  }
+ ],
+ "jake stephens": [
+  {
+   "date": "2026-09-17",
+   "method": "free-agent",
+   "team": "MIL"
+  }
+ ],
+ "saddiq bey": [
+  {
+   "date": "2026-09-17",
+   "method": "extension",
+   "team": "NOP"
+  }
+ ],
+ "cam whitmore": [
+  {
+   "date": "2026-08-20",
+   "method": "trade",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-09-18",
+   "method": "free-agent",
+   "team": "DEN"
+  }
+ ],
+ "ausar thompson": [
+  {
+   "date": "2026-09-18",
+   "method": "extension",
+   "team": "DET"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "extension",
+   "team": "DET"
+  }
+ ],
+ "pelle larsson": [
+  {
+   "date": "2026-09-18",
+   "method": "extension",
+   "team": "MIA"
+  },
+  {
+   "date": "2026-09-22",
+   "method": "extension",
+   "team": "MIA"
+  }
+ ],
+ "keyonte george": [
+  {
+   "date": "2026-09-18",
+   "method": "extension",
+   "team": "UTA"
+  }
+ ],
+ "graham ike": [
+  {
+   "date": "2026-09-20",
+   "method": "free-agent",
+   "team": "GSW"
+  },
+  {
+   "date": "2026-09-21",
+   "method": "free-agent",
+   "team": "GSW"
+  }
+ ],
+ "malachi smith": [
+  {
+   "date": "2026-09-21",
+   "method": "free-agent",
+   "team": "TOR"
+  },
+  {
+   "date": "2026-08-17",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "nick pringle": [
+  {
+   "date": "2026-09-21",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "buddy hield": [
+  {
+   "date": "2026-09-22",
+   "method": "trade",
+   "team": "CHO"
+  },
+  {
+   "date": "2026-09-26",
+   "method": "trade",
+   "team": "CHI"
+  },
+  {
+   "date": "2026-09-27",
+   "method": "trade",
+   "team": "CHI"
+  }
+ ],
+ "miles barnstable": [
+  {
+   "date": "2026-09-22",
+   "method": "free-agent",
+   "team": "SAS"
+  }
+ ],
+ "julian reese": [
+  {
+   "date": "2026-08-20",
+   "method": "trade",
+   "team": "DEN"
+  },
+  {
+   "date": "2026-09-24",
+   "method": "free-agent",
+   "team": "NOP"
+  }
+ ],
+ "dwight powell": [
+  {
+   "date": "2026-09-25",
+   "method": "free-agent",
+   "team": "DAL"
+  }
+ ],
+ "stephen curry": [
+  {
+   "date": "2026-09-25",
+   "method": "extension",
+   "team": "GSW"
+  }
+ ],
+ "rob dillingham": [
+  {
+   "date": "2026-09-26",
+   "method": "trade",
+   "team": "CHO"
+  },
+  {
+   "date": "2026-09-27",
+   "method": "trade",
+   "team": "CHO"
+  }
+ ],
+ "tyler nickel": [
+  {
+   "date": "2026-09-28",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-06-23",
+   "method": "draft",
+   "team": "PHO"
+  },
+  {
+   "date": "2026-09-26",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "kevin mccullar": [
+  {
+   "date": "2026-09-27",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-11-05",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "jaden akins": [
+  {
+   "date": "2026-09-30",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-09-26",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-09-15",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "jamal shead": [
+  {
+   "date": "2026-10-01",
+   "method": "extension",
+   "team": "TOR"
+  }
+ ],
+ "jalen duren": [
+  {
+   "date": "2026-10-01",
+   "method": "free-agent",
+   "team": "DET"
+  },
+  {
+   "date": "2026-10-02",
+   "method": "free-agent",
+   "team": "DET"
+  }
+ ],
+ "dion brown": [
+  {
+   "date": "2026-10-08",
+   "method": "free-agent",
+   "team": "BRK"
+  }
+ ],
+ "brandin podziemski": [
+  {
+   "date": "2026-10-10",
+   "method": "extension",
+   "team": "GSW"
+  }
+ ],
+ "mohamed wague": [
+  {
+   "date": "2026-10-08",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "payton pritchard": [
+  {
+   "date": "2026-10-13",
+   "method": "extension",
+   "team": "BOS"
+  },
+  {
+   "date": "2026-10-16",
+   "method": "extension",
+   "team": "BOS"
+  }
+ ],
+ "leaky black": [
+  {
+   "date": "2026-10-15",
+   "method": "free-agent",
+   "team": "SAC"
+  },
+  {
+   "date": "2026-09-25",
+   "method": "free-agent",
+   "team": "SAC"
+  }
+ ],
+ "cameron christie": [
+  {
+   "date": "2026-10-16",
+   "method": "free-agent",
+   "team": "LAC"
+  },
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "tony bradley": [
+  {
+   "date": "2026-09-30",
+   "method": "free-agent",
+   "team": "NYK"
+  },
+  {
+   "date": "2026-10-17",
+   "method": "waiver",
+   "team": "UTA"
+  }
+ ],
+ "tacko fall": [
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "PHI"
+  },
+  {
+   "date": "2026-09-01",
+   "method": "free-agent",
+   "team": "PHI"
+  }
+ ],
+ "nate bittle": [
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "TOR"
+  },
+  {
+   "date": "2026-07-09",
+   "method": "free-agent",
+   "team": "TOR"
+  }
+ ],
+ "harrison ingram": [
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "UTA"
+  },
+  {
+   "date": "2026-07-25",
+   "method": "free-agent",
+   "team": "UTA"
+  }
+ ],
+ "reece beekman": [
+  {
+   "date": "2026-10-17",
+   "method": "free-agent",
+   "team": "WAS"
+  },
+  {
+   "date": "2026-09-27",
+   "method": "free-agent",
+   "team": "WAS"
+  }
+ ],
+ "brandon miller": [
+  {
+   "date": "2026-10-19",
+   "method": "extension",
+   "team": "CHO"
+  }
+ ],
+ "walter clayton": [
+  {
+   "date": "2026-10-21",
+   "method": "free-agent",
+   "team": "DAL"
+  }
+ ],
+ "dalen terry": [
+  {
+   "date": "2026-08-31",
+   "method": "free-agent",
+   "team": "GSW"
+  },
+  {
+   "date": "2026-11-03",
+   "method": "free-agent",
+   "team": "OKC"
+  },
+  {
+   "date": "2026-04-10",
+   "method": "free-agent",
+   "team": "PHI"
+  },
+  {
+   "date": "2026-11-04",
+   "method": "free-agent",
+   "team": "OKC"
+  }
+ ],
+ "oscar tshiebwe": [
+  {
+   "date": "2026-10-19",
+   "method": "free-agent",
+   "team": "HOU"
+  },
+  {
+   "date": "2026-07-23",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "julian phillips": [
+  {
+   "date": "2026-10-19",
+   "method": "free-agent",
+   "team": "HOU"
+  },
+  {
+   "date": "2026-07-25",
+   "method": "free-agent",
+   "team": "HOU"
+  }
+ ],
+ "blake wesley": [
+  {
+   "date": "2026-10-29",
+   "method": "free-agent",
+   "team": "LAC"
+  },
+  {
+   "date": "2026-09-27",
+   "method": "free-agent",
+   "team": "LAC"
+  }
+ ],
+ "lawson lovering": [
+  {
+   "date": "2026-10-28",
+   "method": "free-agent",
+   "team": "LAL"
+  },
+  {
+   "date": "2026-09-16",
+   "method": "free-agent",
+   "team": "MEM"
+  }
+ ],
+ "jaden mcdaniels": [
+  {
+   "date": "2026-10-17",
+   "method": "extension",
+   "team": "MIN"
+  }
+ ],
+ "drew timme": [
+  {
+   "date": "2026-09-25",
+   "method": "free-agent",
+   "team": "MIN"
+  },
+  {
+   "date": "2026-10-19",
+   "method": "free-agent",
+   "team": "PHO"
+  },
+  {
+   "date": "2026-10-19",
+   "method": "waiver",
+   "team": "PHO"
+  }
+ ],
+ "dalton knecht": [
+  {
+   "date": "2026-10-23",
+   "method": "free-agent",
+   "team": "NYK"
+  }
+ ],
+ "cason wallace": [
+  {
+   "date": "2026-10-19",
+   "method": "extension",
+   "team": "OKC"
+  }
+ ],
+ "oso ighodaro": [
+  {
+   "date": "2026-10-19",
+   "method": "extension",
+   "team": "PHO"
+  }
+ ],
+ "kobe bufkin": [
+  {
+   "date": "2026-10-23",
+   "method": "free-agent",
+   "team": "UTA"
   }
  ]
 }

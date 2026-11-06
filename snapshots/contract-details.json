@@ -602,20 +602,6 @@
     }
   },
   {
-    "name": "Buddy Hield",
-    "signedUnder": "bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Aaron Wiggins",
     "signedUnder": "bird",
     "incentives": {
@@ -650,20 +636,6 @@
         "unlikely": 0
       },
       "2029-30": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Devin Carter",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -712,16 +684,6 @@
   {
     "name": "Mouhamed Gueye",
     "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Ryan Nembhard",
-    "signedUnder": "minimum",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -959,6 +921,15 @@
   {
     "name": "Jordan Walsh",
     "signedUnder": "rookie-scale",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Devin Carter",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -1384,16 +1355,6 @@
     }
   },
   {
-    "name": "Pat Connaughton",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Liam McNeeley",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -1588,6 +1549,20 @@
     }
   },
   {
+    "name": "Buddy Hield",
+    "signedUnder": "bird",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Jalen Smith",
     "incentives": {
       "2026-27": {
@@ -1613,20 +1588,6 @@
   {
     "name": "Tre Jones",
     "signedUnder": "bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Rob Dillingham",
-    "signedUnder": "rookie-scale",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -1704,6 +1665,15 @@
   },
   {
     "name": "Tobe Awaka",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Jordan Hawkins",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -2071,6 +2041,16 @@
     }
   },
   {
+    "name": "Dereck Lively II",
+    "signedUnder": "rookie-scale",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Marcus Sasser",
     "signedUnder": "bi-annual",
     "incentives": {
@@ -2109,8 +2089,7 @@
     }
   },
   {
-    "name": "Dereck Lively II",
-    "signedUnder": "rookie-scale",
+    "name": "Walter Clayton",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -2129,15 +2108,6 @@
   },
   {
     "name": "Tobi Lawal",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "John Poulakidas",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -2337,7 +2307,16 @@
     }
   },
   {
-    "name": "KJ Simpson",
+    "name": "Ryan Nembhard",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Cam Whitmore",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -2362,6 +2341,32 @@
         "unlikely": 0
       },
       "2029-30": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Jalen Duren",
+    "signedUnder": "bird",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2028-29": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2029-30": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2030-31": {
         "likely": 0,
         "unlikely": 0
       }
@@ -2500,16 +2505,6 @@
   {
     "name": "Javonte Green",
     "signedUnder": "non-bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Gary Harris",
-    "signedUnder": "minimum",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -2766,6 +2761,19 @@
     }
   },
   {
+    "name": "Graham Ike",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Malevy Leons",
     "incentives": {
       "2026-27": {
@@ -2805,6 +2813,16 @@
         "unlikely": 0
       },
       "2029-30": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Fred VanVleet",
+    "signedUnder": "bird",
+    "incentives": {
+      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }
@@ -2979,25 +2997,6 @@
     }
   },
   {
-    "name": "Fred VanVleet",
-    "signedUnder": "bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Rafael Castro",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Quadir Copeland",
     "incentives": {
       "2026-27": {
@@ -3007,13 +3006,18 @@
     }
   },
   {
-    "name": "Sean Pedulla",
+    "name": "Julian Phillips",
     "incentives": {
       "2026-27": {
         "likely": 0,
         "unlikely": 0
-      },
-      "2027-28": {
+      }
+    }
+  },
+  {
+    "name": "Oscar Tshiebwe",
+    "incentives": {
+      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }
@@ -3215,6 +3219,20 @@
     }
   },
   {
+    "name": "Brandon Ingram",
+    "signedUnder": "bird",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Max Strus",
     "signedUnder": "bird",
     "incentives": {
@@ -3271,6 +3289,16 @@
   },
   {
     "name": "Brook Lopez",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Gradey Dick",
+    "signedUnder": "rookie-scale",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -3361,38 +3389,6 @@
     }
   },
   {
-    "name": "Cam Christie",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Johni Broome",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2028-29": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Baba Miller",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -3415,6 +3411,24 @@
     }
   },
   {
+    "name": "Blake Wesley",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Cameron Christie",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Nick Martinelli",
     "incentives": {
       "2026-27": {
@@ -3429,15 +3443,6 @@
   },
   {
     "name": "Jalen Pickett",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Jamarion Sharp",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -3581,20 +3586,6 @@
     }
   },
   {
-    "name": "Dalton Knecht",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Cameron Carr",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -3674,16 +3665,20 @@
     }
   },
   {
-    "name": "Chris Manon",
+    "name": "Lawson Lovering",
     "incentives": {
       "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
     }
   },
   {
-    "name": "AK Okereke",
+    "name": "Chris Manon",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -3770,16 +3765,6 @@
     }
   },
   {
-    "name": "Jordan Hawkins",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Zach Edey",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -3812,37 +3797,10 @@
     }
   },
   {
-    "name": "D'Angelo Russell",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Kris Murray",
     "signedUnder": "rookie-scale",
     "incentives": {
       "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Walter Clayton",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 50000,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2028-29": {
         "likely": 0,
         "unlikely": 0
       }
@@ -3929,24 +3887,6 @@
         "unlikely": 0
       },
       "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Micah Peavy",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2028-29": {
         "likely": 0,
         "unlikely": 0
       }
@@ -4324,15 +4264,6 @@
     }
   },
   {
-    "name": "Kevin Porter Jr.",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Kel'el Ware",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -4389,20 +4320,6 @@
     }
   },
   {
-    "name": "Pete Nance",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Bogoljub Markovic",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -4426,6 +4343,15 @@
   },
   {
     "name": "Kam Jones",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Pete Nance",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -4596,15 +4522,6 @@
         "unlikely": 0
       },
       "2029-30": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Enrique Freeman",
-    "incentives": {
-      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }
@@ -4838,6 +4755,15 @@
     }
   },
   {
+    "name": "Julian Reese",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Karl-Anthony Towns",
     "signedUnder": "bird",
     "incentives": {
@@ -4994,6 +4920,16 @@
     }
   },
   {
+    "name": "James Wiseman",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Tyler Kolek",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -5002,6 +4938,33 @@
         "unlikely": 0
       },
       "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Jaden Akins",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Dalton Knecht",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Tyler Nickel",
+    "incentives": {
+      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }
@@ -5166,6 +5129,24 @@
     }
   },
   {
+    "name": "Thomas Sorber",
+    "signedUnder": "rookie-scale",
+    "incentives": {
+      "2026-27": {
+        "likely": 814620,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2028-29": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Bennett Stirtz",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -5216,18 +5197,14 @@
     }
   },
   {
-    "name": "Thomas Sorber",
-    "signedUnder": "rookie-scale",
+    "name": "Dalen Terry",
+    "signedUnder": "minimum",
     "incentives": {
       "2026-27": {
-        "likely": 814620,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       },
-      "2028-29": {
+      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -5252,7 +5229,7 @@
     }
   },
   {
-    "name": "Otega Oweh",
+    "name": "Micah Peavy",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -5683,6 +5660,15 @@
     }
   },
   {
+    "name": "Tacko Fall",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Caleb Love",
     "incentives": {
       "2026-27": {
@@ -5871,16 +5857,6 @@
     }
   },
   {
-    "name": "Haywood Highsmith",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Oso Ighodaro",
     "signedUnder": "rookie-scale",
     "incentives": {
@@ -5913,7 +5889,7 @@
     }
   },
   {
-    "name": "Koby Brea",
+    "name": "Duop Reath",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -5922,7 +5898,7 @@
     }
   },
   {
-    "name": "CJ Huntley",
+    "name": "Drew Timme",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -6111,16 +6087,6 @@
     }
   },
   {
-    "name": "Jeremy Sochan",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Jayson Kent",
     "incentives": {
       "2026-27": {
@@ -6258,6 +6224,20 @@
     }
   },
   {
+    "name": "Daeqwon Plowden",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      },
+      "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Ben Simmons",
     "signedUnder": "minimum",
     "incentives": {
@@ -6317,27 +6297,9 @@
     }
   },
   {
-    "name": "Daeqwon Plowden",
-    "signedUnder": "minimum",
+    "name": "Leaky Black",
     "incentives": {
       "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Adam Flagler",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
@@ -6351,6 +6313,15 @@
         "unlikely": 0
       },
       "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Sean Pedulla",
+    "incentives": {
+      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }
@@ -6620,20 +6591,6 @@
     }
   },
   {
-    "name": "Brandon Ingram",
-    "signedUnder": "bird",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
     "name": "Immanuel Quickley",
     "signedUnder": "bird",
     "incentives": {
@@ -6668,16 +6625,6 @@
       "2026-27": {
         "likely": 0,
         "unlikely": 500000
-      }
-    }
-  },
-  {
-    "name": "Gradey Dick",
-    "signedUnder": "rookie-scale",
-    "incentives": {
-      "2026-27": {
-        "likely": 0,
-        "unlikely": 0
       }
     }
   },
@@ -6730,16 +6677,6 @@
         "unlikely": 0
       },
       "2027-28": {
-        "likely": 0,
-        "unlikely": 0
-      }
-    }
-  },
-  {
-    "name": "Andre Jackson Jr.",
-    "signedUnder": "minimum",
-    "incentives": {
-      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }
@@ -6805,10 +6742,11 @@
         "likely": 0,
         "unlikely": 0
       }
-    }
+    },
+    "signedUnder": "non-taxpayer-mle"
   },
   {
-    "name": "Chucky Hepburn",
+    "name": "Nate Bittle",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -6817,7 +6755,16 @@
     }
   },
   {
-    "name": "Trey Jemison",
+    "name": "Kevin McCullar Jr.",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Malachi Smith",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -7034,6 +6981,16 @@
     }
   },
   {
+    "name": "Tony Bradley",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Trey Alexander",
     "incentives": {
       "2026-27": {
@@ -7043,20 +7000,16 @@
     }
   },
   {
-    "name": "Tamar Bates",
+    "name": "Kobe Bufkin",
     "incentives": {
       "2026-27": {
-        "likely": 0,
-        "unlikely": 0
-      },
-      "2027-28": {
         "likely": 0,
         "unlikely": 0
       }
     }
   },
   {
-    "name": "Blake Hinson",
+    "name": "Harrison Ingram",
     "incentives": {
       "2026-27": {
         "likely": 0,
@@ -7250,6 +7203,25 @@
         "unlikely": 0
       },
       "2027-28": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Anthony Gill",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
+    "name": "Reece Beekman",
+    "incentives": {
+      "2026-27": {
         "likely": 0,
         "unlikely": 0
       }

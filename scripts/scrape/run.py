@@ -318,7 +318,15 @@ def new_unresolved_records(before, after):
     return result
 
 
-ROSTER_SECTIONS = {'Active', 'Minors/G-League', 'Disabled', 'Inactive'}
+# SalarySwish renamed its in-season roster sections in Oct 2026: 'Active'
+# became 'Standard Roster' and 'Minors/G-League' became 'Two-Way'. Both
+# spellings are kept, since the offseason layout may bring the old ones back.
+ROSTER_SECTIONS = {'Active', 'Standard Roster', 'Minors/G-League', 'Two-Way', 'Disabled', 'Inactive'}
+TWO_WAY_SECTIONS = {'Minors/G-League', 'Two-Way'}
+# Sections deliberately dropped (see build_players' docstring). Any section
+# in neither this set nor KEPT_SECTIONS is reported, so the next rename shows
+# up in the run log instead of silently emptying players.json.
+SKIPPED_SECTIONS = {'UFAs', 'RFAs', 'FA Cap Hold', '1st Rd Picks', '2nd Rd Picks'}
 
 
 def _canonical_name_index():
@@ -386,6 +394,9 @@ def build_players():
     unmatched_names = []
     no_current_salary = []
     players, camp_invites, dead_money = [], [], []
+    unknown_sections = sorted({r['section'] for r in rows} - KEPT_SECTIONS - SKIPPED_SECTIONS)
+    if unknown_sections:
+        print(f'  WARN unrecognized salaryswish roster section(s), skipped: {unknown_sections}')
     for row in rows:
         if row['section'] not in KEPT_SECTIONS:
             # UFA/RFA/FA-Cap-Hold/pick holds — not roster occupancy (see
@@ -455,7 +466,7 @@ def build_players():
             # popping above can be retired in favor of just reading this.
             'optionExercised': row['optionsAccepted'],
         }
-        if row['terms'] == 'Two-Way' or row['section'] == 'Minors/G-League':
+        if row['terms'] == 'Two-Way' or row['section'] in TWO_WAY_SECTIONS:
             player['contractType'] = 'two-way'
         if row['acquiredMethod']:
             player['acquiredMethod'] = row['acquiredMethod']

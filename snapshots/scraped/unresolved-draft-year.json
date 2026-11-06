@@ -12,6 +12,10 @@
   "team": "ATL"
  },
  {
+  "name": "Devin Carter",
+  "team": "BOS"
+ },
+ {
   "name": "Chaney Johnson",
   "team": "BRK"
  },
@@ -33,6 +37,10 @@
  },
  {
   "name": "Tobe Awaka",
+  "team": "CHI"
+ },
+ {
+  "name": "Jordan Hawkins",
   "team": "CHI"
  },
  {
@@ -60,10 +68,6 @@
   "team": "DAL"
  },
  {
-  "name": "John Poulakidas",
-  "team": "DAL"
- },
- {
   "name": "DeMar DeRozan",
   "team": "DEN"
  },
@@ -72,8 +76,16 @@
   "team": "DEN"
  },
  {
-  "name": "KJ Simpson",
+  "name": "Ryan Nembhard",
   "team": "DEN"
+ },
+ {
+  "name": "Cam Whitmore",
+  "team": "DEN"
+ },
+ {
+  "name": "Jalen Duren",
+  "team": "DET"
  },
  {
   "name": "Elijah Harkless",
@@ -88,19 +100,23 @@
   "team": "GSW"
  },
  {
-  "name": "Malevy Leons",
+  "name": "Graham Ike",
   "team": "GSW"
  },
  {
-  "name": "Rafael Castro",
-  "team": "HOU"
+  "name": "Malevy Leons",
+  "team": "GSW"
  },
  {
   "name": "Quadir Copeland",
   "team": "HOU"
  },
  {
-  "name": "Sean Pedulla",
+  "name": "Julian Phillips",
+  "team": "HOU"
+ },
+ {
+  "name": "Oscar Tshiebwe",
   "team": "HOU"
  },
  {
@@ -116,11 +132,15 @@
   "team": "IND"
  },
  {
-  "name": "Jalen Pickett",
+  "name": "Blake Wesley",
   "team": "LAC"
  },
  {
-  "name": "Jamarion Sharp",
+  "name": "Cameron Christie",
+  "team": "LAC"
+ },
+ {
+  "name": "Jalen Pickett",
   "team": "LAC"
  },
  {
@@ -128,11 +148,11 @@
   "team": "LAL"
  },
  {
-  "name": "Chris Manon",
+  "name": "Lawson Lovering",
   "team": "LAL"
  },
  {
-  "name": "AK Okereke",
+  "name": "Chris Manon",
   "team": "LAL"
  },
  {
@@ -152,12 +172,12 @@
   "team": "MIA"
  },
  {
-  "name": "Cormac Ryan",
+  "name": "Pete Nance",
   "team": "MIL"
  },
  {
-  "name": "Enrique Freeman",
-  "team": "MIN"
+  "name": "Cormac Ryan",
+  "team": "MIL"
  },
  {
   "name": "Zyon Pullin",
@@ -172,6 +192,22 @@
   "team": "NOP"
  },
  {
+  "name": "Julian Reese",
+  "team": "NOP"
+ },
+ {
+  "name": "James Wiseman",
+  "team": "NYK"
+ },
+ {
+  "name": "Jaden Akins",
+  "team": "NYK"
+ },
+ {
+  "name": "Dalen Terry",
+  "team": "OKC"
+ },
+ {
   "name": "Josh Dix",
   "team": "OKC"
  },
@@ -184,6 +220,10 @@
   "team": "ORL"
  },
  {
+  "name": "Tacko Fall",
+  "team": "PHI"
+ },
+ {
   "name": "Caleb Love",
   "team": "PHI"
  },
@@ -192,7 +232,11 @@
   "team": "PHI"
  },
  {
-  "name": "CJ Huntley",
+  "name": "Duop Reath",
+  "team": "PHO"
+ },
+ {
+  "name": "Drew Timme",
   "team": "PHO"
  },
  {
@@ -216,7 +260,7 @@
   "team": "SAC"
  },
  {
-  "name": "Adam Flagler",
+  "name": "Leaky Black",
   "team": "SAC"
  },
  {
@@ -224,31 +268,51 @@
   "team": "SAC"
  },
  {
+  "name": "Sean Pedulla",
+  "team": "SAC"
+ },
+ {
   "name": "David Jones Garcia",
   "team": "SAS"
  },
  {
-  "name": "Chucky Hepburn",
+  "name": "Nate Bittle",
   "team": "TOR"
  },
  {
-  "name": "Trey Jemison",
+  "name": "Kevin McCullar Jr.",
   "team": "TOR"
+ },
+ {
+  "name": "Malachi Smith",
+  "team": "TOR"
+ },
+ {
+  "name": "Tony Bradley",
+  "team": "UTA"
  },
  {
   "name": "Trey Alexander",
   "team": "UTA"
  },
  {
-  "name": "Tamar Bates",
+  "name": "Kobe Bufkin",
   "team": "UTA"
  },
  {
-  "name": "Blake Hinson",
+  "name": "Harrison Ingram",
   "team": "UTA"
  },
  {
   "name": "Tristan Vukcevic",
+  "team": "WAS"
+ },
+ {
+  "name": "Anthony Gill",
+  "team": "WAS"
+ },
+ {
+  "name": "Reece Beekman",
   "team": "WAS"
  }
 ]
