@@ -84,6 +84,14 @@ export default function DataSchemaDashboard() {
   const bySource = fieldsBySource()
 
   const asOf = status.generatedAt ?? status.filesTouchedAt
+  // A failed scheduled run stays "latest" on GitHub until the next scheduled
+  // run, even after someone regenerates and merges the data by hand. If the
+  // committed data was generated after that run, the failure is superseded.
+  const failureSuperseded =
+    latestRun !== null &&
+    latestRun !== 'unknown' &&
+    !!status.generatedAt &&
+    new Date(status.generatedAt) > new Date(latestRun.createdAt)
   const families = [...new Set(Object.keys(DATA_SOURCES).map(sourceFamily))] as SourceFamily[]
 
   const sourceFetchRows = Object.values(DATA_SOURCES)
@@ -256,7 +264,7 @@ export default function DataSchemaDashboard() {
               </div>
             </div>
           </div>
-        ) : latestRun?.conclusion === 'failure' ? (
+        ) : latestRun?.conclusion === 'failure' && !failureSuperseded ? (
           <div className="mb-8 flex items-start gap-2 rounded-lg border border-destructive/40 bg-destructive/5 p-3 text-sm">
             <AlertTriangle className="mt-0.5 size-4 shrink-0 text-destructive" />
             <p>
