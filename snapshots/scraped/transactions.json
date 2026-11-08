@@ -1234,6 +1234,32 @@
  },
  {
   "bbrefId": null,
+  "name": "Riley Minix",
+  "date": "2026-11-08",
+  "dateRaw": "Nov 8, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Norchad Omier",
+  "date": "2026-11-06",
+  "dateRaw": "Nov 6, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Tre'Von Spillers",
   "date": "2026-10-16",
   "dateRaw": "Oct 16, 2026",
@@ -3571,6 +3597,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Richie Saunders",
+  "date": "2026-11-07",
+  "dateRaw": "Nov 7, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Zach Cleveland",
   "date": "2026-10-12",
   "dateRaw": "Oct 12, 2026",
@@ -3832,32 +3871,6 @@
    "DET"
   ],
   "text": "Traded from DET",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Cameron Boozer",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "MEM"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Bennett Stirtz",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "MEM"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
   "flags": []
  },
  {
@@ -4673,19 +4686,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Enrique Freeman",
-  "date": "2026-07-02",
-  "dateRaw": "Jul 2, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "MIN"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {

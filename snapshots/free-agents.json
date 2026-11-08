@@ -669,7 +669,7 @@
     "position": "SF",
     "priorTeam": "MIN",
     "faType": "U",
-    "birdRights": "early-bird"
+    "birdRights": null
   },
   {
     "name": "Wyatt Fricks",
@@ -1372,13 +1372,6 @@
     "birdRights": null
   },
   {
-    "name": "Kevin McCullar, Jr.",
-    "position": "SG",
-    "priorTeam": "NYK",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
     "name": "Doug McDermott",
     "position": "SF",
     "priorTeam": "SAC",
@@ -1615,13 +1608,6 @@
     "priorTeam": "SAS",
     "faType": "U",
     "birdRights": "full-bird"
-  },
-  {
-    "name": "Norchad Omier",
-    "position": "SF",
-    "priorTeam": "MIN",
-    "faType": "U",
-    "birdRights": null
   },
   {
     "name": "Miye Oni",

@@ -688,8 +688,7 @@
   "team": "LAC",
   "player": "Norchad Omier",
   "amount": 2200000,
-  "reason": "name-matched-different-team",
-  "matchedPriorTeam": "MIN"
+  "reason": "not-in-realgm-current-free-agents"
  },
  {
   "team": "LAL",

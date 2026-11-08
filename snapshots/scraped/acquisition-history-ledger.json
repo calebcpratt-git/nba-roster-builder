@@ -12357,5 +12357,31 @@
    "method": "free-agent",
    "team": "UTA"
   }
+ ],
+ "riley minix": [
+  {
+   "date": "2026-11-08",
+   "method": "free-agent",
+   "team": "CLE"
+  }
+ ],
+ "norchad omier": [
+  {
+   "date": "2026-11-06",
+   "method": "free-agent",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-09-24",
+   "method": "free-agent",
+   "team": "MIN"
+  }
+ ],
+ "richie saunders": [
+  {
+   "date": "2026-11-07",
+   "method": "free-agent",
+   "team": "MEM"
+  }
  ]
 }

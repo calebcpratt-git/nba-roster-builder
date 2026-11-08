@@ -1,14 +1,14 @@
 {
   "added": [
     {
-      "name": "Kevin McCullar Jr.",
-      "team": "TOR",
+      "name": "Norchad Omier",
+      "team": "CLE",
       "salary": {
         "2026-27": 0
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 616456
+        "2026-27": 612554
       },
       "guaranteed": {
         "2026-27": 0
@@ -21,119 +21,186 @@
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
-          "date": "2026-09-27",
+          "date": "2026-09-24",
           "method": "free-agent",
-          "team": "NYK"
+          "team": "MIN"
         },
         {
-          "date": "2026-11-05",
+          "date": "2026-11-06",
           "method": "free-agent",
-          "team": "TOR"
+          "team": "CLE"
+        }
+      ]
+    },
+    {
+      "name": "Richie Saunders",
+      "team": "MEM",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 608653
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Draft",
+      "acquisitionHistory": [
+        {
+          "date": "2026-11-07",
+          "method": "free-agent",
+          "team": "MEM"
         }
       ]
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Tristan Enaruna",
+      "team": "CLE",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 680985
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Signed"
+    },
+    {
+      "name": "Blake Wesley",
+      "team": "LAC",
+      "salary": {
+        "2026-27": 140771
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 150898
+      },
+      "guaranteed": {
+        "2026-27": 150898
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-27",
+          "method": "free-agent",
+          "team": "LAC"
+        },
+        {
+          "date": "2026-10-29",
+          "method": "free-agent",
+          "team": "LAC"
+        }
+      ]
+    },
+    {
+      "name": "Carson Cooper",
+      "team": "MEM",
+      "salary": {
+        "2026-27": 0,
+        "2027-28": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 678882,
+        "2027-28": 749083
+      },
+      "guaranteed": {
+        "2026-27": 91000,
+        "2027-28": 91000
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-06-24",
+          "method": "free-agent",
+          "team": "MEM"
+        },
+        {
+          "date": "2026-09-28",
+          "method": "free-agent",
+          "team": "MEM"
+        }
+      ]
+    }
+  ],
   "changed": [
     {
       "before": {
-        "name": "Dalen Terry",
-        "team": "OKC",
+        "name": "Riley Minix",
+        "team": "CLE",
         "salary": {
-          "2026-27": 2414370,
-          "2027-28": 2988178
+          "2026-27": 0
         },
         "options": {},
         "cashSalary": {
-          "2026-27": 2414370,
-          "2027-28": 2988178
+          "2026-27": 680985
         },
         "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 0
+          "2026-27": 85300
         },
         "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
+          "2026-27": 0
         },
         "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-04-10",
-            "method": "free-agent",
-            "team": "PHI"
-          },
-          {
-            "date": "2026-08-31",
-            "method": "free-agent",
-            "team": "GSW"
-          },
-          {
-            "date": "2026-11-03",
-            "method": "free-agent",
-            "team": "OKC"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
+        "contractType": "two-way",
+        "acquiredMethod": "Signed"
       },
       "after": {
-        "name": "Dalen Terry",
-        "team": "OKC",
+        "name": "Riley Minix",
+        "team": "CLE",
         "salary": {
-          "2026-27": 2399280,
-          "2027-28": 2988178
+          "2026-27": 0
         },
         "options": {},
         "cashSalary": {
-          "2026-27": 2399280,
-          "2027-28": 2988178
+          "2026-27": 608653
         },
         "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 0
+          "2026-27": 0
         },
         "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
+          "2026-27": 0
         },
         "optionExercised": {},
+        "contractType": "two-way",
         "acquiredMethod": "Signed",
         "acquisitionHistory": [
           {
-            "date": "2026-04-10",
+            "date": "2026-11-08",
             "method": "free-agent",
-            "team": "PHI"
-          },
-          {
-            "date": "2026-08-31",
-            "method": "free-agent",
-            "team": "GSW"
-          },
-          {
-            "date": "2026-11-03",
-            "method": "free-agent",
-            "team": "OKC"
-          },
-          {
-            "date": "2026-11-04",
-            "method": "free-agent",
-            "team": "OKC"
+            "team": "CLE"
           }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
+        ]
       },
       "fields": [
-        "salary",
         "cashSalary",
+        "guaranteed",
         "acquisitionHistory"
       ]
     }

@@ -224,6 +224,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "GG Jackson II": 2023,
   "Jaylen Wells": 2024,
   "Jahmai Mashack": 2025,
+  "Richie Saunders": 2026,
   "Javon Small": 2025,
   "Giannis Antetokounmpo": 2013,
   "Bam Adebayo": 2017,

@@ -1,7 +1,16 @@
 {
   "added": [
     {
-      "name": "Kevin McCullar Jr.",
+      "name": "Norchad Omier",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Richie Saunders",
       "incentives": {
         "2026-27": {
           "likely": 0,
@@ -10,6 +19,34 @@
       }
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "name": "Tristan Enaruna",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Blake Wesley",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    },
+    {
+      "name": "Carson Cooper",
+      "incentives": {
+        "2026-27": {
+          "likely": 0,
+          "unlikely": 0
+        }
+      }
+    }
+  ],
   "changed": []
 }
