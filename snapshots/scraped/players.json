@@ -3394,26 +3394,6 @@
   ]
  },
  {
-  "name": "Tristan Enaruna",
-  "team": "CLE",
-  "salary": {
-   "2026-27": 0
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 680985
-  },
-  "guaranteed": {
-   "2026-27": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "contractType": "two-way",
-  "acquiredMethod": "Signed"
- },
- {
   "name": "Riley Minix",
   "team": "CLE",
   "salary": {
@@ -3421,17 +3401,56 @@
   },
   "options": {},
   "cashSalary": {
-   "2026-27": 680985
+   "2026-27": 608653
   },
   "guaranteed": {
-   "2026-27": 85300
+   "2026-27": 0
   },
   "likelyIncentives": {
    "2026-27": 0
   },
   "optionExercised": {},
   "contractType": "two-way",
-  "acquiredMethod": "Signed"
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-11-08",
+    "method": "free-agent",
+    "team": "CLE"
+   }
+  ]
+ },
+ {
+  "name": "Norchad Omier",
+  "team": "CLE",
+  "salary": {
+   "2026-27": 0
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 612554
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "contractType": "two-way",
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-09-24",
+    "method": "free-agent",
+    "team": "MIN"
+   },
+   {
+    "date": "2026-11-06",
+    "method": "free-agent",
+    "team": "CLE"
+   }
+  ]
  },
  {
   "name": "Ernest Udeh Jr.",
@@ -7232,37 +7251,6 @@
   ]
  },
  {
-  "name": "Blake Wesley",
-  "team": "LAC",
-  "salary": {
-   "2026-27": 140771
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 150898
-  },
-  "guaranteed": {
-   "2026-27": 150898
-  },
-  "likelyIncentives": {
-   "2026-27": 0
-  },
-  "optionExercised": {},
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-09-27",
-    "method": "free-agent",
-    "team": "LAC"
-   },
-   {
-    "date": "2026-10-29",
-    "method": "free-agent",
-    "team": "LAC"
-   }
-  ]
- },
- {
   "name": "Cameron Christie",
   "team": "LAC",
   "salary": {
@@ -8434,42 +8422,6 @@
   }
  },
  {
-  "name": "Carson Cooper",
-  "team": "MEM",
-  "salary": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 678882,
-   "2027-28": 749083
-  },
-  "guaranteed": {
-   "2026-27": 91000,
-   "2027-28": 91000
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "optionExercised": {},
-  "contractType": "two-way",
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-06-24",
-    "method": "free-agent",
-    "team": "MEM"
-   },
-   {
-    "date": "2026-09-28",
-    "method": "free-agent",
-    "team": "MEM"
-   }
-  ]
- },
- {
   "name": "Jahmai Mashack",
   "team": "MEM",
   "salary": {
@@ -8488,6 +8440,33 @@
   "optionExercised": {},
   "contractType": "two-way",
   "acquiredMethod": "Draft"
+ },
+ {
+  "name": "Richie Saunders",
+  "team": "MEM",
+  "salary": {
+   "2026-27": 0
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 608653
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "contractType": "two-way",
+  "acquiredMethod": "Draft",
+  "acquisitionHistory": [
+   {
+    "date": "2026-11-07",
+    "method": "free-agent",
+    "team": "MEM"
+   }
+  ]
  },
  {
   "name": "Javon Small",

@@ -525,6 +525,11 @@
   "method": "free-agent"
  },
  {
+  "name": "Blake Wesley",
+  "date": "2026-10-29",
+  "method": "free-agent"
+ },
+ {
   "name": "Nathan Mensah",
   "date": "2026-10-15",
   "method": "free-agent"
@@ -551,6 +556,11 @@
  },
  {
   "name": "Fletcher Loyer",
+  "date": "2026-09-27",
+  "method": "free-agent"
+ },
+ {
+  "name": "Blake Wesley",
   "date": "2026-09-27",
   "method": "free-agent"
  },
@@ -617,6 +627,11 @@
  {
   "name": "Zach Cleveland",
   "date": "2026-10-12",
+  "method": "free-agent"
+ },
+ {
+  "name": "Carson Cooper",
+  "date": "2026-09-28",
   "method": "free-agent"
  },
  {
@@ -720,11 +735,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Norchad Omier",
-  "date": "2026-09-24",
-  "method": "free-agent"
- },
- {
   "name": "Antonio Reeves",
   "date": "2026-09-24",
   "method": "free-agent"
@@ -762,11 +772,6 @@
  {
   "name": "Nah'Shon Bones Hyland",
   "date": "2026-07-03",
-  "method": "free-agent"
- },
- {
-  "name": "Enrique Freeman",
-  "date": "2026-07-02",
   "method": "free-agent"
  },
  {

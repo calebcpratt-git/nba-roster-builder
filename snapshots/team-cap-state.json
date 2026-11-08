@@ -3226,13 +3226,7 @@
     "team": "LAC",
     "season": "2026-27",
     "deadMoney": [],
-    "capHolds": [
-      {
-        "label": "Norchad Omier",
-        "amount": 2200000,
-        "kind": "free-agent"
-      }
-    ],
+    "capHolds": [],
     "salaryCap": 165000000,
     "taxLine": 201000000,
     "firstApron": 209000000,
@@ -4359,8 +4353,7 @@
       {
         "label": "Enrique Freeman",
         "amount": 2200000,
-        "kind": "free-agent",
-        "birdRights": "early-bird"
+        "kind": "free-agent"
       }
     ],
     "salaryCap": 165000000,

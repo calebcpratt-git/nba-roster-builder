@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 12,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 78,
-      "acquisition": 264,
-      "guarantees": 3,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 26,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 79,
       "acquisition": 262,
       "guarantees": 3,
@@ -74,41 +65,63 @@
       "name-bridge": 19,
       "no-current-salary": 0
     },
-    "newUnresolved": 1,
+    "after": {
+      "draft-year": 77,
+      "acquisition": 263,
+      "guarantees": 3,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 20,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 2,
     "newByCategory": {
-      "draft-year": 1
+      "acquisition": 1,
+      "name-bridge": 1
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Kevin McCullar Jr.",
-          "team": "TOR"
+          "name": "Norchad Omier",
+          "team": "CLE"
+        }
+      ],
+      "acquisition": [
+        {
+          "name": "Blake Wesley",
+          "date": "2026-10-29",
+          "method": "free-agent"
+        },
+        {
+          "name": "Blake Wesley",
+          "date": "2026-09-27",
+          "method": "free-agent"
+        },
+        {
+          "name": "Carson Cooper",
+          "date": "2026-09-28",
+          "method": "free-agent"
         }
       ],
       "name-bridge": [
         {
-          "name": "Dwight Powell"
+          "name": "Norchad Omier"
         },
         {
-          "name": "Kevin McCullar Jr."
-        },
-        {
-          "name": "Kevin Porter Jr."
+          "name": "Richie Saunders"
         }
       ]
     }
   },
-  "generatedAt": "2026-11-06T19:38:36.782Z",
-  "warnings": [
-    "free-agents: diff too large — 97 of 250 previous records changed (38.8%, threshold 30%) — proceeding because a large diff was explicitly accepted"
-  ],
+  "generatedAt": "2026-11-08T16:59:52.480Z",
+  "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~1 (of 523)",
+    "players: +2 -3 ~1 (of 524)",
     "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +1 -0 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~10 (of 150)",
-    "free-agents: +95 -0 ~2 (of 250)",
-    "awards: +1 -0 ~0 (of 78)"
+    "contract-details: +2 -3 ~0 (of 516)",
+    "team-cap-state: +0 -0 ~2 (of 150)",
+    "free-agents: +0 -2 ~1 (of 345)",
+    "awards: +0 -0 ~0 (of 79)"
   ],
-  "clean": false
+  "clean": true
 }
