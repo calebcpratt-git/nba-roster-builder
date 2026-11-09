@@ -5097,6 +5097,21 @@
  },
  {
   "bbrefId": null,
+  "name": "Nique Clifford",
+  "date": "2026-11-08",
+  "dateRaw": "Nov 8, 2026",
+  "method": "trade",
+  "toTeams": [
+   "OKC"
+  ],
+  "fromTeams": [
+   "SAC"
+  ],
+  "text": "Traded from SAC",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Dalen Terry",
   "date": "2026-11-04",
   "dateRaw": "Nov 4, 2026",
@@ -5340,32 +5355,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Ryan Conwell",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "OKC"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Ebuka Okorie",
-  "date": "2026-06-23",
-  "dateRaw": "Jun 23, 2026",
-  "method": "draft",
-  "toTeams": [
-   "OKC"
-  ],
-  "fromTeams": [],
-  "text": "Drafted",
   "flags": []
  },
  {

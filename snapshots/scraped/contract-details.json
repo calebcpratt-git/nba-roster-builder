@@ -5174,22 +5174,26 @@
   }
  },
  {
-  "name": "Ajay Mitchell",
-  "signedUnder": "non-bird",
+  "name": "Nique Clifford",
+  "signedUnder": "rookie-scale",
   "incentives": {
    "2026-27": {
-    "likely": 0,
+    "likely": 100000,
     "unlikely": 0
    },
    "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2028-29": {
     "likely": 0,
     "unlikely": 0
    }
   }
  },
  {
-  "name": "Dalen Terry",
-  "signedUnder": "minimum",
+  "name": "Ajay Mitchell",
+  "signedUnder": "non-bird",
   "incentives": {
    "2026-27": {
     "likely": 0,
@@ -6191,24 +6195,6 @@
     "unlikely": 0
    },
    "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   }
-  }
- },
- {
-  "name": "Nique Clifford",
-  "signedUnder": "rookie-scale",
-  "incentives": {
-   "2026-27": {
-    "likely": 100000,
-    "unlikely": 0
-   },
-   "2027-28": {
-    "likely": 0,
-    "unlikely": 0
-   },
-   "2028-29": {
     "likely": 0,
     "unlikely": 0
    }

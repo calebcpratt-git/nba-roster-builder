@@ -1,40 +1,13 @@
 {
-  "added": [],
-  "removed": [
+  "added": [
     {
-      "name": "Kevin McCullar, Jr.",
+      "name": "Blake Wesley",
       "position": "SG",
-      "priorTeam": "NYK",
-      "faType": "U",
-      "birdRights": null
-    },
-    {
-      "name": "Norchad Omier",
-      "position": "SF",
-      "priorTeam": "MIN",
+      "priorTeam": "LAC",
       "faType": "U",
       "birdRights": null
     }
   ],
-  "changed": [
-    {
-      "before": {
-        "name": "Enrique Freeman",
-        "position": "SF",
-        "priorTeam": "MIN",
-        "faType": "U",
-        "birdRights": "early-bird"
-      },
-      "after": {
-        "name": "Enrique Freeman",
-        "position": "SF",
-        "priorTeam": "MIN",
-        "faType": "U",
-        "birdRights": null
-      },
-      "fields": [
-        "birdRights"
-      ]
-    }
-  ]
+  "removed": [],
+  "changed": []
 }

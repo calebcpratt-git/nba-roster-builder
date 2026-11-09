@@ -497,6 +497,25 @@
   "faYear": null
  },
  {
+  "name": "Dalen Terry",
+  "team": "OKC",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 105629
+  },
+  "cashSalary": {
+   "2026-27": 105629
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Jonathan Isaac",
   "team": "ORL",
   "section": "Waivers",

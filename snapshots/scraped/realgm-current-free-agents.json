@@ -1442,13 +1442,6 @@
   "birdRights": null
  },
  {
-  "name": "Riley Minix",
-  "position": "SF",
-  "priorTeam": "CLE",
-  "faType": "U",
-  "birdRights": "early-bird"
- },
- {
   "name": "Trhae Mitchell",
   "position": "SG",
   "priorTeam": "SAC",
@@ -2271,6 +2264,13 @@
   "name": "Romeo Weems",
   "position": "SF",
   "priorTeam": "DET",
+  "faType": "U",
+  "birdRights": null
+ },
+ {
+  "name": "Blake Wesley",
+  "position": "SG",
+  "priorTeam": "LAC",
   "faType": "U",
   "birdRights": null
  },
