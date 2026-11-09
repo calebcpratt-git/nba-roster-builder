@@ -343,6 +343,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Reese Waters', priorTeam: 'DEN', faType: 'unrestricted', position: 'SG' },
   { name: 'Anton Watson', priorTeam: 'LAL', faType: 'unrestricted', position: 'PF' },
   { name: 'Romeo Weems', priorTeam: 'DET', faType: 'unrestricted', position: 'SF' },
+  { name: 'Blake Wesley', priorTeam: 'LAC', faType: 'unrestricted', position: 'SG' },
   { name: 'Russell Westbrook', priorTeam: 'SAC', faType: 'unrestricted', birdRights: 'non-bird', position: 'PG' },
   { name: 'Phillip Wheeler', priorTeam: 'PHO', faType: 'unrestricted', position: 'PF' },
   { name: 'Dariq Whitehead', priorTeam: 'OKC', faType: 'unrestricted', position: 'G-F' },

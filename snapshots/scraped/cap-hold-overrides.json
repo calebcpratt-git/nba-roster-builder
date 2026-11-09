@@ -1234,7 +1234,8 @@
   "team": "POR",
   "player": "Blake Wesley",
   "amount": 2500000,
-  "reason": "not-in-realgm-current-free-agents"
+  "reason": "name-matched-different-team",
+  "matchedPriorTeam": "LAC"
  },
  {
   "team": "POR",

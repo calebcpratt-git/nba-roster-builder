@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 12,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 79,
-      "acquisition": 262,
-      "guarantees": 3,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 19,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 77,
       "acquisition": 263,
       "guarantees": 3,
@@ -74,53 +65,58 @@
       "name-bridge": 20,
       "no-current-salary": 0
     },
-    "newUnresolved": 2,
+    "after": {
+      "draft-year": 76,
+      "acquisition": 266,
+      "guarantees": 4,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 18,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 4,
     "newByCategory": {
-      "acquisition": 1,
-      "name-bridge": 1
+      "acquisition": 3,
+      "guarantees": 1
     },
     "newRecords": {
-      "draft-year": [
-        {
-          "name": "Norchad Omier",
-          "team": "CLE"
-        }
-      ],
       "acquisition": [
         {
-          "name": "Blake Wesley",
-          "date": "2026-10-29",
+          "name": "Dalen Terry",
+          "date": "2026-08-31",
           "method": "free-agent"
         },
         {
-          "name": "Blake Wesley",
-          "date": "2026-09-27",
+          "name": "Dalen Terry",
+          "date": "2026-11-04",
           "method": "free-agent"
         },
         {
-          "name": "Carson Cooper",
-          "date": "2026-09-28",
+          "name": "Dalen Terry",
+          "date": "2026-04-10",
           "method": "free-agent"
         }
       ],
-      "name-bridge": [
+      "guarantees": [
         {
-          "name": "Norchad Omier"
-        },
-        {
-          "name": "Richie Saunders"
+          "player": "Dalen Terry",
+          "team": "Oklahoma City Thunder",
+          "fullAmount": null,
+          "partialAmount": null,
+          "status": "non-guaranteed",
+          "exhibit10": false
         }
       ]
     }
   },
-  "generatedAt": "2026-11-08T16:59:52.480Z",
+  "generatedAt": "2026-11-09T21:22:52.538Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -3 ~1 (of 524)",
-    "draft-picks: +0 -0 ~0 (of 520)",
-    "contract-details: +2 -3 ~0 (of 516)",
+    "players: +0 -1 ~1 (of 523)",
+    "draft-picks: +3 -2 ~1 (of 520)",
+    "contract-details: +0 -1 ~0 (of 515)",
     "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +0 -2 ~1 (of 345)",
+    "free-agents: +1 -0 ~0 (of 343)",
     "awards: +0 -0 ~0 (of 79)"
   ],
   "clean": true
