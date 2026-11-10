@@ -1,11 +1,18 @@
 {
   "added": [
     {
-      "name": "Blake Wesley",
-      "position": "SG",
-      "priorTeam": "LAC",
+      "name": "Carson Cooper",
+      "position": "PF",
+      "priorTeam": "MEM",
       "faType": "U",
-      "birdRights": null
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Tristan Enaruna",
+      "position": "SF",
+      "priorTeam": "CLE",
+      "faType": "U",
+      "birdRights": "early-bird"
     }
   ],
   "removed": [],

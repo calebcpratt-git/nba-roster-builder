@@ -4,14 +4,9 @@
   "changed": [
     {
       "before": {
-        "team": "POR",
+        "team": "OKC",
         "season": "2026-27",
-        "deadMoney": [
-          {
-            "player": "Didi Louzada",
-            "amount": 268032
-          }
-        ],
+        "deadMoney": [],
         "capHolds": [],
         "salaryCap": 165000000,
         "taxLine": 201000000,
@@ -19,157 +14,112 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "POR-kris-murray-2026-06-29",
-            "amount": 3132000,
-            "expires": "2027-06-29",
-            "fromPlayer": "Kris Murray"
+            "id": "OKC-ousmane-dieng-2026-02-04",
+            "amount": 2449522,
+            "expires": "2027-02-04",
+            "fromPlayer": "Ousmane Dieng"
+          },
+          {
+            "id": "OKC-isaiah-joe-2026-07-06",
+            "amount": 11323006,
+            "expires": "2027-07-06",
+            "fromPlayer": "Isaiah Joe"
+          },
+          {
+            "id": "OKC-aaron-wiggins-2026-07-06",
+            "amount": 9224300,
+            "expires": "2027-07-06",
+            "fromPlayer": "Aaron Wiggins"
+          },
+          {
+            "id": "OKC-luguentz-dort-2026-07-19",
+            "amount": 17722222,
+            "expires": "2027-07-19",
+            "fromPlayer": "Luguentz Dort"
           }
         ],
         "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 15044000
-          },
           "taxpayerMLE": {
             "signings": [],
-            "remaining": 0
+            "remaining": 6064000
           },
           "biAnnual": {
             "signings": [],
-            "remaining": 5477000
+            "remaining": 0
           }
         },
         "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
+          "availableToSend": 7214000,
+          "availableToReceive": 6464000
         },
-        "apronAddon": 0
+        "apronAddon": 500000
       },
       "after": {
-        "team": "POR",
+        "team": "OKC",
         "season": "2026-27",
-        "deadMoney": [
-          {
-            "player": "Didi Louzada",
-            "amount": 268032
-          }
-        ],
-        "capHolds": [
-          {
-            "label": "Blake Wesley",
-            "amount": 2500000,
-            "kind": "free-agent"
-          }
-        ],
+        "deadMoney": [],
+        "capHolds": [],
         "salaryCap": 165000000,
         "taxLine": 201000000,
         "firstApron": 209000000,
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "POR-kris-murray-2026-06-29",
-            "amount": 3132000,
-            "expires": "2027-06-29",
-            "fromPlayer": "Kris Murray"
+            "id": "OKC-ousmane-dieng-2026-02-04",
+            "amount": 2449522,
+            "expires": "2027-02-04",
+            "fromPlayer": "Ousmane Dieng"
+          },
+          {
+            "id": "OKC-isaiah-joe-2026-07-06",
+            "amount": 11323006,
+            "expires": "2027-07-06",
+            "fromPlayer": "Isaiah Joe"
+          },
+          {
+            "id": "OKC-aaron-wiggins-2026-07-06",
+            "amount": 5960900,
+            "expires": "2027-07-06",
+            "fromPlayer": "Aaron Wiggins"
+          },
+          {
+            "id": "OKC-luguentz-dort-2026-07-19",
+            "amount": 17722222,
+            "expires": "2027-07-19",
+            "fromPlayer": "Luguentz Dort"
           }
         ],
         "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 15044000
-          },
           "taxpayerMLE": {
             "signings": [],
-            "remaining": 0
+            "remaining": 6064000
           },
           "biAnnual": {
             "signings": [],
-            "remaining": 5477000
-          }
+            "remaining": 0
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Aaron Wiggins",
+              "usedByPlayer": "Nique Clifford",
+              "amount": 3263400,
+              "date": "2026-11-08"
+            }
+          ]
         },
         "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
+          "availableToSend": 7214000,
+          "availableToReceive": 6464000
         },
-        "apronAddon": 0
+        "apronAddon": 500000
       },
       "fields": [
-        "capHolds"
+        "heldTPEs",
+        "exceptionsUsed"
       ]
     },
     {
       "before": {
-        "team": "SAC",
-        "season": "2026-27",
-        "deadMoney": [],
-        "capHolds": [
-          {
-            "label": "Isaiah Stevens",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Doug McDermott",
-            "amount": 2500000,
-            "kind": "free-agent",
-            "birdRights": "early-bird"
-          },
-          {
-            "label": "Drew Eubanks",
-            "amount": 2500000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Markelle Fultz",
-            "amount": 2500000,
-            "kind": "free-agent"
-          }
-        ],
-        "salaryCap": 165000000,
-        "taxLine": 201000000,
-        "firstApron": 209000000,
-        "secondApron": 222000000,
-        "heldTPEs": [
-          {
-            "id": "SAC-dario-saric-2026-02-01",
-            "amount": 5426000,
-            "expires": "2027-02-01",
-            "fromPlayer": "Dario Saric"
-          },
-          {
-            "id": "SAC-devin-carter-2026-06-30",
-            "amount": 4923720,
-            "expires": "2027-06-30",
-            "fromPlayer": "Devin Carter"
-          }
-        ],
-        "hardCapped": {
-          "apron": 1,
-          "trigger": "BAE: Precious Achiuwa (Jul 7)"
-        },
-        "exceptionsUsed": {
-          "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 1218176
-          },
-          "biAnnual": {
-            "signings": [
-              {
-                "player": "Precious Achiuwa",
-                "amount": 5477000,
-                "date": "2026-07-07"
-              }
-            ],
-            "remaining": 0
-          }
-        },
-        "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
-        },
-        "apronAddon": 3850000
-      },
-      "after": {
         "team": "SAC",
         "season": "2026-27",
         "deadMoney": [],
@@ -240,8 +190,85 @@
         },
         "apronAddon": 3850000
       },
+      "after": {
+        "team": "SAC",
+        "season": "2026-27",
+        "deadMoney": [],
+        "capHolds": [
+          {
+            "label": "Isaiah Stevens",
+            "amount": 2200000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Doug McDermott",
+            "amount": 2500000,
+            "kind": "free-agent",
+            "birdRights": "early-bird"
+          },
+          {
+            "label": "Drew Eubanks",
+            "amount": 2500000,
+            "kind": "free-agent"
+          },
+          {
+            "label": "Markelle Fultz",
+            "amount": 2500000,
+            "kind": "free-agent"
+          }
+        ],
+        "salaryCap": 165000000,
+        "taxLine": 201000000,
+        "firstApron": 209000000,
+        "secondApron": 222000000,
+        "heldTPEs": [
+          {
+            "id": "SAC-dario-saric-2026-02-01",
+            "amount": 5426000,
+            "expires": "2027-02-01",
+            "fromPlayer": "Dario Saric"
+          },
+          {
+            "id": "SAC-devin-carter-2026-06-30",
+            "amount": 4923720,
+            "expires": "2027-06-30",
+            "fromPlayer": "Devin Carter"
+          },
+          {
+            "id": "SAC-nique-clifford-2026-11-08",
+            "amount": 3263400,
+            "expires": "2027-11-08",
+            "fromPlayer": "Nique Clifford"
+          }
+        ],
+        "hardCapped": {
+          "apron": 1,
+          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+        },
+        "exceptionsUsed": {
+          "nonTaxpayerMLE": {
+            "signings": [],
+            "remaining": 4481576
+          },
+          "biAnnual": {
+            "signings": [
+              {
+                "player": "Precious Achiuwa",
+                "amount": 5477000,
+                "date": "2026-07-07"
+              }
+            ],
+            "remaining": 0
+          }
+        },
+        "cashLedger": {
+          "availableToSend": 7964000,
+          "availableToReceive": 7964000
+        },
+        "apronAddon": 3850000
+      },
       "fields": [
-        "exceptionsUsed"
+        "heldTPEs"
       ]
     }
   ]
