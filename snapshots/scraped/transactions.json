@@ -3860,21 +3860,6 @@
  },
  {
   "bbrefId": null,
-  "name": "Isaiah Stewart",
-  "date": "2026-06-24",
-  "dateRaw": "Jun 24, 2026",
-  "method": "trade",
-  "toTeams": [
-   "MEM"
-  ],
-  "fromTeams": [
-   "DET"
-  ],
-  "text": "Traded from DET",
-  "flags": []
- },
- {
-  "bbrefId": null,
   "name": "Ezra Ausar",
   "date": "2026-10-15",
   "dateRaw": "Oct 15, 2026",

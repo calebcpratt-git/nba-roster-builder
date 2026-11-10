@@ -5383,7 +5383,7 @@
    },
    {
     "id": "OKC-aaron-wiggins-2026-07-06",
-    "amount": 9224300,
+    "amount": 5960900,
     "expires": "2027-07-06",
     "fromPlayer": "Aaron Wiggins"
    },
@@ -5402,7 +5402,15 @@
    "biAnnual": {
     "signings": [],
     "remaining": 0
-   }
+   },
+   "tradeExceptionsUsed": [
+    {
+     "tpeFromPlayer": "Aaron Wiggins",
+     "usedByPlayer": "Nique Clifford",
+     "amount": 3263400,
+     "date": "2026-11-08"
+    }
+   ]
   },
   "cashLedger": {
    "availableToSend": 7214000,
@@ -6596,6 +6604,12 @@
     "amount": 4923720,
     "expires": "2027-06-30",
     "fromPlayer": "Devin Carter"
+   },
+   {
+    "id": "SAC-nique-clifford-2026-11-08",
+    "amount": 3263400,
+    "expires": "2027-11-08",
+    "fromPlayer": "Nique Clifford"
    }
   ],
   "hardCapped": {

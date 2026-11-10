@@ -427,6 +427,13 @@
     "birdRights": null
   },
   {
+    "name": "Carson Cooper",
+    "position": "PF",
+    "priorTeam": "MEM",
+    "faType": "U",
+    "birdRights": "non-bird"
+  },
+  {
     "name": "Sharife Cooper",
     "position": "PG",
     "priorTeam": "WAS",
@@ -614,6 +621,13 @@
     "priorTeam": "SAS",
     "faType": "U",
     "birdRights": null
+  },
+  {
+    "name": "Tristan Enaruna",
+    "position": "SF",
+    "priorTeam": "CLE",
+    "faType": "U",
+    "birdRights": "early-bird"
   },
   {
     "name": "Tyson Etienne",
