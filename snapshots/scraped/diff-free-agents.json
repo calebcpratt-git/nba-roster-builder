@@ -1,20 +1,5 @@
 {
-  "added": [
-    {
-      "name": "Carson Cooper",
-      "position": "PF",
-      "priorTeam": "MEM",
-      "faType": "U",
-      "birdRights": "non-bird"
-    },
-    {
-      "name": "Tristan Enaruna",
-      "position": "SF",
-      "priorTeam": "CLE",
-      "faType": "U",
-      "birdRights": "early-bird"
-    }
-  ],
+  "added": [],
   "removed": [],
   "changed": []
 }

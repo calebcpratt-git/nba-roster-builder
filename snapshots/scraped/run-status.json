@@ -16,7 +16,7 @@
   "staleSources": [],
   "sourceFetches": {
     "realgm_future_drafts": true,
-    "realgm_current_free_agents": true,
+    "realgm_current_free_agents": false,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -62,38 +62,45 @@
       "guarantees": 4,
       "signing": 10,
       "awards": 1,
-      "name-bridge": 18,
+      "name-bridge": 19,
       "no-current-salary": 0
     },
     "after": {
-      "draft-year": 76,
-      "acquisition": 266,
+      "draft-year": 75,
+      "acquisition": 268,
       "guarantees": 4,
       "signing": 10,
       "awards": 1,
       "name-bridge": 19,
       "no-current-salary": 0
     },
-    "newUnresolved": 1,
+    "newUnresolved": 2,
     "newByCategory": {
-      "name-bridge": 1
+      "acquisition": 2
     },
     "newRecords": {
-      "name-bridge": [
+      "acquisition": [
         {
-          "name": "Dalen Terry"
+          "name": "Lawson Lovering",
+          "date": "2026-10-28",
+          "method": "free-agent"
+        },
+        {
+          "name": "Lawson Lovering",
+          "date": "2026-09-16",
+          "method": "free-agent"
         }
       ]
     }
   },
-  "generatedAt": "2026-11-10T18:33:20.440Z",
+  "generatedAt": "2026-11-11T18:29:48.589Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -0 ~0 (of 522)",
+    "players: +0 -1 ~0 (of 522)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -0 ~0 (of 514)",
-    "team-cap-state: +0 -0 ~2 (of 150)",
-    "free-agents: +2 -0 ~0 (of 344)",
+    "contract-details: +0 -1 ~0 (of 514)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +0 -0 ~0 (of 346)",
     "awards: +0 -0 ~0 (of 79)"
   ],
   "clean": true
