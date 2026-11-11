@@ -7879,42 +7879,6 @@
   ]
  },
  {
-  "name": "Lawson Lovering",
-  "team": "LAL",
-  "salary": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "options": {},
-  "cashSalary": {
-   "2026-27": 647669,
-   "2027-28": 716081
-  },
-  "guaranteed": {
-   "2026-27": 91000,
-   "2027-28": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "optionExercised": {},
-  "contractType": "two-way",
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-09-16",
-    "method": "free-agent",
-    "team": "MEM"
-   },
-   {
-    "date": "2026-10-28",
-    "method": "free-agent",
-    "team": "LAL"
-   }
-  ]
- },
- {
   "name": "Chris Manon",
   "team": "LAL",
   "salary": {
