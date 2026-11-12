@@ -427,13 +427,6 @@
     "birdRights": null
   },
   {
-    "name": "Carson Cooper",
-    "position": "PF",
-    "priorTeam": "MEM",
-    "faType": "U",
-    "birdRights": "non-bird"
-  },
-  {
     "name": "Sharife Cooper",
     "position": "PG",
     "priorTeam": "WAS",
@@ -627,7 +620,7 @@
     "position": "SF",
     "priorTeam": "CLE",
     "faType": "U",
-    "birdRights": "early-bird"
+    "birdRights": null
   },
   {
     "name": "Tyson Etienne",
@@ -1258,6 +1251,13 @@
     "priorTeam": "UTA",
     "faType": "U",
     "birdRights": "full-bird"
+  },
+  {
+    "name": "Lawson Lovering",
+    "position": "C",
+    "priorTeam": "LAL",
+    "faType": "U",
+    "birdRights": "non-bird"
   },
   {
     "name": "Kyle Lowry",
@@ -2084,6 +2084,13 @@
     "priorTeam": "TOR",
     "faType": "U",
     "birdRights": "full-bird"
+  },
+  {
+    "name": "Dalen Terry",
+    "position": "SF",
+    "priorTeam": "OKC",
+    "faType": "U",
+    "birdRights": null
   },
   {
     "name": "Cam Thomas",

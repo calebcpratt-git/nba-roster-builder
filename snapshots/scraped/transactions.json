@@ -3387,6 +3387,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Carson Cooper",
+  "date": "2026-11-10",
+  "dateRaw": "Nov 10, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "LAL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Lawson Lovering",
   "date": "2026-10-28",
   "dateRaw": "Oct 28, 2026",
