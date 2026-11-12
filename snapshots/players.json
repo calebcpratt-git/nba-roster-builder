@@ -7852,6 +7852,43 @@
     "acquiredMethod": "Draft"
   },
   {
+    "name": "Carson Cooper",
+    "team": "LAL",
+    "salary": {
+      "2026-27": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 596948
+    },
+    "guaranteed": {
+      "2026-27": 596948
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-06-24",
+        "method": "free-agent",
+        "team": "MEM"
+      },
+      {
+        "date": "2026-09-28",
+        "method": "free-agent",
+        "team": "MEM"
+      },
+      {
+        "date": "2026-11-10",
+        "method": "free-agent",
+        "team": "LAL"
+      }
+    ]
+  },
+  {
     "name": "Arthur Kaluma",
     "team": "LAL",
     "salary": {

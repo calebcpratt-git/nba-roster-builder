@@ -1,5 +1,48 @@
 {
-  "added": [],
-  "removed": [],
-  "changed": []
+  "added": [
+    {
+      "name": "Lawson Lovering",
+      "position": "C",
+      "priorTeam": "LAL",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Dalen Terry",
+      "position": "SF",
+      "priorTeam": "OKC",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
+      "name": "Carson Cooper",
+      "position": "PF",
+      "priorTeam": "MEM",
+      "faType": "U",
+      "birdRights": "non-bird"
+    }
+  ],
+  "changed": [
+    {
+      "before": {
+        "name": "Tristan Enaruna",
+        "position": "SF",
+        "priorTeam": "CLE",
+        "faType": "U",
+        "birdRights": "early-bird"
+      },
+      "after": {
+        "name": "Tristan Enaruna",
+        "position": "SF",
+        "priorTeam": "CLE",
+        "faType": "U",
+        "birdRights": null
+      },
+      "fields": [
+        "birdRights"
+      ]
+    }
+  ]
 }

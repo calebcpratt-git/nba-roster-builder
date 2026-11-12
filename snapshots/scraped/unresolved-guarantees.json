@@ -28,13 +28,5 @@
   "fullAmount": 1500000,
   "guaranteeTriggered": false,
   "raw": "Partial guarantee ($1,000,000) increases to $1,500,000. ( ❌ )"
- },
- {
-  "player": "Dalen Terry",
-  "team": "Oklahoma City Thunder",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
  }
 ]
