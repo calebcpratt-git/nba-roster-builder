@@ -259,7 +259,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Elfrid Payton', priorTeam: 'SAC', faType: 'unrestricted', position: 'SG' },
   { name: 'Taelon Peter', priorTeam: 'SAS', faType: 'unrestricted', position: 'PG' },
   { name: 'Drew Peterson', priorTeam: 'CHI', faType: 'unrestricted', position: 'PF' },
-  { name: 'Mason Plumlee', priorTeam: 'SAS', faType: 'unrestricted', birdRights: 'non-bird', position: 'PF' },
   { name: 'Kevin Porter, Jr.', priorTeam: 'MIL', faType: 'unrestricted', position: 'G-F' },
   { name: 'John Poulakidas', priorTeam: 'DAL', faType: 'unrestricted', position: 'SG' },
   { name: 'Dwight Powell', priorTeam: 'DAL', faType: 'unrestricted', position: 'F-C' },

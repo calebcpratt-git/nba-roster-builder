@@ -12368,6 +12368,11 @@
    "date": "2026-11-08",
    "method": "free-agent",
    "team": "CLE"
+  },
+  {
+   "date": "2026-11-07",
+   "method": "free-agent",
+   "team": "CLE"
   }
  ],
  "norchad omier": [
@@ -12380,6 +12385,11 @@
    "date": "2026-09-24",
    "method": "free-agent",
    "team": "MIN"
+  },
+  {
+   "date": "2026-11-05",
+   "method": "free-agent",
+   "team": "CLE"
   }
  ],
  "richie saunders": [
@@ -12394,6 +12404,13 @@
    "date": "2026-11-08",
    "method": "trade",
    "team": "OKC"
+  }
+ ],
+ "mason plumlee": [
+  {
+   "date": "2026-11-11",
+   "method": "free-agent",
+   "team": "SAC"
   }
  ]
 }

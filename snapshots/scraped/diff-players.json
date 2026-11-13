@@ -1,43 +1,320 @@
 {
   "added": [
     {
-      "name": "Carson Cooper",
-      "team": "LAL",
+      "name": "Mason Plumlee",
+      "team": "SAC",
       "salary": {
-        "2026-27": 0
+        "2026-27": 2139724
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 596948
+        "2026-27": 3386392
       },
       "guaranteed": {
-        "2026-27": 596948
+        "2026-27": 3386392
       },
       "likelyIncentives": {
         "2026-27": 0
       },
       "optionExercised": {},
-      "contractType": "two-way",
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
-          "date": "2026-06-24",
+          "date": "2026-11-11",
           "method": "free-agent",
-          "team": "MEM"
-        },
-        {
-          "date": "2026-09-28",
-          "method": "free-agent",
-          "team": "MEM"
-        },
-        {
-          "date": "2026-11-10",
-          "method": "free-agent",
-          "team": "LAL"
+          "team": "SAC"
         }
-      ]
+      ],
+      "guarantees": {
+        "2026-27": {
+          "status": "non-guaranteed"
+        }
+      }
     }
   ],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Riley Minix",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 608653
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-11-08",
+            "method": "free-agent",
+            "team": "CLE"
+          }
+        ]
+      },
+      "after": {
+        "name": "Riley Minix",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 608653,
+          "2027-28": 716081
+        },
+        "guaranteed": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-11-07",
+            "method": "free-agent",
+            "team": "CLE"
+          },
+          {
+            "date": "2026-11-08",
+            "method": "free-agent",
+            "team": "CLE"
+          }
+        ]
+      },
+      "fields": [
+        "salary",
+        "cashSalary",
+        "guaranteed",
+        "likelyIncentives",
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Norchad Omier",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 612554
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-24",
+            "method": "free-agent",
+            "team": "MIN"
+          },
+          {
+            "date": "2026-11-06",
+            "method": "free-agent",
+            "team": "CLE"
+          }
+        ]
+      },
+      "after": {
+        "name": "Norchad Omier",
+        "team": "CLE",
+        "salary": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 616456,
+          "2027-28": 716081
+        },
+        "guaranteed": {
+          "2026-27": 91000,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-24",
+            "method": "free-agent",
+            "team": "MIN"
+          },
+          {
+            "date": "2026-11-05",
+            "method": "free-agent",
+            "team": "CLE"
+          },
+          {
+            "date": "2026-11-06",
+            "method": "free-agent",
+            "team": "CLE"
+          }
+        ]
+      },
+      "fields": [
+        "salary",
+        "cashSalary",
+        "guaranteed",
+        "likelyIncentives",
+        "acquisitionHistory"
+      ]
+    },
+    {
+      "before": {
+        "name": "Richie Saunders",
+        "team": "MEM",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 608653
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-11-07",
+            "method": "free-agent",
+            "team": "MEM"
+          }
+        ]
+      },
+      "after": {
+        "name": "Richie Saunders",
+        "team": "MEM",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 608653
+        },
+        "guaranteed": {
+          "2026-27": 304327
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Draft",
+        "acquisitionHistory": [
+          {
+            "date": "2026-11-07",
+            "method": "free-agent",
+            "team": "MEM"
+          }
+        ]
+      },
+      "fields": [
+        "guaranteed"
+      ]
+    },
+    {
+      "before": {
+        "name": "Kevin McCullar Jr.",
+        "team": "TOR",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 616456
+        },
+        "guaranteed": {
+          "2026-27": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-27",
+            "method": "free-agent",
+            "team": "NYK"
+          },
+          {
+            "date": "2026-11-05",
+            "method": "free-agent",
+            "team": "TOR"
+          }
+        ]
+      },
+      "after": {
+        "name": "Kevin McCullar Jr.",
+        "team": "TOR",
+        "salary": {
+          "2026-27": 0
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 616456
+        },
+        "guaranteed": {
+          "2026-27": 91000
+        },
+        "likelyIncentives": {
+          "2026-27": 0
+        },
+        "optionExercised": {},
+        "contractType": "two-way",
+        "acquiredMethod": "Signed",
+        "acquisitionHistory": [
+          {
+            "date": "2026-09-27",
+            "method": "free-agent",
+            "team": "NYK"
+          },
+          {
+            "date": "2026-11-05",
+            "method": "free-agent",
+            "team": "TOR"
+          }
+        ]
+      },
+      "fields": [
+        "guaranteed"
+      ]
+    }
+  ]
 }

@@ -6275,6 +6275,16 @@
    }
   }
  },
+ "mason plumlee": {
+  "team": "SAC",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "emanuel sharp": {
   "team": "SAC",
   "signedUnder": "rookie-scale",

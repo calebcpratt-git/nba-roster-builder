@@ -6252,6 +6252,16 @@
     }
   },
   {
+    "name": "Mason Plumlee",
+    "signedUnder": "minimum",
+    "incentives": {
+      "2026-27": {
+        "likely": 0,
+        "unlikely": 0
+      }
+    }
+  },
+  {
     "name": "Emanuel Sharp",
     "signedUnder": "rookie-scale",
     "incentives": {
