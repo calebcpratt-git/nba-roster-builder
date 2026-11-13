@@ -57,15 +57,6 @@
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 75,
-      "acquisition": 268,
-      "guarantees": 4,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 19,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 76,
       "acquisition": 267,
       "guarantees": 3,
@@ -74,33 +65,41 @@
       "name-bridge": 20,
       "no-current-salary": 0
     },
-    "newUnresolved": 2,
+    "after": {
+      "draft-year": 77,
+      "acquisition": 267,
+      "guarantees": 3,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 20,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 1,
     "newByCategory": {
-      "draft-year": 1,
-      "name-bridge": 1
+      "draft-year": 1
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Carson Cooper",
-          "team": "LAL"
+          "name": "Mason Plumlee",
+          "team": "SAC"
         }
       ],
       "name-bridge": [
         {
-          "name": "Carson Cooper"
+          "name": "Mason Plumlee"
         }
       ]
     }
   },
-  "generatedAt": "2026-11-12T18:47:59.976Z",
+  "generatedAt": "2026-11-13T18:29:28.776Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~0 (of 521)",
+    "players: +1 -0 ~4 (of 522)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +1 -0 ~0 (of 513)",
-    "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +2 -1 ~1 (of 346)",
+    "contract-details: +1 -0 ~0 (of 514)",
+    "team-cap-state: +0 -0 ~1 (of 150)",
+    "free-agents: +0 -1 ~0 (of 347)",
     "awards: +0 -0 ~0 (of 79)"
   ],
   "clean": true

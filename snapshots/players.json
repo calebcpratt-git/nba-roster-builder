@@ -3397,22 +3397,31 @@
     "name": "Riley Minix",
     "team": "CLE",
     "salary": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "options": {},
     "cashSalary": {
-      "2026-27": 608653
+      "2026-27": 608653,
+      "2027-28": 716081
     },
     "guaranteed": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "likelyIncentives": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "optionExercised": {},
     "contractType": "two-way",
     "acquiredMethod": "Signed",
     "acquisitionHistory": [
+      {
+        "date": "2026-11-07",
+        "method": "free-agent",
+        "team": "CLE"
+      },
       {
         "date": "2026-11-08",
         "method": "free-agent",
@@ -3424,17 +3433,21 @@
     "name": "Norchad Omier",
     "team": "CLE",
     "salary": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "options": {},
     "cashSalary": {
-      "2026-27": 612554
+      "2026-27": 616456,
+      "2027-28": 716081
     },
     "guaranteed": {
-      "2026-27": 0
+      "2026-27": 91000,
+      "2027-28": 0
     },
     "likelyIncentives": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "optionExercised": {},
     "contractType": "two-way",
@@ -3444,6 +3457,11 @@
         "date": "2026-09-24",
         "method": "free-agent",
         "team": "MIN"
+      },
+      {
+        "date": "2026-11-05",
+        "method": "free-agent",
+        "team": "CLE"
       },
       {
         "date": "2026-11-06",
@@ -8453,7 +8471,7 @@
       "2026-27": 608653
     },
     "guaranteed": {
-      "2026-27": 0
+      "2026-27": 304327
     },
     "likelyIncentives": {
       "2026-27": 0
@@ -14303,6 +14321,37 @@
     "acquiredMethod": "Signed"
   },
   {
+    "name": "Mason Plumlee",
+    "team": "SAC",
+    "salary": {
+      "2026-27": 2139724
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 3386392
+    },
+    "guaranteed": {
+      "2026-27": 3386392
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-11-11",
+        "method": "free-agent",
+        "team": "SAC"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
     "name": "Emanuel Sharp",
     "team": "SAC",
     "salary": {
@@ -15484,7 +15533,7 @@
       "2026-27": 616456
     },
     "guaranteed": {
-      "2026-27": 0
+      "2026-27": 91000
     },
     "likelyIncentives": {
       "2026-27": 0

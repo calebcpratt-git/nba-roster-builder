@@ -1235,8 +1235,8 @@
  {
   "bbrefId": null,
   "name": "Riley Minix",
-  "date": "2026-11-08",
-  "dateRaw": "Nov 8, 2026",
+  "date": "2026-11-07",
+  "dateRaw": "Nov 7, 2026",
   "method": "free-agent",
   "toTeams": [
    "CLE"
@@ -1248,8 +1248,8 @@
  {
   "bbrefId": null,
   "name": "Norchad Omier",
-  "date": "2026-11-06",
-  "dateRaw": "Nov 6, 2026",
+  "date": "2026-11-05",
+  "dateRaw": "Nov 5, 2026",
   "method": "free-agent",
   "toTeams": [
    "CLE"
@@ -6258,6 +6258,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Mason Plumlee",
+  "date": "2026-11-11",
+  "dateRaw": "Nov 11, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Sean Pedulla",
   "date": "2026-10-23",
   "dateRaw": "Oct 23, 2026",
@@ -6488,19 +6501,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Alex Karaban",
-  "date": "2026-07-01",
-  "dateRaw": "Jul 1, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "SAC"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Rookie Scale Contract",
   "flags": []
  },
  {

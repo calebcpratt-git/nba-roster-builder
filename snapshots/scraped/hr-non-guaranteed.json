@@ -144,6 +144,14 @@
   "exhibit10": false
  },
  {
+  "player": "Mason Plumlee",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Mo Bamba",
   "team": "Utah Jazz",
   "fullAmount": null,
