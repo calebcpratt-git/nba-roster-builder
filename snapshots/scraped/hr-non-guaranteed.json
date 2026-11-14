@@ -8,6 +8,14 @@
   "exhibit10": false
  },
  {
+  "player": "Orlando Robinson",
+  "team": "Chicago Bulls",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
   "player": "Mario Hezonja",
   "team": "Cleveland Cavaliers",
   "fullAmount": null,

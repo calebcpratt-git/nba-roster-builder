@@ -2,7 +2,6 @@
   "written": [
     "players",
     "free-agent-pool",
-    "picks",
     "enrichment",
     "clauses",
     "player-awards",
@@ -13,10 +12,12 @@
     "cash-ledger",
     "apron-addon"
   ],
-  "staleSources": [],
+  "staleSources": [
+    "picks (fetch failed)"
+  ],
   "sourceFetches": {
-    "realgm_future_drafts": true,
-    "realgm_current_free_agents": true,
+    "realgm_future_drafts": false,
+    "realgm_current_free_agents": false,
     "hr_guarantee_dates": true,
     "hr_non_guaranteed": true,
     "hr_trade_kickers": true,
@@ -50,14 +51,14 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 11,
+      "total": 12,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 76,
+      "draft-year": 77,
       "acquisition": 267,
       "guarantees": 3,
       "signing": 10,
@@ -66,8 +67,8 @@
       "no-current-salary": 0
     },
     "after": {
-      "draft-year": 77,
-      "acquisition": 267,
+      "draft-year": 78,
+      "acquisition": 263,
       "guarantees": 3,
       "signing": 10,
       "awards": 1,
@@ -81,26 +82,26 @@
     "newRecords": {
       "draft-year": [
         {
-          "name": "Mason Plumlee",
-          "team": "SAC"
+          "name": "Orlando Robinson",
+          "team": "CHI"
         }
       ],
       "name-bridge": [
         {
-          "name": "Mason Plumlee"
+          "name": "Orlando Robinson"
         }
       ]
     }
   },
-  "generatedAt": "2026-11-13T18:29:28.776Z",
+  "generatedAt": "2026-11-14T16:58:23.976Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~4 (of 522)",
+    "players: +2 -0 ~0 (of 523)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +1 -0 ~0 (of 514)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -1 ~0 (of 347)",
+    "contract-details: +2 -0 ~0 (of 515)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +0 -2 ~0 (of 346)",
     "awards: +0 -0 ~0 (of 79)"
   ],
-  "clean": true
+  "clean": false
 }

@@ -1022,6 +1022,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Orlando Robinson",
+  "date": "2026-11-13",
+  "dateRaw": "Nov 13, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CHI"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Jordan Hawkins",
   "date": "2026-10-05",
   "dateRaw": "Oct 5, 2026",
@@ -1215,21 +1228,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Extension",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Nicolas Claxton",
-  "date": "2026-07-10",
-  "dateRaw": "Jul 10, 2026",
-  "method": "trade",
-  "toTeams": [
-   "CHI"
-  ],
-  "fromTeams": [
-   "BKN"
-  ],
-  "text": "Traded from BKN",
   "flags": []
  },
  {
@@ -4422,6 +4420,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Johni Broome",
+  "date": "2026-11-12",
+  "dateRaw": "Nov 12, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MIN"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Enrique Freeman",
   "date": "2026-10-27",
   "dateRaw": "Oct 27, 2026",
@@ -4665,19 +4676,6 @@
   "name": "Ayo Dosunmu",
   "date": "2026-07-10",
   "dateRaw": "Jul 10, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "MIN"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Nah'Shon Bones Hyland",
-  "date": "2026-07-03",
-  "dateRaw": "Jul 3, 2026",
   "method": "free-agent",
   "toTeams": [
    "MIN"
