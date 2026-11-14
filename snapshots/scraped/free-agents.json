@@ -259,13 +259,6 @@
   "birdRights": null
  },
  {
-  "name": "Johni Broome",
-  "position": "PF",
-  "priorTeam": "MIL",
-  "faType": "U",
-  "birdRights": null
- },
- {
   "name": "Darius Brown II",
   "position": "PG",
   "priorTeam": "CLE",
@@ -1774,13 +1767,6 @@
   "name": "Jax Robinson",
   "position": "G-F",
   "priorTeam": "CLE",
-  "faType": "U",
-  "birdRights": null
- },
- {
-  "name": "Orlando Robinson",
-  "position": "C",
-  "priorTeam": "CHI",
   "faType": "U",
   "birdRights": null
  },

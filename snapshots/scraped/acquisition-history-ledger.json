@@ -10578,6 +10578,16 @@
    "date": "2026-07-28",
    "method": "trade",
    "team": "LAC"
+  },
+  {
+   "date": "2026-10-05",
+   "method": "free-agent",
+   "team": "MIL"
+  },
+  {
+   "date": "2026-11-12",
+   "method": "free-agent",
+   "team": "MIN"
   }
  ],
  "baba miller": [
@@ -12411,6 +12421,18 @@
    "date": "2026-11-11",
    "method": "free-agent",
    "team": "SAC"
+  }
+ ],
+ "orlando robinson": [
+  {
+   "date": "2026-11-13",
+   "method": "free-agent",
+   "team": "CHI"
+  },
+  {
+   "date": "2026-09-25",
+   "method": "free-agent",
+   "team": "CHI"
   }
  ]
 }

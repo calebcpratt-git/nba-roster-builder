@@ -195,11 +195,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Orlando Robinson",
-  "date": "2026-09-25",
-  "method": "free-agent"
- },
- {
   "name": "Drew Peterson",
   "date": "2026-09-25",
   "method": "free-agent"
@@ -223,11 +218,6 @@
   "name": "Houston Mallette",
   "date": "2026-09-21",
   "method": "free-agent"
- },
- {
-  "name": "Nicolas Claxton",
-  "date": "2026-07-10",
-  "method": "trade"
  },
  {
   "name": "Tre'Von Spillers",
@@ -720,11 +710,6 @@
   "method": "free-agent"
  },
  {
-  "name": "Johni Broome",
-  "date": "2026-10-05",
-  "method": "free-agent"
- },
- {
   "name": "Jake Stephens",
   "date": "2026-09-17",
   "method": "free-agent"
@@ -778,11 +763,6 @@
   "name": "John Konchar",
   "date": "2026-08-29",
   "method": "trade"
- },
- {
-  "name": "Nah'Shon Bones Hyland",
-  "date": "2026-07-03",
-  "method": "free-agent"
  },
  {
   "name": "Hunter Dickinson",

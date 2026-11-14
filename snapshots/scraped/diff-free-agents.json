@@ -2,11 +2,18 @@
   "added": [],
   "removed": [
     {
-      "name": "Mason Plumlee",
+      "name": "Johni Broome",
       "position": "PF",
-      "priorTeam": "SAS",
+      "priorTeam": "MIL",
       "faType": "U",
-      "birdRights": "non-bird"
+      "birdRights": null
+    },
+    {
+      "name": "Orlando Robinson",
+      "position": "C",
+      "priorTeam": "CHI",
+      "faType": "U",
+      "birdRights": null
     }
   ],
   "changed": []
