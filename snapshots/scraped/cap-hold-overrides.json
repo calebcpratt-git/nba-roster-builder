@@ -1368,6 +1368,12 @@
  },
  {
   "team": "SAS",
+  "player": "Mason Plumlee",
+  "amount": 2500000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "SAS",
   "player": "Jordan McLaughlin",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"

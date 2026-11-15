@@ -1249,6 +1249,16 @@
    }
   }
  },
+ "orlando robinson": {
+  "team": "CHI",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "tobe awaka": {
   "team": "CHI",
   "signedUnder": null,
@@ -4406,6 +4416,16 @@
     "unlikely": 0
    },
    "2029-30": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ "johni broome": {
+  "team": "MIN",
+  "signedUnder": null,
+  "incentives": {
+   "2026-27": {
     "likely": 0,
     "unlikely": 0
    }
