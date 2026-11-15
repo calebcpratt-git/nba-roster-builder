@@ -2821,6 +2821,42 @@
     }
   },
   {
+    "name": "Orlando Robinson",
+    "team": "CHI",
+    "salary": {
+      "2026-27": 2111570
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 2263472
+    },
+    "guaranteed": {
+      "2026-27": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-25",
+        "method": "free-agent",
+        "team": "CHI"
+      },
+      {
+        "date": "2026-11-13",
+        "method": "free-agent",
+        "team": "CHI"
+      }
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
+  },
+  {
     "name": "Tobe Awaka",
     "team": "CHI",
     "salary": {
@@ -10112,6 +10148,43 @@
       },
       {
         "date": "2026-07-13",
+        "method": "free-agent",
+        "team": "MIN"
+      }
+    ]
+  },
+  {
+    "name": "Johni Broome",
+    "team": "MIN",
+    "salary": {
+      "2026-27": 0
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 589145
+    },
+    "guaranteed": {
+      "2026-27": 589145
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "contractType": "two-way",
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-07-28",
+        "method": "trade",
+        "team": "LAC"
+      },
+      {
+        "date": "2026-10-05",
+        "method": "free-agent",
+        "team": "MIL"
+      },
+      {
+        "date": "2026-11-12",
         "method": "free-agent",
         "team": "MIN"
       }

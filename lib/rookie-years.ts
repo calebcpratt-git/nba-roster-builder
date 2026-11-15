@@ -270,6 +270,7 @@ export const PLAYER_ROOKIE_YEARS: Record<string, number> = {
   "Bones Hyland": 2021,
   "Trey Lyles": 2015,
   "Isaiah Evans": 2026,
+  "Johni Broome": 2025,
   "Rocco Zikarsky": 2025,
   "Zion Williamson": 2019,
   "Jordan Poole": 2019,
