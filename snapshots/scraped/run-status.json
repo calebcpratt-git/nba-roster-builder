@@ -50,15 +50,15 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 12,
+      "total": 10,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 77,
-      "acquisition": 267,
+      "draft-year": 78,
+      "acquisition": 263,
       "guarantees": 3,
       "signing": 10,
       "awards": 1,
@@ -71,35 +71,21 @@
       "guarantees": 3,
       "signing": 10,
       "awards": 1,
-      "name-bridge": 20,
+      "name-bridge": 18,
       "no-current-salary": 0
     },
-    "newUnresolved": 1,
-    "newByCategory": {
-      "draft-year": 1
-    },
-    "newRecords": {
-      "draft-year": [
-        {
-          "name": "Orlando Robinson",
-          "team": "CHI"
-        }
-      ],
-      "name-bridge": [
-        {
-          "name": "Orlando Robinson"
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-11-15T17:38:56.440Z",
+  "generatedAt": "2026-11-16T20:53:39.825Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -0 ~0 (of 523)",
+    "players: +0 -0 ~0 (of 525)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +2 -0 ~0 (of 515)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -2 ~1 (of 346)",
+    "contract-details: +0 -0 ~0 (of 517)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +0 -0 ~0 (of 344)",
     "awards: +0 -0 ~0 (of 79)"
   ],
   "clean": true
