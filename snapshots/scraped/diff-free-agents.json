@@ -1,5 +1,20 @@
 {
-  "added": [],
+  "added": [
+    {
+      "name": "Trey Alexander",
+      "position": "SG",
+      "priorTeam": "UTA",
+      "faType": "U",
+      "birdRights": "non-bird"
+    },
+    {
+      "name": "Keshon Gilbert",
+      "position": "PG",
+      "priorTeam": "ATL",
+      "faType": "U",
+      "birdRights": "early-bird"
+    }
+  ],
   "removed": [],
   "changed": []
 }
