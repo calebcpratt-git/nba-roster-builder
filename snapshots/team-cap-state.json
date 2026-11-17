@@ -4690,6 +4690,11 @@
         "birdRights": "early-bird"
       },
       {
+        "label": "Trey Alexander",
+        "amount": 2200000,
+        "kind": "free-agent"
+      },
+      {
         "label": "Elfrid Payton",
         "amount": 2500000,
         "kind": "free-agent"

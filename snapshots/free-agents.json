@@ -28,6 +28,13 @@
     "birdRights": null
   },
   {
+    "name": "Trey Alexander",
+    "position": "SG",
+    "priorTeam": "UTA",
+    "faType": "U",
+    "birdRights": "non-bird"
+  },
+  {
     "name": "Drake Allen",
     "position": "SG",
     "priorTeam": "DET",
@@ -719,6 +726,13 @@
     "priorTeam": "NOP",
     "faType": "U",
     "birdRights": null
+  },
+  {
+    "name": "Keshon Gilbert",
+    "position": "PG",
+    "priorTeam": "ATL",
+    "faType": "U",
+    "birdRights": "early-bird"
   },
   {
     "name": "Dane Goodwin",

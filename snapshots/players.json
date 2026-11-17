@@ -537,26 +537,6 @@
     "acquiredMethod": "Signed"
   },
   {
-    "name": "Keshon Gilbert",
-    "team": "ATL",
-    "salary": {
-      "2026-27": 0
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 680985
-    },
-    "guaranteed": {
-      "2026-27": 0
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {},
-    "contractType": "two-way",
-    "acquiredMethod": "Signed"
-  },
-  {
     "name": "Jalen Wilson",
     "team": "ATL",
     "salary": {
@@ -16171,33 +16151,6 @@
         "status": "non-guaranteed"
       }
     }
-  },
-  {
-    "name": "Trey Alexander",
-    "team": "UTA",
-    "salary": {
-      "2026-27": 0
-    },
-    "options": {},
-    "cashSalary": {
-      "2026-27": 678882
-    },
-    "guaranteed": {
-      "2026-27": 91000
-    },
-    "likelyIncentives": {
-      "2026-27": 0
-    },
-    "optionExercised": {},
-    "contractType": "two-way",
-    "acquiredMethod": "Signed",
-    "acquisitionHistory": [
-      {
-        "date": "2026-07-07",
-        "method": "free-agent",
-        "team": "UTA"
-      }
-    ]
   },
   {
     "name": "Kobe Bufkin",
