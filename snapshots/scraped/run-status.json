@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 10,
+      "total": 11,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 78,
-      "acquisition": 263,
-      "guarantees": 3,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 18,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 76,
       "acquisition": 264,
       "guarantees": 3,
@@ -74,28 +65,42 @@
       "name-bridge": 18,
       "no-current-salary": 0
     },
-    "newUnresolved": 1,
+    "after": {
+      "draft-year": 77,
+      "acquisition": 263,
+      "guarantees": 3,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 19,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 2,
     "newByCategory": {
-      "acquisition": 1
+      "draft-year": 1,
+      "name-bridge": 1
     },
     "newRecords": {
-      "acquisition": [
+      "draft-year": [
         {
-          "name": "Trey Alexander",
-          "date": "2026-07-07",
-          "method": "free-agent"
+          "name": "Jonas Aidoo",
+          "team": "UTA"
+        }
+      ],
+      "name-bridge": [
+        {
+          "name": "Jonas Aidoo"
         }
       ]
     }
   },
-  "generatedAt": "2026-11-17T19:43:33.321Z",
+  "generatedAt": "2026-11-18T19:19:52.500Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +0 -2 ~0 (of 525)",
+    "players: +1 -0 ~3 (of 523)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +0 -2 ~0 (of 517)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +2 -0 ~0 (of 344)",
+    "contract-details: +1 -0 ~0 (of 515)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +0 -1 ~0 (of 346)",
     "awards: +0 -0 ~0 (of 79)"
   ],
   "clean": true

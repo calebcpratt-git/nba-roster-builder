@@ -22,7 +22,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Ochai Agbaji', priorTeam: 'NYK', faType: 'unrestricted', position: 'SG' },
   { name: 'Obi Agbim', priorTeam: 'GSW', faType: 'unrestricted', position: 'PG' },
   { name: 'Rashaun Agee', priorTeam: 'CLE', faType: 'unrestricted', position: 'SF' },
-  { name: 'Jonas Aidoo', priorTeam: 'UTA', faType: 'unrestricted', position: 'C' },
   { name: 'Trey Alexander', priorTeam: 'UTA', faType: 'unrestricted', birdRights: 'non-bird', position: 'SG' },
   { name: 'Drake Allen', priorTeam: 'DET', faType: 'unrestricted', position: 'SG' },
   { name: 'Josiah Allick', priorTeam: 'CHO', faType: 'unrestricted', position: 'PF' },

@@ -7064,6 +7064,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Jonas Aidoo",
+  "date": "2026-11-17",
+  "dateRaw": "Nov 17, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "UTA"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Kobe Bufkin",
   "date": "2026-10-23",
   "dateRaw": "Oct 23, 2026",
