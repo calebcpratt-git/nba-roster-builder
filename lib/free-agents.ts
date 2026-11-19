@@ -70,7 +70,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Corey Camper, Jr.', priorTeam: 'PHO', faType: 'unrestricted', position: 'SG' },
   { name: 'Cris Carroll', priorTeam: 'PHI', faType: 'unrestricted', position: 'SF' },
   { name: 'Tre Carroll', priorTeam: 'CHO', faType: 'unrestricted', position: 'PF' },
-  { name: 'Rafael Castro', priorTeam: 'LAL', faType: 'unrestricted', position: 'C' },
   { name: 'Jalen Celestine', priorTeam: 'TOR', faType: 'unrestricted', position: 'SG' },
   { name: 'Kennedy Chandler', priorTeam: 'PHO', faType: 'unrestricted', position: 'PG' },
   { name: 'Ulrich Chomche', priorTeam: 'TOR', faType: 'unrestricted', position: 'C' },

@@ -1,6 +1,19 @@
 [
  {
   "bbrefId": null,
+  "name": "Rafael Castro",
+  "date": "2026-11-16",
+  "dateRaw": "Nov 16, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ATL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Giorgi Bezhanishvili",
   "date": "2026-10-14",
   "dateRaw": "Oct 14, 2026",
@@ -1228,6 +1241,19 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Extension",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
+  "name": "Zach Austin",
+  "date": "2026-11-18",
+  "dateRaw": "Nov 18, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "CLE"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {
@@ -7361,19 +7387,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Two-Way Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Darryn Peterson",
-  "date": "2026-07-01",
-  "dateRaw": "Jul 1, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "UTA"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Rookie Scale Contract",
   "flags": []
  },
  {

@@ -9503,6 +9503,16 @@
    "date": "2026-06-24",
    "method": "free-agent",
    "team": "MIL"
+  },
+  {
+   "date": "2026-11-16",
+   "method": "free-agent",
+   "team": "ATL"
+  },
+  {
+   "date": "2026-10-09",
+   "method": "free-agent",
+   "team": "LAL"
   }
  ],
  "willibr03": [
@@ -12445,6 +12455,18 @@
    "date": "2026-09-25",
    "method": "free-agent",
    "team": "UTA"
+  }
+ ],
+ "zach austin": [
+  {
+   "date": "2026-11-18",
+   "method": "free-agent",
+   "team": "CLE"
+  },
+  {
+   "date": "2026-09-23",
+   "method": "free-agent",
+   "team": "CLE"
   }
  ]
 }
