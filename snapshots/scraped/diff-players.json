@@ -1,14 +1,14 @@
 {
   "added": [
     {
-      "name": "Jonas Aidoo",
-      "team": "UTA",
+      "name": "Rafael Castro",
+      "team": "ATL",
       "salary": {
         "2026-27": 0
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 569637
+        "2026-27": 573538
       },
       "guaranteed": {
         "2026-27": 0
@@ -21,245 +21,97 @@
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
-          "date": "2026-09-25",
+          "date": "2026-06-24",
           "method": "free-agent",
-          "team": "UTA"
+          "team": "MIL"
         },
         {
-          "date": "2026-11-17",
+          "date": "2026-08-26",
           "method": "free-agent",
-          "team": "UTA"
+          "team": "HOU"
+        },
+        {
+          "date": "2026-10-09",
+          "method": "free-agent",
+          "team": "LAL"
+        },
+        {
+          "date": "2026-11-16",
+          "method": "free-agent",
+          "team": "ATL"
+        }
+      ]
+    },
+    {
+      "name": "Zach Austin",
+      "team": "CLE",
+      "salary": {
+        "2026-27": 0
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 565735
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-23",
+          "method": "free-agent",
+          "team": "CLE"
+        },
+        {
+          "date": "2026-11-18",
+          "method": "free-agent",
+          "team": "CLE"
         }
       ]
     }
   ],
-  "removed": [],
-  "changed": [
+  "removed": [
     {
-      "before": {
-        "name": "Carson Cooper",
-        "team": "LAL",
-        "salary": {
-          "2026-27": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 596948
-        },
-        "guaranteed": {
-          "2026-27": 596948
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-06-24",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-09-28",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-11-10",
-            "method": "free-agent",
-            "team": "LAL"
-          }
-        ]
+      "name": "Riley Minix",
+      "team": "CLE",
+      "salary": {
+        "2026-27": 0,
+        "2027-28": 0
       },
-      "after": {
-        "name": "Carson Cooper",
-        "team": "LAL",
-        "salary": {
-          "2026-27": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 596948
-        },
-        "guaranteed": {
-          "2026-27": 298474
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-06-24",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-09-28",
-            "method": "free-agent",
-            "team": "MEM"
-          },
-          {
-            "date": "2026-11-10",
-            "method": "free-agent",
-            "team": "LAL"
-          }
-        ]
+      "options": {},
+      "cashSalary": {
+        "2026-27": 608653,
+        "2027-28": 716081
       },
-      "fields": [
-        "guaranteed"
-      ]
-    },
-    {
-      "before": {
-        "name": "Johni Broome",
-        "team": "MIN",
-        "salary": {
-          "2026-27": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 589145
-        },
-        "guaranteed": {
-          "2026-27": 589145
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-07-28",
-            "method": "trade",
-            "team": "LAC"
-          },
-          {
-            "date": "2026-10-05",
-            "method": "free-agent",
-            "team": "MIL"
-          },
-          {
-            "date": "2026-11-12",
-            "method": "free-agent",
-            "team": "MIN"
-          }
-        ]
+      "guaranteed": {
+        "2026-27": 0,
+        "2027-28": 0
       },
-      "after": {
-        "name": "Johni Broome",
-        "team": "MIN",
-        "salary": {
-          "2026-27": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 589145
-        },
-        "guaranteed": {
-          "2026-27": 91000
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-07-28",
-            "method": "trade",
-            "team": "LAC"
-          },
-          {
-            "date": "2026-10-05",
-            "method": "free-agent",
-            "team": "MIL"
-          },
-          {
-            "date": "2026-11-12",
-            "method": "free-agent",
-            "team": "MIN"
-          }
-        ]
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0
       },
-      "fields": [
-        "guaranteed"
-      ]
-    },
-    {
-      "before": {
-        "name": "Mason Plumlee",
-        "team": "SAC",
-        "salary": {
-          "2026-27": 2139724
+      "optionExercised": {},
+      "contractType": "two-way",
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-11-07",
+          "method": "free-agent",
+          "team": "CLE"
         },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 3386392
-        },
-        "guaranteed": {
-          "2026-27": 3386392
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-11-11",
-            "method": "free-agent",
-            "team": "SAC"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
+        {
+          "date": "2026-11-08",
+          "method": "free-agent",
+          "team": "CLE"
         }
-      },
-      "after": {
-        "name": "Mason Plumlee",
-        "team": "SAC",
-        "salary": {
-          "2026-27": 2139724
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 3386393
-        },
-        "guaranteed": {
-          "2026-27": 3386393
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-11-11",
-            "method": "free-agent",
-            "team": "SAC"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "cashSalary",
-        "guaranteed"
       ]
     }
-  ]
+  ],
+  "changed": []
 }
