@@ -50,22 +50,13 @@
       "failed": []
     },
     "salaryswish-players": {
-      "total": 12,
+      "total": 10,
       "failed": []
     }
   },
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 77,
-      "acquisition": 263,
-      "guarantees": 3,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 19,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 78,
       "acquisition": 261,
       "guarantees": 3,
@@ -74,47 +65,27 @@
       "name-bridge": 20,
       "no-current-salary": 0
     },
-    "newUnresolved": 2,
-    "newByCategory": {
-      "draft-year": 1,
-      "name-bridge": 1
+    "after": {
+      "draft-year": 78,
+      "acquisition": 261,
+      "guarantees": 3,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 18,
+      "no-current-salary": 0
     },
-    "newRecords": {
-      "draft-year": [
-        {
-          "name": "Rafael Castro",
-          "team": "ATL"
-        },
-        {
-          "name": "Zach Austin",
-          "team": "CLE"
-        }
-      ],
-      "acquisition": [
-        {
-          "name": "Riley Minix",
-          "date": "2026-11-07",
-          "method": "free-agent"
-        }
-      ],
-      "name-bridge": [
-        {
-          "name": "Rafael Castro"
-        },
-        {
-          "name": "Zach Austin"
-        }
-      ]
-    }
+    "newUnresolved": 0,
+    "newByCategory": {},
+    "newRecords": {}
   },
-  "generatedAt": "2026-11-19T19:26:09.715Z",
+  "generatedAt": "2026-11-20T19:03:31.709Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +2 -1 ~0 (of 524)",
+    "players: +0 -0 ~0 (of 525)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +2 -1 ~0 (of 516)",
+    "contract-details: +0 -0 ~0 (of 517)",
     "team-cap-state: +0 -0 ~0 (of 150)",
-    "free-agents: +0 -1 ~0 (of 345)",
+    "free-agents: +1 -1 ~2 (of 344)",
     "awards: +0 -0 ~0 (of 79)"
   ],
   "clean": true

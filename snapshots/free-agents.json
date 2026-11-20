@@ -25,7 +25,7 @@
     "position": "SG",
     "priorTeam": "UTA",
     "faType": "U",
-    "birdRights": "non-bird"
+    "birdRights": null
   },
   {
     "name": "Drake Allen",
@@ -80,13 +80,6 @@
     "name": "Ezra Ausar",
     "position": "PF",
     "priorTeam": "MIA",
-    "faType": "U",
-    "birdRights": null
-  },
-  {
-    "name": "Zack Austin",
-    "position": "SG",
-    "priorTeam": "CLE",
     "faType": "U",
     "birdRights": null
   },
@@ -718,7 +711,7 @@
     "position": "PG",
     "priorTeam": "ATL",
     "faType": "U",
-    "birdRights": "early-bird"
+    "birdRights": null
   },
   {
     "name": "Dane Goodwin",
@@ -1447,6 +1440,13 @@
     "priorTeam": "DEN",
     "faType": "U",
     "birdRights": null
+  },
+  {
+    "name": "Riley Minix",
+    "position": "SF",
+    "priorTeam": "CLE",
+    "faType": "U",
+    "birdRights": "early-bird"
   },
   {
     "name": "Trhae Mitchell",
