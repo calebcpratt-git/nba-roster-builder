@@ -1,34 +1,5 @@
 {
-  "added": [
-    {
-      "name": "Rafael Castro",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    },
-    {
-      "name": "Zach Austin",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    }
-  ],
-  "removed": [
-    {
-      "name": "Riley Minix",
-      "incentives": {
-        "2026-27": {
-          "likely": 0,
-          "unlikely": 0
-        }
-      }
-    }
-  ],
+  "added": [],
+  "removed": [],
   "changed": []
 }
