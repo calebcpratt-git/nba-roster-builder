@@ -2846,19 +2846,27 @@
     "name": "Orlando Robinson",
     "team": "CHI",
     "salary": {
-      "2026-27": 2111570
+      "2026-27": 2263472,
+      "2027-28": 2988178
     },
-    "options": {},
+    "options": {
+      "2027-28": "Team"
+    },
     "cashSalary": {
-      "2026-27": 2263472
+      "2026-27": 2263472,
+      "2027-28": 2988178
     },
     "guaranteed": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "likelyIncentives": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
-    "optionExercised": {},
+    "optionExercised": {
+      "2027-28": false
+    },
     "acquiredMethod": "Signed",
     "acquisitionHistory": [
       {
@@ -3455,17 +3463,21 @@
     "name": "Zach Austin",
     "team": "CLE",
     "salary": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "options": {},
     "cashSalary": {
-      "2026-27": 565735
+      "2026-27": 565735,
+      "2027-28": 716081
     },
     "guaranteed": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "likelyIncentives": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "optionExercised": {},
     "contractType": "two-way",
@@ -16194,17 +16206,21 @@
     "name": "Jonas Aidoo",
     "team": "UTA",
     "salary": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "options": {},
     "cashSalary": {
-      "2026-27": 569637
+      "2026-27": 569637,
+      "2027-28": 716081
     },
     "guaranteed": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "likelyIncentives": {
-      "2026-27": 0
+      "2026-27": 0,
+      "2027-28": 0
     },
     "optionExercised": {},
     "contractType": "two-way",

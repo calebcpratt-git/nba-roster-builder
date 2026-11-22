@@ -1,5 +1,25 @@
 {
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Riley Minix",
+        "position": "SF",
+        "priorTeam": "CLE",
+        "faType": "U",
+        "birdRights": "early-bird"
+      },
+      "after": {
+        "name": "Riley Minix",
+        "position": "SF",
+        "priorTeam": "CLE",
+        "faType": "U",
+        "birdRights": null
+      },
+      "fields": [
+        "birdRights"
+      ]
+    }
+  ]
 }
