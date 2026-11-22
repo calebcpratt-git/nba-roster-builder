@@ -225,7 +225,7 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Igor Milicic, Jr.', priorTeam: 'NYK', faType: 'unrestricted', position: 'PF' },
   { name: 'Boopie Miller', priorTeam: 'DEN', faType: 'unrestricted', position: 'PG' },
   { name: 'Emanuel Miller', priorTeam: 'DEN', faType: 'unrestricted', position: 'SF' },
-  { name: 'Riley Minix', priorTeam: 'CLE', faType: 'unrestricted', birdRights: 'early-bird', position: 'SF' },
+  { name: 'Riley Minix', priorTeam: 'CLE', faType: 'unrestricted', position: 'SF' },
   { name: 'Trhae Mitchell', priorTeam: 'SAC', faType: 'unrestricted', position: 'SG' },
   { name: 'Jacksen Moni', priorTeam: 'GSW', faType: 'unrestricted', position: 'C' },
   { name: 'Damari Monsanto', priorTeam: 'SAC', faType: 'unrestricted', position: 'SG' },
