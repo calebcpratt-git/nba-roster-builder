@@ -6282,6 +6282,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Gabe Vincent",
+  "date": "2026-11-22",
+  "dateRaw": "Nov 22, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "SAC"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Mason Plumlee",
   "date": "2026-11-11",
   "dateRaw": "Nov 11, 2026",
@@ -6512,19 +6525,6 @@
   ],
   "fromTeams": [],
   "text": "Signed to Veteran Contract",
-  "flags": []
- },
- {
-  "bbrefId": null,
-  "name": "Jonathan Mogbo",
-  "date": "2026-07-02",
-  "dateRaw": "Jul 2, 2026",
-  "method": "free-agent",
-  "toTeams": [
-   "SAC"
-  ],
-  "fromTeams": [],
-  "text": "Signed to Two-Way Contract",
   "flags": []
  },
  {

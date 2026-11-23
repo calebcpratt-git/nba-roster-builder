@@ -331,7 +331,6 @@ export const FREE_AGENT_POOL: FreeAgentPoolEntry[] = [
   { name: 'Stanley Umude', priorTeam: 'SAS', faType: 'unrestricted', position: 'SG' },
   { name: 'Milos Uzan', priorTeam: 'BOS', faType: 'unrestricted', position: 'PG' },
   { name: 'Jonas Valanciunas', priorTeam: 'DEN', faType: 'unrestricted', position: 'C' },
-  { name: 'Gabe Vincent', priorTeam: 'ATL', faType: 'unrestricted', birdRights: 'full-bird', position: 'PG' },
   { name: 'Mohamed Wague', priorTeam: 'UTA', faType: 'unrestricted', position: 'PF' },
   { name: 'Lonnie Walker', priorTeam: 'DEN', faType: 'unrestricted', position: 'G-F' },
   { name: 'Keaton Wallace', priorTeam: 'ATL', faType: 'unrestricted', birdRights: 'early-bird', position: 'PG' },
