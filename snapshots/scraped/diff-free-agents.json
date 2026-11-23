@@ -1,25 +1,13 @@
 {
   "added": [],
-  "removed": [],
-  "changed": [
+  "removed": [
     {
-      "before": {
-        "name": "Riley Minix",
-        "position": "SF",
-        "priorTeam": "CLE",
-        "faType": "U",
-        "birdRights": "early-bird"
-      },
-      "after": {
-        "name": "Riley Minix",
-        "position": "SF",
-        "priorTeam": "CLE",
-        "faType": "U",
-        "birdRights": null
-      },
-      "fields": [
-        "birdRights"
-      ]
+      "name": "Gabe Vincent",
+      "position": "PG",
+      "priorTeam": "ATL",
+      "faType": "U",
+      "birdRights": "full-bird"
     }
-  ]
+  ],
+  "changed": []
 }

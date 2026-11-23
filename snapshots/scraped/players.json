@@ -14455,6 +14455,32 @@
   }
  },
  {
+  "name": "Gabe Vincent",
+  "team": "SAC",
+  "salary": {
+   "2026-27": 1984876
+  },
+  "options": {},
+  "cashSalary": {
+   "2026-27": 2663116
+  },
+  "guaranteed": {
+   "2026-27": 0
+  },
+  "likelyIncentives": {
+   "2026-27": 0
+  },
+  "optionExercised": {},
+  "acquiredMethod": "Signed",
+  "acquisitionHistory": [
+   {
+    "date": "2026-11-22",
+    "method": "free-agent",
+    "team": "SAC"
+   }
+  ]
+ },
+ {
   "name": "Emanuel Sharp",
   "team": "SAC",
   "salary": {

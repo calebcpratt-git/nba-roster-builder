@@ -1,248 +1,32 @@
 {
-  "added": [],
-  "removed": [],
-  "changed": [
+  "added": [
     {
-      "before": {
-        "name": "Orlando Robinson",
-        "team": "CHI",
-        "salary": {
-          "2026-27": 2111570
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 2263472
-        },
-        "guaranteed": {
-          "2026-27": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-25",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-11-13",
-            "method": "free-agent",
-            "team": "CHI"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
+      "name": "Gabe Vincent",
+      "team": "SAC",
+      "salary": {
+        "2026-27": 1984876
+      },
+      "options": {},
+      "cashSalary": {
+        "2026-27": 2663116
+      },
+      "guaranteed": {
+        "2026-27": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0
+      },
+      "optionExercised": {},
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-11-22",
+          "method": "free-agent",
+          "team": "SAC"
         }
-      },
-      "after": {
-        "name": "Orlando Robinson",
-        "team": "CHI",
-        "salary": {
-          "2026-27": 2263472,
-          "2027-28": 2988178
-        },
-        "options": {
-          "2027-28": "Team"
-        },
-        "cashSalary": {
-          "2026-27": 2263472,
-          "2027-28": 2988178
-        },
-        "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {
-          "2027-28": false
-        },
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-25",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-11-13",
-            "method": "free-agent",
-            "team": "CHI"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "salary",
-        "options",
-        "cashSalary",
-        "guaranteed",
-        "likelyIncentives",
-        "optionExercised"
-      ]
-    },
-    {
-      "before": {
-        "name": "Zach Austin",
-        "team": "CLE",
-        "salary": {
-          "2026-27": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 565735
-        },
-        "guaranteed": {
-          "2026-27": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-23",
-            "method": "free-agent",
-            "team": "CLE"
-          },
-          {
-            "date": "2026-11-18",
-            "method": "free-agent",
-            "team": "CLE"
-          }
-        ]
-      },
-      "after": {
-        "name": "Zach Austin",
-        "team": "CLE",
-        "salary": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 565735,
-          "2027-28": 716081
-        },
-        "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-23",
-            "method": "free-agent",
-            "team": "CLE"
-          },
-          {
-            "date": "2026-11-18",
-            "method": "free-agent",
-            "team": "CLE"
-          }
-        ]
-      },
-      "fields": [
-        "salary",
-        "cashSalary",
-        "guaranteed",
-        "likelyIncentives"
-      ]
-    },
-    {
-      "before": {
-        "name": "Jonas Aidoo",
-        "team": "UTA",
-        "salary": {
-          "2026-27": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 569637
-        },
-        "guaranteed": {
-          "2026-27": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-25",
-            "method": "free-agent",
-            "team": "UTA"
-          },
-          {
-            "date": "2026-11-17",
-            "method": "free-agent",
-            "team": "UTA"
-          }
-        ]
-      },
-      "after": {
-        "name": "Jonas Aidoo",
-        "team": "UTA",
-        "salary": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 569637,
-          "2027-28": 716081
-        },
-        "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {},
-        "contractType": "two-way",
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-25",
-            "method": "free-agent",
-            "team": "UTA"
-          },
-          {
-            "date": "2026-11-17",
-            "method": "free-agent",
-            "team": "UTA"
-          }
-        ]
-      },
-      "fields": [
-        "salary",
-        "cashSalary",
-        "guaranteed",
-        "likelyIncentives"
       ]
     }
-  ]
+  ],
+  "removed": [],
+  "changed": []
 }
