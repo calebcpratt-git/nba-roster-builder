@@ -2879,12 +2879,7 @@
         "method": "free-agent",
         "team": "CHI"
       }
-    ],
-    "guarantees": {
-      "2026-27": {
-        "status": "non-guaranteed"
-      }
-    }
+    ]
   },
   {
     "name": "Tobe Awaka",
@@ -4804,8 +4799,7 @@
     "acquiredMethod": "Trade",
     "guarantees": {
       "2026-27": {
-        "status": "partial",
-        "amount": 2000000
+        "status": "non-guaranteed"
       }
     }
   },
@@ -12801,8 +12795,7 @@
     "acquiredMethod": "Draft",
     "guarantees": {
       "2026-27": {
-        "status": "partial",
-        "amount": 250000
+        "status": "non-guaranteed"
       }
     }
   },
@@ -14458,11 +14451,11 @@
     "name": "Gabe Vincent",
     "team": "SAC",
     "salary": {
-      "2026-27": 1984876
+      "2026-27": 1970799
     },
     "options": {},
     "cashSalary": {
-      "2026-27": 2663116
+      "2026-27": 2644229
     },
     "guaranteed": {
       "2026-27": 0
@@ -14477,8 +14470,18 @@
         "date": "2026-11-22",
         "method": "free-agent",
         "team": "SAC"
+      },
+      {
+        "date": "2026-11-23",
+        "method": "free-agent",
+        "team": "SAC"
       }
-    ]
+    ],
+    "guarantees": {
+      "2026-27": {
+        "status": "non-guaranteed"
+      }
+    }
   },
   {
     "name": "Emanuel Sharp",
