@@ -8,14 +8,6 @@
   "exhibit10": false
  },
  {
-  "player": "Orlando Robinson",
-  "team": "Chicago Bulls",
-  "fullAmount": null,
-  "partialAmount": null,
-  "status": "non-guaranteed",
-  "exhibit10": false
- },
- {
   "player": "Craig Porter Jr.",
   "team": "Cleveland Cavaliers",
   "fullAmount": null,
@@ -27,8 +19,8 @@
   "player": "Duncan Robinson",
   "team": "Detroit Pistons",
   "fullAmount": 15992957,
-  "partialAmount": 2000000,
-  "status": "partial",
+  "partialAmount": null,
+  "status": "non-guaranteed",
   "exhibit10": false
  },
  {
@@ -123,8 +115,8 @@
   "player": "Jabari Walker",
   "team": "Philadelphia 76ers",
   "fullAmount": null,
-  "partialAmount": 250000,
-  "status": "partial",
+  "partialAmount": null,
+  "status": "non-guaranteed",
   "exhibit10": false
  },
  {
@@ -145,6 +137,14 @@
  },
  {
   "player": "Mason Plumlee",
+  "team": "Sacramento Kings",
+  "fullAmount": null,
+  "partialAmount": null,
+  "status": "non-guaranteed",
+  "exhibit10": false
+ },
+ {
+  "player": "Gabe Vincent",
   "team": "Sacramento Kings",
   "fullAmount": null,
   "partialAmount": null,
