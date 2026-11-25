@@ -2843,45 +2843,6 @@
   }
  },
  {
-  "name": "Orlando Robinson",
-  "team": "CHI",
-  "salary": {
-   "2026-27": 2263472,
-   "2027-28": 2988178
-  },
-  "options": {
-   "2027-28": "Team"
-  },
-  "cashSalary": {
-   "2026-27": 2263472,
-   "2027-28": 2988178
-  },
-  "guaranteed": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "likelyIncentives": {
-   "2026-27": 0,
-   "2027-28": 0
-  },
-  "optionExercised": {
-   "2027-28": false
-  },
-  "acquiredMethod": "Signed",
-  "acquisitionHistory": [
-   {
-    "date": "2026-09-25",
-    "method": "free-agent",
-    "team": "CHI"
-   },
-   {
-    "date": "2026-11-13",
-    "method": "free-agent",
-    "team": "CHI"
-   }
-  ]
- },
- {
   "name": "Tobe Awaka",
   "team": "CHI",
   "salary": {

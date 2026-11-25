@@ -1,280 +1,45 @@
 {
   "added": [],
-  "removed": [],
-  "changed": [
+  "removed": [
     {
-      "before": {
-        "name": "Orlando Robinson",
-        "team": "CHI",
-        "salary": {
-          "2026-27": 2263472,
-          "2027-28": 2988178
+      "name": "Orlando Robinson",
+      "team": "CHI",
+      "salary": {
+        "2026-27": 2263472,
+        "2027-28": 2988178
+      },
+      "options": {
+        "2027-28": "Team"
+      },
+      "cashSalary": {
+        "2026-27": 2263472,
+        "2027-28": 2988178
+      },
+      "guaranteed": {
+        "2026-27": 0,
+        "2027-28": 0
+      },
+      "likelyIncentives": {
+        "2026-27": 0,
+        "2027-28": 0
+      },
+      "optionExercised": {
+        "2027-28": false
+      },
+      "acquiredMethod": "Signed",
+      "acquisitionHistory": [
+        {
+          "date": "2026-09-25",
+          "method": "free-agent",
+          "team": "CHI"
         },
-        "options": {
-          "2027-28": "Team"
-        },
-        "cashSalary": {
-          "2026-27": 2263472,
-          "2027-28": 2988178
-        },
-        "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {
-          "2027-28": false
-        },
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-25",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-11-13",
-            "method": "free-agent",
-            "team": "CHI"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
+        {
+          "date": "2026-11-13",
+          "method": "free-agent",
+          "team": "CHI"
         }
-      },
-      "after": {
-        "name": "Orlando Robinson",
-        "team": "CHI",
-        "salary": {
-          "2026-27": 2263472,
-          "2027-28": 2988178
-        },
-        "options": {
-          "2027-28": "Team"
-        },
-        "cashSalary": {
-          "2026-27": 2263472,
-          "2027-28": 2988178
-        },
-        "guaranteed": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {
-          "2027-28": false
-        },
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-09-25",
-            "method": "free-agent",
-            "team": "CHI"
-          },
-          {
-            "date": "2026-11-13",
-            "method": "free-agent",
-            "team": "CHI"
-          }
-        ]
-      },
-      "fields": [
-        "guarantees"
-      ]
-    },
-    {
-      "before": {
-        "name": "Duncan Robinson",
-        "team": "DET",
-        "salary": {
-          "2026-27": 15992957,
-          "2027-28": 15151222
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 15992957,
-          "2027-28": 15151222
-        },
-        "guaranteed": {
-          "2026-27": 2000000,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Trade",
-        "guarantees": {
-          "2026-27": {
-            "status": "partial",
-            "amount": 2000000
-          }
-        }
-      },
-      "after": {
-        "name": "Duncan Robinson",
-        "team": "DET",
-        "salary": {
-          "2026-27": 15992957,
-          "2027-28": 15151222
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 15992957,
-          "2027-28": 15151222
-        },
-        "guaranteed": {
-          "2026-27": 2000000,
-          "2027-28": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0,
-          "2027-28": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Trade",
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "guarantees"
-      ]
-    },
-    {
-      "before": {
-        "name": "Jabari Walker",
-        "team": "PHI",
-        "salary": {
-          "2026-27": 2584539
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 2584539
-        },
-        "guaranteed": {
-          "2026-27": 250000
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Draft",
-        "guarantees": {
-          "2026-27": {
-            "status": "partial",
-            "amount": 250000
-          }
-        }
-      },
-      "after": {
-        "name": "Jabari Walker",
-        "team": "PHI",
-        "salary": {
-          "2026-27": 2584539
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 2584539
-        },
-        "guaranteed": {
-          "2026-27": 250000
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Draft",
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "guarantees"
-      ]
-    },
-    {
-      "before": {
-        "name": "Gabe Vincent",
-        "team": "SAC",
-        "salary": {
-          "2026-27": 1984876
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 2663116
-        },
-        "guaranteed": {
-          "2026-27": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-11-22",
-            "method": "free-agent",
-            "team": "SAC"
-          }
-        ]
-      },
-      "after": {
-        "name": "Gabe Vincent",
-        "team": "SAC",
-        "salary": {
-          "2026-27": 1970799
-        },
-        "options": {},
-        "cashSalary": {
-          "2026-27": 2644229
-        },
-        "guaranteed": {
-          "2026-27": 0
-        },
-        "likelyIncentives": {
-          "2026-27": 0
-        },
-        "optionExercised": {},
-        "acquiredMethod": "Signed",
-        "acquisitionHistory": [
-          {
-            "date": "2026-11-22",
-            "method": "free-agent",
-            "team": "SAC"
-          },
-          {
-            "date": "2026-11-23",
-            "method": "free-agent",
-            "team": "SAC"
-          }
-        ],
-        "guarantees": {
-          "2026-27": {
-            "status": "non-guaranteed"
-          }
-        }
-      },
-      "fields": [
-        "salary",
-        "cashSalary",
-        "acquisitionHistory",
-        "guarantees"
       ]
     }
-  ]
+  ],
+  "changed": []
 }

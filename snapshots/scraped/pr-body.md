@@ -1,11 +1,14 @@
 _Automated scrape of Basketball Reference, RealGM, Hoops Rumors, nbacaptracker.com, and SalarySwish.com._
 
 ### Diff
-- players: +0 -0 ~4 (of 526)
+- players: +0 -1 ~0 (of 526)
 - draft-picks: +0 -0 ~0 (of 521)
-- contract-details: +0 -0 ~0 (of 518)
+- contract-details: +0 -1 ~0 (of 518)
 - team-cap-state: +0 -0 ~1 (of 150)
 - free-agents: +0 -0 ~0 (of 343)
 - awards: +0 -0 ~0 (of 79)
 
-**Clean run — auto-merged.** No stale sources, no new unresolved entries, no validation warnings.
+### 2 new unresolved entries
+- acquisition: +2
+
+**Auto-merged.** 2 new unresolved entries were skipped (see above) — no stale sources, no validation warnings.
