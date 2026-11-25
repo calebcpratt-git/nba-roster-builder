@@ -19,12 +19,6 @@
     "label": "Christian Koloko",
     "amount": 2200000,
     "kind": "free-agent"
-   },
-   {
-    "label": "Gabe Vincent",
-    "amount": 21900000,
-    "kind": "free-agent",
-    "birdRights": "full-bird"
    }
   ],
   "salaryCap": 165000000,

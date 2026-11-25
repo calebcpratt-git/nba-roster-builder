@@ -76,6 +76,25 @@
   "faYear": null
  },
  {
+  "name": "Orlando Robinson",
+  "team": "CHI",
+  "section": "Waivers",
+  "status": null,
+  "acquiredMethod": null,
+  "terms": null,
+  "salary": {
+   "2026-27": 211257
+  },
+  "cashSalary": {
+   "2026-27": 211257
+  },
+  "guaranteed": {},
+  "likelyIncentives": {},
+  "options": {},
+  "optionsAccepted": {},
+  "faYear": null
+ },
+ {
   "name": "Ricky Rubio",
   "team": "CLE",
   "section": "Buyout",

@@ -20,6 +20,12 @@
  },
  {
   "team": "ATL",
+  "player": "Gabe Vincent",
+  "amount": 21900000,
+  "reason": "not-in-realgm-current-free-agents"
+ },
+ {
+  "team": "ATL",
   "player": "Wesley Matthews",
   "amount": 2500000,
   "reason": "not-in-realgm-current-free-agents"

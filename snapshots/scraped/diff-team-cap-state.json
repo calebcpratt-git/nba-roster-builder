@@ -4,30 +4,31 @@
   "changed": [
     {
       "before": {
-        "team": "SAC",
+        "team": "ATL",
         "season": "2026-27",
-        "deadMoney": [],
+        "deadMoney": [
+          {
+            "player": "N'Faly Dante",
+            "amount": 2411090
+          }
+        ],
         "capHolds": [
           {
-            "label": "Isaiah Stevens",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Doug McDermott",
-            "amount": 2500000,
+            "label": "Keaton Wallace",
+            "amount": 3400000,
             "kind": "free-agent",
             "birdRights": "early-bird"
           },
           {
-            "label": "Drew Eubanks",
-            "amount": 2500000,
+            "label": "Christian Koloko",
+            "amount": 2200000,
             "kind": "free-agent"
           },
           {
-            "label": "Markelle Fultz",
-            "amount": 2500000,
-            "kind": "free-agent"
+            "label": "Gabe Vincent",
+            "amount": 21900000,
+            "kind": "free-agent",
+            "birdRights": "full-bird"
           }
         ],
         "salaryCap": 165000000,
@@ -36,74 +37,82 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "SAC-dario-saric-2026-02-01",
-            "amount": 5426000,
+            "id": "ATL-trae-young-2026-01-09",
+            "amount": 1357994,
+            "expires": "2027-01-09",
+            "fromPlayer": "Trae Young"
+          },
+          {
+            "id": "ATL-vit-krejci-2026-02-01",
+            "amount": 2349578,
             "expires": "2027-02-01",
-            "fromPlayer": "Dario Saric"
+            "fromPlayer": "Vit Krejci"
           },
           {
-            "id": "SAC-devin-carter-2026-06-30",
-            "amount": 4923720,
-            "expires": "2027-06-30",
-            "fromPlayer": "Devin Carter"
+            "id": "ATL-luke-kennard-2026-02-05",
+            "amount": 1775700,
+            "expires": "2027-02-05",
+            "fromPlayer": "Luke Kennard"
           },
           {
-            "id": "SAC-nique-clifford-2026-11-08",
-            "amount": 3263400,
-            "expires": "2027-11-08",
-            "fromPlayer": "Nique Clifford"
+            "id": "ATL-ryan-nembhard-2026-09-22",
+            "amount": 2150917,
+            "expires": "2027-09-22",
+            "fromPlayer": "Ryan Nembhard"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+          "trigger": "TP-MLE Exceeded: Jock Landale (Jul 10)"
         },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 356976
-          },
-          "biAnnual": {
             "signings": [
               {
-                "player": "Precious Achiuwa",
-                "amount": 5477000,
-                "date": "2026-07-07"
+                "player": "Jock Landale",
+                "amount": 14100000
               }
             ],
-            "remaining": 0
-          }
+            "remaining": 944000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Luke Kennard",
+              "usedByPlayer": "Aaron Wiggins",
+              "amount": 9224300,
+              "date": "2026-07-06"
+            }
+          ]
         },
         "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
+          "availableToSend": 1964000,
+          "availableToReceive": 7768700
         },
-        "apronAddon": 3850000
+        "apronAddon": 1196262
       },
       "after": {
-        "team": "SAC",
+        "team": "ATL",
         "season": "2026-27",
-        "deadMoney": [],
+        "deadMoney": [
+          {
+            "player": "N'Faly Dante",
+            "amount": 2411090
+          }
+        ],
         "capHolds": [
           {
-            "label": "Isaiah Stevens",
-            "amount": 2200000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Doug McDermott",
-            "amount": 2500000,
+            "label": "Keaton Wallace",
+            "amount": 3400000,
             "kind": "free-agent",
             "birdRights": "early-bird"
           },
           {
-            "label": "Drew Eubanks",
-            "amount": 2500000,
-            "kind": "free-agent"
-          },
-          {
-            "label": "Markelle Fultz",
-            "amount": 2500000,
+            "label": "Christian Koloko",
+            "amount": 2200000,
             "kind": "free-agent"
           }
         ],
@@ -113,52 +122,65 @@
         "secondApron": 222000000,
         "heldTPEs": [
           {
-            "id": "SAC-dario-saric-2026-02-01",
-            "amount": 5426000,
+            "id": "ATL-trae-young-2026-01-09",
+            "amount": 1357994,
+            "expires": "2027-01-09",
+            "fromPlayer": "Trae Young"
+          },
+          {
+            "id": "ATL-vit-krejci-2026-02-01",
+            "amount": 2349578,
             "expires": "2027-02-01",
-            "fromPlayer": "Dario Saric"
+            "fromPlayer": "Vit Krejci"
           },
           {
-            "id": "SAC-devin-carter-2026-06-30",
-            "amount": 4923720,
-            "expires": "2027-06-30",
-            "fromPlayer": "Devin Carter"
+            "id": "ATL-luke-kennard-2026-02-05",
+            "amount": 1775700,
+            "expires": "2027-02-05",
+            "fromPlayer": "Luke Kennard"
           },
           {
-            "id": "SAC-nique-clifford-2026-11-08",
-            "amount": 3263400,
-            "expires": "2027-11-08",
-            "fromPlayer": "Nique Clifford"
+            "id": "ATL-ryan-nembhard-2026-09-22",
+            "amount": 2150917,
+            "expires": "2027-09-22",
+            "fromPlayer": "Ryan Nembhard"
           }
         ],
         "hardCapped": {
           "apron": 1,
-          "trigger": "BAE: Precious Achiuwa (Jul 7)"
+          "trigger": "TP-MLE Exceeded: Jock Landale (Jul 10)"
         },
         "exceptionsUsed": {
           "nonTaxpayerMLE": {
-            "signings": [],
-            "remaining": 371053
-          },
-          "biAnnual": {
             "signings": [
               {
-                "player": "Precious Achiuwa",
-                "amount": 5477000,
-                "date": "2026-07-07"
+                "player": "Jock Landale",
+                "amount": 14100000
               }
             ],
-            "remaining": 0
-          }
+            "remaining": 944000
+          },
+          "biAnnual": {
+            "signings": [],
+            "remaining": 5477000
+          },
+          "tradeExceptionsUsed": [
+            {
+              "tpeFromPlayer": "Luke Kennard",
+              "usedByPlayer": "Aaron Wiggins",
+              "amount": 9224300,
+              "date": "2026-07-06"
+            }
+          ]
         },
         "cashLedger": {
-          "availableToSend": 7964000,
-          "availableToReceive": 7964000
+          "availableToSend": 1964000,
+          "availableToReceive": 7768700
         },
-        "apronAddon": 3850000
+        "apronAddon": 1196262
       },
       "fields": [
-        "exceptionsUsed"
+        "capHolds"
       ]
     }
   ]
