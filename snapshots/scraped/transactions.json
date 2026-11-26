@@ -5381,6 +5381,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Kevin Porter Jr.",
+  "date": "2026-11-25",
+  "dateRaw": "Nov 25, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "ORL"
+  ],
+  "fromTeams": [],
+  "text": "Signed to Veteran Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Johnell Davis",
   "date": "2026-10-05",
   "dateRaw": "Oct 5, 2026",

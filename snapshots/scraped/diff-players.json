@@ -1,19 +1,16 @@
 {
-  "added": [],
-  "removed": [
+  "added": [
     {
-      "name": "Orlando Robinson",
-      "team": "CHI",
+      "name": "Kevin Porter Jr.",
+      "team": "ORL",
       "salary": {
-        "2026-27": 2263472,
-        "2027-28": 2988178
+        "2026-27": 2431769,
+        "2027-28": 3219450
       },
-      "options": {
-        "2027-28": "Team"
-      },
+      "options": {},
       "cashSalary": {
-        "2026-27": 2263472,
-        "2027-28": 2988178
+        "2026-27": 2431769,
+        "2027-28": 3219450
       },
       "guaranteed": {
         "2026-27": 0,
@@ -23,23 +20,17 @@
         "2026-27": 0,
         "2027-28": 0
       },
-      "optionExercised": {
-        "2027-28": false
-      },
+      "optionExercised": {},
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
-          "date": "2026-09-25",
+          "date": "2026-11-25",
           "method": "free-agent",
-          "team": "CHI"
-        },
-        {
-          "date": "2026-11-13",
-          "method": "free-agent",
-          "team": "CHI"
+          "team": "ORL"
         }
       ]
     }
   ],
+  "removed": [],
   "changed": []
 }

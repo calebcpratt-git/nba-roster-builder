@@ -5647,10 +5647,6 @@
       }
     ],
     "exceptionsUsed": {
-      "taxpayerMLE": {
-        "signings": [],
-        "remaining": 6064000
-      },
       "biAnnual": {
         "signings": [],
         "remaining": 0

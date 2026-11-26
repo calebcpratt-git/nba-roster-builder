@@ -5454,6 +5454,20 @@
   }
  },
  {
+  "name": "Kevin Porter Jr.",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
+ {
   "name": "Colin Castleton",
   "incentives": {
    "2026-27": {
