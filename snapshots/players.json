@@ -12327,6 +12327,36 @@
     "acquiredMethod": "Draft"
   },
   {
+    "name": "Kevin Porter Jr.",
+    "team": "ORL",
+    "salary": {
+      "2026-27": 2431769,
+      "2027-28": 3219450
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 2431769,
+      "2027-28": 3219450
+    },
+    "guaranteed": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "likelyIncentives": {
+      "2026-27": 0,
+      "2027-28": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-11-25",
+        "method": "free-agent",
+        "team": "ORL"
+      }
+    ]
+  },
+  {
     "name": "Colin Castleton",
     "team": "ORL",
     "salary": {

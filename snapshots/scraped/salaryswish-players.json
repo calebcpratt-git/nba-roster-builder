@@ -5421,6 +5421,20 @@
    }
   }
  },
+ "kevin porter": {
+  "team": "ORL",
+  "signedUnder": "minimum",
+  "incentives": {
+   "2026-27": {
+    "likely": 0,
+    "unlikely": 0
+   },
+   "2027-28": {
+    "likely": 0,
+    "unlikely": 0
+   }
+  }
+ },
  "colin castleton": {
   "team": "ORL",
   "signedUnder": null,
