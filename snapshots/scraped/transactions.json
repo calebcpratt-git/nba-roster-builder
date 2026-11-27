@@ -3634,6 +3634,19 @@
  },
  {
   "bbrefId": null,
+  "name": "Lawson Lovering",
+  "date": "2026-11-27",
+  "dateRaw": "Nov 27, 2026",
+  "method": "free-agent",
+  "toTeams": [
+   "MEM"
+  ],
+  "fromTeams": [],
+  "text": "Signed to 10-Day Contract",
+  "flags": []
+ },
+ {
+  "bbrefId": null,
   "name": "Richie Saunders",
   "date": "2026-11-07",
   "dateRaw": "Nov 7, 2026",

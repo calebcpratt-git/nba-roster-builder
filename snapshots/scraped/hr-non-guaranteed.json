@@ -75,8 +75,8 @@
   "player": "Myron Gardner",
   "team": "Miami Heat",
   "fullAmount": null,
-  "partialAmount": 500000,
-  "status": "partial",
+  "partialAmount": null,
+  "status": "non-guaranteed",
   "exhibit10": false
  },
  {

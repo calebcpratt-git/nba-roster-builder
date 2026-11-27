@@ -57,15 +57,6 @@
   "rescuedSources": [],
   "unresolved": {
     "before": {
-      "draft-year": 78,
-      "acquisition": 263,
-      "guarantees": 3,
-      "signing": 10,
-      "awards": 1,
-      "name-bridge": 18,
-      "no-current-salary": 0
-    },
-    "after": {
       "draft-year": 79,
       "acquisition": 263,
       "guarantees": 3,
@@ -74,33 +65,41 @@
       "name-bridge": 19,
       "no-current-salary": 0
     },
-    "newUnresolved": 2,
+    "after": {
+      "draft-year": 80,
+      "acquisition": 261,
+      "guarantees": 3,
+      "signing": 10,
+      "awards": 1,
+      "name-bridge": 19,
+      "no-current-salary": 0
+    },
+    "newUnresolved": 1,
     "newByCategory": {
-      "draft-year": 1,
-      "name-bridge": 1
+      "draft-year": 1
     },
     "newRecords": {
       "draft-year": [
         {
-          "name": "Kevin Porter Jr.",
-          "team": "ORL"
+          "name": "Lawson Lovering",
+          "team": "MEM"
         }
       ],
       "name-bridge": [
         {
-          "name": "Orlando Robinson"
+          "name": "Lawson Lovering"
         }
       ]
     }
   },
-  "generatedAt": "2026-11-26T20:04:16.679Z",
+  "generatedAt": "2026-11-27T19:53:00.606Z",
   "warnings": [],
   "diffSummaries": [
-    "players: +1 -0 ~0 (of 525)",
+    "players: +1 -0 ~1 (of 526)",
     "draft-picks: +0 -0 ~0 (of 521)",
-    "contract-details: +1 -0 ~0 (of 517)",
-    "team-cap-state: +0 -0 ~1 (of 150)",
-    "free-agents: +0 -0 ~0 (of 343)",
+    "contract-details: +1 -0 ~0 (of 518)",
+    "team-cap-state: +0 -0 ~0 (of 150)",
+    "free-agents: +1 -1 ~0 (of 343)",
     "awards: +0 -0 ~0 (of 79)"
   ],
   "clean": true

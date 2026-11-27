@@ -1,36 +1,105 @@
 {
   "added": [
     {
-      "name": "Kevin Porter Jr.",
-      "team": "ORL",
+      "name": "Lawson Lovering",
+      "team": "MEM",
       "salary": {
-        "2026-27": 2431769,
-        "2027-28": 3219450
+        "2026-27": 125581
       },
       "options": {},
       "cashSalary": {
-        "2026-27": 2431769,
-        "2027-28": 3219450
+        "2026-27": 125581
       },
       "guaranteed": {
-        "2026-27": 0,
-        "2027-28": 0
+        "2026-27": 125581
       },
       "likelyIncentives": {
-        "2026-27": 0,
-        "2027-28": 0
+        "2026-27": 0
       },
       "optionExercised": {},
       "acquiredMethod": "Signed",
       "acquisitionHistory": [
         {
-          "date": "2026-11-25",
+          "date": "2026-09-16",
           "method": "free-agent",
-          "team": "ORL"
+          "team": "MEM"
+        },
+        {
+          "date": "2026-10-28",
+          "method": "free-agent",
+          "team": "LAL"
+        },
+        {
+          "date": "2026-11-27",
+          "method": "free-agent",
+          "team": "MEM"
         }
       ]
     }
   ],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "before": {
+        "name": "Myron Gardner",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901
+        },
+        "guaranteed": {
+          "2026-27": 500000,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "guarantees": {
+          "2026-27": {
+            "status": "partial",
+            "amount": 500000
+          }
+        }
+      },
+      "after": {
+        "name": "Myron Gardner",
+        "team": "MIA",
+        "salary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901
+        },
+        "options": {},
+        "cashSalary": {
+          "2026-27": 2150917,
+          "2027-28": 2525901
+        },
+        "guaranteed": {
+          "2026-27": 500000,
+          "2027-28": 0
+        },
+        "likelyIncentives": {
+          "2026-27": 0,
+          "2027-28": 0
+        },
+        "optionExercised": {},
+        "acquiredMethod": "Signed",
+        "guarantees": {
+          "2026-27": {
+            "status": "non-guaranteed"
+          }
+        }
+      },
+      "fields": [
+        "guarantees"
+      ]
+    }
+  ]
 }

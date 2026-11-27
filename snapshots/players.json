@@ -8462,6 +8462,42 @@
     }
   },
   {
+    "name": "Lawson Lovering",
+    "team": "MEM",
+    "salary": {
+      "2026-27": 125581
+    },
+    "options": {},
+    "cashSalary": {
+      "2026-27": 125581
+    },
+    "guaranteed": {
+      "2026-27": 125581
+    },
+    "likelyIncentives": {
+      "2026-27": 0
+    },
+    "optionExercised": {},
+    "acquiredMethod": "Signed",
+    "acquisitionHistory": [
+      {
+        "date": "2026-09-16",
+        "method": "free-agent",
+        "team": "MEM"
+      },
+      {
+        "date": "2026-10-28",
+        "method": "free-agent",
+        "team": "LAL"
+      },
+      {
+        "date": "2026-11-27",
+        "method": "free-agent",
+        "team": "MEM"
+      }
+    ]
+  },
+  {
     "name": "Jahmai Mashack",
     "team": "MEM",
     "salary": {
@@ -8949,8 +8985,7 @@
     "acquiredMethod": "Signed",
     "guarantees": {
       "2026-27": {
-        "status": "partial",
-        "amount": 500000
+        "status": "non-guaranteed"
       }
     }
   },
