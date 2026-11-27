@@ -1,5 +1,21 @@
 {
-  "added": [],
-  "removed": [],
+  "added": [
+    {
+      "name": "Orlando Robinson",
+      "position": "C",
+      "priorTeam": "CHI",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
+  "removed": [
+    {
+      "name": "Lawson Lovering",
+      "position": "C",
+      "priorTeam": "LAL",
+      "faType": "U",
+      "birdRights": null
+    }
+  ],
   "changed": []
 }

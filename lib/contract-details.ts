@@ -294,6 +294,7 @@ export const CONTRACT_DETAILS: Record<string, ContractDetail> = {
   "Cam Spencer": { signedUnder: 'cap-room', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 }, "2028-29": { likely: 0, unlikely: 0 } } },
   "GG Jackson II": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Jaylen Wells": { signedUnder: 'rookie-scale', incentives: { "2026-27": { likely: 0, unlikely: 0 }, "2027-28": { likely: 0, unlikely: 0 } } },
+  "Lawson Lovering": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Jahmai Mashack": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Richie Saunders": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
   "Javon Small": { incentives: { "2026-27": { likely: 0, unlikely: 0 } } },
